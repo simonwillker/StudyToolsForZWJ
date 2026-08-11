@@ -1,0 +1,117 @@
+# 問題データベース（理科・社会・国語・英語・英検単語）
+
+`rika.json` / `shakai.json` / `kokugo.json` / `eigo.json` / `eiken.json` が、各教科の問題を保存している「データベース」です。
+アプリのロジック（`DailyDrill.jsx`）とは分離してあるので、**コードを触らずにこれらのJSONファイルへ問題（単語）を追加していくだけで、出題内容を増やせます。**
+
+なお、**算数だけは対象外**です。算数は固定の問題集ではなく数式から自動生成する仕組み（`DailyDrill.jsx` 内の `MATH_GENERATOR_DEFS` と各 `gen〜` 関数）なので、JSON化はしていません。出題ルールを変えたい場合はコードを直接編集してください。
+
+## スキーマ
+
+### rika.json / shakai.json（理科・社会：4択、学年あり）
+
+```json
+{
+  "id": "rika-6-001",
+  "subject": "理科",
+  "grade": "6年",
+  "q": "肺で血液が取り入れる気体は何ですか。",
+  "note": "ヒトは安静にしているとき、1分間に約12〜20回呼吸をしている。",
+  "choices": [
+    { "text": "酸素", "correct": true, "explain": "肺では空気中の酸素を血液に取り入れ、かわりに二酸化炭素を出している。" },
+    { "text": "二酸化炭素", "correct": false, "explain": "二酸化炭素は体の中で作られ、肺から体外に出される気体。取り入れる気体ではない。" },
+    { "text": "窒素", "correct": false, "explain": "窒素は空気の約8割をしめるが、そのまま吸ったりはくだけで体には取りこまれない。" },
+    { "text": "水素", "correct": false, "explain": "水素は燃えやすい気体で、呼吸のはたらきとは関係がない。" }
+  ]
+}
+```
+
+| フィールド | 必須 | 説明 |
+|---|---|---|
+| `id` | ○ | 一意なID。命名規則は `<subject-prefix>-<grade-number>-<連番3桁>`（例: `rika-6-001`）。他の問題と重複しないこと。 |
+| `subject` | ○ | `"理科"` または `"社会"`。ファイルと一致させる。 |
+| `grade` | ○ | `"3年"` / `"4年"` / `"5年"` / `"6年"` のいずれか。アプリの学年別出題（`rsOptions`画面）で使われる、最重要フィールド。 |
+| `q` | ○ | 問題文。 |
+| `note` | – | 豆知識・補足（任意）。無ければ `null`。 |
+| `choices` | ○ | 4択。**必ず `correct: true` を1つだけ**含めること。各選択肢に `explain`（不正解の理由も含む解説）を必ずつける。 |
+
+### kokugo.json（国語：一問一答、記述式）
+
+```json
+{
+  "id": "kokugo-001",
+  "subject": "国語",
+  "grade": "5〜6年",
+  "q": "「専門」の読み方をひらがなで書きなさい。",
+  "accepted": ["せんもん"]
+}
+```
+
+| フィールド | 必須 | 説明 |
+|---|---|---|
+| `id` | ○ | 一意なID（例: `kokugo-027`）。 |
+| `subject` | ○ | 常に `"国語"`。 |
+| `grade` | ○ | `"3年"` 〜 `"6年"`、または `"3〜4年"` のような範囲表記も可（バッジ表示にのみ使用、出題フィルタには使わない）。 |
+| `q` | ○ | 問題文。 |
+| `accepted` | ○ | 正解として受理する表記のゆれを配列で。1つ目が模範解答としてバッジ表示に使われる。 |
+
+### eigo.json（英語：4択、英検2級レベルの文法・語彙）
+
+`rika.json`/`shakai.json` とほぼ同じ構造だが `grade` は無い（学年別フィルタをしないため）。`example` に例文を1つ添える。
+
+```json
+{
+  "id": "eigo-001",
+  "subject": "英語",
+  "q": "“in spite of” の意味は？",
+  "example": { "en": "In spite of the rain, we went hiking.", "ja": "雨にもかかわらず、私たちはハイキングに行った。" },
+  "choices": [
+    { "text": "～にもかかわらず", "correct": true, "explain": "…" }
+  ]
+}
+```
+
+### eiken.json（英検2級 単語テスト）
+
+```json
+{ "id": "eiken-001", "word": "abandon", "meaning": "捨てる、放棄する" }
+```
+
+| フィールド | 必須 | 説明 |
+|---|---|---|
+| `id` | ○ | 一意なID（例: `eiken-401`）。 |
+| `word` | ○ | 英単語。**他のエントリと重複しないこと**（アプリ起動時に重複があると `console.warn` で警告される）。 |
+| `meaning` | ○ | テストで使う短い日本語の意味（10〜15字程度）。 |
+
+現在400語（20語×20組）を収録。claude.mdの仕様（30組・600語）に近づけたい場合は、このファイルに新しいオブジェクトを追記していくだけでよい（コード側の `EIKEN_GROUP_SIZE` は20語のまま自動でグループ数が増える）。
+
+## 問題を追加する方法
+
+1. 対象の `.json` ファイルを開く
+2. 配列の最後に、上記スキーマに沿った新しいオブジェクトを追加する（`id` は既存の連番の続きにする）
+3. 保存してコミット・プッシュする
+
+コードの変更は一切不要です。アプリは起動時にこれらのJSONを読み込んで、出題プールを自動的に再計算します（理科・社会は `rsPoolCounts`、英検単語は `EIKEN_GROUPS` が自動更新される）。
+
+## 現在の収録数（目安）
+
+`npm run build` 後、以下のようなスクリプトで内訳を確認できます。
+
+```bash
+node -e "
+const rika = require('./src/data/rika.json');
+const shakai = require('./src/data/shakai.json');
+const kokugo = require('./src/data/kokugo.json');
+const eigo = require('./src/data/eigo.json');
+const eiken = require('./src/data/eiken.json');
+const count = (arr) => arr.reduce((m,x)=>{m[x.grade]=(m[x.grade]||0)+1;return m;},{});
+console.log('理科', count(rika));
+console.log('社会', count(shakai));
+console.log('国語', kokugo.length, '問');
+console.log('英語', eigo.length, '問');
+console.log('英検単語', eiken.length, '語');
+"
+```
+
+## 注意
+
+- `daily-drill.jsx`（Claude.aiのアーティファクト用の単一ファイル版）には、この分離は適用されていません。Artifacts環境は複数ファイルの読み込みに対応していないため、そちらは今まで通り問題データをファイル内に直接書いた状態のままです。GitHub版（このリポジトリ）とArtifacts版は、今後は別々に管理・更新することになります。
