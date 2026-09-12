@@ -6,6 +6,14 @@ import LEVEL_PRE2 from "./data/eikenApp/pre2.json";
 import LEVEL_2 from "./data/eikenApp/2.json";
 import LEVEL_PRE1 from "./data/eikenApp/pre1.json";
 import LEVEL_1 from "./data/eikenApp/1.json";
+import EikenTest from "./EikenTest.jsx";
+import TEST_5 from "./data/eikenTest/5.json";
+import TEST_4 from "./data/eikenTest/4.json";
+import TEST_3 from "./data/eikenTest/3.json";
+import TEST_PRE2 from "./data/eikenTest/pre2.json";
+import TEST_2 from "./data/eikenTest/2.json";
+import TEST_PRE1 from "./data/eikenTest/pre1.json";
+import TEST_1 from "./data/eikenTest/1.json";
 import {
   recordAnswer,
   getLevelStats,
@@ -30,6 +38,8 @@ import {
 
 const LEVELS = [LEVEL_1, LEVEL_PRE1, LEVEL_2, LEVEL_PRE2, LEVEL_3, LEVEL_4, LEVEL_5];
 
+const TESTS = [TEST_1, TEST_PRE1, TEST_2, TEST_PRE2, TEST_3, TEST_4, TEST_5];
+
 const MODES = [
   { id: "vocab", label: "単語・熟語", desc: "4択クイズで語彙を覚える", icon: "📘" },
   { id: "grammar", label: "文法・穴うめ", desc: "空所に入る正しい語句を選ぶ", icon: "✏️" },
@@ -37,6 +47,7 @@ const MODES = [
   { id: "listening", label: "リスニング", desc: "音声を聞いて内容を答える", icon: "🎧" },
   { id: "dialogue", label: "会話文", desc: "会話の流れを聞いて応答を選ぶ", icon: "💬" },
   { id: "pronunciation", label: "発音練習", desc: "単語をまねして発音する", icon: "🎤" },
+  { id: "test", label: "模擬テスト", desc: "過去問の構成どおりに1回分を通しで受験する", icon: "📝", wide: true },
 ];
 
 function randInt(min, max) {
@@ -52,6 +63,9 @@ function shuffle(arr) {
 }
 function findLevel(id) {
   return LEVELS.find((l) => l.level === id) || LEVELS[0];
+}
+function findTest(id) {
+  return TESTS.find((t) => t.level === id) || null;
 }
 
 /* ============================================================
@@ -547,7 +561,9 @@ export default function EikenApp({ onExitApp }) {
   const goMode = useCallback((m) => {
     stopSpeaking();
     setMode(m);
-    setScreen(m === "pronunciation" ? "pronunciation" : "quiz");
+    if (m === "pronunciation") setScreen("pronunciation");
+    else if (m === "test") setScreen("test");
+    else setScreen("quiz");
   }, []);
 
   const backToModeSelect = useCallback(() => {
@@ -602,6 +618,7 @@ export default function EikenApp({ onExitApp }) {
         .eiken-mode-card .icon { font-size: 22px; }
         .eiken-mode-card .label { font-weight: 800; color: var(--c); margin-top: 6px; }
         .eiken-mode-card .desc { font-size: 12px; color: #6B7280; margin-top: 2px; }
+        .eiken-mode-card.wide { grid-column: 1 / -1; border-width: 3px; background: #FBFAF6; }
 
         .eiken-quiz, .eiken-pronounce, .eiken-progress { max-width: 720px; margin: 0 auto; background: #fff; border: 1px solid #E4E2DA; border-radius: 12px; padding: 22px; }
 
@@ -745,7 +762,12 @@ export default function EikenApp({ onExitApp }) {
           </div>
           <div className="eiken-mode-grid">
             {MODES.map((m) => (
-              <button key={m.id} className="eiken-mode-card" style={{ "--c": level.color }} onClick={() => goMode(m.id)}>
+              <button
+                key={m.id}
+                className={`eiken-mode-card ${m.wide ? "wide" : ""}`}
+                style={{ "--c": level.color }}
+                onClick={() => goMode(m.id)}
+              >
                 <div className="icon">{m.icon}</div>
                 <div className="label">{m.label}</div>
                 <div className="desc">{m.desc}</div>
@@ -777,6 +799,17 @@ export default function EikenApp({ onExitApp }) {
             </div>
           )}
           <ChoiceQuiz level={level} mode={mode} items={items} accent={level.color} onExit={backToModeSelect} />
+        </>
+      )}
+
+      {screen === "test" && level && (
+        <>
+          <button className="eiken-back-link" style={{ marginBottom: 12 }} onClick={backToModeSelect}>← モード選択にもどる</button>
+          {findTest(level.level) ? (
+            <EikenTest test={findTest(level.level)} onExit={backToModeSelect} />
+          ) : (
+            <div className="eiken-empty">この級の模擬テストはまだ登録されていません。</div>
+          )}
         </>
       )}
 

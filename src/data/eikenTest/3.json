@@ -1,0 +1,575 @@
+{
+  "level": "3",
+  "levelLabel": "3級",
+  "levelSub": "中学卒業程度",
+  "color": "#8A6D2F",
+  "exam": {
+    "title": "3級 一次試験 模擬テスト",
+    "note": "過去問（一次試験）の大問構成にもとづく模擬テストです。ライティングはEメール問題と意見論述の2題で、解答例とチェックリストを使って自己採点します。",
+    "writtenMinutes": 50,
+    "listeningMinutes": 26,
+    "passRate": 0.6
+  },
+  "sections": [
+    {
+      "id": "3-p1",
+      "phase": "written",
+      "part": "筆記 1",
+      "title": "短文の語句空所補充",
+      "type": "gapfill",
+      "officialCount": 15,
+      "instruction": "次の英文の（　）に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "3-p1-01",
+          "sentence": "I have lived in this town （　） I was five years old.",
+          "ja": "私は5歳のときからこの町に住んでいます。",
+          "point": "現在完了＋since（〜以来ずっと）",
+          "choices": [
+            { "text": "since", "correct": true, "explain": "have lived という現在完了とともに、始まりの時点を表す since を使います。" },
+            { "text": "for", "correct": false, "explain": "for は「〜の間」で、後ろには期間（five years など）がきます。" },
+            { "text": "when", "correct": false, "explain": "when では「ずっと住んでいる」という継続の意味になりません。" },
+            { "text": "before", "correct": false, "explain": "before では「5歳より前」という意味になり、文が通りません。" }
+          ]
+        },
+        {
+          "id": "3-p1-02",
+          "sentence": "The movie was so （　） that I fell asleep in the theater.",
+          "ja": "その映画はとても退屈だったので、私は映画館でねむってしまいました。",
+          "point": "so ... that 〜（とても…なので〜）と bored / boring の使い分け",
+          "choices": [
+            { "text": "boring", "correct": true, "explain": "物が「退屈させる」ときは -ing の boring。映画そのものの性質を表します。" },
+            { "text": "bored", "correct": false, "explain": "bored は人が「退屈している」ときに使います。主語が movie なので合いません。" },
+            { "text": "boredom", "correct": false, "explain": "boredom は名詞なので so のあとには入りません。" },
+            { "text": "bore", "correct": false, "explain": "bore は動詞または名詞で、ここでは形が合いません。" }
+          ]
+        },
+        {
+          "id": "3-p1-03",
+          "sentence": "A: Do you know the girl （　） is playing the violin?  B: Yes, she is my cousin.",
+          "ja": "A：バイオリンをひいている女の子を知っていますか。B：はい、私のいとこです。",
+          "point": "主格の関係代名詞 who（人を説明する）",
+          "choices": [
+            { "text": "who", "correct": true, "explain": "説明されるのが the girl（人）で、後ろが動詞なので主格の関係代名詞 who です。" },
+            { "text": "which", "correct": false, "explain": "which は物や動物を説明するときに使います。" },
+            { "text": "whose", "correct": false, "explain": "whose のあとには名詞がきます。" },
+            { "text": "what", "correct": false, "explain": "what は先行詞をとらない関係代名詞なので、the girl のあとには置けません。" }
+          ]
+        },
+        {
+          "id": "3-p1-04",
+          "sentence": "My mother told me （　） the window before going out.",
+          "ja": "母は出かける前に窓を閉めるように私に言いました。",
+          "point": "tell＋人＋to＋動詞の原形（人に〜するように言う）",
+          "choices": [
+            { "text": "to close", "correct": true, "explain": "tell＋人＋to＋動詞の原形の形です。" },
+            { "text": "close", "correct": false, "explain": "tell のあとの動詞には to が必要です。" },
+            { "text": "closing", "correct": false, "explain": "tell 人 doing という形は使いません。" },
+            { "text": "closed", "correct": false, "explain": "過去形はここには入りません。" }
+          ]
+        },
+        {
+          "id": "3-p1-05",
+          "sentence": "This temple was （　） about 300 years ago.",
+          "ja": "この寺はおよそ300年前に建てられました。",
+          "point": "受け身〈be動詞＋過去分詞〉",
+          "choices": [
+            { "text": "built", "correct": true, "explain": "was のあとは過去分詞。build の過去分詞は built です。" },
+            { "text": "build", "correct": false, "explain": "be動詞のあとに原形は置けません。" },
+            { "text": "building", "correct": false, "explain": "was building では「建てている最中だった」という別の意味になります。" },
+            { "text": "builds", "correct": false, "explain": "三単現の形は be動詞のあとに置けません。" }
+          ]
+        },
+        {
+          "id": "3-p1-06",
+          "sentence": "A: I am sorry I am late.  B: That is OK. Please （　） a seat.",
+          "ja": "A：おくれてすみません。B：大丈夫ですよ。おかけください。",
+          "point": "熟語 take a seat（席につく）",
+          "choices": [
+            { "text": "take", "correct": true, "explain": "take a seat で「席につく、すわる」という決まった言い方です。" },
+            { "text": "make", "correct": false, "explain": "make a seat という言い方はしません。" },
+            { "text": "get", "correct": false, "explain": "get a seat は「席を確保する」で、すすめる場面には合いません。" },
+            { "text": "do", "correct": false, "explain": "do a seat という言い方はありません。" }
+          ]
+        },
+        {
+          "id": "3-p1-07",
+          "sentence": "I do not know （　） to use this machine. Can you show me?",
+          "ja": "この機械の使い方がわかりません。教えてくれますか。",
+          "point": "疑問詞＋to＋動詞の原形（how to 〜＝〜のしかた）",
+          "choices": [
+            { "text": "how", "correct": true, "explain": "how to use で「使い方」。方法がわからないという文脈に合います。" },
+            { "text": "what", "correct": false, "explain": "what to use は「何を使えばよいか」で、次の文の流れに合いません。" },
+            { "text": "who", "correct": false, "explain": "who to use という言い方はしません。" },
+            { "text": "which", "correct": false, "explain": "which to use は「どちらを使うか」で、機械の操作の話に合いません。" }
+          ]
+        },
+        {
+          "id": "3-p1-08",
+          "sentence": "It has been raining （　） three days, so the river is very high.",
+          "ja": "3日間ずっと雨が降っているので、川の水位がとても高い。",
+          "point": "for＋期間（〜の間）",
+          "choices": [
+            { "text": "for", "correct": true, "explain": "後ろが three days という期間なので for を使います。" },
+            { "text": "since", "correct": false, "explain": "since のあとには始まりの時点（Monday など）がきます。" },
+            { "text": "during", "correct": false, "explain": "during のあとには the holidays のような特定の期間の名前がきます。" },
+            { "text": "in", "correct": false, "explain": "in three days は「3日後に」という意味になります。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3-p2",
+      "phase": "written",
+      "part": "筆記 2",
+      "title": "会話文の文空所補充",
+      "type": "dialogue",
+      "officialCount": 5,
+      "instruction": "次の会話について、（　）に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "3-p2-01",
+          "title": "レストランで",
+          "translation": "店員：ご注文はお決まりですか。　客：（　）　店員：かしこまりました。ごゆっくりどうぞ。",
+          "lines": [
+            { "speaker": "A", "text": "Are you ready to order?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "Certainly. Take your time." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Not yet. Could you give us a few more minutes?", "correct": true, "explain": "Take your time.（ごゆっくり）という返事につながるのは、もう少し待ってほしいという発言です。" },
+            { "text": "Yes, the food was delicious.", "correct": false, "explain": "食べ終わった感想で、注文前の場面に合いません。" },
+            { "text": "No, I do not work here.", "correct": false, "explain": "客と店員の会話としてかみ合いません。" },
+            { "text": "Sure, I will pay by card.", "correct": false, "explain": "支払いの話は注文のあとの場面です。" }
+          ]
+        },
+        {
+          "id": "3-p2-02",
+          "title": "自宅で",
+          "translation": "父：どうしたんだい、元気がないね。　娘：（　）　父：心配しないで。次はきっとうまくいくよ。",
+          "lines": [
+            { "speaker": "A", "text": "What is wrong? You look down." },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "Do not worry. You will do better next time." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "I did badly on the English test.", "correct": true, "explain": "「次はうまくいく」と励ましているので、失敗を打ち明ける発言が入ります。" },
+            { "text": "I won the speech contest.", "correct": false, "explain": "良い知らせなら励ます返事は不自然です。" },
+            { "text": "I am going to Canada next month.", "correct": false, "explain": "元気がない理由の説明になっていません。" },
+            { "text": "Thank you for your help.", "correct": false, "explain": "お礼では、直後の励ましにつながりません。" }
+          ]
+        },
+        {
+          "id": "3-p2-03",
+          "title": "駅で",
+          "translation": "女性：すみません、この電車は横浜に停まりますか。　男性：（　）　女性：ありがとうございます。そうします。",
+          "lines": [
+            { "speaker": "A", "text": "Excuse me. Does this train stop at Yokohama?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "Thank you. I will do that." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "No, it does not. You should take the next one.", "correct": true, "explain": "「そうします」という返事につながるのは、別の電車をすすめる発言です。" },
+            { "text": "Yes, I live in Yokohama.", "correct": false, "explain": "自分の話で、電車についての答えになっていません。" },
+            { "text": "No, I have never been there.", "correct": false, "explain": "電車が停まるかどうかの答えになっていません。" },
+            { "text": "Yes, the ticket was expensive.", "correct": false, "explain": "料金の感想で、質問に答えていません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3-p3",
+      "phase": "written",
+      "part": "筆記 3",
+      "title": "日本文つき語句整序",
+      "type": "ordering",
+      "officialCount": 5,
+      "instruction": "日本文の意味を表すように語句を並べかえて、英文を完成させなさい。",
+      "questions": [
+        {
+          "id": "3-p3-01",
+          "ja": "彼女が書いたその手紙は私を幸せにしました。",
+          "chunks": ["made", "The letter", "she wrote", "me", "happy"],
+          "sentence": "The letter she wrote made me happy.",
+          "explain": "The letter を she wrote が後ろから説明し、そのあとに〈make＋人＋形容詞〉が続きます。"
+        },
+        {
+          "id": "3-p3-02",
+          "ja": "私は今までにこんなに美しい山を見たことがありません。",
+          "chunks": ["such a", "I have never", "beautiful mountain", "seen"],
+          "sentence": "I have never seen such a beautiful mountain.",
+          "explain": "現在完了の否定は〈have never＋過去分詞〉。such a＋形容詞＋名詞の語順に注意します。"
+        },
+        {
+          "id": "3-p3-03",
+          "ja": "この部屋は使われていないので、私たちが使ってもいいですよ。",
+          "chunks": ["is not", "This room", "so you can use it", "being used"],
+          "sentence": "This room is not being used, so you can use it.",
+          "explain": "受け身の進行形は〈be動詞＋being＋過去分詞〉。否定は be動詞のあとに not を置きます。"
+        }
+      ]
+    },
+    {
+      "id": "3-p4",
+      "phase": "written",
+      "part": "筆記 4",
+      "title": "長文の内容一致選択",
+      "type": "reading",
+      "officialCount": 10,
+      "instruction": "次の英文の内容に関して、質問に対する答えとして最も適切なものを1〜4の中から一つ選びなさい。",
+      "passages": [
+        {
+          "id": "3-p4-a",
+          "format": "Eメール",
+          "title": "Volunteer Day",
+          "passage": "From: Daniel Carter\nTo: Aya Nakamura\nDate: May 12\nSubject: Volunteer day\n\nHi Aya,\n\nOur class is going to clean the beach next Saturday morning. Mr. Wilson asked me to find more students, so I am writing to you.\n\nWe will meet at the school gate at eight and take the bus to Sunny Beach. The work will finish around noon, and then we will have lunch together at the park. You do not have to bring lunch because the school will give us sandwiches.\n\nPlease wear old clothes and bring gloves and a hat. It may be hot that day. If it rains, we will do it on Sunday instead.\n\nCan you come? Please answer by Wednesday.\n\nDaniel",
+          "translation": "ダニエルからアヤへのEメール。来週の土曜の午前、クラスで浜辺を清掃する。ウィルソン先生に人集めをたのまれた。8時に校門集合、バスでサニービーチへ。正午ごろ終わり、その後は公園で一緒に昼食。サンドイッチは学校が用意するので弁当は不要。古い服を着て、手袋と帽子を持参のこと。雨天の場合は日曜に延期。返事は水曜までに。",
+          "questions": [
+            {
+              "id": "3-p4-a-q1",
+              "q": "Why is Daniel writing to Aya?",
+              "choices": [
+                { "text": "To ask her to join the beach cleaning.", "correct": true, "explain": "先生に人集めをたのまれたのでメールを書いた、と説明しています。" },
+                { "text": "To tell her about a new teacher.", "correct": false, "explain": "新しい先生の話は出てきません。" },
+                { "text": "To invite her to lunch at his house.", "correct": false, "explain": "昼食は公園で、しかも活動のあとの予定です。" },
+                { "text": "To ask her to bring sandwiches.", "correct": false, "explain": "サンドイッチは学校が用意します。" }
+              ]
+            },
+            {
+              "id": "3-p4-a-q2",
+              "q": "What does Aya NOT need to bring?",
+              "choices": [
+                { "text": "Lunch.", "correct": true, "explain": "You do not have to bring lunch と書かれています。" },
+                { "text": "Gloves.", "correct": false, "explain": "手袋は持ってくるように書かれています。" },
+                { "text": "A hat.", "correct": false, "explain": "帽子も持ち物として書かれています。" },
+                { "text": "Old clothes.", "correct": false, "explain": "古い服を着てくるように書かれています。" }
+              ]
+            },
+            {
+              "id": "3-p4-a-q3",
+              "q": "What will happen if it rains on Saturday?",
+              "choices": [
+                { "text": "They will clean the beach on Sunday.", "correct": true, "explain": "If it rains, we will do it on Sunday instead. とあります。" },
+                { "text": "They will cancel the event.", "correct": false, "explain": "中止ではなく延期です。" },
+                { "text": "They will clean the school instead.", "correct": false, "explain": "学校を清掃するとは書かれていません。" },
+                { "text": "They will meet at the park.", "correct": false, "explain": "公園は昼食の場所です。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3-p4-b",
+          "format": "説明文",
+          "title": "The Story of Chocolate",
+          "passage": "Today, chocolate is one of the most popular sweets in the world. However, it was very different in the past.\n\nAbout 3,000 years ago, people in Central America made a drink from cacao beans. The drink was not sweet at all. It was bitter, and people sometimes put pepper in it. They believed it gave them power, so it was used in special ceremonies. Cacao beans were also used as money.\n\nIn the 16th century, Europeans brought cacao back to Europe. They added sugar to the drink, and it soon became popular among rich people. For a long time, chocolate was something only rich people could enjoy.\n\nThings changed in the 19th century. New machines made it possible to make solid chocolate bars quickly and cheaply. After that, chocolate became a sweet for everyone. Today, people around the world eat more than seven million tons of chocolate every year.",
+          "translation": "チョコレートは今では世界で最も人気のある菓子の一つだが、昔はまったくちがっていた。約3000年前、中央アメリカの人々はカカオ豆から飲み物を作った。甘くなく苦い飲み物で、こしょうを入れることもあった。力を与えると信じられ、特別な儀式で使われた。カカオ豆はお金としても使われた。16世紀にヨーロッパ人がカカオを持ち帰り、砂糖を加えて裕福な人々の間で人気になった。長い間、チョコレートは富裕層だけのものだった。19世紀に新しい機械によって固形の板チョコを安く速く作れるようになり、だれもが食べられる菓子になった。今では世界で年間700万トン以上が消費されている。",
+          "questions": [
+            {
+              "id": "3-p4-b-q1",
+              "q": "What was the cacao drink like 3,000 years ago?",
+              "choices": [
+                { "text": "It was bitter and sometimes had pepper in it.", "correct": true, "explain": "It was bitter, and people sometimes put pepper in it. とあります。" },
+                { "text": "It was very sweet.", "correct": false, "explain": "not sweet at all と書かれています。" },
+                { "text": "It was sold as a bar.", "correct": false, "explain": "板チョコは19世紀以降の話です。" },
+                { "text": "It was made with milk.", "correct": false, "explain": "牛乳の記述はありません。" }
+              ]
+            },
+            {
+              "id": "3-p4-b-q2",
+              "q": "What did Europeans do with the cacao drink?",
+              "choices": [
+                { "text": "They added sugar to it.", "correct": true, "explain": "They added sugar to the drink とあります。" },
+                { "text": "They used it as money.", "correct": false, "explain": "お金として使ったのは中央アメリカの人々です。" },
+                { "text": "They sold it to poor people.", "correct": false, "explain": "当時は裕福な人々の飲み物でした。" },
+                { "text": "They stopped drinking it.", "correct": false, "explain": "飲まなくなったという記述はありません。" }
+              ]
+            },
+            {
+              "id": "3-p4-b-q3",
+              "q": "Why could more people eat chocolate after the 19th century?",
+              "choices": [
+                { "text": "New machines made it cheaper to produce.", "correct": true, "explain": "新しい機械で安く速く作れるようになったと書かれています。" },
+                { "text": "Cacao beans became money again.", "correct": false, "explain": "お金として使われたのは古い時代の話です。" },
+                { "text": "Rich people stopped buying it.", "correct": false, "explain": "富裕層が買わなくなったとは書かれていません。" },
+                { "text": "People found cacao in Europe.", "correct": false, "explain": "カカオはヨーロッパで見つかったのではなく、持ち帰られました。" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3-p5",
+      "phase": "written",
+      "part": "筆記 5",
+      "title": "ライティング（Eメール・意見論述）",
+      "type": "writing",
+      "officialCount": 2,
+      "instruction": "指示にしたがって英文を書きなさい。提出後に解答例とチェックリストで自己採点します。",
+      "prompts": [
+        {
+          "id": "3-p5-01",
+          "styleLabel": "Eメール問題",
+          "instruction": "あなたは外国人の友だちからEメールを受け取りました。下線部について具体的な質問を2つして、相手のメールに返信を書きなさい。",
+          "topic": "Hi! I hear you started a new hobby last month. I want to know more about it. What is it? I hope you can tell me!",
+          "conditions": [
+            "友だちのメールに対する返信として書く",
+            "下線部（新しい趣味）について具体的な質問を2つ入れる形ではなく、ここでは自分の趣味を説明し、相手にも質問を2つする",
+            "語数の目安は15〜25語",
+            "解答が友だちのメールに対応していない内容の場合は0点になる"
+          ],
+          "wordCount": "15〜25語",
+          "modelAnswer": "Thank you for your e-mail. I started playing the guitar last month. I practice for an hour every day. Do you play any instruments? What music do you like?",
+          "modelTranslation": "メールをありがとう。先月ギターを始めました。毎日1時間練習しています。あなたは何か楽器を演奏しますか。どんな音楽が好きですか。",
+          "checklist": [
+            "相手のメールの内容に正しく対応しているか（対応していないと0点）",
+            "質問を2つ入れられたか",
+            "語数は15〜25語におさまっているか",
+            "主語と動詞のある文になっているか（三単現のs、時制のまちがいがないか）",
+            "Thank you for your e-mail. のような書き出しがあるか"
+          ],
+          "points": 16
+        },
+        {
+          "id": "3-p5-02",
+          "styleLabel": "意見論述問題",
+          "instruction": "あなたは外国人の友だちから以下の質問をされました。質問に対するあなたの意見と、その理由を2つ書きなさい。",
+          "topic": "Do you think students should read newspapers?",
+          "conditions": [
+            "語数の目安は25〜35語",
+            "最初に自分の意見（Yes / No）をはっきり書く",
+            "理由を2つ書く（First, ... Second, ... の形が使いやすい）",
+            "質問に対する答えになっていない場合は0点になる"
+          ],
+          "wordCount": "25〜35語",
+          "modelAnswer": "I think students should read newspapers. First, newspapers tell us what is happening in the world, so we can learn about many countries. Second, reading newspapers helps students improve their reading skills.",
+          "modelTranslation": "私は学生は新聞を読むべきだと思います。第一に、新聞は世界で何が起きているかを教えてくれるので、多くの国について学べます。第二に、新聞を読むことは読解力を伸ばす助けになります。",
+          "checklist": [
+            "最初に自分の意見をはっきり述べているか",
+            "理由を2つ書いているか",
+            "理由が意見をきちんと支えているか",
+            "First / Second などのつなぎ言葉を使えているか",
+            "語数は25〜35語におさまっているか"
+          ],
+          "points": 16
+        }
+      ]
+    },
+    {
+      "id": "3-l1",
+      "phase": "listening",
+      "part": "リスニング 第1部",
+      "title": "会話の応答文選択",
+      "type": "listening",
+      "listeningStyle": "response",
+      "officialCount": 10,
+      "playLimit": 2,
+      "choicesAudioOnly": true,
+      "instruction": "会話を聞き、最後の発言に対する応答として最も適切なものを、放送される1〜3の中から一つ選びなさい。（本番では選択肢は問題用紙に印刷されていません）",
+      "questions": [
+        {
+          "id": "3-l1-01",
+          "script": [
+            { "speaker": "A", "text": "I heard you are moving to Nagoya." },
+            { "speaker": "B", "text": "Yes, my father got a new job there." },
+            { "speaker": "A", "text": "When are you leaving?" }
+          ],
+          "translation": "A：名古屋に引っ越すんだってね。　B：うん、父が向こうで新しい仕事に就いたんだ。　A：いつ出発するの？",
+          "choices": [
+            { "text": "At the end of this month.", "correct": true, "explain": "When には時を答えます。" },
+            { "text": "By train, I think.", "correct": false, "explain": "手段の答えで、時をたずねる質問に合いません。" },
+            { "text": "Because it is a big city.", "correct": false, "explain": "理由の答えになっています。" }
+          ]
+        },
+        {
+          "id": "3-l1-02",
+          "script": [
+            { "speaker": "A", "text": "Excuse me, do you have this shirt in a larger size?" },
+            { "speaker": "B", "text": "Let me check. What size do you need?" },
+            { "speaker": "A", "text": "Large, please." }
+          ],
+          "translation": "A：すみません、このシャツの大きいサイズはありますか。　B：お調べします。どのサイズが必要ですか。　A：Lをお願いします。",
+          "choices": [
+            { "text": "I will bring one from the back.", "correct": true, "explain": "店員が在庫を取りに行くという返事が自然です。" },
+            { "text": "Yes, I like your shirt.", "correct": false, "explain": "客のシャツをほめる流れではありません。" },
+            { "text": "It is 10 o'clock now.", "correct": false, "explain": "時刻の答えで、会話に合いません。" }
+          ]
+        },
+        {
+          "id": "3-l1-03",
+          "script": [
+            { "speaker": "A", "text": "You look busy these days." },
+            { "speaker": "B", "text": "Yes, I am practicing for the piano contest." },
+            { "speaker": "A", "text": "How often do you practice?" }
+          ],
+          "translation": "A：最近いそがしそうだね。　B：うん、ピアノコンクールの練習をしているの。　A：どのくらいの頻度で練習しているの？",
+          "choices": [
+            { "text": "Almost every day.", "correct": true, "explain": "How often には頻度を答えます。" },
+            { "text": "In the music room.", "correct": false, "explain": "場所の答えになっています。" },
+            { "text": "For two years.", "correct": false, "explain": "期間の答えで、頻度ではありません。" }
+          ]
+        },
+        {
+          "id": "3-l1-04",
+          "script": [
+            { "speaker": "A", "text": "Hello, Green Dental Clinic." },
+            { "speaker": "B", "text": "Hello. I would like to change my appointment on Friday." },
+            { "speaker": "A", "text": "Certainly. When would you like to come?" }
+          ],
+          "translation": "A：もしもし、グリーン歯科医院です。　B：もしもし。金曜日の予約を変更したいのですが。　A：かしこまりました。いつがよろしいですか。",
+          "choices": [
+            { "text": "Monday afternoon, if possible.", "correct": true, "explain": "希望の日時を答えるのが自然です。" },
+            { "text": "I have a toothache.", "correct": false, "explain": "症状の説明で、日時の答えになっていません。" },
+            { "text": "Yes, this is my first visit.", "correct": false, "explain": "いつ来たいかという質問への答えになりません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3-l2",
+      "phase": "listening",
+      "part": "リスニング 第2部",
+      "title": "会話の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "conversation",
+      "officialCount": 10,
+      "playLimit": 2,
+      "instruction": "会話と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "3-l2-01",
+          "script": [
+            { "speaker": "A", "text": "Nancy, did you finish the science report?" },
+            { "speaker": "B", "text": "Almost. I need to check some information at the library." },
+            { "speaker": "A", "text": "The library closes at five today." },
+            { "speaker": "B", "text": "Really? Then I should go right now." }
+          ],
+          "question": "What will Nancy do next?",
+          "translation": "A：ナンシー、理科のレポートは終わった？　B：もう少し。図書館で情報を確認する必要があるの。　A：今日は図書館は5時に閉まるよ。　B：本当？じゃあ今すぐ行かないと。（質問：ナンシーは次に何をしますか）",
+          "choices": [
+            { "text": "Go to the library.", "correct": true, "explain": "I should go right now. と言っています。" },
+            { "text": "Finish her report at home.", "correct": false, "explain": "家で仕上げるとは言っていません。" },
+            { "text": "Ask her teacher for help.", "correct": false, "explain": "先生の話は出てきません。" },
+            { "text": "Buy a science book.", "correct": false, "explain": "本を買うとは言っていません。" }
+          ]
+        },
+        {
+          "id": "3-l2-02",
+          "script": [
+            { "speaker": "A", "text": "Welcome to Sakura Hotel. How can I help you?" },
+            { "speaker": "B", "text": "I have a reservation for two nights. The name is Taylor." },
+            { "speaker": "A", "text": "Yes, Mr. Taylor. Your room is on the fifth floor. Breakfast is served from seven to ten." },
+            { "speaker": "B", "text": "Thank you. Is there a swimming pool?" },
+            { "speaker": "A", "text": "Yes, on the second floor." }
+          ],
+          "question": "Where is the swimming pool?",
+          "translation": "A：さくらホテルへようこそ。ご用件は。　B：2泊の予約をしています。テイラーです。　A：はい、テイラー様。お部屋は5階です。朝食は7時から10時までです。　B：ありがとう。プールはありますか。　A：はい、2階にございます。（質問：プールはどこにありますか）",
+          "choices": [
+            { "text": "On the second floor.", "correct": true, "explain": "on the second floor と答えています。" },
+            { "text": "On the fifth floor.", "correct": false, "explain": "5階は客室です。" },
+            { "text": "On the first floor.", "correct": false, "explain": "1階の話は出てきません。" },
+            { "text": "There is no pool.", "correct": false, "explain": "プールはあると答えています。" }
+          ]
+        },
+        {
+          "id": "3-l2-03",
+          "script": [
+            { "speaker": "A", "text": "Dad, can you take me to the stadium on Sunday?" },
+            { "speaker": "B", "text": "Sorry, I have to work. Why do not you ask your mother?" },
+            { "speaker": "A", "text": "She is going to visit Grandma." },
+            { "speaker": "B", "text": "Then let us take the bus together on Saturday instead." }
+          ],
+          "question": "What will they probably do?",
+          "translation": "A：お父さん、日曜にスタジアムへ連れて行ってくれる？　B：ごめん、仕事なんだ。お母さんに頼んだら？　A：お母さんはおばあちゃんのところへ行くの。　B：じゃあ、かわりに土曜にバスで一緒に行こう。（質問：2人はおそらく何をしますか）",
+          "choices": [
+            { "text": "Go to the stadium on Saturday.", "correct": true, "explain": "土曜にバスで一緒に行こうと提案しています。" },
+            { "text": "Go to the stadium on Sunday by car.", "correct": false, "explain": "日曜は父が仕事です。" },
+            { "text": "Visit Grandma together.", "correct": false, "explain": "祖母を訪ねるのは母です。" },
+            { "text": "Stay home all weekend.", "correct": false, "explain": "土曜に出かける予定になりました。" }
+          ]
+        },
+        {
+          "id": "3-l2-04",
+          "script": [
+            { "speaker": "A", "text": "How was your trip to Kyoto, Bill?" },
+            { "speaker": "B", "text": "It was great, but the weather was bad on the first day." },
+            { "speaker": "A", "text": "That is too bad. What did you do?" },
+            { "speaker": "B", "text": "I visited a museum. The next day was sunny, so I saw many temples." }
+          ],
+          "question": "What did Bill do on the first day?",
+          "translation": "A：ビル、京都旅行はどうだった？　B：よかったよ、でも初日は天気が悪くてね。　A：それは残念。何をしたの？　B：博物館に行ったよ。翌日は晴れたから、たくさんの寺を見た。（質問：ビルは初日に何をしましたか）",
+          "choices": [
+            { "text": "He went to a museum.", "correct": true, "explain": "初日は天気が悪く、博物館へ行きました。" },
+            { "text": "He saw many temples.", "correct": false, "explain": "寺めぐりは翌日です。" },
+            { "text": "He stayed at the hotel.", "correct": false, "explain": "ホテルにいたとは言っていません。" },
+            { "text": "He went shopping.", "correct": false, "explain": "買い物の話は出てきません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3-l3",
+      "phase": "listening",
+      "part": "リスニング 第3部",
+      "title": "文の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "passage",
+      "officialCount": 10,
+      "playLimit": 2,
+      "instruction": "英文と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "3-l3-01",
+          "script": "Emily loves animals. Last year, she began working at an animal hospital on weekends. She cleans the cages and gives water to the dogs and cats. She hopes to become a vet in the future.",
+          "question": "What does Emily want to be?",
+          "translation": "エミリーは動物が大好きで、昨年から週末に動物病院で働き始めた。ケージの掃除や犬や猫に水をやる仕事をしている。将来は獣医になりたいと思っている。（質問：エミリーは何になりたいですか）",
+          "choices": [
+            { "text": "A vet.", "correct": true, "explain": "She hopes to become a vet in the future. と言っています。" },
+            { "text": "A nurse.", "correct": false, "explain": "看護師の話は出てきません。" },
+            { "text": "A pet shop owner.", "correct": false, "explain": "ペットショップの話は出てきません。" },
+            { "text": "A teacher.", "correct": false, "explain": "教師の話は出てきません。" }
+          ]
+        },
+        {
+          "id": "3-l3-02",
+          "script": "Attention, shoppers. The store will close in fifteen minutes. Please bring your items to the checkout counter on the first floor. Thank you for shopping with us.",
+          "question": "What should shoppers do?",
+          "translation": "お客様にお知らせします。当店は15分後に閉店します。商品は1階のレジまでお持ちください。ご来店ありがとうございました。（質問：買い物客は何をすべきですか）",
+          "choices": [
+            { "text": "Go to the checkout counter.", "correct": true, "explain": "1階のレジへ商品を持ってくるように言っています。" },
+            { "text": "Leave their items on the shelf.", "correct": false, "explain": "棚にもどすようにとは言っていません。" },
+            { "text": "Come back in fifteen minutes.", "correct": false, "explain": "15分後は閉店時刻です。" },
+            { "text": "Go to the second floor.", "correct": false, "explain": "レジは1階です。" }
+          ]
+        },
+        {
+          "id": "3-l3-03",
+          "script": "Ryan wanted to join the school band, but he could not play any instruments. His friend Mark taught him the drums for two months. Last week, Ryan passed the test and became a member.",
+          "question": "How did Ryan learn the drums?",
+          "translation": "ライアンは吹奏楽部に入りたかったが、楽器が何もできなかった。友人のマークが2か月間ドラムを教えてくれた。先週、ライアンは試験に合格して部員になった。（質問：ライアンはどうやってドラムを習いましたか）",
+          "choices": [
+            { "text": "His friend taught him.", "correct": true, "explain": "His friend Mark taught him the drums と言っています。" },
+            { "text": "He took lessons at a music school.", "correct": false, "explain": "音楽教室の話は出てきません。" },
+            { "text": "He watched videos.", "correct": false, "explain": "動画の話は出てきません。" },
+            { "text": "His brother taught him.", "correct": false, "explain": "教えたのは友人のマークです。" }
+          ]
+        },
+        {
+          "id": "3-l3-04",
+          "script": "Good morning, class. Today we were going to have P.E. outside, but the ground is wet after last night's rain. Instead, we will use the gym. Please change your shoes before you come.",
+          "question": "Why will the class use the gym?",
+          "translation": "おはようございます。今日は外で体育をする予定でしたが、昨夜の雨でグラウンドがぬれています。かわりに体育館を使います。来る前にくつをはきかえてください。（質問：なぜ体育館を使うのですか）",
+          "choices": [
+            { "text": "Because the ground is wet.", "correct": true, "explain": "the ground is wet after last night's rain と言っています。" },
+            { "text": "Because it is raining now.", "correct": false, "explain": "雨が降ったのは昨夜です。" },
+            { "text": "Because the gym is new.", "correct": false, "explain": "体育館が新しいとは言っていません。" },
+            { "text": "Because there is a school event.", "correct": false, "explain": "行事の話は出てきません。" }
+          ]
+        }
+      ]
+    }
+  ]
+}

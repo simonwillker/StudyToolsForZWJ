@@ -1,0 +1,408 @@
+{
+  "level": "5",
+  "levelLabel": "5級",
+  "levelSub": "中学初級程度",
+  "color": "#2F7A4F",
+  "exam": {
+    "title": "5級 一次試験 模擬テスト",
+    "note": "過去問（一次試験）の大問構成にもとづく模擬テストです。筆記とリスニングを通しで受験し、提出後にまとめて採点・解説します。",
+    "writtenMinutes": 25,
+    "listeningMinutes": 22,
+    "passRate": 0.6
+  },
+  "sections": [
+    {
+      "id": "5-p1",
+      "phase": "written",
+      "part": "筆記 1",
+      "title": "短文の語句空所補充",
+      "type": "gapfill",
+      "officialCount": 15,
+      "instruction": "次の英文の（　）に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "5-p1-01",
+          "sentence": "A: Good morning, Ms. Green.  B: Good morning, Ken. （　） are you today?",
+          "ja": "A：おはようございます、グリーン先生。B：おはよう、ケン。今日は調子はどう？",
+          "point": "あいさつの決まり文句 How are you?（調子はどうですか）",
+          "choices": [
+            { "text": "How", "correct": true, "explain": "How are you? で「調子はどうですか」。あいさつの決まった言い方です。" },
+            { "text": "What", "correct": false, "explain": "What are you? は「あなたは何者ですか」という不自然な意味になります。" },
+            { "text": "Who", "correct": false, "explain": "Who are you? は「あなたは誰ですか」で、あいさつの返事になりません。" },
+            { "text": "When", "correct": false, "explain": "When are you? という言い方はしません。" }
+          ]
+        },
+        {
+          "id": "5-p1-02",
+          "sentence": "My brother （　） soccer every Saturday.",
+          "ja": "私の兄は毎週土曜日にサッカーをします。",
+          "point": "三人称単数現在の s（主語が he / she / my brother などのとき動詞に s をつける）",
+          "choices": [
+            { "text": "plays", "correct": true, "explain": "主語 My brother は三人称単数なので、動詞に s をつけて plays にします。" },
+            { "text": "play", "correct": false, "explain": "play は主語が I / you / 複数のときの形です。" },
+            { "text": "playing", "correct": false, "explain": "playing は be動詞とセットで使う進行形の形です。" },
+            { "text": "to play", "correct": false, "explain": "この文に to play が入る場所はありません。" }
+          ]
+        },
+        {
+          "id": "5-p1-03",
+          "sentence": "I usually get （　） at six thirty in the morning.",
+          "ja": "私はふつう朝6時半に起きます。",
+          "point": "熟語 get up（起きる）",
+          "choices": [
+            { "text": "up", "correct": true, "explain": "get up で「起きる」という意味の熟語です。" },
+            { "text": "in", "correct": false, "explain": "get in は「（車などに）乗りこむ」で、時刻の話には合いません。" },
+            { "text": "on", "correct": false, "explain": "get on は「（バスなどに）乗る」という意味です。" },
+            { "text": "out", "correct": false, "explain": "get out は「出る」で、朝の習慣を表しません。" }
+          ]
+        },
+        {
+          "id": "5-p1-04",
+          "sentence": "There （　） two cats under the table.",
+          "ja": "テーブルの下に2匹のねこがいます。",
+          "point": "There is / There are（〜がある・いる）の使い分け",
+          "choices": [
+            { "text": "are", "correct": true, "explain": "two cats（複数）が続くので There are を使います。" },
+            { "text": "is", "correct": false, "explain": "There is は後ろが単数のときに使います。" },
+            { "text": "am", "correct": false, "explain": "am は主語が I のときだけ使う形です。" },
+            { "text": "be", "correct": false, "explain": "be はそのままの形では文の中で使えません。" }
+          ]
+        },
+        {
+          "id": "5-p1-05",
+          "sentence": "A: （　） is your birthday?  B: It is May 5th.",
+          "ja": "A：あなたの誕生日はいつですか。B：5月5日です。",
+          "point": "疑問詞 When（いつ）— 答えが日付なら When",
+          "choices": [
+            { "text": "When", "correct": true, "explain": "答えが May 5th（日付）なので、時をたずねる When が正解です。" },
+            { "text": "Where", "correct": false, "explain": "Where は場所をたずねる語で、答えは場所になります。" },
+            { "text": "Who", "correct": false, "explain": "Who は人をたずねる語です。" },
+            { "text": "How", "correct": false, "explain": "How は方法や様子をたずねる語です。" }
+          ]
+        },
+        {
+          "id": "5-p1-06",
+          "sentence": "I like music, so I often （　） to the radio.",
+          "ja": "私は音楽が好きなので、よくラジオを聞きます。",
+          "point": "listen to 〜（〜を聞く）",
+          "choices": [
+            { "text": "listen", "correct": true, "explain": "listen to 〜 で「〜を聞く」。to があるので listen が入ります。" },
+            { "text": "hear", "correct": false, "explain": "hear は to をつけずに使い、「自然に聞こえてくる」という意味です。" },
+            { "text": "see", "correct": false, "explain": "see は「見る」なので、ラジオには合いません。" },
+            { "text": "speak", "correct": false, "explain": "speak to 〜 は「〜に話しかける」で、ラジオには合いません。" }
+          ]
+        },
+        {
+          "id": "5-p1-07",
+          "sentence": "Tom cannot come today （　） he is sick.",
+          "ja": "トムは病気なので今日は来られません。",
+          "point": "接続詞 because（なぜなら〜だから）",
+          "choices": [
+            { "text": "because", "correct": true, "explain": "後ろが「病気だ」という理由なので because が正解です。" },
+            { "text": "but", "correct": false, "explain": "but は前後が反対の内容のときに使います。" },
+            { "text": "or", "correct": false, "explain": "or は「または」で、選ぶときに使います。" },
+            { "text": "so", "correct": false, "explain": "so は「だから」で、後ろに結果がきます。ここは理由なので合いません。" }
+          ]
+        },
+        {
+          "id": "5-p1-08",
+          "sentence": "Please （　） quiet in the library.",
+          "ja": "図書館では静かにしてください。",
+          "point": "命令文は動詞の原形で始める（be動詞なら be）",
+          "choices": [
+            { "text": "be", "correct": true, "explain": "命令文なので動詞は原形。be quiet で「静かにする」です。" },
+            { "text": "is", "correct": false, "explain": "命令文では is は使いません。" },
+            { "text": "are", "correct": false, "explain": "命令文では are は使いません。" },
+            { "text": "being", "correct": false, "explain": "being は命令文には使いません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5-p2",
+      "phase": "written",
+      "part": "筆記 2",
+      "title": "会話文の文空所補充",
+      "type": "dialogue",
+      "officialCount": 5,
+      "instruction": "次の会話について、（　）に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "5-p2-01",
+          "title": "教室で",
+          "translation": "少年：この本はきみの？　少女：ううん、ちがうよ。エミのだと思う。　少年：わかった、彼女にわたすね。",
+          "lines": [
+            { "speaker": "A", "text": "Is this book yours?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "OK. I will give it to her." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "No, it is not. I think it is Emi's.", "correct": true, "explain": "次に「彼女にわたす」と言っているので、持ち主が女の子だと分かる返事が正解です。" },
+            { "text": "Yes, I like books very much.", "correct": false, "explain": "「彼女にわたす」という流れにつながりません。" },
+            { "text": "No, I do not have a pen.", "correct": false, "explain": "本についての質問にペンで答えるのは不自然です。" },
+            { "text": "Yes, he is my brother.", "correct": false, "explain": "本の持ち主をたずねられているのに、人の紹介になっています。" }
+          ]
+        },
+        {
+          "id": "5-p2-02",
+          "title": "家で",
+          "translation": "母：夕食の時間よ。　息子：（　）　母：わかったわ。でも10分だけよ。",
+          "lines": [
+            { "speaker": "A", "text": "It is time for dinner." },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "OK, but only ten minutes." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Sorry, Mom. I am doing my homework now.", "correct": true, "explain": "「10分だけよ」と待ってもらう流れなので、今なにかしている最中だと伝える文が合います。" },
+            { "text": "I am very hungry. Let us eat.", "correct": false, "explain": "すぐ食べたいなら「10分だけ」と待つ返事になりません。" },
+            { "text": "Yes, I can cook well.", "correct": false, "explain": "料理の話は、あとの返事につながりません。" },
+            { "text": "No, this is not my bag.", "correct": false, "explain": "夕食の会話と関係がありません。" }
+          ]
+        },
+        {
+          "id": "5-p2-03",
+          "title": "電話で",
+          "translation": "少女：もしもし、ユキです。ケンをお願いできますか。　男性：（　）　少女：わかりました、あとでかけ直します。",
+          "lines": [
+            { "speaker": "A", "text": "Hello, this is Yuki. Can I speak to Ken?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "I see. I will call him later." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Sorry, he is not at home now.", "correct": true, "explain": "「あとでかけ直す」と言っているので、今は本人がいないという返事が自然です。" },
+            { "text": "Sure. Here you are.", "correct": false, "explain": "物をわたすときの表現で、電話の返事としては合いません。" },
+            { "text": "Yes, I like your new bike.", "correct": false, "explain": "電話の内容と関係がありません。" },
+            { "text": "No, I am a soccer player.", "correct": false, "explain": "ケンに取りついでほしいという頼みへの返事になっていません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5-p3",
+      "phase": "written",
+      "part": "筆記 3",
+      "title": "日本文つき語句整序",
+      "type": "ordering",
+      "officialCount": 5,
+      "instruction": "日本文の意味を表すように語句を並べかえて、英文を完成させなさい。",
+      "questions": [
+        {
+          "id": "5-p3-01",
+          "ja": "あなたは何時に学校へ行きますか。",
+          "chunks": ["do", "What time", "go", "you", "to school"],
+          "sentence": "What time do you go to school?",
+          "explain": "疑問詞 What time のあとは〈do＋主語＋動詞の原形〉の順になります。"
+        },
+        {
+          "id": "5-p3-02",
+          "ja": "私の姉は毎日ピアノを練習します。",
+          "chunks": ["practices", "the piano", "My sister", "every day"],
+          "sentence": "My sister practices the piano every day.",
+          "explain": "〈主語＋動詞＋目的語＋時を表す語句〉の順。主語が三人称単数なので practices になります。"
+        },
+        {
+          "id": "5-p3-03",
+          "ja": "私はテニスがあまり上手ではありません。",
+          "chunks": ["a good", "I", "am not", "tennis player"],
+          "sentence": "I am not a good tennis player.",
+          "explain": "be動詞の否定文は〈主語＋am / is / are＋not〉。そのあとに a good tennis player が続きます。"
+        }
+      ]
+    },
+    {
+      "id": "5-l1",
+      "phase": "listening",
+      "part": "リスニング 第1部",
+      "title": "会話の応答文選択",
+      "type": "listening",
+      "listeningStyle": "response",
+      "officialCount": 10,
+      "playLimit": 2,
+      "choicesAudioOnly": true,
+      "instruction": "会話を聞き、最後の発言に対する応答として最も適切なものを、放送される1〜3の中から一つ選びなさい。（本番では選択肢は問題用紙に印刷されていません）",
+      "questions": [
+        {
+          "id": "5-l1-01",
+          "script": [
+            { "speaker": "A", "text": "Whose racket is this?" },
+            { "speaker": "B", "text": "It is my sister's." },
+            { "speaker": "A", "text": "Does she play tennis every day?" }
+          ],
+          "translation": "A：これは誰のラケット？　B：姉のだよ。　A：彼女は毎日テニスをするの？",
+          "choices": [
+            { "text": "Yes, after school.", "correct": true, "explain": "Does she 〜? への返事は Yes / No。「放課後にね」と自然につながります。" },
+            { "text": "It is on the desk.", "correct": false, "explain": "場所の答えで、「毎日するの？」への返事になりません。" },
+            { "text": "I am eleven years old.", "correct": false, "explain": "年齢の答えで、質問と合いません。" }
+          ]
+        },
+        {
+          "id": "5-l1-02",
+          "script": [
+            { "speaker": "A", "text": "Mom, where is my cap?" },
+            { "speaker": "B", "text": "Is it in your bag?" },
+            { "speaker": "A", "text": "No, it is not." }
+          ],
+          "translation": "A：お母さん、ぼくの帽子はどこ？　B：かばんの中じゃない？　A：ううん、入ってないよ。",
+          "choices": [
+            { "text": "Then look under your bed.", "correct": true, "explain": "帽子をさがしている流れなので、次にさがす場所を言うのが自然です。" },
+            { "text": "Yes, I like your cap.", "correct": false, "explain": "見つからないという話への返事になっていません。" },
+            { "text": "She is my friend.", "correct": false, "explain": "人の紹介で、帽子の話と関係がありません。" }
+          ]
+        },
+        {
+          "id": "5-l1-03",
+          "script": [
+            { "speaker": "A", "text": "Let us go to the park this afternoon." },
+            { "speaker": "B", "text": "Sorry, I cannot." },
+            { "speaker": "A", "text": "Why not?" }
+          ],
+          "translation": "A：今日の午後、公園へ行こうよ。　B：ごめん、行けないんだ。　A：どうして？",
+          "choices": [
+            { "text": "I have to help my father.", "correct": true, "explain": "Why not? は理由をたずねる言い方。理由を答えるのが正解です。" },
+            { "text": "It is two o'clock.", "correct": false, "explain": "時刻の答えで、理由になっていません。" },
+            { "text": "Yes, let us go.", "correct": false, "explain": "直前で「行けない」と言っているので矛盾します。" }
+          ]
+        },
+        {
+          "id": "5-l1-04",
+          "script": [
+            { "speaker": "A", "text": "This is a nice picture." },
+            { "speaker": "B", "text": "Thank you. I took it in Okinawa." },
+            { "speaker": "A", "text": "When did you go there?" }
+          ],
+          "translation": "A：すてきな写真だね。　B：ありがとう。沖縄でとったんだ。　A：いつ行ったの？",
+          "choices": [
+            { "text": "Last summer.", "correct": true, "explain": "When（いつ）には時を答えます。" },
+            { "text": "By train.", "correct": false, "explain": "手段の答えで、How did you go? への返事です。" },
+            { "text": "With my dog.", "correct": false, "explain": "同行者の答えで、When への返事になりません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5-l2",
+      "phase": "listening",
+      "part": "リスニング 第2部",
+      "title": "会話の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "conversation",
+      "officialCount": 5,
+      "playLimit": 2,
+      "instruction": "会話と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "5-l2-01",
+          "script": [
+            { "speaker": "A", "text": "Yuka, what time does the movie start?" },
+            { "speaker": "B", "text": "At four o'clock. Let us meet at the station at three thirty." },
+            { "speaker": "A", "text": "OK. See you then." }
+          ],
+          "question": "What time will they meet at the station?",
+          "translation": "A：ユカ、映画は何時に始まるの？　B：4時よ。3時半に駅で会いましょう。　A：わかった、じゃあまたね。（質問：2人は何時に駅で会いますか）",
+          "choices": [
+            { "text": "At 3:30.", "correct": true, "explain": "meet at the station at three thirty と言っています。" },
+            { "text": "At 4:00.", "correct": false, "explain": "4時は映画が始まる時刻です。" },
+            { "text": "At 3:00.", "correct": false, "explain": "3時という時刻は出てきません。" },
+            { "text": "At 4:30.", "correct": false, "explain": "4時半という時刻は出てきません。" }
+          ]
+        },
+        {
+          "id": "5-l2-02",
+          "script": [
+            { "speaker": "A", "text": "Do you want some juice, Tom?" },
+            { "speaker": "B", "text": "No, thank you. Can I have some milk?" },
+            { "speaker": "A", "text": "Sure. Here you are." }
+          ],
+          "question": "What will Tom drink?",
+          "translation": "A：トム、ジュースはいる？　B：ううん、ありがとう。牛乳をもらえる？　A：いいよ、はいどうぞ。（質問：トムは何を飲みますか）",
+          "choices": [
+            { "text": "Milk.", "correct": true, "explain": "Can I have some milk? と言い、相手が Sure と答えています。" },
+            { "text": "Juice.", "correct": false, "explain": "ジュースは No, thank you. とことわっています。" },
+            { "text": "Tea.", "correct": false, "explain": "紅茶は会話に出てきません。" },
+            { "text": "Water.", "correct": false, "explain": "水は会話に出てきません。" }
+          ]
+        },
+        {
+          "id": "5-l2-03",
+          "script": [
+            { "speaker": "A", "text": "Ken, is that your dog?" },
+            { "speaker": "B", "text": "No, it is my grandmother's. Its name is Coco." },
+            { "speaker": "A", "text": "It is very cute." }
+          ],
+          "question": "Whose dog is Coco?",
+          "translation": "A：ケン、あれはあなたの犬？　B：ちがうよ、祖母の犬だよ。名前はココ。　A：とてもかわいいね。（質問：ココは誰の犬ですか）",
+          "choices": [
+            { "text": "Ken's grandmother's.", "correct": true, "explain": "it is my grandmother's と答えています。" },
+            { "text": "Ken's.", "correct": false, "explain": "ケンは No と否定しています。" },
+            { "text": "Ken's sister's.", "correct": false, "explain": "姉妹は会話に出てきません。" },
+            { "text": "The girl's.", "correct": false, "explain": "話しかけている相手の犬だとは言っていません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5-l3",
+      "phase": "listening",
+      "part": "リスニング 第3部",
+      "title": "短い英文の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "passage",
+      "officialCount": 10,
+      "playLimit": 2,
+      "instruction": "短い英文と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。（本番はイラストを見て答える形式です）",
+      "questions": [
+        {
+          "id": "5-l3-01",
+          "script": "Emi has three pencils and two erasers in her pencil case.",
+          "question": "How many pencils does Emi have?",
+          "translation": "エミはふでばこに鉛筆を3本と消しゴムを2個持っています。（質問：エミは鉛筆を何本持っていますか）",
+          "choices": [
+            { "text": "Three.", "correct": true, "explain": "three pencils と言っています。" },
+            { "text": "Two.", "correct": false, "explain": "2は消しゴムの数です。" },
+            { "text": "Five.", "correct": false, "explain": "合計の数で、鉛筆の数ではありません。" },
+            { "text": "One.", "correct": false, "explain": "1という数は出てきません。" }
+          ]
+        },
+        {
+          "id": "5-l3-02",
+          "script": "It is rainy today, so Kenta is reading a book in his room.",
+          "question": "What is Kenta doing?",
+          "translation": "今日は雨なので、ケンタは自分の部屋で本を読んでいます。（質問：ケンタは何をしていますか）",
+          "choices": [
+            { "text": "He is reading a book.", "correct": true, "explain": "reading a book in his room と言っています。" },
+            { "text": "He is playing outside.", "correct": false, "explain": "雨なので外では遊んでいません。" },
+            { "text": "He is watching TV.", "correct": false, "explain": "テレビの話は出てきません。" },
+            { "text": "He is cooking dinner.", "correct": false, "explain": "料理の話は出てきません。" }
+          ]
+        },
+        {
+          "id": "5-l3-03",
+          "script": "My school festival is on the second Sunday of October.",
+          "question": "When is the school festival?",
+          "translation": "私の学校の文化祭は10月の第2日曜日です。（質問：文化祭はいつですか）",
+          "choices": [
+            { "text": "In October.", "correct": true, "explain": "the second Sunday of October と言っています。" },
+            { "text": "In September.", "correct": false, "explain": "9月とは言っていません。" },
+            { "text": "In November.", "correct": false, "explain": "11月とは言っていません。" },
+            { "text": "In August.", "correct": false, "explain": "8月とは言っていません。" }
+          ]
+        },
+        {
+          "id": "5-l3-04",
+          "script": "Ann goes to school by bike, but today her bike is broken. She will walk to school.",
+          "question": "How will Ann go to school today?",
+          "translation": "アンはいつも自転車で学校へ行きますが、今日は自転車がこわれています。歩いて学校へ行くつもりです。（質問：アンは今日どうやって学校へ行きますか）",
+          "choices": [
+            { "text": "She will walk.", "correct": true, "explain": "She will walk to school. と言っています。" },
+            { "text": "By bike.", "correct": false, "explain": "今日は自転車がこわれています。" },
+            { "text": "By bus.", "correct": false, "explain": "バスの話は出てきません。" },
+            { "text": "By train.", "correct": false, "explain": "電車の話は出てきません。" }
+          ]
+        }
+      ]
+    }
+  ]
+}
