@@ -1,0 +1,166 @@
+{
+  "level": "5",
+  "levelLabel": "5級",
+  "levelSub": "中学初級程度",
+  "color": "#2F7A4F",
+  "vocab": [
+    { "id": "v5-01", "word": "apple", "phonetic": "ˈæpəl", "pos": "名詞", "meaning": "りんご", "example": { "en": "I eat an apple every morning.", "ja": "私は毎朝りんごを食べます。" } },
+    { "id": "v5-02", "word": "dog", "phonetic": "dɔːg", "pos": "名詞", "meaning": "犬", "example": { "en": "My dog is very cute.", "ja": "私の犬はとてもかわいいです。" } },
+    { "id": "v5-03", "word": "school", "phonetic": "skuːl", "pos": "名詞", "meaning": "学校", "example": { "en": "I go to school by bus.", "ja": "私はバスで学校に行きます。" } },
+    { "id": "v5-04", "word": "friend", "phonetic": "frɛnd", "pos": "名詞", "meaning": "友だち", "example": { "en": "She is my best friend.", "ja": "彼女は私の親友です。" } },
+    { "id": "v5-05", "word": "morning", "phonetic": "ˈmɔːrnɪŋ", "pos": "名詞", "meaning": "朝", "example": { "en": "Good morning, everyone.", "ja": "みなさん、おはようございます。" } },
+    { "id": "v5-06", "word": "notebook", "phonetic": "ˈnoʊtbʊk", "pos": "名詞", "meaning": "ノート", "example": { "en": "I write in my notebook every day.", "ja": "私は毎日ノートに書きます。" } },
+    { "id": "v5-07", "word": "kitchen", "phonetic": "ˈkɪtʃɪn", "pos": "名詞", "meaning": "台所", "example": { "en": "My mother is in the kitchen.", "ja": "母は台所にいます。" } },
+    { "id": "v5-08", "word": "swim", "phonetic": "swɪm", "pos": "動詞", "meaning": "泳ぐ", "example": { "en": "I can swim very well.", "ja": "私はとても上手に泳げます。" } },
+    { "id": "v5-09", "word": "weekend", "phonetic": "ˈwiːkɛnd", "pos": "名詞", "meaning": "週末", "example": { "en": "What do you do on the weekend?", "ja": "あなたは週末に何をしますか。" } },
+    { "id": "v5-10", "word": "favorite", "phonetic": "ˈfeɪvərɪt", "pos": "形容詞", "meaning": "お気に入りの", "example": { "en": "Blue is my favorite color.", "ja": "青は私の大好きな色です。" } }
+  ],
+  "grammar": [
+    {
+      "id": "g5-01",
+      "sentence": "This ___ my mother.",
+      "ja": "これは私の母です。",
+      "point": "be動詞（is）の使い方：This / That の後は is",
+      "choices": [
+        { "text": "is", "correct": true, "explain": "主語が This（単数）なので be動詞は is を使います。" },
+        { "text": "am", "correct": false, "explain": "am は主語が I のときだけ使います。" },
+        { "text": "are", "correct": false, "explain": "are は主語が you や複数のときに使います。" },
+        { "text": "be", "correct": false, "explain": "be はそのままの形では文の中で使えません。" }
+      ]
+    },
+    {
+      "id": "g5-02",
+      "sentence": "I ___ soccer every Sunday.",
+      "ja": "私は毎週日曜日にサッカーをします。",
+      "point": "一般動詞の現在形：主語が I のときは動詞に s をつけない",
+      "choices": [
+        { "text": "play", "correct": true, "explain": "主語が I のとき、一般動詞はそのままの形（原形）を使います。" },
+        { "text": "plays", "correct": false, "explain": "plays は主語が he / she / it のときに使う形です。" },
+        { "text": "playing", "correct": false, "explain": "playing は be動詞と一緒に使う進行形の形です。" },
+        { "text": "played", "correct": false, "explain": "played は過去形なので、every Sunday（現在の習慣）には合いません。" }
+      ]
+    },
+    {
+      "id": "g5-03",
+      "sentence": "___ you like cats?",
+      "ja": "あなたは猫が好きですか。",
+      "point": "一般動詞の疑問文：主語が you のときは Do を文の頭に置く",
+      "choices": [
+        { "text": "Do", "correct": true, "explain": "一般動詞の疑問文は主語の前に Do（主語が三人称単数なら Does）を置きます。" },
+        { "text": "Does", "correct": false, "explain": "Does は主語が he / she / it のときに使います。" },
+        { "text": "Are", "correct": false, "explain": "Are は be動詞の疑問文で使う語です。like は一般動詞なので使いません。" },
+        { "text": "Is", "correct": false, "explain": "Is も be動詞なので、一般動詞 like の疑問文には使いません。" }
+      ]
+    },
+    {
+      "id": "g5-04",
+      "sentence": "He can ___ the piano.",
+      "ja": "彼はピアノを弾くことができます。",
+      "point": "助動詞 can の後は動詞の原形",
+      "choices": [
+        { "text": "play", "correct": true, "explain": "can（助動詞）の後の動詞は必ず原形（そのままの形）になります。" },
+        { "text": "plays", "correct": false, "explain": "can の後に三単現の s はつけません。" },
+        { "text": "playing", "correct": false, "explain": "can の後は原形なので、playing（ing形）は使いません。" },
+        { "text": "to play", "correct": false, "explain": "can の後に to はつけません。" }
+      ]
+    },
+    {
+      "id": "g5-05",
+      "sentence": "___ book is this? — It's mine.",
+      "ja": "これは誰の本ですか。—私のです。",
+      "point": "疑問詞 Whose（誰の）の使い方",
+      "choices": [
+        { "text": "Whose", "correct": true, "explain": "「誰の～」とたずねるときは Whose を名詞の前に置きます。" },
+        { "text": "Who", "correct": false, "explain": "Who は「誰が」とたずねるときに使います。" },
+        { "text": "What", "correct": false, "explain": "What は「何」とたずねるときに使います。" },
+        { "text": "Which", "correct": false, "explain": "Which は「どちら・どれ」と選択をたずねるときに使います。" }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "r5-01",
+      "title": "My Family",
+      "passage": "Hello. My name is Kenta. I am eleven years old. I have one sister. Her name is Mai. We live in Tokyo with our parents. On Sundays, we often go to the park and play soccer together. I like soccer very much.",
+      "questions": [
+        {
+          "id": "r5-01-q1",
+          "q": "How old is Kenta?",
+          "choices": [
+            { "text": "Eleven years old.", "correct": true, "explain": "本文に \"I am eleven years old.\" とあります。" },
+            { "text": "Ten years old.", "correct": false, "explain": "本文には eleven（11歳）と書かれています。" },
+            { "text": "Twelve years old.", "correct": false, "explain": "本文には eleven（11歳）と書かれています。" },
+            { "text": "Nine years old.", "correct": false, "explain": "本文には eleven（11歳）と書かれています。" }
+          ]
+        },
+        {
+          "id": "r5-01-q2",
+          "q": "Who is Mai?",
+          "choices": [
+            { "text": "Kenta's sister.", "correct": true, "explain": "\"I have one sister. Her name is Mai.\" と書かれています。" },
+            { "text": "Kenta's mother.", "correct": false, "explain": "Mai はケンタの姉（妹）です。母親ではありません。" },
+            { "text": "Kenta's teacher.", "correct": false, "explain": "本文に先生についての記述はありません。" },
+            { "text": "Kenta's friend.", "correct": false, "explain": "Mai はケンタの家族（姉妹）です。" }
+          ]
+        },
+        {
+          "id": "r5-01-q3",
+          "q": "What do they do on Sundays?",
+          "choices": [
+            { "text": "They play soccer in the park.", "correct": true, "explain": "\"we often go to the park and play soccer together\" とあります。" },
+            { "text": "They watch TV at home.", "correct": false, "explain": "本文にはテレビの記述はありません。" },
+            { "text": "They go to school.", "correct": false, "explain": "日曜日は学校に行く日ではありません。" },
+            { "text": "They visit their grandparents.", "correct": false, "explain": "祖父母についての記述はありません。" }
+          ]
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l5-01",
+      "script": "It is nine o'clock now. I usually go to bed at nine thirty.",
+      "translation": "今、9時です。私はたいてい9時半に寝ます。",
+      "question": "What time does the speaker usually go to bed?",
+      "choices": [
+        { "text": "9:30", "correct": true, "explain": "\"I usually go to bed at nine thirty.\" と言っています。" },
+        { "text": "9:00", "correct": false, "explain": "9時は「今の時刻」で、寝る時刻ではありません。" },
+        { "text": "10:00", "correct": false, "explain": "本文では9時半（nine thirty）と言っています。" },
+        { "text": "8:30", "correct": false, "explain": "本文では9時半（nine thirty）と言っています。" }
+      ]
+    },
+    {
+      "id": "l5-02",
+      "script": "I have two brothers. They are both taller than me.",
+      "translation": "私には兄（弟）が2人います。2人とも私より背が高いです。",
+      "question": "How many brothers does the speaker have?",
+      "choices": [
+        { "text": "Two", "correct": true, "explain": "\"I have two brothers.\" と言っています。" },
+        { "text": "One", "correct": false, "explain": "two（2人）と言っています。" },
+        { "text": "Three", "correct": false, "explain": "two（2人）と言っています。" },
+        { "text": "None", "correct": false, "explain": "two（2人）と言っています。" }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "d5-01",
+      "title": "At School",
+      "translation": "A：やあ、今日は元気？ B：元気だよ、ありがとう。あなたは？ A：僕も元気だよ。宿題は終わった？ B：___ A：よかった！一緒に公園に行こう。",
+      "lines": [
+        { "speaker": "A", "text": "Hi, how are you today?" },
+        { "speaker": "B", "text": "I'm fine, thank you. And you?" },
+        { "speaker": "A", "text": "I'm good too. Did you finish your homework?" },
+        { "speaker": "B", "text": "___" },
+        { "speaker": "A", "text": "Great! Let's go to the park together." }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        { "text": "Yes, I finished it an hour ago.", "correct": true, "explain": "直後で「じゃあ公園に行こう」と誘っているので、宿題が終わったという返答が自然です。" },
+        { "text": "I like apples very much.", "correct": false, "explain": "宿題についての質問への返答になっていません。" },
+        { "text": "It is raining outside.", "correct": false, "explain": "天気の話は会話の流れに合いません。" },
+        { "text": "My dog is very big.", "correct": false, "explain": "犬の話は宿題についての質問と関係ありません。" }
+      ]
+    }
+  ]
+}

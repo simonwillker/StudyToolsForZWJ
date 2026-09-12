@@ -1,0 +1,166 @@
+{
+  "level": "3",
+  "levelLabel": "3級",
+  "levelSub": "中学卒業程度",
+  "color": "#8A6D2F",
+  "vocab": [
+    { "id": "v3-01", "word": "achieve", "phonetic": "əˈtʃiːv", "pos": "動詞", "meaning": "達成する", "example": { "en": "She achieved her goal after years of practice.", "ja": "彼女は何年もの練習の末に目標を達成しました。" } },
+    { "id": "v3-02", "word": "climate", "phonetic": "ˈklaɪmɪt", "pos": "名詞", "meaning": "気候", "example": { "en": "The climate in this area is very mild.", "ja": "この地域の気候はとても穏やかです。" } },
+    { "id": "v3-03", "word": "curious", "phonetic": "ˈkjʊəriəs", "pos": "形容詞", "meaning": "好奇心が強い", "example": { "en": "Children are curious about everything.", "ja": "子どもはあらゆることに好奇心を持っています。" } },
+    { "id": "v3-04", "word": "disappointed", "phonetic": "ˌdɪsəˈpɔɪntɪd", "pos": "形容詞", "meaning": "がっかりした", "example": { "en": "He was disappointed with the test results.", "ja": "彼はテストの結果にがっかりしました。" } },
+    { "id": "v3-05", "word": "environment", "phonetic": "ɪnˈvaɪrənmənt", "pos": "名詞", "meaning": "環境", "example": { "en": "We should protect the environment.", "ja": "私たちは環境を守るべきです。" } },
+    { "id": "v3-06", "word": "immediately", "phonetic": "ɪˈmiːdiətli", "pos": "副詞", "meaning": "すぐに", "example": { "en": "Please call me immediately if there is a problem.", "ja": "問題があればすぐに電話してください。" } },
+    { "id": "v3-07", "word": "opportunity", "phonetic": "ˌɒpərˈtjuːnɪti", "pos": "名詞", "meaning": "機会", "example": { "en": "Studying abroad was a great opportunity for me.", "ja": "留学は私にとって素晴らしい機会でした。" } },
+    { "id": "v3-08", "word": "recommend", "phonetic": "ˌrɛkəˈmɛnd", "pos": "動詞", "meaning": "勧める", "example": { "en": "I recommend this book to everyone.", "ja": "私はこの本をみんなに勧めます。" } },
+    { "id": "v3-09", "word": "volunteer", "phonetic": "ˌvɒlənˈtɪər", "pos": "名詞/動詞", "meaning": "ボランティア（をする）", "example": { "en": "He volunteers at the animal shelter every weekend.", "ja": "彼は毎週末、動物保護施設でボランティアをしています。" } },
+    { "id": "v3-10", "word": "improve", "phonetic": "ɪmˈpruːv", "pos": "動詞", "meaning": "改善する、上達する", "example": { "en": "Her English has improved a lot this year.", "ja": "彼女の英語は今年とても上達しました。" } }
+  ],
+  "grammar": [
+    {
+      "id": "g3-01",
+      "sentence": "I ___ never been to Okinawa.",
+      "ja": "私は沖縄に行ったことが一度もありません。",
+      "point": "現在完了形（経験用法）：have/has + 過去分詞",
+      "choices": [
+        { "text": "have", "correct": true, "explain": "主語が I なので have を使い、現在完了（経験）を表します。" },
+        { "text": "has", "correct": false, "explain": "has は主語が三人称単数（he/she/it）のときに使います。" },
+        { "text": "had", "correct": false, "explain": "had は過去完了形で、この文の never（一度も〜ない）とは合いません。" },
+        { "text": "am", "correct": false, "explain": "be動詞では現在完了形は作れません。" }
+      ]
+    },
+    {
+      "id": "g3-02",
+      "sentence": "This song ___ by a famous singer.",
+      "ja": "この歌は有名な歌手によって歌われました。",
+      "point": "受け身（受動態）：be動詞 + 過去分詞 + by",
+      "choices": [
+        { "text": "was sung", "correct": true, "explain": "「歌われた」という受け身は be動詞（was）+ 過去分詞（sung）で表します。" },
+        { "text": "sang", "correct": false, "explain": "sang は能動態の過去形で、「歌が歌った」という不自然な意味になります。" },
+        { "text": "sings", "correct": false, "explain": "sings は現在形の能動態です。受け身の形になっていません。" },
+        { "text": "singing", "correct": false, "explain": "singing だけでは受け身の文は作れません。" }
+      ]
+    },
+    {
+      "id": "g3-03",
+      "sentence": "I went to the library ___ some books.",
+      "ja": "私は本を借りるために図書館に行きました。",
+      "point": "不定詞の副詞的用法（目的：〜するために）",
+      "choices": [
+        { "text": "to borrow", "correct": true, "explain": "「〜するために」という目的は to + 動詞の原形（不定詞）で表します。" },
+        { "text": "borrowing", "correct": false, "explain": "borrowing（動名詞）は目的を表す用法としては使いません。" },
+        { "text": "borrowed", "correct": false, "explain": "borrowed（過去形）は目的を表す形にはなりません。" },
+        { "text": "borrow", "correct": false, "explain": "to が抜けているので、目的を表す不定詞になっていません。" }
+      ]
+    },
+    {
+      "id": "g3-04",
+      "sentence": "The boy ___ is standing over there is my brother.",
+      "ja": "あそこに立っている男の子は私の弟（兄）です。",
+      "point": "関係代名詞 who（人を説明する）",
+      "choices": [
+        { "text": "who", "correct": true, "explain": "先行詞が人（The boy）のときは関係代名詞 who を使います。" },
+        { "text": "which", "correct": false, "explain": "which は物や動物を説明するときに使います。" },
+        { "text": "whose", "correct": false, "explain": "whose は「〜の」という所有を表すときに使います。" },
+        { "text": "what", "correct": false, "explain": "what は先行詞を必要としない関係代名詞で、この文には合いません。" }
+      ]
+    },
+    {
+      "id": "g3-05",
+      "sentence": "___ studying English, she also enjoys playing the violin.",
+      "ja": "英語を勉強することに加えて、彼女はバイオリンを弾くことも楽しんでいます。",
+      "point": "前置詞 + 動名詞（Besides + 〜ing）",
+      "choices": [
+        { "text": "Besides", "correct": true, "explain": "Besides（〜に加えて）は前置詞なので、後ろに動名詞（studying）を続けます。" },
+        { "text": "Although", "correct": false, "explain": "Although（〜だけれども）は接続詞で、後ろに主語＋動詞の文が必要です。" },
+        { "text": "Because", "correct": false, "explain": "Because（〜なので）は理由を表し、この文の意味に合いません。" },
+        { "text": "Unless", "correct": false, "explain": "Unless（〜しない限り）は条件を表し、この文の意味に合いません。" }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "r3-01",
+      "title": "Protecting the Ocean",
+      "passage": "Many students in Japan have started to join beach clean-up activities. Every month, volunteers gather at local beaches to pick up plastic bottles and other trash. Scientists say that plastic waste is a serious problem for sea animals, because they sometimes eat it by mistake. By joining these activities, students can learn about the environment while helping to protect the ocean for future generations.",
+      "questions": [
+        {
+          "id": "r3-01-q1",
+          "q": "What do volunteers do at the beach clean-up activities?",
+          "choices": [
+            { "text": "They pick up plastic bottles and other trash.", "correct": true, "explain": "\"volunteers gather at local beaches to pick up plastic bottles and other trash\" とあります。" },
+            { "text": "They swim in the ocean.", "correct": false, "explain": "海で泳ぐという記述はありません。" },
+            { "text": "They study sea animals in a laboratory.", "correct": false, "explain": "実験室で研究するという記述はありません。" },
+            { "text": "They build sandcastles.", "correct": false, "explain": "砂の城を作るという記述はありません。" }
+          ]
+        },
+        {
+          "id": "r3-01-q2",
+          "q": "Why is plastic waste a problem for sea animals?",
+          "choices": [
+            { "text": "Because they sometimes eat it by mistake.", "correct": true, "explain": "\"they sometimes eat it by mistake\" とあります。" },
+            { "text": "Because it makes the water too cold.", "correct": false, "explain": "水温についての記述はありません。" },
+            { "text": "Because it changes the color of the ocean.", "correct": false, "explain": "海の色についての記述はありません。" },
+            { "text": "Because it attracts more fish.", "correct": false, "explain": "魚が集まるという記述はありません。" }
+          ]
+        },
+        {
+          "id": "r3-01-q3",
+          "q": "What can students learn by joining these activities?",
+          "choices": [
+            { "text": "About the environment.", "correct": true, "explain": "\"students can learn about the environment while helping to protect the ocean\" とあります。" },
+            { "text": "About ancient history.", "correct": false, "explain": "歴史についての記述はありません。" },
+            { "text": "About cooking.", "correct": false, "explain": "料理についての記述はありません。" },
+            { "text": "About foreign languages.", "correct": false, "explain": "外国語についての記述はありません。" }
+          ]
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l3-01",
+      "script": "I called the restaurant to make a reservation, but they were fully booked for tonight.",
+      "translation": "レストランに電話して予約をしようとしましたが、今夜は満席でした。",
+      "question": "What happened when the speaker called the restaurant?",
+      "choices": [
+        { "text": "It was fully booked for tonight.", "correct": true, "explain": "\"they were fully booked for tonight\" と言っています。" },
+        { "text": "The restaurant was closed.", "correct": false, "explain": "閉店しているとは言っていません。満席だったと言っています。" },
+        { "text": "The reservation was confirmed.", "correct": false, "explain": "予約は取れなかったと言っています。" },
+        { "text": "No one answered the phone.", "correct": false, "explain": "電話には出たが満席だったと言っています。" }
+      ]
+    },
+    {
+      "id": "l3-02",
+      "script": "If it doesn't rain tomorrow, we will have the sports festival at the school ground.",
+      "translation": "もし明日雨が降らなければ、私たちは学校の校庭で運動会をします。",
+      "question": "Where will the sports festival be held if it doesn't rain?",
+      "choices": [
+        { "text": "At the school ground.", "correct": true, "explain": "\"we will have the sports festival at the school ground\" と言っています。" },
+        { "text": "At the gym.", "correct": false, "explain": "体育館については述べられていません。" },
+        { "text": "At the park.", "correct": false, "explain": "公園については述べられていません。" },
+        { "text": "It will be canceled.", "correct": false, "explain": "雨が降らなければ開催されると言っています。" }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "d3-01",
+      "title": "At a Restaurant",
+      "translation": "A：いらっしゃいませ。ご注文はお決まりですか。 B：はい。チキンサンドイッチとサラダをお願いします。 A：かしこまりました。お飲み物はいかがですか。 B：___ A：かしこまりました。少々お待ちください。",
+      "lines": [
+        { "speaker": "A", "text": "Welcome. Are you ready to order?" },
+        { "speaker": "B", "text": "Yes. I'd like a chicken sandwich and a salad, please." },
+        { "speaker": "A", "text": "Certainly. Would you like something to drink?" },
+        { "speaker": "B", "text": "___" },
+        { "speaker": "A", "text": "Sure. Please wait a moment." }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        { "text": "I'll have an orange juice, please.", "correct": true, "explain": "飲み物をたずねられているので、飲み物を答えるのが自然です。" },
+        { "text": "I don't have any money.", "correct": false, "explain": "お金がないという返答は会話の流れに合いません。" },
+        { "text": "The weather is nice today.", "correct": false, "explain": "天気の話は注文の会話の流れに合いません。" },
+        { "text": "I finished my homework already.", "correct": false, "explain": "宿題の話は注文の会話に関係ありません。" }
+      ]
+    }
+  ]
+}
