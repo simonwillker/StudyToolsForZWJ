@@ -1,0 +1,627 @@
+{
+  "level": "pre2",
+  "levelLabel": "準2級",
+  "levelSub": "高校中級程度",
+  "color": "#5A3B8A",
+  "exam": {
+    "title": "準2級 一次試験 模擬テスト",
+    "note": "過去問（一次試験）の大問構成にもとづく模擬テストです。長文の語句空所補充が加わり、ライティングはEメールと意見論述の2題です。",
+    "writtenMinutes": 75,
+    "listeningMinutes": 25,
+    "passRate": 0.6
+  },
+  "sections": [
+    {
+      "id": "pre2-p1",
+      "phase": "written",
+      "part": "筆記 1",
+      "title": "短文の語句空所補充",
+      "type": "gapfill",
+      "officialCount": 20,
+      "instruction": "次の英文の（　）に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "pre2-p1-01",
+          "sentence": "The new library has a large （　） of books about local history.",
+          "ja": "その新しい図書館には郷土史に関する本の大きなコレクションがあります。",
+          "point": "collection（収集物、蔵書）",
+          "choices": [
+            { "text": "collection", "correct": true, "explain": "a collection of books で「蔵書、本のコレクション」という意味になります。" },
+            { "text": "condition", "correct": false, "explain": "condition は「状態、条件」で、本の数量を表しません。" },
+            { "text": "correction", "correct": false, "explain": "correction は「訂正」という意味です。" },
+            { "text": "connection", "correct": false, "explain": "connection は「つながり、接続」という意味です。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-02",
+          "sentence": "A: I cannot decide which jacket to buy.  B: Take your time. There is no need to （　）.",
+          "ja": "A：どちらの上着を買うか決められない。B：ゆっくりでいいよ。急ぐ必要はない。",
+          "point": "hurry（急ぐ）",
+          "choices": [
+            { "text": "hurry", "correct": true, "explain": "Take your time.（ゆっくりどうぞ）に続くので「急ぐ必要はない」が自然です。" },
+            { "text": "worry", "correct": false, "explain": "文意は通りますが、直前の Take your time. は時間についての発言なので hurry が最適です。" },
+            { "text": "borrow", "correct": false, "explain": "borrow は「借りる」で、買い物の場面に合いません。" },
+            { "text": "repeat", "correct": false, "explain": "repeat は「くり返す」で、文脈に合いません。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-03",
+          "sentence": "Kate could not go to the party （　） of her part-time job.",
+          "ja": "ケイトはアルバイトのせいでパーティーに行けませんでした。",
+          "point": "because of＋名詞（〜のせいで）",
+          "choices": [
+            { "text": "because", "correct": true, "explain": "because of＋名詞で理由を表します。of があるので because が入ります。" },
+            { "text": "instead", "correct": false, "explain": "instead of は「〜のかわりに」で、理由を表しません。" },
+            { "text": "thanks", "correct": false, "explain": "thanks to は良い結果の理由に使い、of とは組みません。" },
+            { "text": "such", "correct": false, "explain": "such of という形はありません。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-04",
+          "sentence": "If I （　） more time, I would travel around the world.",
+          "ja": "もっと時間があれば、世界中を旅するのに。",
+          "point": "仮定法過去〈If＋主語＋動詞の過去形, 主語＋would＋原形〉",
+          "choices": [
+            { "text": "had", "correct": true, "explain": "主節が would travel なので、If節は動詞の過去形（仮定法過去）になります。" },
+            { "text": "have", "correct": false, "explain": "現在形では would travel と時制が合いません。" },
+            { "text": "will have", "correct": false, "explain": "if 節の中では will は原則使いません。" },
+            { "text": "having", "correct": false, "explain": "If のあとに ing 形だけを置くことはできません。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-05",
+          "sentence": "The manager asked us to （　） the report by Friday morning.",
+          "ja": "部長は金曜の朝までに報告書を提出するよう私たちに求めました。",
+          "point": "hand in（提出する）",
+          "choices": [
+            { "text": "hand in", "correct": true, "explain": "hand in で「提出する」という意味の熟語です。" },
+            { "text": "take off", "correct": false, "explain": "take off は「脱ぐ、離陸する」です。" },
+            { "text": "look after", "correct": false, "explain": "look after は「世話をする」です。" },
+            { "text": "put off", "correct": false, "explain": "put off は「延期する」で、期限を示す文脈と合いません。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-06",
+          "sentence": "This is the museum （　） my grandfather worked for thirty years.",
+          "ja": "ここが私の祖父が30年間働いた博物館です。",
+          "point": "関係副詞 where（場所を説明する）",
+          "choices": [
+            { "text": "where", "correct": true, "explain": "後ろが完全な文で、the museum が場所なので関係副詞 where を使います。" },
+            { "text": "which", "correct": false, "explain": "which を使うなら worked at which のように前置詞が必要です。" },
+            { "text": "who", "correct": false, "explain": "who は人を説明します。" },
+            { "text": "when", "correct": false, "explain": "when は時を表す語を説明します。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-07",
+          "sentence": "Tom is used to （　） in front of many people because he is a teacher.",
+          "ja": "トムは教師なので、大勢の前で話すことに慣れています。",
+          "point": "be used to＋動名詞（〜することに慣れている）",
+          "choices": [
+            { "text": "speaking", "correct": true, "explain": "be used to の to は前置詞なので、あとには動名詞がきます。" },
+            { "text": "speak", "correct": false, "explain": "used to＋原形は「以前はよく〜した」という別の意味です。" },
+            { "text": "spoke", "correct": false, "explain": "過去形はここには入りません。" },
+            { "text": "be spoken", "correct": false, "explain": "受け身にすると意味が通りません。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-08",
+          "sentence": "Please let me know （　） you will be able to attend the meeting.",
+          "ja": "会議に出席できるかどうか知らせてください。",
+          "point": "接続詞 whether / if（〜かどうか）",
+          "choices": [
+            { "text": "whether", "correct": true, "explain": "「〜かどうか」を表す名詞節を作るのは whether です。" },
+            { "text": "that", "correct": false, "explain": "that では「出席できる」と断定する意味になり、知らせてほしい内容として不自然です。" },
+            { "text": "what", "correct": false, "explain": "what のあとは不完全な文になりますが、ここは完全な文です。" },
+            { "text": "which", "correct": false, "explain": "which は選択肢が示されているときに使います。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-09",
+          "sentence": "The concert was canceled （　） the heavy snow.",
+          "ja": "大雪のためコンサートは中止になりました。",
+          "point": "due to＋名詞（〜のため）",
+          "choices": [
+            { "text": "due to", "correct": true, "explain": "due to＋名詞で理由を表します。" },
+            { "text": "so that", "correct": false, "explain": "so that のあとには文がきます。" },
+            { "text": "as well as", "correct": false, "explain": "as well as は「〜と同様に」で、理由を表しません。" },
+            { "text": "in order to", "correct": false, "explain": "in order to のあとには動詞の原形がきます。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-10",
+          "sentence": "I have no idea （　） she left the company last year.",
+          "ja": "彼女が去年なぜ会社をやめたのか、私にはまったくわかりません。",
+          "point": "間接疑問〈疑問詞＋主語＋動詞〉",
+          "choices": [
+            { "text": "why", "correct": true, "explain": "理由がわからないという文脈なので why が入ります。語順は〈why＋主語＋動詞〉です。" },
+            { "text": "what", "correct": false, "explain": "what のあとは主語か目的語が欠けた文になります。" },
+            { "text": "whose", "correct": false, "explain": "whose のあとには名詞がきます。" },
+            { "text": "which", "correct": false, "explain": "選択の対象が示されていないので不自然です。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pre2-p2",
+      "phase": "written",
+      "part": "筆記 2",
+      "title": "会話文の文空所補充",
+      "type": "dialogue",
+      "officialCount": 5,
+      "instruction": "次の会話について、（　）に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "pre2-p2-01",
+          "title": "職場で",
+          "translation": "上司：来週の出張の準備は進んでいますか。　部下：（　）　上司：わかりました。では今日中にホテルを予約しておいてください。",
+          "lines": [
+            { "speaker": "A", "text": "How are the preparations for next week's business trip going?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "I see. Then please book the hotel by the end of today." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "I have booked the flights, but not the hotel yet.", "correct": true, "explain": "「では今日中にホテルを予約して」と続くので、ホテルがまだという発言が入ります。" },
+            { "text": "Everything is ready, including the hotel.", "correct": false, "explain": "すべて済んでいるなら、ホテルの予約を指示するのは不自然です。" },
+            { "text": "I have never been on a business trip.", "correct": false, "explain": "準備状況の答えになっていません。" },
+            { "text": "The trip was canceled last month.", "correct": false, "explain": "中止なら予約を指示しません。" }
+          ]
+        },
+        {
+          "id": "pre2-p2-02",
+          "title": "大学で",
+          "translation": "学生A：あのボランティアのプログラムに申しこんだ？　学生B：（　）　学生A：まだ間に合うよ。締め切りは今週金曜だから。",
+          "lines": [
+            { "speaker": "A", "text": "Did you apply for that volunteer program?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "You still have time. The deadline is this Friday." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "No, I thought it was too late.", "correct": true, "explain": "「まだ間に合う」と返しているので、遅いと思っていたという発言が合います。" },
+            { "text": "Yes, I sent my application last week.", "correct": false, "explain": "提出済みなら締め切りを知らせるのは不自然です。" },
+            { "text": "Yes, I was accepted yesterday.", "correct": false, "explain": "合格済みなら「まだ時間がある」とは言いません。" },
+            { "text": "No, I do not know where the library is.", "correct": false, "explain": "話題と関係がありません。" }
+          ]
+        },
+        {
+          "id": "pre2-p2-03",
+          "title": "自宅で",
+          "translation": "妻：この古い机、捨ててもいい？　夫：（　）　妻：そうね、なら物置に入れておきましょう。",
+          "lines": [
+            { "speaker": "A", "text": "Can I throw away this old desk?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "All right. Then let us keep it in the storage room." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Wait. My father made it for me when I was a child.", "correct": true, "explain": "捨てずに保管する流れになるので、思い出の品だと伝える発言が入ります。" },
+            { "text": "Sure, take it to the garbage area now.", "correct": false, "explain": "捨てることに同意していては、保管する流れになりません。" },
+            { "text": "Yes, I bought a new one yesterday.", "correct": false, "explain": "捨ててよい理由になるので、保管する流れに合いません。" },
+            { "text": "No, I have never seen that desk.", "correct": false, "explain": "自宅の家具についての返事として不自然です。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pre2-p3",
+      "phase": "written",
+      "part": "筆記 3",
+      "title": "長文の語句空所補充",
+      "type": "cloze",
+      "officialCount": 5,
+      "instruction": "次の英文を読み、その文中の空所に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "passages": [
+        {
+          "id": "pre2-p3-a",
+          "format": "説明文",
+          "title": "Working from Home",
+          "passage": "In the past, most people traveled to an office every morning. Today, however, many companies allow their employees to work from home. This change happened quickly, and it has brought both good and bad points.\n\nFor workers, the biggest advantage is time. People who work from home do not have to spend one or two hours on crowded trains. They can use that time for their families or hobbies. ( 1 ), they can often decide when to start and finish their work.\n\nOn the other hand, some workers say that they feel ( 2 ). When they work in an office, they can talk with other people during a break. At home, they may spend the whole day without speaking to anyone. Some young workers also worry that they cannot learn from experienced workers as easily.\n\nCompanies have noticed these problems. ( 4 ), many of them now ask their staff to come to the office two or three days a week. This style is called hybrid work, and experts believe it will ( 3 ) in the future.",
+          "translation": "かつては多くの人が毎朝オフィスへ通っていたが、今では在宅勤務を認める企業が多い。働き手にとって最大の利点は時間で、満員電車に1〜2時間かける必要がなく、その時間を家族や趣味に使える。また始業・終業時刻を自分で決められることも多い。一方で孤独を感じるという声もある。オフィスなら休憩中に人と話せるが、家では一日中だれとも話さないこともある。若手は経験者から学びにくいことも心配している。企業もこうした問題に気づき、週に2〜3日は出社を求めるところが増えた。これはハイブリッドワークと呼ばれ、専門家は今後さらに一般的になると考えている。",
+          "questions": [
+            {
+              "id": "pre2-p3-a-q1",
+              "blank": 1,
+              "choices": [
+                { "text": "In addition", "correct": true, "explain": "前の文に続けて利点をもう一つ挙げているので「さらに」を表す In addition が適切です。" },
+                { "text": "For example", "correct": false, "explain": "前の内容の具体例ではなく、別の利点を追加しています。" },
+                { "text": "However", "correct": false, "explain": "前後は同じ方向の内容なので逆接は合いません。" },
+                { "text": "As a result", "correct": false, "explain": "前の文の結果ではありません。" }
+              ]
+            },
+            {
+              "id": "pre2-p3-a-q2",
+              "blank": 2,
+              "choices": [
+                { "text": "lonely", "correct": true, "explain": "続く文で「一日中だれとも話さないことがある」と説明しているので「孤独だ」が適切です。" },
+                { "text": "busy", "correct": false, "explain": "いそがしさについての説明は続いていません。" },
+                { "text": "safe", "correct": false, "explain": "安全については述べられていません。" },
+                { "text": "excited", "correct": false, "explain": "On the other hand で始まる否定的な内容なので合いません。" }
+              ]
+            },
+            {
+              "id": "pre2-p3-a-q3",
+              "blank": 3,
+              "choices": [
+                { "text": "become more common", "correct": true, "explain": "企業が取り入れ始めた働き方について、専門家が将来を予測する文脈に合います。" },
+                { "text": "disappear completely", "correct": false, "explain": "企業が広げている働き方なので、消えるという予測は矛盾します。" },
+                { "text": "become illegal", "correct": false, "explain": "違法になるという話は本文にありません。" },
+                { "text": "cost more money", "correct": false, "explain": "費用については述べられていません。" }
+              ]
+            },
+            {
+              "id": "pre2-p3-a-q4",
+              "blank": 4,
+              "choices": [
+                { "text": "As a result", "correct": true, "explain": "「企業が問題に気づいた」ことの結果として出社を求めるようになったので、結果を示す語句が入ります。" },
+                { "text": "For instance", "correct": false, "explain": "前文の具体例ではなく、それを受けた対応です。" },
+                { "text": "By contrast", "correct": false, "explain": "前文と対立する内容ではありません。" },
+                { "text": "In other words", "correct": false, "explain": "前文の言いかえではありません。" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pre2-p4",
+      "phase": "written",
+      "part": "筆記 4",
+      "title": "長文の内容一致選択",
+      "type": "reading",
+      "officialCount": 7,
+      "instruction": "次の英文の内容に関して、質問に対する答えとして最も適切なものを1〜4の中から一つ選びなさい。",
+      "passages": [
+        {
+          "id": "pre2-p4-a",
+          "format": "Eメール",
+          "title": "A Problem with the Order",
+          "passage": "From: Customer Service, Blue Star Sports\nTo: Hiroshi Tanaka\nDate: June 3\nSubject: About your order #4821\n\nDear Mr. Tanaka,\n\nThank you for shopping at Blue Star Sports. We are writing about your order of two pairs of running shoes.\n\nUnfortunately, the blue shoes in size 27 are out of stock right now. The black ones are ready to ship. We have three choices for you:\n\n1. We can send the black shoes now and the blue ones in about three weeks.\n2. We can wait and send both pairs together in three weeks.\n3. We can cancel the blue shoes and give you a full refund for them.\n\nIf we do not hear from you within five days, we will choose option 1 and send the black shoes first.\n\nWe are very sorry for the trouble. As an apology, we will give you a 1,000-yen coupon for your next order.\n\nSincerely,\nMaria Lopez\nCustomer Service",
+          "translation": "ブルースター・スポーツのカスタマーサービスから田中宏へのメール。ランニングシューズ2足の注文について、青の27cmが在庫切れ。黒は発送可能。選択肢は3つ：(1)黒を先に送り青は約3週間後、(2)3週間後に2足まとめて発送、(3)青をキャンセルして全額返金。5日以内に返信がない場合は(1)を選び黒を先に送る。おわびとして次回使える1,000円クーポンを進呈する。",
+          "questions": [
+            {
+              "id": "pre2-p4-a-q1",
+              "q": "Why did the company send this e-mail?",
+              "choices": [
+                { "text": "One of the items Mr. Tanaka ordered is not available now.", "correct": true, "explain": "青の27cmが在庫切れであることを知らせるメールです。" },
+                { "text": "Mr. Tanaka has not paid for his order.", "correct": false, "explain": "支払いについての記述はありません。" },
+                { "text": "The store is closing next month.", "correct": false, "explain": "閉店の話はありません。" },
+                { "text": "Mr. Tanaka sent back the wrong shoes.", "correct": false, "explain": "返品の話ではありません。" }
+              ]
+            },
+            {
+              "id": "pre2-p4-a-q2",
+              "q": "What will happen if Mr. Tanaka does not reply?",
+              "choices": [
+                { "text": "The black shoes will be sent first.", "correct": true, "explain": "5日以内に返信がなければ選択肢1を選ぶ、と書かれています。" },
+                { "text": "The whole order will be canceled.", "correct": false, "explain": "全キャンセルにはなりません。" },
+                { "text": "Both pairs will be sent in three weeks.", "correct": false, "explain": "それは選択肢2で、返信があった場合です。" },
+                { "text": "He will receive a full refund.", "correct": false, "explain": "返金は選択肢3を選んだ場合です。" }
+              ]
+            },
+            {
+              "id": "pre2-p4-a-q3",
+              "q": "What is the company giving Mr. Tanaka as an apology?",
+              "choices": [
+                { "text": "A coupon worth 1,000 yen.", "correct": true, "explain": "a 1,000-yen coupon for your next order とあります。" },
+                { "text": "Free shipping for one year.", "correct": false, "explain": "送料無料の記述はありません。" },
+                { "text": "Another pair of shoes for free.", "correct": false, "explain": "無料のくつを渡すとは書かれていません。" },
+                { "text": "A 1,000-yen cash refund.", "correct": false, "explain": "現金返金ではなくクーポンです。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pre2-p4-b",
+          "format": "説明文",
+          "title": "The Bicycle City",
+          "passage": "Copenhagen, the capital of Denmark, is famous as one of the best cities in the world for cyclists. More than half of the people living there ride a bicycle to work or school every day. However, this was not always true.\n\nIn the 1960s, Copenhagen was full of cars. City planners built wider roads, and many people stopped cycling because the streets were dangerous. Then, in the 1970s, the price of oil rose sharply. Driving became expensive, and citizens began to protest against car traffic. They asked the city to make safe roads for bicycles.\n\nThe city slowly changed. It built bicycle lanes that were separated from cars, and it made special traffic lights for cyclists. It also built bridges that only bicycles and walkers could use. These projects cost a lot of money, but the city believed they were worth it.\n\nToday, the results are clear. The air in the city is cleaner, and fewer people are injured in traffic accidents. Studies also show that people who cycle every day are healthier and take fewer days off work. Many other cities now send officials to Copenhagen to learn from its example.",
+          "translation": "デンマークの首都コペンハーゲンは、世界有数の自転車都市として有名で、住民の半数以上が毎日自転車で通勤・通学している。しかし昔からそうだったわけではない。1960年代は車であふれ、道路が広げられた結果、危険で自転車に乗る人が減った。1970年代に石油価格が高騰し、運転費用が上がると、市民が自動車交通に抗議し、安全な自転車道を求めた。市は車と分離した自転車レーン、自転車専用信号、自転車と歩行者だけが使える橋を整備した。費用はかかったが価値があると市は考えた。今では空気がきれいになり、交通事故の負傷者も減った。毎日自転車に乗る人は健康で仕事を休む日数も少ないという研究もある。多くの都市が視察に訪れている。",
+          "questions": [
+            {
+              "id": "pre2-p4-b-q1",
+              "q": "What happened in Copenhagen in the 1960s?",
+              "choices": [
+                { "text": "Many people stopped riding bicycles.", "correct": true, "explain": "道路が車中心になり危険だったため、自転車に乗る人が減ったと書かれています。" },
+                { "text": "The city built many bicycle lanes.", "correct": false, "explain": "自転車レーンの整備はもっとあとのことです。" },
+                { "text": "The price of oil went down.", "correct": false, "explain": "石油価格が上がったのは1970年代です。" },
+                { "text": "Citizens protested against bicycles.", "correct": false, "explain": "抗議の対象は自動車交通です。" }
+              ]
+            },
+            {
+              "id": "pre2-p4-b-q2",
+              "q": "What did the city do to make cycling safer?",
+              "choices": [
+                { "text": "It built bicycle lanes separated from cars.", "correct": true, "explain": "車と分離した自転車レーンや専用信号を整備しました。" },
+                { "text": "It banned all cars from the city.", "correct": false, "explain": "車を全面禁止したとは書かれていません。" },
+                { "text": "It made the roads wider for cars.", "correct": false, "explain": "道路の拡幅は1960年代の失敗した施策です。" },
+                { "text": "It gave free bicycles to citizens.", "correct": false, "explain": "自転車の無償配布の記述はありません。" }
+              ]
+            },
+            {
+              "id": "pre2-p4-b-q3",
+              "q": "According to studies, what is true about people who cycle every day?",
+              "choices": [
+                { "text": "They miss work less often.", "correct": true, "explain": "take fewer days off work と書かれています。" },
+                { "text": "They earn more money.", "correct": false, "explain": "収入についての記述はありません。" },
+                { "text": "They move to other cities.", "correct": false, "explain": "引っ越しの話はありません。" },
+                { "text": "They spend more time commuting.", "correct": false, "explain": "通勤時間が長くなるとは書かれていません。" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pre2-p5",
+      "phase": "written",
+      "part": "筆記 5",
+      "title": "ライティング（Eメール・意見論述）",
+      "type": "writing",
+      "officialCount": 2,
+      "instruction": "指示にしたがって英文を書きなさい。提出後に解答例とチェックリストで自己採点します。",
+      "prompts": [
+        {
+          "id": "pre2-p5-01",
+          "styleLabel": "Eメール問題",
+          "instruction": "外国人の友だちからのEメールに返信を書きなさい。下線部について、具体的な質問を2つ含めること。",
+          "topic": "Guess what! My family is going to get a dog next month. I am so excited because I have wanted a pet for a long time.",
+          "conditions": [
+            "友だちのメールに対する返信として書く",
+            "下線部（犬を飼うこと）について具体的な質問を2つ含める",
+            "語数の目安は40〜50語",
+            "friend のメールに対応していない内容の場合は0点になる"
+          ],
+          "wordCount": "40〜50語",
+          "modelAnswer": "Hi! Thank you for your e-mail. I was happy to hear that your family is going to get a dog. That is wonderful news. I have two questions. What kind of dog are you going to get? And who will take care of it every day? Please send me a picture later.",
+          "modelTranslation": "こんにちは。メールをありがとう。ご家族が犬を飼うと聞いてうれしかったです。すばらしい知らせですね。質問が2つあります。どんな種類の犬を飼うのですか。そして毎日だれが世話をするのですか。あとで写真を送ってください。",
+          "checklist": [
+            "友だちのメールの内容に正しく対応しているか（対応していないと0点）",
+            "下線部についての具体的な質問が2つあるか",
+            "語数は40〜50語におさまっているか",
+            "書き出し（Thank you for your e-mail. など）と結び（返信をうながす一文）があるか",
+            "時制・三単現・冠詞のまちがいがないか"
+          ],
+          "points": 16
+        },
+        {
+          "id": "pre2-p5-02",
+          "styleLabel": "意見論述問題",
+          "instruction": "以下のQUESTIONについて、あなたの意見と理由を2つ書きなさい。",
+          "topic": "Do you think high school students should have a part-time job?",
+          "conditions": [
+            "語数の目安は50〜60語",
+            "はじめに自分の意見を書き、理由を2つ述べる",
+            "最後にもう一度意見をまとめる",
+            "QUESTIONに対応していない場合は0点になる"
+          ],
+          "wordCount": "50〜60語",
+          "modelAnswer": "I think high school students should have a part-time job. First, working teaches them how to manage money. They learn that earning money is not easy, so they use it more carefully. Second, students can meet many different people at work. This experience helps them communicate better. For these reasons, I believe part-time jobs are good for students.",
+          "modelTranslation": "私は高校生はアルバイトをするべきだと思います。第一に、働くことでお金の管理の仕方を学べます。お金を稼ぐことが簡単ではないと知り、より慎重に使うようになります。第二に、職場でさまざまな人と出会えます。この経験はコミュニケーション力を高める助けになります。これらの理由から、アルバイトは学生にとって良いと考えます。",
+          "checklist": [
+            "はじめに意見をはっきり述べているか",
+            "理由を2つ、それぞれ具体的に説明しているか",
+            "First / Second / For these reasons などの構成語を使っているか",
+            "最後に意見をまとめているか",
+            "語数は50〜60語におさまっているか"
+          ],
+          "points": 16
+        }
+      ]
+    },
+    {
+      "id": "pre2-l1",
+      "phase": "listening",
+      "part": "リスニング 第1部",
+      "title": "会話の応答文選択",
+      "type": "listening",
+      "listeningStyle": "response",
+      "officialCount": 10,
+      "playLimit": 1,
+      "choicesAudioOnly": true,
+      "instruction": "会話を聞き、最後の発言に対する応答として最も適切なものを、放送される1〜3の中から一つ選びなさい。放送は1回だけです。（本番では選択肢は問題用紙に印刷されていません）",
+      "questions": [
+        {
+          "id": "pre2-l1-01",
+          "script": [
+            { "speaker": "A", "text": "I am thinking about taking a cooking class this fall." },
+            { "speaker": "B", "text": "That sounds fun. Have you found a good one?" },
+            { "speaker": "A", "text": "Not yet. Do you know any?" }
+          ],
+          "translation": "A：秋に料理教室に通おうかと考えているんだ。　B：楽しそうだね。よいところは見つかった？　A：まだなんだ。どこか知ってる？",
+          "choices": [
+            { "text": "My sister goes to one near the station.", "correct": true, "explain": "知っている教室を紹介する返事が自然です。" },
+            { "text": "Yes, I cooked dinner last night.", "correct": false, "explain": "昨夜の話で、教室の情報になっていません。" },
+            { "text": "No, I will not eat anything.", "correct": false, "explain": "質問への答えになっていません。" }
+          ]
+        },
+        {
+          "id": "pre2-l1-02",
+          "script": [
+            { "speaker": "A", "text": "Excuse me, I reserved a table for four at seven." },
+            { "speaker": "B", "text": "May I have your name, please?" },
+            { "speaker": "A", "text": "It is Anderson." }
+          ],
+          "translation": "A：すみません、7時に4名で予約しています。　B：お名前をうかがえますか。　A：アンダーソンです。",
+          "choices": [
+            { "text": "Thank you. Your table is ready.", "correct": true, "explain": "名前を確認したあとの店員の返事として自然です。" },
+            { "text": "Sorry, we do not sell tables.", "correct": false, "explain": "table には「席」の意味があります。かみ合っていません。" },
+            { "text": "Yes, I will call you tomorrow.", "correct": false, "explain": "その場の案内になっていません。" }
+          ]
+        },
+        {
+          "id": "pre2-l1-03",
+          "script": [
+            { "speaker": "A", "text": "You did not come to the meeting this morning." },
+            { "speaker": "B", "text": "I know. My train was delayed for an hour." },
+            { "speaker": "A", "text": "Did you tell the manager?" }
+          ],
+          "translation": "A：今朝の会議に来なかったね。　B：うん。電車が1時間おくれてしまって。　A：部長には伝えた？",
+          "choices": [
+            { "text": "Yes, I called him from the station.", "correct": true, "explain": "伝えたかどうかの質問に、方法を添えて答えています。" },
+            { "text": "No, the meeting was very useful.", "correct": false, "explain": "会議に出ていないので矛盾します。" },
+            { "text": "Yes, the train leaves at eight.", "correct": false, "explain": "質問の答えになっていません。" }
+          ]
+        },
+        {
+          "id": "pre2-l1-04",
+          "script": [
+            { "speaker": "A", "text": "How was your job interview yesterday?" },
+            { "speaker": "B", "text": "I think it went well, but I was nervous." },
+            { "speaker": "A", "text": "When will you hear the result?" }
+          ],
+          "translation": "A：昨日の面接はどうだった？　B：うまくいったと思うけど、緊張したよ。　A：結果はいつわかるの？",
+          "choices": [
+            { "text": "They said they would call me next week.", "correct": true, "explain": "結果を知る時期を答えています。" },
+            { "text": "It was at the head office downtown.", "correct": false, "explain": "場所の答えになっています。" },
+            { "text": "Because I studied hard for it.", "correct": false, "explain": "理由の答えで、時をたずねる質問に合いません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pre2-l2",
+      "phase": "listening",
+      "part": "リスニング 第2部",
+      "title": "会話の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "conversation",
+      "officialCount": 10,
+      "playLimit": 1,
+      "instruction": "会話と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。放送は1回だけです。",
+      "questions": [
+        {
+          "id": "pre2-l2-01",
+          "script": [
+            { "speaker": "A", "text": "Kevin, are you going to join the school trip to Kyoto?" },
+            { "speaker": "B", "text": "I want to, but it costs 40,000 yen. I only have half of that." },
+            { "speaker": "A", "text": "You could work at my uncle's cafe during the summer." },
+            { "speaker": "B", "text": "Really? That would help a lot. Could you introduce me?" }
+          ],
+          "question": "What does Kevin ask the girl to do?",
+          "translation": "A：ケビン、京都の修学旅行には参加する？　B：行きたいけど4万円かかるんだ。半分しかない。　A：夏の間、うちのおじのカフェで働けるよ。　B：本当？すごく助かる。紹介してくれる？（質問：ケビンは少女に何をたのみましたか）",
+          "choices": [
+            { "text": "Introduce him to her uncle.", "correct": true, "explain": "Could you introduce me? とたのんでいます。" },
+            { "text": "Lend him 20,000 yen.", "correct": false, "explain": "お金を借りるとは言っていません。" },
+            { "text": "Cancel the school trip.", "correct": false, "explain": "旅行を中止する話ではありません。" },
+            { "text": "Work at the cafe with him.", "correct": false, "explain": "一緒に働いてほしいとは言っていません。" }
+          ]
+        },
+        {
+          "id": "pre2-l2-02",
+          "script": [
+            { "speaker": "A", "text": "Welcome to City Gym. Are you interested in becoming a member?" },
+            { "speaker": "B", "text": "Yes. How much is the monthly fee?" },
+            { "speaker": "A", "text": "It is 6,000 yen, but students get a 20 percent discount." },
+            { "speaker": "B", "text": "Great. I am a university student. Can I start today?" },
+            { "speaker": "A", "text": "Of course. Please bring your student ID next time." }
+          ],
+          "question": "How much will the man pay each month?",
+          "translation": "A：シティジムへようこそ。会員に興味がおありですか。　B：はい。月会費はいくらですか。　A：6,000円ですが、学生は20パーセント引きです。　B：いいですね。私は大学生です。今日から始められますか。　A：もちろんです。次回は学生証をお持ちください。（質問：男性は毎月いくら払いますか）",
+          "choices": [
+            { "text": "4,800 yen.", "correct": true, "explain": "6,000円の20パーセント引きなので4,800円です。" },
+            { "text": "6,000 yen.", "correct": false, "explain": "学生割引が適用されます。" },
+            { "text": "1,200 yen.", "correct": false, "explain": "1,200円は割引額です。" },
+            { "text": "5,000 yen.", "correct": false, "explain": "計算が合いません。" }
+          ]
+        },
+        {
+          "id": "pre2-l2-03",
+          "script": [
+            { "speaker": "A", "text": "I heard you moved to a new apartment, Lisa." },
+            { "speaker": "B", "text": "Yes, last month. It is smaller than my old one, but the rent is much lower." },
+            { "speaker": "A", "text": "Is it far from your office?" },
+            { "speaker": "B", "text": "Actually, it is closer. I can walk there in fifteen minutes." }
+          ],
+          "question": "What is one good point about Lisa's new apartment?",
+          "translation": "A：リサ、新しいアパートに引っ越したんだってね。　B：うん、先月ね。前より狭いけど家賃はずっと安いの。　A：会社から遠いの？　B：実は近いの。歩いて15分よ。（質問：リサの新しいアパートの良い点は何ですか）",
+          "choices": [
+            { "text": "It is near her office.", "correct": true, "explain": "職場まで歩いて15分と言っています。" },
+            { "text": "It is larger than her old one.", "correct": false, "explain": "以前より狭いと言っています。" },
+            { "text": "The rent is higher.", "correct": false, "explain": "家賃は安くなっています。" },
+            { "text": "It has a swimming pool.", "correct": false, "explain": "プールの話は出てきません。" }
+          ]
+        },
+        {
+          "id": "pre2-l2-04",
+          "script": [
+            { "speaker": "A", "text": "Dr. Smith, I still have a headache." },
+            { "speaker": "B", "text": "Are you taking the medicine I gave you last week?" },
+            { "speaker": "A", "text": "Yes, but only when the pain is very bad." },
+            { "speaker": "B", "text": "You need to take it twice a day, after breakfast and dinner." }
+          ],
+          "question": "What is the patient doing wrong?",
+          "translation": "A：スミス先生、まだ頭痛がします。　B：先週お出しした薬は飲んでいますか。　A：はい、でも痛みがひどいときだけです。　B：朝食後と夕食後の1日2回飲む必要があります。（質問：患者は何をまちがえていますか）",
+          "choices": [
+            { "text": "He is not taking the medicine regularly.", "correct": true, "explain": "1日2回飲む必要があるのに、痛いときだけ飲んでいます。" },
+            { "text": "He is taking too much medicine.", "correct": false, "explain": "飲みすぎではなく不足しています。" },
+            { "text": "He did not visit the doctor.", "correct": false, "explain": "今まさに受診しています。" },
+            { "text": "He lost his medicine.", "correct": false, "explain": "薬をなくしたとは言っていません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pre2-l3",
+      "phase": "listening",
+      "part": "リスニング 第3部",
+      "title": "文の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "passage",
+      "officialCount": 10,
+      "playLimit": 1,
+      "instruction": "英文と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。放送は1回だけです。",
+      "questions": [
+        {
+          "id": "pre2-l3-01",
+          "script": "Naomi started learning Spanish three years ago because she wanted to travel in South America. Last year, she finally visited Peru. She was happy because she could talk with local people without a guide.",
+          "question": "Why was Naomi happy in Peru?",
+          "translation": "ナオミは南米を旅行したくて3年前にスペイン語を学び始めた。昨年ついにペルーを訪れ、ガイドなしで現地の人と話せたので喜んだ。（質問：ナオミはなぜペルーで喜んだのですか）",
+          "choices": [
+            { "text": "She could speak with local people by herself.", "correct": true, "explain": "ガイドなしで現地の人と話せたからです。" },
+            { "text": "She met a Spanish teacher there.", "correct": false, "explain": "現地で教師に会ったとは言っていません。" },
+            { "text": "She traveled with a good guide.", "correct": false, "explain": "ガイドなしで話せたことが理由です。" },
+            { "text": "She finished her Spanish course.", "correct": false, "explain": "講座の修了については述べられていません。" }
+          ]
+        },
+        {
+          "id": "pre2-l3-02",
+          "script": "Thank you for visiting the Science Museum. The special robot show on the third floor starts at two p.m. Seats are limited, so please get a free ticket at the information desk before one thirty.",
+          "question": "What should visitors do before 1:30?",
+          "translation": "科学博物館へのご来館ありがとうございます。3階の特別ロボットショーは午後2時開始です。座席に限りがありますので、1時30分までに案内所で無料チケットをお受け取りください。（質問：来館者は1時30分までに何をすべきですか）",
+          "choices": [
+            { "text": "Get a free ticket at the information desk.", "correct": true, "explain": "案内所で無料チケットを受け取るよう案内しています。" },
+            { "text": "Go to the third floor and wait.", "correct": false, "explain": "3階はショーの会場ですが、指示はチケットの受け取りです。" },
+            { "text": "Pay for a seat.", "correct": false, "explain": "チケットは無料です。" },
+            { "text": "Leave the museum.", "correct": false, "explain": "退館の指示はありません。" }
+          ]
+        },
+        {
+          "id": "pre2-l3-03",
+          "script": "Mark opened a small bakery five years ago. At first, only a few customers came. Then a local newspaper wrote about his apple pies, and business improved quickly. Now he has two shops and plans to open a third one next spring.",
+          "question": "What helped Mark's business?",
+          "translation": "マークは5年前に小さなパン屋を開いた。最初は客が少なかったが、地元紙が彼のアップルパイを取り上げると商売は急によくなった。今では2店舗を持ち、来春3店舗目を出す予定だ。（質問：何がマークの商売を助けましたか）",
+          "choices": [
+            { "text": "A newspaper article about his pies.", "correct": true, "explain": "地元紙がアップルパイを紹介したことがきっかけです。" },
+            { "text": "Opening a second shop.", "correct": false, "explain": "2店舗目は結果であって原因ではありません。" },
+            { "text": "Lowering his prices.", "correct": false, "explain": "値下げの話は出てきません。" },
+            { "text": "Hiring famous bakers.", "correct": false, "explain": "有名職人を雇った話はありません。" }
+          ]
+        },
+        {
+          "id": "pre2-l3-04",
+          "script": "Attention, passengers on Flight 302 to Sydney. Because of strong winds, the departure time has been changed from 9:40 to 11:20. Passengers may use the lounge on the second floor until boarding begins.",
+          "question": "What is the new departure time?",
+          "translation": "シドニー行き302便のお客様にお知らせします。強風のため出発時刻が9時40分から11時20分に変更されました。搭乗開始まで2階のラウンジをご利用いただけます。（質問：新しい出発時刻はいつですか）",
+          "choices": [
+            { "text": "11:20.", "correct": true, "explain": "9時40分から11時20分に変更されました。" },
+            { "text": "9:40.", "correct": false, "explain": "9時40分は変更前の時刻です。" },
+            { "text": "2:00.", "correct": false, "explain": "2階のラウンジの話と混同しています。" },
+            { "text": "10:20.", "correct": false, "explain": "そのような時刻は放送されていません。" }
+          ]
+        }
+      ]
+    }
+  ]
+}

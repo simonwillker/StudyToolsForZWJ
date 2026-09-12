@@ -1,0 +1,535 @@
+{
+  "level": "2",
+  "levelLabel": "2級",
+  "levelSub": "高校卒業程度",
+  "color": "#8A3B2F",
+  "exam": {
+    "title": "2級 一次試験 模擬テスト",
+    "note": "過去問（一次試験）の大問構成にもとづく模擬テストです。ライティングは英文要約と意見論述の2題で、解答例とチェックリストを使って自己採点します。",
+    "writtenMinutes": 85,
+    "listeningMinutes": 25,
+    "passRate": 0.62
+  },
+  "sections": [
+    {
+      "id": "2-p1",
+      "phase": "written",
+      "part": "筆記 1",
+      "title": "短文の語句空所補充",
+      "type": "gapfill",
+      "officialCount": 20,
+      "instruction": "次の英文の（　）に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "2-p1-01",
+          "sentence": "The company decided to （　） more money to research and development this year.",
+          "ja": "その会社は今年、研究開発により多くの資金を割り当てることに決めました。",
+          "point": "allocate（割り当てる）",
+          "choices": [
+            { "text": "allocate", "correct": true, "explain": "allocate A to B で「AをBに割り当てる」。予算配分の文脈で使われます。" },
+            { "text": "eliminate", "correct": false, "explain": "eliminate は「取り除く」で、資金を配る意味にはなりません。" },
+            { "text": "hesitate", "correct": false, "explain": "hesitate は「ためらう」で、目的語に money はとりません。" },
+            { "text": "imitate", "correct": false, "explain": "imitate は「まねる」という意味です。" }
+          ]
+        },
+        {
+          "id": "2-p1-02",
+          "sentence": "The witness gave a very （　） description of the man he saw.",
+          "ja": "目撃者は見た男について非常に詳しい説明をしました。",
+          "point": "detailed（詳細な）",
+          "choices": [
+            { "text": "detailed", "correct": true, "explain": "a detailed description で「詳細な説明」という自然な結びつきです。" },
+            { "text": "delighted", "correct": false, "explain": "delighted は人が「喜んでいる」状態を表します。" },
+            { "text": "delayed", "correct": false, "explain": "delayed は「おくれた」で、description を修飾しても意味が通りません。" },
+            { "text": "devoted", "correct": false, "explain": "devoted は「献身的な」で、説明の性質を表しません。" }
+          ]
+        },
+        {
+          "id": "2-p1-03",
+          "sentence": "Sales have gone up （　） since the new manager arrived.",
+          "ja": "新しい部長が来てから売上は着実に伸びています。",
+          "point": "steadily（着実に）— 動詞を修飾する副詞",
+          "choices": [
+            { "text": "steadily", "correct": true, "explain": "動詞 have gone up を修飾する副詞で、「着実に」という意味です。" },
+            { "text": "steady", "correct": false, "explain": "steady は形容詞なので、ここでは副詞の形が必要です。" },
+            { "text": "steadiness", "correct": false, "explain": "名詞なので動詞を修飾できません。" },
+            { "text": "steadier", "correct": false, "explain": "形容詞の比較級で、この位置には入りません。" }
+          ]
+        },
+        {
+          "id": "2-p1-04",
+          "sentence": "（　） the heavy traffic, we arrived at the airport on time.",
+          "ja": "交通渋滞にもかかわらず、私たちは時間どおりに空港に着きました。",
+          "point": "Despite＋名詞（〜にもかかわらず）",
+          "choices": [
+            { "text": "Despite", "correct": true, "explain": "Despite のあとには名詞句がきます。「〜にもかかわらず」という譲歩を表します。" },
+            { "text": "Although", "correct": false, "explain": "Although のあとには〈主語＋動詞〉の文がきます。" },
+            { "text": "However", "correct": false, "explain": "However は副詞で、直後に名詞句を続けられません。" },
+            { "text": "Because of", "correct": false, "explain": "理由になってしまい、「時間どおりに着いた」と意味が合いません。" }
+          ]
+        },
+        {
+          "id": "2-p1-05",
+          "sentence": "It is essential that every employee （　） the safety rules.",
+          "ja": "全従業員が安全規則に従うことが不可欠です。",
+          "point": "It is essential that＋主語＋動詞の原形（仮定法現在）",
+          "choices": [
+            { "text": "follow", "correct": true, "explain": "essential / necessary / important などのあとの that節では動詞は原形になります。" },
+            { "text": "follows", "correct": false, "explain": "仮定法現在では三単現の s をつけません。" },
+            { "text": "following", "correct": false, "explain": "that節の動詞として ing 形は使えません。" },
+            { "text": "to follow", "correct": false, "explain": "that節の中に to不定詞は入りません。" }
+          ]
+        },
+        {
+          "id": "2-p1-06",
+          "sentence": "The scientist spent years trying to （　） the mystery of the ancient city.",
+          "ja": "その科学者は古代都市の謎を解き明かそうと何年も費やしました。",
+          "point": "solve（解決する、解き明かす）",
+          "choices": [
+            { "text": "solve", "correct": true, "explain": "solve a mystery で「謎を解く」という決まった結びつきです。" },
+            { "text": "resolve", "correct": false, "explain": "resolve は対立や問題を「解消する」ときに使い、mystery とは通常組みません。" },
+            { "text": "dissolve", "correct": false, "explain": "dissolve は「溶かす」という意味です。" },
+            { "text": "involve", "correct": false, "explain": "involve は「巻きこむ、含む」という意味です。" }
+          ]
+        },
+        {
+          "id": "2-p1-07",
+          "sentence": "Not only （　） the report late, but it also contained several mistakes.",
+          "ja": "報告書はおくれただけでなく、いくつかの誤りも含んでいました。",
+          "point": "Not only が文頭にきたときの倒置",
+          "choices": [
+            { "text": "was", "correct": true, "explain": "Not only が文頭にくると疑問文と同じ語順（倒置）になり、be動詞が主語の前に出ます。" },
+            { "text": "the report was", "correct": false, "explain": "倒置が起きるので、主語をそのまま置くことはできません。" },
+            { "text": "did", "correct": false, "explain": "後ろが late という形容詞なので be動詞が必要です。" },
+            { "text": "has", "correct": false, "explain": "has では late とつながりません。" }
+          ]
+        },
+        {
+          "id": "2-p1-08",
+          "sentence": "The new policy will （　） into effect at the beginning of April.",
+          "ja": "新しい方針は4月初めに施行されます。",
+          "point": "come into effect（効力を生じる、施行される）",
+          "choices": [
+            { "text": "come", "correct": true, "explain": "come into effect で「効力を発する、施行される」という熟語です。" },
+            { "text": "bring", "correct": false, "explain": "bring into effect は目的語が必要で、ここでは形が合いません。" },
+            { "text": "make", "correct": false, "explain": "make into effect という言い方はしません。" },
+            { "text": "get", "correct": false, "explain": "get into effect という言い方はしません。" }
+          ]
+        },
+        {
+          "id": "2-p1-09",
+          "sentence": "He apologized for the delay, （　） was caused by a computer error.",
+          "ja": "彼はおくれについて謝罪しましたが、それはコンピューターの不具合によるものでした。",
+          "point": "非制限用法の関係代名詞 which",
+          "choices": [
+            { "text": "which", "correct": true, "explain": "コンマのあとで前の名詞を補足説明する非制限用法には which を使います。" },
+            { "text": "that", "correct": false, "explain": "that は非制限用法（コンマのあと）では使えません。" },
+            { "text": "what", "correct": false, "explain": "what は先行詞をとらないので the delay のあとには置けません。" },
+            { "text": "who", "correct": false, "explain": "who は人を指します。" }
+          ]
+        },
+        {
+          "id": "2-p1-10",
+          "sentence": "The museum is currently closed （　） renovation.",
+          "ja": "その博物館は改修のため現在閉館しています。",
+          "point": "for＋目的を表す名詞",
+          "choices": [
+            { "text": "for", "correct": true, "explain": "closed for renovation で「改修のため閉館中」という定型表現です。" },
+            { "text": "by", "correct": false, "explain": "by は手段・行為者を表し、この文では不自然です。" },
+            { "text": "with", "correct": false, "explain": "with では「改修とともに」という意味不明な表現になります。" },
+            { "text": "from", "correct": false, "explain": "from は起点を表し、目的を表しません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2-p2",
+      "phase": "written",
+      "part": "筆記 2",
+      "title": "長文の語句空所補充",
+      "type": "cloze",
+      "officialCount": 6,
+      "instruction": "次の英文を読み、その文中の空所に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "passages": [
+        {
+          "id": "2-p2-a",
+          "format": "説明文",
+          "title": "The Return of the Night Train",
+          "passage": "For decades, night trains seemed to be disappearing from Europe. Budget airlines offered tickets that were far cheaper, and travelers chose to fly. Many railway companies closed their sleeper services because they were losing money.\n\nRecently, however, the situation has ( 1 ). Concern about climate change has grown, and a flight produces far more carbon dioxide per passenger than a train. Some travelers, especially younger ones, now ( 4 ) to fly for short trips. Austrian and Swedish railway companies have responded by adding new overnight routes between major cities.\n\nNight trains also offer a practical benefit. Passengers board in the evening, sleep during the journey, and arrive in the morning ready to work. ( 2 ), they save the cost of one night in a hotel. For business travelers, this can make the total price competitive with flying.\n\nStill, there are difficulties. Sleeper cars are expensive to build, and each car carries fewer passengers than an ordinary one. Crossing borders also requires agreements between several countries, which takes time. ( 3 ) these problems, most experts expect the number of night train routes in Europe to keep growing.",
+          "translation": "数十年にわたり、ヨーロッパの夜行列車は消えつつあるように見えた。格安航空が圧倒的に安い運賃を提供し、旅行者は飛行機を選んだ。赤字のため寝台列車を廃止する鉄道会社も多かった。しかし近年、状況は変わった。気候変動への懸念が高まり、飛行機は乗客一人あたりの二酸化炭素排出量が列車よりはるかに多い。特に若い旅行者の中には短距離で飛行機に乗らない人もいる。オーストリアやスウェーデンの鉄道会社は主要都市間に新しい夜行路線を追加した。夜行列車には実用的な利点もある。夕方に乗り、移動中に眠り、朝に着いてすぐ働ける。さらにホテル1泊分の費用も節約できる。出張者にとっては総額で飛行機に対抗できる。ただし寝台車は建造費が高く、乗客数も少ない。国境をまたぐには複数国間の取り決めも必要で時間がかかる。それでも専門家の多くは、ヨーロッパの夜行路線は今後も増えると見ている。",
+          "questions": [
+            {
+              "id": "2-p2-a-q1",
+              "blank": 1,
+              "choices": [
+                { "text": "changed", "correct": true, "explain": "however に続き、以降で夜行列車が復活している事実が述べられているので「変わった」が適切です。" },
+                { "text": "worsened", "correct": false, "explain": "続く内容は夜行列車にとって好転する話です。" },
+                { "text": "repeated", "correct": false, "explain": "同じことがくり返されたという話ではありません。" },
+                { "text": "ended", "correct": false, "explain": "状況が終わったという表現では文が成り立ちません。" }
+              ]
+            },
+            {
+              "id": "2-p2-a-q2",
+              "blank": 2,
+              "choices": [
+                { "text": "What is more", "correct": true, "explain": "前文の利点に加えてもう一つ利点を述べているので、追加を示す表現が入ります。" },
+                { "text": "On the contrary", "correct": false, "explain": "前文を打ち消す内容ではありません。" },
+                { "text": "For this reason", "correct": false, "explain": "前文の結果ではなく、別の利点の追加です。" },
+                { "text": "In short", "correct": false, "explain": "まとめではなく、新たな情報の追加です。" }
+              ]
+            },
+            {
+              "id": "2-p2-a-q3",
+              "blank": 3,
+              "choices": [
+                { "text": "In spite of", "correct": true, "explain": "困難を挙げたうえで「それでも増える」と述べているので、譲歩を表す表現が入ります。" },
+                { "text": "Because of", "correct": false, "explain": "問題が原因で増えるという因果関係は不自然です。" },
+                { "text": "Thanks to", "correct": false, "explain": "問題のおかげで、という意味になってしまいます。" },
+                { "text": "Instead of", "correct": false, "explain": "「〜のかわりに」では文意が通りません。" }
+              ]
+            },
+            {
+              "id": "2-p2-a-q4",
+              "blank": 4,
+              "choices": [
+                { "text": "refuse", "correct": true, "explain": "気候変動を心配する旅行者が飛行機を避けるという流れなので「〜することを拒む」が入ります。" },
+                { "text": "hope", "correct": false, "explain": "飛行機に乗りたいという意味になり、前後の内容と矛盾します。" },
+                { "text": "manage", "correct": false, "explain": "manage to は「なんとか〜する」で、環境意識の話に合いません。" },
+                { "text": "pretend", "correct": false, "explain": "pretend to は「〜するふりをする」で意味が通りません。" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2-p3",
+      "phase": "written",
+      "part": "筆記 3",
+      "title": "長文の内容一致選択",
+      "type": "reading",
+      "officialCount": 12,
+      "instruction": "次の英文の内容に関して、質問に対する答えとして最も適切なものを1〜4の中から一つ選びなさい。",
+      "passages": [
+        {
+          "id": "2-p3-a",
+          "format": "Eメール",
+          "title": "A Request from the Community Center",
+          "passage": "From: Helen Woods, Riverside Community Center\nTo: All Volunteer Members\nDate: October 7\nSubject: Changes to the winter program\n\nDear Volunteers,\n\nThank you for your continued support. I am writing about two changes to our winter program.\n\nFirst, the free English class for foreign residents has become very popular. Last winter, about 15 people attended each lesson. This year, more than 40 people have already signed up. The meeting room on the first floor is too small, so we will move the class to the large hall on the third floor. Unfortunately, the hall has no heating, and the city cannot repair it until January. For December, we will therefore hold the class at Riverside Elementary School, which is a five-minute walk from the center.\n\nSecond, we need more volunteers. With 40 students, two teachers are not enough. You do not need teaching experience. What we need most are people who can sit with small groups and help them practice conversation. If you can help even once a month, please reply to this e-mail by October 20.\n\nWe will hold a short meeting for new volunteers on October 25 at 7 p.m. Light refreshments will be served.\n\nBest regards,\nHelen Woods",
+          "translation": "リバーサイド公民館のヘレン・ウッズからボランティア全員へのメール。冬のプログラムの変更点は2つ。1つ目、外国人住民向け無料英語教室の人気が高まり、昨冬は毎回約15人だったが今年は40人以上が申し込み済み。1階の会議室では狭いため3階の大ホールへ移すが、大ホールは暖房がなく市は1月まで修理できない。そこで12月は徒歩5分のリバーサイド小学校で開催する。2つ目、ボランティアの増員が必要。40人に教師2人では足りない。指導経験は不要で、少人数グループについて会話練習を手伝える人を最も必要としている。月1回でも可能なら10月20日までに返信を。新規ボランティア向け説明会は10月25日午後7時、軽食あり。",
+          "questions": [
+            {
+              "id": "2-p3-a-q1",
+              "q": "Why will the class be held at an elementary school in December?",
+              "choices": [
+                { "text": "The large hall cannot be heated until January.", "correct": true, "explain": "大ホールには暖房がなく、市は1月まで修理できないためです。" },
+                { "text": "The community center will be closed in December.", "correct": false, "explain": "公民館が閉まるとは書かれていません。" },
+                { "text": "The school offered to pay for the class.", "correct": false, "explain": "費用負担の話はありません。" },
+                { "text": "Fewer students will attend in December.", "correct": false, "explain": "人数が減るとは書かれていません。" }
+              ]
+            },
+            {
+              "id": "2-p3-a-q2",
+              "q": "What kind of volunteers does the center need most?",
+              "choices": [
+                { "text": "People who can help small groups practice speaking.", "correct": true, "explain": "少人数グループについて会話練習を手伝える人が最も必要だと書かれています。" },
+                { "text": "People with teaching licenses.", "correct": false, "explain": "指導経験は不要と明記されています。" },
+                { "text": "People who can work every day.", "correct": false, "explain": "月1回でもよいと書かれています。" },
+                { "text": "People who can repair the heating.", "correct": false, "explain": "暖房の修理は市が行います。" }
+              ]
+            },
+            {
+              "id": "2-p3-a-q3",
+              "q": "What should volunteers do by October 20?",
+              "choices": [
+                { "text": "Reply to Helen's e-mail.", "correct": true, "explain": "手伝える場合は10月20日までにメールに返信するよう求めています。" },
+                { "text": "Attend the meeting at the center.", "correct": false, "explain": "説明会は10月25日です。" },
+                { "text": "Visit the elementary school.", "correct": false, "explain": "小学校の訪問は求められていません。" },
+                { "text": "Sign up for the English class.", "correct": false, "explain": "受講申しこみではなくボランティアの応募です。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2-p3-b",
+          "format": "説明文",
+          "title": "Rethinking the Office",
+          "passage": "When the first modern offices appeared in the 19th century, they were designed like factories. Rows of desks faced the front of a large room, and a supervisor watched from a raised platform. The goal was simple: make clerks process paper as quickly as possible.\n\nIn the 1960s, a German design group suggested a different idea. They argued that workers communicate better when desks are arranged in irregular groups, with plants and low walls between them. This style spread across Europe and was later simplified in the United States into rows of small boxes with high walls. These became known as cubicles, and they were cheap to install. Millions of workers spent their days in them, and many complained that the walls made them feel isolated.\n\nBy the 2000s, technology companies were promoting a third model: the open office. Walls were removed entirely, and employees shared long tables. Managers believed this would increase cooperation. However, several later studies found the opposite. In one well-known study, researchers measured communication at two companies before and after they moved to open offices. Face-to-face conversation fell by about 70 percent, while e-mail and instant messages increased. The researchers suggested that when people cannot control the noise around them, they protect their attention by putting on headphones and avoiding conversation.\n\nToday, many companies are trying yet another approach. Instead of giving every worker the same kind of space, they provide several types: quiet rooms for deep concentration, small rooms for phone calls, and open areas for discussion. Employees choose the space that fits the task. Early reports suggest that workers are more satisfied, though this design costs more per person. What is clear is that no single layout works for every kind of work.",
+          "translation": "19世紀に現れた最初の近代的オフィスは工場のように設計され、机が前を向いて並び、監督者が高い台から見ていた。目的は書類処理の速度だった。1960年代、ドイツのデザイン集団は、机を不規則なまとまりに配置し、植物や低い仕切りを置くほうが意思疎通が良くなると主張した。この様式は欧州に広まり、のちに米国で高い壁の小部屋の列へと単純化された。これがキュービクルで、設置が安く普及したが、孤立感を訴える声が多かった。2000年代にはIT企業が壁を取り払うオープンオフィスを推進し、協働が増えると考えた。しかし後の複数の研究は逆の結果を示した。ある有名な研究では移行前後を測定し、対面の会話が約70パーセント減り、メールやチャットが増えた。周囲の騒音を制御できないと、人はヘッドホンをつけ会話を避けて集中を守るのだという。今日、多くの企業は全員に同じ空間を与えるのではなく、集中用の静かな部屋、通話用の小部屋、議論用の開放空間など複数の種類を用意し、社員が作業に応じて選ぶ方式を試している。満足度は高いが一人あたりの費用は高い。あらゆる仕事に合う唯一の配置はない、ということだけは明らかである。",
+          "questions": [
+            {
+              "id": "2-p3-b-q1",
+              "q": "How were the earliest modern offices designed?",
+              "choices": [
+                { "text": "Like factories, with desks in rows and a supervisor watching.", "correct": true, "explain": "第1段落に工場のような設計で、監督者が高い台から見ていたとあります。" },
+                { "text": "With plants and low walls between desks.", "correct": false, "explain": "それは1960年代のドイツのデザイン集団の提案です。" },
+                { "text": "With long shared tables and no walls.", "correct": false, "explain": "それは2000年代のオープンオフィスです。" },
+                { "text": "With several types of rooms for different tasks.", "correct": false, "explain": "それは現在試みられている方式です。" }
+              ]
+            },
+            {
+              "id": "2-p3-b-q2",
+              "q": "What was the main complaint about cubicles?",
+              "choices": [
+                { "text": "Workers felt cut off from other people.", "correct": true, "explain": "高い壁のせいで孤立感を覚えるという不満が多かったと書かれています。" },
+                { "text": "They were too expensive to install.", "correct": false, "explain": "設置費用は安かったと述べられています。" },
+                { "text": "They were too noisy.", "correct": false, "explain": "騒音の問題はオープンオフィスについての指摘です。" },
+                { "text": "They had too many plants.", "correct": false, "explain": "植物はドイツ式の特徴です。" }
+              ]
+            },
+            {
+              "id": "2-p3-b-q3",
+              "q": "What did the study of open offices find?",
+              "choices": [
+                { "text": "People talked face to face much less than before.", "correct": true, "explain": "対面の会話が約70パーセント減り、メールやチャットが増えました。" },
+                { "text": "People sent fewer e-mails than before.", "correct": false, "explain": "メールやチャットは増えました。" },
+                { "text": "Workers cooperated more, as managers hoped.", "correct": false, "explain": "経営者の期待とは逆の結果でした。" },
+                { "text": "Noise levels stayed the same.", "correct": false, "explain": "騒音そのものの数値は述べられていません。" }
+              ]
+            },
+            {
+              "id": "2-p3-b-q4",
+              "q": "What is one drawback of the newest approach?",
+              "choices": [
+                { "text": "It costs more for each employee.", "correct": true, "explain": "満足度は高いが一人あたりの費用が高いと書かれています。" },
+                { "text": "Employees cannot choose where to work.", "correct": false, "explain": "社員が作業に応じて空間を選べる方式です。" },
+                { "text": "It removes all quiet spaces.", "correct": false, "explain": "静かな部屋も用意されています。" },
+                { "text": "Workers are less satisfied than before.", "correct": false, "explain": "満足度は上がっていると報告されています。" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2-p4",
+      "phase": "written",
+      "part": "筆記 4",
+      "title": "ライティング（要約・意見論述）",
+      "type": "writing",
+      "officialCount": 2,
+      "instruction": "指示にしたがって英文を書きなさい。提出後に解答例とチェックリストで自己採点します。",
+      "prompts": [
+        {
+          "id": "2-p4-01",
+          "styleLabel": "英文要約問題",
+          "instruction": "次の英文を読んで、その内容を英語で要約しなさい。",
+          "topic": "In recent years, more supermarkets in Japan have begun selling vegetables that do not look perfect. These vegetables may be too small, too large, or an unusual shape, but there is no difference in taste. In the past, farmers threw away large amounts of such vegetables because stores would not buy them. Some people say selling them is a good idea. Farmers can earn money from vegetables that were once wasted, and customers can buy them at lower prices. On the other hand, some farmers worry about this change. They say that if cheap, imperfect vegetables become common, customers may not want to pay a fair price for normal ones. Some also point out that sorting and packing these vegetables takes extra time and effort.",
+          "conditions": [
+            "語数の目安は45〜55語",
+            "本文の内容だけを使い、自分の意見は書かない",
+            "本文の文をそのまま写さず、自分の言葉でまとめる",
+            "賛成・反対の両方の観点を含める"
+          ],
+          "wordCount": "45〜55語",
+          "modelAnswer": "More Japanese supermarkets now sell vegetables with unusual shapes or sizes, though they taste the same. Supporters say farmers can earn money from produce they used to throw away, and shoppers pay less. However, some farmers fear that customers will no longer pay a fair price for normal vegetables, and that sorting them requires extra work.",
+          "modelTranslation": "日本のスーパーでは、形や大きさが規格外でも味は同じ野菜を売る店が増えている。賛成派は、以前は捨てていた野菜で農家が収入を得られ、客も安く買えると言う。しかし一部の農家は、通常の野菜に正当な価格を払ってもらえなくなることや、選別に余計な手間がかかることを心配している。",
+          "checklist": [
+            "本文の要点（変化・賛成意見・反対意見）をすべて含んでいるか",
+            "自分の意見や本文にない情報を加えていないか",
+            "本文の表現をそのまま写さず、言いかえられているか",
+            "語数は45〜55語におさまっているか",
+            "however / on the other hand などで対比を示せているか"
+          ],
+          "points": 16
+        },
+        {
+          "id": "2-p4-02",
+          "styleLabel": "意見論述問題",
+          "instruction": "以下のTOPICについて、あなたの意見とその理由を2つ書きなさい。",
+          "topic": "Should companies allow their employees to work from home?",
+          "conditions": [
+            "語数の目安は80〜100語",
+            "はじめに自分の意見を述べる",
+            "理由を2つ、それぞれ具体的に説明する",
+            "最後に意見をまとめる",
+            "TOPICに対応していない場合は0点になる"
+          ],
+          "wordCount": "80〜100語",
+          "modelAnswer": "I believe companies should allow their employees to work from home. First, it saves a great deal of time. Many workers in large cities spend two hours a day on crowded trains, and they can use those hours for rest or family instead. This makes them healthier and more productive. Second, it widens the range of people a company can hire. Parents with small children and people living far from the city can still work. For these reasons, I think allowing employees to work from home benefits both workers and companies.",
+          "modelTranslation": "私は企業は在宅勤務を認めるべきだと考えます。第一に、多くの時間を節約できます。大都市では一日2時間を満員電車で過ごす人も多く、その時間を休息や家族のために使えます。これにより健康で生産的になります。第二に、採用できる人の幅が広がります。小さな子どものいる親や都市から遠い場所に住む人も働けます。これらの理由から、在宅勤務を認めることは労働者と企業の双方に利益があると思います。",
+          "checklist": [
+            "はじめに立場をはっきり述べているか",
+            "理由を2つ挙げ、それぞれに具体的な説明があるか",
+            "First / Second / For these reasons などで構成を示せているか",
+            "最後に意見をまとめているか",
+            "語数は80〜100語におさまっているか",
+            "同じ語のくり返しをさけ、言いかえができているか"
+          ],
+          "points": 16
+        }
+      ]
+    },
+    {
+      "id": "2-l1",
+      "phase": "listening",
+      "part": "リスニング 第1部",
+      "title": "会話の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "conversation",
+      "officialCount": 15,
+      "playLimit": 1,
+      "instruction": "会話と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。放送は1回だけです。",
+      "questions": [
+        {
+          "id": "2-l1-01",
+          "script": [
+            { "speaker": "A", "text": "Daniel, did you hear that the company is moving to a new building next spring?" },
+            { "speaker": "B", "text": "Yes, but I am not happy about it. My commute will be forty minutes longer." },
+            { "speaker": "A", "text": "Really? Mine will actually get shorter. Have you thought about moving?" },
+            { "speaker": "B", "text": "I have, but rents near the new office are much higher. I may just buy a bicycle and ride to the nearest station." }
+          ],
+          "question": "What is Daniel probably going to do?",
+          "translation": "A：ダニエル、来春会社が新しいビルに移転するって聞いた？　B：うん、でもうれしくないよ。通勤が40分長くなる。　A：本当？私はむしろ短くなるわ。引っ越しは考えた？　B：考えたけど、新オフィス周辺は家賃がずっと高い。自転車を買って最寄り駅まで乗るかもしれない。（質問：ダニエルはおそらく何をしますか）",
+          "choices": [
+            { "text": "Buy a bicycle to shorten his commute.", "correct": true, "explain": "家賃が高いので引っ越さず、自転車を買うかもしれないと言っています。" },
+            { "text": "Move to an apartment near the new office.", "correct": false, "explain": "家賃が高いため引っ越しには消極的です。" },
+            { "text": "Ask the company to stay in the old building.", "correct": false, "explain": "会社への要望は述べていません。" },
+            { "text": "Look for a new job.", "correct": false, "explain": "転職の話は出てきません。" }
+          ]
+        },
+        {
+          "id": "2-l1-02",
+          "script": [
+            { "speaker": "A", "text": "Good afternoon. I would like to return this jacket. It does not fit." },
+            { "speaker": "B", "text": "Certainly. Do you have the receipt?" },
+            { "speaker": "A", "text": "I am afraid I left it at home. I bought it about three weeks ago." },
+            { "speaker": "B", "text": "Without a receipt, I can only offer store credit. And our return period is thirty days, so today is the last day." }
+          ],
+          "question": "What can the woman get?",
+          "translation": "A：こんにちは。この上着を返品したいのですが。サイズが合いません。　B：かしこまりました。レシートはお持ちですか。　A：家に置いてきてしまいました。3週間ほど前に買いました。　B：レシートがない場合は、店内で使えるクレジットのみのご対応となります。返品期間は30日で、今日が最終日です。（質問：女性は何を受け取れますか）",
+          "choices": [
+            { "text": "Credit that can be used at the store.", "correct": true, "explain": "レシートがないため store credit のみ提供できると言っています。" },
+            { "text": "A full cash refund.", "correct": false, "explain": "現金返金にはレシートが必要です。" },
+            { "text": "A jacket in a different size.", "correct": false, "explain": "交換の提案はされていません。" },
+            { "text": "Nothing, because the period has ended.", "correct": false, "explain": "今日が最終日なので、まだ間に合います。" }
+          ]
+        },
+        {
+          "id": "2-l1-03",
+          "script": [
+            { "speaker": "A", "text": "Professor, I am worried about my research paper. I cannot find enough sources." },
+            { "speaker": "B", "text": "What is your topic?" },
+            { "speaker": "A", "text": "The effects of social media on teenagers in rural areas." },
+            { "speaker": "B", "text": "That is quite narrow. Try widening it to teenagers in general first, then narrow it down once you see what data exists." }
+          ],
+          "question": "What does the professor advise the student to do?",
+          "translation": "A：先生、論文が心配です。十分な資料が見つかりません。　B：テーマは何ですか。　A：地方の10代に対するソーシャルメディアの影響です。　B：それはかなり狭いですね。まず10代全般に広げて、どんなデータがあるか見てから絞りなさい。（質問：教授は学生に何を助言しましたか）",
+          "choices": [
+            { "text": "Make his topic broader at first.", "correct": true, "explain": "まずテーマを広げ、データを見てから絞るよう助言しています。" },
+            { "text": "Change to a completely different subject.", "correct": false, "explain": "全く別のテーマにせよとは言っていません。" },
+            { "text": "Interview teenagers in rural areas.", "correct": false, "explain": "聞き取り調査の指示はありません。" },
+            { "text": "Submit the paper later than the deadline.", "correct": false, "explain": "提出期限の話は出てきません。" }
+          ]
+        },
+        {
+          "id": "2-l1-04",
+          "script": [
+            { "speaker": "A", "text": "Have you decided where to hold the year-end party?" },
+            { "speaker": "B", "text": "Not yet. The Italian place downtown is nice, but it only holds twenty people." },
+            { "speaker": "A", "text": "We have thirty-two this year." },
+            { "speaker": "B", "text": "Right. The hotel restaurant can take fifty, but it costs almost double. I think we have no choice." }
+          ],
+          "question": "Why will they probably choose the hotel restaurant?",
+          "translation": "A：忘年会の場所は決まった？　B：まだ。ダウンタウンのイタリア料理店はいいけど20人までなの。　A：今年は32人よ。　B：そうなの。ホテルのレストランなら50人入るけど、費用がほぼ倍。選択の余地がなさそう。（質問：なぜホテルのレストランを選ぶことになりそうですか）",
+          "choices": [
+            { "text": "It is the only place large enough.", "correct": true, "explain": "32人に対しイタリア料理店は20人までで、ホテルは50人入ります。" },
+            { "text": "It is cheaper than the Italian restaurant.", "correct": false, "explain": "費用はほぼ倍です。" },
+            { "text": "The food there is better.", "correct": false, "explain": "料理の質は話題になっていません。" },
+            { "text": "It is closer to the office.", "correct": false, "explain": "距離の話は出てきません。" }
+          ]
+        },
+        {
+          "id": "2-l1-05",
+          "script": [
+            { "speaker": "A", "text": "Ms. Clark, the printer on the second floor is broken again." },
+            { "speaker": "B", "text": "Again? We just had it repaired last month." },
+            { "speaker": "A", "text": "I know. The repair company says the model is too old and parts are hard to get." },
+            { "speaker": "B", "text": "Then let us stop repairing it. Get me three quotes for a new one by Friday." }
+          ],
+          "question": "What will the man do next?",
+          "translation": "A：クラークさん、2階のプリンターがまた故障しました。　B：また？先月修理したばかりよ。　A：ええ。修理業者は機種が古く部品の入手が難しいと言っています。　B：では修理はやめましょう。金曜までに新品の見積もりを3社分もらってきて。（質問：男性は次に何をしますか）",
+          "choices": [
+            { "text": "Collect price quotes for a new printer.", "correct": true, "explain": "金曜までに新品の見積もりを3社分集めるよう指示されました。" },
+            { "text": "Call the repair company again.", "correct": false, "explain": "修理はやめることになりました。" },
+            { "text": "Move the printer to another floor.", "correct": false, "explain": "移動の話は出ていません。" },
+            { "text": "Order parts for the old model.", "correct": false, "explain": "部品の入手は困難だと言われています。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2-l2",
+      "phase": "listening",
+      "part": "リスニング 第2部",
+      "title": "文の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "passage",
+      "officialCount": 15,
+      "playLimit": 1,
+      "instruction": "英文と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。放送は1回だけです。",
+      "questions": [
+        {
+          "id": "2-l2-01",
+          "script": "The Sahara Desert was not always dry. About 8,000 years ago, it was covered with grass and lakes, and people lived there with cattle. Rock paintings of swimmers have been found in caves in the middle of the desert. Scientists believe a slow change in the earth's orbit reduced the rainfall, and within a few thousand years the region became the desert we know today.",
+          "question": "What do the rock paintings suggest?",
+          "translation": "サハラ砂漠は昔から乾燥していたわけではない。約8000年前は草と湖におおわれ、人々が牛とともに暮らしていた。砂漠の真ん中の洞窟からは泳ぐ人を描いた岩絵が見つかっている。科学者は地球の軌道のゆるやかな変化が降水量を減らし、数千年のうちに今の砂漠になったと考えている。（質問：岩絵は何を示していますか）",
+          "choices": [
+            { "text": "There was once enough water for people to swim.", "correct": true, "explain": "泳ぐ人の岩絵は、かつて水が豊富だったことを示します。" },
+            { "text": "People used to travel across the desert by boat.", "correct": false, "explain": "船で横断したとは述べられていません。" },
+            { "text": "Artists visited the desert from Europe.", "correct": false, "explain": "ヨーロッパからの画家の話はありません。" },
+            { "text": "The desert is becoming green again.", "correct": false, "explain": "再び緑になっているという話ではありません。" }
+          ]
+        },
+        {
+          "id": "2-l2-02",
+          "script": "Ellen had worked as an accountant for fifteen years when she decided to change careers. She had always enjoyed baking, so she took a six-month course in France. When she returned, she did not open her own shop right away. Instead, she worked at a small bakery for two years to learn how a business is actually run. She opened her own shop last year, and it is already doing well.",
+          "question": "Why did Ellen work at a small bakery?",
+          "translation": "エレンは会計士として15年働いたのち転職を決意した。もともと製菓が好きで、フランスで6か月の講座を受けた。帰国後すぐには開業せず、小さなパン屋で2年働き、商売の実際の運営を学んだ。昨年自分の店を開き、すでに繁盛している。（質問：エレンはなぜ小さなパン屋で働いたのですか）",
+          "choices": [
+            { "text": "To learn how to run a business.", "correct": true, "explain": "商売の実際の運営を学ぶためだと述べられています。" },
+            { "text": "To save money for her course in France.", "correct": false, "explain": "フランスの講座は働く前です。" },
+            { "text": "Because her own shop failed.", "correct": false, "explain": "自分の店は繁盛しています。" },
+            { "text": "Because she could not find accounting work.", "correct": false, "explain": "会計の仕事がなかったからではありません。" }
+          ]
+        },
+        {
+          "id": "2-l2-03",
+          "script": "Many cities now place small gardens on the roofs of buildings. These roof gardens do more than look attractive. In summer, the soil and plants keep the building cooler, so less electricity is used for air conditioning. They also hold rainwater, which reduces flooding on the streets below. The main problem is weight. Older buildings often cannot support the soil, so engineers must check each roof carefully before work begins.",
+          "question": "What is the main difficulty with roof gardens?",
+          "translation": "多くの都市で建物の屋上に小さな庭が作られている。屋上庭園は見た目だけでなく、夏には土と植物が建物を涼しく保ち、冷房の電力を減らす。雨水をためるため下の街路の浸水も減る。主な問題は重量で、古い建物は土の重さを支えられないことが多く、着工前に技術者が各屋上を慎重に調べる必要がある。（質問：屋上庭園の主な難点は何ですか）",
+          "choices": [
+            { "text": "The soil may be too heavy for some buildings.", "correct": true, "explain": "重量が主な問題で、古い建物は支えられないことが多いと述べています。" },
+            { "text": "They use a lot of electricity.", "correct": false, "explain": "むしろ冷房の電力を減らします。" },
+            { "text": "They cause flooding in the streets.", "correct": false, "explain": "浸水は減らします。" },
+            { "text": "They are unattractive to look at.", "correct": false, "explain": "見た目は魅力的だと述べられています。" }
+          ]
+        },
+        {
+          "id": "2-l2-04",
+          "script": "Attention, all staff. Because of the typhoon warning, the office will close at two p.m. today. Please save your work and shut down your computers before you leave. Staff who are scheduled to work tomorrow morning should check the company website after six a.m. for information about whether the office will open.",
+          "question": "What should staff do before leaving today?",
+          "translation": "全職員にお知らせします。台風警報のため本日は午後2時に閉館します。退出前に作業を保存し、パソコンの電源を切ってください。明日の午前に勤務予定の職員は、午前6時以降に会社ウェブサイトで開館の有無を確認してください。（質問：職員は今日、退出前に何をすべきですか）",
+          "choices": [
+            { "text": "Save their work and turn off their computers.", "correct": true, "explain": "作業を保存し、パソコンの電源を切るよう指示しています。" },
+            { "text": "Check the company website.", "correct": false, "explain": "ウェブサイトの確認は明日の朝6時以降です。" },
+            { "text": "Call their managers at home.", "correct": false, "explain": "電話の指示はありません。" },
+            { "text": "Come back to the office at six.", "correct": false, "explain": "6時は翌朝のウェブ確認の時刻です。" }
+          ]
+        },
+        {
+          "id": "2-l2-05",
+          "script": "In 1815, a volcano in Indonesia erupted with enormous force. So much ash entered the atmosphere that temperatures around the world dropped. The following year became known in Europe and North America as the year without a summer. Crops failed, and food prices rose sharply. Interestingly, the cold, dark weather also kept one group of writers indoors in Switzerland, and during that stay one of them wrote the novel Frankenstein.",
+          "question": "What was one unexpected result of the eruption?",
+          "translation": "1815年、インドネシアの火山が巨大な噴火を起こした。大量の灰が大気に入り、世界中で気温が下がった。翌年はヨーロッパと北米で「夏のない年」として知られる。作物は不作となり食料価格が急騰した。興味深いことに、寒く暗い天候はスイスで作家の一団を屋内に留め、その滞在中に一人が小説『フランケンシュタイン』を書いた。（質問：噴火の予期せぬ結果の一つは何ですか）",
+          "choices": [
+            { "text": "A famous novel was written.", "correct": true, "explain": "悪天候で屋内にいた作家が『フランケンシュタイン』を書きました。" },
+            { "text": "Food became much cheaper.", "correct": false, "explain": "食料価格は急騰しました。" },
+            { "text": "Temperatures rose worldwide.", "correct": false, "explain": "気温は下がりました。" },
+            { "text": "Travel to Switzerland was banned.", "correct": false, "explain": "旅行禁止の話はありません。" }
+          ]
+        }
+      ]
+    }
+  ]
+}

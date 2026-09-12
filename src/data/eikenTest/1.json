@@ -1,0 +1,606 @@
+{
+  "level": "1",
+  "levelLabel": "1級",
+  "levelSub": "大学上級・社会人上級程度",
+  "color": "#3B3B3B",
+  "exam": {
+    "title": "1級 一次試験 模擬テスト",
+    "note": "過去問（一次試験）の大問構成にもとづく模擬テストです。リスニングはPart 1〜4（会話・説明文・RealLife・インタビュー）で構成されます。",
+    "writtenMinutes": 100,
+    "listeningMinutes": 35,
+    "passRate": 0.7
+  },
+  "sections": [
+    {
+      "id": "1-p1",
+      "phase": "written",
+      "part": "筆記 1",
+      "title": "短文の語句空所補充",
+      "type": "gapfill",
+      "officialCount": 22,
+      "instruction": "次の英文の（　）に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "questions": [
+        {
+          "id": "1-p1-01",
+          "sentence": "The senator's argument was so （　） that even his allies struggled to defend it.",
+          "ja": "その上院議員の主張はあまりに支離滅裂で、味方でさえ擁護に苦労した。",
+          "point": "incoherent（支離滅裂な、筋の通らない）",
+          "choices": [
+            { "text": "incoherent", "correct": true, "explain": "味方も擁護できないほどの主張なので「筋が通らない」が適切です。" },
+            { "text": "inherent", "correct": false, "explain": "inherent は「本来備わった」で、主張の質を表しません。" },
+            { "text": "incumbent", "correct": false, "explain": "incumbent は「現職の」または「義務として課された」という意味です。" },
+            { "text": "inclement", "correct": false, "explain": "inclement は天候が「荒れた」という意味です。" }
+          ]
+        },
+        {
+          "id": "1-p1-02",
+          "sentence": "Years of drought have （　） the region's already fragile economy.",
+          "ja": "長年の干ばつがその地域のもともと脆弱な経済をいっそう悪化させた。",
+          "point": "exacerbate（悪化させる）",
+          "choices": [
+            { "text": "exacerbated", "correct": true, "explain": "already fragile とあるので、状態をさらに悪くする語が入ります。" },
+            { "text": "exonerated", "correct": false, "explain": "exonerate は「（嫌疑を）晴らす」で、経済には使いません。" },
+            { "text": "extrapolated", "correct": false, "explain": "extrapolate は「外挿する、推定する」という意味です。" },
+            { "text": "exemplified", "correct": false, "explain": "exemplify は「例示する」で、因果関係を表しません。" }
+          ]
+        },
+        {
+          "id": "1-p1-03",
+          "sentence": "The witness gave testimony that was later shown to be entirely （　）.",
+          "ja": "その証人の証言は、のちに完全に作り話だと示された。",
+          "point": "fabricated（でっち上げた、捏造した）",
+          "choices": [
+            { "text": "fabricated", "correct": true, "explain": "fabricated testimony で「捏造された証言」。shown to be と結びつきます。" },
+            { "text": "fluctuated", "correct": false, "explain": "fluctuate は「変動する」で、証言の性質を表しません。" },
+            { "text": "facilitated", "correct": false, "explain": "facilitate は「容易にする」という意味です。" },
+            { "text": "fortified", "correct": false, "explain": "fortify は「強化する」という意味です。" }
+          ]
+        },
+        {
+          "id": "1-p1-04",
+          "sentence": "Her remarks were widely seen as a thinly （　） attack on the administration.",
+          "ja": "彼女の発言は政権への見え透いた攻撃と広く受け取られた。",
+          "point": "thinly veiled（薄く覆われた＝見え透いた）",
+          "choices": [
+            { "text": "veiled", "correct": true, "explain": "thinly veiled attack は「ほとんど隠されていない攻撃」という定型表現です。" },
+            { "text": "valued", "correct": false, "explain": "value は「評価する」で、この定型表現には入りません。" },
+            { "text": "varied", "correct": false, "explain": "varied は「多様な」で、thinly とは組みません。" },
+            { "text": "vanished", "correct": false, "explain": "vanish は自動詞で「消える」という意味です。" }
+          ]
+        },
+        {
+          "id": "1-p1-05",
+          "sentence": "The committee's decision set a （　） that later cases would follow for decades.",
+          "ja": "その委員会の決定は、その後数十年にわたり後の事例が従う先例となった。",
+          "point": "set a precedent（先例をつくる）",
+          "choices": [
+            { "text": "precedent", "correct": true, "explain": "set a precedent で「前例をつくる」。後の事例が従うという説明とも一致します。" },
+            { "text": "precaution", "correct": false, "explain": "precaution は「予防措置」で、set とは通常組みません。" },
+            { "text": "preference", "correct": false, "explain": "preference は「好み」という意味です。" },
+            { "text": "prescription", "correct": false, "explain": "prescription は「処方箋、規定」という意味です。" }
+          ]
+        },
+        {
+          "id": "1-p1-06",
+          "sentence": "He remained （　） in the face of criticism, refusing to alter a single line.",
+          "ja": "批判にさらされても彼は頑として譲らず、一行たりとも変えることを拒んだ。",
+          "point": "adamant（断固として譲らない）",
+          "choices": [
+            { "text": "adamant", "correct": true, "explain": "一行も変えないという態度なので「断固として譲らない」が適切です。" },
+            { "text": "ambivalent", "correct": false, "explain": "ambivalent は「相反する感情をもつ」で、断固たる態度とは逆です。" },
+            { "text": "amicable", "correct": false, "explain": "amicable は「友好的な」という意味です。" },
+            { "text": "anonymous", "correct": false, "explain": "anonymous は「匿名の」という意味です。" }
+          ]
+        },
+        {
+          "id": "1-p1-07",
+          "sentence": "The new evidence （　） doubt on the theory that had dominated the field for years.",
+          "ja": "新しい証拠は、長年その分野を支配してきた理論に疑いを投げかけた。",
+          "point": "cast doubt on 〜（〜に疑念を投げかける）",
+          "choices": [
+            { "text": "cast", "correct": true, "explain": "cast doubt on で「疑いを投げかける」という定型表現です。過去形も cast です。" },
+            { "text": "threw", "correct": false, "explain": "throw doubt on も稀に使われますが、標準的な語法は cast です。" },
+            { "text": "put", "correct": false, "explain": "put doubt on という言い方はしません。" },
+            { "text": "laid", "correct": false, "explain": "lay doubt on という言い方はしません。" }
+          ]
+        },
+        {
+          "id": "1-p1-08",
+          "sentence": "Little （　） that his casual remark would trigger an international dispute.",
+          "ja": "彼の何気ない発言が国際紛争を引き起こすとは、彼はほとんど思っていなかった。",
+          "point": "否定語が文頭にきたときの倒置（Little did he imagine）",
+          "choices": [
+            { "text": "did he imagine", "correct": true, "explain": "Little が文頭にくると倒置が起こり、〈did＋主語＋原形〉となります。" },
+            { "text": "he imagined", "correct": false, "explain": "倒置が必要です。" },
+            { "text": "he did imagine", "correct": false, "explain": "語順が倒置になっていません。" },
+            { "text": "imagined he", "correct": false, "explain": "この語順は英語として成立しません。" }
+          ]
+        },
+        {
+          "id": "1-p1-09",
+          "sentence": "The proposal was rejected on the （　） that it violated existing regulations.",
+          "ja": "その提案は既存の規則に違反するという理由で却下された。",
+          "point": "on the grounds that 〜（〜という理由で）",
+          "choices": [
+            { "text": "grounds", "correct": true, "explain": "on the grounds that で「〜という理由で」という定型表現です。" },
+            { "text": "bases", "correct": false, "explain": "on the basis that なら可能ですが、bases という複数形ではこの形になりません。" },
+            { "text": "terms", "correct": false, "explain": "on the terms that という理由表現はしません。" },
+            { "text": "conditions", "correct": false, "explain": "on condition that は「〜という条件で」で、理由ではありません。" }
+          ]
+        },
+        {
+          "id": "1-p1-10",
+          "sentence": "After the merger, several departments were found to be （　）, and staff numbers were cut.",
+          "ja": "合併後、いくつかの部署が重複していることがわかり、人員が削減された。",
+          "point": "redundant（余剰の、重複した）",
+          "choices": [
+            { "text": "redundant", "correct": true, "explain": "合併により不要・重複となった部署を表し、人員削減の理由になります。" },
+            { "text": "reluctant", "correct": false, "explain": "reluctant は人が「気が進まない」状態を表します。" },
+            { "text": "resilient", "correct": false, "explain": "resilient は「回復力のある」で、削減の理由になりません。" },
+            { "text": "reciprocal", "correct": false, "explain": "reciprocal は「相互の」という意味です。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1-p2",
+      "phase": "written",
+      "part": "筆記 2",
+      "title": "長文の語句空所補充",
+      "type": "cloze",
+      "officialCount": 6,
+      "instruction": "次の英文を読み、その文中の空所に入れるのに最も適切なものを1〜4の中から一つ選びなさい。",
+      "passages": [
+        {
+          "id": "1-p2-a",
+          "format": "説明文",
+          "title": "The Limits of Eyewitness Memory",
+          "passage": "For most of the twentieth century, courts treated eyewitness identification as among the strongest forms of evidence available. A witness who pointed confidently at the defendant was, in the minds of many jurors, close to ( 4 ). Decades of psychological research have since ( 1 ) that assumption. Memory, it turns out, does not function like a recording that can be replayed; it is reconstructed each time it is recalled, and the act of reconstruction is highly sensitive to information encountered afterward.\n\nThe practical consequences became visible once DNA testing allowed old convictions to be reexamined. In a substantial proportion of the cases later overturned, mistaken eyewitness identification had played a central role. Notably, many of those witnesses had expressed near-total certainty at trial. Confidence and accuracy, researchers concluded, are ( 2 ) correlated than intuition suggests, particularly when a witness has been shown a suspect more than once or has learned that others identified the same person.\n\nReform has therefore focused less on discrediting witnesses than on protecting their memories from contamination. Recommended procedures include presenting suspects one at a time rather than in a group, and ensuring that the officer conducting the process does not know which person is the suspect, so that no unconscious signal can be transmitted. ( 3 ), investigators are urged to record a witness's confidence immediately, before any feedback is given, since a statement of certainty made at the scene carries far more evidential weight than one offered months later in a courtroom.",
+          "translation": "20世紀の大半、法廷は目撃者による identification を最も強力な証拠の一つとして扱った。自信をもって被告を指さす証人は、多くの陪審員にとって決定的に近かった。しかし数十年の心理学研究がその前提を揺るがした。記憶は再生できる録画のようには働かず、思い出すたびに再構成され、その再構成は後から触れた情報に強く左右される。DNA鑑定で過去の有罪判決が再検証されると、実際の影響が見えてきた。のちに覆された事件のかなりの割合で、誤った目撃証言が中心的役割を果たしていた。しかもその証人の多くは法廷でほぼ完全な確信を示していた。研究者は、確信と正確さの相関は直感が示すほど強くないと結論づけた。とくに容疑者を複数回見せられた場合や、他の人も同一人物を指名したと知った場合はそうである。そのため改革は証人を信用しないことよりも、記憶を汚染から守ることに向かった。推奨手順には、容疑者を並べてではなく一人ずつ提示すること、手続きを行う警官がどの人物が容疑者かを知らないようにして無意識の合図が伝わらないようにすることが含まれる。さらに、事後の情報が与えられる前にその場で確信度を記録することも求められる。現場での確信表明は、数か月後に法廷で述べられるものよりはるかに証拠価値が高いからである。",
+          "questions": [
+            {
+              "id": "1-p2-a-q1",
+              "blank": 1,
+              "choices": [
+                { "text": "undermined", "correct": true, "explain": "続く文で記憶が再構成されると説明し、従来の前提を切り崩しています。" },
+                { "text": "reinforced", "correct": false, "explain": "前提を補強する内容ではなく、否定する内容が続きます。" },
+                { "text": "duplicated", "correct": false, "explain": "複製するという意味では文が通りません。" },
+                { "text": "postponed", "correct": false, "explain": "延期するという意味は文脈に合いません。" }
+              ]
+            },
+            {
+              "id": "1-p2-a-q2",
+              "blank": 2,
+              "choices": [
+                { "text": "far less closely", "correct": true, "explain": "確信度が高くても誤りが多かったという直前の事実から、相関は弱いと結論されます。" },
+                { "text": "much more strongly", "correct": false, "explain": "確信していた証人が誤っていた例と矛盾します。" },
+                { "text": "equally well", "correct": false, "explain": "than と組み合わせる比較表現として成立しません。" },
+                { "text": "no differently", "correct": false, "explain": "than suggests との比較が成り立ちません。" }
+              ]
+            },
+            {
+              "id": "1-p2-a-q3",
+              "blank": 3,
+              "choices": [
+                { "text": "Furthermore", "correct": true, "explain": "推奨手順をもう一つ追加する流れなので、追加を示す副詞が入ります。" },
+                { "text": "Nevertheless", "correct": false, "explain": "前段と対立する内容ではありません。" },
+                { "text": "Otherwise", "correct": false, "explain": "条件の裏を示す語で、ここでは不適切です。" },
+                { "text": "Conversely", "correct": false, "explain": "逆の事例を示す語で、追加の文脈に合いません。" }
+              ]
+            },
+            {
+              "id": "1-p2-a-q4",
+              "blank": 4,
+              "choices": [
+                { "text": "decisive", "correct": true, "explain": "目撃証言が最も強力な証拠とされた、という直前の内容を受けて「決定的」が入ります。" },
+                { "text": "irrelevant", "correct": false, "explain": "強力な証拠とされたという文脈と矛盾します。" },
+                { "text": "inadmissible", "correct": false, "explain": "証拠として採用できないという意味になり、文脈と逆になります。" },
+                { "text": "optional", "correct": false, "explain": "任意かどうかという話ではありません。" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1-p3",
+      "phase": "written",
+      "part": "筆記 3",
+      "title": "長文の内容一致選択",
+      "type": "reading",
+      "officialCount": 10,
+      "instruction": "次の英文の内容に関して、質問に対する答えとして最も適切なものを1〜4の中から一つ選びなさい。",
+      "passages": [
+        {
+          "id": "1-p3-a",
+          "format": "説明文",
+          "title": "The Slow Death of the Cash Economy",
+          "passage": "Sweden is frequently described as the country closest to abolishing cash. Cash transactions account for a small and shrinking fraction of retail payments, and many shops, cafes, and even churches display signs stating that they accept cards only. Supporters point to obvious gains: robbery of businesses has fallen sharply, tax evasion is harder when every transaction leaves a record, and handling physical currency is expensive for banks and retailers alike.\n\nYet the transition has generated resistance from an unexpected direction. Organizations representing elderly Swedes have argued that a cashless society effectively excludes citizens who do not use smartphones or who find digital banking confusing. Rural residents raised a related objection: when a card network fails, or when a storm disrupts electricity and mobile coverage, a community without cash has no fallback method of exchange. The central bank, which had initially treated the decline of cash as a natural market outcome, changed its position after military planners pointed out that a fully digital payment system presents an attractive target during a crisis.\n\nLegislation passed in recent years now requires the largest banks to continue providing cash services in every part of the country, a reversal of the previous trend toward closing branches. Critics of the law argue that it forces banks to maintain expensive infrastructure for a service that few people want, and that the cost will ultimately be paid by all customers through higher fees. Defenders respond that the argument misunderstands what is being purchased. The point, they say, is not convenience but resilience: the value of cash lies precisely in the rare situations when nothing else works, and a system that is efficient ninety-nine percent of the time may still be unacceptable if the remaining one percent involves people unable to buy food.",
+          "translation": "スウェーデンは現金廃止に最も近い国としてしばしば語られる。小売決済に占める現金の割合は小さく、さらに縮小しており、店やカフェ、教会までがカードのみと掲示している。支持者は明白な利点を挙げる。強盗は激減し、すべての取引が記録に残るため脱税は難しく、現金の取り扱いは銀行にも小売業者にも費用がかかる。しかし移行は予想外の方向から抵抗を受けた。高齢者団体は、スマートフォンを使わない人やデジタル銀行に戸惑う人を事実上排除すると主張した。地方住民も関連する異議を唱えた。カード網が停止したり、嵐で電気と通信が途絶えたりしたとき、現金のない地域には代替の交換手段がない。当初は現金の減少を市場の自然な結果とみなしていた中央銀行も、完全にデジタル化した決済網が危機時に格好の標的になると軍の計画担当者が指摘したのち、立場を変えた。近年成立した法律は、大手銀行に対し国内全域で現金サービスの提供継続を義務づけ、支店閉鎖の流れを逆転させた。批判者は、ほとんど需要のないサービスのために高額な設備を維持させ、その費用は結局手数料として全顧客が負担すると主張する。擁護派は、何を買っているのかを取り違えていると反論する。要点は利便性ではなく強靱性であり、現金の価値はまさに他の何もが機能しない稀な状況にある。99パーセントの時間で効率的な仕組みでも、残る1パーセントで人々が食料を買えないのなら、なお受け入れがたいというのである。",
+          "questions": [
+            {
+              "id": "1-p3-a-q1",
+              "q": "What changed the central bank's view of the decline of cash?",
+              "choices": [
+                { "text": "A warning from military planners about crisis situations.", "correct": true, "explain": "軍の計画担当者の指摘を受けて立場を変えたと述べられています。" },
+                { "text": "Complaints from banks about the cost of branches.", "correct": false, "explain": "銀行の費用の訴えは法律への批判として出てきます。" },
+                { "text": "A sharp rise in robberies.", "correct": false, "explain": "強盗はむしろ減ったと述べられています。" },
+                { "text": "Evidence of increased tax evasion.", "correct": false, "explain": "脱税は現金が減ると難しくなると述べられています。" }
+              ]
+            },
+            {
+              "id": "1-p3-a-q2",
+              "q": "What objection did rural residents raise?",
+              "choices": [
+                { "text": "There is no alternative if digital systems fail.", "correct": true, "explain": "カード網や電力・通信が途絶えたときの代替手段がないという指摘です。" },
+                { "text": "Card fees are too high in the countryside.", "correct": false, "explain": "手数料の話は法律への批判の文脈です。" },
+                { "text": "Elderly people cannot travel to banks.", "correct": false, "explain": "高齢者の論点はデジタル機器の利用に関するものです。" },
+                { "text": "Shops refuse to accept cards.", "correct": false, "explain": "むしろカードのみの店が増えています。" }
+              ]
+            },
+            {
+              "id": "1-p3-a-q3",
+              "q": "How do defenders of the law answer its critics?",
+              "choices": [
+                { "text": "They say the goal is resilience rather than convenience.", "correct": true, "explain": "利便性ではなく強靱性を買っているのだと反論しています。" },
+                { "text": "They claim cash is cheaper to handle than cards.", "correct": false, "explain": "現金の取り扱いは高くつくと本文は述べています。" },
+                { "text": "They argue that most customers still prefer cash.", "correct": false, "explain": "現金の利用は縮小していると述べられています。" },
+                { "text": "They deny that fees will rise.", "correct": false, "explain": "手数料の予測そのものを否定してはいません。" }
+              ]
+            },
+            {
+              "id": "1-p3-a-q4",
+              "q": "Which statement best expresses the final argument of the passage?",
+              "choices": [
+                { "text": "A system may be unacceptable even if it works almost all the time.", "correct": true, "explain": "99パーセント効率的でも、残る1パーセントの帰結が深刻なら受け入れがたいという主張です。" },
+                { "text": "Efficiency should always be the first priority.", "correct": false, "explain": "効率より強靱性を重視する立場が示されています。" },
+                { "text": "Cash will eventually disappear everywhere.", "correct": false, "explain": "そのような予測は述べられていません。" },
+                { "text": "Digital payments are more secure than cash.", "correct": false, "explain": "安全性の優劣を結論づけてはいません。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1-p3-b",
+          "format": "説明文",
+          "title": "Reading the Ice",
+          "passage": "Ice cores drilled from the Greenland and Antarctic ice sheets have become one of the most productive archives in earth science. Each annual snowfall traps a thin layer of air, and because the layers accumulate without mixing, a core several kilometers long preserves an ordered record of atmospheric composition reaching back hundreds of thousands of years. Measuring the carbon dioxide in those trapped bubbles allows researchers to reconstruct past concentrations directly, rather than inferring them.\n\nThe technique also revealed something that older climate models had not anticipated. Analysis of Greenland cores in the 1980s and 1990s showed that during the last glacial period, temperatures in the North Atlantic region repeatedly rose by as much as ten degrees Celsius within a few decades, then declined slowly over centuries. These abrupt shifts, now named after the scientists who identified them, overturned a widespread assumption that large climatic changes must be gradual. The likely mechanism involves the circulation of the North Atlantic, which can apparently switch between modes when enough fresh water enters the system.\n\nInterpreting cores nonetheless requires considerable caution. Air does not become sealed immediately; it circulates through porous snow for decades or longer before the pores close, meaning that the trapped gas is always younger than the surrounding ice. Near the base of an ice sheet, layers may be thinned, folded, or partially melted by heat from the rock below, destroying their order. For this reason, conclusions are generally accepted only when several cores from different sites show the same pattern, and even then the dating of the oldest sections carries uncertainties of several thousand years.",
+          "translation": "グリーンランドと南極の氷床から掘削されたアイスコアは、地球科学で最も生産的な記録の一つとなった。毎年の降雪が薄い空気の層を閉じこめ、層が混ざらずに堆積するため、数キロメートルのコアは数十万年前までの大気組成の順序ある記録を保つ。閉じこめられた気泡の二酸化炭素を測れば、推定ではなく直接に過去の濃度を再構成できる。この手法は、従来の気候モデルが予期しなかったことも明らかにした。1980〜90年代のグリーンランドのコア分析は、最終氷期に北大西洋地域の気温が数十年のうちに最大10度も上昇し、その後数世紀かけてゆっくり低下することがくり返されたと示した。発見者の名を冠したこの急激な変動は、大きな気候変化は緩やかであるはずだという通念を覆した。機構としては、十分な淡水が流入すると様式が切り替わる北大西洋の循環が関与しているとみられる。ただしコアの解釈には相当の注意が要る。空気はすぐには封じられず、数十年以上にわたり多孔質の雪の中を循環してから孔が閉じるため、閉じこめられた気体は周囲の氷より必ず若い。氷床の底部近くでは、下の岩盤の熱で層が薄くなったり、褶曲したり、部分的に融けたりして順序が壊れることがある。このため結論は通常、異なる地点の複数のコアが同じ模様を示す場合にのみ受け入れられ、それでも最古部分の年代決定には数千年の不確かさが残る。",
+          "questions": [
+            {
+              "id": "1-p3-b-q1",
+              "q": "Why are ice cores especially valuable for studying past carbon dioxide levels?",
+              "choices": [
+                { "text": "They contain actual samples of ancient air.", "correct": true, "explain": "気泡に閉じこめられた空気を直接測定できるため、推定に頼らずに済みます。" },
+                { "text": "They can be drilled anywhere in the world.", "correct": false, "explain": "掘削地はグリーンランドと南極が挙げられています。" },
+                { "text": "They are easier to date than tree rings.", "correct": false, "explain": "年輪との比較は述べられていません。" },
+                { "text": "They show temperatures directly.", "correct": false, "explain": "本文が強調するのは大気組成の直接測定です。" }
+              ]
+            },
+            {
+              "id": "1-p3-b-q2",
+              "q": "What assumption did the Greenland findings overturn?",
+              "choices": [
+                { "text": "That major climate changes always happen slowly.", "correct": true, "explain": "数十年で10度上昇する急変が、緩やかな変化という通念を覆しました。" },
+                { "text": "That the North Atlantic has stable circulation.", "correct": false, "explain": "循環は機構の説明として登場し、覆された通念そのものではありません。" },
+                { "text": "That ice sheets are several kilometers thick.", "correct": false, "explain": "厚さは前提として述べられているだけです。" },
+                { "text": "That carbon dioxide affects temperature.", "correct": false, "explain": "そのような通念の否定は述べられていません。" }
+              ]
+            },
+            {
+              "id": "1-p3-b-q3",
+              "q": "Why is the gas in a core younger than the ice around it?",
+              "choices": [
+                { "text": "Air keeps moving through the snow before the pores close.", "correct": true, "explain": "孔が閉じるまで空気が多孔質の雪の中を循環するためです。" },
+                { "text": "Heat from the rock below melts the deepest layers.", "correct": false, "explain": "それは層の順序が壊れる別の問題です。" },
+                { "text": "Drilling introduces modern air into the core.", "correct": false, "explain": "掘削時の混入については述べられていません。" },
+                { "text": "The layers mix as they accumulate.", "correct": false, "explain": "層は混ざらずに堆積すると述べられています。" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1-p4",
+      "phase": "written",
+      "part": "筆記 4",
+      "title": "ライティング（要約・意見論述）",
+      "type": "writing",
+      "officialCount": 2,
+      "instruction": "指示にしたがって英文を書きなさい。提出後に解答例とチェックリストで自己採点します。",
+      "prompts": [
+        {
+          "id": "1-p4-01",
+          "styleLabel": "英文要約問題",
+          "instruction": "次の英文を読んで、その内容を英語で要約しなさい。",
+          "topic": "Several countries have experimented with a four-day working week, usually keeping salaries unchanged. Trials in Iceland, the United Kingdom, and elsewhere reported encouraging results: employees said they slept better and felt less exhausted, and in most participating companies productivity remained stable or improved slightly. Supporters argue that much of a typical office day is lost to unnecessary meetings and interruptions, so a shorter week simply forces organizations to remove waste. Skeptics, however, note that the firms volunteering for such trials tend to be small, white-collar businesses whose output is relatively easy to reorganize. Hospitals, factories, and shops cannot reduce hours without hiring additional staff, which raises costs directly. There is also a concern that workers may simply compress the same tasks into fewer days, increasing daily stress even as weekly hours fall.",
+          "conditions": [
+            "語数の目安は90〜110語",
+            "本文の内容だけを使い、自分の意見は書かない",
+            "本文の表現をそのまま写さず、言いかえてまとめる",
+            "肯定的な結果と否定的な指摘の両方を含める"
+          ],
+          "wordCount": "90〜110語",
+          "modelAnswer": "Trials of a four-day week with unchanged pay have taken place in several countries, including Iceland and Britain. Participants reported better sleep and less fatigue, while output at most firms stayed steady or rose slightly. Advocates explain this by arguing that shorter weeks compel companies to cut wasteful meetings and interruptions. Critics, however, point out that volunteer firms are typically small office-based businesses whose work can be rearranged easily. Sectors such as healthcare, manufacturing, and retail would need extra employees, adding costs. A further worry is that staff may squeeze identical workloads into fewer days, so daily pressure could grow even though weekly hours decline.",
+          "modelTranslation": "給与を据え置いたまま週4日勤務を試す実験が、アイスランドや英国を含む複数の国で行われた。参加者は睡眠の改善と疲労の軽減を報告し、多くの企業で生産量は横ばいかわずかに向上した。支持者は、週が短くなれば無駄な会議や中断を削らざるをえないからだと説明する。一方、批判者は、志願する企業は業務を再編しやすい小規模のオフィス系が中心だと指摘する。医療・製造・小売などでは追加の人員が必要となり、費用が直接増える。さらに、同じ仕事量を少ない日数に詰めこむだけで、週の労働時間は減っても日々の負担は増えるおそれもある。",
+          "checklist": [
+            "実験の内容と肯定的な結果を押さえているか",
+            "支持者の論拠（無駄の削減）を押さえているか",
+            "批判（業種の偏り、追加人員の費用、日々の負担増）を押さえているか",
+            "本文の語句をそのまま写さず言いかえているか",
+            "自分の意見を加えていないか",
+            "語数は90〜110語におさまっているか"
+          ],
+          "points": 32
+        },
+        {
+          "id": "1-p4-02",
+          "styleLabel": "意見論述問題",
+          "instruction": "以下のTOPICについて、あなたの意見をエッセイの形式で書きなさい。",
+          "topic": "Agree or disagree: Advances in artificial intelligence will ultimately benefit society more than they harm it.",
+          "conditions": [
+            "語数の目安は200〜240語",
+            "序論・本論（2〜3点）・結論の構成にする",
+            "それぞれの論点に具体的な根拠や例を示す",
+            "反対意見への言及を含めると評価が高くなる",
+            "TOPICに対応していない場合は0点になる"
+          ],
+          "wordCount": "200〜240語",
+          "modelAnswer": "I agree that advances in artificial intelligence will ultimately benefit society more than they harm it, provided that governments regulate the technology with genuine seriousness.\n\nThe clearest benefit lies in fields where expertise is scarce. Radiologists capable of detecting early tumours are concentrated in wealthy cities, yet an algorithm trained on millions of images can be distributed at almost no marginal cost. Similar reasoning applies to legal advice and language instruction, where competent human assistance has always been rationed by price.\n\nA second argument concerns work that is dangerous or destructive to health. Machine systems already inspect pipelines, handle hazardous chemicals, and operate in mines. Removing human beings from such environments represents an unambiguous gain, and one that no reasonable critic disputes.\n\nThe strongest objection is that automation destroys employment and concentrates wealth among those who own the systems. This concern deserves respect rather than dismissal. History nonetheless suggests that technologies eliminating particular occupations have generally created others, and the decisive factor has been policy: countries that invested in retraining and income support experienced far less social damage than those that did not. The danger, in other words, lies in political failure rather than in the machines themselves.\n\nArtificial intelligence will certainly impose real costs on particular groups, and pretending otherwise would be dishonest. On balance, however, a technology that extends scarce expertise to people who have never had access to it seems likely to leave society better off than before.",
+          "modelTranslation": "私は、政府が真剣に規制を行うという条件のもとで、人工知能の進歩は最終的に害より益をもたらすと考える。最も明白な利点は専門知識が希少な分野にある。早期の腫瘍を見抜ける放射線科医は豊かな都市に集中しているが、数百万枚の画像で訓練されたアルゴリズムはほぼ限界費用なしに配布できる。法律相談や語学指導も同様で、有能な人的支援は常に価格によって配分されてきた。第二の論拠は危険で健康を損なう作業である。機械はすでに配管を点検し、危険な化学物質を扱い、鉱山で稼働している。そうした環境から人間を取り除くことは明白な利益であり、良識ある批判者も争わない。最も強い反論は、自動化が雇用を破壊し、システムの所有者に富を集中させるというものだ。この懸念は退けるのではなく尊重に値する。とはいえ歴史は、特定の職を消した技術が概して別の職を生み、決定的要因は政策であったことを示す。再教育と所得保障に投資した国は、そうしなかった国よりはるかに社会的損害が小さかった。つまり危険は機械そのものではなく政治の失敗にある。人工知能は確かに特定の集団に現実の負担を課すのであり、それを否定するのは不誠実だろう。それでも総じて、希少な専門知識をこれまで手の届かなかった人々に広げる技術は、社会をより良くする可能性が高いと思われる。",
+          "checklist": [
+            "序論で立場を明確に示しているか",
+            "本論を2〜3点に分け、各段落に具体的な根拠・例を示しているか",
+            "反対意見にふれ、それに応答しているか",
+            "結論で立場を再確認し、論旨をまとめているか",
+            "語数は200〜240語におさまっているか",
+            "同一表現のくり返しをさけ、語彙・構文に幅があるか",
+            "つなぎ表現（nonetheless / in other words / on balance など）を適切に使えているか"
+          ],
+          "points": 32
+        }
+      ]
+    },
+    {
+      "id": "1-l1",
+      "phase": "listening",
+      "part": "リスニング Part 1",
+      "title": "会話の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "conversation",
+      "officialCount": 10,
+      "playLimit": 1,
+      "instruction": "会話と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。放送は1回だけです。",
+      "questions": [
+        {
+          "id": "1-l1-01",
+          "script": [
+            { "speaker": "A", "text": "I read your draft on the budget proposal. The analysis is solid, but I would not send it as it stands." },
+            { "speaker": "B", "text": "Is it the tone?" },
+            { "speaker": "A", "text": "Partly. You describe the finance department's previous estimate as careless. Even if that is accurate, they will stop reading at that word and defend themselves instead of engaging with your numbers." },
+            { "speaker": "B", "text": "Fair. I will rephrase it as an assumption that no longer holds." }
+          ],
+          "question": "What is the woman's main concern about the draft?",
+          "translation": "A：予算案の草稿を読みました。分析は堅実ですが、このままでは送りません。　B：語調ですか。　A：一部は。財務部の以前の見積もりを「ずさん」と書いていますね。事実だとしても、彼らはその語で読むのをやめ、数字に向き合う代わりに自己弁護を始めます。　B：なるほど。もはや成り立たない前提、と言い換えます。（質問：女性の主な懸念は何ですか）",
+          "choices": [
+            { "text": "The wording will make the readers defensive.", "correct": true, "explain": "「ずさん」という語で相手が自己弁護に回り、内容を検討しなくなると懸念しています。" },
+            { "text": "The calculations contain errors.", "correct": false, "explain": "分析は堅実だと評価しています。" },
+            { "text": "The draft is too long for the committee.", "correct": false, "explain": "長さについては述べていません。" },
+            { "text": "The deadline has already passed.", "correct": false, "explain": "期限の話は出てきません。" }
+          ]
+        },
+        {
+          "id": "1-l1-02",
+          "script": [
+            { "speaker": "A", "text": "The board rejected the expansion into the southern market." },
+            { "speaker": "B", "text": "On what grounds? The projections were favourable." },
+            { "speaker": "A", "text": "They did not dispute the projections. Their objection was that we would be relying on a single distributor, and that company is already struggling financially." },
+            { "speaker": "B", "text": "So the issue is exposure, not profitability. That we can address." }
+          ],
+          "question": "Why did the board reject the plan?",
+          "translation": "A：取締役会は南部市場への進出を否決しました。　B：どんな理由で？予測は良好でしたよね。　A：予測に異論はありませんでした。反対理由は、単一の販売代理店に依存することになり、その会社がすでに財務的に苦しいという点です。　B：つまり問題は収益性ではなくリスクの集中ですね。それなら対処できます。（質問：取締役会はなぜ計画を否決したのですか）",
+          "choices": [
+            { "text": "The plan depended on one financially weak partner.", "correct": true, "explain": "単一の、しかも財務的に苦しい代理店への依存が反対理由です。" },
+            { "text": "The profit forecasts were considered unrealistic.", "correct": false, "explain": "予測に異論はなかったと述べています。" },
+            { "text": "The southern market is too small.", "correct": false, "explain": "市場規模の話は出ていません。" },
+            { "text": "The company lacks the necessary capital.", "correct": false, "explain": "資本不足の指摘はありません。" }
+          ]
+        },
+        {
+          "id": "1-l1-03",
+          "script": [
+            { "speaker": "A", "text": "The journal has asked me to review a paper by someone I collaborated with three years ago." },
+            { "speaker": "B", "text": "Did you tell the editor?" },
+            { "speaker": "A", "text": "Not yet. The collaboration was brief and on an unrelated topic, so I doubt it affects my judgement." },
+            { "speaker": "B", "text": "That is not really the test. Disclose it and let the editor decide. If it emerges later, your objectivity becomes the story rather than the paper." }
+          ],
+          "question": "What does the man advise?",
+          "translation": "A：3年前に共同研究した相手の論文の査読を学術誌から依頼されました。　B：編集者に伝えましたか。　A：まだです。共同研究は短期間で無関係のテーマだったので、判断に影響するとは思いません。　B：それは判断基準ではありません。開示して編集者に決めさせなさい。あとで発覚すれば、論文ではなくあなたの客観性が話題になります。（質問：男性は何を助言していますか）",
+          "choices": [
+            { "text": "Inform the editor and let them judge.", "correct": true, "explain": "自分で判断せず開示し、編集者に決めさせるよう助言しています。" },
+            { "text": "Refuse the review request immediately.", "correct": false, "explain": "辞退せよとは言っていません。" },
+            { "text": "Review the paper but stay anonymous.", "correct": false, "explain": "匿名性の話ではありません。" },
+            { "text": "Contact the author before deciding.", "correct": false, "explain": "著者への連絡は勧めていません。" }
+          ]
+        },
+        {
+          "id": "1-l1-04",
+          "script": [
+            { "speaker": "A", "text": "Attendance at the evening lecture series has collapsed. We had eighty last year and barely twenty last week." },
+            { "speaker": "B", "text": "Have the topics changed?" },
+            { "speaker": "A", "text": "No, and the speakers are if anything better known. But we moved the start time from six thirty to five forty-five when the building changed its closing hours." },
+            { "speaker": "B", "text": "There it is. Most of your audience cannot leave work before five thirty." }
+          ],
+          "question": "What do they conclude caused the drop in attendance?",
+          "translation": "A：夜間講義シリーズの参加者が激減しました。昨年は80人、先週はかろうじて20人です。　B：テーマが変わりましたか。　A：いいえ、講師はむしろ有名になっています。ただ建物の閉館時間の変更にともない、開始を6時30分から5時45分に早めました。　B：それですね。聴衆の多くは5時30分前に仕事を抜けられません。（質問：参加者減少の原因は何だと結論づけていますか）",
+          "choices": [
+            { "text": "The earlier start time conflicts with work hours.", "correct": true, "explain": "開始が早まり、勤務終了に間に合わなくなったためです。" },
+            { "text": "The speakers are less well known.", "correct": false, "explain": "講師はむしろ有名になっていると述べています。" },
+            { "text": "The topics have become too difficult.", "correct": false, "explain": "テーマは変わっていません。" },
+            { "text": "The building has closed permanently.", "correct": false, "explain": "閉館時間の変更で、閉鎖ではありません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1-l2",
+      "phase": "listening",
+      "part": "リスニング Part 2",
+      "title": "文の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "passage",
+      "officialCount": 10,
+      "playLimit": 1,
+      "instruction": "英文と質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。放送は1回だけです。",
+      "questions": [
+        {
+          "id": "1-l2-01",
+          "script": "The Antikythera mechanism, recovered from a Roman-era shipwreck in 1901, sat largely ignored in a museum for decades. Early investigators assumed that a corroded lump of bronze containing gears could not possibly date from the second century BCE, since comparable gearing does not reappear in the historical record until the fourteenth century. Only when X-ray imaging revealed more than thirty interlocking gears, arranged to model the motions of the sun and moon, did the object's true nature become undeniable. It is now regarded as evidence that ancient mechanical knowledge was far more advanced, and far more thoroughly lost, than historians had assumed.",
+          "question": "Why was the mechanism ignored for so long?",
+          "translation": "1901年にローマ時代の沈没船から回収されたアンティキティラ島の機械は、数十年間ほぼ無視されたまま博物館に置かれていた。初期の研究者は、歯車を含む腐食した青銅の塊が紀元前2世紀のものであるはずがないと考えた。同等の歯車機構は14世紀まで歴史上に再登場しないからである。X線撮影で30を超える噛み合う歯車が太陽と月の運動を模すよう配置されていると判明して初めて、その正体は否定しがたいものとなった。今日では、古代の機械知識が歴史家の想定よりはるかに進んでおり、そしてはるかに徹底的に失われたことの証拠とみなされている。（質問：なぜ長い間無視されたのですか）",
+          "choices": [
+            { "text": "Researchers assumed such technology could not be that old.", "correct": true, "explain": "紀元前2世紀にそのような歯車機構はありえないと考えられたためです。" },
+            { "text": "The museum kept it hidden from scholars.", "correct": false, "explain": "隠していたとは述べられていません。" },
+            { "text": "It was too badly corroded to move.", "correct": false, "explain": "腐食は言及されますが、無視された理由は年代の思いこみです。" },
+            { "text": "X-ray imaging was banned at the time.", "correct": false, "explain": "禁止されていたという記述はありません。" }
+          ]
+        },
+        {
+          "id": "1-l2-02",
+          "script": "Economists have long puzzled over what is called the productivity paradox. Between the mid 1970s and the early 1990s, businesses invested enormous sums in computers, yet measured productivity growth slowed rather than accelerated. One influential explanation holds that general-purpose technologies deliver gains only after organizations reorganize around them. Electric motors, for example, produced little benefit while factories retained the layouts designed for steam power, with machines arranged around a single central shaft. Only when plants were redesigned so that each machine had its own motor did output per worker rise dramatically, roughly four decades after electrification began.",
+          "question": "What does the example of electric motors illustrate?",
+          "translation": "経済学者は長らく「生産性のパラドックス」に頭を悩ませてきた。1970年代半ばから1990年代初頭にかけ、企業はコンピューターに巨額を投じたが、計測される生産性の伸びは加速するどころか鈍化した。有力な説明の一つは、汎用技術は組織がそれに合わせて再編されて初めて効果を生むというものだ。たとえば電動機は、工場が蒸気動力向けの配置、すなわち一本の中央シャフトの周りに機械を並べる形を保っている間はほとんど利益を生まなかった。各機械が自前のモーターを持つよう工場が再設計されて初めて、労働者あたりの生産量は劇的に伸びた。電化開始からおよそ40年後のことである。（質問：電動機の例は何を示していますか）",
+          "choices": [
+            { "text": "New technology pays off only after organizations are restructured.", "correct": true, "explain": "工場の再設計を経て初めて生産性が伸びたという例です。" },
+            { "text": "Steam power was more efficient than electricity.", "correct": false, "explain": "蒸気のほうが効率的だとは述べていません。" },
+            { "text": "Factories should avoid adopting new machines.", "correct": false, "explain": "導入を避けるべきだという主張ではありません。" },
+            { "text": "Productivity cannot be measured accurately.", "correct": false, "explain": "測定の不可能性を論じてはいません。" }
+          ]
+        },
+        {
+          "id": "1-l2-03",
+          "script": "Conservation efforts increasingly rely on a concept known as the umbrella species. The idea is that by protecting the habitat of a single wide-ranging animal, such as a tiger or a grizzly bear, one automatically protects countless smaller organisms within the same territory. The approach has practical appeal, since donors respond far more generously to charismatic mammals than to insects or fungi. Critics caution, however, that the umbrella may not cover everything assumed to be beneath it. Species with narrow requirements, such as those dependent on a particular wetland or cave system, can decline to extinction inside a reserve established for a large predator.",
+          "question": "What criticism is made of the umbrella species approach?",
+          "translation": "保全活動はますます「アンブレラ種」と呼ばれる概念に依存している。トラやハイイログマのような広い行動圏をもつ一種の生息地を守れば、同じ領域内の無数の小型生物も自動的に守られるという考えだ。寄付者は昆虫や菌類よりも魅力的な哺乳類にはるかに寛大なので、実務的な訴求力もある。しかし批判者は、この傘が想定されるすべてを覆うとは限らないと警告する。特定の湿地や洞窟系に依存するような、要求の狭い種は、大型捕食者のために設けられた保護区の内部で絶滅に向かって減少しうる。（質問：アンブレラ種の手法にはどんな批判がありますか）",
+          "choices": [
+            { "text": "Species with special habitat needs may still be lost.", "correct": true, "explain": "特定の環境に依存する種は保護区内でも減少しうると指摘されています。" },
+            { "text": "Large predators are too expensive to protect.", "correct": false, "explain": "費用の問題は述べられていません。" },
+            { "text": "Donors prefer to fund insect conservation.", "correct": false, "explain": "寄付者は魅力的な哺乳類を好むと述べられています。" },
+            { "text": "Reserves are usually too large to manage.", "correct": false, "explain": "面積の管理困難さは論点ではありません。" }
+          ]
+        },
+        {
+          "id": "1-l2-04",
+          "script": "In the 1950s, a Dutch traffic engineer proposed what seemed an absurd idea: that removing signs, signals, and painted lines from an intersection could make it safer. The reasoning was that conventional markings tell drivers when they have the right of way, and a driver who feels entitled to proceed pays less attention to everyone else. Strip away those cues, and motorists become uncertain, slow down, and make eye contact with pedestrians. Trials in several European towns found that accident rates fell substantially, though the approach works only where traffic volumes are moderate and speeds are already low.",
+          "question": "Why does removing traffic signs reportedly improve safety?",
+          "translation": "1950年代、あるオランダの交通技術者が一見ばかげた案を出した。交差点から標識・信号・路面標示を取り除けば安全になるというのだ。理屈はこうである。従来の標示は運転者にいつ優先権があるかを教えるが、進んでよいと感じる運転者は他者への注意を減らす。その手がかりを取り除けば、運転者は不確かになり、減速し、歩行者と目を合わせる。欧州のいくつかの町の試行では事故率が大幅に下がったが、この手法は交通量が中程度で速度がもともと低い場所でのみ機能する。（質問：標識の撤去はなぜ安全性を高めるとされますか）",
+          "choices": [
+            { "text": "Uncertain drivers slow down and watch others more closely.", "correct": true, "explain": "手がかりを失った運転者は減速し、歩行者と目を合わせるようになります。" },
+            { "text": "Fewer drivers use the intersection afterward.", "correct": false, "explain": "交通量が減るとは述べられていません。" },
+            { "text": "Pedestrians are banned from the area.", "correct": false, "explain": "歩行者の排除ではありません。" },
+            { "text": "Signs are often difficult to read at night.", "correct": false, "explain": "視認性の問題は論じられていません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1-l3",
+      "phase": "listening",
+      "part": "リスニング Part 3",
+      "title": "Real-Life形式の内容一致選択",
+      "type": "listening",
+      "listeningStyle": "reallife",
+      "officialCount": 5,
+      "playLimit": 1,
+      "instruction": "状況と質問を読んだうえで放送を聞き、答えとして最も適切なものを1〜4の中から一つ選びなさい。放送は1回だけです。",
+      "questions": [
+        {
+          "id": "1-l3-01",
+          "script": "Thank you for calling the conference registration office. Presenters who have already submitted an abstract may upload their full paper through the online portal until March 15. After that date, the portal closes and late papers will be accepted by e-mail only, with a fifty-dollar processing fee. Presenters who wish to change the title of an accepted abstract must notify the program committee in writing before March 1, as titles are sent to the printer immediately afterward.",
+          "question": "状況：あなたは採択された発表の題目を変更したいと考えています。今日は3月5日です。　質問：What is your situation?",
+          "translation": "学会登録事務局の案内。抄録提出済みの発表者は3月15日までオンラインポータルで論文全文をアップロードできる。それ以降はポータルが閉じ、遅れた論文はメールのみ、50ドルの手数料つきで受理される。採択抄録の題目変更は3月1日までに書面でプログラム委員会へ通知する必要がある。以降は題目が印刷所に送られるためである。",
+          "choices": [
+            { "text": "The deadline for title changes has already passed.", "correct": true, "explain": "題目変更は3月1日までで、今日は3月5日なので間に合いません。" },
+            { "text": "You can still change the title by paying a fee.", "correct": false, "explain": "手数料は遅れた論文提出に関するもので、題目変更ではありません。" },
+            { "text": "You can change the title until March 15.", "correct": false, "explain": "3月15日は論文全文の提出期限です。" },
+            { "text": "You must e-mail the program committee today.", "correct": false, "explain": "期限を過ぎているため、通知しても受理される保証はありません。" }
+          ]
+        },
+        {
+          "id": "1-l3-02",
+          "script": "Welcome to the research library. Visiting scholars may request materials from the closed stacks using the request terminals on the second floor. Standard requests are delivered twice daily, at eleven and at three. Manuscripts and materials published before 1850 require an appointment with a curator, which must be arranged at least two working days in advance, and these items may be consulted only in the supervised reading room on the fourth floor.",
+          "question": "状況：あなたは明日の午後に1780年出版の書籍を閲覧したいと考えています。今日は金曜の朝で、図書館は土日休館です。　質問：What should you do?",
+          "translation": "研究図書館の案内。訪問研究者は2階の請求端末から閉架資料を請求できる。通常の請求は1日2回、11時と15時に配送される。写本および1850年以前に出版された資料は学芸員との予約が必要で、少なくとも2営業日前に手配しなければならない。またこれらの資料は4階の監督付き閲覧室でのみ閲覧できる。",
+          "choices": [
+            { "text": "Accept that tomorrow is impossible and book a later date.", "correct": true, "explain": "1780年の資料は2営業日前の予約が必要で、土日休館のため明日は不可能です。" },
+            { "text": "Use a request terminal for the eleven o'clock delivery.", "correct": false, "explain": "1850年以前の資料は通常の請求では閲覧できません。" },
+            { "text": "Go directly to the fourth floor reading room tomorrow.", "correct": false, "explain": "予約なしでは閲覧できません。" },
+            { "text": "Ask a curator to deliver it at three today.", "correct": false, "explain": "配送時刻は通常請求のもので、予約の代わりにはなりません。" }
+          ]
+        },
+        {
+          "id": "1-l3-03",
+          "script": "This is a message from the building management. Because of the elevator inspection scheduled for Thursday, the north elevators will be out of service from eight in the morning until two in the afternoon. The south elevators will operate normally but will not stop on floors nine through twelve, where the inspection equipment will be installed. Residents on those floors should use the north stairwell. Deliveries requiring elevator access should be rescheduled for Friday.",
+          "question": "状況：あなたは木曜の午前10時に11階へ大型の家具を配送してもらう予定です。　質問：What should you do?",
+          "translation": "建物管理からの連絡。木曜のエレベーター点検のため、北側エレベーターは午前8時から午後2時まで停止する。南側は通常運行するが、点検機材が設置される9階から12階には停止しない。該当階の居住者は北側の階段を使うこと。エレベーターを使う配送は金曜に変更すること。",
+          "choices": [
+            { "text": "Move the delivery to Friday.", "correct": true, "explain": "11階は南側が停止せず北側も運休のため、配送は金曜に変更すべきです。" },
+            { "text": "Use the south elevator at ten.", "correct": false, "explain": "南側は9〜12階に停止しません。" },
+            { "text": "Use the north elevator after two.", "correct": false, "explain": "午後2時以降なら北側は動きますが、配送は午前10時の予定です。" },
+            { "text": "Carry the furniture up the north stairwell.", "correct": false, "explain": "大型家具を階段で運ぶことは案内されていません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1-l4",
+      "phase": "listening",
+      "part": "リスニング Part 4",
+      "title": "インタビューの内容一致選択",
+      "type": "listening",
+      "listeningStyle": "interview",
+      "officialCount": 2,
+      "playLimit": 1,
+      "instruction": "インタビューと質問を聞き、その答えとして最も適切なものを1〜4の中から一つ選びなさい。放送は1回だけです。",
+      "questions": [
+        {
+          "id": "1-l4-01",
+          "script": [
+            { "speaker": "A", "text": "Dr. Vasquez, you spent fifteen years studying volcanic risk. What do you consider the greatest obstacle to saving lives?" },
+            { "speaker": "B", "text": "Not the science. We can usually tell that an eruption is likely weeks in advance. The difficulty is the cost of being wrong in the cautious direction." },
+            { "speaker": "A", "text": "You mean evacuating unnecessarily." },
+            { "speaker": "B", "text": "Precisely. An evacuation empties a town for weeks. People lose income, shops close, and some never reopen. If the eruption does not come, the scientists are blamed, and the next warning is ignored. I have watched that cycle destroy public trust in three different countries." },
+            { "speaker": "A", "text": "How can that be avoided?" },
+            { "speaker": "B", "text": "By paying people. If a government compensates residents for the weeks they lose, a false alarm becomes an inconvenience rather than a catastrophe, and the community will cooperate the following time." }
+          ],
+          "question": "According to Dr. Vasquez, what is the main problem in volcanic risk management?",
+          "translation": "A：バスケス博士、火山リスクの研究を15年されてきました。人命を救ううえで最大の障害は何でしょう。　B：科学ではありません。噴火の可能性は通常、数週間前にわかります。難しいのは、慎重な方向に間違えたときの代償です。　A：不要な避難のことですね。　B：そのとおり。避難は町を数週間空にします。人々は収入を失い、店は閉まり、二度と開かない店もある。噴火が起きなければ科学者が責められ、次の警告は無視される。私はその循環が三つの国で信頼を壊すのを見てきました。　A：どうすれば避けられますか。　B：補償することです。失った数週間分を政府が補償すれば、誤報は破局ではなく不便で済み、地域は次も協力してくれます。（質問：バスケス博士によれば火山リスク管理の主な問題は何ですか）",
+          "choices": [
+            { "text": "The economic damage caused by evacuations that turn out to be unnecessary.", "correct": true, "explain": "不要だった避難の経済的損失が信頼を損ない、次の警告が無視される循環を問題としています。" },
+            { "text": "Scientists cannot predict eruptions in advance.", "correct": false, "explain": "数週間前に予測できると述べています。" },
+            { "text": "Governments refuse to issue warnings.", "correct": false, "explain": "警告の発出を拒むとは述べていません。" },
+            { "text": "Residents do not understand scientific language.", "correct": false, "explain": "説明の難しさは論点ではありません。" }
+          ]
+        },
+        {
+          "id": "1-l4-02",
+          "script": [
+            { "speaker": "A", "text": "Dr. Vasquez, does compensation actually work in practice?" },
+            { "speaker": "B", "text": "Where it has been tried, yes. One province in the Philippines introduced payments after a disastrous experience in the 1990s. Compliance with later evacuation orders rose from roughly forty percent to over ninety." },
+            { "speaker": "A", "text": "That is a remarkable change. Why has the policy not spread?" },
+            { "speaker": "B", "text": "Because the budget line is visible and the benefit is invisible. A finance minister can point to money spent on evacuations that proved unnecessary. Nobody can point to the eruption that killed no one. Preventive spending is politically thankless, which is why it usually requires a disaster first." }
+          ],
+          "question": "Why does Dr. Vasquez say the policy has not spread widely?",
+          "translation": "A：バスケス博士、補償は実際に機能しますか。　B：試された地域では機能しています。フィリピンのある州は1990年代の惨事のあと支払いを導入しました。その後の避難指示への従順率は約40パーセントから90パーセント超に上がりました。　A：目覚ましい変化ですね。なぜ広がらないのでしょう。　B：予算項目は目に見え、便益は見えないからです。財務大臣は不要と判明した避難に使った金額を示せます。しかし誰も「死者を出さなかった噴火」を示すことはできない。予防的支出は政治的に報われず、だからたいてい先に惨事が必要になるのです。（質問：なぜこの政策は広がらないのですか）",
+          "choices": [
+            { "text": "The costs are easy to see while the benefits are not.", "correct": true, "explain": "支出は目に見えるが、防がれた被害は誰にも示せないと説明しています。" },
+            { "text": "The policy failed when it was tried in the Philippines.", "correct": false, "explain": "フィリピンの例では従順率が大きく改善しました。" },
+            { "text": "Most countries cannot afford the payments.", "correct": false, "explain": "財政的余裕の有無ではなく、政治的な見えにくさを理由としています。" },
+            { "text": "Residents refuse to accept government money.", "correct": false, "explain": "住民が拒否するとは述べていません。" }
+          ]
+        }
+      ]
+    }
+  ]
+}
