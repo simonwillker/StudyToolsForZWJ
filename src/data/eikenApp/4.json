@@ -1,0 +1,166 @@
+{
+  "level": "4",
+  "levelLabel": "4級",
+  "levelSub": "中学中級程度",
+  "color": "#2F6E8A",
+  "vocab": [
+    { "id": "v4-01", "word": "absent", "phonetic": "ˈæbsənt", "pos": "形容詞", "meaning": "欠席の", "example": { "en": "He was absent from school yesterday.", "ja": "彼は昨日学校を欠席しました。" } },
+    { "id": "v4-02", "word": "borrow", "phonetic": "ˈbɔːroʊ", "pos": "動詞", "meaning": "借りる", "example": { "en": "Can I borrow your pen?", "ja": "あなたのペンを借りてもいいですか。" } },
+    { "id": "v4-03", "word": "decide", "phonetic": "dɪˈsaɪd", "pos": "動詞", "meaning": "決める", "example": { "en": "I decided to study English harder.", "ja": "私はもっと英語を頑張って勉強することに決めました。" } },
+    { "id": "v4-04", "word": "exercise", "phonetic": "ˈɛksərsaɪz", "pos": "名詞/動詞", "meaning": "運動（する）", "example": { "en": "I exercise every morning.", "ja": "私は毎朝運動します。" } },
+    { "id": "v4-05", "word": "hospital", "phonetic": "ˈhɒspɪtl", "pos": "名詞", "meaning": "病院", "example": { "en": "My father works at a hospital.", "ja": "私の父は病院で働いています。" } },
+    { "id": "v4-06", "word": "invite", "phonetic": "ɪnˈvaɪt", "pos": "動詞", "meaning": "招待する", "example": { "en": "She invited me to her birthday party.", "ja": "彼女は私を誕生日パーティーに招待しました。" } },
+    { "id": "v4-07", "word": "journey", "phonetic": "ˈdʒɜːrni", "pos": "名詞", "meaning": "旅、旅行", "example": { "en": "We had a long journey to Kyoto.", "ja": "私たちは京都への長い旅をしました。" } },
+    { "id": "v4-08", "word": "kind", "phonetic": "kaɪnd", "pos": "形容詞", "meaning": "親切な", "example": { "en": "She is very kind to everyone.", "ja": "彼女はみんなにとても親切です。" } },
+    { "id": "v4-09", "word": "lonely", "phonetic": "ˈloʊnli", "pos": "形容詞", "meaning": "さびしい", "example": { "en": "I feel lonely when my friends are busy.", "ja": "友だちが忙しいとき、私はさびしく感じます。" } },
+    { "id": "v4-10", "word": "museum", "phonetic": "mjuˈziːəm", "pos": "名詞", "meaning": "博物館、美術館", "example": { "en": "We visited an art museum last weekend.", "ja": "私たちは先週末、美術館を訪れました。" } }
+  ],
+  "grammar": [
+    {
+      "id": "g4-01",
+      "sentence": "I ___ to the movies with my sister last Saturday.",
+      "ja": "私は先週の土曜日に姉（妹）と映画に行きました。",
+      "point": "一般動詞の過去形（go → went）",
+      "choices": [
+        { "text": "went", "correct": true, "explain": "go の過去形は went です。last Saturday（過去の出来事）に合います。" },
+        { "text": "go", "correct": false, "explain": "go は現在形なので、last Saturday（過去）とは合いません。" },
+        { "text": "goes", "correct": false, "explain": "goes は現在形（三人称単数）です。過去の話には使えません。" },
+        { "text": "going", "correct": false, "explain": "going は be動詞と組み合わせて使う形です。" }
+      ]
+    },
+    {
+      "id": "g4-02",
+      "sentence": "This bag is ___ than that one.",
+      "ja": "このかばんはあのかばんより軽いです。",
+      "point": "比較級（〜er than）",
+      "choices": [
+        { "text": "lighter", "correct": true, "explain": "2つを比べるときは形容詞に -er をつけて than を続けます。" },
+        { "text": "light", "correct": false, "explain": "light は原級（比較していない形）です。" },
+        { "text": "lightest", "correct": false, "explain": "lightest は最上級で、3つ以上を比べるときに使います。" },
+        { "text": "more light", "correct": false, "explain": "light のような短い形容詞には more をつけません。" }
+      ]
+    },
+    {
+      "id": "g4-03",
+      "sentence": "I ___ visit my grandmother next Sunday.",
+      "ja": "私は次の日曜日に祖母を訪ねるつもりです。",
+      "point": "未来の予定：be going to",
+      "choices": [
+        { "text": "am going to", "correct": true, "explain": "あらかじめ決めていた予定を表すときは be going to を使います。" },
+        { "text": "am go to", "correct": false, "explain": "be動詞のあとは going to の形が正しいです（am go to は誤り）。" },
+        { "text": "will to", "correct": false, "explain": "will の後に to はつけません。" },
+        { "text": "going", "correct": false, "explain": "be動詞（am）が抜けています。" }
+      ]
+    },
+    {
+      "id": "g4-04",
+      "sentence": "You ___ finish your homework before dinner.",
+      "ja": "あなたは夕食の前に宿題を終えなければなりません。",
+      "point": "義務を表す助動詞 must",
+      "choices": [
+        { "text": "must", "correct": true, "explain": "「〜しなければならない」という義務を表すときは must を使います。" },
+        { "text": "can", "correct": false, "explain": "can は「〜できる」という能力・可能性を表します。義務ではありません。" },
+        { "text": "may", "correct": false, "explain": "may は「〜してもよい」という許可を表します。" },
+        { "text": "will", "correct": false, "explain": "will は未来や意志を表し、義務の意味にはなりません。" }
+      ]
+    },
+    {
+      "id": "g4-05",
+      "sentence": "___ many students in this classroom.",
+      "ja": "この教室にはたくさんの生徒がいます。",
+      "point": "There is / There are（〜がある・いる）",
+      "choices": [
+        { "text": "There are", "correct": true, "explain": "students（複数）が続くので There are を使います。" },
+        { "text": "There is", "correct": false, "explain": "There is は単数の名詞が続くときに使います。students は複数です。" },
+        { "text": "It is", "correct": false, "explain": "It is は「それは〜です」という意味で、存在を表す文には使いません。" },
+        { "text": "They are", "correct": false, "explain": "文頭で「〜がある」と存在を表すときは There are を使います。" }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "r4-01",
+      "title": "The School Trip",
+      "passage": "Last month, our class went on a school trip to Nara. We visited an old temple and saw many deer in the park. Some students were surprised because the deer came very close to them. We also ate lunch together under a big tree. It was a fun and memorable day for everyone.",
+      "questions": [
+        {
+          "id": "r4-01-q1",
+          "q": "Where did the class go on the school trip?",
+          "choices": [
+            { "text": "Nara", "correct": true, "explain": "\"our class went on a school trip to Nara\" とあります。" },
+            { "text": "Kyoto", "correct": false, "explain": "本文には Nara と書かれています。" },
+            { "text": "Tokyo", "correct": false, "explain": "本文には Nara と書かれています。" },
+            { "text": "Osaka", "correct": false, "explain": "本文には Nara と書かれています。" }
+          ]
+        },
+        {
+          "id": "r4-01-q2",
+          "q": "Why were some students surprised?",
+          "choices": [
+            { "text": "Because the deer came very close to them.", "correct": true, "explain": "\"Some students were surprised because the deer came very close to them.\" とあります。" },
+            { "text": "Because it started to rain.", "correct": false, "explain": "天気についての記述はありません。" },
+            { "text": "Because the temple was closed.", "correct": false, "explain": "お寺が閉まっていたという記述はありません。" },
+            { "text": "Because they got lost.", "correct": false, "explain": "迷子になったという記述はありません。" }
+          ]
+        },
+        {
+          "id": "r4-01-q3",
+          "q": "What did they do under a big tree?",
+          "choices": [
+            { "text": "They ate lunch together.", "correct": true, "explain": "\"We also ate lunch together under a big tree.\" とあります。" },
+            { "text": "They took a nap.", "correct": false, "explain": "昼寝についての記述はありません。" },
+            { "text": "They played soccer.", "correct": false, "explain": "サッカーについての記述はありません。" },
+            { "text": "They read books.", "correct": false, "explain": "読書についての記述はありません。" }
+          ]
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l4-01",
+      "script": "Yesterday I stayed home because I had a cold. I slept most of the day.",
+      "translation": "昨日は風邪をひいていたので家にいました。一日のほとんど寝ていました。",
+      "question": "Why did the speaker stay home yesterday?",
+      "choices": [
+        { "text": "Because the speaker had a cold.", "correct": true, "explain": "\"I stayed home because I had a cold.\" と言っています。" },
+        { "text": "Because it was a holiday.", "correct": false, "explain": "休日という理由は述べられていません。" },
+        { "text": "Because the school was closed.", "correct": false, "explain": "学校が休みという理由は述べられていません。" },
+        { "text": "Because it was raining.", "correct": false, "explain": "天気についての記述はありません。" }
+      ]
+    },
+    {
+      "id": "l4-02",
+      "script": "We are going to have a birthday party for Emma this Friday evening.",
+      "translation": "今週の金曜日の夜、エマの誕生日パーティーを開く予定です。",
+      "question": "When will the birthday party be?",
+      "choices": [
+        { "text": "This Friday evening", "correct": true, "explain": "\"this Friday evening\" と言っています。" },
+        { "text": "This Saturday morning", "correct": false, "explain": "本文では Friday evening（金曜の夜）と言っています。" },
+        { "text": "Next Monday", "correct": false, "explain": "本文では Friday evening（金曜の夜）と言っています。" },
+        { "text": "Today", "correct": false, "explain": "本文では this Friday（今週の金曜日）と言っています。" }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "d4-01",
+      "title": "Making Plans",
+      "translation": "A：週末に何か予定はある？ B：まだないよ。何を考えてるの？ A：新しくオープンした映画館に行くのはどう？ B：___ A：いいね！土曜日の午後に会おうよ。",
+      "lines": [
+        { "speaker": "A", "text": "Do you have any plans for the weekend?" },
+        { "speaker": "B", "text": "Not yet. What are you thinking?" },
+        { "speaker": "A", "text": "How about going to the new movie theater?" },
+        { "speaker": "B", "text": "___" },
+        { "speaker": "A", "text": "Great! Let's meet on Saturday afternoon." }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        { "text": "That sounds like a great idea!", "correct": true, "explain": "提案に対して賛成する自然な返答で、直後の「土曜の午後に会おう」につながります。" },
+        { "text": "I don't like watching movies at all.", "correct": false, "explain": "その後 A が喜んで予定を決めているので、否定的な返答は流れに合いません。" },
+        { "text": "I have to feed my dog.", "correct": false, "explain": "映画の提案への返答になっていません。" },
+        { "text": "The weather is very hot today.", "correct": false, "explain": "天気の話は会話の流れに合いません。" }
+      ]
+    }
+  ]
+}

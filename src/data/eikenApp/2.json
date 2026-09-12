@@ -1,0 +1,166 @@
+{
+  "level": "2",
+  "levelLabel": "2級",
+  "levelSub": "高校卒業程度",
+  "color": "#8A3B2F",
+  "vocab": [
+    { "id": "v2-01", "word": "allocate", "phonetic": "ˈæləkeɪt", "pos": "動詞", "meaning": "割り当てる", "example": { "en": "The city allocated more funds to education this year.", "ja": "市は今年、教育により多くの資金を割り当てました。" } },
+    { "id": "v2-02", "word": "controversy", "phonetic": "ˈkɒntrəvɜːrsi", "pos": "名詞", "meaning": "論争", "example": { "en": "The new policy caused a lot of controversy.", "ja": "その新しい政策は多くの論争を引き起こしました。" } },
+    { "id": "v2-03", "word": "deteriorate", "phonetic": "dɪˈtɪəriəreɪt", "pos": "動詞", "meaning": "悪化する", "example": { "en": "His health began to deteriorate rapidly.", "ja": "彼の健康は急速に悪化し始めました。" } },
+    { "id": "v2-04", "word": "empirical", "phonetic": "ɪmˈpɪrɪkəl", "pos": "形容詞", "meaning": "経験的な、実証的な", "example": { "en": "The theory is based on empirical evidence.", "ja": "その理論は実証的な証拠に基づいています。" } },
+    { "id": "v2-05", "word": "indispensable", "phonetic": "ˌɪndɪˈspɛnsəbl", "pos": "形容詞", "meaning": "不可欠な", "example": { "en": "Clean water is indispensable to human life.", "ja": "きれいな水は人間の生活に不可欠です。" } },
+    { "id": "v2-06", "word": "meticulous", "phonetic": "mɪˈtɪkjʊləs", "pos": "形容詞", "meaning": "細心の、几帳面な", "example": { "en": "She is meticulous about every detail of her work.", "ja": "彼女は仕事のあらゆる細部に細心の注意を払います。" } },
+    { "id": "v2-07", "word": "plausible", "phonetic": "ˈplɔːzəbl", "pos": "形容詞", "meaning": "もっともらしい", "example": { "en": "He gave a plausible explanation for being late.", "ja": "彼は遅刻したことについてもっともらしい説明をしました。" } },
+    { "id": "v2-08", "word": "sustain", "phonetic": "səˈsteɪn", "pos": "動詞", "meaning": "維持する、持続させる", "example": { "en": "It is hard to sustain economic growth without innovation.", "ja": "イノベーションなしに経済成長を維持するのは難しいです。" } },
+    { "id": "v2-09", "word": "undermine", "phonetic": "ˌʌndərˈmaɪn", "pos": "動詞", "meaning": "弱体化させる", "example": { "en": "Constant criticism can undermine a person's confidence.", "ja": "絶え間ない批判は人の自信を弱めることがあります。" } },
+    { "id": "v2-10", "word": "versatile", "phonetic": "ˈvɜːrsətaɪl", "pos": "形容詞", "meaning": "多才な、多用途の", "example": { "en": "This tool is versatile and can be used in many ways.", "ja": "この道具は多用途で、いろいろな使い方ができます。" } }
+  ],
+  "grammar": [
+    {
+      "id": "g2-01",
+      "sentence": "___ she known about the traffic, she would have left earlier.",
+      "ja": "もし彼女が渋滞について知っていたら、もっと早く出発していただろう。",
+      "point": "仮定法過去完了の倒置（If she had known → Had she known）",
+      "choices": [
+        { "text": "Had", "correct": true, "explain": "If を省略して倒置する場合、If she had known → Had she known の語順になります。" },
+        { "text": "Did", "correct": false, "explain": "過去完了の倒置には did ではなく had を使います。" },
+        { "text": "Has", "correct": false, "explain": "過去の話（would have left）なので has ではなく had が必要です。" },
+        { "text": "Should", "correct": false, "explain": "should を使う倒置は if she should の場合で、意味が異なります。" }
+      ]
+    },
+    {
+      "id": "g2-02",
+      "sentence": "___ in a small village, she had never seen a big city before moving to Tokyo.",
+      "ja": "小さな村で育ったので、彼女は東京に引っ越すまで大都市を見たことがなかった。",
+      "point": "分詞構文（Having been raised = 理由を表す分詞構文）",
+      "choices": [
+        { "text": "Having been raised", "correct": true, "explain": "「〜されたので」という受け身・完了の分詞構文は Having been + 過去分詞 で表します。" },
+        { "text": "Raising", "correct": false, "explain": "Raising は能動の意味になり、「育てている」となって文意に合いません。" },
+        { "text": "To raise", "correct": false, "explain": "不定詞では理由を表す分詞構文にはなりません。" },
+        { "text": "Raise", "correct": false, "explain": "動詞の原形のままでは分詞構文になりません。" }
+      ]
+    },
+    {
+      "id": "g2-03",
+      "sentence": "The manager had the report ___ before the meeting.",
+      "ja": "マネージャーは会議の前にその報告書を作成させました。",
+      "point": "使役動詞 have + 目的語 + 過去分詞（〜させる／してもらう）",
+      "choices": [
+        { "text": "prepared", "correct": true, "explain": "have + 目的語 + 過去分詞で「〜させる／してもらう」という受け身的な使役を表します。" },
+        { "text": "prepare", "correct": false, "explain": "目的語（the report）は「準備される」側なので過去分詞が適切です。" },
+        { "text": "preparing", "correct": false, "explain": "have + 目的語 + 現在分詞は「〜している状態にする」という意味になり、ここでは不自然です。" },
+        { "text": "to prepare", "correct": false, "explain": "have を使役動詞として使う場合、目的語の後は原形か過去分詞で、to不定詞は使いません。" }
+      ]
+    },
+    {
+      "id": "g2-04",
+      "sentence": "Not only ___ the exam, but he also got the highest score.",
+      "ja": "彼は試験に合格しただけでなく、最高得点も取った。",
+      "point": "否定語句が文頭にくる倒置（Not only + 助動詞 + 主語）",
+      "choices": [
+        { "text": "did he pass", "correct": true, "explain": "Not only が文頭に来ると、後ろは疑問文の語順（did he pass）に倒置します。" },
+        { "text": "he did pass", "correct": false, "explain": "Not only が文頭にあるときは倒置が必要です。" },
+        { "text": "he passed", "correct": false, "explain": "Not only の後は倒置した語順にする必要があります。" },
+        { "text": "passed he", "correct": false, "explain": "この文では助動詞 did を使った倒置が正しい形です。" }
+      ]
+    },
+    {
+      "id": "g2-05",
+      "sentence": "The place ___ we stayed last summer was beautiful.",
+      "ja": "私たちが去年の夏に滞在した場所は美しかった。",
+      "point": "関係副詞 where の省略に近い注意点（前置詞＋関係代名詞との違い）",
+      "choices": [
+        { "text": "where", "correct": true, "explain": "先行詞が場所（The place）で、後ろが完全な文なので関係副詞 where を使います。" },
+        { "text": "which", "correct": false, "explain": "後ろが完全な文（we stayed）なので、目的格が必要な which は使えません（in which なら可）。" },
+        { "text": "who", "correct": false, "explain": "who は人を先行詞にするときに使います。" },
+        { "text": "whom", "correct": false, "explain": "whom も人を先行詞にする関係代名詞です。" }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "r2-01",
+      "title": "The Rise of Automation",
+      "passage": "Automation has transformed many industries over the past few decades. Factories that once relied heavily on human labor now use robots to perform repetitive tasks with greater speed and precision. While this shift has increased productivity and reduced costs for companies, it has also raised concerns about job losses among workers whose skills are no longer in high demand. Some economists argue that automation will eventually create new types of jobs, particularly in fields related to technology and maintenance. Others, however, warn that the transition period could be difficult for workers who lack the resources or opportunity to retrain.",
+      "questions": [
+        {
+          "id": "r2-01-q1",
+          "q": "What has automation done in factories?",
+          "choices": [
+            { "text": "Replaced repetitive human tasks with robots.", "correct": true, "explain": "\"now use robots to perform repetitive tasks with greater speed and precision\" とあります。" },
+            { "text": "Increased the number of factory workers.", "correct": false, "explain": "本文では労働者の仕事が失われる懸念が述べられています。" },
+            { "text": "Made factories close down completely.", "correct": false, "explain": "工場が閉鎖したという記述はありません。" },
+            { "text": "Reduced the use of technology.", "correct": false, "explain": "本文はテクノロジーの利用が増えていることを述べています。" }
+          ]
+        },
+        {
+          "id": "r2-01-q2",
+          "q": "What concern does the passage mention about automation?",
+          "choices": [
+            { "text": "Job losses among certain workers.", "correct": true, "explain": "\"it has also raised concerns about job losses among workers\" とあります。" },
+            { "text": "A shortage of raw materials.", "correct": false, "explain": "原材料不足についての記述はありません。" },
+            { "text": "Rising energy prices.", "correct": false, "explain": "エネルギー価格についての記述はありません。" },
+            { "text": "A decrease in product quality.", "correct": false, "explain": "製品の品質についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "r2-01-q3",
+          "q": "According to some economists, what will automation eventually do?",
+          "choices": [
+            { "text": "Create new types of jobs.", "correct": true, "explain": "\"automation will eventually create new types of jobs\" とあります。" },
+            { "text": "End all forms of manufacturing.", "correct": false, "explain": "製造業を終わらせるという記述はありません。" },
+            { "text": "Lower workers' wages permanently.", "correct": false, "explain": "賃金についての記述はありません。" },
+            { "text": "Eliminate the need for maintenance work.", "correct": false, "explain": "本文はむしろメンテナンス関連の仕事が生まれると述べています。" }
+          ]
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l2-01",
+      "script": "Despite the heavy rain, the outdoor concert went ahead as scheduled, though the number of attendees was noticeably smaller than expected.",
+      "translation": "激しい雨にもかかわらず、屋外コンサートは予定通り行われましたが、来場者数は予想よりも明らかに少なかったです。",
+      "question": "What happened to the concert despite the rain?",
+      "choices": [
+        { "text": "It went ahead as scheduled.", "correct": true, "explain": "\"the outdoor concert went ahead as scheduled\" と言っています。" },
+        { "text": "It was canceled.", "correct": false, "explain": "中止にはならず予定通り行われたと言っています。" },
+        { "text": "It was moved indoors.", "correct": false, "explain": "屋内に移動したという記述はありません。" },
+        { "text": "It attracted more people than expected.", "correct": false, "explain": "来場者は予想より少なかったと言っています。" }
+      ]
+    },
+    {
+      "id": "l2-02",
+      "script": "The committee is currently reviewing several proposals, and a final decision is expected to be announced by the end of the month.",
+      "translation": "委員会は現在いくつかの提案を検討しており、最終決定は月末までに発表される見込みです。",
+      "question": "When is the final decision expected to be announced?",
+      "choices": [
+        { "text": "By the end of the month.", "correct": true, "explain": "\"a final decision is expected to be announced by the end of the month\" と言っています。" },
+        { "text": "Tomorrow.", "correct": false, "explain": "明日ではなく、月末までと言っています。" },
+        { "text": "Next year.", "correct": false, "explain": "来年ではなく、月末までと言っています。" },
+        { "text": "It has already been announced.", "correct": false, "explain": "まだ検討中で、発表はこれからです。" }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "d2-01",
+      "title": "Business Negotiation",
+      "translation": "A：御社の提案を拝見しましたが、価格が予算よりかなり高いです。 B：ご懸念は理解できますが、その価格には追加サポートが含まれています。 A：___ B：もちろんです。10%の値引きと、6か月間の無料サポートでいかがでしょうか。 A：それなら検討する価値がありますね。",
+      "lines": [
+        { "speaker": "A", "text": "We've reviewed your proposal, but the price is considerably higher than our budget." },
+        { "speaker": "B", "text": "I understand your concern, but that price includes additional support services." },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "Of course. How about a 10% discount along with six months of free support?" },
+        { "speaker": "A", "text": "That would be worth considering." }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "Is there any flexibility in the pricing?", "correct": true, "explain": "直後にBが値引きの提案をしていることから、価格交渉を求める発言が自然です。" },
+        { "text": "We have decided to cancel the meeting.", "correct": false, "explain": "その後も交渉が続いているので、会議を中止する発言は不自然です。" },
+        { "text": "I really enjoy your company's logo design.", "correct": false, "explain": "ロゴの話は価格交渉の流れに関係ありません。" },
+        { "text": "Let's talk about the weather instead.", "correct": false, "explain": "ビジネス交渉の流れに合わない発言です。" }
+      ]
+    }
+  ]
+}

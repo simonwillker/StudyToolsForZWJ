@@ -1,0 +1,166 @@
+{
+  "level": "pre1",
+  "levelLabel": "準1級",
+  "levelSub": "大学中級程度",
+  "color": "#2F5D8A",
+  "vocab": [
+    { "id": "vp1-01", "word": "ambiguous", "phonetic": "æmˈbɪɡjuəs", "pos": "形容詞", "meaning": "曖昧な", "example": { "en": "The contract contains an ambiguous clause that both sides interpret differently.", "ja": "その契約書には両者が異なる解釈をする曖昧な条項があります。" } },
+    { "id": "vp1-02", "word": "discrepancy", "phonetic": "dɪsˈkrɛpənsi", "pos": "名詞", "meaning": "食い違い、相違", "example": { "en": "There was a discrepancy between the two reports.", "ja": "2つの報告書の間に食い違いがありました。" } },
+    { "id": "vp1-03", "word": "exacerbate", "phonetic": "ɪɡˈzæsərbeɪt", "pos": "動詞", "meaning": "悪化させる", "example": { "en": "The new policy may exacerbate the housing shortage.", "ja": "その新しい政策は住宅不足を悪化させるかもしれません。" } },
+    { "id": "vp1-04", "word": "formidable", "phonetic": "ˈfɔːrmɪdəbl", "pos": "形容詞", "meaning": "手ごわい、恐ろしいほど優れた", "example": { "en": "She is a formidable opponent in any debate.", "ja": "彼女はどんな討論においても手ごわい相手です。" } },
+    { "id": "vp1-05", "word": "incongruous", "phonetic": "ɪnˈkɒŋɡruəs", "pos": "形容詞", "meaning": "不釣り合いな、場違いな", "example": { "en": "His casual tone seemed incongruous with the seriousness of the topic.", "ja": "彼の気軽な口調は、その話題の深刻さとは不釣り合いに思われました。" } },
+    { "id": "vp1-06", "word": "notwithstanding", "phonetic": "ˌnɒtwɪθˈstændɪŋ", "pos": "前置詞/副詞", "meaning": "〜にもかかわらず", "example": { "en": "Notwithstanding the criticism, she continued with her research.", "ja": "批判にもかかわらず、彼女は研究を続けました。" } },
+    { "id": "vp1-07", "word": "pragmatic", "phonetic": "præɡˈmætɪk", "pos": "形容詞", "meaning": "実用的な、現実的な", "example": { "en": "We need a pragmatic solution, not an idealistic one.", "ja": "私たちに必要なのは理想論ではなく実用的な解決策です。" } },
+    { "id": "vp1-08", "word": "resilience", "phonetic": "rɪˈzɪliəns", "pos": "名詞", "meaning": "回復力、しなやかな強さ", "example": { "en": "The community showed great resilience after the disaster.", "ja": "その地域社会は災害の後、大きな回復力を示しました。" } },
+    { "id": "vp1-09", "word": "scrutinize", "phonetic": "ˈskruːtənaɪz", "pos": "動詞", "meaning": "精査する", "example": { "en": "Auditors scrutinized every transaction in the company.", "ja": "監査人はその会社のあらゆる取引を精査しました。" } },
+    { "id": "vp1-10", "word": "tantamount", "phonetic": "ˈtæntəmaʊnt", "pos": "形容詞", "meaning": "〜も同然の、等しい", "example": { "en": "His silence was tantamount to an admission of guilt.", "ja": "彼の沈黙は罪を認めるも同然でした。" } }
+  ],
+  "grammar": [
+    {
+      "id": "gp1-01",
+      "sentence": "___ the difficulties they faced, the team managed to finish the project on time.",
+      "ja": "彼らが直面した困難にもかかわらず、そのチームは予定通りプロジェクトを終わらせることができました。",
+      "point": "前置詞的表現 Notwithstanding（〜にもかかわらず）",
+      "choices": [
+        { "text": "Notwithstanding", "correct": true, "explain": "Notwithstanding + 名詞句で「〜にもかかわらず」というフォーマルな表現になります。" },
+        { "text": "Provided that", "correct": false, "explain": "Provided that（〜という条件で）は条件を表し、後ろには節（主語＋動詞）が必要です。" },
+        { "text": "In case", "correct": false, "explain": "In case（〜する場合に備えて）は意味が合いません。" },
+        { "text": "As long as", "correct": false, "explain": "As long as（〜する限り）は条件を表す接続詞で、この文意には合いません。" }
+      ]
+    },
+    {
+      "id": "gp1-02",
+      "sentence": "Rarely ___ such a persuasive argument in a student's essay.",
+      "ja": "学生のエッセイでこれほど説得力のある議論を目にすることはめったにない。",
+      "point": "否定の副詞 Rarely が文頭に来るときの倒置",
+      "choices": [
+        { "text": "have I seen", "correct": true, "explain": "Rarely のような否定的な副詞が文頭に来ると、後ろは疑問文の語順（have I seen）に倒置します。" },
+        { "text": "I have seen", "correct": false, "explain": "Rarely が文頭にあるときは倒置が必要です。" },
+        { "text": "I did see", "correct": false, "explain": "現在完了の文脈（seen）に合わず、倒置もされていません。" },
+        { "text": "did I see", "correct": false, "explain": "現在完了形にするには have を使う必要があります。" }
+      ]
+    },
+    {
+      "id": "gp1-03",
+      "sentence": "It is essential that the report ___ submitted before the deadline.",
+      "ja": "その報告書は締め切り前に提出されることが不可欠です。",
+      "point": "仮定法現在（提案・要求・必要性を表す that節では動詞は原形）",
+      "choices": [
+        { "text": "be", "correct": true, "explain": "essential / important / necessary などの後の that節では、動詞は主語の人称に関わらず原形（仮定法現在）を使います。" },
+        { "text": "is", "correct": false, "explain": "この構文では三人称単数現在の is ではなく原形 be を使います。" },
+        { "text": "was", "correct": false, "explain": "仮定法現在では時制に関わらず原形を用います。" },
+        { "text": "will be", "correct": false, "explain": "will be ではなく、原形 be を用いるのが正しい形です。" }
+      ]
+    },
+    {
+      "id": "gp1-04",
+      "sentence": "What the committee needs is not more meetings but ___ action.",
+      "ja": "委員会に必要なのはこれ以上の会議ではなく、断固たる行動です。",
+      "point": "強調構文 not A but B（Aではなく Bだ）と語彙選択",
+      "choices": [
+        { "text": "decisive", "correct": true, "explain": "not more meetings（会議）と対比され、「断固たる行動」という意味が文脈に合います。" },
+        { "text": "hesitant", "correct": false, "explain": "hesitant（ためらいがちな）は「行動」を求める文脈と矛盾します。" },
+        { "text": "ambiguous", "correct": false, "explain": "ambiguous（曖昧な）は求められている「行動」の性質として不自然です。" },
+        { "text": "postponed", "correct": false, "explain": "postponed（延期された）では「必要なのは行動だ」という前向きな主張と合いません。" }
+      ]
+    },
+    {
+      "id": "gp1-05",
+      "sentence": "___ he arrived late, he still managed to give an excellent presentation.",
+      "ja": "彼は遅れて到着したものの、それでも素晴らしいプレゼンテーションをすることができました。",
+      "point": "譲歩を表す接続詞 Although / Even though の使い分け（albeit との違い）",
+      "choices": [
+        { "text": "Although", "correct": true, "explain": "Although + 主語 + 動詞 で「〜だけれども」という譲歩を表す標準的な接続詞です。" },
+        { "text": "Despite", "correct": false, "explain": "Despite は前置詞なので、後ろに節（主語＋動詞）を直接続けることはできません（despite the fact that なら可）。" },
+        { "text": "Because", "correct": false, "explain": "Because（〜なので）は理由を表し、譲歩の文意に合いません。" },
+        { "text": "Unless", "correct": false, "explain": "Unless（〜しない限り）は条件を表し、この文意には合いません。" }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "rp1-01",
+      "title": "The Paradox of Choice",
+      "passage": "Modern consumers are often presented with an overwhelming number of options, from dozens of brands of cereal to hundreds of streaming shows. Conventional wisdom suggests that more choice leads to greater satisfaction, yet psychological research indicates the opposite may often be true. When faced with too many alternatives, people frequently experience decision fatigue and anxiety about making the wrong choice, sometimes leading them to avoid deciding at all. Some retailers and platforms have responded by curating smaller, more manageable selections, betting that consumers will feel more confident and satisfied with a limited but well-chosen set of options rather than an exhaustive catalog.",
+      "questions": [
+        {
+          "id": "rp1-01-q1",
+          "q": "What does conventional wisdom suggest about choice?",
+          "choices": [
+            { "text": "More choice leads to greater satisfaction.", "correct": true, "explain": "\"Conventional wisdom suggests that more choice leads to greater satisfaction\" とあります。" },
+            { "text": "Choice has no effect on satisfaction.", "correct": false, "explain": "本文は「効果がない」とは述べていません。" },
+            { "text": "Fewer choices always lead to regret.", "correct": false, "explain": "本文はむしろ逆の可能性を示唆しています。" },
+            { "text": "Choice is irrelevant to consumer behavior.", "correct": false, "explain": "本文は選択が消費者行動に関係すると述べています。" }
+          ]
+        },
+        {
+          "id": "rp1-01-q2",
+          "q": "What can happen when people face too many alternatives?",
+          "choices": [
+            { "text": "They may experience decision fatigue and anxiety.", "correct": true, "explain": "\"people frequently experience decision fatigue and anxiety about making the wrong choice\" とあります。" },
+            { "text": "They always choose the most expensive option.", "correct": false, "explain": "そのような記述はありません。" },
+            { "text": "They immediately feel more satisfied.", "correct": false, "explain": "本文はむしろ疲労や不安を感じると述べています。" },
+            { "text": "They ask friends to decide for them.", "correct": false, "explain": "友人に決めてもらうという記述はありません。" }
+          ]
+        },
+        {
+          "id": "rp1-01-q3",
+          "q": "How have some retailers responded to this issue?",
+          "choices": [
+            { "text": "By curating smaller, more manageable selections.", "correct": true, "explain": "\"Some retailers and platforms have responded by curating smaller, more manageable selections\" とあります。" },
+            { "text": "By increasing the number of products offered.", "correct": false, "explain": "本文は逆に選択肢を減らしていると述べています。" },
+            { "text": "By eliminating all advertising.", "correct": false, "explain": "広告についての記述はありません。" },
+            { "text": "By raising prices on all items.", "correct": false, "explain": "価格についての記述はありません。" }
+          ]
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "lp1-01",
+      "script": "While the proposal has merit, several board members remain skeptical, arguing that the projected costs may have been significantly underestimated.",
+      "translation": "その提案には長所があるものの、数名の役員は懐疑的なままで、想定されている費用が大幅に過小評価されている可能性があると主張しています。",
+      "question": "What are some board members skeptical about?",
+      "choices": [
+        { "text": "The projected costs may have been underestimated.", "correct": true, "explain": "\"arguing that the projected costs may have been significantly underestimated\" と言っています。" },
+        { "text": "The proposal has no merit at all.", "correct": false, "explain": "「長所がある」と述べた上で懐疑的だと言っているので、全く長所がないわけではありません。" },
+        { "text": "The board will approve the proposal immediately.", "correct": false, "explain": "すぐに承認されるとは言っていません。" },
+        { "text": "The costs are lower than expected.", "correct": false, "explain": "過小評価されている、つまり実際はもっと高い可能性があると言っています。" }
+      ]
+    },
+    {
+      "id": "lp1-02",
+      "script": "The panel discussion grew heated when one speaker suggested that current environmental regulations were insufficient to curb industrial emissions.",
+      "translation": "あるスピーカーが現在の環境規制は産業排出を抑えるには不十分だと発言したとき、パネルディスカッションは白熱しました。",
+      "question": "What made the panel discussion grow heated?",
+      "choices": [
+        { "text": "A speaker's claim that regulations were insufficient.", "correct": true, "explain": "\"when one speaker suggested that current environmental regulations were insufficient\" と言っています。" },
+        { "text": "A technical problem with the microphones.", "correct": false, "explain": "そのような記述はありません。" },
+        { "text": "An agreement among all speakers.", "correct": false, "explain": "全員が同意したのではなく、議論が白熱したと言っています。" },
+        { "text": "A speaker leaving the discussion early.", "correct": false, "explain": "途中退席についての記述はありません。" }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "dp1-01",
+      "title": "Academic Discussion",
+      "translation": "A：あなたの論文は説得力がありますが、方法論に懸念があります。 B：具体的にはどの部分でしょうか。 A：___ B：それはもっともなご指摘です。次の草稿でサンプルサイズについて論じます。 A：それを読めるのを楽しみにしています。",
+      "lines": [
+        { "speaker": "A", "text": "Your paper is persuasive, but I have some concerns about the methodology." },
+        { "speaker": "B", "text": "Could you be more specific about which part?" },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "That's a fair point. I'll address the sample size issue in the next draft." },
+        { "speaker": "A", "text": "I look forward to reading it." }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "I think the sample size is too small to support your conclusions.", "correct": true, "explain": "直後にBが「サンプルサイズの問題に対応する」と答えているので、サンプルサイズについての指摘が自然です。" },
+        { "text": "I really enjoyed the weather this week.", "correct": false, "explain": "学術的な議論の流れに全く関係ありません。" },
+        { "text": "Your paper should be twice as long.", "correct": false, "explain": "その後の返答（サンプルサイズへの言及）と結びつきません。" },
+        { "text": "I have no opinion on your research at all.", "correct": false, "explain": "具体的な懸念を尋ねられているのに「意見がない」は不自然です。" }
+      ]
+    }
+  ]
+}

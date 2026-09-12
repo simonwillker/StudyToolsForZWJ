@@ -1,0 +1,166 @@
+{
+  "level": "pre2",
+  "levelLabel": "準2級",
+  "levelSub": "高校中級程度",
+  "color": "#5A3B8A",
+  "vocab": [
+    { "id": "vp2-01", "word": "accomplish", "phonetic": "əˈkɒmplɪʃ", "pos": "動詞", "meaning": "成し遂げる", "example": { "en": "It took years to accomplish the project.", "ja": "そのプロジェクトを成し遂げるには何年もかかりました。" } },
+    { "id": "vp2-02", "word": "appreciate", "phonetic": "əˈpriːʃieɪt", "pos": "動詞", "meaning": "感謝する、真価を認める", "example": { "en": "I really appreciate your help.", "ja": "あなたの助けに本当に感謝しています。" } },
+    { "id": "vp2-03", "word": "contribute", "phonetic": "kənˈtrɪbjuːt", "pos": "動詞", "meaning": "貢献する", "example": { "en": "Everyone contributed to the success of the event.", "ja": "みんながそのイベントの成功に貢献しました。" } },
+    { "id": "vp2-04", "word": "essential", "phonetic": "ɪˈsɛnʃəl", "pos": "形容詞", "meaning": "不可欠な、重要な", "example": { "en": "Water is essential for all living things.", "ja": "水はすべての生き物にとって不可欠です。" } },
+    { "id": "vp2-05", "word": "fascinate", "phonetic": "ˈfæsɪneɪt", "pos": "動詞", "meaning": "魅了する", "example": { "en": "The story fascinated the children.", "ja": "その物語は子どもたちを魅了しました。" } },
+    { "id": "vp2-06", "word": "hesitate", "phonetic": "ˈhɛzɪteɪt", "pos": "動詞", "meaning": "ためらう", "example": { "en": "Don't hesitate to ask me if you have questions.", "ja": "質問があれば遠慮なく聞いてください。" } },
+    { "id": "vp2-07", "word": "inevitable", "phonetic": "ɪnˈɛvɪtəbl", "pos": "形容詞", "meaning": "避けられない", "example": { "en": "Change is inevitable in every industry.", "ja": "どの業界においても変化は避けられません。" } },
+    { "id": "vp2-08", "word": "negotiate", "phonetic": "nɪˈɡoʊʃieɪt", "pos": "動詞", "meaning": "交渉する", "example": { "en": "They negotiated a better price for the car.", "ja": "彼らはその車のより良い価格を交渉しました。" } },
+    { "id": "vp2-09", "word": "resource", "phonetic": "ˈriːsɔːrs", "pos": "名詞", "meaning": "資源", "example": { "en": "We must use natural resources wisely.", "ja": "私たちは天然資源を賢く使わなければなりません。" } },
+    { "id": "vp2-10", "word": "reliable", "phonetic": "rɪˈlaɪəbl", "pos": "形容詞", "meaning": "信頼できる", "example": { "en": "He is a reliable and hard-working colleague.", "ja": "彼は信頼でき、よく働く同僚です。" } }
+  ],
+  "grammar": [
+    {
+      "id": "gp2-01",
+      "sentence": "This is the house ___ I was born.",
+      "ja": "これは私が生まれた家です。",
+      "point": "関係副詞 where（場所を説明する）",
+      "choices": [
+        { "text": "where", "correct": true, "explain": "先行詞が場所（the house）で、後ろに完全な文が続くので関係副詞 where を使います。" },
+        { "text": "which", "correct": false, "explain": "which の後は主語や目的語が欠けた文になりますが、ここは完全な文です。" },
+        { "text": "who", "correct": false, "explain": "who は人を先行詞にするときに使います。house は人ではありません。" },
+        { "text": "when", "correct": false, "explain": "when は時を表す先行詞に使います。house（場所）には合いません。" }
+      ]
+    },
+    {
+      "id": "gp2-02",
+      "sentence": "She said that she ___ tired that day.",
+      "ja": "彼女はその日疲れていると言いました。",
+      "point": "話法（時制の一致）：現在→過去",
+      "choices": [
+        { "text": "was", "correct": true, "explain": "主節の動詞（said）が過去なので、that節の中も時制を一致させて was にします。" },
+        { "text": "is", "correct": false, "explain": "主節が過去形のとき、that節も過去形に一致させます。" },
+        { "text": "has been", "correct": false, "explain": "現在完了形はこの文脈の時制の一致には合いません。" },
+        { "text": "be", "correct": false, "explain": "be はそのままの形では文の動詞として使えません。" }
+      ]
+    },
+    {
+      "id": "gp2-03",
+      "sentence": "If I ___ you, I would accept the offer.",
+      "ja": "もし私があなたなら、その申し出を受けるだろう。",
+      "point": "仮定法過去（現在の事実に反する仮定：If + 主語 + were）",
+      "choices": [
+        { "text": "were", "correct": true, "explain": "仮定法過去では be動詞は主語に関係なく were を使うのが基本です。" },
+        { "text": "am", "correct": false, "explain": "仮定法過去では am ではなく were を使います。" },
+        { "text": "was", "correct": false, "explain": "仮定法過去の書き言葉・試験では were が標準的に使われます。" },
+        { "text": "will be", "correct": false, "explain": "if節の中で未来形（will）は基本的に使いません。" }
+      ]
+    },
+    {
+      "id": "gp2-04",
+      "sentence": "The movie was ___ interesting that I watched it twice.",
+      "ja": "その映画はとても面白かったので、私は2回見ました。",
+      "point": "so 〜 that … 構文（とても〜なので…だ）",
+      "choices": [
+        { "text": "so", "correct": true, "explain": "so + 形容詞/副詞 + that … で「とても〜なので…」という意味を表します。" },
+        { "text": "such", "correct": false, "explain": "such は such a/an + 形容詞 + 名詞 + that … の形で使い、ここは形容詞だけなので so が正しいです。" },
+        { "text": "very", "correct": false, "explain": "very は that節と組み合わせて使えません。" },
+        { "text": "too", "correct": false, "explain": "too … to 〜 の形で使うのが基本で、that とは組み合わせません。" }
+      ]
+    },
+    {
+      "id": "gp2-05",
+      "sentence": "I'm looking forward ___ you again soon.",
+      "ja": "近いうちにまたあなたに会えるのを楽しみにしています。",
+      "point": "look forward to + 動名詞（to は前置詞）",
+      "choices": [
+        { "text": "to seeing", "correct": true, "explain": "look forward to の to は前置詞なので、後ろは動名詞（seeing）になります。" },
+        { "text": "to see", "correct": false, "explain": "この to は不定詞の to ではなく前置詞なので、原形不定詞は使いません。" },
+        { "text": "seeing", "correct": false, "explain": "look forward の後には to が必要です。" },
+        { "text": "see", "correct": false, "explain": "to が抜けており、動詞の形も合いません。" }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "rp2-01",
+      "title": "Remote Work Changes Cities",
+      "passage": "In recent years, more companies have allowed their employees to work from home. This change has affected not only offices but also cities themselves. Some people have moved away from crowded city centers to quieter towns because they no longer need to commute every day. As a result, small towns have seen an increase in population, while some city businesses that depended on office workers, such as lunch restaurants, have struggled. Experts say this trend is likely to continue as more companies accept flexible working styles.",
+      "questions": [
+        {
+          "id": "rp2-01-q1",
+          "q": "Why have some people moved away from city centers?",
+          "choices": [
+            { "text": "Because they no longer need to commute every day.", "correct": true, "explain": "\"they no longer need to commute every day\" とあります。" },
+            { "text": "Because city rent has become too cheap.", "correct": false, "explain": "家賃についての記述はありません。" },
+            { "text": "Because their companies closed down.", "correct": false, "explain": "会社が閉鎖したという記述はありません。" },
+            { "text": "Because they were asked to move by the government.", "correct": false, "explain": "政府による指示についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "rp2-01-q2",
+          "q": "What has happened to some city businesses?",
+          "choices": [
+            { "text": "They have struggled because fewer office workers are around.", "correct": true, "explain": "\"some city businesses ... have struggled\" とあります。" },
+            { "text": "They have expanded rapidly.", "correct": false, "explain": "本文では逆に苦戦していると述べられています。" },
+            { "text": "They have moved to small towns.", "correct": false, "explain": "企業が移転したという記述はありません。" },
+            { "text": "They have started selling online only.", "correct": false, "explain": "オンライン販売についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "rp2-01-q3",
+          "q": "What do experts think about this trend?",
+          "choices": [
+            { "text": "It is likely to continue.", "correct": true, "explain": "\"Experts say this trend is likely to continue\" とあります。" },
+            { "text": "It will stop very soon.", "correct": false, "explain": "本文では逆に続くだろうと述べられています。" },
+            { "text": "It has already ended.", "correct": false, "explain": "本文では続いていくと述べられています。" },
+            { "text": "It only affects small towns.", "correct": false, "explain": "都市部にも影響していると述べられています。" }
+          ]
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "lp2-01",
+      "script": "Attention passengers, the 3:15 train to Yokohama has been delayed by about ten minutes due to signal problems.",
+      "translation": "ご案内いたします。信号の不具合のため、3時15分発横浜行きの電車は約10分遅れています。",
+      "question": "Why has the train been delayed?",
+      "choices": [
+        { "text": "Because of signal problems.", "correct": true, "explain": "\"due to signal problems\" と言っています。" },
+        { "text": "Because of heavy snow.", "correct": false, "explain": "雪については述べられていません。" },
+        { "text": "Because of a traffic accident.", "correct": false, "explain": "事故については述べられていません。" },
+        { "text": "Because too many passengers boarded.", "correct": false, "explain": "乗客数についての記述はありません。" }
+      ]
+    },
+    {
+      "id": "lp2-02",
+      "script": "Although the interview went well, I haven't heard back from the company yet, so I'm a little anxious.",
+      "translation": "面接はうまくいったけれど、まだ会社から連絡がないので、少し不安です。",
+      "question": "How does the speaker feel now?",
+      "choices": [
+        { "text": "A little anxious.", "correct": true, "explain": "\"I'm a little anxious\" と言っています。" },
+        { "text": "Completely relaxed.", "correct": false, "explain": "不安だと言っています。" },
+        { "text": "Very angry.", "correct": false, "explain": "怒っているという記述はありません。" },
+        { "text": "Extremely confident.", "correct": false, "explain": "不安だと言っており、自信満々ではありません。" }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "dp2-01",
+      "title": "Planning a Trip",
+      "translation": "A：夏休みにどこへ旅行するか決めた？ B：まだなんだ。北海道に行くことを考えてるけど、飛行機のチケットが高くて。 A：___ B：それはいい考えだね。安いチケットが見つかるか調べてみるよ。 A：見つかるといいね！",
+      "lines": [
+        { "speaker": "A", "text": "Have you decided where to travel this summer?" },
+        { "speaker": "B", "text": "Not yet. I'm thinking of going to Hokkaido, but plane tickets are expensive." },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "That's a good idea. I'll check if I can find a cheaper one." },
+        { "speaker": "A", "text": "I hope you find one!" }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "Why don't you book earlier to get a discount?", "correct": true, "explain": "直後の返答「早めに予約する（安いチケットを探す）のはいい考え」という流れに自然につながります。" },
+        { "text": "I don't think Hokkaido exists.", "correct": false, "explain": "会話の流れとして不自然で、次の返答ともかみ合いません。" },
+        { "text": "You should stop traveling forever.", "correct": false, "explain": "旅行を勧める文脈に合わない返答です。" },
+        { "text": "The weather in Hokkaido is always bad.", "correct": false, "explain": "その後の返答（安いチケットを探す）とつながりません。" }
+      ]
+    }
+  ]
+}

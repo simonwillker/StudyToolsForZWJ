@@ -1,0 +1,166 @@
+{
+  "level": "1",
+  "levelLabel": "1級",
+  "levelSub": "大学上級・社会人上級程度",
+  "color": "#3B3B3B",
+  "vocab": [
+    { "id": "v1-01", "word": "acrimonious", "phonetic": "ˌækrɪˈmoʊniəs", "pos": "形容詞", "meaning": "辛辣な、とげとげしい", "example": { "en": "The negotiations ended in an acrimonious dispute between the two companies.", "ja": "その交渉は2社間の辛辣な対立で終わりました。" } },
+    { "id": "v1-02", "word": "cacophony", "phonetic": "kəˈkɒfəni", "pos": "名詞", "meaning": "不協和音、耳障りな音", "example": { "en": "The city street was filled with the cacophony of car horns.", "ja": "その街の通りはクラクションの不協和音であふれていました。" } },
+    { "id": "v1-03", "word": "deleterious", "phonetic": "ˌdɛlɪˈtɪəriəs", "pos": "形容詞", "meaning": "有害な", "example": { "en": "Excessive stress can have a deleterious effect on one's health.", "ja": "過度なストレスは健康に有害な影響を及ぼすことがあります。" } },
+    { "id": "v1-04", "word": "ephemeral", "phonetic": "ɪˈfɛmərəl", "pos": "形容詞", "meaning": "はかない、一時的な", "example": { "en": "Fame in the entertainment industry can be remarkably ephemeral.", "ja": "芸能界における名声は驚くほどはかないことがあります。" } },
+    { "id": "v1-05", "word": "garrulous", "phonetic": "ˈɡærələs", "pos": "形容詞", "meaning": "おしゃべりな", "example": { "en": "His garrulous nature made the long flight feel even longer for his neighbor.", "ja": "彼のおしゃべりな性格のせいで、隣に座った人には長いフライトがさらに長く感じられました。" } },
+    { "id": "v1-06", "word": "iconoclastic", "phonetic": "aɪˌkɒnəˈklæstɪk", "pos": "形容詞", "meaning": "因習を打破する、偶像破壊的な", "example": { "en": "The artist was known for his iconoclastic approach to traditional painting.", "ja": "その芸術家は伝統的な絵画に対する因習打破的なアプローチで知られていました。" } },
+    { "id": "v1-07", "word": "magnanimous", "phonetic": "mæɡˈnænɪməs", "pos": "形容詞", "meaning": "度量の大きい、寛大な", "example": { "en": "It was magnanimous of her to forgive her rival so easily.", "ja": "ライバルをあれほど簡単に許すとは、彼女は実に度量が大きい人でした。" } },
+    { "id": "v1-08", "word": "obsequious", "phonetic": "əbˈsiːkwiəs", "pos": "形容詞", "meaning": "こびへつらう", "example": { "en": "The obsequious waiter agreed with everything the customer said.", "ja": "そのこびへつらう給仕は客の言うことすべてに同意しました。" } },
+    { "id": "v1-09", "word": "pernicious", "phonetic": "pərˈnɪʃəs", "pos": "形容詞", "meaning": "有害な、破壊的な", "example": { "en": "Misinformation can have a pernicious effect on public trust.", "ja": "誤情報は社会的信頼に破壊的な影響を及ぼすことがあります。" } },
+    { "id": "v1-10", "word": "quixotic", "phonetic": "kwɪkˈsɒtɪk", "pos": "形容詞", "meaning": "非現実的な、空想的な", "example": { "en": "His quixotic plan to reform the entire system single-handedly was doomed from the start.", "ja": "システム全体を一人で改革しようという彼の非現実的な計画は、最初から失敗する運命にありました。" } }
+  ],
+  "grammar": [
+    {
+      "id": "g1-01",
+      "sentence": "___ the committee approve the budget, construction would begin immediately.",
+      "ja": "万が一委員会が予算を承認すれば、建設は直ちに始まるだろう。",
+      "point": "仮定法未来（Should + 主語 + 動詞原形 の倒置：万が一〜なら）",
+      "choices": [
+        { "text": "Should", "correct": true, "explain": "「万が一〜なら」という低い可能性を表す仮定法未来では If を省略して Should + 主語 + 動詞原形の倒置形にします。" },
+        { "text": "Would", "correct": false, "explain": "Would は帰結節に使う助動詞で、条件節の倒置には Should を使います。" },
+        { "text": "Could", "correct": false, "explain": "この構文の条件節の倒置には Should が使われます。" },
+        { "text": "Must", "correct": false, "explain": "Must は義務を表し、仮定法の倒置構文には使いません。" }
+      ]
+    },
+    {
+      "id": "g1-02",
+      "sentence": "So devastating ___ the earthquake that entire towns were left in ruins.",
+      "ja": "その地震はあまりに壊滅的だったので、町全体が廃墟と化した。",
+      "point": "So + 形容詞 + 動詞 + 主語 の倒置構文（強調）",
+      "choices": [
+        { "text": "was", "correct": true, "explain": "So + 形容詞が文頭に出ると、後ろは be動詞 + 主語の倒置（was the earthquake）になります。" },
+        { "text": "the earthquake was", "correct": false, "explain": "So + 形容詞が文頭にあるときは倒置が必要で、通常の語順にはなりません。" },
+        { "text": "did", "correct": false, "explain": "be動詞の文なので did ではなく was を使います。" },
+        { "text": "has been", "correct": false, "explain": "文全体は過去の出来事（entire towns were left）なので、過去形 was が適切です。" }
+      ]
+    },
+    {
+      "id": "g1-03",
+      "sentence": "The scandal, ___ details are still emerging, has already cost the CEO his job.",
+      "ja": "その詳細が今なお明らかになりつつあるスキャンダルは、すでにCEOの職を失わせている。",
+      "point": "関係代名詞 whose の非制限用法（物にも使える所有格の関係代名詞）",
+      "choices": [
+        { "text": "whose", "correct": true, "explain": "whose は人だけでなく物（the scandal）にも使え、「その〜の」という所有関係を表す関係代名詞です。" },
+        { "text": "which", "correct": false, "explain": "which の後には名詞を直接続けられません（details という名詞が続いているため）。" },
+        { "text": "that", "correct": false, "explain": "that は非制限用法（コンマで区切る用法）では基本的に使いません。" },
+        { "text": "who", "correct": false, "explain": "who は人を先行詞にするときに使います。scandal は物です。" }
+      ]
+    },
+    {
+      "id": "g1-04",
+      "sentence": "___ his reputation for honesty, few people questioned his account of the events.",
+      "ja": "彼の正直者としての評判を考えると、彼の出来事の説明を疑う人はほとんどいなかった。",
+      "point": "分詞構文的な前置詞句 Given（〜を考えると）",
+      "choices": [
+        { "text": "Given", "correct": true, "explain": "Given + 名詞句で「〜を考慮すると」という意味の慣用的な分詞構文（前置詞的表現）になります。" },
+        { "text": "Giving", "correct": false, "explain": "Giving（与えている）では能動的な意味になり、この文脈には合いません。" },
+        { "text": "To give", "correct": false, "explain": "不定詞ではこの「〜を考えると」という意味を表せません。" },
+        { "text": "Gave", "correct": false, "explain": "過去形の動詞は文頭でこの意味を表す形として使えません。" }
+      ]
+    },
+    {
+      "id": "g1-05",
+      "sentence": "It was not until she moved abroad ___ she realized how much she valued her hometown.",
+      "ja": "彼女は海外に引っ越して初めて、故郷をどれほど大切に思っているかに気づいた。",
+      "point": "It is not until 〜 that … の強調構文（〜して初めて…する）",
+      "choices": [
+        { "text": "that", "correct": true, "explain": "It is not until A that B（Aして初めてBする）という強調構文の決まった形です。" },
+        { "text": "when", "correct": false, "explain": "この強調構文では that を使うのが正しい形です。" },
+        { "text": "which", "correct": false, "explain": "It is not until 〜 の強調構文には which ではなく that を使います。" },
+        { "text": "then", "correct": false, "explain": "then はこの強調構文の決まった形には使いません。" }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "r1-01",
+      "title": "The Illusion of Multitasking",
+      "passage": "For decades, the ability to juggle multiple tasks simultaneously has been prized as a hallmark of productivity in modern workplaces. Cognitive scientists, however, have increasingly challenged this assumption, arguing that what is commonly called multitasking is, in most cases, merely rapid task-switching rather than true parallel processing. Each time attention shifts from one task to another, the brain incurs a cognitive cost, often referred to as a 'switching penalty,' which can degrade both speed and accuracy. Proponents of deep, uninterrupted work argue that organizations would benefit far more from restructuring schedules to minimize interruptions than from praising employees who appear to be doing several things at once. Nevertheless, deeply ingrained workplace cultures, reinforced by constant digital notifications, make this shift notoriously difficult to achieve in practice.",
+      "questions": [
+        {
+          "id": "r1-01-q1",
+          "q": "According to cognitive scientists, what is actually happening when people 'multitask'?",
+          "choices": [
+            { "text": "The brain is rapidly switching between tasks rather than processing them simultaneously.", "correct": true, "explain": "\"what is commonly called multitasking is, in most cases, merely rapid task-switching rather than true parallel processing\" とあります。" },
+            { "text": "The brain processes all tasks with equal efficiency at the same time.", "correct": false, "explain": "本文はこれを否定し、実際には切り替えが起きていると述べています。" },
+            { "text": "Multitasking has been scientifically proven to increase productivity.", "correct": false, "explain": "本文は逆に生産性への悪影響（switching penalty）を指摘しています。" },
+            { "text": "The concept of multitasking did not exist before modern workplaces.", "correct": false, "explain": "そのような記述はありません。" }
+          ]
+        },
+        {
+          "id": "r1-01-q2",
+          "q": "What is the 'switching penalty' mentioned in the passage?",
+          "choices": [
+            { "text": "A cognitive cost incurred each time attention shifts between tasks.", "correct": true, "explain": "\"the brain incurs a cognitive cost, often referred to as a 'switching penalty'\" とあります。" },
+            { "text": "A financial penalty imposed on inefficient employees.", "correct": false, "explain": "金銭的な罰則についての記述ではありません。" },
+            { "text": "A reward given to employees who multitask well.", "correct": false, "explain": "報酬ではなく、認知的なコストとして説明されています。" },
+            { "text": "A rule that prohibits switching between digital devices.", "correct": false, "explain": "そのようなルールについての記述はありません。" }
+          ]
+        },
+        {
+          "id": "r1-01-q3",
+          "q": "Why is it difficult for organizations to reduce interruptions in practice?",
+          "choices": [
+            { "text": "Because workplace cultures and digital notifications reinforce constant interruption.", "correct": true, "explain": "\"deeply ingrained workplace cultures, reinforced by constant digital notifications, make this shift notoriously difficult\" とあります。" },
+            { "text": "Because employees refuse to use digital devices at work.", "correct": false, "explain": "むしろデジタル通知が中断を助長していると述べています。" },
+            { "text": "Because there is no scientific evidence supporting deep work.", "correct": false, "explain": "本文は深い集中作業を支持する研究者の主張を紹介しています。" },
+            { "text": "Because most companies have already eliminated interruptions.", "correct": false, "explain": "本文はむしろ中断を減らすことが難しいと述べています。" }
+          ]
+        }
+      ]
+    }
+  ],
+  "listening": [
+    {
+      "id": "l1-01",
+      "script": "Critics of the proposed legislation contend that, notwithstanding its stated aim of protecting consumers, the bill would in practice impose disproportionate burdens on small businesses.",
+      "translation": "その法案の批評家たちは、消費者保護という明言された目的にもかかわらず、実際にはその法案が中小企業に不釣り合いな負担を課すことになると主張しています。",
+      "question": "What do critics argue about the proposed legislation?",
+      "choices": [
+        { "text": "It would impose disproportionate burdens on small businesses.", "correct": true, "explain": "\"the bill would in practice impose disproportionate burdens on small businesses\" と言っています。" },
+        { "text": "It would only affect large corporations.", "correct": false, "explain": "大企業だけに影響するとは言っていません。中小企業への負担が問題視されています。" },
+        { "text": "It fails to mention consumer protection at all.", "correct": false, "explain": "消費者保護という明言された目的があると述べています。" },
+        { "text": "It has already been unanimously rejected.", "correct": false, "explain": "全会一致で否決されたという記述はありません。" }
+      ]
+    },
+    {
+      "id": "l1-02",
+      "script": "The panelist conceded that while her original hypothesis had been largely discredited by subsequent research, the debate itself had spurred valuable inquiry into the underlying mechanisms.",
+      "translation": "そのパネリストは、自分のもともとの仮説がその後の研究によっておおむね否定されたことは認めつつも、その議論自体が根底にあるメカニズムへの貴重な探求を促したと述べました。",
+      "question": "What did the panelist concede about her original hypothesis?",
+      "choices": [
+        { "text": "It had been largely discredited by later research.", "correct": true, "explain": "\"her original hypothesis had been largely discredited by subsequent research\" と言っています。" },
+        { "text": "It was fully confirmed by all later studies.", "correct": false, "explain": "むしろ否定されたと言っています。" },
+        { "text": "It was never tested by anyone.", "correct": false, "explain": "その後の研究によって検証・否定されたと述べています。" },
+        { "text": "It caused the debate to be canceled.", "correct": false, "explain": "議論は中止されず、むしろ貴重な探求を促したと述べています。" }
+      ]
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "d1-01",
+      "title": "A Formal Debate",
+      "translation": "A：対立する見解を持つ方として、規制がイノベーションを阻害するというご意見に同意しかねます。 B：その懸念はわかりますが、データはむしろ逆を示唆しています。 A：___ B：ごもっともです。しかし、その相関関係は他の要因によっても十分説明がつくと考えます。 A：それについては議論の余地がありそうですね。",
+      "lines": [
+        { "speaker": "A", "text": "As someone with an opposing view, I can't quite agree that regulation stifles innovation." },
+        { "speaker": "B", "text": "I understand that concern, but the data actually suggests otherwise." },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "That's a fair point, but I'd argue that correlation could just as easily be explained by other factors." },
+        { "speaker": "A", "text": "That does seem worth debating further." }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "Could you clarify what the data actually shows on this point?", "correct": true, "explain": "直後にBがデータの相関関係について反論しているため、データの内容を尋ねる発言が自然な流れになります。" },
+        { "text": "I've never heard of regulation before.", "correct": false, "explain": "討論の流れとして不自然で、専門的な議論と矛盾します。" },
+        { "text": "Let's discuss something completely unrelated.", "correct": false, "explain": "議論を続ける文脈に合いません。" },
+        { "text": "I agree with everything you just said.", "correct": false, "explain": "その後もAは反論を続けているので、全面的に同意する発言は不自然です。" }
+      ]
+    }
+  ]
+}

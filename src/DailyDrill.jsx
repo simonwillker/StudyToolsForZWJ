@@ -846,7 +846,7 @@ function Stamp({ correct }) {
    メインアプリ
    ============================================================ */
 
-export default function DailyDrill() {
+export default function DailyDrill({ onExitApp } = {}) {
   const [screen, setScreen] = useState("select"); // select | mathOptions | rsOptions | eikenGroups | customInput | kanjiInput | loading | quiz | result
   const [subject, setSubject] = useState(null);
   const [eikenGroupIndex, setEikenGroupIndex] = useState(null);
@@ -1438,6 +1438,11 @@ export default function DailyDrill() {
       <div className="drill-inner">
         {screen === "select" && (
           <>
+            {onExitApp && (
+              <div className="back-link" style={{ textAlign: "right", marginBottom: 8 }} onClick={onExitApp}>
+                他のアプリへ
+              </div>
+            )}
             <div className="title-block">
               <div className="eyebrow">DAILY DRILL — 小学校 総復習</div>
               <h1 className="serif">きょうのドリル</h1>
