@@ -8,7 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "validate:test": "node scripts/validateEikenTest.mjs"
+    "validate:test": "node scripts/validateEikenTest.mjs",
+    "validate:app": "node scripts/validateEikenApp.mjs",
+    "validate": "node scripts/validateEikenApp.mjs && node scripts/validateEikenTest.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

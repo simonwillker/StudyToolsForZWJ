@@ -68,12 +68,60 @@ function findTest(id) {
   return TESTS.find((t) => t.level === id) || null;
 }
 
+/** 単語は20語ずつの「組」に分けて出題する（CLAUDE.mdの出題範囲の考え方に合わせる） */
+const VOCAB_UNIT_SIZE = 20;
+
+function vocabUnitCount(level) {
+  return Math.ceil(level.vocab.length / VOCAB_UNIT_SIZE);
+}
+
+/** unit が "all" なら全語、数値ならその組（0始まり）の単語だけを返す */
+function vocabOfUnit(level, unit) {
+  if (unit === "all") return level.vocab;
+  const start = unit * VOCAB_UNIT_SIZE;
+  return level.vocab.slice(start, start + VOCAB_UNIT_SIZE);
+}
+
+function vocabUnitLabel(level, unit) {
+  if (unit === "all") return `すべて（${level.vocab.length}語）`;
+  const start = unit * VOCAB_UNIT_SIZE;
+  const end = Math.min(start + VOCAB_UNIT_SIZE, level.vocab.length);
+  return `${unit + 1}組（${start + 1}〜${end}）`;
+}
+
+/** 級を切りかえて組の数が減ったときなど、範囲外の組は1組目にもどす */
+function clampVocabUnit(level, unit) {
+  return unit === "all" || unit < vocabUnitCount(level) ? unit : 0;
+}
+
+/** 出題範囲（組）の選択リスト。組が増えても1行に収まる */
+function VocabUnitSelect({ level, value, onChange, allowAll }) {
+  return (
+    <label className="eiken-control-row">
+      <span className="eiken-control-label">出題範囲</span>
+      <select
+        className="eiken-unit-select"
+        value={String(value)}
+        onChange={(e) => onChange(e.target.value === "all" ? "all" : Number(e.target.value))}
+      >
+        {Array.from({ length: vocabUnitCount(level) }, (_, u) => (
+          <option key={u} value={u}>
+            {vocabUnitLabel(level, u)}
+          </option>
+        ))}
+        {allowAll && <option value="all">{vocabUnitLabel(level, "all")}</option>}
+      </select>
+    </label>
+  );
+}
+
 /* ============================================================
    問題セット生成
    ============================================================ */
 
-function buildVocabItems(level, direction) {
-  return shuffle(level.vocab).map((w) => {
+function buildVocabItems(level, direction, words) {
+  const questions = words && words.length ? words : level.vocab;
+  return shuffle(questions).map((w) => {
     const pool = level.vocab.filter((x) => x.id !== w.id);
     const wrongs = shuffle(pool).slice(0, 3);
     let choices;
@@ -394,11 +442,13 @@ function ChoiceQuiz({ level, mode, items, accent, onExit }) {
    ============================================================ */
 
 function PronunciationMode({ level, accent }) {
+  const [unit, setUnit] = useState(0);
   const [idx, setIdx] = useState(0);
   const [status, setStatus] = useState("idle"); // idle | listening | done | error
   const [transcript, setTranscript] = useState("");
   const [score, setScore] = useState(null);
-  const word = level.vocab[idx];
+  const words = vocabOfUnit(level, clampVocabUnit(level, unit));
+  const word = words[Math.min(idx, words.length - 1)];
 
   const speechOK = isSpeechRecognitionSupported();
 
@@ -433,9 +483,22 @@ function PronunciationMode({ level, accent }) {
 
   return (
     <div className="eiken-pronounce" style={{ "--c": accent }}>
+      <div style={{ marginBottom: 12 }}>
+        <VocabUnitSelect
+          level={level}
+          value={clampVocabUnit(level, unit)}
+          onChange={(u) => {
+            setUnit(u);
+            setIdx(0);
+            setStatus("idle");
+            setTranscript("");
+            setScore(null);
+          }}
+        />
+      </div>
       <div className="eiken-qhead-eyebrow">練習する単語を選びましょう</div>
       <div className="eiken-word-grid">
-        {level.vocab.map((w, i) => (
+        {words.map((w, i) => (
           <button key={w.id} className={`eiken-word-chip ${i === idx ? "active" : ""}`} onClick={() => handlePick(i)}>
             {w.word}
           </button>
@@ -539,18 +602,19 @@ export default function EikenApp({ onExitApp }) {
   const [levelId, setLevelId] = useState(null);
   const [mode, setMode] = useState(null);
   const [vocabDirection, setVocabDirection] = useState("en2ja");
+  const [vocabUnit, setVocabUnit] = useState(0);
 
   const level = levelId ? findLevel(levelId) : null;
 
   const items = useMemo(() => {
     if (!level || !mode) return [];
-    if (mode === "vocab") return buildVocabItems(level, vocabDirection);
+    if (mode === "vocab") return buildVocabItems(level, vocabDirection, vocabOfUnit(level, clampVocabUnit(level, vocabUnit)));
     if (mode === "grammar") return buildGrammarItems(level);
     if (mode === "reading") return buildReadingItems(level);
     if (mode === "listening") return buildListeningItems(level);
     if (mode === "dialogue") return buildDialogueItems(level);
     return [];
-  }, [level, mode, vocabDirection]);
+  }, [level, mode, vocabDirection, vocabUnit]);
 
   const goModeSelect = useCallback((lvId) => {
     stopSpeaking();
@@ -709,6 +773,11 @@ export default function EikenApp({ onExitApp }) {
           border: 1.5px solid #D8DCD3; border-radius: 20px; padding: 6px 14px; background: #fff; cursor: pointer; font-size: 13px;
         }
         .eiken-word-chip.active { border-color: var(--c); background: var(--c); color: #fff; font-weight: 700; }
+        .eiken-vocab-controls { max-width: 720px; margin: 0 auto 12px; display: flex; flex-direction: column; gap: 8px; }
+        .eiken-control-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .eiken-control-label { font-size: 11.5px; font-weight: 700; color: #9AA093; width: 56px; flex-shrink: 0; }
+        .eiken-unit-select { font: inherit; font-size: 16px; font-weight: 600; color: #2B2E28; background: #fff; border: 1.5px solid #D8DCD3; border-radius: 10px; padding: 8px 12px; flex: 1; min-width: 0; max-width: 280px; cursor: pointer; }
+        .eiken-unit-select:focus { outline: 2px solid var(--c, #2F7A4F); outline-offset: 1px; }
         .eiken-pronounce-card { border-top: 1px dashed #D8DCD3; padding-top: 16px; }
         .eiken-pronounce-actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
 
@@ -781,21 +850,25 @@ export default function EikenApp({ onExitApp }) {
         <>
           <button className="eiken-back-link" style={{ marginBottom: 12 }} onClick={backToModeSelect}>← モード選択にもどる</button>
           {mode === "vocab" && (
-            <div style={{ maxWidth: 720, margin: "0 auto 10px", display: "flex", gap: 8 }}>
-              <button
-                className={`eiken-word-chip ${vocabDirection === "en2ja" ? "active" : ""}`}
-                style={{ "--c": level.color }}
-                onClick={() => setVocabDirection("en2ja")}
-              >
-                英語 → 日本語
-              </button>
-              <button
-                className={`eiken-word-chip ${vocabDirection === "ja2en" ? "active" : ""}`}
-                style={{ "--c": level.color }}
-                onClick={() => setVocabDirection("ja2en")}
-              >
-                日本語 → 英語
-              </button>
+            <div className="eiken-vocab-controls">
+              <div className="eiken-control-row">
+                <span className="eiken-control-label">出題方向</span>
+                <button
+                  className={`eiken-word-chip ${vocabDirection === "en2ja" ? "active" : ""}`}
+                  style={{ "--c": level.color }}
+                  onClick={() => setVocabDirection("en2ja")}
+                >
+                  英語 → 日本語
+                </button>
+                <button
+                  className={`eiken-word-chip ${vocabDirection === "ja2en" ? "active" : ""}`}
+                  style={{ "--c": level.color }}
+                  onClick={() => setVocabDirection("ja2en")}
+                >
+                  日本語 → 英語
+                </button>
+              </div>
+              <VocabUnitSelect level={level} value={clampVocabUnit(level, vocabUnit)} onChange={setVocabUnit} allowAll />
             </div>
           )}
           <ChoiceQuiz level={level} mode={mode} items={items} accent={level.color} onExit={backToModeSelect} />
