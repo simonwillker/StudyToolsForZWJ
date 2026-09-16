@@ -265,6 +265,102 @@
         { "text": "What", "correct": false, "explain": "What は「何」とたずねるときに使います。" },
         { "text": "Which", "correct": false, "explain": "Which は「どちら・どれ」と選択をたずねるときに使います。" }
       ]
+    },
+    {
+      "id": "g5-06",
+      "sentence": "This letter is for ___.",
+      "ja": "この手紙はあなたへのものです。",
+      "point": "目的格の代名詞：前置詞のあとは me / you / him など",
+      "choices": [
+        { "text": "you", "correct": true, "explain": "for（前置詞）のあとには目的格の代名詞（you）がきます。" },
+        { "text": "your", "correct": false, "explain": "your は「あなたの」という所有格で、あとに名詞が必要です。" },
+        { "text": "you're", "correct": false, "explain": "you're は you are の短縮形なので、ここには使えません。" },
+        { "text": "yours", "correct": false, "explain": "yours は「あなたのもの」という意味で、この文の形には合いません。" }
+      ]
+    },
+    {
+      "id": "g5-07",
+      "sentence": "She ___ a book in the library now.",
+      "ja": "彼女は今、図書館で本を読んでいます。",
+      "point": "現在進行形：be動詞 + 動詞のing形",
+      "choices": [
+        { "text": "is reading", "correct": true, "explain": "now（今）があるので、現在進行形（be動詞 + ing）を使います。" },
+        { "text": "reads", "correct": false, "explain": "reads は現在形で、いつもの習慣を表すときに使います。now には合いません。" },
+        { "text": "read", "correct": false, "explain": "read だけでは進行形になりません。" },
+        { "text": "is read", "correct": false, "explain": "is read は受け身の形で、「読まれる」という意味になってしまいます。" }
+      ]
+    },
+    {
+      "id": "g5-08",
+      "sentence": "There are two ___ in the garden.",
+      "ja": "庭に犬が2匹います。",
+      "point": "名詞の複数形：数が2つ以上のときは -s をつける",
+      "choices": [
+        { "text": "dogs", "correct": true, "explain": "two（2つ）とあるので、名詞は複数形（dogs）にします。" },
+        { "text": "dog", "correct": false, "explain": "dog は単数形です。two のあとには複数形が必要です。" },
+        { "text": "a dog", "correct": false, "explain": "a dog は「1匹の犬」という意味なので、two とは合いません。" },
+        { "text": "does", "correct": false, "explain": "does は助動詞で、名詞ではありません。" }
+      ]
+    },
+    {
+      "id": "g5-09",
+      "sentence": "I don't have ___ money with me today.",
+      "ja": "私は今日、お金を全く持っていません。",
+      "point": "some と any の使い分け：否定文では any を使う",
+      "choices": [
+        { "text": "any", "correct": true, "explain": "否定文（don't）のときは some ではなく any を使います。" },
+        { "text": "some", "correct": false, "explain": "some は主に肯定文で使います。否定文には any が適切です。" },
+        { "text": "much", "correct": false, "explain": "much も使えなくはありませんが、この形では any が最も自然です。" },
+        { "text": "many", "correct": false, "explain": "many は数えられる名詞に使いますが、money は数えられない名詞です。" }
+      ]
+    },
+    {
+      "id": "g5-10",
+      "sentence": "We ___ at the park yesterday afternoon.",
+      "ja": "私たちは昨日の午後、公園にいました。",
+      "point": "be動詞の過去形：was / were",
+      "choices": [
+        { "text": "were", "correct": true, "explain": "主語が We（複数）で過去の話（yesterday）なので were を使います。" },
+        { "text": "was", "correct": false, "explain": "was は主語が I / he / she / it のときの過去形です。" },
+        { "text": "are", "correct": false, "explain": "are は現在形なので、yesterday（過去）には合いません。" },
+        { "text": "be", "correct": false, "explain": "be はそのままの形では文の動詞として使えません。" }
+      ]
+    },
+    {
+      "id": "g5-11",
+      "sentence": "___ the window, please. It's cold in here.",
+      "ja": "窓を閉めてください。ここは寒いです。",
+      "point": "命令文：主語を省略して動詞の原形から始める",
+      "choices": [
+        { "text": "Close", "correct": true, "explain": "「〜してください」という命令文は、主語を省いて動詞の原形から始めます。" },
+        { "text": "Closes", "correct": false, "explain": "命令文では動詞に s をつけません。" },
+        { "text": "Closing", "correct": false, "explain": "命令文は動詞の原形で始め、ing形は使いません。" },
+        { "text": "Closed", "correct": false, "explain": "Closed（過去形）では命令の意味になりません。" }
+      ]
+    },
+    {
+      "id": "g5-12",
+      "sentence": "I ___ eat breakfast before school.",
+      "ja": "私はいつも学校の前に朝食を食べます。",
+      "point": "頻度を表す副詞（always）の位置：一般動詞の前に置く",
+      "choices": [
+        { "text": "always", "correct": true, "explain": "always（いつも）のような頻度を表す副詞は、一般動詞の前に置きます。" },
+        { "text": "eat always", "correct": false, "explain": "always は eat（一般動詞）の前に置くのが正しい語順です。" },
+        { "text": "always to", "correct": false, "explain": "always のあとに to を入れる必要はありません。" },
+        { "text": "am always", "correct": false, "explain": "eat は一般動詞なので、be動詞（am）は不要です。" }
+      ]
+    },
+    {
+      "id": "g5-13",
+      "sentence": "___ apples do you want?",
+      "ja": "リンゴはいくつ欲しいですか。",
+      "point": "数をたずねる表現：How many + 複数名詞",
+      "choices": [
+        { "text": "How many", "correct": true, "explain": "数えられる名詞（apples）の数をたずねるときは How many を使います。" },
+        { "text": "How much", "correct": false, "explain": "How much は数えられない名詞（water など）の量をたずねるときに使います。" },
+        { "text": "How old", "correct": false, "explain": "How old は年齢をたずねる表現です。" },
+        { "text": "How long", "correct": false, "explain": "How long は長さや期間をたずねる表現です。" }
+      ]
     }
   ],
   "reading": [
