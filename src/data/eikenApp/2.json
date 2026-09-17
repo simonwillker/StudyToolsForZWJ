@@ -351,6 +351,44 @@
         { "text": "I really enjoy your company's logo design.", "correct": false, "explain": "ロゴの話は価格交渉の流れに関係ありません。" },
         { "text": "Let's talk about the weather instead.", "correct": false, "explain": "ビジネス交渉の流れに合わない発言です。" }
       ]
+    },
+    {
+      "id": "d2-02",
+      "title": "Requesting a Deadline Extension",
+      "translation": "A：田中先生、金曜日までにエッセイを提出できそうにありません。 B：そうですか。遅れる理由は何ですか。 A：___ B：それなら仕方ありませんね。代わりに来週の月曜日までで構いません。 A：本当にありがとうございます。助かります。",
+      "lines": [
+        { "speaker": "A", "text": "Professor Tanaka, I'm afraid I won't be able to submit my essay by Friday." },
+        { "speaker": "B", "text": "I see. What's the reason for the delay?" },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "That's understandable. I can give you until next Monday instead." },
+        { "speaker": "A", "text": "Thank you so much. I really appreciate it." }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "I've been dealing with a family emergency this week, so I haven't had enough time to finish it.", "correct": true, "explain": "直後にBが理解を示し延長を認めているので、納得できる正当な理由を述べる発言が自然です。" },
+        { "text": "I just don't feel like writing it.", "correct": false, "explain": "やる気がないという理由では、その後の理解ある対応と流れが合いません。" },
+        { "text": "I think the assignment is too easy.", "correct": false, "explain": "課題が簡単すぎるという発言は、締め切り延長を頼む文脈に合いません。" },
+        { "text": "I forgot the deadline existed.", "correct": false, "explain": "締め切りを忘れていたという発言は、その後の理解ある対応とかみ合いません。" }
+      ]
+    },
+    {
+      "id": "d2-03",
+      "title": "Rescheduling a Client Meeting",
+      "translation": "A：明日のクライアントとの打ち合わせを木曜日の午後に変更できますか。 B：カレンダーを確認しますね…木曜日の午後は大丈夫そうですが、まずクライアントに確認が必要です。 A：___ B：もちろんです。今日中に結果をお知らせします。 A：完璧です、ありがとうございます。",
+      "lines": [
+        { "speaker": "A", "text": "Could we reschedule tomorrow's client meeting to Thursday afternoon?" },
+        { "speaker": "B", "text": "Let me check the calendar... Thursday afternoon should work, but I'll need to confirm with the client first." },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "Of course. I'll send you an update by the end of the day." },
+        { "speaker": "A", "text": "Perfect, thank you." }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "That sounds good. Please let me know as soon as you hear back.", "correct": true, "explain": "直後にBが「今日中に知らせる」と答えているので、確認結果を待つ自然な返答です。" },
+        { "text": "I don't think we need this meeting at all.", "correct": false, "explain": "会議自体が不要という発言は、日程調整を頼んでいる流れに合いません。" },
+        { "text": "Let's cancel it permanently.", "correct": false, "explain": "永久に中止するという発言は、その後の確認のやり取りと矛盾します。" },
+        { "text": "I already told the client it's canceled.", "correct": false, "explain": "すでにキャンセルを伝えたという発言は、Bがこれから確認すると言っている流れと矛盾します。" }
+      ]
     }
   ]
 }
