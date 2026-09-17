@@ -330,6 +330,54 @@
         { "text": "At the park.", "correct": false, "explain": "公園については述べられていません。" },
         { "text": "It will be canceled.", "correct": false, "explain": "雨が降らなければ開催されると言っています。" }
       ]
+    },
+    {
+      "id": "l3-03",
+      "script": "Attention, students. Tomorrow's field trip will start thirty minutes earlier than planned. Please arrive at the school gate by eight o'clock.",
+      "translation": "生徒の皆さんへ。明日の校外学習は予定より30分早く始まります。8時までに校門に集合してください。",
+      "question": "What time should students arrive at the school gate?",
+      "choices": [
+        { "text": "8:00", "correct": true, "explain": "\"Please arrive at the school gate by eight o'clock.\" と言っています。" },
+        { "text": "8:30", "correct": false, "explain": "予定より30分早くなったので、8時30分ではありません。" },
+        { "text": "7:30", "correct": false, "explain": "本文では8時と言っています。" },
+        { "text": "9:00", "correct": false, "explain": "本文では8時と言っています。" }
+      ]
+    },
+    {
+      "id": "l3-04",
+      "script": "I think I left my umbrella on the train this morning. I'm going to the station to ask about it after school.",
+      "translation": "今朝、電車の中に傘を忘れてきたと思います。放課後、駅に聞きに行くつもりです。",
+      "question": "What is the speaker going to do after school?",
+      "choices": [
+        { "text": "Go to the station to ask about the umbrella.", "correct": true, "explain": "\"I'm going to the station to ask about it after school.\" と言っています。" },
+        { "text": "Buy a new umbrella.", "correct": false, "explain": "新しい傘を買うという記述はありません。" },
+        { "text": "Take the train home.", "correct": false, "explain": "電車で帰るという記述ではなく、駅に問い合わせに行くと言っています。" },
+        { "text": "Call his teacher.", "correct": false, "explain": "先生に電話するという記述はありません。" }
+      ]
+    },
+    {
+      "id": "l3-05",
+      "script": "According to the forecast, it will be sunny in the morning but cloudy by evening, with a chance of rain after nine o'clock.",
+      "translation": "天気予報によると、午前中は晴れですが、夕方までに曇りになり、9時以降は雨の可能性があります。",
+      "question": "What is the weather expected to be like after nine o'clock?",
+      "choices": [
+        { "text": "There is a chance of rain.", "correct": true, "explain": "\"with a chance of rain after nine o'clock\" と言っています。" },
+        { "text": "It will be sunny all day.", "correct": false, "explain": "夕方までに曇りになると言っています。" },
+        { "text": "It will snow.", "correct": false, "explain": "雪については述べられていません。" },
+        { "text": "It will be windy only.", "correct": false, "explain": "風についての記述はありません。" }
+      ]
+    },
+    {
+      "id": "l3-06",
+      "script": "My cousin is visiting this weekend, so we are planning to go to the aquarium on Saturday and relax at home on Sunday.",
+      "translation": "今週末いとこが遊びに来るので、土曜日は水族館に行き、日曜日は家でゆっくり過ごす予定です。",
+      "question": "What are they planning to do on Saturday?",
+      "choices": [
+        { "text": "Go to the aquarium.", "correct": true, "explain": "\"we are planning to go to the aquarium on Saturday\" と言っています。" },
+        { "text": "Stay home.", "correct": false, "explain": "家でゆっくり過ごすのは日曜日です。" },
+        { "text": "Visit a museum.", "correct": false, "explain": "博物館についての記述はありません。" },
+        { "text": "Go shopping.", "correct": false, "explain": "買い物についての記述はありません。" }
+      ]
     }
   ],
   "dialogue": [
