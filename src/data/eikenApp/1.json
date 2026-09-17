@@ -265,6 +265,90 @@
         { "text": "which", "correct": false, "explain": "It is not until 〜 の強調構文には which ではなく that を使います。" },
         { "text": "then", "correct": false, "explain": "then はこの強調構文の決まった形には使いません。" }
       ]
+    },
+    {
+      "id": "g1-06",
+      "sentence": "No sooner ___ than the meeting began.",
+      "ja": "彼女が到着するとすぐに会議が始まった。",
+      "point": "No sooner + had + 主語 + 過去分詞 + than … の倒置構文（〜するとすぐに…した）",
+      "choices": [
+        { "text": "had she arrived", "correct": true, "explain": "No sooner が文頭に出ると、過去完了の had と主語が倒置され、had she arrived の語順になります。" },
+        { "text": "she had arrived", "correct": false, "explain": "No sooner が文頭にあるときは倒置が必要です。" },
+        { "text": "did she arrive", "correct": false, "explain": "No sooner ... than の構文では過去完了（had + 過去分詞）を使うのが標準的です。" },
+        { "text": "she arrived", "correct": false, "explain": "倒置されておらず、時制も過去完了になっていません。" }
+      ]
+    },
+    {
+      "id": "g1-07",
+      "sentence": "Little ___ that the decision would change his career forever.",
+      "ja": "彼は、その決断が自分のキャリアを永遠に変えることになるとは、ほとんど知らなかった。",
+      "point": "否定的な意味を持つ Little が文頭に来るときの倒置",
+      "choices": [
+        { "text": "did he know", "correct": true, "explain": "Little（ほとんど〜ない）のような否定的な副詞が文頭に来ると、後ろは疑問文の語順（did he know）に倒置します。" },
+        { "text": "he knew", "correct": false, "explain": "Little が文頭にあるときは倒置が必要です。" },
+        { "text": "he did know", "correct": false, "explain": "倒置されていないうえ、did の位置も誤りです。" },
+        { "text": "knew he", "correct": false, "explain": "この構文では did を使った倒置（did he know）が正しい形です。" }
+      ]
+    },
+    {
+      "id": "g1-08",
+      "sentence": "The problem is not so much a lack of funding ___ a lack of coordination.",
+      "ja": "問題は資金不足というよりも、むしろ連携の欠如である。",
+      "point": "not so much A as B（AというよりむしろB）の相関構文",
+      "choices": [
+        { "text": "as", "correct": true, "explain": "not so much A as B は「AというよりむしろB」という意味の決まった相関構文です。" },
+        { "text": "than", "correct": false, "explain": "この構文では than ではなく as を使います。" },
+        { "text": "that", "correct": false, "explain": "that ではこの相関構文は成立しません。" },
+        { "text": "but", "correct": false, "explain": "but はこの決まった構文の一部としては使いません。" }
+      ]
+    },
+    {
+      "id": "g1-09",
+      "sentence": "Weather ___, the ceremony will be held outdoors.",
+      "ja": "天候が許せば、式典は屋外で行われる。",
+      "point": "独立分詞構文（Weather permitting = 天候が許せば）",
+      "choices": [
+        { "text": "permitting", "correct": true, "explain": "Weather permitting は「天候が許せば」という意味の慣用的な独立分詞構文で、現在分詞を使います。" },
+        { "text": "permitted", "correct": false, "explain": "過去分詞（受け身の意味）では「天候が許される」となり不自然です。" },
+        { "text": "to permit", "correct": false, "explain": "不定詞ではこの独立分詞構文の形になりません。" },
+        { "text": "permits", "correct": false, "explain": "定形動詞（permits）ではこの慣用的な分詞構文にはなりません。" }
+      ]
+    },
+    {
+      "id": "g1-10",
+      "sentence": "Only after the results were announced ___ she realize her mistake.",
+      "ja": "結果が発表されて初めて、彼女は自分の間違いに気づいた。",
+      "point": "Only after 〜 が文頭に来るときの主節の倒置",
+      "choices": [
+        { "text": "did", "correct": true, "explain": "Only after ... のような限定的な副詞句が文頭に来ると、主節は疑問文の語順（did she realize）に倒置します。" },
+        { "text": "she did", "correct": false, "explain": "Only after が文頭にあるときは she の前に did を置く倒置が必要です。" },
+        { "text": "had", "correct": false, "explain": "現在の文全体は過去の一回の出来事なので、had ではなく did が適切です。" },
+        { "text": "she had", "correct": false, "explain": "倒置されておらず、時制も文意に合いません。" }
+      ]
+    },
+    {
+      "id": "g1-11",
+      "sentence": "___ the outcome may be, the team has already proven its resilience.",
+      "ja": "結果がどうであろうと、そのチームはすでに自分たちの回復力を証明している。",
+      "point": "譲歩を表す複合関係代名詞 Whatever（〜が何であろうと）",
+      "choices": [
+        { "text": "Whatever", "correct": true, "explain": "Whatever + 主語 + may be で「〜が何であろうと」という譲歩を表します。" },
+        { "text": "Whichever", "correct": false, "explain": "Whichever は限られた選択肢の中から「どちらでも」という意味で使い、この文脈には合いません。" },
+        { "text": "However", "correct": false, "explain": "However は通常、形容詞・副詞を伴って「どんなに〜でも」という意味で使います（the outcome という名詞句には合いません）。" },
+        { "text": "Whoever", "correct": false, "explain": "Whoever は「誰であろうと」という意味で、人を表す語に使います。" }
+      ]
+    },
+    {
+      "id": "g1-12",
+      "sentence": "Such was the intensity of the storm ___ entire neighborhoods lost power for days.",
+      "ja": "その嵐の激しさはすさまじく、いくつもの地域が何日も停電した。",
+      "point": "Such + be動詞 + 主語 + that … の倒置強調構文（あまりに〜なので…）",
+      "choices": [
+        { "text": "that", "correct": true, "explain": "Such was X that … は「Xがあまりに〜だったので…」という意味の倒置構文で、that 節が結果を表します。" },
+        { "text": "which", "correct": false, "explain": "この倒置構文では which ではなく that を使います。" },
+        { "text": "as", "correct": false, "explain": "as ではこの Such ... that 構文は成立しません。" },
+        { "text": "so", "correct": false, "explain": "so はすでに Such の意味に含まれており、重ねて使いません。" }
+      ]
     }
   ],
   "reading": [
