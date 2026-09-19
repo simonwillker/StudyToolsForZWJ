@@ -115,6 +115,54 @@
             { "text": "are", "correct": false, "explain": "命令文では are は使いません。" },
             { "text": "being", "correct": false, "explain": "being は命令文には使いません。" }
           ]
+        },
+        {
+          "id": "5-p1-09",
+          "sentence": "A: Is this your umbrella? B: No, it's not （　）. It's Tom's.",
+          "ja": "A：これはあなたの傘ですか。B：いいえ、私のではありません。トムのです。",
+          "point": "所有代名詞 mine（私のもの）",
+          "choices": [
+            { "text": "mine", "correct": true, "explain": "「私のもの」というときは所有代名詞 mine を使います。" },
+            { "text": "my", "correct": false, "explain": "my は「私の」で、後ろに名詞が必要です。" },
+            { "text": "me", "correct": false, "explain": "me は目的格で、「私のもの」という意味にはなりません。" },
+            { "text": "I", "correct": false, "explain": "I は主格で、この位置には使いません。" }
+          ]
+        },
+        {
+          "id": "5-p1-10",
+          "sentence": "My brother （　） breakfast every morning.",
+          "ja": "私の兄は毎朝朝食を食べます。",
+          "point": "三人称単数現在の s",
+          "choices": [
+            { "text": "eats", "correct": true, "explain": "主語 My brother は三人称単数なので、動詞に s をつけます。" },
+            { "text": "eat", "correct": false, "explain": "eat は主語が I / you / 複数のときの形です。" },
+            { "text": "eating", "correct": false, "explain": "eating は be動詞とセットで使う進行形の形です。" },
+            { "text": "ate", "correct": false, "explain": "ate は過去形で、every morning（現在の習慣）には合いません。" }
+          ]
+        },
+        {
+          "id": "5-p1-11",
+          "sentence": "（　） you like tea or coffee?",
+          "ja": "あなたは紅茶とコーヒーどちらが好きですか。",
+          "point": "一般動詞の疑問文：Do you 〜?",
+          "choices": [
+            { "text": "Do", "correct": true, "explain": "主語が you で一般動詞（like）の疑問文なので Do を使います。" },
+            { "text": "Does", "correct": false, "explain": "Does は主語が三人称単数のときに使います。" },
+            { "text": "Are", "correct": false, "explain": "Are は be動詞の疑問文で使います。like は一般動詞です。" },
+            { "text": "Is", "correct": false, "explain": "Is も be動詞なので、一般動詞 like の疑問文には使いません。" }
+          ]
+        },
+        {
+          "id": "5-p1-12",
+          "sentence": "There （　） many people in the park today.",
+          "ja": "今日、公園にはたくさんの人がいます。",
+          "point": "There are + 複数名詞（〜がいる）",
+          "choices": [
+            { "text": "are", "correct": true, "explain": "many people（複数）が続くので There are を使います。" },
+            { "text": "is", "correct": false, "explain": "is は単数の名詞が続くときに使います。" },
+            { "text": "be", "correct": false, "explain": "be はそのままの形では文の動詞として使えません。" },
+            { "text": "was", "correct": false, "explain": "was は過去形で、today（現在）には合いません。" }
+          ]
         }
       ]
     },
@@ -177,6 +225,40 @@
             { "text": "Yes, I like your new bike.", "correct": false, "explain": "電話の内容と関係がありません。" },
             { "text": "No, I am a soccer player.", "correct": false, "explain": "ケンに取りついでほしいという頼みへの返事になっていません。" }
           ]
+        },
+        {
+          "id": "5-p2-04",
+          "title": "友だちの家で",
+          "translation": "少女：何か飲み物はいる？　少年：（　）　少女：わかった、ジュースを持ってくるね。",
+          "lines": [
+            { "speaker": "A", "text": "Do you want something to drink?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "OK, I will bring some juice." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Yes, please. Juice would be nice.", "correct": true, "explain": "直後に「ジュースを持ってくる」と言っているので、飲み物を頼む返事が自然です。" },
+            { "text": "No, I don't have any homework.", "correct": false, "explain": "宿題の話は飲み物の質問と関係ありません。" },
+            { "text": "Yes, I finished my lunch.", "correct": false, "explain": "昼食の話は飲み物の質問への返事になっていません。" },
+            { "text": "It is on the table.", "correct": false, "explain": "場所を答える返事で、質問と合いません。" }
+          ]
+        },
+        {
+          "id": "5-p2-05",
+          "title": "お店で",
+          "translation": "店員：いらっしゃいませ。何かお探しですか。　少女：（　）　店員：あちらにございます、どうぞこちらへ。",
+          "lines": [
+            { "speaker": "A", "text": "Hello. Are you looking for something?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "They are over there. This way, please." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Yes, I am looking for some notebooks.", "correct": true, "explain": "直後に店員が「あちらにございます」と案内しているので、探している物を伝える返事が自然です。" },
+            { "text": "No, I am not hungry now.", "correct": false, "explain": "空腹についての返事で、店での会話に合いません。" },
+            { "text": "Yes, the weather is nice today.", "correct": false, "explain": "天気の話は店員の質問と関係ありません。" },
+            { "text": "I already paid for it.", "correct": false, "explain": "支払い済みという返事は、まだ探している場面と矛盾します。" }
+          ]
         }
       ]
     },
@@ -209,6 +291,20 @@
           "chunks": ["a good", "I", "am not", "tennis player"],
           "sentence": "I am not a good tennis player.",
           "explain": "be動詞の否定文は〈主語＋am / is / are＋not〉。そのあとに a good tennis player が続きます。"
+        },
+        {
+          "id": "5-p3-04",
+          "ja": "彼女は毎日ピアノを練習します。",
+          "chunks": ["She", "practices", "the piano", "every day"],
+          "sentence": "She practices the piano every day.",
+          "explain": "主語 She に対する一般動詞は practices（三人称単数現在）。目的語 the piano のあとに every day を置きます。"
+        },
+        {
+          "id": "5-p3-05",
+          "ja": "この本はあれよりおもしろいです。",
+          "chunks": ["This book", "is", "more interesting", "than that one"],
+          "sentence": "This book is more interesting than that one.",
+          "explain": "比較級の文は〈主語＋be動詞＋比較級＋than〜〉の語順です。"
         }
       ]
     },
@@ -279,6 +375,48 @@
             { "text": "By train.", "correct": false, "explain": "手段の答えで、How did you go? への返事です。" },
             { "text": "With my dog.", "correct": false, "explain": "同行者の答えで、When への返事になりません。" }
           ]
+        },
+        {
+          "id": "5-l1-05",
+          "script": [
+            { "speaker": "A", "text": "Can I use your dictionary?" },
+            { "speaker": "B", "text": "Sure. Here you are." },
+            { "speaker": "A", "text": "Thank you. Can I keep it until tomorrow?" }
+          ],
+          "translation": "A：辞書を貸してもらえる？　B：いいよ、はい。　A：ありがとう。明日まで借りていい？",
+          "choices": [
+            { "text": "Yes, that's fine.", "correct": true, "explain": "Can I 〜? への返事は Yes / No。「いいよ」が自然です。" },
+            { "text": "It's on the table.", "correct": false, "explain": "場所の答えで、許可を求める質問への返事になりません。" },
+            { "text": "I have two dictionaries.", "correct": false, "explain": "辞書の数についての話で、質問への返事になっていません。" }
+          ]
+        },
+        {
+          "id": "5-l1-06",
+          "script": [
+            { "speaker": "A", "text": "What are you doing this weekend?" },
+            { "speaker": "B", "text": "I'm going to visit my grandmother." },
+            { "speaker": "A", "text": "That sounds nice. Can I come with you?" }
+          ],
+          "translation": "A：今週末は何をするの？　B：祖母を訪ねるつもりだよ。　A：それはいいね。私も一緒に行っていい？",
+          "choices": [
+            { "text": "Of course, she would love that.", "correct": true, "explain": "許可を求める質問に対して、快く受け入れる返事が自然です。" },
+            { "text": "I don't have a grandmother.", "correct": false, "explain": "すでに祖母を訪ねると言っているので、矛盾する返事です。" },
+            { "text": "The weather will be sunny.", "correct": false, "explain": "天気の話は質問への返事になっていません。" }
+          ]
+        },
+        {
+          "id": "5-l1-07",
+          "script": [
+            { "speaker": "A", "text": "I can't find my key." },
+            { "speaker": "B", "text": "Did you check your bag?" },
+            { "speaker": "A", "text": "Yes, but it's not there." }
+          ],
+          "translation": "A：かぎが見つからないんだ。　B：かばんの中は見た？　A：うん、でもそこにはなかったよ。",
+          "choices": [
+            { "text": "Let's look in the kitchen.", "correct": true, "explain": "かぎが見つからないという話の流れで、他の場所を探そうと提案する返事が自然です。" },
+            { "text": "I like your bag.", "correct": false, "explain": "かばんの感想は、かぎを探している場面に合いません。" },
+            { "text": "The key is very old.", "correct": false, "explain": "かぎの古さについての話で、探す手伝いにはなっていません。" }
+          ]
         }
       ]
     },
@@ -340,6 +478,38 @@
             { "text": "Ken's sister's.", "correct": false, "explain": "姉妹は会話に出てきません。" },
             { "text": "The girl's.", "correct": false, "explain": "話しかけている相手の犬だとは言っていません。" }
           ]
+        },
+        {
+          "id": "5-l2-04",
+          "script": [
+            { "speaker": "A", "text": "Ken, are you ready for the trip tomorrow?" },
+            { "speaker": "B", "text": "Almost. I still need to pack my shoes." },
+            { "speaker": "A", "text": "OK, don't forget your hat too." }
+          ],
+          "question": "What does Ken still need to do?",
+          "translation": "A：ケン、明日の旅行の準備はできた？　B：ほとんどね。まだくつを入れないと。　A：わかった、帽子も忘れないでね。（質問：ケンはまだ何をする必要がありますか）",
+          "choices": [
+            { "text": "Pack his shoes.", "correct": true, "explain": "I still need to pack my shoes. と言っています。" },
+            { "text": "Buy a hat.", "correct": false, "explain": "帽子を買うのではなく、忘れないようにと言われています。" },
+            { "text": "Wash his clothes.", "correct": false, "explain": "洗濯についての記述はありません。" },
+            { "text": "Call his friend.", "correct": false, "explain": "電話についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "5-l2-05",
+          "script": [
+            { "speaker": "A", "text": "Mom, can I have some cookies?" },
+            { "speaker": "B", "text": "Sure, but only two before dinner." },
+            { "speaker": "A", "text": "OK, thank you!" }
+          ],
+          "question": "How many cookies can the child have before dinner?",
+          "translation": "A：ママ、クッキーを食べてもいい？　B：いいけど、夕食前は2枚だけね。　A：わかった、ありがとう！（質問：夕食前にクッキーを何枚食べてもいいですか）",
+          "choices": [
+            { "text": "Two.", "correct": true, "explain": "only two before dinner と言っています。" },
+            { "text": "One.", "correct": false, "explain": "本文では2枚と言っています。" },
+            { "text": "Three.", "correct": false, "explain": "本文では2枚と言っています。" },
+            { "text": "None.", "correct": false, "explain": "食べてもよいと言っています。" }
+          ]
         }
       ]
     },
@@ -400,6 +570,42 @@
             { "text": "By bike.", "correct": false, "explain": "今日は自転車がこわれています。" },
             { "text": "By bus.", "correct": false, "explain": "バスの話は出てきません。" },
             { "text": "By train.", "correct": false, "explain": "電車の話は出てきません。" }
+          ]
+        },
+        {
+          "id": "5-l3-05",
+          "script": "Kenta went to the library after school and borrowed two books.",
+          "question": "How many books did Kenta borrow?",
+          "translation": "ケンタは放課後図書館に行き、本を2冊借りました。（質問：ケンタは本を何冊借りましたか）",
+          "choices": [
+            { "text": "Two.", "correct": true, "explain": "borrowed two books と言っています。" },
+            { "text": "One.", "correct": false, "explain": "本文では2冊と言っています。" },
+            { "text": "Three.", "correct": false, "explain": "本文では2冊と言っています。" },
+            { "text": "Four.", "correct": false, "explain": "本文では2冊と言っています。" }
+          ]
+        },
+        {
+          "id": "5-l3-06",
+          "script": "My grandmother lives in a small town near the sea.",
+          "question": "Where does the grandmother live?",
+          "translation": "私の祖母は海の近くの小さな町に住んでいます。（質問：祖母はどこに住んでいますか）",
+          "choices": [
+            { "text": "In a small town near the sea.", "correct": true, "explain": "lives in a small town near the sea と言っています。" },
+            { "text": "In a big city.", "correct": false, "explain": "大都市についての記述はありません。" },
+            { "text": "In the mountains.", "correct": false, "explain": "山についての記述はありません。" },
+            { "text": "Near a lake.", "correct": false, "explain": "湖ではなく海の近くです。" }
+          ]
+        },
+        {
+          "id": "5-l3-07",
+          "script": "Yui usually plays tennis on Saturdays, but this week she is busy with homework.",
+          "question": "What will Yui do this week?",
+          "translation": "ユイはいつも土曜日にテニスをしますが、今週は宿題で忙しいです。（質問：ユイは今週何をしますか）",
+          "choices": [
+            { "text": "Homework.", "correct": true, "explain": "she is busy with homework と言っています。" },
+            { "text": "Play tennis.", "correct": false, "explain": "今週はテニスをする代わりに宿題で忙しいと言っています。" },
+            { "text": "Go shopping.", "correct": false, "explain": "買い物についての記述はありません。" },
+            { "text": "Watch a movie.", "correct": false, "explain": "映画についての記述はありません。" }
           ]
         }
       ]
