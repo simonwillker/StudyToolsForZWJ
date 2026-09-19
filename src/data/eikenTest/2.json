@@ -139,6 +139,54 @@
             { "text": "with", "correct": false, "explain": "with では「改修とともに」という意味不明な表現になります。" },
             { "text": "from", "correct": false, "explain": "from は起点を表し、目的を表しません。" }
           ]
+        },
+        {
+          "id": "2-p1-11",
+          "sentence": "The committee is （　） to announce its decision by next week.",
+          "ja": "委員会は来週までに決定を発表すると見込まれています。",
+          "point": "be expected to（〜すると見込まれている）",
+          "choices": [
+            { "text": "expected", "correct": true, "explain": "be expected to で「〜すると見込まれている」という意味を表します。" },
+            { "text": "expecting", "correct": false, "explain": "is expecting to だと主語自身が期待するという意味になり、文意がずれます。" },
+            { "text": "expect", "correct": false, "explain": "受け身の形（be動詞＋過去分詞）になっていません。" },
+            { "text": "expects", "correct": false, "explain": "be動詞のあとに三単現の s がついた形は続けません。" }
+          ]
+        },
+        {
+          "id": "2-p1-12",
+          "sentence": "No sooner had he sat down （　） the meeting began.",
+          "ja": "彼が座るとすぐに会議が始まりました。",
+          "point": "No sooner ... than 〜（〜するとすぐに…した）の倒置構文",
+          "choices": [
+            { "text": "than", "correct": true, "explain": "No sooner + had + 主語 + 過去分詞 + than … で「〜するとすぐに…した」という意味を表す決まった構文です。" },
+            { "text": "when", "correct": false, "explain": "No sooner とセットで使うのは than で、when は使いません。" },
+            { "text": "that", "correct": false, "explain": "No sooner の構文では that ではなく than を使います。" },
+            { "text": "as", "correct": false, "explain": "No sooner の構文では as ではなく than を使います。" }
+          ]
+        },
+        {
+          "id": "2-p1-13",
+          "sentence": "The report, （　） findings were widely reported, sparked public debate.",
+          "ja": "その報告書は、その調査結果が広く報道され、世間の議論を呼びました。",
+          "point": "関係代名詞 whose（物にも使える所有格）",
+          "choices": [
+            { "text": "whose", "correct": true, "explain": "whose は物（The report）にも使え、「その〜の」という所有関係を表す関係代名詞です。" },
+            { "text": "which", "correct": false, "explain": "which の後に名詞（findings）を直接続けることはできません。" },
+            { "text": "that", "correct": false, "explain": "that には所有格の用法がありません。" },
+            { "text": "who", "correct": false, "explain": "who は人を先行詞にするときに使います。report は物です。" }
+          ]
+        },
+        {
+          "id": "2-p1-14",
+          "sentence": "It is essential that every applicant （　） the requirements before applying.",
+          "ja": "すべての応募者は応募前に要件を満たすことが不可欠です。",
+          "point": "仮定法現在：essential that の後の動詞は原形",
+          "choices": [
+            { "text": "meet", "correct": true, "explain": "essential のような語のあとの that節では、主語の人称に関わらず動詞は原形を使います。" },
+            { "text": "meets", "correct": false, "explain": "仮定法現在では三単現の s はつけません。" },
+            { "text": "met", "correct": false, "explain": "過去形ではなく原形を使います。" },
+            { "text": "will meet", "correct": false, "explain": "will meet ではなく原形 meet を使います。" }
+          ]
         }
       ]
     },
@@ -196,6 +244,55 @@
                 { "text": "hope", "correct": false, "explain": "飛行機に乗りたいという意味になり、前後の内容と矛盾します。" },
                 { "text": "manage", "correct": false, "explain": "manage to は「なんとか〜する」で、環境意識の話に合いません。" },
                 { "text": "pretend", "correct": false, "explain": "pretend to は「〜するふりをする」で意味が通りません。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2-p2-b",
+          "format": "説明文",
+          "title": "The Rise of Repair Cafes",
+          "passage": "In many cities around the world, a new kind of community event has become popular: the repair cafe. At these gatherings, volunteers with skills in fixing electronics, clothing, and furniture help visitors mend broken items for free instead of throwing them away.\n\nThe idea began in the Netherlands over a decade ago, when a small group of neighbors wanted to reduce the amount of waste their community produced. ( 1 ), the concept quickly spread to other countries as people realized how much money and material could be saved through repair.\n\nOrganizers say that repair cafes offer more than just practical help. ( 2 ), they give visitors the confidence to try fixing things themselves and pass those skills on to others. Many participants report feeling proud when they walk out with a repaired item instead of a new purchase.\n\nHowever, running a repair cafe is not always easy. Finding enough skilled volunteers can be difficult, and some events have had to close because no one was available to lead them. ( 3 ), most organizers agree that the benefits, both for the environment and for the community, ( 4 ) the challenges worthwhile.",
+          "translation": "世界各地の都市で、リペアカフェという新しい地域イベントが人気を集めている。電化製品、衣類、家具を直す技術を持つボランティアが、訪れた人の壊れた品を無料で修理してくれる。この考えは10年余り前にオランダで、廃棄物を減らしたい近隣住民の小さなグループから始まった。その結果、修理によって節約できるお金や資源の大きさに人々が気づき、この取り組みは他の国にも急速に広がった。主催者によれば、リペアカフェは実用的な助けにとどまらない。実際、訪れた人が自分で直す自信を持ち、その技術を他の人にも伝えるきっかけになっている。多くの参加者が、新しく買うのではなく修理した品を持ち帰るときに誇らしさを感じると語る。しかし、リペアカフェの運営は簡単ではない。十分な技術を持つボランティアを見つけるのが難しく、担当者がいないために中止になったイベントもある。それでも、こうした困難にもかかわらず、環境と地域社会双方への利点がその困難に見合う価値があると、多くの主催者は考えている。",
+          "questions": [
+            {
+              "id": "2-p2-b-q1",
+              "blank": 1,
+              "choices": [
+                { "text": "As a result", "correct": true, "explain": "節約できる利点に人々が気づいたという結果、取り組みが広がったという流れに合います。" },
+                { "text": "For example", "correct": false, "explain": "具体例ではなく、その後の広がりという結果を述べています。" },
+                { "text": "Otherwise", "correct": false, "explain": "「そうでなければ」という意味で、この文脈には合いません。" },
+                { "text": "Meanwhile", "correct": false, "explain": "同時進行の出来事ではないので合いません。" }
+              ]
+            },
+            {
+              "id": "2-p2-b-q2",
+              "blank": 2,
+              "choices": [
+                { "text": "In fact", "correct": true, "explain": "「実用的な助け以上のもの」という前文の内容を、より具体的に強調して説明しています。" },
+                { "text": "For instance", "correct": false, "explain": "単なる一例ではなく、前文の内容を強調する文です。" },
+                { "text": "On the other hand", "correct": false, "explain": "対立する内容ではないので、対比の表現は合いません。" },
+                { "text": "Otherwise", "correct": false, "explain": "「そうでなければ」という意味で、この文脈には合いません。" }
+              ]
+            },
+            {
+              "id": "2-p2-b-q3",
+              "blank": 3,
+              "choices": [
+                { "text": "Despite these difficulties", "correct": true, "explain": "直前で運営の難しさを述べたあと、それでも利点があると続く譲歩の流れに合います。" },
+                { "text": "Because of this success", "correct": false, "explain": "直前の内容は成功ではなく困難についてです。" },
+                { "text": "As a similar example", "correct": false, "explain": "類似の例ではなく、困難を認めたうえでの結論です。" },
+                { "text": "In other words", "correct": false, "explain": "言い換えではなく、逆接的な結論です。" }
+              ]
+            },
+            {
+              "id": "2-p2-b-q4",
+              "blank": 4,
+              "choices": [
+                { "text": "make", "correct": true, "explain": "make ... worthwhile で「〜を価値あるものにする」という決まった言い方です。" },
+                { "text": "take", "correct": false, "explain": "take ... worthwhile という言い方はしません。" },
+                { "text": "give", "correct": false, "explain": "give ... worthwhile という言い方はしません。" },
+                { "text": "do", "correct": false, "explain": "do ... worthwhile という言い方はしません。" }
               ]
             }
           ]
@@ -295,6 +392,55 @@
                 { "text": "Employees cannot choose where to work.", "correct": false, "explain": "社員が作業に応じて空間を選べる方式です。" },
                 { "text": "It removes all quiet spaces.", "correct": false, "explain": "静かな部屋も用意されています。" },
                 { "text": "Workers are less satisfied than before.", "correct": false, "explain": "満足度は上がっていると報告されています。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2-p3-c",
+          "format": "掲示",
+          "title": "Volunteer Interpreters Needed",
+          "passage": "Volunteer Interpreters Needed for the International Friendship Festival\n\nThe City International Association is looking for volunteers who can interpret between Japanese and English during this year's International Friendship Festival, taking place on November 9 and 10 at Central Park.\n\nVolunteers will help visiting guests communicate with local vendors, guide international visitors around the festival grounds, and assist with simple translation at the information booth. No professional interpreting experience is required, but applicants should be comfortable having everyday conversations in both languages.\n\nVolunteers will work in three-hour shifts and may choose either the morning or afternoon shift on one or both days. A short training session will be held on November 2 to explain the schedule and answer questions.\n\nIn return for their time, volunteers will receive a festival T-shirt, a meal voucher for each shift, and a certificate of participation that can be used for school volunteer records.\n\nThose interested should apply online by October 25. Space is limited to 40 volunteers, so early applications are encouraged.",
+          "translation": "市国際交流協会は、11月9日・10日にセントラルパークで開催される国際親善フェスティバルで、日本語と英語の通訳ができるボランティアを募集している。仕事内容は来場者と出店者の橋渡し、外国人来場者の案内、案内所での簡単な通訳。専門的な通訳経験は不要だが、両言語で日常会話ができることが望ましい。シフトは3時間単位で、午前・午後どちらか、または両日選べる。11月2日に説明会を実施。参加者にはTシャツ、シフトごとの食事券、学校のボランティア記録に使える参加証明書が贈られる。応募は10月25日までにオンラインで。定員は40名。",
+          "questions": [
+            {
+              "id": "2-p3-c-q1",
+              "q": "What will volunteers do at the festival?",
+              "choices": [
+                { "text": "Help visitors communicate and guide them around.", "correct": true, "explain": "\"Volunteers will help visiting guests communicate ... and guide international visitors around the festival grounds\" とあります。" },
+                { "text": "Sell food at the vendor booths.", "correct": false, "explain": "出店者としての販売についての記述はありません。" },
+                { "text": "Perform in a stage show.", "correct": false, "explain": "舞台での出演についての記述はありません。" },
+                { "text": "Clean the park after the event.", "correct": false, "explain": "清掃についての記述はありません。" }
+              ]
+            },
+            {
+              "id": "2-p3-c-q2",
+              "q": "What is required of applicants?",
+              "choices": [
+                { "text": "Comfort having everyday conversations in both languages.", "correct": true, "explain": "\"applicants should be comfortable having everyday conversations in both languages\" とあります。" },
+                { "text": "Professional interpreting certification.", "correct": false, "explain": "\"No professional interpreting experience is required\" とあります。" },
+                { "text": "At least one year of volunteer experience.", "correct": false, "explain": "経験年数についての記述はありません。" },
+                { "text": "A university degree in linguistics.", "correct": false, "explain": "学位についての記述はありません。" }
+              ]
+            },
+            {
+              "id": "2-p3-c-q3",
+              "q": "What will volunteers receive?",
+              "choices": [
+                { "text": "A T-shirt, a meal voucher, and a certificate.", "correct": true, "explain": "\"volunteers will receive a festival T-shirt, a meal voucher for each shift, and a certificate of participation\" とあります。" },
+                { "text": "Payment for their time.", "correct": false, "explain": "金銭的な報酬についての記述はありません。" },
+                { "text": "Free festival tickets for their family.", "correct": false, "explain": "家族へのチケットについての記述はありません。" },
+                { "text": "A trip abroad.", "correct": false, "explain": "海外旅行についての記述はありません。" }
+              ]
+            },
+            {
+              "id": "2-p3-c-q4",
+              "q": "What is true about the application process?",
+              "choices": [
+                { "text": "Applications must be submitted online by October 25.", "correct": true, "explain": "\"Those interested should apply online by October 25.\" とあります。" },
+                { "text": "Applications are accepted only in person.", "correct": false, "explain": "オンラインでの応募だと書かれています。" },
+                { "text": "There is no limit on the number of volunteers.", "correct": false, "explain": "定員は40名と書かれています。" },
+                { "text": "The training session is optional and unscheduled.", "correct": false, "explain": "11月2日に説明会が予定されています。" }
               ]
             }
           ]
@@ -455,6 +601,57 @@
             { "text": "Move the printer to another floor.", "correct": false, "explain": "移動の話は出ていません。" },
             { "text": "Order parts for the old model.", "correct": false, "explain": "部品の入手は困難だと言われています。" }
           ]
+        },
+        {
+          "id": "2-l1-06",
+          "script": [
+            { "speaker": "A", "text": "Have you tried the new Italian restaurant downtown?" },
+            { "speaker": "B", "text": "Not yet, but I heard the wait can be over an hour on weekends." },
+            { "speaker": "A", "text": "That's what I heard too. Maybe we should go on a weekday instead." },
+            { "speaker": "B", "text": "Good idea, how about next Wednesday evening?" }
+          ],
+          "question": "What do they decide to do?",
+          "translation": "A：中心街の新しいイタリアンレストラン行った？　B：まだだけど、週末は1時間以上待つこともあるって聞いたよ。　A：私もそう聞いた。平日に行ったほうがいいかもね。　B：いい考えだね、来週水曜の夜はどう？（質問：2人は何をすることに決めましたか）",
+          "choices": [
+            { "text": "Go to the restaurant on a weekday evening.", "correct": true, "explain": "「来週水曜の夜」に行こうと決めています。" },
+            { "text": "Avoid the restaurant completely.", "correct": false, "explain": "行かないのではなく、平日に行くことにしています。" },
+            { "text": "Make a reservation for the weekend.", "correct": false, "explain": "週末ではなく平日に行くことにしています。" },
+            { "text": "Ask for a table outside.", "correct": false, "explain": "屋外の席についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "2-l1-07",
+          "script": [
+            { "speaker": "A", "text": "I'm thinking about switching my major from biology to chemistry." },
+            { "speaker": "B", "text": "That's a big decision. What made you consider it?" },
+            { "speaker": "A", "text": "I've been more interested in the chemistry labs lately, and the career options seem broader." },
+            { "speaker": "B", "text": "Well, talk to your academic advisor before you decide for sure." }
+          ],
+          "question": "What does B suggest A do?",
+          "translation": "A：専攻を生物学から化学に変えようかと考えているんだ。　B：それは大きな決断だね。何がきっかけで考えるようになったの？　A：最近化学の実験のほうに興味があって、就職の選択肢も広そうなんだ。　B：それなら、決める前に指導教員に相談してみたら。（質問：Bは何をするようAに提案していますか）",
+          "choices": [
+            { "text": "Talk to an academic advisor before deciding.", "correct": true, "explain": "\"talk to your academic advisor before you decide for sure\" と言っています。" },
+            { "text": "Switch majors immediately.", "correct": false, "explain": "すぐに変更するのではなく、相談してからと言っています。" },
+            { "text": "Stay with biology no matter what.", "correct": false, "explain": "生物学に留まるようにとは言っていません。" },
+            { "text": "Take a break from school.", "correct": false, "explain": "休学についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "2-l1-08",
+          "script": [
+            { "speaker": "A", "text": "Our flight got delayed by three hours because of the storm." },
+            { "speaker": "B", "text": "That's frustrating. Did they give you any compensation?" },
+            { "speaker": "A", "text": "They gave us meal vouchers, but nothing else." },
+            { "speaker": "B", "text": "At least that's something. What will you do while you wait?" }
+          ],
+          "question": "What did the airline give the passengers?",
+          "translation": "A：嵐のせいでフライトが3時間遅れたんだ。　B：それは大変だね。何か補償はあった？　A：食事券をもらっただけで、他は何もなかったよ。　B：それでもないよりはましだね。待っている間は何をするの？（質問：航空会社は乗客に何を渡しましたか）",
+          "choices": [
+            { "text": "Meal vouchers.", "correct": true, "explain": "\"They gave us meal vouchers, but nothing else.\" と言っています。" },
+            { "text": "A free hotel room.", "correct": false, "explain": "ホテルについての記述はありません。" },
+            { "text": "A full refund.", "correct": false, "explain": "全額返金についての記述はありません。" },
+            { "text": "Nothing at all.", "correct": false, "explain": "食事券は受け取ったと言っています。" }
+          ]
         }
       ]
     },
@@ -527,6 +724,42 @@
             { "text": "Food became much cheaper.", "correct": false, "explain": "食料価格は急騰しました。" },
             { "text": "Temperatures rose worldwide.", "correct": false, "explain": "気温は下がりました。" },
             { "text": "Travel to Switzerland was banned.", "correct": false, "explain": "旅行禁止の話はありません。" }
+          ]
+        },
+        {
+          "id": "2-l2-06",
+          "script": "Honeybees communicate the location of food to other bees through a movement called the waggle dance. By moving in a figure-eight pattern and vibrating their bodies, a bee can tell others the direction and distance of a flower patch relative to the sun. Scientists have studied this behavior for decades, and it remains one of the most complex forms of communication known among insects.",
+          "question": "What does the waggle dance communicate?",
+          "translation": "ミツバチは「8の字ダンス」と呼ばれる動きで、他のハチにエサの場所を伝える。8の字を描くように動き、体を震わせることで、太陽との位置関係から花のある方向と距離を伝えることができる。科学者は何十年もこの行動を研究しており、昆虫の中でも最も複雑なコミュニケーション手段の一つとされている。（質問：8の字ダンスは何を伝えますか）",
+          "choices": [
+            { "text": "The direction and distance of a food source.", "correct": true, "explain": "\"a bee can tell others the direction and distance of a flower patch\" とあります。" },
+            { "text": "The temperature inside the hive.", "correct": false, "explain": "巣の中の温度についての記述はありません。" },
+            { "text": "The age of the queen bee.", "correct": false, "explain": "女王バチの年齢についての記述はありません。" },
+            { "text": "The size of the beehive.", "correct": false, "explain": "巣箱の大きさについての記述はありません。" }
+          ]
+        },
+        {
+          "id": "2-l2-07",
+          "script": "Many cities have begun installing benches designed to be less comfortable for long periods of sitting or lying down, a practice known as hostile architecture. Supporters argue that it discourages loitering and helps keep public spaces safe, while critics say it unfairly targets homeless people and reduces spaces for anyone who simply wants to rest.",
+          "question": "What is one criticism of hostile architecture mentioned in the passage?",
+          "translation": "多くの都市が、長時間座ったり横になったりしづらいように設計されたベンチを設置し始めている。これは「排除アート（ホスタイル・アーキテクチャー）」と呼ばれる。支持者は、たむろを防ぎ公共の場を安全に保つと主張する一方、批判する人々は、ホームレスの人々を不当に狙い、単に休みたい人の場所も減らしていると言う。（質問：本文で述べられているホスタイル・アーキテクチャーへの批判の一つは何ですか）",
+          "choices": [
+            { "text": "It unfairly targets homeless people.", "correct": true, "explain": "\"it unfairly targets homeless people\" とあります。" },
+            { "text": "It is too expensive to install.", "correct": false, "explain": "費用についての記述はありません。" },
+            { "text": "It attracts more crime.", "correct": false, "explain": "犯罪を呼び込むという記述はありません。" },
+            { "text": "It requires constant repair.", "correct": false, "explain": "修理の必要性についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "2-l2-08",
+          "script": "Before refrigeration became common, people in cold regions used natural ice from frozen lakes to preserve food throughout the year. Workers would cut large blocks of ice in winter and store them underground, insulated with sawdust, where they could remain frozen well into the summer months.",
+          "question": "How did people keep the ice frozen through summer?",
+          "translation": "冷蔵技術が普及する前、寒冷地の人々は凍った湖の天然氷を使って一年中食料を保存していた。冬に大きな氷の塊を切り出し、おがくずで断熱しながら地下に保存すると、夏の間もずっと凍ったままにしておくことができた。（質問：人々はどうやって夏の間も氷を凍ったままにしましたか）",
+          "choices": [
+            { "text": "By storing it underground, insulated with sawdust.", "correct": true, "explain": "\"store them underground, insulated with sawdust\" とあります。" },
+            { "text": "By keeping it in a refrigerator.", "correct": false, "explain": "冷蔵庫が普及する前の話です。" },
+            { "text": "By adding salt to the ice.", "correct": false, "explain": "塩を加えるという記述はありません。" },
+            { "text": "By storing it in the sun.", "correct": false, "explain": "地下ではなく日なたに置いたわけではありません。" }
           ]
         }
       ]
