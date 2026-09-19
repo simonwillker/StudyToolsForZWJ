@@ -40,6 +40,14 @@ const LEVELS = [LEVEL_1, LEVEL_PRE1, LEVEL_2, LEVEL_PRE2, LEVEL_3, LEVEL_4, LEVE
 
 const TESTS = [TEST_1, TEST_PRE1, TEST_2, TEST_PRE2, TEST_3, TEST_4, TEST_5];
 
+const APP_VERSION = "1.1.0";
+
+const OFFICIAL_LINKS = [
+  { label: "日本英語検定協会（英検）公式サイト ↗", url: "https://www.eiken.or.jp/eiken/" },
+  { label: "英検 公式の過去問一覧 ↗", url: "https://www.eiken.or.jp/eiken/exam/exam_past/" },
+  { label: "英検 受験案内・申し込み ↗", url: "https://www.eiken.or.jp/eiken/exam/" },
+];
+
 const MODES = [
   { id: "vocab", label: "単語・熟語", desc: "4択クイズで語彙を覚える", icon: "📘" },
   { id: "grammar", label: "文法・穴うめ", desc: "空所に入る正しい語句を選ぶ", icon: "✏️" },
@@ -659,7 +667,16 @@ export default function EikenApp({ onExitApp }) {
         .eiken-under { width: 40px; height: 3px; background: #C8323D; margin: 0 auto; }
 
         .eiken-top-nav { display: flex; justify-content: space-between; align-items: center; max-width: 720px; margin: 0 auto 12px; }
+        .eiken-top-nav-right { display: flex; align-items: center; gap: 12px; }
+        .eiken-version-badge { font-size: 11px; color: #9AA093; font-weight: 700; letter-spacing: 0.5px; }
         .eiken-back-link { font-size: 13px; color: #6B7280; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; background: none; border: none; padding: 0; }
+
+        .eiken-official-box { max-width: 720px; margin: 24px auto 0; background: #FBFAF6; border: 1px solid #E4E2DA; border-radius: 10px; padding: 16px 18px; }
+        .eiken-official-title { font-weight: 800; font-size: 14px; margin-bottom: 6px; }
+        .eiken-official-desc { font-size: 12.5px; color: #6B7280; line-height: 1.6; margin-bottom: 10px; }
+        .eiken-official-links { display: flex; flex-direction: column; gap: 6px; }
+        .eiken-official-link { font-size: 13px; color: #2F5D8A; text-decoration: underline; text-underline-offset: 2px; }
+        .eiken-official-link:hover { color: #1E3F63; }
 
         .eiken-level-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 720px; margin: 0 auto; }
         @media (max-width: 480px) { .eiken-level-grid { grid-template-columns: 1fr; } }
@@ -795,7 +812,10 @@ export default function EikenApp({ onExitApp }) {
 
       <div className="eiken-top-nav">
         <button className="eiken-back-link" onClick={() => setScreen("progress")}>📊 学習記録</button>
-        {onExitApp && <button className="eiken-back-link" onClick={onExitApp}>他のアプリへ</button>}
+        <div className="eiken-top-nav-right">
+          <span className="eiken-version-badge">v{APP_VERSION}</span>
+          {onExitApp && <button className="eiken-back-link" onClick={onExitApp}>他のアプリへ</button>}
+        </div>
       </div>
 
       {screen === "levelSelect" && (
@@ -817,6 +837,19 @@ export default function EikenApp({ onExitApp }) {
                 </button>
               );
             })}
+          </div>
+          <div className="eiken-official-box">
+            <div className="eiken-official-title">📄 官方真题（公式の過去問）</div>
+            <div className="eiken-official-desc">
+              本アプリの模擬テストはすべてオリジナル問題です。著作権保護対象の実際の過去問は、日本英語検定協会の公式サイトで確認できます。
+            </div>
+            <div className="eiken-official-links">
+              {OFFICIAL_LINKS.map((link) => (
+                <a key={link.url} className="eiken-official-link" href={link.url} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
         </>
       )}
