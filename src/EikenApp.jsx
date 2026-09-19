@@ -80,6 +80,8 @@ function findTest(id) {
 const VOCAB_UNIT_SIZE = 20;
 /** 文法問題も20問ずつの「組」に分けて出題する */
 const GRAMMAR_UNIT_SIZE = 20;
+/** 長文読解は5問（＝1パッセージぶん）ずつの「組」に分けて出題する */
+const READING_UNIT_SIZE = 5;
 
 function vocabUnitCount(level) {
   return Math.ceil(level.vocab.length / VOCAB_UNIT_SIZE);
@@ -127,6 +129,31 @@ function clampGrammarUnit(level, unit) {
   return unit === "all" || unit < grammarUnitCount(level) ? unit : 0;
 }
 
+function readingUnitCount(level) {
+  return Math.ceil(flattenReading(level).length / READING_UNIT_SIZE);
+}
+
+/** unit が "all" なら全設問、数値ならその組（0始まり）の設問だけを返す */
+function readingOfUnit(level, unit) {
+  const flat = flattenReading(level);
+  if (unit === "all") return flat;
+  const start = unit * READING_UNIT_SIZE;
+  return flat.slice(start, start + READING_UNIT_SIZE);
+}
+
+function readingUnitLabel(level, unit) {
+  const flat = flattenReading(level);
+  if (unit === "all") return `すべて（${flat.length}問）`;
+  const start = unit * READING_UNIT_SIZE;
+  const end = Math.min(start + READING_UNIT_SIZE, flat.length);
+  return `${unit + 1}組（${start + 1}〜${end}）`;
+}
+
+/** 級を切りかえて組の数が減ったときなど、範囲外の組は1組目にもどす */
+function clampReadingUnit(level, unit) {
+  return unit === "all" || unit < readingUnitCount(level) ? unit : 0;
+}
+
 /** 出題範囲（組）の選択リスト。組が増えても1行に収まる */
 function VocabUnitSelect({ level, value, onChange, allowAll }) {
   return (
@@ -164,6 +191,27 @@ function GrammarUnitSelect({ level, value, onChange, allowAll }) {
           </option>
         ))}
         {allowAll && <option value="all">{grammarUnitLabel(level, "all")}</option>}
+      </select>
+    </label>
+  );
+}
+
+/** 長文読解の出題範囲（組）の選択リスト */
+function ReadingUnitSelect({ level, value, onChange, allowAll }) {
+  return (
+    <label className="eiken-control-row">
+      <span className="eiken-control-label">出題範囲</span>
+      <select
+        className="eiken-unit-select"
+        value={String(value)}
+        onChange={(e) => onChange(e.target.value === "all" ? "all" : Number(e.target.value))}
+      >
+        {Array.from({ length: readingUnitCount(level) }, (_, u) => (
+          <option key={u} value={u}>
+            {readingUnitLabel(level, u)}
+          </option>
+        ))}
+        {allowAll && <option value="all">{readingUnitLabel(level, "all")}</option>}
       </select>
     </label>
   );
@@ -242,32 +290,38 @@ function buildGrammarItems(level, items) {
   }));
 }
 
-function buildReadingItems(level) {
-  const items = [];
+/** 全パッセージの設問を1本の配列にフラット化する（出題範囲の組分けに使う） */
+function flattenReading(level) {
+  const flat = [];
   level.reading.forEach((passage) => {
     passage.questions.forEach((q, qi) => {
-      items.push({
-        id: q.id,
-        header: () => (
-          <div className="eiken-qhead">
-            <div className="eiken-passage-box">
-              <div className="eiken-passage-title-row">
-                <span className="eiken-passage-title">{passage.title}</span>
-                {isSpeechSynthesisSupported() && (
-                  <button className="eiken-speak-btn small" onClick={() => speak(passage.passage)} aria-label="本文を読み上げる">🔊 読み上げ</button>
-                )}
-              </div>
-              <div className="eiken-passage-text">{passage.passage}</div>
-            </div>
-            <div className="eiken-qhead-sub" style={{ marginTop: 10 }}>設問 {qi + 1} / {passage.questions.length}</div>
-            <div className="eiken-qhead-main sentence">{q.q}</div>
-          </div>
-        ),
-        choices: q.choices,
-      });
+      flat.push({ passage, q, qi });
     });
   });
-  return items;
+  return flat;
+}
+
+function buildReadingItems(level, flatItems) {
+  const flat = flatItems && flatItems.length ? flatItems : flattenReading(level);
+  return flat.map(({ passage, q, qi }) => ({
+    id: q.id,
+    header: () => (
+      <div className="eiken-qhead">
+        <div className="eiken-passage-box">
+          <div className="eiken-passage-title-row">
+            <span className="eiken-passage-title">{passage.title}</span>
+            {isSpeechSynthesisSupported() && (
+              <button className="eiken-speak-btn small" onClick={() => speak(passage.passage)} aria-label="本文を読み上げる">🔊 読み上げ</button>
+            )}
+          </div>
+          <div className="eiken-passage-text">{passage.passage}</div>
+        </div>
+        <div className="eiken-qhead-sub" style={{ marginTop: 10 }}>設問 {qi + 1} / {passage.questions.length}</div>
+        <div className="eiken-qhead-main sentence">{q.q}</div>
+      </div>
+    ),
+    choices: q.choices,
+  }));
 }
 
 function buildListeningItems(level) {
@@ -658,6 +712,7 @@ export default function EikenApp({ onExitApp }) {
   const [vocabDirection, setVocabDirection] = useState("en2ja");
   const [vocabUnit, setVocabUnit] = useState(0);
   const [grammarUnit, setGrammarUnit] = useState(0);
+  const [readingUnit, setReadingUnit] = useState(0);
 
   const level = levelId ? findLevel(levelId) : null;
 
@@ -665,11 +720,11 @@ export default function EikenApp({ onExitApp }) {
     if (!level || !mode) return [];
     if (mode === "vocab") return buildVocabItems(level, vocabDirection, vocabOfUnit(level, clampVocabUnit(level, vocabUnit)));
     if (mode === "grammar") return buildGrammarItems(level, grammarOfUnit(level, clampGrammarUnit(level, grammarUnit)));
-    if (mode === "reading") return buildReadingItems(level);
+    if (mode === "reading") return buildReadingItems(level, readingOfUnit(level, clampReadingUnit(level, readingUnit)));
     if (mode === "listening") return buildListeningItems(level);
     if (mode === "dialogue") return buildDialogueItems(level);
     return [];
-  }, [level, mode, vocabDirection, vocabUnit, grammarUnit]);
+  }, [level, mode, vocabDirection, vocabUnit, grammarUnit, readingUnit]);
 
   const goModeSelect = useCallback((lvId) => {
     stopSpeaking();
@@ -954,6 +1009,11 @@ export default function EikenApp({ onExitApp }) {
           {mode === "grammar" && grammarUnitCount(level) > 1 && (
             <div className="eiken-vocab-controls">
               <GrammarUnitSelect level={level} value={clampGrammarUnit(level, grammarUnit)} onChange={setGrammarUnit} allowAll />
+            </div>
+          )}
+          {mode === "reading" && readingUnitCount(level) > 1 && (
+            <div className="eiken-vocab-controls">
+              <ReadingUnitSelect level={level} value={clampReadingUnit(level, readingUnit)} onChange={setReadingUnit} allowAll />
             </div>
           )}
           <ChoiceQuiz level={level} mode={mode} items={items} accent={level.color} onExit={backToModeSelect} />

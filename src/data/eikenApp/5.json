@@ -4,206 +4,2206 @@
   "levelSub": "中学初級程度",
   "color": "#2F7A4F",
   "vocab": [
-    {"id":"v5-001","word":"apple","phonetic":"ˈæpəl","pos":"名詞","meaning":"りんご","example":{"en":"I eat an apple every morning.","ja":"私は毎朝りんごを食べます。"}},
-    {"id":"v5-002","word":"dog","phonetic":"dɔːg","pos":"名詞","meaning":"犬","example":{"en":"My dog is very cute.","ja":"私の犬はとてもかわいいです。"}},
-    {"id":"v5-003","word":"school","phonetic":"skuːl","pos":"名詞","meaning":"学校","example":{"en":"I go to school by bus.","ja":"私はバスで学校に行きます。"}},
-    {"id":"v5-004","word":"friend","phonetic":"frɛnd","pos":"名詞","meaning":"友だち","example":{"en":"She is my best friend.","ja":"彼女は私の親友です。"}},
-    {"id":"v5-005","word":"morning","phonetic":"ˈmɔːrnɪŋ","pos":"名詞","meaning":"朝","example":{"en":"Good morning, everyone.","ja":"みなさん、おはようございます。"}},
-    {"id":"v5-006","word":"notebook","phonetic":"ˈnoʊtbʊk","pos":"名詞","meaning":"ノート","example":{"en":"I write in my notebook every day.","ja":"私は毎日ノートに書きます。"}},
-    {"id":"v5-007","word":"kitchen","phonetic":"ˈkɪtʃɪn","pos":"名詞","meaning":"台所","example":{"en":"My mother is in the kitchen.","ja":"母は台所にいます。"}},
-    {"id":"v5-008","word":"swim","phonetic":"swɪm","pos":"動詞","meaning":"泳ぐ","example":{"en":"I can swim very well.","ja":"私はとても上手に泳げます。"}},
-    {"id":"v5-009","word":"weekend","phonetic":"ˈwiːkɛnd","pos":"名詞","meaning":"週末","example":{"en":"What do you do on the weekend?","ja":"あなたは週末に何をしますか。"}},
-    {"id":"v5-010","word":"favorite","phonetic":"ˈfeɪvərɪt","pos":"形容詞","meaning":"お気に入りの","example":{"en":"Blue is my favorite color.","ja":"青は私の大好きな色です。"}},
-    {"id":"v5-011","word":"book","phonetic":"bʊk","pos":"名詞","meaning":"本","example":{"en":"I read a book before bed.","ja":"私は寝る前に本を読みます。"}},
-    {"id":"v5-012","word":"pencil","phonetic":"ˈpɛnsəl","pos":"名詞","meaning":"えんぴつ","example":{"en":"Can I use your pencil?","ja":"あなたのえんぴつを使ってもいいですか。"}},
-    {"id":"v5-013","word":"teacher","phonetic":"ˈtiːtʃər","pos":"名詞","meaning":"先生","example":{"en":"Our English teacher is very kind.","ja":"私たちの英語の先生はとても親切です。"}},
-    {"id":"v5-014","word":"student","phonetic":"ˈstuːdənt","pos":"名詞","meaning":"生徒、学生","example":{"en":"He is a junior high school student.","ja":"彼は中学生です。"}},
-    {"id":"v5-015","word":"family","phonetic":"ˈfæməli","pos":"名詞","meaning":"家族","example":{"en":"My family has four people.","ja":"私の家族は4人です。"}},
-    {"id":"v5-016","word":"mother","phonetic":"ˈmʌðər","pos":"名詞","meaning":"母","example":{"en":"My mother makes breakfast every day.","ja":"母は毎日朝ごはんを作ります。"}},
-    {"id":"v5-017","word":"father","phonetic":"ˈfɑːðər","pos":"名詞","meaning":"父","example":{"en":"My father works at a hospital.","ja":"父は病院で働いています。"}},
-    {"id":"v5-018","word":"sister","phonetic":"ˈsɪstər","pos":"名詞","meaning":"姉、妹","example":{"en":"My sister plays the piano well.","ja":"姉はピアノを上手にひきます。"}},
-    {"id":"v5-019","word":"brother","phonetic":"ˈbrʌðər","pos":"名詞","meaning":"兄、弟","example":{"en":"My brother is on the soccer team.","ja":"兄はサッカー部に入っています。"}},
-    {"id":"v5-020","word":"house","phonetic":"haʊs","pos":"名詞","meaning":"家","example":{"en":"Their house is near the park.","ja":"彼らの家は公園の近くです。"}},
-    {"id":"v5-021","word":"room","phonetic":"ruːm","pos":"名詞","meaning":"部屋","example":{"en":"Please clean your room.","ja":"自分の部屋をそうじしてください。"}},
-    {"id":"v5-022","word":"window","phonetic":"ˈwɪndoʊ","pos":"名詞","meaning":"窓","example":{"en":"Open the window, please.","ja":"窓を開けてください。"}},
-    {"id":"v5-023","word":"desk","phonetic":"dɛsk","pos":"名詞","meaning":"机","example":{"en":"My bag is under the desk.","ja":"私のかばんは机の下にあります。"}},
-    {"id":"v5-024","word":"chair","phonetic":"tʃɛr","pos":"名詞","meaning":"いす","example":{"en":"Sit on this chair, please.","ja":"このいすにすわってください。"}},
-    {"id":"v5-025","word":"bag","phonetic":"bæg","pos":"名詞","meaning":"かばん","example":{"en":"This bag is very heavy.","ja":"このかばんはとても重いです。"}},
-    {"id":"v5-026","word":"water","phonetic":"ˈwɔːtər","pos":"名詞","meaning":"水","example":{"en":"I drink a lot of water in summer.","ja":"私は夏にたくさん水を飲みます。"}},
-    {"id":"v5-027","word":"milk","phonetic":"mɪlk","pos":"名詞","meaning":"牛乳","example":{"en":"He drinks milk every morning.","ja":"彼は毎朝牛乳を飲みます。"}},
-    {"id":"v5-028","word":"bread","phonetic":"brɛd","pos":"名詞","meaning":"パン","example":{"en":"I eat bread for breakfast.","ja":"私は朝食にパンを食べます。"}},
-    {"id":"v5-029","word":"lunch","phonetic":"lʌntʃ","pos":"名詞","meaning":"昼食","example":{"en":"We have lunch at noon.","ja":"私たちは正午に昼食をとります。"}},
-    {"id":"v5-030","word":"dinner","phonetic":"ˈdɪnər","pos":"名詞","meaning":"夕食","example":{"en":"Dinner is ready.","ja":"夕食の用意ができました。"}},
-    {"id":"v5-031","word":"breakfast","phonetic":"ˈbrɛkfəst","pos":"名詞","meaning":"朝食","example":{"en":"I have breakfast at seven.","ja":"私は7時に朝食を食べます。"}},
-    {"id":"v5-032","word":"library","phonetic":"ˈlaɪbrɛri","pos":"名詞","meaning":"図書館","example":{"en":"We study at the library on Sundays.","ja":"私たちは日曜日に図書館で勉強します。"}},
-    {"id":"v5-033","word":"station","phonetic":"ˈsteɪʃən","pos":"名詞","meaning":"駅","example":{"en":"The station is near my house.","ja":"駅は私の家の近くにあります。"}},
-    {"id":"v5-034","word":"hospital","phonetic":"ˈhɑːspɪtəl","pos":"名詞","meaning":"病院","example":{"en":"My aunt works in a hospital.","ja":"おばは病院で働いています。"}},
-    {"id":"v5-035","word":"park","phonetic":"pɑːrk","pos":"名詞","meaning":"公園","example":{"en":"Let us play in the park.","ja":"公園で遊びましょう。"}},
-    {"id":"v5-036","word":"shop","phonetic":"ʃɑːp","pos":"名詞","meaning":"店","example":{"en":"There is a new shop near the station.","ja":"駅の近くに新しい店があります。"}},
-    {"id":"v5-037","word":"city","phonetic":"ˈsɪti","pos":"名詞","meaning":"都市、市","example":{"en":"Osaka is a big city.","ja":"大阪は大きな都市です。"}},
-    {"id":"v5-038","word":"country","phonetic":"ˈkʌntri","pos":"名詞","meaning":"国","example":{"en":"Japan is a beautiful country.","ja":"日本は美しい国です。"}},
-    {"id":"v5-039","word":"teacher's room","phonetic":"ˈtiːtʃərz ruːm","pos":"名詞","meaning":"職員室","example":{"en":"The teacher's room is on the second floor.","ja":"職員室は2階にあります。"}},
-    {"id":"v5-040","word":"classroom","phonetic":"ˈklæsruːm","pos":"名詞","meaning":"教室","example":{"en":"Our classroom is very bright.","ja":"私たちの教室はとても明るいです。"}},
-    {"id":"v5-041","word":"homework","phonetic":"ˈhoʊmwɜːrk","pos":"名詞","meaning":"宿題","example":{"en":"I finished my homework before dinner.","ja":"私は夕食前に宿題を終えました。"}},
-    {"id":"v5-042","word":"test","phonetic":"tɛst","pos":"名詞","meaning":"テスト","example":{"en":"We have a math test tomorrow.","ja":"明日、数学のテストがあります。"}},
-    {"id":"v5-043","word":"club","phonetic":"klʌb","pos":"名詞","meaning":"部、クラブ","example":{"en":"She is in the tennis club.","ja":"彼女はテニス部に入っています。"}},
-    {"id":"v5-044","word":"music","phonetic":"ˈmjuːzɪk","pos":"名詞","meaning":"音楽","example":{"en":"I like listening to music.","ja":"私は音楽を聞くのが好きです。"}},
-    {"id":"v5-045","word":"picture","phonetic":"ˈpɪktʃər","pos":"名詞","meaning":"絵、写真","example":{"en":"He took a picture of the mountain.","ja":"彼は山の写真をとりました。"}},
-    {"id":"v5-046","word":"letter","phonetic":"ˈlɛtər","pos":"名詞","meaning":"手紙","example":{"en":"I wrote a letter to my grandmother.","ja":"私は祖母に手紙を書きました。"}},
-    {"id":"v5-047","word":"bird","phonetic":"bɜːrd","pos":"名詞","meaning":"鳥","example":{"en":"A small bird is singing.","ja":"小さな鳥が鳴いています。"}},
-    {"id":"v5-048","word":"cat","phonetic":"kæt","pos":"名詞","meaning":"ねこ","example":{"en":"The cat is sleeping on the sofa.","ja":"ねこがソファでねむっています。"}},
-    {"id":"v5-049","word":"fish","phonetic":"fɪʃ","pos":"名詞","meaning":"魚","example":{"en":"My father likes fishing for fish.","ja":"父は魚つりが好きです。"}},
-    {"id":"v5-050","word":"flower","phonetic":"ˈflaʊər","pos":"名詞","meaning":"花","example":{"en":"These flowers are beautiful.","ja":"これらの花は美しいです。"}},
-    {"id":"v5-051","word":"play","phonetic":"pleɪ","pos":"動詞","meaning":"（スポーツを）する、演奏する","example":{"en":"They play baseball after school.","ja":"彼らは放課後に野球をします。"}},
-    {"id":"v5-052","word":"study","phonetic":"ˈstʌdi","pos":"動詞","meaning":"勉強する","example":{"en":"I study English every day.","ja":"私は毎日英語を勉強します。"}},
-    {"id":"v5-053","word":"read","phonetic":"riːd","pos":"動詞","meaning":"読む","example":{"en":"She can read English books.","ja":"彼女は英語の本を読むことができます。"}},
-    {"id":"v5-054","word":"write","phonetic":"raɪt","pos":"動詞","meaning":"書く","example":{"en":"Please write your name here.","ja":"ここに名前を書いてください。"}},
-    {"id":"v5-055","word":"speak","phonetic":"spiːk","pos":"動詞","meaning":"話す","example":{"en":"Do you speak Japanese?","ja":"あなたは日本語を話しますか。"}},
-    {"id":"v5-056","word":"listen","phonetic":"ˈlɪsən","pos":"動詞","meaning":"聞く","example":{"en":"Listen to me carefully.","ja":"注意して私の話を聞いてください。"}},
-    {"id":"v5-057","word":"watch","phonetic":"wɑːtʃ","pos":"動詞","meaning":"見る","example":{"en":"We watch TV after dinner.","ja":"私たちは夕食後にテレビを見ます。"}},
-    {"id":"v5-058","word":"eat","phonetic":"iːt","pos":"動詞","meaning":"食べる","example":{"en":"I eat rice every day.","ja":"私は毎日ごはんを食べます。"}},
-    {"id":"v5-059","word":"drink","phonetic":"drɪŋk","pos":"動詞","meaning":"飲む","example":{"en":"Do you want to drink some tea?","ja":"お茶を飲みたいですか。"}},
-    {"id":"v5-060","word":"walk","phonetic":"wɔːk","pos":"動詞","meaning":"歩く","example":{"en":"I walk to school every morning.","ja":"私は毎朝歩いて学校へ行きます。"}},
-    {"id":"v5-061","word":"run","phonetic":"rʌn","pos":"動詞","meaning":"走る","example":{"en":"He can run very fast.","ja":"彼はとても速く走れます。"}},
-    {"id":"v5-062","word":"help","phonetic":"hɛlp","pos":"動詞","meaning":"手伝う、助ける","example":{"en":"I help my mother on Sundays.","ja":"私は日曜日に母を手伝います。"}},
-    {"id":"v5-063","word":"live","phonetic":"lɪv","pos":"動詞","meaning":"住む","example":{"en":"They live in Tokyo.","ja":"彼らは東京に住んでいます。"}},
-    {"id":"v5-064","word":"come","phonetic":"kʌm","pos":"動詞","meaning":"来る","example":{"en":"Please come to my house.","ja":"私の家に来てください。"}},
-    {"id":"v5-065","word":"know","phonetic":"noʊ","pos":"動詞","meaning":"知っている","example":{"en":"I know his phone number.","ja":"私は彼の電話番号を知っています。"}},
-    {"id":"v5-066","word":"want","phonetic":"wɑːnt","pos":"動詞","meaning":"ほしい","example":{"en":"I want a new bike.","ja":"私は新しい自転車がほしいです。"}},
-    {"id":"v5-067","word":"use","phonetic":"juːz","pos":"動詞","meaning":"使う","example":{"en":"May I use this computer?","ja":"このコンピューターを使ってもいいですか。"}},
-    {"id":"v5-068","word":"open","phonetic":"ˈoʊpən","pos":"動詞","meaning":"開ける","example":{"en":"Please open your textbook.","ja":"教科書を開いてください。"}},
-    {"id":"v5-069","word":"close","phonetic":"kloʊz","pos":"動詞","meaning":"閉める","example":{"en":"Close the door, please.","ja":"ドアを閉めてください。"}},
-    {"id":"v5-070","word":"clean","phonetic":"kliːn","pos":"動詞","meaning":"そうじする","example":{"en":"We clean our classroom every day.","ja":"私たちは毎日教室をそうじします。"}},
-    {"id":"v5-071","word":"big","phonetic":"bɪg","pos":"形容詞","meaning":"大きい","example":{"en":"That is a big dog.","ja":"あれは大きな犬です。"}},
-    {"id":"v5-072","word":"small","phonetic":"smɔːl","pos":"形容詞","meaning":"小さい","example":{"en":"I have a small camera.","ja":"私は小さなカメラを持っています。"}},
-    {"id":"v5-073","word":"new","phonetic":"nuː","pos":"形容詞","meaning":"新しい","example":{"en":"This is my new bike.","ja":"これは私の新しい自転車です。"}},
-    {"id":"v5-074","word":"old","phonetic":"oʊld","pos":"形容詞","meaning":"古い、年をとった","example":{"en":"That temple is very old.","ja":"あの寺はとても古いです。"}},
-    {"id":"v5-075","word":"long","phonetic":"lɔːŋ","pos":"形容詞","meaning":"長い","example":{"en":"She has long hair.","ja":"彼女は長い髪をしています。"}},
-    {"id":"v5-076","word":"short","phonetic":"ʃɔːrt","pos":"形容詞","meaning":"短い","example":{"en":"This is a short story.","ja":"これは短い物語です。"}},
-    {"id":"v5-077","word":"happy","phonetic":"ˈhæpi","pos":"形容詞","meaning":"うれしい、幸せな","example":{"en":"I am happy to see you.","ja":"あなたに会えてうれしいです。"}},
-    {"id":"v5-078","word":"hungry","phonetic":"ˈhʌŋgri","pos":"形容詞","meaning":"空腹の","example":{"en":"I am very hungry now.","ja":"私は今とてもおなかがすいています。"}},
-    {"id":"v5-079","word":"tired","phonetic":"ˈtaɪərd","pos":"形容詞","meaning":"つかれた","example":{"en":"He looks tired today.","ja":"彼は今日つかれているように見えます。"}},
-    {"id":"v5-080","word":"busy","phonetic":"ˈbɪzi","pos":"形容詞","meaning":"いそがしい","example":{"en":"My father is busy every day.","ja":"父は毎日いそがしいです。"}},
-    {"id":"v5-081","word":"kind","phonetic":"kaɪnd","pos":"形容詞","meaning":"親切な","example":{"en":"She is kind to everyone.","ja":"彼女はみんなに親切です。"}},
-    {"id":"v5-082","word":"easy","phonetic":"ˈiːzi","pos":"形容詞","meaning":"かんたんな","example":{"en":"This question is easy.","ja":"この問題はかんたんです。"}},
-    {"id":"v5-083","word":"difficult","phonetic":"ˈdɪfɪkəlt","pos":"形容詞","meaning":"むずかしい","example":{"en":"Math is difficult for me.","ja":"数学は私にはむずかしいです。"}},
-    {"id":"v5-084","word":"beautiful","phonetic":"ˈbjuːtɪfəl","pos":"形容詞","meaning":"美しい","example":{"en":"The mountain is beautiful in autumn.","ja":"その山は秋に美しいです。"}},
-    {"id":"v5-085","word":"today","phonetic":"təˈdeɪ","pos":"副詞","meaning":"今日","example":{"en":"It is very cold today.","ja":"今日はとても寒いです。"}},
-    {"id":"v5-086","word":"tomorrow","phonetic":"təˈmɑːroʊ","pos":"副詞","meaning":"明日","example":{"en":"See you tomorrow.","ja":"また明日会いましょう。"}},
-    {"id":"v5-087","word":"always","phonetic":"ˈɔːlweɪz","pos":"副詞","meaning":"いつも","example":{"en":"He is always early.","ja":"彼はいつも早いです。"}},
-    {"id":"v5-088","word":"sometimes","phonetic":"ˈsʌmtaɪmz","pos":"副詞","meaning":"ときどき","example":{"en":"I sometimes cook dinner.","ja":"私はときどき夕食を作ります。"}},
-    {"id":"v5-089","word":"together","phonetic":"təˈgɛðər","pos":"副詞","meaning":"いっしょに","example":{"en":"Let us go together.","ja":"いっしょに行きましょう。"}},
-    {"id":"v5-090","word":"very","phonetic":"ˈvɛri","pos":"副詞","meaning":"とても","example":{"en":"This cake is very sweet.","ja":"このケーキはとてもあまいです。"}},
-    {"id":"v5-091","word":"pen","phonetic":"pɛn","pos":"名詞","meaning":"ペン","example":{"en":"I lost my favorite pen.","ja":"私はお気に入りのペンをなくしました。"}},
-    {"id":"v5-092","word":"door","phonetic":"dɔːr","pos":"名詞","meaning":"ドア","example":{"en":"Someone is knocking on the door.","ja":"だれかがドアをノックしています。"}},
-    {"id":"v5-093","word":"table","phonetic":"ˈteɪbəl","pos":"名詞","meaning":"テーブル","example":{"en":"The cups are on the table.","ja":"カップはテーブルの上にあります。"}},
-    {"id":"v5-094","word":"bed","phonetic":"bɛd","pos":"名詞","meaning":"ベッド","example":{"en":"I go to bed at ten.","ja":"私は10時に寝ます。"}},
-    {"id":"v5-095","word":"color","phonetic":"ˈkʌlər","pos":"名詞","meaning":"色","example":{"en":"What color do you like?","ja":"あなたは何色が好きですか。"}},
-    {"id":"v5-096","word":"rain","phonetic":"reɪn","pos":"名詞","meaning":"雨","example":{"en":"We had a lot of rain last week.","ja":"先週は雨がたくさん降りました。"}},
-    {"id":"v5-097","word":"cook","phonetic":"kʊk","pos":"動詞","meaning":"料理する","example":{"en":"My father cooks dinner on Sundays.","ja":"父は日曜日に夕食を作ります。"}},
-    {"id":"v5-098","word":"buy","phonetic":"baɪ","pos":"動詞","meaning":"買う","example":{"en":"I want to buy a new cap.","ja":"私は新しい帽子を買いたいです。"}},
-    {"id":"v5-099","word":"sing","phonetic":"sɪŋ","pos":"動詞","meaning":"歌う","example":{"en":"We sing songs in music class.","ja":"私たちは音楽の授業で歌を歌います。"}},
-    {"id":"v5-100","word":"nice","phonetic":"naɪs","pos":"形容詞","meaning":"すてきな","example":{"en":"That is a nice jacket.","ja":"それはすてきな上着ですね。"}},
-    {"id":"v5-101","word":"week","phonetic":"wiːk","pos":"名詞","meaning":"週","example":{"en":"I have piano lessons twice a week.","ja":"私は週に2回ピアノのレッスンがあります。"}},
-    {"id":"v5-102","word":"month","phonetic":"mʌnθ","pos":"名詞","meaning":"月（暦の）","example":{"en":"My birthday is next month.","ja":"私の誕生日は来月です。"}},
-    {"id":"v5-103","word":"year","phonetic":"jɪr","pos":"名詞","meaning":"年、〜歳","example":{"en":"She is ten years old.","ja":"彼女は10歳です。"}},
-    {"id":"v5-104","word":"night","phonetic":"naɪt","pos":"名詞","meaning":"夜","example":{"en":"I study English at night.","ja":"私は夜に英語を勉強します。"}},
-    {"id":"v5-105","word":"evening","phonetic":"ˈiːvnɪŋ","pos":"名詞","meaning":"夕方、晩","example":{"en":"We watch TV in the evening.","ja":"私たちは晩にテレビを見ます。"}},
-    {"id":"v5-106","word":"afternoon","phonetic":"æftərˈnuːn","pos":"名詞","meaning":"午後","example":{"en":"Let us play tennis this afternoon.","ja":"今日の午後テニスをしましょう。"}},
-    {"id":"v5-107","word":"hour","phonetic":"ˈaʊər","pos":"名詞","meaning":"1時間","example":{"en":"I sleep for eight hours.","ja":"私は8時間ねむります。"}},
-    {"id":"v5-108","word":"minute","phonetic":"ˈmɪnɪt","pos":"名詞","meaning":"分","example":{"en":"Wait a minute, please.","ja":"ちょっと待ってください。"}},
-    {"id":"v5-109","word":"Sunday","phonetic":"ˈsʌndeɪ","pos":"名詞","meaning":"日曜日","example":{"en":"I clean my room on Sunday.","ja":"私は日曜日に部屋をそうじします。"}},
-    {"id":"v5-110","word":"Saturday","phonetic":"ˈsætərdeɪ","pos":"名詞","meaning":"土曜日","example":{"en":"We have no school on Saturday.","ja":"土曜日は学校がありません。"}},
-    {"id":"v5-111","word":"Monday","phonetic":"ˈmʌndeɪ","pos":"名詞","meaning":"月曜日","example":{"en":"I have a math class on Monday.","ja":"月曜日に数学の授業があります。"}},
-    {"id":"v5-112","word":"January","phonetic":"ˈdʒænjuɛri","pos":"名詞","meaning":"1月","example":{"en":"It snows a lot in January.","ja":"1月は雪がたくさん降ります。"}},
-    {"id":"v5-113","word":"August","phonetic":"ˈɔːgəst","pos":"名詞","meaning":"8月","example":{"en":"We go to the beach in August.","ja":"私たちは8月に海辺へ行きます。"}},
-    {"id":"v5-114","word":"December","phonetic":"dɪˈsɛmbər","pos":"名詞","meaning":"12月","example":{"en":"Christmas is in December.","ja":"クリスマスは12月です。"}},
-    {"id":"v5-115","word":"egg","phonetic":"ɛg","pos":"名詞","meaning":"卵","example":{"en":"I eat an egg for breakfast.","ja":"私は朝食に卵を食べます。"}},
-    {"id":"v5-116","word":"rice","phonetic":"raɪs","pos":"名詞","meaning":"ごはん、米","example":{"en":"Japanese people often eat rice.","ja":"日本人はよくごはんを食べます。"}},
-    {"id":"v5-117","word":"cake","phonetic":"keɪk","pos":"名詞","meaning":"ケーキ","example":{"en":"My mother made a birthday cake.","ja":"母が誕生日ケーキを作りました。"}},
-    {"id":"v5-118","word":"juice","phonetic":"dʒuːs","pos":"名詞","meaning":"ジュース","example":{"en":"Do you want orange juice?","ja":"オレンジジュースはいかがですか。"}},
-    {"id":"v5-119","word":"tea","phonetic":"tiː","pos":"名詞","meaning":"お茶、紅茶","example":{"en":"I drink green tea after lunch.","ja":"私は昼食後に緑茶を飲みます。"}},
-    {"id":"v5-120","word":"banana","phonetic":"bəˈnænə","pos":"名詞","meaning":"バナナ","example":{"en":"Monkeys like bananas.","ja":"サルはバナナが好きです。"}},
-    {"id":"v5-121","word":"orange","phonetic":"ˈɔːrɪndʒ","pos":"名詞","meaning":"オレンジ","example":{"en":"This orange is very sweet.","ja":"このオレンジはとてもあまいです。"}},
-    {"id":"v5-122","word":"sandwich","phonetic":"ˈsænwɪtʃ","pos":"名詞","meaning":"サンドイッチ","example":{"en":"I made a ham sandwich.","ja":"私はハムサンドイッチを作りました。"}},
-    {"id":"v5-123","word":"horse","phonetic":"hɔːrs","pos":"名詞","meaning":"馬","example":{"en":"She can ride a horse.","ja":"彼女は馬に乗れます。"}},
-    {"id":"v5-124","word":"rabbit","phonetic":"ˈræbɪt","pos":"名詞","meaning":"うさぎ","example":{"en":"We have a white rabbit at school.","ja":"学校で白いうさぎを飼っています。"}},
-    {"id":"v5-125","word":"zoo","phonetic":"zuː","pos":"名詞","meaning":"動物園","example":{"en":"Let us go to the zoo on Sunday.","ja":"日曜日に動物園へ行きましょう。"}},
-    {"id":"v5-126","word":"farm","phonetic":"fɑːrm","pos":"名詞","meaning":"農場","example":{"en":"My uncle lives on a farm.","ja":"おじは農場に住んでいます。"}},
-    {"id":"v5-127","word":"pool","phonetic":"puːl","pos":"名詞","meaning":"プール","example":{"en":"The children are swimming in the pool.","ja":"子どもたちがプールで泳いでいます。"}},
-    {"id":"v5-128","word":"hand","phonetic":"hænd","pos":"名詞","meaning":"手","example":{"en":"Wash your hands before lunch.","ja":"昼食の前に手を洗いなさい。"}},
-    {"id":"v5-129","word":"head","phonetic":"hɛd","pos":"名詞","meaning":"頭","example":{"en":"My head hurts.","ja":"頭が痛いです。"}},
-    {"id":"v5-130","word":"eye","phonetic":"aɪ","pos":"名詞","meaning":"目","example":{"en":"She has big brown eyes.","ja":"彼女は大きな茶色の目をしています。"}},
-    {"id":"v5-131","word":"face","phonetic":"feɪs","pos":"名詞","meaning":"顔","example":{"en":"Wash your face in the morning.","ja":"朝は顔を洗いなさい。"}},
-    {"id":"v5-132","word":"hair","phonetic":"hɛr","pos":"名詞","meaning":"髪","example":{"en":"My sister has short hair.","ja":"姉は髪が短いです。"}},
-    {"id":"v5-133","word":"shirt","phonetic":"ʃɜːrt","pos":"名詞","meaning":"シャツ","example":{"en":"He is wearing a white shirt.","ja":"彼は白いシャツを着ています。"}},
-    {"id":"v5-134","word":"shoe","phonetic":"ʃuː","pos":"名詞","meaning":"くつ（片方）","example":{"en":"These shoes are too small for me.","ja":"このくつは私には小さすぎます。"}},
-    {"id":"v5-135","word":"cap","phonetic":"kæp","pos":"名詞","meaning":"（ふちのない）帽子","example":{"en":"Take your cap. It is sunny.","ja":"帽子を持っていきなさい。晴れていますよ。"}},
-    {"id":"v5-136","word":"clock","phonetic":"klɑːk","pos":"名詞","meaning":"時計（置き時計・掛け時計）","example":{"en":"The clock on the wall is fast.","ja":"壁の時計は進んでいます。"}},
-    {"id":"v5-137","word":"camera","phonetic":"ˈkæmərə","pos":"名詞","meaning":"カメラ","example":{"en":"My father has a new camera.","ja":"父は新しいカメラを持っています。"}},
-    {"id":"v5-138","word":"computer","phonetic":"kəmˈpjuːtər","pos":"名詞","meaning":"コンピューター","example":{"en":"I use a computer at school.","ja":"私は学校でコンピューターを使います。"}},
-    {"id":"v5-139","word":"bike","phonetic":"baɪk","pos":"名詞","meaning":"自転車","example":{"en":"I go to the park by bike.","ja":"私は自転車で公園へ行きます。"}},
-    {"id":"v5-140","word":"car","phonetic":"kɑːr","pos":"名詞","meaning":"車","example":{"en":"My mother drives a red car.","ja":"母は赤い車を運転します。"}},
-    {"id":"v5-141","word":"bus","phonetic":"bʌs","pos":"名詞","meaning":"バス","example":{"en":"The bus comes at eight.","ja":"バスは8時に来ます。"}},
-    {"id":"v5-142","word":"train","phonetic":"treɪn","pos":"名詞","meaning":"電車","example":{"en":"We went to Kyoto by train.","ja":"私たちは電車で京都へ行きました。"}},
-    {"id":"v5-143","word":"ball","phonetic":"bɔːl","pos":"名詞","meaning":"ボール","example":{"en":"Throw the ball to me.","ja":"ボールを私に投げて。"}},
-    {"id":"v5-144","word":"piano","phonetic":"piˈænoʊ","pos":"名詞","meaning":"ピアノ","example":{"en":"She practices the piano every day.","ja":"彼女は毎日ピアノを練習します。"}},
-    {"id":"v5-145","word":"guitar","phonetic":"gɪˈtɑːr","pos":"名詞","meaning":"ギター","example":{"en":"My brother plays the guitar.","ja":"兄はギターをひきます。"}},
-    {"id":"v5-146","word":"box","phonetic":"bɑːks","pos":"名詞","meaning":"箱","example":{"en":"What is in this box?","ja":"この箱の中に何が入っていますか。"}},
-    {"id":"v5-147","word":"cup","phonetic":"kʌp","pos":"名詞","meaning":"カップ","example":{"en":"Can I have a cup of tea?","ja":"お茶を1杯いただけますか。"}},
-    {"id":"v5-148","word":"sun","phonetic":"sʌn","pos":"名詞","meaning":"太陽","example":{"en":"The sun rises in the east.","ja":"太陽は東からのぼります。"}},
-    {"id":"v5-149","word":"snow","phonetic":"snoʊ","pos":"名詞","meaning":"雪","example":{"en":"We played in the snow.","ja":"私たちは雪の中で遊びました。"}},
-    {"id":"v5-150","word":"sky","phonetic":"skaɪ","pos":"名詞","meaning":"空","example":{"en":"The sky is blue today.","ja":"今日は空が青いです。"}},
-    {"id":"v5-151","word":"tree","phonetic":"triː","pos":"名詞","meaning":"木","example":{"en":"There is a big tree near my house.","ja":"私の家の近くに大きな木があります。"}},
-    {"id":"v5-152","word":"sea","phonetic":"siː","pos":"名詞","meaning":"海","example":{"en":"We can see the sea from here.","ja":"ここから海が見えます。"}},
-    {"id":"v5-153","word":"go","phonetic":"goʊ","pos":"動詞","meaning":"行く","example":{"en":"Let us go to the park.","ja":"公園に行きましょう。"}},
-    {"id":"v5-154","word":"get","phonetic":"gɛt","pos":"動詞","meaning":"手に入れる、（get upで）起きる","example":{"en":"I get up at six every day.","ja":"私は毎日6時に起きます。"}},
-    {"id":"v5-155","word":"have","phonetic":"hæv","pos":"動詞","meaning":"持っている、食べる","example":{"en":"I have two brothers.","ja":"私には兄弟が2人います。"}},
-    {"id":"v5-156","word":"make","phonetic":"meɪk","pos":"動詞","meaning":"作る","example":{"en":"Let us make a snowman.","ja":"雪だるまを作りましょう。"}},
-    {"id":"v5-157","word":"see","phonetic":"siː","pos":"動詞","meaning":"見える、会う","example":{"en":"I can see Mt. Fuji from my room.","ja":"私の部屋から富士山が見えます。"}},
-    {"id":"v5-158","word":"like","phonetic":"laɪk","pos":"動詞","meaning":"好きである","example":{"en":"I like cats very much.","ja":"私はねこが大好きです。"}},
-    {"id":"v5-159","word":"love","phonetic":"lʌv","pos":"動詞","meaning":"大好きである","example":{"en":"My sister loves chocolate.","ja":"妹はチョコレートが大好きです。"}},
-    {"id":"v5-160","word":"sit","phonetic":"sɪt","pos":"動詞","meaning":"すわる","example":{"en":"Please sit down.","ja":"すわってください。"}},
-    {"id":"v5-161","word":"stand","phonetic":"stænd","pos":"動詞","meaning":"立つ","example":{"en":"Stand up, everyone.","ja":"みなさん、立ってください。"}},
-    {"id":"v5-162","word":"look","phonetic":"lʊk","pos":"動詞","meaning":"見る（look atで）","example":{"en":"Look at this picture.","ja":"この絵を見てください。"}},
-    {"id":"v5-163","word":"jump","phonetic":"dʒʌmp","pos":"動詞","meaning":"跳ぶ","example":{"en":"The cat jumped onto the table.","ja":"ねこがテーブルに跳び乗りました。"}},
-    {"id":"v5-164","word":"dance","phonetic":"dæns","pos":"動詞","meaning":"おどる","example":{"en":"She dances very well.","ja":"彼女はとても上手におどります。"}},
-    {"id":"v5-165","word":"sleep","phonetic":"sliːp","pos":"動詞","meaning":"ねむる","example":{"en":"Babies sleep a lot.","ja":"赤ちゃんはたくさんねむります。"}},
-    {"id":"v5-166","word":"wash","phonetic":"wɑːʃ","pos":"動詞","meaning":"洗う","example":{"en":"I wash the dishes after dinner.","ja":"私は夕食後に皿を洗います。"}},
-    {"id":"v5-167","word":"wait","phonetic":"weɪt","pos":"動詞","meaning":"待つ","example":{"en":"Please wait here.","ja":"ここで待っていてください。"}},
-    {"id":"v5-168","word":"start","phonetic":"stɑːrt","pos":"動詞","meaning":"始まる、始める","example":{"en":"School starts at eight thirty.","ja":"学校は8時30分に始まります。"}},
-    {"id":"v5-169","word":"stop","phonetic":"stɑːp","pos":"動詞","meaning":"止まる、やめる","example":{"en":"Stop talking, please.","ja":"おしゃべりをやめてください。"}},
-    {"id":"v5-170","word":"stay","phonetic":"steɪ","pos":"動詞","meaning":"滞在する","example":{"en":"We stayed at my grandmother's house.","ja":"私たちは祖母の家に泊まりました。"}},
-    {"id":"v5-171","word":"visit","phonetic":"ˈvɪzɪt","pos":"動詞","meaning":"訪問する","example":{"en":"I visit my aunt every summer.","ja":"私は毎年夏におばを訪ねます。"}},
-    {"id":"v5-172","word":"work","phonetic":"wɜːrk","pos":"動詞","meaning":"働く","example":{"en":"My father works in Tokyo.","ja":"父は東京で働いています。"}},
-    {"id":"v5-173","word":"draw","phonetic":"drɔː","pos":"動詞","meaning":"（線で絵を）描く","example":{"en":"He likes to draw animals.","ja":"彼は動物を描くのが好きです。"}},
-    {"id":"v5-174","word":"take","phonetic":"teɪk","pos":"動詞","meaning":"取る、（写真を）とる","example":{"en":"Take a picture of us, please.","ja":"私たちの写真をとってください。"}},
-    {"id":"v5-175","word":"give","phonetic":"gɪv","pos":"動詞","meaning":"与える","example":{"en":"Give me the ball, please.","ja":"ボールをください。"}},
-    {"id":"v5-176","word":"ask","phonetic":"æsk","pos":"動詞","meaning":"たずねる","example":{"en":"Can I ask you a question?","ja":"質問してもいいですか。"}},
-    {"id":"v5-177","word":"need","phonetic":"niːd","pos":"動詞","meaning":"必要とする","example":{"en":"I need a new notebook.","ja":"私は新しいノートが必要です。"}},
-    {"id":"v5-178","word":"finish","phonetic":"ˈfɪnɪʃ","pos":"動詞","meaning":"終える","example":{"en":"Did you finish your homework?","ja":"宿題は終わりましたか。"}},
-    {"id":"v5-179","word":"call","phonetic":"kɔːl","pos":"動詞","meaning":"電話する、呼ぶ","example":{"en":"I will call you tonight.","ja":"今夜あなたに電話します。"}},
-    {"id":"v5-180","word":"good","phonetic":"gʊd","pos":"形容詞","meaning":"よい","example":{"en":"This is a good book.","ja":"これはよい本です。"}},
-    {"id":"v5-181","word":"hot","phonetic":"hɑːt","pos":"形容詞","meaning":"暑い、熱い","example":{"en":"It is very hot today.","ja":"今日はとても暑いです。"}},
-    {"id":"v5-182","word":"cold","phonetic":"koʊld","pos":"形容詞","meaning":"寒い、冷たい","example":{"en":"It is cold in winter.","ja":"冬は寒いです。"}},
-    {"id":"v5-183","word":"warm","phonetic":"wɔːrm","pos":"形容詞","meaning":"暖かい","example":{"en":"It is warm in spring.","ja":"春は暖かいです。"}},
-    {"id":"v5-184","word":"cool","phonetic":"kuːl","pos":"形容詞","meaning":"すずしい、かっこいい","example":{"en":"It is cool in the morning.","ja":"朝はすずしいです。"}},
-    {"id":"v5-185","word":"fine","phonetic":"faɪn","pos":"形容詞","meaning":"元気な、晴れた","example":{"en":"I am fine, thank you.","ja":"元気です、ありがとう。"}},
-    {"id":"v5-186","word":"sunny","phonetic":"ˈsʌni","pos":"形容詞","meaning":"晴れた","example":{"en":"It will be sunny tomorrow.","ja":"明日は晴れるでしょう。"}},
-    {"id":"v5-187","word":"tall","phonetic":"tɔːl","pos":"形容詞","meaning":"背の高い","example":{"en":"My brother is very tall.","ja":"兄はとても背が高いです。"}},
-    {"id":"v5-188","word":"young","phonetic":"jʌŋ","pos":"形容詞","meaning":"若い","example":{"en":"Our new teacher is young.","ja":"私たちの新しい先生は若いです。"}},
-    {"id":"v5-189","word":"fast","phonetic":"fæst","pos":"形容詞","meaning":"速い","example":{"en":"That train is very fast.","ja":"あの電車はとても速いです。"}},
-    {"id":"v5-190","word":"cute","phonetic":"kjuːt","pos":"形容詞","meaning":"かわいい","example":{"en":"Your puppy is so cute.","ja":"あなたの子犬はとてもかわいいですね。"}},
-    {"id":"v5-191","word":"sad","phonetic":"sæd","pos":"形容詞","meaning":"悲しい","example":{"en":"The movie was sad.","ja":"その映画は悲しかったです。"}},
-    {"id":"v5-192","word":"delicious","phonetic":"dɪˈlɪʃəs","pos":"形容詞","meaning":"とてもおいしい","example":{"en":"This soup is delicious.","ja":"このスープはとてもおいしいです。"}},
-    {"id":"v5-193","word":"now","phonetic":"naʊ","pos":"副詞","meaning":"今","example":{"en":"I am busy now.","ja":"私は今いそがしいです。"}},
-    {"id":"v5-194","word":"here","phonetic":"hɪr","pos":"副詞","meaning":"ここに","example":{"en":"Come here, please.","ja":"ここに来てください。"}},
-    {"id":"v5-195","word":"there","phonetic":"ðɛr","pos":"副詞","meaning":"そこに","example":{"en":"My school is over there.","ja":"私の学校は向こうにあります。"}},
-    {"id":"v5-196","word":"well","phonetic":"wɛl","pos":"副詞","meaning":"上手に","example":{"en":"She speaks English well.","ja":"彼女は英語を上手に話します。"}},
-    {"id":"v5-197","word":"often","phonetic":"ˈɔːfən","pos":"副詞","meaning":"よく、しばしば","example":{"en":"I often play soccer after school.","ja":"私は放課後によくサッカーをします。"}},
-    {"id":"v5-198","word":"usually","phonetic":"ˈjuːʒuəli","pos":"副詞","meaning":"ふつうは","example":{"en":"I usually walk to school.","ja":"私はふだん歩いて学校へ行きます。"}},
-    {"id":"v5-199","word":"again","phonetic":"əˈgɛn","pos":"副詞","meaning":"もう一度","example":{"en":"Please say it again.","ja":"もう一度言ってください。"}},
-    {"id":"v5-200","word":"late","phonetic":"leɪt","pos":"形容詞","meaning":"おくれた、おそい","example":{"en":"Do not be late for school.","ja":"学校におくれないようにしなさい。"}}
+    {
+      "id": "v5-001",
+      "word": "apple",
+      "phonetic": "ˈæpəl",
+      "pos": "名詞",
+      "meaning": "りんご",
+      "example": {
+        "en": "I eat an apple every morning.",
+        "ja": "私は毎朝りんごを食べます。"
+      }
+    },
+    {
+      "id": "v5-002",
+      "word": "dog",
+      "phonetic": "dɔːg",
+      "pos": "名詞",
+      "meaning": "犬",
+      "example": {
+        "en": "My dog is very cute.",
+        "ja": "私の犬はとてもかわいいです。"
+      }
+    },
+    {
+      "id": "v5-003",
+      "word": "school",
+      "phonetic": "skuːl",
+      "pos": "名詞",
+      "meaning": "学校",
+      "example": {
+        "en": "I go to school by bus.",
+        "ja": "私はバスで学校に行きます。"
+      }
+    },
+    {
+      "id": "v5-004",
+      "word": "friend",
+      "phonetic": "frɛnd",
+      "pos": "名詞",
+      "meaning": "友だち",
+      "example": {
+        "en": "She is my best friend.",
+        "ja": "彼女は私の親友です。"
+      }
+    },
+    {
+      "id": "v5-005",
+      "word": "morning",
+      "phonetic": "ˈmɔːrnɪŋ",
+      "pos": "名詞",
+      "meaning": "朝",
+      "example": {
+        "en": "Good morning, everyone.",
+        "ja": "みなさん、おはようございます。"
+      }
+    },
+    {
+      "id": "v5-006",
+      "word": "notebook",
+      "phonetic": "ˈnoʊtbʊk",
+      "pos": "名詞",
+      "meaning": "ノート",
+      "example": {
+        "en": "I write in my notebook every day.",
+        "ja": "私は毎日ノートに書きます。"
+      }
+    },
+    {
+      "id": "v5-007",
+      "word": "kitchen",
+      "phonetic": "ˈkɪtʃɪn",
+      "pos": "名詞",
+      "meaning": "台所",
+      "example": {
+        "en": "My mother is in the kitchen.",
+        "ja": "母は台所にいます。"
+      }
+    },
+    {
+      "id": "v5-008",
+      "word": "swim",
+      "phonetic": "swɪm",
+      "pos": "動詞",
+      "meaning": "泳ぐ",
+      "example": {
+        "en": "I can swim very well.",
+        "ja": "私はとても上手に泳げます。"
+      }
+    },
+    {
+      "id": "v5-009",
+      "word": "weekend",
+      "phonetic": "ˈwiːkɛnd",
+      "pos": "名詞",
+      "meaning": "週末",
+      "example": {
+        "en": "What do you do on the weekend?",
+        "ja": "あなたは週末に何をしますか。"
+      }
+    },
+    {
+      "id": "v5-010",
+      "word": "favorite",
+      "phonetic": "ˈfeɪvərɪt",
+      "pos": "形容詞",
+      "meaning": "お気に入りの",
+      "example": {
+        "en": "Blue is my favorite color.",
+        "ja": "青は私の大好きな色です。"
+      }
+    },
+    {
+      "id": "v5-011",
+      "word": "book",
+      "phonetic": "bʊk",
+      "pos": "名詞",
+      "meaning": "本",
+      "example": {
+        "en": "I read a book before bed.",
+        "ja": "私は寝る前に本を読みます。"
+      }
+    },
+    {
+      "id": "v5-012",
+      "word": "pencil",
+      "phonetic": "ˈpɛnsəl",
+      "pos": "名詞",
+      "meaning": "えんぴつ",
+      "example": {
+        "en": "Can I use your pencil?",
+        "ja": "あなたのえんぴつを使ってもいいですか。"
+      }
+    },
+    {
+      "id": "v5-013",
+      "word": "teacher",
+      "phonetic": "ˈtiːtʃər",
+      "pos": "名詞",
+      "meaning": "先生",
+      "example": {
+        "en": "Our English teacher is very kind.",
+        "ja": "私たちの英語の先生はとても親切です。"
+      }
+    },
+    {
+      "id": "v5-014",
+      "word": "student",
+      "phonetic": "ˈstuːdənt",
+      "pos": "名詞",
+      "meaning": "生徒、学生",
+      "example": {
+        "en": "He is a junior high school student.",
+        "ja": "彼は中学生です。"
+      }
+    },
+    {
+      "id": "v5-015",
+      "word": "family",
+      "phonetic": "ˈfæməli",
+      "pos": "名詞",
+      "meaning": "家族",
+      "example": {
+        "en": "My family has four people.",
+        "ja": "私の家族は4人です。"
+      }
+    },
+    {
+      "id": "v5-016",
+      "word": "mother",
+      "phonetic": "ˈmʌðər",
+      "pos": "名詞",
+      "meaning": "母",
+      "example": {
+        "en": "My mother makes breakfast every day.",
+        "ja": "母は毎日朝ごはんを作ります。"
+      }
+    },
+    {
+      "id": "v5-017",
+      "word": "father",
+      "phonetic": "ˈfɑːðər",
+      "pos": "名詞",
+      "meaning": "父",
+      "example": {
+        "en": "My father works at a hospital.",
+        "ja": "父は病院で働いています。"
+      }
+    },
+    {
+      "id": "v5-018",
+      "word": "sister",
+      "phonetic": "ˈsɪstər",
+      "pos": "名詞",
+      "meaning": "姉、妹",
+      "example": {
+        "en": "My sister plays the piano well.",
+        "ja": "姉はピアノを上手にひきます。"
+      }
+    },
+    {
+      "id": "v5-019",
+      "word": "brother",
+      "phonetic": "ˈbrʌðər",
+      "pos": "名詞",
+      "meaning": "兄、弟",
+      "example": {
+        "en": "My brother is on the soccer team.",
+        "ja": "兄はサッカー部に入っています。"
+      }
+    },
+    {
+      "id": "v5-020",
+      "word": "house",
+      "phonetic": "haʊs",
+      "pos": "名詞",
+      "meaning": "家",
+      "example": {
+        "en": "Their house is near the park.",
+        "ja": "彼らの家は公園の近くです。"
+      }
+    },
+    {
+      "id": "v5-021",
+      "word": "room",
+      "phonetic": "ruːm",
+      "pos": "名詞",
+      "meaning": "部屋",
+      "example": {
+        "en": "Please clean your room.",
+        "ja": "自分の部屋をそうじしてください。"
+      }
+    },
+    {
+      "id": "v5-022",
+      "word": "window",
+      "phonetic": "ˈwɪndoʊ",
+      "pos": "名詞",
+      "meaning": "窓",
+      "example": {
+        "en": "Open the window, please.",
+        "ja": "窓を開けてください。"
+      }
+    },
+    {
+      "id": "v5-023",
+      "word": "desk",
+      "phonetic": "dɛsk",
+      "pos": "名詞",
+      "meaning": "机",
+      "example": {
+        "en": "My bag is under the desk.",
+        "ja": "私のかばんは机の下にあります。"
+      }
+    },
+    {
+      "id": "v5-024",
+      "word": "chair",
+      "phonetic": "tʃɛr",
+      "pos": "名詞",
+      "meaning": "いす",
+      "example": {
+        "en": "Sit on this chair, please.",
+        "ja": "このいすにすわってください。"
+      }
+    },
+    {
+      "id": "v5-025",
+      "word": "bag",
+      "phonetic": "bæg",
+      "pos": "名詞",
+      "meaning": "かばん",
+      "example": {
+        "en": "This bag is very heavy.",
+        "ja": "このかばんはとても重いです。"
+      }
+    },
+    {
+      "id": "v5-026",
+      "word": "water",
+      "phonetic": "ˈwɔːtər",
+      "pos": "名詞",
+      "meaning": "水",
+      "example": {
+        "en": "I drink a lot of water in summer.",
+        "ja": "私は夏にたくさん水を飲みます。"
+      }
+    },
+    {
+      "id": "v5-027",
+      "word": "milk",
+      "phonetic": "mɪlk",
+      "pos": "名詞",
+      "meaning": "牛乳",
+      "example": {
+        "en": "He drinks milk every morning.",
+        "ja": "彼は毎朝牛乳を飲みます。"
+      }
+    },
+    {
+      "id": "v5-028",
+      "word": "bread",
+      "phonetic": "brɛd",
+      "pos": "名詞",
+      "meaning": "パン",
+      "example": {
+        "en": "I eat bread for breakfast.",
+        "ja": "私は朝食にパンを食べます。"
+      }
+    },
+    {
+      "id": "v5-029",
+      "word": "lunch",
+      "phonetic": "lʌntʃ",
+      "pos": "名詞",
+      "meaning": "昼食",
+      "example": {
+        "en": "We have lunch at noon.",
+        "ja": "私たちは正午に昼食をとります。"
+      }
+    },
+    {
+      "id": "v5-030",
+      "word": "dinner",
+      "phonetic": "ˈdɪnər",
+      "pos": "名詞",
+      "meaning": "夕食",
+      "example": {
+        "en": "Dinner is ready.",
+        "ja": "夕食の用意ができました。"
+      }
+    },
+    {
+      "id": "v5-031",
+      "word": "breakfast",
+      "phonetic": "ˈbrɛkfəst",
+      "pos": "名詞",
+      "meaning": "朝食",
+      "example": {
+        "en": "I have breakfast at seven.",
+        "ja": "私は7時に朝食を食べます。"
+      }
+    },
+    {
+      "id": "v5-032",
+      "word": "library",
+      "phonetic": "ˈlaɪbrɛri",
+      "pos": "名詞",
+      "meaning": "図書館",
+      "example": {
+        "en": "We study at the library on Sundays.",
+        "ja": "私たちは日曜日に図書館で勉強します。"
+      }
+    },
+    {
+      "id": "v5-033",
+      "word": "station",
+      "phonetic": "ˈsteɪʃən",
+      "pos": "名詞",
+      "meaning": "駅",
+      "example": {
+        "en": "The station is near my house.",
+        "ja": "駅は私の家の近くにあります。"
+      }
+    },
+    {
+      "id": "v5-034",
+      "word": "hospital",
+      "phonetic": "ˈhɑːspɪtəl",
+      "pos": "名詞",
+      "meaning": "病院",
+      "example": {
+        "en": "My aunt works in a hospital.",
+        "ja": "おばは病院で働いています。"
+      }
+    },
+    {
+      "id": "v5-035",
+      "word": "park",
+      "phonetic": "pɑːrk",
+      "pos": "名詞",
+      "meaning": "公園",
+      "example": {
+        "en": "Let us play in the park.",
+        "ja": "公園で遊びましょう。"
+      }
+    },
+    {
+      "id": "v5-036",
+      "word": "shop",
+      "phonetic": "ʃɑːp",
+      "pos": "名詞",
+      "meaning": "店",
+      "example": {
+        "en": "There is a new shop near the station.",
+        "ja": "駅の近くに新しい店があります。"
+      }
+    },
+    {
+      "id": "v5-037",
+      "word": "city",
+      "phonetic": "ˈsɪti",
+      "pos": "名詞",
+      "meaning": "都市、市",
+      "example": {
+        "en": "Osaka is a big city.",
+        "ja": "大阪は大きな都市です。"
+      }
+    },
+    {
+      "id": "v5-038",
+      "word": "country",
+      "phonetic": "ˈkʌntri",
+      "pos": "名詞",
+      "meaning": "国",
+      "example": {
+        "en": "Japan is a beautiful country.",
+        "ja": "日本は美しい国です。"
+      }
+    },
+    {
+      "id": "v5-039",
+      "word": "teacher's room",
+      "phonetic": "ˈtiːtʃərz ruːm",
+      "pos": "名詞",
+      "meaning": "職員室",
+      "example": {
+        "en": "The teacher's room is on the second floor.",
+        "ja": "職員室は2階にあります。"
+      }
+    },
+    {
+      "id": "v5-040",
+      "word": "classroom",
+      "phonetic": "ˈklæsruːm",
+      "pos": "名詞",
+      "meaning": "教室",
+      "example": {
+        "en": "Our classroom is very bright.",
+        "ja": "私たちの教室はとても明るいです。"
+      }
+    },
+    {
+      "id": "v5-041",
+      "word": "homework",
+      "phonetic": "ˈhoʊmwɜːrk",
+      "pos": "名詞",
+      "meaning": "宿題",
+      "example": {
+        "en": "I finished my homework before dinner.",
+        "ja": "私は夕食前に宿題を終えました。"
+      }
+    },
+    {
+      "id": "v5-042",
+      "word": "test",
+      "phonetic": "tɛst",
+      "pos": "名詞",
+      "meaning": "テスト",
+      "example": {
+        "en": "We have a math test tomorrow.",
+        "ja": "明日、数学のテストがあります。"
+      }
+    },
+    {
+      "id": "v5-043",
+      "word": "club",
+      "phonetic": "klʌb",
+      "pos": "名詞",
+      "meaning": "部、クラブ",
+      "example": {
+        "en": "She is in the tennis club.",
+        "ja": "彼女はテニス部に入っています。"
+      }
+    },
+    {
+      "id": "v5-044",
+      "word": "music",
+      "phonetic": "ˈmjuːzɪk",
+      "pos": "名詞",
+      "meaning": "音楽",
+      "example": {
+        "en": "I like listening to music.",
+        "ja": "私は音楽を聞くのが好きです。"
+      }
+    },
+    {
+      "id": "v5-045",
+      "word": "picture",
+      "phonetic": "ˈpɪktʃər",
+      "pos": "名詞",
+      "meaning": "絵、写真",
+      "example": {
+        "en": "He took a picture of the mountain.",
+        "ja": "彼は山の写真をとりました。"
+      }
+    },
+    {
+      "id": "v5-046",
+      "word": "letter",
+      "phonetic": "ˈlɛtər",
+      "pos": "名詞",
+      "meaning": "手紙",
+      "example": {
+        "en": "I wrote a letter to my grandmother.",
+        "ja": "私は祖母に手紙を書きました。"
+      }
+    },
+    {
+      "id": "v5-047",
+      "word": "bird",
+      "phonetic": "bɜːrd",
+      "pos": "名詞",
+      "meaning": "鳥",
+      "example": {
+        "en": "A small bird is singing.",
+        "ja": "小さな鳥が鳴いています。"
+      }
+    },
+    {
+      "id": "v5-048",
+      "word": "cat",
+      "phonetic": "kæt",
+      "pos": "名詞",
+      "meaning": "ねこ",
+      "example": {
+        "en": "The cat is sleeping on the sofa.",
+        "ja": "ねこがソファでねむっています。"
+      }
+    },
+    {
+      "id": "v5-049",
+      "word": "fish",
+      "phonetic": "fɪʃ",
+      "pos": "名詞",
+      "meaning": "魚",
+      "example": {
+        "en": "My father likes fishing for fish.",
+        "ja": "父は魚つりが好きです。"
+      }
+    },
+    {
+      "id": "v5-050",
+      "word": "flower",
+      "phonetic": "ˈflaʊər",
+      "pos": "名詞",
+      "meaning": "花",
+      "example": {
+        "en": "These flowers are beautiful.",
+        "ja": "これらの花は美しいです。"
+      }
+    },
+    {
+      "id": "v5-051",
+      "word": "play",
+      "phonetic": "pleɪ",
+      "pos": "動詞",
+      "meaning": "（スポーツを）する、演奏する",
+      "example": {
+        "en": "They play baseball after school.",
+        "ja": "彼らは放課後に野球をします。"
+      }
+    },
+    {
+      "id": "v5-052",
+      "word": "study",
+      "phonetic": "ˈstʌdi",
+      "pos": "動詞",
+      "meaning": "勉強する",
+      "example": {
+        "en": "I study English every day.",
+        "ja": "私は毎日英語を勉強します。"
+      }
+    },
+    {
+      "id": "v5-053",
+      "word": "read",
+      "phonetic": "riːd",
+      "pos": "動詞",
+      "meaning": "読む",
+      "example": {
+        "en": "She can read English books.",
+        "ja": "彼女は英語の本を読むことができます。"
+      }
+    },
+    {
+      "id": "v5-054",
+      "word": "write",
+      "phonetic": "raɪt",
+      "pos": "動詞",
+      "meaning": "書く",
+      "example": {
+        "en": "Please write your name here.",
+        "ja": "ここに名前を書いてください。"
+      }
+    },
+    {
+      "id": "v5-055",
+      "word": "speak",
+      "phonetic": "spiːk",
+      "pos": "動詞",
+      "meaning": "話す",
+      "example": {
+        "en": "Do you speak Japanese?",
+        "ja": "あなたは日本語を話しますか。"
+      }
+    },
+    {
+      "id": "v5-056",
+      "word": "listen",
+      "phonetic": "ˈlɪsən",
+      "pos": "動詞",
+      "meaning": "聞く",
+      "example": {
+        "en": "Listen to me carefully.",
+        "ja": "注意して私の話を聞いてください。"
+      }
+    },
+    {
+      "id": "v5-057",
+      "word": "watch",
+      "phonetic": "wɑːtʃ",
+      "pos": "動詞",
+      "meaning": "見る",
+      "example": {
+        "en": "We watch TV after dinner.",
+        "ja": "私たちは夕食後にテレビを見ます。"
+      }
+    },
+    {
+      "id": "v5-058",
+      "word": "eat",
+      "phonetic": "iːt",
+      "pos": "動詞",
+      "meaning": "食べる",
+      "example": {
+        "en": "I eat rice every day.",
+        "ja": "私は毎日ごはんを食べます。"
+      }
+    },
+    {
+      "id": "v5-059",
+      "word": "drink",
+      "phonetic": "drɪŋk",
+      "pos": "動詞",
+      "meaning": "飲む",
+      "example": {
+        "en": "Do you want to drink some tea?",
+        "ja": "お茶を飲みたいですか。"
+      }
+    },
+    {
+      "id": "v5-060",
+      "word": "walk",
+      "phonetic": "wɔːk",
+      "pos": "動詞",
+      "meaning": "歩く",
+      "example": {
+        "en": "I walk to school every morning.",
+        "ja": "私は毎朝歩いて学校へ行きます。"
+      }
+    },
+    {
+      "id": "v5-061",
+      "word": "run",
+      "phonetic": "rʌn",
+      "pos": "動詞",
+      "meaning": "走る",
+      "example": {
+        "en": "He can run very fast.",
+        "ja": "彼はとても速く走れます。"
+      }
+    },
+    {
+      "id": "v5-062",
+      "word": "help",
+      "phonetic": "hɛlp",
+      "pos": "動詞",
+      "meaning": "手伝う、助ける",
+      "example": {
+        "en": "I help my mother on Sundays.",
+        "ja": "私は日曜日に母を手伝います。"
+      }
+    },
+    {
+      "id": "v5-063",
+      "word": "live",
+      "phonetic": "lɪv",
+      "pos": "動詞",
+      "meaning": "住む",
+      "example": {
+        "en": "They live in Tokyo.",
+        "ja": "彼らは東京に住んでいます。"
+      }
+    },
+    {
+      "id": "v5-064",
+      "word": "come",
+      "phonetic": "kʌm",
+      "pos": "動詞",
+      "meaning": "来る",
+      "example": {
+        "en": "Please come to my house.",
+        "ja": "私の家に来てください。"
+      }
+    },
+    {
+      "id": "v5-065",
+      "word": "know",
+      "phonetic": "noʊ",
+      "pos": "動詞",
+      "meaning": "知っている",
+      "example": {
+        "en": "I know his phone number.",
+        "ja": "私は彼の電話番号を知っています。"
+      }
+    },
+    {
+      "id": "v5-066",
+      "word": "want",
+      "phonetic": "wɑːnt",
+      "pos": "動詞",
+      "meaning": "ほしい",
+      "example": {
+        "en": "I want a new bike.",
+        "ja": "私は新しい自転車がほしいです。"
+      }
+    },
+    {
+      "id": "v5-067",
+      "word": "use",
+      "phonetic": "juːz",
+      "pos": "動詞",
+      "meaning": "使う",
+      "example": {
+        "en": "May I use this computer?",
+        "ja": "このコンピューターを使ってもいいですか。"
+      }
+    },
+    {
+      "id": "v5-068",
+      "word": "open",
+      "phonetic": "ˈoʊpən",
+      "pos": "動詞",
+      "meaning": "開ける",
+      "example": {
+        "en": "Please open your textbook.",
+        "ja": "教科書を開いてください。"
+      }
+    },
+    {
+      "id": "v5-069",
+      "word": "close",
+      "phonetic": "kloʊz",
+      "pos": "動詞",
+      "meaning": "閉める",
+      "example": {
+        "en": "Close the door, please.",
+        "ja": "ドアを閉めてください。"
+      }
+    },
+    {
+      "id": "v5-070",
+      "word": "clean",
+      "phonetic": "kliːn",
+      "pos": "動詞",
+      "meaning": "そうじする",
+      "example": {
+        "en": "We clean our classroom every day.",
+        "ja": "私たちは毎日教室をそうじします。"
+      }
+    },
+    {
+      "id": "v5-071",
+      "word": "big",
+      "phonetic": "bɪg",
+      "pos": "形容詞",
+      "meaning": "大きい",
+      "example": {
+        "en": "That is a big dog.",
+        "ja": "あれは大きな犬です。"
+      }
+    },
+    {
+      "id": "v5-072",
+      "word": "small",
+      "phonetic": "smɔːl",
+      "pos": "形容詞",
+      "meaning": "小さい",
+      "example": {
+        "en": "I have a small camera.",
+        "ja": "私は小さなカメラを持っています。"
+      }
+    },
+    {
+      "id": "v5-073",
+      "word": "new",
+      "phonetic": "nuː",
+      "pos": "形容詞",
+      "meaning": "新しい",
+      "example": {
+        "en": "This is my new bike.",
+        "ja": "これは私の新しい自転車です。"
+      }
+    },
+    {
+      "id": "v5-074",
+      "word": "old",
+      "phonetic": "oʊld",
+      "pos": "形容詞",
+      "meaning": "古い、年をとった",
+      "example": {
+        "en": "That temple is very old.",
+        "ja": "あの寺はとても古いです。"
+      }
+    },
+    {
+      "id": "v5-075",
+      "word": "long",
+      "phonetic": "lɔːŋ",
+      "pos": "形容詞",
+      "meaning": "長い",
+      "example": {
+        "en": "She has long hair.",
+        "ja": "彼女は長い髪をしています。"
+      }
+    },
+    {
+      "id": "v5-076",
+      "word": "short",
+      "phonetic": "ʃɔːrt",
+      "pos": "形容詞",
+      "meaning": "短い",
+      "example": {
+        "en": "This is a short story.",
+        "ja": "これは短い物語です。"
+      }
+    },
+    {
+      "id": "v5-077",
+      "word": "happy",
+      "phonetic": "ˈhæpi",
+      "pos": "形容詞",
+      "meaning": "うれしい、幸せな",
+      "example": {
+        "en": "I am happy to see you.",
+        "ja": "あなたに会えてうれしいです。"
+      }
+    },
+    {
+      "id": "v5-078",
+      "word": "hungry",
+      "phonetic": "ˈhʌŋgri",
+      "pos": "形容詞",
+      "meaning": "空腹の",
+      "example": {
+        "en": "I am very hungry now.",
+        "ja": "私は今とてもおなかがすいています。"
+      }
+    },
+    {
+      "id": "v5-079",
+      "word": "tired",
+      "phonetic": "ˈtaɪərd",
+      "pos": "形容詞",
+      "meaning": "つかれた",
+      "example": {
+        "en": "He looks tired today.",
+        "ja": "彼は今日つかれているように見えます。"
+      }
+    },
+    {
+      "id": "v5-080",
+      "word": "busy",
+      "phonetic": "ˈbɪzi",
+      "pos": "形容詞",
+      "meaning": "いそがしい",
+      "example": {
+        "en": "My father is busy every day.",
+        "ja": "父は毎日いそがしいです。"
+      }
+    },
+    {
+      "id": "v5-081",
+      "word": "kind",
+      "phonetic": "kaɪnd",
+      "pos": "形容詞",
+      "meaning": "親切な",
+      "example": {
+        "en": "She is kind to everyone.",
+        "ja": "彼女はみんなに親切です。"
+      }
+    },
+    {
+      "id": "v5-082",
+      "word": "easy",
+      "phonetic": "ˈiːzi",
+      "pos": "形容詞",
+      "meaning": "かんたんな",
+      "example": {
+        "en": "This question is easy.",
+        "ja": "この問題はかんたんです。"
+      }
+    },
+    {
+      "id": "v5-083",
+      "word": "difficult",
+      "phonetic": "ˈdɪfɪkəlt",
+      "pos": "形容詞",
+      "meaning": "むずかしい",
+      "example": {
+        "en": "Math is difficult for me.",
+        "ja": "数学は私にはむずかしいです。"
+      }
+    },
+    {
+      "id": "v5-084",
+      "word": "beautiful",
+      "phonetic": "ˈbjuːtɪfəl",
+      "pos": "形容詞",
+      "meaning": "美しい",
+      "example": {
+        "en": "The mountain is beautiful in autumn.",
+        "ja": "その山は秋に美しいです。"
+      }
+    },
+    {
+      "id": "v5-085",
+      "word": "today",
+      "phonetic": "təˈdeɪ",
+      "pos": "副詞",
+      "meaning": "今日",
+      "example": {
+        "en": "It is very cold today.",
+        "ja": "今日はとても寒いです。"
+      }
+    },
+    {
+      "id": "v5-086",
+      "word": "tomorrow",
+      "phonetic": "təˈmɑːroʊ",
+      "pos": "副詞",
+      "meaning": "明日",
+      "example": {
+        "en": "See you tomorrow.",
+        "ja": "また明日会いましょう。"
+      }
+    },
+    {
+      "id": "v5-087",
+      "word": "always",
+      "phonetic": "ˈɔːlweɪz",
+      "pos": "副詞",
+      "meaning": "いつも",
+      "example": {
+        "en": "He is always early.",
+        "ja": "彼はいつも早いです。"
+      }
+    },
+    {
+      "id": "v5-088",
+      "word": "sometimes",
+      "phonetic": "ˈsʌmtaɪmz",
+      "pos": "副詞",
+      "meaning": "ときどき",
+      "example": {
+        "en": "I sometimes cook dinner.",
+        "ja": "私はときどき夕食を作ります。"
+      }
+    },
+    {
+      "id": "v5-089",
+      "word": "together",
+      "phonetic": "təˈgɛðər",
+      "pos": "副詞",
+      "meaning": "いっしょに",
+      "example": {
+        "en": "Let us go together.",
+        "ja": "いっしょに行きましょう。"
+      }
+    },
+    {
+      "id": "v5-090",
+      "word": "very",
+      "phonetic": "ˈvɛri",
+      "pos": "副詞",
+      "meaning": "とても",
+      "example": {
+        "en": "This cake is very sweet.",
+        "ja": "このケーキはとてもあまいです。"
+      }
+    },
+    {
+      "id": "v5-091",
+      "word": "pen",
+      "phonetic": "pɛn",
+      "pos": "名詞",
+      "meaning": "ペン",
+      "example": {
+        "en": "I lost my favorite pen.",
+        "ja": "私はお気に入りのペンをなくしました。"
+      }
+    },
+    {
+      "id": "v5-092",
+      "word": "door",
+      "phonetic": "dɔːr",
+      "pos": "名詞",
+      "meaning": "ドア",
+      "example": {
+        "en": "Someone is knocking on the door.",
+        "ja": "だれかがドアをノックしています。"
+      }
+    },
+    {
+      "id": "v5-093",
+      "word": "table",
+      "phonetic": "ˈteɪbəl",
+      "pos": "名詞",
+      "meaning": "テーブル",
+      "example": {
+        "en": "The cups are on the table.",
+        "ja": "カップはテーブルの上にあります。"
+      }
+    },
+    {
+      "id": "v5-094",
+      "word": "bed",
+      "phonetic": "bɛd",
+      "pos": "名詞",
+      "meaning": "ベッド",
+      "example": {
+        "en": "I go to bed at ten.",
+        "ja": "私は10時に寝ます。"
+      }
+    },
+    {
+      "id": "v5-095",
+      "word": "color",
+      "phonetic": "ˈkʌlər",
+      "pos": "名詞",
+      "meaning": "色",
+      "example": {
+        "en": "What color do you like?",
+        "ja": "あなたは何色が好きですか。"
+      }
+    },
+    {
+      "id": "v5-096",
+      "word": "rain",
+      "phonetic": "reɪn",
+      "pos": "名詞",
+      "meaning": "雨",
+      "example": {
+        "en": "We had a lot of rain last week.",
+        "ja": "先週は雨がたくさん降りました。"
+      }
+    },
+    {
+      "id": "v5-097",
+      "word": "cook",
+      "phonetic": "kʊk",
+      "pos": "動詞",
+      "meaning": "料理する",
+      "example": {
+        "en": "My father cooks dinner on Sundays.",
+        "ja": "父は日曜日に夕食を作ります。"
+      }
+    },
+    {
+      "id": "v5-098",
+      "word": "buy",
+      "phonetic": "baɪ",
+      "pos": "動詞",
+      "meaning": "買う",
+      "example": {
+        "en": "I want to buy a new cap.",
+        "ja": "私は新しい帽子を買いたいです。"
+      }
+    },
+    {
+      "id": "v5-099",
+      "word": "sing",
+      "phonetic": "sɪŋ",
+      "pos": "動詞",
+      "meaning": "歌う",
+      "example": {
+        "en": "We sing songs in music class.",
+        "ja": "私たちは音楽の授業で歌を歌います。"
+      }
+    },
+    {
+      "id": "v5-100",
+      "word": "nice",
+      "phonetic": "naɪs",
+      "pos": "形容詞",
+      "meaning": "すてきな",
+      "example": {
+        "en": "That is a nice jacket.",
+        "ja": "それはすてきな上着ですね。"
+      }
+    },
+    {
+      "id": "v5-101",
+      "word": "week",
+      "phonetic": "wiːk",
+      "pos": "名詞",
+      "meaning": "週",
+      "example": {
+        "en": "I have piano lessons twice a week.",
+        "ja": "私は週に2回ピアノのレッスンがあります。"
+      }
+    },
+    {
+      "id": "v5-102",
+      "word": "month",
+      "phonetic": "mʌnθ",
+      "pos": "名詞",
+      "meaning": "月（暦の）",
+      "example": {
+        "en": "My birthday is next month.",
+        "ja": "私の誕生日は来月です。"
+      }
+    },
+    {
+      "id": "v5-103",
+      "word": "year",
+      "phonetic": "jɪr",
+      "pos": "名詞",
+      "meaning": "年、〜歳",
+      "example": {
+        "en": "She is ten years old.",
+        "ja": "彼女は10歳です。"
+      }
+    },
+    {
+      "id": "v5-104",
+      "word": "night",
+      "phonetic": "naɪt",
+      "pos": "名詞",
+      "meaning": "夜",
+      "example": {
+        "en": "I study English at night.",
+        "ja": "私は夜に英語を勉強します。"
+      }
+    },
+    {
+      "id": "v5-105",
+      "word": "evening",
+      "phonetic": "ˈiːvnɪŋ",
+      "pos": "名詞",
+      "meaning": "夕方、晩",
+      "example": {
+        "en": "We watch TV in the evening.",
+        "ja": "私たちは晩にテレビを見ます。"
+      }
+    },
+    {
+      "id": "v5-106",
+      "word": "afternoon",
+      "phonetic": "æftərˈnuːn",
+      "pos": "名詞",
+      "meaning": "午後",
+      "example": {
+        "en": "Let us play tennis this afternoon.",
+        "ja": "今日の午後テニスをしましょう。"
+      }
+    },
+    {
+      "id": "v5-107",
+      "word": "hour",
+      "phonetic": "ˈaʊər",
+      "pos": "名詞",
+      "meaning": "1時間",
+      "example": {
+        "en": "I sleep for eight hours.",
+        "ja": "私は8時間ねむります。"
+      }
+    },
+    {
+      "id": "v5-108",
+      "word": "minute",
+      "phonetic": "ˈmɪnɪt",
+      "pos": "名詞",
+      "meaning": "分",
+      "example": {
+        "en": "Wait a minute, please.",
+        "ja": "ちょっと待ってください。"
+      }
+    },
+    {
+      "id": "v5-109",
+      "word": "Sunday",
+      "phonetic": "ˈsʌndeɪ",
+      "pos": "名詞",
+      "meaning": "日曜日",
+      "example": {
+        "en": "I clean my room on Sunday.",
+        "ja": "私は日曜日に部屋をそうじします。"
+      }
+    },
+    {
+      "id": "v5-110",
+      "word": "Saturday",
+      "phonetic": "ˈsætərdeɪ",
+      "pos": "名詞",
+      "meaning": "土曜日",
+      "example": {
+        "en": "We have no school on Saturday.",
+        "ja": "土曜日は学校がありません。"
+      }
+    },
+    {
+      "id": "v5-111",
+      "word": "Monday",
+      "phonetic": "ˈmʌndeɪ",
+      "pos": "名詞",
+      "meaning": "月曜日",
+      "example": {
+        "en": "I have a math class on Monday.",
+        "ja": "月曜日に数学の授業があります。"
+      }
+    },
+    {
+      "id": "v5-112",
+      "word": "January",
+      "phonetic": "ˈdʒænjuɛri",
+      "pos": "名詞",
+      "meaning": "1月",
+      "example": {
+        "en": "It snows a lot in January.",
+        "ja": "1月は雪がたくさん降ります。"
+      }
+    },
+    {
+      "id": "v5-113",
+      "word": "August",
+      "phonetic": "ˈɔːgəst",
+      "pos": "名詞",
+      "meaning": "8月",
+      "example": {
+        "en": "We go to the beach in August.",
+        "ja": "私たちは8月に海辺へ行きます。"
+      }
+    },
+    {
+      "id": "v5-114",
+      "word": "December",
+      "phonetic": "dɪˈsɛmbər",
+      "pos": "名詞",
+      "meaning": "12月",
+      "example": {
+        "en": "Christmas is in December.",
+        "ja": "クリスマスは12月です。"
+      }
+    },
+    {
+      "id": "v5-115",
+      "word": "egg",
+      "phonetic": "ɛg",
+      "pos": "名詞",
+      "meaning": "卵",
+      "example": {
+        "en": "I eat an egg for breakfast.",
+        "ja": "私は朝食に卵を食べます。"
+      }
+    },
+    {
+      "id": "v5-116",
+      "word": "rice",
+      "phonetic": "raɪs",
+      "pos": "名詞",
+      "meaning": "ごはん、米",
+      "example": {
+        "en": "Japanese people often eat rice.",
+        "ja": "日本人はよくごはんを食べます。"
+      }
+    },
+    {
+      "id": "v5-117",
+      "word": "cake",
+      "phonetic": "keɪk",
+      "pos": "名詞",
+      "meaning": "ケーキ",
+      "example": {
+        "en": "My mother made a birthday cake.",
+        "ja": "母が誕生日ケーキを作りました。"
+      }
+    },
+    {
+      "id": "v5-118",
+      "word": "juice",
+      "phonetic": "dʒuːs",
+      "pos": "名詞",
+      "meaning": "ジュース",
+      "example": {
+        "en": "Do you want orange juice?",
+        "ja": "オレンジジュースはいかがですか。"
+      }
+    },
+    {
+      "id": "v5-119",
+      "word": "tea",
+      "phonetic": "tiː",
+      "pos": "名詞",
+      "meaning": "お茶、紅茶",
+      "example": {
+        "en": "I drink green tea after lunch.",
+        "ja": "私は昼食後に緑茶を飲みます。"
+      }
+    },
+    {
+      "id": "v5-120",
+      "word": "banana",
+      "phonetic": "bəˈnænə",
+      "pos": "名詞",
+      "meaning": "バナナ",
+      "example": {
+        "en": "Monkeys like bananas.",
+        "ja": "サルはバナナが好きです。"
+      }
+    },
+    {
+      "id": "v5-121",
+      "word": "orange",
+      "phonetic": "ˈɔːrɪndʒ",
+      "pos": "名詞",
+      "meaning": "オレンジ",
+      "example": {
+        "en": "This orange is very sweet.",
+        "ja": "このオレンジはとてもあまいです。"
+      }
+    },
+    {
+      "id": "v5-122",
+      "word": "sandwich",
+      "phonetic": "ˈsænwɪtʃ",
+      "pos": "名詞",
+      "meaning": "サンドイッチ",
+      "example": {
+        "en": "I made a ham sandwich.",
+        "ja": "私はハムサンドイッチを作りました。"
+      }
+    },
+    {
+      "id": "v5-123",
+      "word": "horse",
+      "phonetic": "hɔːrs",
+      "pos": "名詞",
+      "meaning": "馬",
+      "example": {
+        "en": "She can ride a horse.",
+        "ja": "彼女は馬に乗れます。"
+      }
+    },
+    {
+      "id": "v5-124",
+      "word": "rabbit",
+      "phonetic": "ˈræbɪt",
+      "pos": "名詞",
+      "meaning": "うさぎ",
+      "example": {
+        "en": "We have a white rabbit at school.",
+        "ja": "学校で白いうさぎを飼っています。"
+      }
+    },
+    {
+      "id": "v5-125",
+      "word": "zoo",
+      "phonetic": "zuː",
+      "pos": "名詞",
+      "meaning": "動物園",
+      "example": {
+        "en": "Let us go to the zoo on Sunday.",
+        "ja": "日曜日に動物園へ行きましょう。"
+      }
+    },
+    {
+      "id": "v5-126",
+      "word": "farm",
+      "phonetic": "fɑːrm",
+      "pos": "名詞",
+      "meaning": "農場",
+      "example": {
+        "en": "My uncle lives on a farm.",
+        "ja": "おじは農場に住んでいます。"
+      }
+    },
+    {
+      "id": "v5-127",
+      "word": "pool",
+      "phonetic": "puːl",
+      "pos": "名詞",
+      "meaning": "プール",
+      "example": {
+        "en": "The children are swimming in the pool.",
+        "ja": "子どもたちがプールで泳いでいます。"
+      }
+    },
+    {
+      "id": "v5-128",
+      "word": "hand",
+      "phonetic": "hænd",
+      "pos": "名詞",
+      "meaning": "手",
+      "example": {
+        "en": "Wash your hands before lunch.",
+        "ja": "昼食の前に手を洗いなさい。"
+      }
+    },
+    {
+      "id": "v5-129",
+      "word": "head",
+      "phonetic": "hɛd",
+      "pos": "名詞",
+      "meaning": "頭",
+      "example": {
+        "en": "My head hurts.",
+        "ja": "頭が痛いです。"
+      }
+    },
+    {
+      "id": "v5-130",
+      "word": "eye",
+      "phonetic": "aɪ",
+      "pos": "名詞",
+      "meaning": "目",
+      "example": {
+        "en": "She has big brown eyes.",
+        "ja": "彼女は大きな茶色の目をしています。"
+      }
+    },
+    {
+      "id": "v5-131",
+      "word": "face",
+      "phonetic": "feɪs",
+      "pos": "名詞",
+      "meaning": "顔",
+      "example": {
+        "en": "Wash your face in the morning.",
+        "ja": "朝は顔を洗いなさい。"
+      }
+    },
+    {
+      "id": "v5-132",
+      "word": "hair",
+      "phonetic": "hɛr",
+      "pos": "名詞",
+      "meaning": "髪",
+      "example": {
+        "en": "My sister has short hair.",
+        "ja": "姉は髪が短いです。"
+      }
+    },
+    {
+      "id": "v5-133",
+      "word": "shirt",
+      "phonetic": "ʃɜːrt",
+      "pos": "名詞",
+      "meaning": "シャツ",
+      "example": {
+        "en": "He is wearing a white shirt.",
+        "ja": "彼は白いシャツを着ています。"
+      }
+    },
+    {
+      "id": "v5-134",
+      "word": "shoe",
+      "phonetic": "ʃuː",
+      "pos": "名詞",
+      "meaning": "くつ（片方）",
+      "example": {
+        "en": "These shoes are too small for me.",
+        "ja": "このくつは私には小さすぎます。"
+      }
+    },
+    {
+      "id": "v5-135",
+      "word": "cap",
+      "phonetic": "kæp",
+      "pos": "名詞",
+      "meaning": "（ふちのない）帽子",
+      "example": {
+        "en": "Take your cap. It is sunny.",
+        "ja": "帽子を持っていきなさい。晴れていますよ。"
+      }
+    },
+    {
+      "id": "v5-136",
+      "word": "clock",
+      "phonetic": "klɑːk",
+      "pos": "名詞",
+      "meaning": "時計（置き時計・掛け時計）",
+      "example": {
+        "en": "The clock on the wall is fast.",
+        "ja": "壁の時計は進んでいます。"
+      }
+    },
+    {
+      "id": "v5-137",
+      "word": "camera",
+      "phonetic": "ˈkæmərə",
+      "pos": "名詞",
+      "meaning": "カメラ",
+      "example": {
+        "en": "My father has a new camera.",
+        "ja": "父は新しいカメラを持っています。"
+      }
+    },
+    {
+      "id": "v5-138",
+      "word": "computer",
+      "phonetic": "kəmˈpjuːtər",
+      "pos": "名詞",
+      "meaning": "コンピューター",
+      "example": {
+        "en": "I use a computer at school.",
+        "ja": "私は学校でコンピューターを使います。"
+      }
+    },
+    {
+      "id": "v5-139",
+      "word": "bike",
+      "phonetic": "baɪk",
+      "pos": "名詞",
+      "meaning": "自転車",
+      "example": {
+        "en": "I go to the park by bike.",
+        "ja": "私は自転車で公園へ行きます。"
+      }
+    },
+    {
+      "id": "v5-140",
+      "word": "car",
+      "phonetic": "kɑːr",
+      "pos": "名詞",
+      "meaning": "車",
+      "example": {
+        "en": "My mother drives a red car.",
+        "ja": "母は赤い車を運転します。"
+      }
+    },
+    {
+      "id": "v5-141",
+      "word": "bus",
+      "phonetic": "bʌs",
+      "pos": "名詞",
+      "meaning": "バス",
+      "example": {
+        "en": "The bus comes at eight.",
+        "ja": "バスは8時に来ます。"
+      }
+    },
+    {
+      "id": "v5-142",
+      "word": "train",
+      "phonetic": "treɪn",
+      "pos": "名詞",
+      "meaning": "電車",
+      "example": {
+        "en": "We went to Kyoto by train.",
+        "ja": "私たちは電車で京都へ行きました。"
+      }
+    },
+    {
+      "id": "v5-143",
+      "word": "ball",
+      "phonetic": "bɔːl",
+      "pos": "名詞",
+      "meaning": "ボール",
+      "example": {
+        "en": "Throw the ball to me.",
+        "ja": "ボールを私に投げて。"
+      }
+    },
+    {
+      "id": "v5-144",
+      "word": "piano",
+      "phonetic": "piˈænoʊ",
+      "pos": "名詞",
+      "meaning": "ピアノ",
+      "example": {
+        "en": "She practices the piano every day.",
+        "ja": "彼女は毎日ピアノを練習します。"
+      }
+    },
+    {
+      "id": "v5-145",
+      "word": "guitar",
+      "phonetic": "gɪˈtɑːr",
+      "pos": "名詞",
+      "meaning": "ギター",
+      "example": {
+        "en": "My brother plays the guitar.",
+        "ja": "兄はギターをひきます。"
+      }
+    },
+    {
+      "id": "v5-146",
+      "word": "box",
+      "phonetic": "bɑːks",
+      "pos": "名詞",
+      "meaning": "箱",
+      "example": {
+        "en": "What is in this box?",
+        "ja": "この箱の中に何が入っていますか。"
+      }
+    },
+    {
+      "id": "v5-147",
+      "word": "cup",
+      "phonetic": "kʌp",
+      "pos": "名詞",
+      "meaning": "カップ",
+      "example": {
+        "en": "Can I have a cup of tea?",
+        "ja": "お茶を1杯いただけますか。"
+      }
+    },
+    {
+      "id": "v5-148",
+      "word": "sun",
+      "phonetic": "sʌn",
+      "pos": "名詞",
+      "meaning": "太陽",
+      "example": {
+        "en": "The sun rises in the east.",
+        "ja": "太陽は東からのぼります。"
+      }
+    },
+    {
+      "id": "v5-149",
+      "word": "snow",
+      "phonetic": "snoʊ",
+      "pos": "名詞",
+      "meaning": "雪",
+      "example": {
+        "en": "We played in the snow.",
+        "ja": "私たちは雪の中で遊びました。"
+      }
+    },
+    {
+      "id": "v5-150",
+      "word": "sky",
+      "phonetic": "skaɪ",
+      "pos": "名詞",
+      "meaning": "空",
+      "example": {
+        "en": "The sky is blue today.",
+        "ja": "今日は空が青いです。"
+      }
+    },
+    {
+      "id": "v5-151",
+      "word": "tree",
+      "phonetic": "triː",
+      "pos": "名詞",
+      "meaning": "木",
+      "example": {
+        "en": "There is a big tree near my house.",
+        "ja": "私の家の近くに大きな木があります。"
+      }
+    },
+    {
+      "id": "v5-152",
+      "word": "sea",
+      "phonetic": "siː",
+      "pos": "名詞",
+      "meaning": "海",
+      "example": {
+        "en": "We can see the sea from here.",
+        "ja": "ここから海が見えます。"
+      }
+    },
+    {
+      "id": "v5-153",
+      "word": "go",
+      "phonetic": "goʊ",
+      "pos": "動詞",
+      "meaning": "行く",
+      "example": {
+        "en": "Let us go to the park.",
+        "ja": "公園に行きましょう。"
+      }
+    },
+    {
+      "id": "v5-154",
+      "word": "get",
+      "phonetic": "gɛt",
+      "pos": "動詞",
+      "meaning": "手に入れる、（get upで）起きる",
+      "example": {
+        "en": "I get up at six every day.",
+        "ja": "私は毎日6時に起きます。"
+      }
+    },
+    {
+      "id": "v5-155",
+      "word": "have",
+      "phonetic": "hæv",
+      "pos": "動詞",
+      "meaning": "持っている、食べる",
+      "example": {
+        "en": "I have two brothers.",
+        "ja": "私には兄弟が2人います。"
+      }
+    },
+    {
+      "id": "v5-156",
+      "word": "make",
+      "phonetic": "meɪk",
+      "pos": "動詞",
+      "meaning": "作る",
+      "example": {
+        "en": "Let us make a snowman.",
+        "ja": "雪だるまを作りましょう。"
+      }
+    },
+    {
+      "id": "v5-157",
+      "word": "see",
+      "phonetic": "siː",
+      "pos": "動詞",
+      "meaning": "見える、会う",
+      "example": {
+        "en": "I can see Mt. Fuji from my room.",
+        "ja": "私の部屋から富士山が見えます。"
+      }
+    },
+    {
+      "id": "v5-158",
+      "word": "like",
+      "phonetic": "laɪk",
+      "pos": "動詞",
+      "meaning": "好きである",
+      "example": {
+        "en": "I like cats very much.",
+        "ja": "私はねこが大好きです。"
+      }
+    },
+    {
+      "id": "v5-159",
+      "word": "love",
+      "phonetic": "lʌv",
+      "pos": "動詞",
+      "meaning": "大好きである",
+      "example": {
+        "en": "My sister loves chocolate.",
+        "ja": "妹はチョコレートが大好きです。"
+      }
+    },
+    {
+      "id": "v5-160",
+      "word": "sit",
+      "phonetic": "sɪt",
+      "pos": "動詞",
+      "meaning": "すわる",
+      "example": {
+        "en": "Please sit down.",
+        "ja": "すわってください。"
+      }
+    },
+    {
+      "id": "v5-161",
+      "word": "stand",
+      "phonetic": "stænd",
+      "pos": "動詞",
+      "meaning": "立つ",
+      "example": {
+        "en": "Stand up, everyone.",
+        "ja": "みなさん、立ってください。"
+      }
+    },
+    {
+      "id": "v5-162",
+      "word": "look",
+      "phonetic": "lʊk",
+      "pos": "動詞",
+      "meaning": "見る（look atで）",
+      "example": {
+        "en": "Look at this picture.",
+        "ja": "この絵を見てください。"
+      }
+    },
+    {
+      "id": "v5-163",
+      "word": "jump",
+      "phonetic": "dʒʌmp",
+      "pos": "動詞",
+      "meaning": "跳ぶ",
+      "example": {
+        "en": "The cat jumped onto the table.",
+        "ja": "ねこがテーブルに跳び乗りました。"
+      }
+    },
+    {
+      "id": "v5-164",
+      "word": "dance",
+      "phonetic": "dæns",
+      "pos": "動詞",
+      "meaning": "おどる",
+      "example": {
+        "en": "She dances very well.",
+        "ja": "彼女はとても上手におどります。"
+      }
+    },
+    {
+      "id": "v5-165",
+      "word": "sleep",
+      "phonetic": "sliːp",
+      "pos": "動詞",
+      "meaning": "ねむる",
+      "example": {
+        "en": "Babies sleep a lot.",
+        "ja": "赤ちゃんはたくさんねむります。"
+      }
+    },
+    {
+      "id": "v5-166",
+      "word": "wash",
+      "phonetic": "wɑːʃ",
+      "pos": "動詞",
+      "meaning": "洗う",
+      "example": {
+        "en": "I wash the dishes after dinner.",
+        "ja": "私は夕食後に皿を洗います。"
+      }
+    },
+    {
+      "id": "v5-167",
+      "word": "wait",
+      "phonetic": "weɪt",
+      "pos": "動詞",
+      "meaning": "待つ",
+      "example": {
+        "en": "Please wait here.",
+        "ja": "ここで待っていてください。"
+      }
+    },
+    {
+      "id": "v5-168",
+      "word": "start",
+      "phonetic": "stɑːrt",
+      "pos": "動詞",
+      "meaning": "始まる、始める",
+      "example": {
+        "en": "School starts at eight thirty.",
+        "ja": "学校は8時30分に始まります。"
+      }
+    },
+    {
+      "id": "v5-169",
+      "word": "stop",
+      "phonetic": "stɑːp",
+      "pos": "動詞",
+      "meaning": "止まる、やめる",
+      "example": {
+        "en": "Stop talking, please.",
+        "ja": "おしゃべりをやめてください。"
+      }
+    },
+    {
+      "id": "v5-170",
+      "word": "stay",
+      "phonetic": "steɪ",
+      "pos": "動詞",
+      "meaning": "滞在する",
+      "example": {
+        "en": "We stayed at my grandmother's house.",
+        "ja": "私たちは祖母の家に泊まりました。"
+      }
+    },
+    {
+      "id": "v5-171",
+      "word": "visit",
+      "phonetic": "ˈvɪzɪt",
+      "pos": "動詞",
+      "meaning": "訪問する",
+      "example": {
+        "en": "I visit my aunt every summer.",
+        "ja": "私は毎年夏におばを訪ねます。"
+      }
+    },
+    {
+      "id": "v5-172",
+      "word": "work",
+      "phonetic": "wɜːrk",
+      "pos": "動詞",
+      "meaning": "働く",
+      "example": {
+        "en": "My father works in Tokyo.",
+        "ja": "父は東京で働いています。"
+      }
+    },
+    {
+      "id": "v5-173",
+      "word": "draw",
+      "phonetic": "drɔː",
+      "pos": "動詞",
+      "meaning": "（線で絵を）描く",
+      "example": {
+        "en": "He likes to draw animals.",
+        "ja": "彼は動物を描くのが好きです。"
+      }
+    },
+    {
+      "id": "v5-174",
+      "word": "take",
+      "phonetic": "teɪk",
+      "pos": "動詞",
+      "meaning": "取る、（写真を）とる",
+      "example": {
+        "en": "Take a picture of us, please.",
+        "ja": "私たちの写真をとってください。"
+      }
+    },
+    {
+      "id": "v5-175",
+      "word": "give",
+      "phonetic": "gɪv",
+      "pos": "動詞",
+      "meaning": "与える",
+      "example": {
+        "en": "Give me the ball, please.",
+        "ja": "ボールをください。"
+      }
+    },
+    {
+      "id": "v5-176",
+      "word": "ask",
+      "phonetic": "æsk",
+      "pos": "動詞",
+      "meaning": "たずねる",
+      "example": {
+        "en": "Can I ask you a question?",
+        "ja": "質問してもいいですか。"
+      }
+    },
+    {
+      "id": "v5-177",
+      "word": "need",
+      "phonetic": "niːd",
+      "pos": "動詞",
+      "meaning": "必要とする",
+      "example": {
+        "en": "I need a new notebook.",
+        "ja": "私は新しいノートが必要です。"
+      }
+    },
+    {
+      "id": "v5-178",
+      "word": "finish",
+      "phonetic": "ˈfɪnɪʃ",
+      "pos": "動詞",
+      "meaning": "終える",
+      "example": {
+        "en": "Did you finish your homework?",
+        "ja": "宿題は終わりましたか。"
+      }
+    },
+    {
+      "id": "v5-179",
+      "word": "call",
+      "phonetic": "kɔːl",
+      "pos": "動詞",
+      "meaning": "電話する、呼ぶ",
+      "example": {
+        "en": "I will call you tonight.",
+        "ja": "今夜あなたに電話します。"
+      }
+    },
+    {
+      "id": "v5-180",
+      "word": "good",
+      "phonetic": "gʊd",
+      "pos": "形容詞",
+      "meaning": "よい",
+      "example": {
+        "en": "This is a good book.",
+        "ja": "これはよい本です。"
+      }
+    },
+    {
+      "id": "v5-181",
+      "word": "hot",
+      "phonetic": "hɑːt",
+      "pos": "形容詞",
+      "meaning": "暑い、熱い",
+      "example": {
+        "en": "It is very hot today.",
+        "ja": "今日はとても暑いです。"
+      }
+    },
+    {
+      "id": "v5-182",
+      "word": "cold",
+      "phonetic": "koʊld",
+      "pos": "形容詞",
+      "meaning": "寒い、冷たい",
+      "example": {
+        "en": "It is cold in winter.",
+        "ja": "冬は寒いです。"
+      }
+    },
+    {
+      "id": "v5-183",
+      "word": "warm",
+      "phonetic": "wɔːrm",
+      "pos": "形容詞",
+      "meaning": "暖かい",
+      "example": {
+        "en": "It is warm in spring.",
+        "ja": "春は暖かいです。"
+      }
+    },
+    {
+      "id": "v5-184",
+      "word": "cool",
+      "phonetic": "kuːl",
+      "pos": "形容詞",
+      "meaning": "すずしい、かっこいい",
+      "example": {
+        "en": "It is cool in the morning.",
+        "ja": "朝はすずしいです。"
+      }
+    },
+    {
+      "id": "v5-185",
+      "word": "fine",
+      "phonetic": "faɪn",
+      "pos": "形容詞",
+      "meaning": "元気な、晴れた",
+      "example": {
+        "en": "I am fine, thank you.",
+        "ja": "元気です、ありがとう。"
+      }
+    },
+    {
+      "id": "v5-186",
+      "word": "sunny",
+      "phonetic": "ˈsʌni",
+      "pos": "形容詞",
+      "meaning": "晴れた",
+      "example": {
+        "en": "It will be sunny tomorrow.",
+        "ja": "明日は晴れるでしょう。"
+      }
+    },
+    {
+      "id": "v5-187",
+      "word": "tall",
+      "phonetic": "tɔːl",
+      "pos": "形容詞",
+      "meaning": "背の高い",
+      "example": {
+        "en": "My brother is very tall.",
+        "ja": "兄はとても背が高いです。"
+      }
+    },
+    {
+      "id": "v5-188",
+      "word": "young",
+      "phonetic": "jʌŋ",
+      "pos": "形容詞",
+      "meaning": "若い",
+      "example": {
+        "en": "Our new teacher is young.",
+        "ja": "私たちの新しい先生は若いです。"
+      }
+    },
+    {
+      "id": "v5-189",
+      "word": "fast",
+      "phonetic": "fæst",
+      "pos": "形容詞",
+      "meaning": "速い",
+      "example": {
+        "en": "That train is very fast.",
+        "ja": "あの電車はとても速いです。"
+      }
+    },
+    {
+      "id": "v5-190",
+      "word": "cute",
+      "phonetic": "kjuːt",
+      "pos": "形容詞",
+      "meaning": "かわいい",
+      "example": {
+        "en": "Your puppy is so cute.",
+        "ja": "あなたの子犬はとてもかわいいですね。"
+      }
+    },
+    {
+      "id": "v5-191",
+      "word": "sad",
+      "phonetic": "sæd",
+      "pos": "形容詞",
+      "meaning": "悲しい",
+      "example": {
+        "en": "The movie was sad.",
+        "ja": "その映画は悲しかったです。"
+      }
+    },
+    {
+      "id": "v5-192",
+      "word": "delicious",
+      "phonetic": "dɪˈlɪʃəs",
+      "pos": "形容詞",
+      "meaning": "とてもおいしい",
+      "example": {
+        "en": "This soup is delicious.",
+        "ja": "このスープはとてもおいしいです。"
+      }
+    },
+    {
+      "id": "v5-193",
+      "word": "now",
+      "phonetic": "naʊ",
+      "pos": "副詞",
+      "meaning": "今",
+      "example": {
+        "en": "I am busy now.",
+        "ja": "私は今いそがしいです。"
+      }
+    },
+    {
+      "id": "v5-194",
+      "word": "here",
+      "phonetic": "hɪr",
+      "pos": "副詞",
+      "meaning": "ここに",
+      "example": {
+        "en": "Come here, please.",
+        "ja": "ここに来てください。"
+      }
+    },
+    {
+      "id": "v5-195",
+      "word": "there",
+      "phonetic": "ðɛr",
+      "pos": "副詞",
+      "meaning": "そこに",
+      "example": {
+        "en": "My school is over there.",
+        "ja": "私の学校は向こうにあります。"
+      }
+    },
+    {
+      "id": "v5-196",
+      "word": "well",
+      "phonetic": "wɛl",
+      "pos": "副詞",
+      "meaning": "上手に",
+      "example": {
+        "en": "She speaks English well.",
+        "ja": "彼女は英語を上手に話します。"
+      }
+    },
+    {
+      "id": "v5-197",
+      "word": "often",
+      "phonetic": "ˈɔːfən",
+      "pos": "副詞",
+      "meaning": "よく、しばしば",
+      "example": {
+        "en": "I often play soccer after school.",
+        "ja": "私は放課後によくサッカーをします。"
+      }
+    },
+    {
+      "id": "v5-198",
+      "word": "usually",
+      "phonetic": "ˈjuːʒuəli",
+      "pos": "副詞",
+      "meaning": "ふつうは",
+      "example": {
+        "en": "I usually walk to school.",
+        "ja": "私はふだん歩いて学校へ行きます。"
+      }
+    },
+    {
+      "id": "v5-199",
+      "word": "again",
+      "phonetic": "əˈgɛn",
+      "pos": "副詞",
+      "meaning": "もう一度",
+      "example": {
+        "en": "Please say it again.",
+        "ja": "もう一度言ってください。"
+      }
+    },
+    {
+      "id": "v5-200",
+      "word": "late",
+      "phonetic": "leɪt",
+      "pos": "形容詞",
+      "meaning": "おくれた、おそい",
+      "example": {
+        "en": "Do not be late for school.",
+        "ja": "学校におくれないようにしなさい。"
+      }
+    }
   ],
   "grammar": [
     {
@@ -212,10 +2212,26 @@
       "ja": "これは私の母です。",
       "point": "be動詞（is）の使い方：This / That の後は is",
       "choices": [
-        { "text": "is", "correct": true, "explain": "主語が This（単数）なので be動詞は is を使います。" },
-        { "text": "am", "correct": false, "explain": "am は主語が I のときだけ使います。" },
-        { "text": "are", "correct": false, "explain": "are は主語が you や複数のときに使います。" },
-        { "text": "be", "correct": false, "explain": "be はそのままの形では文の中で使えません。" }
+        {
+          "text": "is",
+          "correct": true,
+          "explain": "主語が This（単数）なので be動詞は is を使います。"
+        },
+        {
+          "text": "am",
+          "correct": false,
+          "explain": "am は主語が I のときだけ使います。"
+        },
+        {
+          "text": "are",
+          "correct": false,
+          "explain": "are は主語が you や複数のときに使います。"
+        },
+        {
+          "text": "be",
+          "correct": false,
+          "explain": "be はそのままの形では文の中で使えません。"
+        }
       ]
     },
     {
@@ -224,10 +2240,26 @@
       "ja": "私は毎週日曜日にサッカーをします。",
       "point": "一般動詞の現在形：主語が I のときは動詞に s をつけない",
       "choices": [
-        { "text": "play", "correct": true, "explain": "主語が I のとき、一般動詞はそのままの形（原形）を使います。" },
-        { "text": "plays", "correct": false, "explain": "plays は主語が he / she / it のときに使う形です。" },
-        { "text": "playing", "correct": false, "explain": "playing は be動詞と一緒に使う進行形の形です。" },
-        { "text": "played", "correct": false, "explain": "played は過去形なので、every Sunday（現在の習慣）には合いません。" }
+        {
+          "text": "play",
+          "correct": true,
+          "explain": "主語が I のとき、一般動詞はそのままの形（原形）を使います。"
+        },
+        {
+          "text": "plays",
+          "correct": false,
+          "explain": "plays は主語が he / she / it のときに使う形です。"
+        },
+        {
+          "text": "playing",
+          "correct": false,
+          "explain": "playing は be動詞と一緒に使う進行形の形です。"
+        },
+        {
+          "text": "played",
+          "correct": false,
+          "explain": "played は過去形なので、every Sunday（現在の習慣）には合いません。"
+        }
       ]
     },
     {
@@ -236,10 +2268,26 @@
       "ja": "あなたは猫が好きですか。",
       "point": "一般動詞の疑問文：主語が you のときは Do を文の頭に置く",
       "choices": [
-        { "text": "Do", "correct": true, "explain": "一般動詞の疑問文は主語の前に Do（主語が三人称単数なら Does）を置きます。" },
-        { "text": "Does", "correct": false, "explain": "Does は主語が he / she / it のときに使います。" },
-        { "text": "Are", "correct": false, "explain": "Are は be動詞の疑問文で使う語です。like は一般動詞なので使いません。" },
-        { "text": "Is", "correct": false, "explain": "Is も be動詞なので、一般動詞 like の疑問文には使いません。" }
+        {
+          "text": "Do",
+          "correct": true,
+          "explain": "一般動詞の疑問文は主語の前に Do（主語が三人称単数なら Does）を置きます。"
+        },
+        {
+          "text": "Does",
+          "correct": false,
+          "explain": "Does は主語が he / she / it のときに使います。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "Are は be動詞の疑問文で使う語です。like は一般動詞なので使いません。"
+        },
+        {
+          "text": "Is",
+          "correct": false,
+          "explain": "Is も be動詞なので、一般動詞 like の疑問文には使いません。"
+        }
       ]
     },
     {
@@ -248,10 +2296,26 @@
       "ja": "彼はピアノを弾くことができます。",
       "point": "助動詞 can の後は動詞の原形",
       "choices": [
-        { "text": "play", "correct": true, "explain": "can（助動詞）の後の動詞は必ず原形（そのままの形）になります。" },
-        { "text": "plays", "correct": false, "explain": "can の後に三単現の s はつけません。" },
-        { "text": "playing", "correct": false, "explain": "can の後は原形なので、playing（ing形）は使いません。" },
-        { "text": "to play", "correct": false, "explain": "can の後に to はつけません。" }
+        {
+          "text": "play",
+          "correct": true,
+          "explain": "can（助動詞）の後の動詞は必ず原形（そのままの形）になります。"
+        },
+        {
+          "text": "plays",
+          "correct": false,
+          "explain": "can の後に三単現の s はつけません。"
+        },
+        {
+          "text": "playing",
+          "correct": false,
+          "explain": "can の後は原形なので、playing（ing形）は使いません。"
+        },
+        {
+          "text": "to play",
+          "correct": false,
+          "explain": "can の後に to はつけません。"
+        }
       ]
     },
     {
@@ -260,10 +2324,26 @@
       "ja": "これは誰の本ですか。—私のです。",
       "point": "疑問詞 Whose（誰の）の使い方",
       "choices": [
-        { "text": "Whose", "correct": true, "explain": "「誰の～」とたずねるときは Whose を名詞の前に置きます。" },
-        { "text": "Who", "correct": false, "explain": "Who は「誰が」とたずねるときに使います。" },
-        { "text": "What", "correct": false, "explain": "What は「何」とたずねるときに使います。" },
-        { "text": "Which", "correct": false, "explain": "Which は「どちら・どれ」と選択をたずねるときに使います。" }
+        {
+          "text": "Whose",
+          "correct": true,
+          "explain": "「誰の～」とたずねるときは Whose を名詞の前に置きます。"
+        },
+        {
+          "text": "Who",
+          "correct": false,
+          "explain": "Who は「誰が」とたずねるときに使います。"
+        },
+        {
+          "text": "What",
+          "correct": false,
+          "explain": "What は「何」とたずねるときに使います。"
+        },
+        {
+          "text": "Which",
+          "correct": false,
+          "explain": "Which は「どちら・どれ」と選択をたずねるときに使います。"
+        }
       ]
     },
     {
@@ -272,10 +2352,26 @@
       "ja": "この手紙はあなたへのものです。",
       "point": "目的格の代名詞：前置詞のあとは me / you / him など",
       "choices": [
-        { "text": "you", "correct": true, "explain": "for（前置詞）のあとには目的格の代名詞（you）がきます。" },
-        { "text": "your", "correct": false, "explain": "your は「あなたの」という所有格で、あとに名詞が必要です。" },
-        { "text": "you're", "correct": false, "explain": "you're は you are の短縮形なので、ここには使えません。" },
-        { "text": "yours", "correct": false, "explain": "yours は「あなたのもの」という意味で、この文の形には合いません。" }
+        {
+          "text": "you",
+          "correct": true,
+          "explain": "for（前置詞）のあとには目的格の代名詞（you）がきます。"
+        },
+        {
+          "text": "your",
+          "correct": false,
+          "explain": "your は「あなたの」という所有格で、あとに名詞が必要です。"
+        },
+        {
+          "text": "you're",
+          "correct": false,
+          "explain": "you're は you are の短縮形なので、ここには使えません。"
+        },
+        {
+          "text": "yours",
+          "correct": false,
+          "explain": "yours は「あなたのもの」という意味で、この文の形には合いません。"
+        }
       ]
     },
     {
@@ -284,10 +2380,26 @@
       "ja": "彼女は今、図書館で本を読んでいます。",
       "point": "現在進行形：be動詞 + 動詞のing形",
       "choices": [
-        { "text": "is reading", "correct": true, "explain": "now（今）があるので、現在進行形（be動詞 + ing）を使います。" },
-        { "text": "reads", "correct": false, "explain": "reads は現在形で、いつもの習慣を表すときに使います。now には合いません。" },
-        { "text": "read", "correct": false, "explain": "read だけでは進行形になりません。" },
-        { "text": "is read", "correct": false, "explain": "is read は受け身の形で、「読まれる」という意味になってしまいます。" }
+        {
+          "text": "is reading",
+          "correct": true,
+          "explain": "now（今）があるので、現在進行形（be動詞 + ing）を使います。"
+        },
+        {
+          "text": "reads",
+          "correct": false,
+          "explain": "reads は現在形で、いつもの習慣を表すときに使います。now には合いません。"
+        },
+        {
+          "text": "read",
+          "correct": false,
+          "explain": "read だけでは進行形になりません。"
+        },
+        {
+          "text": "is read",
+          "correct": false,
+          "explain": "is read は受け身の形で、「読まれる」という意味になってしまいます。"
+        }
       ]
     },
     {
@@ -296,10 +2408,26 @@
       "ja": "庭に犬が2匹います。",
       "point": "名詞の複数形：数が2つ以上のときは -s をつける",
       "choices": [
-        { "text": "dogs", "correct": true, "explain": "two（2つ）とあるので、名詞は複数形（dogs）にします。" },
-        { "text": "dog", "correct": false, "explain": "dog は単数形です。two のあとには複数形が必要です。" },
-        { "text": "a dog", "correct": false, "explain": "a dog は「1匹の犬」という意味なので、two とは合いません。" },
-        { "text": "does", "correct": false, "explain": "does は助動詞で、名詞ではありません。" }
+        {
+          "text": "dogs",
+          "correct": true,
+          "explain": "two（2つ）とあるので、名詞は複数形（dogs）にします。"
+        },
+        {
+          "text": "dog",
+          "correct": false,
+          "explain": "dog は単数形です。two のあとには複数形が必要です。"
+        },
+        {
+          "text": "a dog",
+          "correct": false,
+          "explain": "a dog は「1匹の犬」という意味なので、two とは合いません。"
+        },
+        {
+          "text": "does",
+          "correct": false,
+          "explain": "does は助動詞で、名詞ではありません。"
+        }
       ]
     },
     {
@@ -308,10 +2436,26 @@
       "ja": "私は今日、お金を全く持っていません。",
       "point": "some と any の使い分け：否定文では any を使う",
       "choices": [
-        { "text": "any", "correct": true, "explain": "否定文（don't）のときは some ではなく any を使います。" },
-        { "text": "some", "correct": false, "explain": "some は主に肯定文で使います。否定文には any が適切です。" },
-        { "text": "much", "correct": false, "explain": "much も使えなくはありませんが、この形では any が最も自然です。" },
-        { "text": "many", "correct": false, "explain": "many は数えられる名詞に使いますが、money は数えられない名詞です。" }
+        {
+          "text": "any",
+          "correct": true,
+          "explain": "否定文（don't）のときは some ではなく any を使います。"
+        },
+        {
+          "text": "some",
+          "correct": false,
+          "explain": "some は主に肯定文で使います。否定文には any が適切です。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "much も使えなくはありませんが、この形では any が最も自然です。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "many は数えられる名詞に使いますが、money は数えられない名詞です。"
+        }
       ]
     },
     {
@@ -320,10 +2464,26 @@
       "ja": "私たちは昨日の午後、公園にいました。",
       "point": "be動詞の過去形：was / were",
       "choices": [
-        { "text": "were", "correct": true, "explain": "主語が We（複数）で過去の話（yesterday）なので were を使います。" },
-        { "text": "was", "correct": false, "explain": "was は主語が I / he / she / it のときの過去形です。" },
-        { "text": "are", "correct": false, "explain": "are は現在形なので、yesterday（過去）には合いません。" },
-        { "text": "be", "correct": false, "explain": "be はそのままの形では文の動詞として使えません。" }
+        {
+          "text": "were",
+          "correct": true,
+          "explain": "主語が We（複数）で過去の話（yesterday）なので were を使います。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "was は主語が I / he / she / it のときの過去形です。"
+        },
+        {
+          "text": "are",
+          "correct": false,
+          "explain": "are は現在形なので、yesterday（過去）には合いません。"
+        },
+        {
+          "text": "be",
+          "correct": false,
+          "explain": "be はそのままの形では文の動詞として使えません。"
+        }
       ]
     },
     {
@@ -332,10 +2492,26 @@
       "ja": "窓を閉めてください。ここは寒いです。",
       "point": "命令文：主語を省略して動詞の原形から始める",
       "choices": [
-        { "text": "Close", "correct": true, "explain": "「〜してください」という命令文は、主語を省いて動詞の原形から始めます。" },
-        { "text": "Closes", "correct": false, "explain": "命令文では動詞に s をつけません。" },
-        { "text": "Closing", "correct": false, "explain": "命令文は動詞の原形で始め、ing形は使いません。" },
-        { "text": "Closed", "correct": false, "explain": "Closed（過去形）では命令の意味になりません。" }
+        {
+          "text": "Close",
+          "correct": true,
+          "explain": "「〜してください」という命令文は、主語を省いて動詞の原形から始めます。"
+        },
+        {
+          "text": "Closes",
+          "correct": false,
+          "explain": "命令文では動詞に s をつけません。"
+        },
+        {
+          "text": "Closing",
+          "correct": false,
+          "explain": "命令文は動詞の原形で始め、ing形は使いません。"
+        },
+        {
+          "text": "Closed",
+          "correct": false,
+          "explain": "Closed（過去形）では命令の意味になりません。"
+        }
       ]
     },
     {
@@ -344,10 +2520,26 @@
       "ja": "私はいつも学校の前に朝食を食べます。",
       "point": "頻度を表す副詞（always）の位置：一般動詞の前に置く",
       "choices": [
-        { "text": "always", "correct": true, "explain": "always（いつも）のような頻度を表す副詞は、一般動詞の前に置きます。" },
-        { "text": "eat always", "correct": false, "explain": "always は eat（一般動詞）の前に置くのが正しい語順です。" },
-        { "text": "always to", "correct": false, "explain": "always のあとに to を入れる必要はありません。" },
-        { "text": "am always", "correct": false, "explain": "eat は一般動詞なので、be動詞（am）は不要です。" }
+        {
+          "text": "always",
+          "correct": true,
+          "explain": "always（いつも）のような頻度を表す副詞は、一般動詞の前に置きます。"
+        },
+        {
+          "text": "eat always",
+          "correct": false,
+          "explain": "always は eat（一般動詞）の前に置くのが正しい語順です。"
+        },
+        {
+          "text": "always to",
+          "correct": false,
+          "explain": "always のあとに to を入れる必要はありません。"
+        },
+        {
+          "text": "am always",
+          "correct": false,
+          "explain": "eat は一般動詞なので、be動詞（am）は不要です。"
+        }
       ]
     },
     {
@@ -356,10 +2548,26 @@
       "ja": "リンゴはいくつ欲しいですか。",
       "point": "数をたずねる表現：How many + 複数名詞",
       "choices": [
-        { "text": "How many", "correct": true, "explain": "数えられる名詞（apples）の数をたずねるときは How many を使います。" },
-        { "text": "How much", "correct": false, "explain": "How much は数えられない名詞（water など）の量をたずねるときに使います。" },
-        { "text": "How old", "correct": false, "explain": "How old は年齢をたずねる表現です。" },
-        { "text": "How long", "correct": false, "explain": "How long は長さや期間をたずねる表現です。" }
+        {
+          "text": "How many",
+          "correct": true,
+          "explain": "数えられる名詞（apples）の数をたずねるときは How many を使います。"
+        },
+        {
+          "text": "How much",
+          "correct": false,
+          "explain": "How much は数えられない名詞（water など）の量をたずねるときに使います。"
+        },
+        {
+          "text": "How old",
+          "correct": false,
+          "explain": "How old は年齢をたずねる表現です。"
+        },
+        {
+          "text": "How long",
+          "correct": false,
+          "explain": "How long は長さや期間をたずねる表現です。"
+        }
       ]
     }
   ],
@@ -373,30 +2581,130 @@
           "id": "r5-01-q1",
           "q": "How old is Kenta?",
           "choices": [
-            { "text": "Eleven years old.", "correct": true, "explain": "本文に \"I am eleven years old.\" とあります。" },
-            { "text": "Ten years old.", "correct": false, "explain": "本文には eleven（11歳）と書かれています。" },
-            { "text": "Twelve years old.", "correct": false, "explain": "本文には eleven（11歳）と書かれています。" },
-            { "text": "Nine years old.", "correct": false, "explain": "本文には eleven（11歳）と書かれています。" }
+            {
+              "text": "Eleven years old.",
+              "correct": true,
+              "explain": "本文に \"I am eleven years old.\" とあります。"
+            },
+            {
+              "text": "Ten years old.",
+              "correct": false,
+              "explain": "本文には eleven（11歳）と書かれています。"
+            },
+            {
+              "text": "Twelve years old.",
+              "correct": false,
+              "explain": "本文には eleven（11歳）と書かれています。"
+            },
+            {
+              "text": "Nine years old.",
+              "correct": false,
+              "explain": "本文には eleven（11歳）と書かれています。"
+            }
           ]
         },
         {
           "id": "r5-01-q2",
           "q": "Who is Mai?",
           "choices": [
-            { "text": "Kenta's sister.", "correct": true, "explain": "\"I have one sister. Her name is Mai.\" と書かれています。" },
-            { "text": "Kenta's mother.", "correct": false, "explain": "Mai はケンタの姉（妹）です。母親ではありません。" },
-            { "text": "Kenta's teacher.", "correct": false, "explain": "本文に先生についての記述はありません。" },
-            { "text": "Kenta's friend.", "correct": false, "explain": "Mai はケンタの家族（姉妹）です。" }
+            {
+              "text": "Kenta's sister.",
+              "correct": true,
+              "explain": "\"I have one sister. Her name is Mai.\" と書かれています。"
+            },
+            {
+              "text": "Kenta's mother.",
+              "correct": false,
+              "explain": "Mai はケンタの姉（妹）です。母親ではありません。"
+            },
+            {
+              "text": "Kenta's teacher.",
+              "correct": false,
+              "explain": "本文に先生についての記述はありません。"
+            },
+            {
+              "text": "Kenta's friend.",
+              "correct": false,
+              "explain": "Mai はケンタの家族（姉妹）です。"
+            }
           ]
         },
         {
           "id": "r5-01-q3",
           "q": "What do they do on Sundays?",
           "choices": [
-            { "text": "They play soccer in the park.", "correct": true, "explain": "\"we often go to the park and play soccer together\" とあります。" },
-            { "text": "They watch TV at home.", "correct": false, "explain": "本文にはテレビの記述はありません。" },
-            { "text": "They go to school.", "correct": false, "explain": "日曜日は学校に行く日ではありません。" },
-            { "text": "They visit their grandparents.", "correct": false, "explain": "祖父母についての記述はありません。" }
+            {
+              "text": "They play soccer in the park.",
+              "correct": true,
+              "explain": "\"we often go to the park and play soccer together\" とあります。"
+            },
+            {
+              "text": "They watch TV at home.",
+              "correct": false,
+              "explain": "本文にはテレビの記述はありません。"
+            },
+            {
+              "text": "They go to school.",
+              "correct": false,
+              "explain": "日曜日は学校に行く日ではありません。"
+            },
+            {
+              "text": "They visit their grandparents.",
+              "correct": false,
+              "explain": "祖父母についての記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r5-01-q4",
+          "q": "Where does Kenta's family live?",
+          "choices": [
+            {
+              "text": "In Tokyo.",
+              "correct": true,
+              "explain": "\"We live in Tokyo with our parents.\" とあります。"
+            },
+            {
+              "text": "In Osaka.",
+              "correct": false,
+              "explain": "本文には Tokyo と書かれています。"
+            },
+            {
+              "text": "In Kyoto.",
+              "correct": false,
+              "explain": "本文には Tokyo と書かれています。"
+            },
+            {
+              "text": "In Nagoya.",
+              "correct": false,
+              "explain": "本文には Tokyo と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-01-q5",
+          "q": "What does Kenta like very much?",
+          "choices": [
+            {
+              "text": "Soccer.",
+              "correct": true,
+              "explain": "\"I like soccer very much.\" とあります。"
+            },
+            {
+              "text": "Baseball.",
+              "correct": false,
+              "explain": "本文には soccer と書かれています。"
+            },
+            {
+              "text": "Swimming.",
+              "correct": false,
+              "explain": "本文には soccer と書かれています。"
+            },
+            {
+              "text": "Tennis.",
+              "correct": false,
+              "explain": "本文には soccer と書かれています。"
+            }
           ]
         }
       ]
@@ -410,30 +2718,1226 @@
           "id": "r5-02-q1",
           "q": "What is the dog's name?",
           "choices": [
-            { "text": "Momo.", "correct": true, "explain": "\"His name is Momo.\" とあります。" },
-            { "text": "Taro.", "correct": false, "explain": "本文には Momo と書かれています。" },
-            { "text": "Shiro.", "correct": false, "explain": "本文には Momo と書かれています。" },
-            { "text": "Pochi.", "correct": false, "explain": "本文には Momo と書かれています。" }
+            {
+              "text": "Momo.",
+              "correct": true,
+              "explain": "\"His name is Momo.\" とあります。"
+            },
+            {
+              "text": "Taro.",
+              "correct": false,
+              "explain": "本文には Momo と書かれています。"
+            },
+            {
+              "text": "Shiro.",
+              "correct": false,
+              "explain": "本文には Momo と書かれています。"
+            },
+            {
+              "text": "Pochi.",
+              "correct": false,
+              "explain": "本文には Momo と書かれています。"
+            }
           ]
         },
         {
           "id": "r5-02-q2",
           "q": "Where does the speaker walk the dog every morning?",
           "choices": [
-            { "text": "In the park near the house.", "correct": true, "explain": "\"I walk Momo in the park near my house\" とあります。" },
-            { "text": "At school.", "correct": false, "explain": "学校についての記述はありません。" },
-            { "text": "At the beach.", "correct": false, "explain": "浜辺についての記述はありません。" },
-            { "text": "In the kitchen.", "correct": false, "explain": "台所についての記述はありません。" }
+            {
+              "text": "In the park near the house.",
+              "correct": true,
+              "explain": "\"I walk Momo in the park near my house\" とあります。"
+            },
+            {
+              "text": "At school.",
+              "correct": false,
+              "explain": "学校についての記述はありません。"
+            },
+            {
+              "text": "At the beach.",
+              "correct": false,
+              "explain": "浜辺についての記述はありません。"
+            },
+            {
+              "text": "In the kitchen.",
+              "correct": false,
+              "explain": "台所についての記述はありません。"
+            }
           ]
         },
         {
           "id": "r5-02-q3",
           "q": "What does Momo like to play with?",
           "choices": [
-            { "text": "A ball.", "correct": true, "explain": "\"He likes to play with a ball.\" とあります。" },
-            { "text": "A box.", "correct": false, "explain": "箱についての記述はありません。" },
-            { "text": "A book.", "correct": false, "explain": "本についての記述はありません。" },
-            { "text": "A bicycle.", "correct": false, "explain": "自転車についての記述はありません。" }
+            {
+              "text": "A ball.",
+              "correct": true,
+              "explain": "\"He likes to play with a ball.\" とあります。"
+            },
+            {
+              "text": "A box.",
+              "correct": false,
+              "explain": "箱についての記述はありません。"
+            },
+            {
+              "text": "A book.",
+              "correct": false,
+              "explain": "本についての記述はありません。"
+            },
+            {
+              "text": "A bicycle.",
+              "correct": false,
+              "explain": "自転車についての記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r5-02-q4",
+          "q": "What color is Momo?",
+          "choices": [
+            {
+              "text": "White.",
+              "correct": true,
+              "explain": "\"Momo is white and small.\" とあります。"
+            },
+            {
+              "text": "Black.",
+              "correct": false,
+              "explain": "本文には white と書かれています。"
+            },
+            {
+              "text": "Brown.",
+              "correct": false,
+              "explain": "本文には white と書かれています。"
+            },
+            {
+              "text": "Gray.",
+              "correct": false,
+              "explain": "本文には white と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-02-q5",
+          "q": "When did the family get Momo?",
+          "choices": [
+            {
+              "text": "Last week.",
+              "correct": true,
+              "explain": "\"My family got a new dog last week.\" とあります。"
+            },
+            {
+              "text": "Last month.",
+              "correct": false,
+              "explain": "本文には last week と書かれています。"
+            },
+            {
+              "text": "Last year.",
+              "correct": false,
+              "explain": "本文には last week と書かれています。"
+            },
+            {
+              "text": "Yesterday.",
+              "correct": false,
+              "explain": "本文には last week と書かれています。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r5-03",
+      "title": "A Class Trip",
+      "passage": "Last Friday, my class went to the zoo. We took a bus from school. At the zoo, I saw elephants, lions, and pandas. My favorite animal was the panda because it was very cute. We ate lunch under a big tree. It was a fun day.",
+      "questions": [
+        {
+          "id": "r5-03-q1",
+          "q": "When did the class go to the zoo?",
+          "choices": [
+            {
+              "text": "Last Friday.",
+              "correct": true,
+              "explain": "\"Last Friday, my class went to the zoo.\" とあります。"
+            },
+            {
+              "text": "Last Sunday.",
+              "correct": false,
+              "explain": "本文には Friday と書かれています。"
+            },
+            {
+              "text": "Last Monday.",
+              "correct": false,
+              "explain": "本文には Friday と書かれています。"
+            },
+            {
+              "text": "This morning.",
+              "correct": false,
+              "explain": "本文には Last Friday と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-03-q2",
+          "q": "How did they go to the zoo?",
+          "choices": [
+            {
+              "text": "By bus.",
+              "correct": true,
+              "explain": "\"We took a bus from school.\" とあります。"
+            },
+            {
+              "text": "By train.",
+              "correct": false,
+              "explain": "本文には bus と書かれています。"
+            },
+            {
+              "text": "By car.",
+              "correct": false,
+              "explain": "本文には bus と書かれています。"
+            },
+            {
+              "text": "On foot.",
+              "correct": false,
+              "explain": "本文には bus と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-03-q3",
+          "q": "What was the speaker's favorite animal?",
+          "choices": [
+            {
+              "text": "The panda.",
+              "correct": true,
+              "explain": "\"My favorite animal was the panda\" とあります。"
+            },
+            {
+              "text": "The elephant.",
+              "correct": false,
+              "explain": "象は見た動物の一つですが、お気に入りはパンダです。"
+            },
+            {
+              "text": "The lion.",
+              "correct": false,
+              "explain": "ライオンは見た動物の一つですが、お気に入りはパンダです。"
+            },
+            {
+              "text": "The tiger.",
+              "correct": false,
+              "explain": "本文にトラは出てきません。"
+            }
+          ]
+        },
+        {
+          "id": "r5-03-q4",
+          "q": "Why did the speaker like the panda?",
+          "choices": [
+            {
+              "text": "Because it was very cute.",
+              "correct": true,
+              "explain": "\"because it was very cute\" とあります。"
+            },
+            {
+              "text": "Because it was very big.",
+              "correct": false,
+              "explain": "大きさについての記述はありません。"
+            },
+            {
+              "text": "Because it could run fast.",
+              "correct": false,
+              "explain": "速さについての記述はありません。"
+            },
+            {
+              "text": "Because it was funny.",
+              "correct": false,
+              "explain": "本文には cute と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-03-q5",
+          "q": "Where did they eat lunch?",
+          "choices": [
+            {
+              "text": "Under a big tree.",
+              "correct": true,
+              "explain": "\"We ate lunch under a big tree.\" とあります。"
+            },
+            {
+              "text": "In the bus.",
+              "correct": false,
+              "explain": "本文には under a big tree と書かれています。"
+            },
+            {
+              "text": "At a restaurant.",
+              "correct": false,
+              "explain": "レストランについての記述はありません。"
+            },
+            {
+              "text": "In the classroom.",
+              "correct": false,
+              "explain": "教室についての記述はありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r5-04",
+      "title": "My Favorite Book",
+      "passage": "I love reading books. Every Saturday, I go to the library near my house. My favorite book is about a boy who travels to the moon. I have read it three times. The library is quiet and I can read for a long time there.",
+      "questions": [
+        {
+          "id": "r5-04-q1",
+          "q": "When does the speaker go to the library?",
+          "choices": [
+            {
+              "text": "Every Saturday.",
+              "correct": true,
+              "explain": "\"Every Saturday, I go to the library\" とあります。"
+            },
+            {
+              "text": "Every Monday.",
+              "correct": false,
+              "explain": "本文には Saturday と書かれています。"
+            },
+            {
+              "text": "Every Sunday.",
+              "correct": false,
+              "explain": "本文には Saturday と書かれています。"
+            },
+            {
+              "text": "Every day.",
+              "correct": false,
+              "explain": "本文には Every Saturday と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-04-q2",
+          "q": "Where is the library?",
+          "choices": [
+            {
+              "text": "Near the speaker's house.",
+              "correct": true,
+              "explain": "\"the library near my house\" とあります。"
+            },
+            {
+              "text": "Near the station.",
+              "correct": false,
+              "explain": "本文には near my house と書かれています。"
+            },
+            {
+              "text": "In the school.",
+              "correct": false,
+              "explain": "本文には near my house と書かれています。"
+            },
+            {
+              "text": "Far from the house.",
+              "correct": false,
+              "explain": "本文には near（近い）と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-04-q3",
+          "q": "What is the speaker's favorite book about?",
+          "choices": [
+            {
+              "text": "A boy who travels to the moon.",
+              "correct": true,
+              "explain": "\"about a boy who travels to the moon\" とあります。"
+            },
+            {
+              "text": "A girl who travels to Paris.",
+              "correct": false,
+              "explain": "本文には the moon と書かれています。"
+            },
+            {
+              "text": "A dog who travels to a park.",
+              "correct": false,
+              "explain": "本文には a boy who travels to the moon と書かれています。"
+            },
+            {
+              "text": "A cat who lives in a library.",
+              "correct": false,
+              "explain": "本文にそのような話は出てきません。"
+            }
+          ]
+        },
+        {
+          "id": "r5-04-q4",
+          "q": "How many times has the speaker read the book?",
+          "choices": [
+            {
+              "text": "Three times.",
+              "correct": true,
+              "explain": "\"I have read it three times.\" とあります。"
+            },
+            {
+              "text": "Two times.",
+              "correct": false,
+              "explain": "本文には three times と書かれています。"
+            },
+            {
+              "text": "Four times.",
+              "correct": false,
+              "explain": "本文には three times と書かれています。"
+            },
+            {
+              "text": "Once.",
+              "correct": false,
+              "explain": "本文には three times と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-04-q5",
+          "q": "Why does the speaker like the library?",
+          "choices": [
+            {
+              "text": "Because it is quiet and good for reading.",
+              "correct": true,
+              "explain": "\"The library is quiet and I can read for a long time there.\" とあります。"
+            },
+            {
+              "text": "Because it has many computers.",
+              "correct": false,
+              "explain": "コンピューターについての記述はありません。"
+            },
+            {
+              "text": "Because it is near the park.",
+              "correct": false,
+              "explain": "公園についての記述はありません。"
+            },
+            {
+              "text": "Because friends are always there.",
+              "correct": false,
+              "explain": "友だちについての記述はありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r5-05",
+      "title": "Making Sandwiches",
+      "passage": "On Saturday morning, I made sandwiches with my mother. We used bread, cheese, and ham. First, we washed our hands. Then we put the cheese and ham between the bread. We made six sandwiches. We ate them for lunch with orange juice.",
+      "questions": [
+        {
+          "id": "r5-05-q1",
+          "q": "Who made sandwiches with the speaker?",
+          "choices": [
+            {
+              "text": "The speaker's mother.",
+              "correct": true,
+              "explain": "\"I made sandwiches with my mother.\" とあります。"
+            },
+            {
+              "text": "The speaker's father.",
+              "correct": false,
+              "explain": "本文には mother と書かれています。"
+            },
+            {
+              "text": "The speaker's sister.",
+              "correct": false,
+              "explain": "本文には mother と書かれています。"
+            },
+            {
+              "text": "The speaker's teacher.",
+              "correct": false,
+              "explain": "先生についての記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r5-05-q2",
+          "q": "What did they use to make the sandwiches?",
+          "choices": [
+            {
+              "text": "Bread, cheese, and ham.",
+              "correct": true,
+              "explain": "\"We used bread, cheese, and ham.\" とあります。"
+            },
+            {
+              "text": "Bread, egg, and tomato.",
+              "correct": false,
+              "explain": "本文には cheese and ham と書かれています。"
+            },
+            {
+              "text": "Rice and fish.",
+              "correct": false,
+              "explain": "米や魚についての記述はありません。"
+            },
+            {
+              "text": "Bread and butter only.",
+              "correct": false,
+              "explain": "本文には cheese and ham も入っています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-05-q3",
+          "q": "What did they do first?",
+          "choices": [
+            {
+              "text": "They washed their hands.",
+              "correct": true,
+              "explain": "\"First, we washed our hands.\" とあります。"
+            },
+            {
+              "text": "They cut the bread.",
+              "correct": false,
+              "explain": "本文にはまず手を洗ったと書かれています。"
+            },
+            {
+              "text": "They boiled water.",
+              "correct": false,
+              "explain": "お湯を沸かす記述はありません。"
+            },
+            {
+              "text": "They went shopping.",
+              "correct": false,
+              "explain": "買い物の記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r5-05-q4",
+          "q": "How many sandwiches did they make?",
+          "choices": [
+            {
+              "text": "Six.",
+              "correct": true,
+              "explain": "\"We made six sandwiches.\" とあります。"
+            },
+            {
+              "text": "Four.",
+              "correct": false,
+              "explain": "本文には six と書かれています。"
+            },
+            {
+              "text": "Eight.",
+              "correct": false,
+              "explain": "本文には six と書かれています。"
+            },
+            {
+              "text": "Ten.",
+              "correct": false,
+              "explain": "本文には six と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-05-q5",
+          "q": "What did they drink with the sandwiches?",
+          "choices": [
+            {
+              "text": "Orange juice.",
+              "correct": true,
+              "explain": "\"We ate them for lunch with orange juice.\" とあります。"
+            },
+            {
+              "text": "Milk.",
+              "correct": false,
+              "explain": "本文には orange juice と書かれています。"
+            },
+            {
+              "text": "Tea.",
+              "correct": false,
+              "explain": "本文には orange juice と書かれています。"
+            },
+            {
+              "text": "Water.",
+              "correct": false,
+              "explain": "本文には orange juice と書かれています。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r5-06",
+      "title": "Spring Flowers",
+      "passage": "Spring is my favorite season. In April, many flowers bloom in the park near my house. My mother and I often go there to see the pink cherry blossoms. Last weekend, we took many pictures under the trees. The weather was warm and sunny.",
+      "questions": [
+        {
+          "id": "r5-06-q1",
+          "q": "What is the speaker's favorite season?",
+          "choices": [
+            {
+              "text": "Spring.",
+              "correct": true,
+              "explain": "\"Spring is my favorite season.\" とあります。"
+            },
+            {
+              "text": "Summer.",
+              "correct": false,
+              "explain": "本文には Spring と書かれています。"
+            },
+            {
+              "text": "Autumn.",
+              "correct": false,
+              "explain": "本文には Spring と書かれています。"
+            },
+            {
+              "text": "Winter.",
+              "correct": false,
+              "explain": "本文には Spring と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-06-q2",
+          "q": "When do the flowers bloom?",
+          "choices": [
+            {
+              "text": "In April.",
+              "correct": true,
+              "explain": "\"In April, many flowers bloom\" とあります。"
+            },
+            {
+              "text": "In January.",
+              "correct": false,
+              "explain": "本文には April と書かれています。"
+            },
+            {
+              "text": "In July.",
+              "correct": false,
+              "explain": "本文には April と書かれています。"
+            },
+            {
+              "text": "In October.",
+              "correct": false,
+              "explain": "本文には April と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-06-q3",
+          "q": "What color are the cherry blossoms?",
+          "choices": [
+            {
+              "text": "Pink.",
+              "correct": true,
+              "explain": "\"the pink cherry blossoms\" とあります。"
+            },
+            {
+              "text": "Yellow.",
+              "correct": false,
+              "explain": "本文には pink と書かれています。"
+            },
+            {
+              "text": "White.",
+              "correct": false,
+              "explain": "本文には pink と書かれています。"
+            },
+            {
+              "text": "Red.",
+              "correct": false,
+              "explain": "本文には pink と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-06-q4",
+          "q": "What did they do last weekend?",
+          "choices": [
+            {
+              "text": "They took many pictures.",
+              "correct": true,
+              "explain": "\"we took many pictures under the trees\" とあります。"
+            },
+            {
+              "text": "They planted flowers.",
+              "correct": false,
+              "explain": "花を植えたという記述はありません。"
+            },
+            {
+              "text": "They cleaned the park.",
+              "correct": false,
+              "explain": "公園を掃除したという記述はありません。"
+            },
+            {
+              "text": "They read books.",
+              "correct": false,
+              "explain": "本を読んだという記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r5-06-q5",
+          "q": "How was the weather?",
+          "choices": [
+            {
+              "text": "Warm and sunny.",
+              "correct": true,
+              "explain": "\"The weather was warm and sunny.\" とあります。"
+            },
+            {
+              "text": "Cold and rainy.",
+              "correct": false,
+              "explain": "本文には warm and sunny と書かれています。"
+            },
+            {
+              "text": "Windy and cloudy.",
+              "correct": false,
+              "explain": "本文には warm and sunny と書かれています。"
+            },
+            {
+              "text": "Snowy.",
+              "correct": false,
+              "explain": "本文には warm and sunny と書かれています。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r5-07",
+      "title": "A Birthday Present",
+      "passage": "Next Sunday is my little brother's birthday. He will be seven years old. I want to buy him a present. Yesterday, I went to a toy shop with my father. We looked at many toys. Finally, I chose a red toy car for him. He loves cars very much.",
+      "questions": [
+        {
+          "id": "r5-07-q1",
+          "q": "When is the speaker's brother's birthday?",
+          "choices": [
+            {
+              "text": "Next Sunday.",
+              "correct": true,
+              "explain": "\"Next Sunday is my little brother's birthday.\" とあります。"
+            },
+            {
+              "text": "Next Monday.",
+              "correct": false,
+              "explain": "本文には Next Sunday と書かれています。"
+            },
+            {
+              "text": "Yesterday.",
+              "correct": false,
+              "explain": "本文には Next Sunday と書かれています。"
+            },
+            {
+              "text": "Last week.",
+              "correct": false,
+              "explain": "本文には Next Sunday と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-07-q2",
+          "q": "How old will the brother be?",
+          "choices": [
+            {
+              "text": "Seven years old.",
+              "correct": true,
+              "explain": "\"He will be seven years old.\" とあります。"
+            },
+            {
+              "text": "Six years old.",
+              "correct": false,
+              "explain": "本文には seven と書かれています。"
+            },
+            {
+              "text": "Eight years old.",
+              "correct": false,
+              "explain": "本文には seven と書かれています。"
+            },
+            {
+              "text": "Nine years old.",
+              "correct": false,
+              "explain": "本文には seven と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-07-q3",
+          "q": "Who did the speaker go to the toy shop with?",
+          "choices": [
+            {
+              "text": "Their father.",
+              "correct": true,
+              "explain": "\"I went to a toy shop with my father.\" とあります。"
+            },
+            {
+              "text": "Their mother.",
+              "correct": false,
+              "explain": "本文には father と書かれています。"
+            },
+            {
+              "text": "Their sister.",
+              "correct": false,
+              "explain": "本文には father と書かれています。"
+            },
+            {
+              "text": "Their friend.",
+              "correct": false,
+              "explain": "本文には father と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-07-q4",
+          "q": "What present did the speaker choose?",
+          "choices": [
+            {
+              "text": "A red toy car.",
+              "correct": true,
+              "explain": "\"I chose a red toy car for him.\" とあります。"
+            },
+            {
+              "text": "A blue toy train.",
+              "correct": false,
+              "explain": "本文には a red toy car と書かれています。"
+            },
+            {
+              "text": "A picture book.",
+              "correct": false,
+              "explain": "本文には a red toy car と書かれています。"
+            },
+            {
+              "text": "A soccer ball.",
+              "correct": false,
+              "explain": "本文には a red toy car と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-07-q5",
+          "q": "What does the brother love very much?",
+          "choices": [
+            {
+              "text": "Cars.",
+              "correct": true,
+              "explain": "\"He loves cars very much.\" とあります。"
+            },
+            {
+              "text": "Trains.",
+              "correct": false,
+              "explain": "本文には cars と書かれています。"
+            },
+            {
+              "text": "Books.",
+              "correct": false,
+              "explain": "本文には cars と書かれています。"
+            },
+            {
+              "text": "Games.",
+              "correct": false,
+              "explain": "本文には cars と書かれています。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r5-08",
+      "title": "My Friend's Birthday Party",
+      "passage": "Yesterday was my friend Yuki's birthday party. The party was at her house at four o'clock. Ten friends came to the party. We ate a big chocolate cake and played games. I gave Yuki a nice pen as a present. She was very happy.",
+      "questions": [
+        {
+          "id": "r5-08-q1",
+          "q": "Whose birthday party was it?",
+          "choices": [
+            {
+              "text": "Yuki's birthday party.",
+              "correct": true,
+              "explain": "\"my friend Yuki's birthday party\" とあります。"
+            },
+            {
+              "text": "The speaker's birthday party.",
+              "correct": false,
+              "explain": "本文には Yuki's と書かれています。"
+            },
+            {
+              "text": "The teacher's birthday party.",
+              "correct": false,
+              "explain": "先生についての記述はありません。"
+            },
+            {
+              "text": "Yuki's sister's birthday party.",
+              "correct": false,
+              "explain": "本文には Yuki's と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-08-q2",
+          "q": "What time was the party?",
+          "choices": [
+            {
+              "text": "At four o'clock.",
+              "correct": true,
+              "explain": "\"The party was at her house at four o'clock.\" とあります。"
+            },
+            {
+              "text": "At two o'clock.",
+              "correct": false,
+              "explain": "本文には four o'clock と書かれています。"
+            },
+            {
+              "text": "At six o'clock.",
+              "correct": false,
+              "explain": "本文には four o'clock と書かれています。"
+            },
+            {
+              "text": "At noon.",
+              "correct": false,
+              "explain": "本文には four o'clock と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-08-q3",
+          "q": "How many friends came to the party?",
+          "choices": [
+            {
+              "text": "Ten.",
+              "correct": true,
+              "explain": "\"Ten friends came to the party.\" とあります。"
+            },
+            {
+              "text": "Five.",
+              "correct": false,
+              "explain": "本文には Ten と書かれています。"
+            },
+            {
+              "text": "Eight.",
+              "correct": false,
+              "explain": "本文には Ten と書かれています。"
+            },
+            {
+              "text": "Twelve.",
+              "correct": false,
+              "explain": "本文には Ten と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-08-q4",
+          "q": "What did they eat at the party?",
+          "choices": [
+            {
+              "text": "A big chocolate cake.",
+              "correct": true,
+              "explain": "\"We ate a big chocolate cake\" とあります。"
+            },
+            {
+              "text": "Pizza.",
+              "correct": false,
+              "explain": "本文には chocolate cake と書かれています。"
+            },
+            {
+              "text": "Sandwiches.",
+              "correct": false,
+              "explain": "本文には chocolate cake と書かれています。"
+            },
+            {
+              "text": "Ice cream.",
+              "correct": false,
+              "explain": "本文には chocolate cake と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-08-q5",
+          "q": "What did the speaker give Yuki?",
+          "choices": [
+            {
+              "text": "A nice pen.",
+              "correct": true,
+              "explain": "\"I gave Yuki a nice pen as a present.\" とあります。"
+            },
+            {
+              "text": "A book.",
+              "correct": false,
+              "explain": "本文には a nice pen と書かれています。"
+            },
+            {
+              "text": "A toy.",
+              "correct": false,
+              "explain": "本文には a nice pen と書かれています。"
+            },
+            {
+              "text": "Flowers.",
+              "correct": false,
+              "explain": "本文には a nice pen と書かれています。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r5-09",
+      "title": "Sports Day",
+      "passage": "Our school had Sports Day last Saturday. It started at nine in the morning. I ran in the 100-meter race and came in second place. My class also won the tug-of-war. After the events, we all ate lunch together with our families in the schoolyard.",
+      "questions": [
+        {
+          "id": "r5-09-q1",
+          "q": "When was Sports Day?",
+          "choices": [
+            {
+              "text": "Last Saturday.",
+              "correct": true,
+              "explain": "\"Our school had Sports Day last Saturday.\" とあります。"
+            },
+            {
+              "text": "Last Friday.",
+              "correct": false,
+              "explain": "本文には Saturday と書かれています。"
+            },
+            {
+              "text": "Next Saturday.",
+              "correct": false,
+              "explain": "本文には last Saturday と書かれています。"
+            },
+            {
+              "text": "Yesterday.",
+              "correct": false,
+              "explain": "本文には last Saturday と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-09-q2",
+          "q": "What time did Sports Day start?",
+          "choices": [
+            {
+              "text": "At nine in the morning.",
+              "correct": true,
+              "explain": "\"It started at nine in the morning.\" とあります。"
+            },
+            {
+              "text": "At eight in the morning.",
+              "correct": false,
+              "explain": "本文には nine と書かれています。"
+            },
+            {
+              "text": "At ten in the morning.",
+              "correct": false,
+              "explain": "本文には nine と書かれています。"
+            },
+            {
+              "text": "At one in the afternoon.",
+              "correct": false,
+              "explain": "本文には nine in the morning と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-09-q3",
+          "q": "What place did the speaker come in the 100-meter race?",
+          "choices": [
+            {
+              "text": "Second place.",
+              "correct": true,
+              "explain": "\"I ran in the 100-meter race and came in second place.\" とあります。"
+            },
+            {
+              "text": "First place.",
+              "correct": false,
+              "explain": "本文には second place と書かれています。"
+            },
+            {
+              "text": "Third place.",
+              "correct": false,
+              "explain": "本文には second place と書かれています。"
+            },
+            {
+              "text": "Last place.",
+              "correct": false,
+              "explain": "本文には second place と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-09-q4",
+          "q": "What did the speaker's class win?",
+          "choices": [
+            {
+              "text": "The tug-of-war.",
+              "correct": true,
+              "explain": "\"My class also won the tug-of-war.\" とあります。"
+            },
+            {
+              "text": "The relay race.",
+              "correct": false,
+              "explain": "本文には tug-of-war と書かれています。"
+            },
+            {
+              "text": "The dance contest.",
+              "correct": false,
+              "explain": "本文には tug-of-war と書かれています。"
+            },
+            {
+              "text": "The ball game.",
+              "correct": false,
+              "explain": "本文には tug-of-war と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-09-q5",
+          "q": "What did they do after the events?",
+          "choices": [
+            {
+              "text": "They ate lunch together with their families.",
+              "correct": true,
+              "explain": "\"we all ate lunch together with our families in the schoolyard\" とあります。"
+            },
+            {
+              "text": "They went home early.",
+              "correct": false,
+              "explain": "本文には昼食を一緒に食べたと書かれています。"
+            },
+            {
+              "text": "They cleaned the schoolyard.",
+              "correct": false,
+              "explain": "掃除についての記述はありません。"
+            },
+            {
+              "text": "They watched a movie.",
+              "correct": false,
+              "explain": "映画についての記述はありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r5-10",
+      "title": "Our Summer Trip",
+      "passage": "This summer, my family went to the sea for three days. We stayed at a small hotel near the beach. Every day, I swam in the sea with my brother. One night, we watched beautiful fireworks. On the last day, we bought some shells as a memory of the trip.",
+      "questions": [
+        {
+          "id": "r5-10-q1",
+          "q": "How long did the family stay at the sea?",
+          "choices": [
+            {
+              "text": "Three days.",
+              "correct": true,
+              "explain": "\"my family went to the sea for three days\" とあります。"
+            },
+            {
+              "text": "Two days.",
+              "correct": false,
+              "explain": "本文には three days と書かれています。"
+            },
+            {
+              "text": "Four days.",
+              "correct": false,
+              "explain": "本文には three days と書かれています。"
+            },
+            {
+              "text": "One week.",
+              "correct": false,
+              "explain": "本文には three days と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-10-q2",
+          "q": "Where did they stay?",
+          "choices": [
+            {
+              "text": "A small hotel near the beach.",
+              "correct": true,
+              "explain": "\"We stayed at a small hotel near the beach.\" とあります。"
+            },
+            {
+              "text": "Their grandparents' house.",
+              "correct": false,
+              "explain": "本文には a small hotel と書かれています。"
+            },
+            {
+              "text": "A big hotel in the city.",
+              "correct": false,
+              "explain": "本文には near the beach と書かれています。"
+            },
+            {
+              "text": "A camping tent.",
+              "correct": false,
+              "explain": "テントについての記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r5-10-q3",
+          "q": "Who did the speaker swim with every day?",
+          "choices": [
+            {
+              "text": "Their brother.",
+              "correct": true,
+              "explain": "\"I swam in the sea with my brother\" とあります。"
+            },
+            {
+              "text": "Their sister.",
+              "correct": false,
+              "explain": "本文には brother と書かれています。"
+            },
+            {
+              "text": "Their father.",
+              "correct": false,
+              "explain": "本文には brother と書かれています。"
+            },
+            {
+              "text": "Their friend.",
+              "correct": false,
+              "explain": "本文には brother と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-10-q4",
+          "q": "What did they watch one night?",
+          "choices": [
+            {
+              "text": "Beautiful fireworks.",
+              "correct": true,
+              "explain": "\"we watched beautiful fireworks\" とあります。"
+            },
+            {
+              "text": "A movie.",
+              "correct": false,
+              "explain": "本文には fireworks と書かれています。"
+            },
+            {
+              "text": "A boat race.",
+              "correct": false,
+              "explain": "本文には fireworks と書かれています。"
+            },
+            {
+              "text": "A festival dance.",
+              "correct": false,
+              "explain": "本文には fireworks と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r5-10-q5",
+          "q": "What did they buy on the last day?",
+          "choices": [
+            {
+              "text": "Some shells.",
+              "correct": true,
+              "explain": "\"we bought some shells as a memory of the trip\" とあります。"
+            },
+            {
+              "text": "Some postcards.",
+              "correct": false,
+              "explain": "本文には shells と書かれています。"
+            },
+            {
+              "text": "New swimsuits.",
+              "correct": false,
+              "explain": "本文には shells と書かれています。"
+            },
+            {
+              "text": "Fresh fish.",
+              "correct": false,
+              "explain": "本文には shells と書かれています。"
+            }
           ]
         }
       ]
@@ -446,10 +3950,26 @@
       "translation": "今、9時です。私はたいてい9時半に寝ます。",
       "question": "What time does the speaker usually go to bed?",
       "choices": [
-        { "text": "9:30", "correct": true, "explain": "\"I usually go to bed at nine thirty.\" と言っています。" },
-        { "text": "9:00", "correct": false, "explain": "9時は「今の時刻」で、寝る時刻ではありません。" },
-        { "text": "10:00", "correct": false, "explain": "本文では9時半（nine thirty）と言っています。" },
-        { "text": "8:30", "correct": false, "explain": "本文では9時半（nine thirty）と言っています。" }
+        {
+          "text": "9:30",
+          "correct": true,
+          "explain": "\"I usually go to bed at nine thirty.\" と言っています。"
+        },
+        {
+          "text": "9:00",
+          "correct": false,
+          "explain": "9時は「今の時刻」で、寝る時刻ではありません。"
+        },
+        {
+          "text": "10:00",
+          "correct": false,
+          "explain": "本文では9時半（nine thirty）と言っています。"
+        },
+        {
+          "text": "8:30",
+          "correct": false,
+          "explain": "本文では9時半（nine thirty）と言っています。"
+        }
       ]
     },
     {
@@ -458,10 +3978,26 @@
       "translation": "私には兄（弟）が2人います。2人とも私より背が高いです。",
       "question": "How many brothers does the speaker have?",
       "choices": [
-        { "text": "Two", "correct": true, "explain": "\"I have two brothers.\" と言っています。" },
-        { "text": "One", "correct": false, "explain": "two（2人）と言っています。" },
-        { "text": "Three", "correct": false, "explain": "two（2人）と言っています。" },
-        { "text": "None", "correct": false, "explain": "two（2人）と言っています。" }
+        {
+          "text": "Two",
+          "correct": true,
+          "explain": "\"I have two brothers.\" と言っています。"
+        },
+        {
+          "text": "One",
+          "correct": false,
+          "explain": "two（2人）と言っています。"
+        },
+        {
+          "text": "Three",
+          "correct": false,
+          "explain": "two（2人）と言っています。"
+        },
+        {
+          "text": "None",
+          "correct": false,
+          "explain": "two（2人）と言っています。"
+        }
       ]
     },
     {
@@ -470,10 +4006,26 @@
       "translation": "私の姉（妹）は猫が好きですが、私は犬のほうが好きです。",
       "question": "What does the speaker like better?",
       "choices": [
-        { "text": "Dogs.", "correct": true, "explain": "\"I like dogs better\" と言っています。" },
-        { "text": "Cats.", "correct": false, "explain": "猫が好きなのは speaker の姉（妹）です。" },
-        { "text": "Birds.", "correct": false, "explain": "鳥についての記述はありません。" },
-        { "text": "Fish.", "correct": false, "explain": "魚についての記述はありません。" }
+        {
+          "text": "Dogs.",
+          "correct": true,
+          "explain": "\"I like dogs better\" と言っています。"
+        },
+        {
+          "text": "Cats.",
+          "correct": false,
+          "explain": "猫が好きなのは speaker の姉（妹）です。"
+        },
+        {
+          "text": "Birds.",
+          "correct": false,
+          "explain": "鳥についての記述はありません。"
+        },
+        {
+          "text": "Fish.",
+          "correct": false,
+          "explain": "魚についての記述はありません。"
+        }
       ]
     },
     {
@@ -482,10 +4034,26 @@
       "translation": "私の家では、たいてい7時に夕食を食べます。",
       "question": "What time do they usually eat dinner?",
       "choices": [
-        { "text": "Seven o'clock.", "correct": true, "explain": "\"We usually eat dinner at seven o'clock\" と言っています。" },
-        { "text": "Six o'clock.", "correct": false, "explain": "本文では7時と言っています。" },
-        { "text": "Eight o'clock.", "correct": false, "explain": "本文では7時と言っています。" },
-        { "text": "Nine o'clock.", "correct": false, "explain": "本文では7時と言っています。" }
+        {
+          "text": "Seven o'clock.",
+          "correct": true,
+          "explain": "\"We usually eat dinner at seven o'clock\" と言っています。"
+        },
+        {
+          "text": "Six o'clock.",
+          "correct": false,
+          "explain": "本文では7時と言っています。"
+        },
+        {
+          "text": "Eight o'clock.",
+          "correct": false,
+          "explain": "本文では7時と言っています。"
+        },
+        {
+          "text": "Nine o'clock.",
+          "correct": false,
+          "explain": "本文では7時と言っています。"
+        }
       ]
     },
     {
@@ -494,10 +4062,26 @@
       "translation": "私の机の上に本が3冊あります。2冊は動物についての本です。",
       "question": "How many books are about animals?",
       "choices": [
-        { "text": "Two.", "correct": true, "explain": "\"Two are about animals.\" と言っています。" },
-        { "text": "One.", "correct": false, "explain": "本文では2冊と言っています。" },
-        { "text": "Three.", "correct": false, "explain": "3冊は本の合計数で、動物についての本は2冊です。" },
-        { "text": "None.", "correct": false, "explain": "動物についての本は2冊あります。" }
+        {
+          "text": "Two.",
+          "correct": true,
+          "explain": "\"Two are about animals.\" と言っています。"
+        },
+        {
+          "text": "One.",
+          "correct": false,
+          "explain": "本文では2冊と言っています。"
+        },
+        {
+          "text": "Three.",
+          "correct": false,
+          "explain": "3冊は本の合計数で、動物についての本は2冊です。"
+        },
+        {
+          "text": "None.",
+          "correct": false,
+          "explain": "動物についての本は2冊あります。"
+        }
       ]
     }
   ],
@@ -507,18 +4091,49 @@
       "title": "At School",
       "translation": "A：やあ、今日は元気？ B：元気だよ、ありがとう。あなたは？ A：僕も元気だよ。宿題は終わった？ B：___ A：よかった！一緒に公園に行こう。",
       "lines": [
-        { "speaker": "A", "text": "Hi, how are you today?" },
-        { "speaker": "B", "text": "I'm fine, thank you. And you?" },
-        { "speaker": "A", "text": "I'm good too. Did you finish your homework?" },
-        { "speaker": "B", "text": "___" },
-        { "speaker": "A", "text": "Great! Let's go to the park together." }
+        {
+          "speaker": "A",
+          "text": "Hi, how are you today?"
+        },
+        {
+          "speaker": "B",
+          "text": "I'm fine, thank you. And you?"
+        },
+        {
+          "speaker": "A",
+          "text": "I'm good too. Did you finish your homework?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Great! Let's go to the park together."
+        }
       ],
       "blankIndex": 3,
       "choices": [
-        { "text": "Yes, I finished it an hour ago.", "correct": true, "explain": "直後で「じゃあ公園に行こう」と誘っているので、宿題が終わったという返答が自然です。" },
-        { "text": "I like apples very much.", "correct": false, "explain": "宿題についての質問への返答になっていません。" },
-        { "text": "It is raining outside.", "correct": false, "explain": "天気の話は会話の流れに合いません。" },
-        { "text": "My dog is very big.", "correct": false, "explain": "犬の話は宿題についての質問と関係ありません。" }
+        {
+          "text": "Yes, I finished it an hour ago.",
+          "correct": true,
+          "explain": "直後で「じゃあ公園に行こう」と誘っているので、宿題が終わったという返答が自然です。"
+        },
+        {
+          "text": "I like apples very much.",
+          "correct": false,
+          "explain": "宿題についての質問への返答になっていません。"
+        },
+        {
+          "text": "It is raining outside.",
+          "correct": false,
+          "explain": "天気の話は会話の流れに合いません。"
+        },
+        {
+          "text": "My dog is very big.",
+          "correct": false,
+          "explain": "犬の話は宿題についての質問と関係ありません。"
+        }
       ]
     },
     {
@@ -526,18 +4141,49 @@
       "title": "At the Cafeteria",
       "translation": "A：今日のお昼ごはんは何を食べる？ B：カレーライスを食べるつもりだよ。あなたは？ A：___ B：それもよさそうだね。一緒に座ろうよ。 A：もちろん！",
       "lines": [
-        { "speaker": "A", "text": "What are you going to eat for lunch today?" },
-        { "speaker": "B", "text": "I'm going to have curry and rice. What about you?" },
-        { "speaker": "A", "text": "___" },
-        { "speaker": "B", "text": "That sounds good too. Let's sit together." },
-        { "speaker": "A", "text": "Sure!" }
+        {
+          "speaker": "A",
+          "text": "What are you going to eat for lunch today?"
+        },
+        {
+          "speaker": "B",
+          "text": "I'm going to have curry and rice. What about you?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "That sounds good too. Let's sit together."
+        },
+        {
+          "speaker": "A",
+          "text": "Sure!"
+        }
       ],
       "blankIndex": 2,
       "choices": [
-        { "text": "I'm going to have a sandwich and some soup.", "correct": true, "explain": "What about you?（あなたは？）とたずねられているので、自分の昼食を答える発言が自然です。" },
-        { "text": "I already ate breakfast this morning.", "correct": false, "explain": "朝食の話は、昼食について尋ねられた質問への答えになっていません。" },
-        { "text": "I don't like eating lunch at all.", "correct": false, "explain": "その後Bが「それもよさそう」と反応しているので、昼食を否定する発言は流れに合いません。" },
-        { "text": "My favorite subject is math.", "correct": false, "explain": "好きな教科の話は、昼食についての質問と関係ありません。" }
+        {
+          "text": "I'm going to have a sandwich and some soup.",
+          "correct": true,
+          "explain": "What about you?（あなたは？）とたずねられているので、自分の昼食を答える発言が自然です。"
+        },
+        {
+          "text": "I already ate breakfast this morning.",
+          "correct": false,
+          "explain": "朝食の話は、昼食について尋ねられた質問への答えになっていません。"
+        },
+        {
+          "text": "I don't like eating lunch at all.",
+          "correct": false,
+          "explain": "その後Bが「それもよさそう」と反応しているので、昼食を否定する発言は流れに合いません。"
+        },
+        {
+          "text": "My favorite subject is math.",
+          "correct": false,
+          "explain": "好きな教科の話は、昼食についての質問と関係ありません。"
+        }
       ]
     }
   ]
