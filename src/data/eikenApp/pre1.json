@@ -265,6 +265,90 @@
         { "text": "Because", "correct": false, "explain": "Because（〜なので）は理由を表し、譲歩の文意に合いません。" },
         { "text": "Unless", "correct": false, "explain": "Unless（〜しない限り）は条件を表し、この文意には合いません。" }
       ]
+    },
+    {
+      "id": "gp1-06",
+      "sentence": "If she had studied harder in college, she ___ a better job now.",
+      "ja": "もし彼女が大学でもっと熱心に勉強していたら、今頃もっと良い仕事に就いているだろう。",
+      "point": "混合仮定法：過去の条件（If + had + 過去分詞）＋ 現在の結果（would + 動詞の原形）",
+      "choices": [
+        { "text": "would have", "correct": true, "explain": "過去の条件が現在の結果に影響する混合仮定法では、帰結節は would + 動詞の原形（have）にします。" },
+        { "text": "would have had", "correct": false, "explain": "過去の結果（would have had）ではなく、現在の結果を表す形が必要です。" },
+        { "text": "will have", "correct": false, "explain": "仮定法の帰結節では will ではなく would を使います。" },
+        { "text": "had", "correct": false, "explain": "had だけでは仮定法の帰結節として成立しません。" }
+      ]
+    },
+    {
+      "id": "gp1-07",
+      "sentence": "He behaved as though nothing ___ happened.",
+      "ja": "彼はまるで何も起こらなかったかのように振る舞った。",
+      "point": "as though / as if + 仮定法過去完了（まるで〜であったかのように）",
+      "choices": [
+        { "text": "had", "correct": true, "explain": "as though の後で過去の事実と異なる内容を表すときは仮定法過去完了（had + 過去分詞）を使います。" },
+        { "text": "has", "correct": false, "explain": "has は現在完了形で、仮定法にはなりません。" },
+        { "text": "would have", "correct": false, "explain": "as though の直後には would have ではなく had を使います。" },
+        { "text": "will have", "correct": false, "explain": "will have は未来完了で、過去の事実に反する内容には使いません。" }
+      ]
+    },
+    {
+      "id": "gp1-08",
+      "sentence": "Despite ___ for hours, they still couldn't find a solution.",
+      "ja": "何時間も議論したにもかかわらず、彼らはまだ解決策を見つけられませんでした。",
+      "point": "前置詞 Despite（〜にもかかわらず）の後は動名詞",
+      "choices": [
+        { "text": "arguing", "correct": true, "explain": "Despite は前置詞なので、後ろには動名詞（arguing）が続きます。" },
+        { "text": "argued", "correct": false, "explain": "前置詞の後に過去形の動詞をそのまま続けることはできません。" },
+        { "text": "argue", "correct": false, "explain": "前置詞の後は動詞の原形ではなく動名詞にする必要があります。" },
+        { "text": "to argue", "correct": false, "explain": "前置詞の後に不定詞は続けません。" }
+      ]
+    },
+    {
+      "id": "gp1-09",
+      "sentence": "She had her proposal ___ by the committee before the deadline.",
+      "ja": "彼女は締め切り前に委員会に提案を見直してもらいました。",
+      "point": "使役動詞 have + 目的語 + 過去分詞（〜してもらう）",
+      "choices": [
+        { "text": "reviewed", "correct": true, "explain": "have + 目的語 + 過去分詞で「〜してもらう」という受け身的な使役を表します。" },
+        { "text": "review", "correct": false, "explain": "目的語（her proposal）は「見直される」側なので過去分詞が適切です。" },
+        { "text": "reviewing", "correct": false, "explain": "have + 目的語 + 現在分詞は異なる意味（〜している状態にする）になり、ここでは不自然です。" },
+        { "text": "to review", "correct": false, "explain": "この使役構文の目的語の後には to不定詞は使いません。" }
+      ]
+    },
+    {
+      "id": "gp1-10",
+      "sentence": "This is the department ___ budget was cut the most this year.",
+      "ja": "これは今年最も予算が削減された部署です。",
+      "point": "関係代名詞 whose（物にも使える所有格の関係代名詞）",
+      "choices": [
+        { "text": "whose", "correct": true, "explain": "whose は人だけでなく物（the department）にも使え、「その〜の」という所有関係を表します。" },
+        { "text": "which", "correct": false, "explain": "which の後に budget という名詞を直接続けることはできません。" },
+        { "text": "that", "correct": false, "explain": "that には所有格の用法がありません。" },
+        { "text": "who", "correct": false, "explain": "who は人を先行詞にするときに使います。department は物です。" }
+      ]
+    },
+    {
+      "id": "gp1-11",
+      "sentence": "I ___ appreciate everything you have done for us, even though I can't accept the offer.",
+      "ja": "申し出を受け入れることはできませんが、皆さんがしてくださったことには本当に感謝しています。",
+      "point": "強調の do（本当に〜する）＋ 動詞の原形",
+      "choices": [
+        { "text": "do appreciate", "correct": true, "explain": "強調の do は動詞の原形の前に置き、「本当に〜する」という気持ちを強調します。" },
+        { "text": "am appreciate", "correct": false, "explain": "appreciate は一般動詞なので、be動詞（am）と一緒には使いません。" },
+        { "text": "appreciating", "correct": false, "explain": "appreciating だけでは強調の意味も文の動詞としての形も成立しません。" },
+        { "text": "did appreciated", "correct": false, "explain": "did の後は動詞の原形が必要で、過去形（appreciated）は続けません。" }
+      ]
+    },
+    {
+      "id": "gp1-12",
+      "sentence": "___ arriving at the airport, she realized she had forgotten her passport.",
+      "ja": "空港に着くとすぐに、彼女はパスポートを忘れたことに気づきました。",
+      "point": "On + 動名詞（〜するとすぐに）",
+      "choices": [
+        { "text": "On", "correct": true, "explain": "On + 動名詞で「〜するとすぐに」という意味を表す表現です。" },
+        { "text": "At", "correct": false, "explain": "この意味の慣用表現には At ではなく On を使います。" },
+        { "text": "In", "correct": false, "explain": "In ではこの「〜するとすぐに」という意味になりません。" },
+        { "text": "By", "correct": false, "explain": "By + 動名詞は「〜することによって」という手段を表し、この文意には合いません。" }
+      ]
     }
   ],
   "reading": [
@@ -304,6 +388,43 @@
           ]
         }
       ]
+    },
+    {
+      "id": "rp1-02",
+      "title": "The Revival of Analog Technology",
+      "passage": "In an era dominated by streaming services and digital convenience, sales of vinyl records have grown for more than a decade, even outselling CDs in some markets. Industry analysts initially dismissed the trend as nostalgia among older listeners, but data now shows that a significant share of vinyl buyers are under thirty and have no memory of the format's original popularity. Some researchers attribute this appeal to the deliberate, tactile experience of selecting a record, placing it on a turntable, and listening to an album from start to finish, a ritual that stands in sharp contrast to the endless, algorithmically curated playlists of streaming platforms. Others point to the resurgence of independent record shops, which offer younger consumers a sense of discovery and community that a smartphone screen cannot easily replicate. Whatever the underlying motivation, retailers report that the format's growth shows little sign of slowing, prompting several major labels to expand their vinyl pressing capacity for the first time in decades.",
+      "questions": [
+        {
+          "id": "rp1-02-q1",
+          "q": "What did industry analysts initially assume about the vinyl record trend?",
+          "choices": [
+            { "text": "That it was driven by nostalgia among older listeners.", "correct": true, "explain": "\"Industry analysts initially dismissed the trend as nostalgia among older listeners\" とあります。" },
+            { "text": "That it was driven entirely by collectors.", "correct": false, "explain": "コレクターについての記述はありません。" },
+            { "text": "That it would disappear within a year.", "correct": false, "explain": "1年で消えるという記述はありません。" },
+            { "text": "That it was limited to a few countries.", "correct": false, "explain": "特定の国に限定されるという記述はありません。" }
+          ]
+        },
+        {
+          "id": "rp1-02-q2",
+          "q": "According to the passage, what do some researchers attribute vinyl's appeal to?",
+          "choices": [
+            { "text": "The deliberate, tactile ritual of playing a record from start to finish.", "correct": true, "explain": "\"the deliberate, tactile experience of selecting a record ... a ritual that stands in sharp contrast to ... streaming platforms\" とあります。" },
+            { "text": "The lower price of vinyl compared to streaming.", "correct": false, "explain": "価格についての記述はありません。" },
+            { "text": "The superior sound quality proven by science.", "correct": false, "explain": "音質の科学的な優位性についての記述はありません。" },
+            { "text": "The convenience of carrying records while traveling.", "correct": false, "explain": "携帯性についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "rp1-02-q3",
+          "q": "What are major labels reportedly doing in response to vinyl's growth?",
+          "choices": [
+            { "text": "Expanding their vinyl pressing capacity for the first time in decades.", "correct": true, "explain": "\"prompting several major labels to expand their vinyl pressing capacity for the first time in decades\" とあります。" },
+            { "text": "Discontinuing vinyl production entirely.", "correct": false, "explain": "本文は逆に生産能力を拡大していると述べています。" },
+            { "text": "Lowering the price of streaming services.", "correct": false, "explain": "ストリーミングの価格についての記述はありません。" },
+            { "text": "Closing independent record shops.", "correct": false, "explain": "独立系レコード店は再興していると述べられており、閉店の記述はありません。" }
+          ]
+        }
+      ]
     }
   ],
   "listening": [
@@ -330,6 +451,42 @@
         { "text": "An agreement among all speakers.", "correct": false, "explain": "全員が同意したのではなく、議論が白熱したと言っています。" },
         { "text": "A speaker leaving the discussion early.", "correct": false, "explain": "途中退席についての記述はありません。" }
       ]
+    },
+    {
+      "id": "lp1-03",
+      "script": "The committee has postponed its final decision until next month, citing the need for further consultation with stakeholders before finalizing the budget allocation.",
+      "translation": "委員会は、予算配分を確定する前に関係者とのさらなる協議が必要だとして、最終決定を来月まで延期しました。",
+      "question": "Why has the committee postponed its decision?",
+      "choices": [
+        { "text": "It needs further consultation with stakeholders.", "correct": true, "explain": "\"citing the need for further consultation with stakeholders\" と言っています。" },
+        { "text": "It ran out of funding entirely.", "correct": false, "explain": "資金が尽きたという記述はありません。" },
+        { "text": "The budget has already been finalized.", "correct": false, "explain": "本文では予算配分はまだ確定していないと述べています。" },
+        { "text": "No stakeholders were interested.", "correct": false, "explain": "関係者の無関心についての記述はありません。" }
+      ]
+    },
+    {
+      "id": "lp1-04",
+      "script": "Despite initial resistance from residents, the city council approved the new bike lane project, arguing that it would reduce traffic congestion in the long run.",
+      "translation": "住民からの当初の反対にもかかわらず、市議会は自転車レーンの新設計画を承認し、長期的には交通渋滞を緩和すると主張しました。",
+      "question": "Why did the city council approve the bike lane project?",
+      "choices": [
+        { "text": "They argued it would reduce traffic congestion in the long run.", "correct": true, "explain": "\"arguing that it would reduce traffic congestion in the long run\" と言っています。" },
+        { "text": "Residents unanimously supported it from the start.", "correct": false, "explain": "当初は住民の反対があったと述べられています。" },
+        { "text": "It required no funding at all.", "correct": false, "explain": "資金についての記述はありません。" },
+        { "text": "It was required by national law.", "correct": false, "explain": "法律による義務についての記述はありません。" }
+      ]
+    },
+    {
+      "id": "lp1-05",
+      "script": "The professor mentioned that the exam would focus more on application of concepts than on memorization, which surprised several students who had prepared differently.",
+      "translation": "教授は、試験は暗記よりも概念の応用に重点が置かれると述べ、それは違う準備をしていた学生たちを驚かせました。",
+      "question": "What surprised several students about the exam?",
+      "choices": [
+        { "text": "It would focus more on application than memorization.", "correct": true, "explain": "\"the exam would focus more on application of concepts than on memorization, which surprised several students\" とあります。" },
+        { "text": "It was canceled at the last minute.", "correct": false, "explain": "試験が中止されたという記述はありません。" },
+        { "text": "It would only test memorization.", "correct": false, "explain": "本文では逆に応用力を重視すると述べています。" },
+        { "text": "It would be much easier than expected.", "correct": false, "explain": "難易度についての比較の記述はありません。" }
+      ]
     }
   ],
   "dialogue": [
@@ -350,6 +507,25 @@
         { "text": "I really enjoyed the weather this week.", "correct": false, "explain": "学術的な議論の流れに全く関係ありません。" },
         { "text": "Your paper should be twice as long.", "correct": false, "explain": "その後の返答（サンプルサイズへの言及）と結びつきません。" },
         { "text": "I have no opinion on your research at all.", "correct": false, "explain": "具体的な懸念を尋ねられているのに「意見がない」は不自然です。" }
+      ]
+    },
+    {
+      "id": "dp1-02",
+      "title": "Choosing a Study Abroad Program",
+      "translation": "A：留学プログラムはどちらに応募するか決めた？ B：トロントのプログラムとメルボルンのプログラムで迷っているんだ。 A：___ B：いい指摘だね。メルボルンのプログラムのほうが、自分の分野での研究機会が多いんだ。 A：それなら、費用が少し高くても、そっちを優先する価値があるかもね。",
+      "lines": [
+        { "speaker": "A", "text": "Have you decided which study abroad program to apply for?" },
+        { "speaker": "B", "text": "I'm torn between the one in Toronto and the one in Melbourne." },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "That's a good point. The Melbourne program does have stronger research opportunities in my field." },
+        { "speaker": "A", "text": "Then it might be worth prioritizing that, even if the cost is a bit higher." }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "Have you compared which program offers better opportunities in your specific major?", "correct": true, "explain": "直後にBが自分の分野での研究機会について答えているので、専攻に関する機会を比較したかを尋ねる発言が自然です。" },
+        { "text": "I don't think studying abroad is worth it at all.", "correct": false, "explain": "留学自体を否定する発言は、二つのプログラムで迷っているという文脈に合いません。" },
+        { "text": "You should just flip a coin.", "correct": false, "explain": "その後Bが具体的な理由を答えているので、コイントスの提案は流れに合いません。" },
+        { "text": "Neither program sounds interesting to me.", "correct": false, "explain": "Bの選択を助ける会話の流れに合わない発言です。" }
       ]
     }
   ]
