@@ -265,6 +265,90 @@
         { "text": "who", "correct": false, "explain": "who は人を先行詞にするときに使います。" },
         { "text": "whom", "correct": false, "explain": "whom も人を先行詞にする関係代名詞です。" }
       ]
+    },
+    {
+      "id": "g2-06",
+      "sentence": "It's high time we ___ this problem seriously.",
+      "ja": "そろそろこの問題を真剣に考える時です。",
+      "point": "It is (high) time + 仮定法過去（そろそろ〜する時だ）",
+      "choices": [
+        { "text": "addressed", "correct": true, "explain": "It is (high) time の後には仮定法過去（動詞の過去形）を使い、「そろそろ〜すべき時だ」という意味を表します。" },
+        { "text": "address", "correct": false, "explain": "この構文では動詞の原形ではなく過去形を使います。" },
+        { "text": "will address", "correct": false, "explain": "It is time の後に未来形は使いません。" },
+        { "text": "have addressed", "correct": false, "explain": "現在完了形はこの構文には使いません。" }
+      ]
+    },
+    {
+      "id": "g2-07",
+      "sentence": "She spoke slowly ___ everyone could understand her.",
+      "ja": "彼女は誰もが理解できるようにゆっくり話しました。",
+      "point": "so that（〜するように）＋ 助動詞を伴う目的を表す節",
+      "choices": [
+        { "text": "so that", "correct": true, "explain": "so that + 主語 + 助動詞で「〜するように」という目的を表します。" },
+        { "text": "so as", "correct": false, "explain": "so as は通常 so as to + 動詞の原形の形で使い、後ろに節（主語＋動詞）は続けません。" },
+        { "text": "in spite of", "correct": false, "explain": "in spite of（〜にもかかわらず）は譲歩を表し、目的の意味にはなりません。" },
+        { "text": "even though", "correct": false, "explain": "even though（〜だけれども）は譲歩を表し、この文意には合いません。" }
+      ]
+    },
+    {
+      "id": "g2-08",
+      "sentence": "___ you've already finished your homework, you can watch TV.",
+      "ja": "もう宿題を終えたのだから、テレビを見てもいいですよ。",
+      "point": "Now that（今や〜なので）：理由を表す接続詞",
+      "choices": [
+        { "text": "Now that", "correct": true, "explain": "Now that + 主語 + 動詞で「今や〜なので」という理由を表します。" },
+        { "text": "As if", "correct": false, "explain": "As if（まるで〜であるかのように）は、この文意には合いません。" },
+        { "text": "Even if", "correct": false, "explain": "Even if（たとえ〜でも）は仮定・譲歩を表し、この文意には合いません。" },
+        { "text": "So far", "correct": false, "explain": "So far（これまでのところ）は接続詞ではなく副詞句です。" }
+      ]
+    },
+    {
+      "id": "g2-09",
+      "sentence": "I couldn't help ___ when I heard the joke.",
+      "ja": "そのジョークを聞いたとき、笑わずにはいられませんでした。",
+      "point": "cannot help + 動名詞（〜せずにはいられない）",
+      "choices": [
+        { "text": "laughing", "correct": true, "explain": "cannot help + 動名詞で「〜せずにはいられない」という意味を表します。" },
+        { "text": "laugh", "correct": false, "explain": "help の後は動詞の原形ではなく動名詞を使います。" },
+        { "text": "to laugh", "correct": false, "explain": "この表現では to不定詞は使いません。" },
+        { "text": "laughed", "correct": false, "explain": "help の後は過去形ではなく動名詞を使います。" }
+      ]
+    },
+    {
+      "id": "g2-10",
+      "sentence": "The more you practice, the ___ you will become.",
+      "ja": "練習すればするほど、上達するでしょう。",
+      "point": "The + 比較級 …, the + 比較級 …（〜すればするほど…）",
+      "choices": [
+        { "text": "better", "correct": true, "explain": "The more ..., the better ... で「〜すればするほど良くなる」という比例の意味を表します。" },
+        { "text": "good", "correct": false, "explain": "比例表現では the の後に比較級（better）を使います。原級（good）ではありません。" },
+        { "text": "best", "correct": false, "explain": "最上級（best）ではなく比較級（better）を使う構文です。" },
+        { "text": "well", "correct": false, "explain": "well の比較級は better なので、この形は誤りです。" }
+      ]
+    },
+    {
+      "id": "g2-11",
+      "sentence": "She ___ have long hair when she was younger.",
+      "ja": "彼女は若いころ長い髪をしていました。",
+      "point": "過去の状態を表すときは used to のみ使用可（would は状態動詞には使えない）",
+      "choices": [
+        { "text": "used to", "correct": true, "explain": "have（持っている、状態）のような状態を表す動詞には used to を使い、would は使えません。" },
+        { "text": "would", "correct": false, "explain": "would は過去の反復した動作には使えますが、have のような状態動詞には使えません。" },
+        { "text": "was used to", "correct": false, "explain": "be used to + 動名詞は「〜することに慣れている」という別の意味になります。" },
+        { "text": "uses to", "correct": false, "explain": "used to は常に過去形の形（used to）で使い、uses to という形はありません。" }
+      ]
+    },
+    {
+      "id": "g2-12",
+      "sentence": "___ it rains, the outdoor concert will proceed as planned.",
+      "ja": "雨が降らない限り、屋外コンサートは予定通り行われます。",
+      "point": "Unless（〜しない限り）＝ if ... not の書き換え",
+      "choices": [
+        { "text": "Unless", "correct": true, "explain": "Unless it rains は「雨が降らない限り」という意味で、if it doesn't rain と同じ内容を表します。" },
+        { "text": "If", "correct": false, "explain": "If it rains では「雨が降れば」という意味になり、文意（雨が降らなければ）と逆になります。" },
+        { "text": "Even if", "correct": false, "explain": "Even if it rains では「たとえ雨が降っても」となり、屋外コンサートの前提と合いません。" },
+        { "text": "As long as", "correct": false, "explain": "As long as it rains では「雨が降っている限り」という逆の意味になってしまいます。" }
+      ]
     }
   ],
   "reading": [
@@ -304,6 +388,43 @@
           ]
         }
       ]
+    },
+    {
+      "id": "r2-02",
+      "title": "The Rise of Micro-Credentials",
+      "passage": "As traditional four-year degrees become more expensive and, in some fields, less directly tied to specific job skills, many professionals are turning to micro-credentials: short, focused courses that certify competence in a single skill, such as data analysis or digital marketing. Employers in fast-changing industries increasingly value these credentials because they demonstrate that a candidate has kept pace with current tools and techniques, something a degree earned years earlier may not reflect. Universities and technology companies alike have begun offering such programs, often completed online in a matter of weeks rather than years. Critics, however, warn that an overreliance on narrow credentials could discourage the broader critical thinking skills that a traditional education is designed to build, and that employers should be cautious about treating a short course as equivalent to years of formal study.",
+      "questions": [
+        {
+          "id": "r2-02-q1",
+          "q": "Why are many professionals turning to micro-credentials?",
+          "choices": [
+            { "text": "Because traditional degrees can be expensive and less tied to specific skills.", "correct": true, "explain": "\"traditional four-year degrees become more expensive and ... less directly tied to specific job skills\" とあります。" },
+            { "text": "Because all universities have stopped offering degrees.", "correct": false, "explain": "大学が学位授与をやめたという記述はありません。" },
+            { "text": "Because micro-credentials guarantee a higher salary than degrees.", "correct": false, "explain": "給与の保証についての記述はありません。" },
+            { "text": "Because employers no longer value any kind of education.", "correct": false, "explain": "本文は教育そのものを否定していません。" }
+          ]
+        },
+        {
+          "id": "r2-02-q2",
+          "q": "Why do employers in fast-changing industries value micro-credentials?",
+          "choices": [
+            { "text": "They show a candidate has kept pace with current tools and techniques.", "correct": true, "explain": "\"they demonstrate that a candidate has kept pace with current tools and techniques\" とあります。" },
+            { "text": "They are always cheaper to obtain than a job interview.", "correct": false, "explain": "面接との価格比較についての記述はありません。" },
+            { "text": "They replace the need for any work experience.", "correct": false, "explain": "職務経験が不要になるという記述はありません。" },
+            { "text": "They are required by law in most industries.", "correct": false, "explain": "法律上の義務についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "r2-02-q3",
+          "q": "What warning do critics give about micro-credentials?",
+          "choices": [
+            { "text": "An overreliance on them could discourage broader critical thinking skills.", "correct": true, "explain": "\"an overreliance on narrow credentials could discourage the broader critical thinking skills\" とあります。" },
+            { "text": "They will completely replace universities within a year.", "correct": false, "explain": "1年で大学を完全に置き換えるという記述はありません。" },
+            { "text": "They are illegal in most countries.", "correct": false, "explain": "違法性についての記述はありません。" },
+            { "text": "They have no value to any employer.", "correct": false, "explain": "本文はむしろ一部の雇用主が高く評価していると述べています。" }
+          ]
+        }
+      ]
     }
   ],
   "listening": [
@@ -329,6 +450,42 @@
         { "text": "Tomorrow.", "correct": false, "explain": "明日ではなく、月末までと言っています。" },
         { "text": "Next year.", "correct": false, "explain": "来年ではなく、月末までと言っています。" },
         { "text": "It has already been announced.", "correct": false, "explain": "まだ検討中で、発表はこれからです。" }
+      ]
+    },
+    {
+      "id": "l2-03",
+      "script": "The survey results indicate that although most employees support remote work, a significant number feel it has made collaboration with colleagues more difficult.",
+      "translation": "調査結果によると、ほとんどの従業員がリモートワークを支持している一方で、かなりの数が同僚との連携が難しくなったと感じています。",
+      "question": "What do the survey results indicate?",
+      "choices": [
+        { "text": "Most support remote work, but many find collaboration harder.", "correct": true, "explain": "\"most employees support remote work, a significant number feel it has made collaboration ... more difficult\" とあります。" },
+        { "text": "All employees oppose remote work.", "correct": false, "explain": "ほとんどが支持していると述べています。" },
+        { "text": "Remote work has made collaboration easier for everyone.", "correct": false, "explain": "本文は逆に連携が難しくなったと述べています。" },
+        { "text": "No one has an opinion on remote work.", "correct": false, "explain": "調査結果で意見が示されています。" }
+      ]
+    },
+    {
+      "id": "l2-04",
+      "script": "The airline announced that, due to a technical inspection, the departure would be delayed by approximately ninety minutes, and passengers were advised to remain near the gate.",
+      "translation": "航空会社は、技術点検のため出発が約90分遅れると発表し、乗客にはゲート付近で待つよう案内しました。",
+      "question": "Why was the flight delayed?",
+      "choices": [
+        { "text": "Due to a technical inspection.", "correct": true, "explain": "\"due to a technical inspection, the departure would be delayed\" と言っています。" },
+        { "text": "Due to bad weather.", "correct": false, "explain": "天候についての記述はありません。" },
+        { "text": "Due to a shortage of staff.", "correct": false, "explain": "人員不足についての記述はありません。" },
+        { "text": "Due to a passenger emergency.", "correct": false, "explain": "乗客の緊急事態についての記述はありません。" }
+      ]
+    },
+    {
+      "id": "l2-05",
+      "script": "The city's new recycling program requires residents to sort waste into four separate categories, a change that some elderly residents have found confusing at first.",
+      "translation": "市の新しいリサイクルプログラムでは、住民はごみを4つのカテゴリーに分別する必要があり、この変更に最初は戸惑う高齢の住民もいました。",
+      "question": "What do residents need to do under the new recycling program?",
+      "choices": [
+        { "text": "Sort waste into four separate categories.", "correct": true, "explain": "\"requires residents to sort waste into four separate categories\" とあります。" },
+        { "text": "Bring all waste to a central location themselves.", "correct": false, "explain": "自分で中央施設に持ち込むという記述はありません。" },
+        { "text": "Pay an extra fee for recycling.", "correct": false, "explain": "追加料金についての記述はありません。" },
+        { "text": "Stop recycling plastic entirely.", "correct": false, "explain": "プラスチックのリサイクルをやめるという記述はありません。" }
       ]
     }
   ],
