@@ -265,6 +265,90 @@
         { "text": "seeing", "correct": false, "explain": "look forward の後には to が必要です。" },
         { "text": "see", "correct": false, "explain": "to が抜けており、動詞の形も合いません。" }
       ]
+    },
+    {
+      "id": "gp2-06",
+      "sentence": "By the time we arrived, the movie ___ already started.",
+      "ja": "私たちが着いたときには、映画はすでに始まっていました。",
+      "point": "過去完了形（had + 過去分詞）：過去のある時点までに完了していたこと",
+      "choices": [
+        { "text": "had", "correct": true, "explain": "By the time we arrived（過去の一時点）よりも前に完了していたことを表すので、過去完了形（had started）を使います。" },
+        { "text": "has", "correct": false, "explain": "has は現在完了形で、過去の基準時点との前後関係を表せません。" },
+        { "text": "was", "correct": false, "explain": "was だけでは「すでに始まっていた」という完了の意味を表せません。" },
+        { "text": "did", "correct": false, "explain": "did では過去完了形になりません。" }
+      ]
+    },
+    {
+      "id": "gp2-07",
+      "sentence": "I'd rather you ___ smoke in this room.",
+      "ja": "この部屋ではたばこを吸わないでほしいのですが。",
+      "point": "would rather + 主語 + 過去形（〜してほしくない、仮定法過去）",
+      "choices": [
+        { "text": "didn't", "correct": true, "explain": "would rather + 主語 + 過去形で「〜してほしくない」という婉曲な依頼・希望を表します。" },
+        { "text": "don't", "correct": false, "explain": "would rather の後で他人に望むことを表すときは過去形（didn't）を使います。" },
+        { "text": "won't", "correct": false, "explain": "won't ではこの婉曲な依頼の構文になりません。" },
+        { "text": "not", "correct": false, "explain": "not だけでは動詞が抜けており、文として成立しません。" }
+      ]
+    },
+    {
+      "id": "gp2-08",
+      "sentence": "___ to music is one of my favorite ways to relax.",
+      "ja": "音楽を聴くことは、私のお気に入りのリラックス方法の一つです。",
+      "point": "動名詞が主語になる用法",
+      "choices": [
+        { "text": "Listening", "correct": true, "explain": "動詞のing形（動名詞）は名詞と同じように文の主語になれます。" },
+        { "text": "Listen", "correct": false, "explain": "動詞の原形は文の主語として使えません。" },
+        { "text": "To listening", "correct": false, "explain": "to と動名詞を重ねて使うことはできません。" },
+        { "text": "Listened", "correct": false, "explain": "過去形は文の主語として使えません。" }
+      ]
+    },
+    {
+      "id": "gp2-09",
+      "sentence": "He apologized ___ being late for the meeting.",
+      "ja": "彼は会議に遅れたことを謝罪しました。",
+      "point": "apologize for + 動名詞（〜したことを謝る）",
+      "choices": [
+        { "text": "for", "correct": true, "explain": "apologize for + 動名詞で「〜したことを謝る」という意味を表します。" },
+        { "text": "to", "correct": false, "explain": "apologize to + 人（〜に謝る）の形で使い、行為を表すときは for を使います。" },
+        { "text": "about", "correct": false, "explain": "apologize の後に about は通常使いません。" },
+        { "text": "of", "correct": false, "explain": "apologize の後に of は使いません。" }
+      ]
+    },
+    {
+      "id": "gp2-10",
+      "sentence": "I'm not used ___ up so early.",
+      "ja": "私はこんなに早く起きることに慣れていません。",
+      "point": "be used to + 動名詞（〜することに慣れている）",
+      "choices": [
+        { "text": "to getting", "correct": true, "explain": "be used to の to は前置詞なので、後ろには動名詞（getting）が続きます。" },
+        { "text": "to get", "correct": false, "explain": "この to は前置詞なので、原形不定詞ではなく動名詞が必要です。" },
+        { "text": "getting", "correct": false, "explain": "be used の後には to が必要です。" },
+        { "text": "get", "correct": false, "explain": "to も ing も抜けており、この構文には合いません。" }
+      ]
+    },
+    {
+      "id": "gp2-11",
+      "sentence": "She asked me ___ I had ever visited Kyoto.",
+      "ja": "彼女は私に、京都を訪れたことがあるかと尋ねました。",
+      "point": "間接疑問文：Yes/No疑問文を間接話法にするときは whether / if を使う",
+      "choices": [
+        { "text": "whether", "correct": true, "explain": "Yes/No で答える疑問文を間接話法にするときは whether（または if）を使います。" },
+        { "text": "that", "correct": false, "explain": "that では疑問の意味が表せません。" },
+        { "text": "what", "correct": false, "explain": "what は「何を」とたずねる疑問詞で、この文には合いません。" },
+        { "text": "which", "correct": false, "explain": "which は「どちら」と選択をたずねる疑問詞で、この文意には合いません。" }
+      ]
+    },
+    {
+      "id": "gp2-12",
+      "sentence": "___ hard he tried, he couldn't solve the puzzle.",
+      "ja": "どんなに頑張っても、彼はそのパズルを解けませんでした。",
+      "point": "No matter how + 形容詞/副詞（どんなに〜でも）",
+      "choices": [
+        { "text": "No matter how", "correct": true, "explain": "No matter how + 形容詞/副詞 + 主語 + 動詞で「どんなに〜でも」という譲歩を表します。" },
+        { "text": "No matter what", "correct": false, "explain": "No matter what は「何が〜でも」という意味で、程度（hard）を表す語とは組み合わせません。" },
+        { "text": "However that", "correct": false, "explain": "However that という組み合わせは使いません。" },
+        { "text": "Even how", "correct": false, "explain": "Even how という表現はありません。" }
+      ]
     }
   ],
   "reading": [
@@ -367,6 +451,42 @@
         { "text": "Very angry.", "correct": false, "explain": "怒っているという記述はありません。" },
         { "text": "Extremely confident.", "correct": false, "explain": "不安だと言っており、自信満々ではありません。" }
       ]
+    },
+    {
+      "id": "lp2-03",
+      "script": "The library will be closed for renovations starting next Monday, and all borrowed books must be returned by this Friday.",
+      "translation": "図書館は来週月曜日から改装のため休館となり、借りている本はすべて今週金曜日までに返却する必要があります。",
+      "question": "When must borrowed books be returned?",
+      "choices": [
+        { "text": "By this Friday.", "correct": true, "explain": "\"all borrowed books must be returned by this Friday\" とあります。" },
+        { "text": "By next Monday.", "correct": false, "explain": "月曜日は休館が始まる日で、返却期限ではありません。" },
+        { "text": "By the end of the month.", "correct": false, "explain": "月末についての記述はありません。" },
+        { "text": "They don't need to be returned.", "correct": false, "explain": "返却が必要だと述べられています。" }
+      ]
+    },
+    {
+      "id": "lp2-04",
+      "script": "Although the restaurant was fully booked for dinner, they said they could seat us if we arrived before six o'clock.",
+      "translation": "そのレストランは夕食の予約でいっぱいでしたが、6時前に来れば席を用意できると言っていました。",
+      "question": "Under what condition could the restaurant seat them?",
+      "choices": [
+        { "text": "If they arrived before six o'clock.", "correct": true, "explain": "\"they could seat us if we arrived before six o'clock\" と言っています。" },
+        { "text": "If they made a reservation online.", "correct": false, "explain": "オンライン予約についての記述はありません。" },
+        { "text": "If they ordered in advance.", "correct": false, "explain": "事前注文についての記述はありません。" },
+        { "text": "If they waited until after nine.", "correct": false, "explain": "本文では6時より前と言っており、9時以降ではありません。" }
+      ]
+    },
+    {
+      "id": "lp2-05",
+      "script": "The coach announced that practice would be moved indoors because of the forecast for heavy rain this afternoon.",
+      "translation": "コーチは、今日の午後は大雨の予報のため、練習を屋内に移すと発表しました。",
+      "question": "Why was practice moved indoors?",
+      "choices": [
+        { "text": "Because of the forecast for heavy rain.", "correct": true, "explain": "\"practice would be moved indoors because of the forecast for heavy rain\" と言っています。" },
+        { "text": "Because the field was being repaired.", "correct": false, "explain": "グラウンドの修理についての記述はありません。" },
+        { "text": "Because too few players showed up.", "correct": false, "explain": "選手の人数についての記述はありません。" },
+        { "text": "Because the coach was sick.", "correct": false, "explain": "コーチの体調についての記述はありません。" }
+      ]
     }
   ],
   "dialogue": [
@@ -387,6 +507,25 @@
         { "text": "I don't think Hokkaido exists.", "correct": false, "explain": "会話の流れとして不自然で、次の返答ともかみ合いません。" },
         { "text": "You should stop traveling forever.", "correct": false, "explain": "旅行を勧める文脈に合わない返答です。" },
         { "text": "The weather in Hokkaido is always bad.", "correct": false, "explain": "その後の返答（安いチケットを探す）とつながりません。" }
+      ]
+    },
+    {
+      "id": "dp2-02",
+      "title": "A Part-Time Job Interview",
+      "translation": "A：本日はお越しいただきありがとうございます。この仕事に興味を持った理由を教えていただけますか。 B：お客様と接する仕事がずっと好きで、このお店はアルバイトスタッフをとても大切にしていると聞きました。 A：それは良かったです。接客の経験はありますか。 B：___ A：それは良い経験ですね。いつから働き始められますか。",
+      "lines": [
+        { "speaker": "A", "text": "Thank you for coming in today. Can you tell me why you're interested in this position?" },
+        { "speaker": "B", "text": "I've always enjoyed working with customers, and I heard this shop treats part-time staff really well." },
+        { "speaker": "A", "text": "That's good to hear. Do you have any experience in retail?" },
+        { "speaker": "B", "text": "___" },
+        { "speaker": "A", "text": "That sounds like great experience. When would you be available to start?" }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        { "text": "I worked at a convenience store for about a year during high school.", "correct": true, "explain": "接客経験を尋ねられているので、具体的な経験を答える発言が自然です。直後にAも「良い経験ですね」と反応しています。" },
+        { "text": "No, and I don't think I'd be good at it.", "correct": false, "explain": "その後Aが「良い経験ですね」と肯定的に反応しているので、経験を否定する返答は流れに合いません。" },
+        { "text": "I've never worked anywhere before, and I don't plan to.", "correct": false, "explain": "働く気がないという発言は、面接を受けている文脈と矛盾します。" },
+        { "text": "I'm not really interested in retail at all.", "correct": false, "explain": "接客業に興味がないという発言は、最初の発言（お客様と接する仕事が好き）と矛盾します。" }
       ]
     }
   ]
