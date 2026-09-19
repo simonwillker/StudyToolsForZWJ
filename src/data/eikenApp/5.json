@@ -400,6 +400,43 @@
           ]
         }
       ]
+    },
+    {
+      "id": "r5-02",
+      "title": "A New Pet",
+      "passage": "My family got a new dog last week. His name is Momo. Momo is white and small. Every morning, I walk Momo in the park near my house. He likes to play with a ball. I love Momo very much.",
+      "questions": [
+        {
+          "id": "r5-02-q1",
+          "q": "What is the dog's name?",
+          "choices": [
+            { "text": "Momo.", "correct": true, "explain": "\"His name is Momo.\" とあります。" },
+            { "text": "Taro.", "correct": false, "explain": "本文には Momo と書かれています。" },
+            { "text": "Shiro.", "correct": false, "explain": "本文には Momo と書かれています。" },
+            { "text": "Pochi.", "correct": false, "explain": "本文には Momo と書かれています。" }
+          ]
+        },
+        {
+          "id": "r5-02-q2",
+          "q": "Where does the speaker walk the dog every morning?",
+          "choices": [
+            { "text": "In the park near the house.", "correct": true, "explain": "\"I walk Momo in the park near my house\" とあります。" },
+            { "text": "At school.", "correct": false, "explain": "学校についての記述はありません。" },
+            { "text": "At the beach.", "correct": false, "explain": "浜辺についての記述はありません。" },
+            { "text": "In the kitchen.", "correct": false, "explain": "台所についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "r5-02-q3",
+          "q": "What does Momo like to play with?",
+          "choices": [
+            { "text": "A ball.", "correct": true, "explain": "\"He likes to play with a ball.\" とあります。" },
+            { "text": "A box.", "correct": false, "explain": "箱についての記述はありません。" },
+            { "text": "A book.", "correct": false, "explain": "本についての記述はありません。" },
+            { "text": "A bicycle.", "correct": false, "explain": "自転車についての記述はありません。" }
+          ]
+        }
+      ]
     }
   ],
   "listening": [
@@ -426,6 +463,42 @@
         { "text": "Three", "correct": false, "explain": "two（2人）と言っています。" },
         { "text": "None", "correct": false, "explain": "two（2人）と言っています。" }
       ]
+    },
+    {
+      "id": "l5-03",
+      "script": "My sister likes cats, but I like dogs better.",
+      "translation": "私の姉（妹）は猫が好きですが、私は犬のほうが好きです。",
+      "question": "What does the speaker like better?",
+      "choices": [
+        { "text": "Dogs.", "correct": true, "explain": "\"I like dogs better\" と言っています。" },
+        { "text": "Cats.", "correct": false, "explain": "猫が好きなのは speaker の姉（妹）です。" },
+        { "text": "Birds.", "correct": false, "explain": "鳥についての記述はありません。" },
+        { "text": "Fish.", "correct": false, "explain": "魚についての記述はありません。" }
+      ]
+    },
+    {
+      "id": "l5-04",
+      "script": "We usually eat dinner at seven o'clock at my house.",
+      "translation": "私の家では、たいてい7時に夕食を食べます。",
+      "question": "What time do they usually eat dinner?",
+      "choices": [
+        { "text": "Seven o'clock.", "correct": true, "explain": "\"We usually eat dinner at seven o'clock\" と言っています。" },
+        { "text": "Six o'clock.", "correct": false, "explain": "本文では7時と言っています。" },
+        { "text": "Eight o'clock.", "correct": false, "explain": "本文では7時と言っています。" },
+        { "text": "Nine o'clock.", "correct": false, "explain": "本文では7時と言っています。" }
+      ]
+    },
+    {
+      "id": "l5-05",
+      "script": "I have three books on my desk. Two are about animals.",
+      "translation": "私の机の上に本が3冊あります。2冊は動物についての本です。",
+      "question": "How many books are about animals?",
+      "choices": [
+        { "text": "Two.", "correct": true, "explain": "\"Two are about animals.\" と言っています。" },
+        { "text": "One.", "correct": false, "explain": "本文では2冊と言っています。" },
+        { "text": "Three.", "correct": false, "explain": "3冊は本の合計数で、動物についての本は2冊です。" },
+        { "text": "None.", "correct": false, "explain": "動物についての本は2冊あります。" }
+      ]
     }
   ],
   "dialogue": [
@@ -446,6 +519,25 @@
         { "text": "I like apples very much.", "correct": false, "explain": "宿題についての質問への返答になっていません。" },
         { "text": "It is raining outside.", "correct": false, "explain": "天気の話は会話の流れに合いません。" },
         { "text": "My dog is very big.", "correct": false, "explain": "犬の話は宿題についての質問と関係ありません。" }
+      ]
+    },
+    {
+      "id": "d5-02",
+      "title": "At the Cafeteria",
+      "translation": "A：今日のお昼ごはんは何を食べる？ B：カレーライスを食べるつもりだよ。あなたは？ A：___ B：それもよさそうだね。一緒に座ろうよ。 A：もちろん！",
+      "lines": [
+        { "speaker": "A", "text": "What are you going to eat for lunch today?" },
+        { "speaker": "B", "text": "I'm going to have curry and rice. What about you?" },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "That sounds good too. Let's sit together." },
+        { "speaker": "A", "text": "Sure!" }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "I'm going to have a sandwich and some soup.", "correct": true, "explain": "What about you?（あなたは？）とたずねられているので、自分の昼食を答える発言が自然です。" },
+        { "text": "I already ate breakfast this morning.", "correct": false, "explain": "朝食の話は、昼食について尋ねられた質問への答えになっていません。" },
+        { "text": "I don't like eating lunch at all.", "correct": false, "explain": "その後Bが「それもよさそう」と反応しているので、昼食を否定する発言は流れに合いません。" },
+        { "text": "My favorite subject is math.", "correct": false, "explain": "好きな教科の話は、昼食についての質問と関係ありません。" }
       ]
     }
   ]
