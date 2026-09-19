@@ -139,6 +139,54 @@
             { "text": "accumulate", "correct": false, "explain": "accumulate は「蓄積する」という意味です。" },
             { "text": "accelerate", "correct": false, "explain": "accelerate は「加速する」という意味です。" }
           ]
+        },
+        {
+          "id": "pre1-p1-11",
+          "sentence": "Rarely （　） such dedication among new employees.",
+          "ja": "新入社員の間でこれほどの献身を見ることはめったにない。",
+          "point": "否定の副詞 Rarely が文頭に来るときの倒置",
+          "choices": [
+            { "text": "have I seen", "correct": true, "explain": "Rarely のような否定的な副詞が文頭に来ると、後ろは疑問文の語順（have I seen）に倒置します。" },
+            { "text": "I have seen", "correct": false, "explain": "Rarely が文頭にあるときは倒置が必要です。" },
+            { "text": "did I see", "correct": false, "explain": "現在完了の文脈なので did ではなく have を使います。" },
+            { "text": "I saw", "correct": false, "explain": "倒置されておらず、時制も現在完了になっていません。" }
+          ]
+        },
+        {
+          "id": "pre1-p1-12",
+          "sentence": "The factory closed suddenly, （　） hundreds of workers without jobs.",
+          "ja": "その工場は突然閉鎖し、何百人もの労働者が職を失うことになった。",
+          "point": "分詞構文（結果を表す：〜し、その結果…）",
+          "choices": [
+            { "text": "leaving", "correct": true, "explain": "現在分詞（leaving）は「〜し、その結果…」という結果を表す分詞構文を作ります。" },
+            { "text": "left", "correct": false, "explain": "過去分詞では能動的な「〜させる」という意味を表せません。" },
+            { "text": "to leave", "correct": false, "explain": "不定詞ではこの結果を表す分詞構文にはなりません。" },
+            { "text": "leave", "correct": false, "explain": "動詞の原形のままでは分詞構文になりません。" }
+          ]
+        },
+        {
+          "id": "pre1-p1-13",
+          "sentence": "（　） it not for her quick thinking, the accident could have been much worse.",
+          "ja": "彼女の機転がなければ、事故はもっとひどいことになっていただろう。",
+          "point": "Were it not for 〜（〜がなければ）仮定法の倒置",
+          "choices": [
+            { "text": "Were", "correct": true, "explain": "If it were not for を If を省略して倒置すると Were it not for になります。" },
+            { "text": "Was", "correct": false, "explain": "仮定法では were を使うのが標準的です。" },
+            { "text": "Did", "correct": false, "explain": "この倒置構文には Were を使います。" },
+            { "text": "Had", "correct": false, "explain": "Had it not been for なら可能ですが、it not for の形には Were が必要です。" }
+          ]
+        },
+        {
+          "id": "pre1-p1-14",
+          "sentence": "The committee members, （　） opinions varied widely, eventually reached a compromise.",
+          "ja": "意見が大きく分かれていた委員会のメンバーたちは、最終的に妥協案に至った。",
+          "point": "関係代名詞 whose（非制限用法、所有格）",
+          "choices": [
+            { "text": "whose", "correct": true, "explain": "whose は「その〜の」という所有関係を表す関係代名詞で、非制限用法（コンマで区切る用法）でも使えます。" },
+            { "text": "which", "correct": false, "explain": "which の後に名詞（opinions）を直接続けることはできません。" },
+            { "text": "that", "correct": false, "explain": "that には所有格の用法がなく、非制限用法でも使いません。" },
+            { "text": "who", "correct": false, "explain": "who には所有格の用法がありません。" }
+          ]
         }
       ]
     },
@@ -196,6 +244,55 @@
                 { "text": "Similarly", "correct": false, "explain": "同様の例ではなく、思いこみを訂正する内容です。" },
                 { "text": "Therefore", "correct": false, "explain": "前文の結果ではありません。" },
                 { "text": "For example", "correct": false, "explain": "具体例ではなく実態の説明です。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pre1-p2-b",
+          "format": "説明文",
+          "title": "The Hidden Cost of Fast Fashion",
+          "passage": "Fast fashion, the practice of quickly producing inexpensive clothing to match the latest trends, has transformed how people around the world shop. A shirt that might have cost a week's wages a generation ago can now be purchased for the price of a cup of coffee. ( 1 ), this convenience comes with consequences that are often invisible to the consumer.\n\nTextile production is among the most water-intensive industries in the world, and the dyes used to color fabric frequently end up in rivers near manufacturing plants. ( 2 ), the workers who sew these garments are often paid wages far below what is needed to live comfortably, even as the brands that sell the clothing report enormous profits.\n\nSome companies have begun to address these issues by adopting more transparent supply chains and using recycled materials. ( 3 ), critics argue that such efforts remain a small fraction of the industry's overall output, and that genuine change would require consumers to buy fewer, higher-quality items rather than constantly replacing their wardrobes.\n\nWhether shoppers are willing to make that shift will largely ( 4 ) on whether they view clothing as disposable or as a long-term investment.",
+          "translation": "ファストファッションとは、最新の流行に合わせて安価な衣服を素早く生産する手法で、世界中の人々の買い物のあり方を変えてきた。一世代前なら1週間分の給料に相当したシャツが、今ではコーヒー1杯の値段で買える。しかしこの手軽さには、消費者からは見えにくい代償が伴う。繊維産業は世界で最も水を消費する産業の一つで、染料はしばしば工場付近の川に流れ込む。さらに、縫製に携わる労働者の賃金は、ブランドが莫大な利益を報告する一方で、生活に十分な水準を大きく下回ることが多い。一部の企業はサプライチェーンの透明性を高め、再生素材を使うことでこうした問題に取り組み始めている。しかし批評家は、そうした取り組みは業界全体からすればごくわずかであり、本当の変化には消費者が数を減らして質の高い品を買うようになることが必要だと主張する。消費者がそうした変化を受け入れるかどうかは、衣服を使い捨てと見るか長期的な投資と見るかに大きく左右される。",
+          "questions": [
+            {
+              "id": "pre1-p2-b-q1",
+              "blank": 1,
+              "choices": [
+                { "text": "However", "correct": true, "explain": "手軽さ（利点）と、目に見えない代償（欠点）という対照的な内容をつなぐので逆接が適切です。" },
+                { "text": "Therefore", "correct": false, "explain": "結果を表す語で、前後は因果関係ではなく対比の関係です。" },
+                { "text": "Similarly", "correct": false, "explain": "類似の内容ではなく対比なので合いません。" },
+                { "text": "For example", "correct": false, "explain": "具体例ではなく、逆接の内容が続きます。" }
+              ]
+            },
+            {
+              "id": "pre1-p2-b-q2",
+              "blank": 2,
+              "choices": [
+                { "text": "In addition", "correct": true, "explain": "水質汚染に加えて、労働者の低賃金という別の問題を追加しているので「さらに」が適切です。" },
+                { "text": "On the other hand", "correct": false, "explain": "対立する内容ではなく、追加の問題点です。" },
+                { "text": "Otherwise", "correct": false, "explain": "「そうでなければ」という意味で、この文脈には合いません。" },
+                { "text": "As a result", "correct": false, "explain": "前文の結果ではなく、別の問題の追加です。" }
+              ]
+            },
+            {
+              "id": "pre1-p2-b-q3",
+              "blank": 3,
+              "choices": [
+                { "text": "Nevertheless", "correct": true, "explain": "企業の取り組みを述べたあと、それでも批評家は不十分だと主張する、という逆接の流れに合います。" },
+                { "text": "Consequently", "correct": false, "explain": "結果を表す語で、この逆接の文脈には合いません。" },
+                { "text": "Similarly", "correct": false, "explain": "類似の内容ではなく対比です。" },
+                { "text": "In short", "correct": false, "explain": "要約ではなく、逆接の内容が続きます。" }
+              ]
+            },
+            {
+              "id": "pre1-p2-b-q4",
+              "blank": 4,
+              "choices": [
+                { "text": "depend", "correct": true, "explain": "will のあとには動詞の原形が必要で、depend on で「〜次第である」という意味になります。" },
+                { "text": "depends", "correct": false, "explain": "will のあとには原形が必要で、三単現の s はつけません。" },
+                { "text": "depended", "correct": false, "explain": "will のあとに過去形は使いません。" },
+                { "text": "relying", "correct": false, "explain": "will のあとに ing形は続けません。" }
               ]
             }
           ]
@@ -295,6 +392,55 @@
                 { "text": "The government stopped all support.", "correct": false, "explain": "支援自体は続いています。" },
                 { "text": "Visitors asked for more shops.", "correct": false, "explain": "来館者の要望とは書かれていません。" },
                 { "text": "Donations were made illegal.", "correct": false, "explain": "寄付は依存先の一つとして挙げられています。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pre1-p3-c",
+          "format": "説明文",
+          "title": "Silent Reading Rooms in Public Libraries",
+          "passage": "In an age of constant notifications and background noise, some public libraries have begun setting aside spaces explicitly designed for uninterrupted, silent reading. Unlike traditional library floors, where quiet conversation and study groups are often tolerated, these rooms enforce a strict no-talking policy, and even phones must be switched to silent mode and kept out of sight.\n\nThe trend began in a handful of libraries in Northern Europe, where librarians noticed that patrons increasingly complained about noise from group work spaces that had become more common in the previous decade. Rather than eliminating those collaborative areas, many libraries chose instead to add a separate, quieter option alongside them.\n\nVisitors to these rooms describe the experience as almost meditative. Some report finishing books far faster than they normally would, simply because there is nothing competing for their attention. Librarians have also noticed that these rooms tend to attract a wider range of visitors than expected, including students studying for exams, retirees, and remote workers seeking a quiet place to concentrate.\n\nNot everyone is convinced the trend will last. Skeptics point out that maintaining a silent room requires extra staff to enforce the rules, and some libraries have struggled to justify the cost. Still, demand for these spaces continues to grow, suggesting that many people are eager for an alternative to constant digital distraction, even if only for an hour at a time.",
+          "translation": "常に通知や雑音にさらされる時代において、一部の公共図書館は妨げられない静かな読書のための専用スペースを設け始めている。会話やグループ学習が許容されることも多い通常のフロアとは異なり、これらの部屋では会話禁止が徹底され、携帯電話もサイレントにして視界から外すよう求められる。この流れは北欧の一部の図書館で始まり、司書たちはグループ作業スペースの騒音への苦情が増えていることに気づいた。多くの図書館は協働スペースをなくすのではなく、その横に別の静かな選択肢を加えることにした。利用者はこの部屋での体験をほとんど瞑想的だと表現し、注意をそらすものが何もないため通常より早く本を読み終えたという報告もある。司書は、試験勉強をする学生、退職者、集中できる静かな場所を求めるリモートワーカーなど、予想以上に幅広い層がこの部屋を利用していることにも気づいた。この流れが続くとは限らないと考える人もいる。静かな部屋を維持するにはルールを徹底する追加の人員が必要で、費用を正当化するのに苦労している図書館もある。それでも、こうしたスペースへの需要は増え続けており、たとえ1時間だけでも、絶え間ないデジタルの気晴らしからの逃げ場を多くの人が求めていることをうかがわせる。",
+          "questions": [
+            {
+              "id": "pre1-p3-c-q1",
+              "q": "Why did some libraries decide to create silent reading rooms?",
+              "choices": [
+                { "text": "Patrons complained about noise from group work spaces.", "correct": true, "explain": "\"patrons increasingly complained about noise from group work spaces\" とあります。" },
+                { "text": "Librarians wanted to save money on staff.", "correct": false, "explain": "むしろ追加の人員が必要になると述べられています。" },
+                { "text": "Local governments required the change.", "correct": false, "explain": "政府の義務についての記述はありません。" },
+                { "text": "No one used the libraries anymore.", "correct": false, "explain": "利用者が減ったという記述はありません。" }
+              ]
+            },
+            {
+              "id": "pre1-p3-c-q2",
+              "q": "How do many libraries handle the balance between silent rooms and collaborative spaces?",
+              "choices": [
+                { "text": "They keep both options available side by side.", "correct": true, "explain": "\"many libraries chose instead to add a separate, quieter option alongside them\" とあります。" },
+                { "text": "They removed all group work spaces.", "correct": false, "explain": "グループ作業スペースをなくしたのではなく、両方を残しています。" },
+                { "text": "They only allow silent rooms on weekends.", "correct": false, "explain": "曜日による制限についての記述はありません。" },
+                { "text": "They charge a fee for the silent rooms.", "correct": false, "explain": "料金についての記述はありません。" }
+              ]
+            },
+            {
+              "id": "pre1-p3-c-q3",
+              "q": "What have librarians noticed about who visits the silent rooms?",
+              "choices": [
+                { "text": "A wider range of visitors than expected use them.", "correct": true, "explain": "\"these rooms tend to attract a wider range of visitors than expected\" とあります。" },
+                { "text": "Only students use them.", "correct": false, "explain": "学生だけでなく、退職者やリモートワーカーも利用しています。" },
+                { "text": "Almost no one visits them.", "correct": false, "explain": "需要は増え続けていると述べられています。" },
+                { "text": "Only elderly visitors use them.", "correct": false, "explain": "高齢者だけではなく幅広い層が利用しています。" }
+              ]
+            },
+            {
+              "id": "pre1-p3-c-q4",
+              "q": "What challenge do skeptics mention about silent rooms?",
+              "choices": [
+                { "text": "They require extra staff to enforce the rules.", "correct": true, "explain": "\"maintaining a silent room requires extra staff to enforce the rules\" とあります。" },
+                { "text": "They are too popular to maintain.", "correct": false, "explain": "人気すぎることが問題だとは述べられていません。" },
+                { "text": "They make too much noise.", "correct": false, "explain": "静かな部屋の話なので、騒音が問題ではありません。" },
+                { "text": "They are illegal in some areas.", "correct": false, "explain": "違法性についての記述はありません。" }
               ]
             }
           ]
@@ -437,6 +583,57 @@
             { "text": "The session finished early.", "correct": false, "explain": "終了時刻の話はありません。" },
             { "text": "He did not have to teach anything.", "correct": false, "explain": "そのような発言はありません。" }
           ]
+        },
+        {
+          "id": "pre1-l1-05",
+          "script": [
+            { "speaker": "A", "text": "I heard you're planning to renovate your kitchen this summer." },
+            { "speaker": "B", "text": "Yes, but the contractor said it might take longer than expected because of supply delays." },
+            { "speaker": "A", "text": "That's frustrating. Do you have a backup plan for cooking during the renovation?" },
+            { "speaker": "B", "text": "We're planning to use a small camping stove in the garage." }
+          ],
+          "question": "What is the couple planning to do during the renovation?",
+          "translation": "A：この夏、キッチンを改装するって聞いたよ。　B：うん、でも業者が資材の遅れでもっと時間がかかるかもって。　A：それは大変だね。改装中の調理はどうするの？　B：ガレージで小さなキャンプ用コンロを使う予定だよ。（質問：夫婦は改装中に何をする予定ですか）",
+          "choices": [
+            { "text": "Use a small camping stove in the garage.", "correct": true, "explain": "\"We're planning to use a small camping stove in the garage.\" と言っています。" },
+            { "text": "Eat out every night.", "correct": false, "explain": "外食についての記述はありません。" },
+            { "text": "Stay with relatives.", "correct": false, "explain": "親戚の家に泊まるという記述はありません。" },
+            { "text": "Cancel the renovation.", "correct": false, "explain": "改装を中止するという記述はありません。" }
+          ]
+        },
+        {
+          "id": "pre1-l1-06",
+          "script": [
+            { "speaker": "A", "text": "Did you finish reviewing the quarterly budget report?" },
+            { "speaker": "B", "text": "Mostly, but I noticed the marketing department's expenses are significantly higher than projected." },
+            { "speaker": "A", "text": "That's concerning. Should we schedule a meeting with them?" },
+            { "speaker": "B", "text": "I think that would be wise before we finalize next quarter's budget." }
+          ],
+          "question": "What does B suggest doing?",
+          "translation": "A：四半期予算報告のチェックは終わった？　B：だいたいね、でもマーケティング部の支出が予想よりかなり多いことに気づいたよ。　A：それは気になるね。会議を設定すべきかな。　B：来四半期の予算を確定する前に、それが賢明だと思うよ。（質問：Bは何をすることを提案していますか）",
+          "choices": [
+            { "text": "Scheduling a meeting with the marketing department.", "correct": true, "explain": "\"I think that would be wise\" と、会議の提案に賛成しています。" },
+            { "text": "Cutting the marketing budget immediately.", "correct": false, "explain": "すぐに予算を削減するという提案ではありません。" },
+            { "text": "Ignoring the discrepancy.", "correct": false, "explain": "むしろ問題を確認しようとしています。" },
+            { "text": "Firing the marketing manager.", "correct": false, "explain": "解雇についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "pre1-l1-07",
+          "script": [
+            { "speaker": "A", "text": "I'm torn between accepting the job offer in Osaka or staying here." },
+            { "speaker": "B", "text": "What's making you hesitate about Osaka?" },
+            { "speaker": "A", "text": "The salary is better, but I'd be far from my family." },
+            { "speaker": "B", "text": "Have you considered asking if remote work is an option a few days a week?" }
+          ],
+          "question": "What does B suggest A consider?",
+          "translation": "A：大阪の仕事のオファーを受けるか、ここに残るか迷っているんだ。　B：大阪について何がためらう理由なの？　A：給料はいいんだけど、家族から遠くなるんだ。　B：週に数日リモートワークができないか聞いてみたら？（質問：Bは何を検討するようAに提案していますか）",
+          "choices": [
+            { "text": "Asking about remote work options.", "correct": true, "explain": "\"Have you considered asking if remote work is an option\" と提案しています。" },
+            { "text": "Rejecting the offer immediately.", "correct": false, "explain": "すぐに断るようにとは提案していません。" },
+            { "text": "Moving the entire family to Osaka.", "correct": false, "explain": "家族全員での引っ越しについての記述はありません。" },
+            { "text": "Asking for an even higher salary.", "correct": false, "explain": "給与交渉についての記述はありません。" }
+          ]
         }
       ]
     },
@@ -498,6 +695,42 @@
             { "text": "The headphones amplify human voices.", "correct": false, "explain": "増幅するとは述べられていません。" },
             { "text": "Speech has a very low frequency.", "correct": false, "explain": "低周波に強く、話し声は高めの音として挙げられています。" }
           ]
+        },
+        {
+          "id": "pre1-l2-05",
+          "script": "Urban beekeeping has grown rapidly in recent years, with rooftop hives appearing on buildings in major cities worldwide. Proponents argue that these bee colonies help pollinate city gardens and parks, while also raising awareness about declining bee populations. However, some entomologists caution that concentrating too many hives in small urban areas can actually increase competition for limited flowers, potentially harming wild native bee species rather than helping them.",
+          "question": "What concern do some entomologists raise about urban beekeeping?",
+          "translation": "都市養蜂は近年急速に広がり、世界の主要都市の建物屋上に養蜂箱が設置されるようになった。推進派は、こうした蜂の群れが都市の庭や公園の受粉を助け、蜂の減少への関心も高めると主張する。しかし一部の昆虫学者は、狭い都市部に養蜂箱を集めすぎると限られた花をめぐる競争が激化し、野生のネイティブ種の蜂をかえって傷つける可能性があると警告している。（質問：都市養蜂について一部の昆虫学者が懸念していることは何ですか）",
+          "choices": [
+            { "text": "It may increase competition and harm native bee species.", "correct": true, "explain": "\"increase competition for limited flowers, potentially harming wild native bee species\" とあります。" },
+            { "text": "It produces low-quality honey.", "correct": false, "explain": "はちみつの品質についての記述はありません。" },
+            { "text": "It is illegal in most cities.", "correct": false, "explain": "違法性についての記述はありません。" },
+            { "text": "It requires too much government funding.", "correct": false, "explain": "政府の資金についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "pre1-l2-06",
+          "script": "Archaeologists excavating a coastal site recently uncovered tools dating back nearly twice as long as previously believed possible for that region, forcing researchers to reconsider established timelines of early human migration. The find has sparked considerable debate, as some scientists question whether the dating methods used were sufficiently reliable.",
+          "question": "Why has the discovery caused debate among scientists?",
+          "translation": "沿岸部の遺跡を発掘していた考古学者が、その地域でこれまで考えられていたよりも2倍近く古い道具を発見し、初期人類の移動に関する年代の見直しを迫られている。この発見は大きな議論を呼んでおり、使用された年代測定法が十分に信頼できるものだったか疑問視する科学者もいる。（質問：この発見はなぜ科学者の間で議論を呼んでいますか）",
+          "choices": [
+            { "text": "Some question whether the dating methods were reliable.", "correct": true, "explain": "\"some scientists question whether the dating methods used were sufficiently reliable\" とあります。" },
+            { "text": "The tools were found in the wrong country.", "correct": false, "explain": "国についての誤りは述べられていません。" },
+            { "text": "No one believes early humans used tools.", "correct": false, "explain": "道具の使用自体を否定する記述はありません。" },
+            { "text": "The site has since been destroyed.", "correct": false, "explain": "遺跡の破壊についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "pre1-l2-07",
+          "script": "A growing number of companies have begun offering employees a 'right to disconnect,' formally discouraging work emails outside business hours. While some workers welcome the change as a boost to their mental health, others worry that unofficial pressure to remain available will persist regardless of the official policy.",
+          "question": "What concern do some workers have about the 'right to disconnect' policy?",
+          "translation": "近年、就業時間外のメール対応を正式に控えるよう求める「つながらない権利」を導入する企業が増えている。この変化を精神的な健康の向上として歓迎する従業員もいる一方、公式な方針にかかわらず、非公式な形で対応を求める圧力が残るのではないかと懸念する従業員もいる。（質問：「つながらない権利」の方針について一部の従業員が懸念していることは何ですか）",
+          "choices": [
+            { "text": "Unofficial pressure to stay available may continue.", "correct": true, "explain": "\"unofficial pressure to remain available will persist regardless of the official policy\" とあります。" },
+            { "text": "It will reduce their salary.", "correct": false, "explain": "給与についての記述はありません。" },
+            { "text": "It will make their jobs less secure.", "correct": false, "explain": "雇用の安定性についての記述はありません。" },
+            { "text": "It applies only to managers.", "correct": false, "explain": "管理職限定という記述はありません。" }
+          ]
         }
       ]
     },
@@ -546,6 +779,30 @@
             { "text": "You can book court one for Saturday morning now.", "correct": false, "explain": "コート1は土曜午後1時までジュニア用で、予約可能日にも達していません。" },
             { "text": "You can book any court today.", "correct": false, "explain": "火曜の時点ではまだ予約できません。" },
             { "text": "You must pay online in advance.", "correct": false, "explain": "非会員は当日カウンターで支払います。" }
+          ]
+        },
+        {
+          "id": "pre1-l3-04",
+          "script": "Passengers waiting for the 3:15 ferry to Green Island, please note that due to high winds, the ferry has been delayed until further notice. Passengers with connecting bus tickets from Green Island should contact the ferry office for a refund or rebooking. An announcement will be made once the ferry is cleared for departure. We apologize for the inconvenience.",
+          "question": "状況：あなたは3時15分発のグリーン島行きフェリーを待っていて、島に着いたらバスに乗り継ぐ予定です。　質問：What should you do?",
+          "translation": "強風のため3時15分発グリーン島行きフェリーは出発未定で遅延しているとの案内。グリーン島からの接続バスの切符を持つ乗客は、払い戻しまたは再予約のためフェリー事務所に連絡するよう案内している。出発可能になり次第アナウンスされる。",
+          "choices": [
+            { "text": "Contact the ferry office about your bus ticket.", "correct": true, "explain": "接続バスの切符を持つ乗客は事務所に連絡するよう案内されています。" },
+            { "text": "Board the ferry immediately.", "correct": false, "explain": "フェリーは出発未定で遅延しています。" },
+            { "text": "Cancel your entire trip.", "correct": false, "explain": "旅行全体を中止する必要があるとは案内されていません。" },
+            { "text": "Wait exactly until 3:15.", "correct": false, "explain": "3時15分の出発はすでに遅延しています。" }
+          ]
+        },
+        {
+          "id": "pre1-l3-05",
+          "script": "Attention shoppers. Our store will be closing early today at 6 p.m. for staff training. All registers will stop accepting new customers at 5:45. If you are currently shopping, please make your way to the checkout area. We apologize for any inconvenience and will resume normal hours tomorrow.",
+          "question": "状況：あなたは今、店内で買い物をしていて、時計を見ると5時50分です。　質問：What should you do?",
+          "translation": "本日はスタッフ研修のため午後6時に早期閉店。レジは5時45分で新規のお客様の受付を終了。買い物中の客はレジエリアへ向かうよう案内している。",
+          "choices": [
+            { "text": "Go to the checkout area right away.", "correct": true, "explain": "5時45分をすでに過ぎており、買い物中の客はレジへ向かうよう案内されています。" },
+            { "text": "Continue shopping until 6 p.m.", "correct": false, "explain": "レジはすでに新規受付を終了しています。" },
+            { "text": "Wait for the store to reopen.", "correct": false, "explain": "再開は翌日で、今すぐの行動が必要です。" },
+            { "text": "Ask for a refund.", "correct": false, "explain": "返金についての案内はありません。" }
           ]
         }
       ]
