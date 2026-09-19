@@ -115,6 +115,54 @@
             { "text": "being", "correct": false, "explain": "want のあとに ing 形は置きません。" },
             { "text": "was", "correct": false, "explain": "過去形はここには入りません。" }
           ]
+        },
+        {
+          "id": "4-p1-09",
+          "sentence": "I （　） my homework before dinner yesterday.",
+          "ja": "私は昨日夕食前に宿題を終えました。",
+          "point": "一般動詞の過去形",
+          "choices": [
+            { "text": "finished", "correct": true, "explain": "yesterday（昨日）があるので過去形 finished を使います。" },
+            { "text": "finish", "correct": false, "explain": "finish は現在形で、yesterday（過去）には合いません。" },
+            { "text": "finishing", "correct": false, "explain": "finishing だけでは文の動詞になりません。" },
+            { "text": "finishes", "correct": false, "explain": "finishes は現在形（三人称単数）で、過去の文には合いません。" }
+          ]
+        },
+        {
+          "id": "4-p1-10",
+          "sentence": "This cake is （　） than the one we had last week.",
+          "ja": "このケーキは先週食べたものより甘いです。",
+          "point": "比較級（-er）",
+          "choices": [
+            { "text": "sweeter", "correct": true, "explain": "than があるので比較級 sweeter を使います。" },
+            { "text": "sweet", "correct": false, "explain": "sweet は原級で、than とは一緒に使いません。" },
+            { "text": "sweetest", "correct": false, "explain": "sweetest は最上級で、2つを比べる文には使いません。" },
+            { "text": "more sweet", "correct": false, "explain": "sweet のような短い形容詞には more をつけません。-er の形を使います。" }
+          ]
+        },
+        {
+          "id": "4-p1-11",
+          "sentence": "We （　） to the museum next Sunday.",
+          "ja": "私たちは次の日曜日に美術館に行く予定です。",
+          "point": "be going to（未来の予定）",
+          "choices": [
+            { "text": "are going", "correct": true, "explain": "あらかじめ決めていた予定を表すときは be going to（are going to）を使います。" },
+            { "text": "go", "correct": false, "explain": "go だけでは未来の予定を表せません。" },
+            { "text": "went", "correct": false, "explain": "went は過去形で、next Sunday（未来）には合いません。" },
+            { "text": "will", "correct": false, "explain": "will のあとには動詞の原形が必要です。" }
+          ]
+        },
+        {
+          "id": "4-p1-12",
+          "sentence": "You （　） bring your umbrella. It won't rain today.",
+          "ja": "傘を持ってくる必要はありません。今日は雨は降らないでしょう。",
+          "point": "don't have to（〜する必要がない）",
+          "choices": [
+            { "text": "don't have to", "correct": true, "explain": "「〜する必要がない」というときは don't have to を使います。" },
+            { "text": "must not", "correct": false, "explain": "must not は「〜してはいけない」という禁止を表し、意味が異なります。" },
+            { "text": "can't", "correct": false, "explain": "can't は「〜できない」という不可能を表し、この文意には合いません。" },
+            { "text": "shouldn't", "correct": false, "explain": "shouldn't は「〜すべきでない」という助言を表し、この文意には合いません。" }
+          ]
         }
       ]
     },
@@ -177,6 +225,40 @@
             { "text": "No, I do not have a pen.", "correct": false, "explain": "レポートの進み具合の返事になっていません。" },
             { "text": "Sure, I will call you tonight.", "correct": false, "explain": "電話の話は会話の流れに合いません。" }
           ]
+        },
+        {
+          "id": "4-p2-04",
+          "title": "図書館で",
+          "translation": "少年：すみません、宇宙についての本はありますか。　係員：（　）　少年：ありがとうございます、見てきます。",
+          "lines": [
+            { "speaker": "A", "text": "Excuse me, do you have any books about space?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "Thank you, I will go check." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Yes, they are on the second floor.", "correct": true, "explain": "直後に「見てきます」と言っているので、場所を教える返事が自然です。" },
+            { "text": "No, the library is closed today.", "correct": false, "explain": "図書館が閉まっているなら「見てきます」という返事につながりません。" },
+            { "text": "I like reading comic books.", "correct": false, "explain": "係員の個人的な好みは、質問への返事になっていません。" },
+            { "text": "You can borrow up to five books.", "correct": false, "explain": "貸出冊数の説明で、本の場所についての質問と合いません。" }
+          ]
+        },
+        {
+          "id": "4-p2-05",
+          "title": "駅で",
+          "translation": "少女：みどり駅に行く電車はどれですか。　駅員：（　）　少女：どうもありがとうございます。",
+          "lines": [
+            { "speaker": "A", "text": "Which train goes to Midori Station?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "Thank you very much." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "The green line, platform 3.", "correct": true, "explain": "「どの電車か」という質問に対して、路線とホームを答える返事が自然です。" },
+            { "text": "It costs 300 yen.", "correct": false, "explain": "料金の話で、どの電車かという質問への返事になっていません。" },
+            { "text": "I take the bus every day.", "correct": false, "explain": "駅員自身の通勤方法の話で、質問と関係ありません。" },
+            { "text": "The station opens at six.", "correct": false, "explain": "開業時間の話で、どの電車かという質問に合いません。" }
+          ]
         }
       ]
     },
@@ -209,6 +291,20 @@
           "chunks": ["have", "How many times", "been", "you", "to Hawaii"],
           "sentence": "How many times have you been to Hawaii?",
           "explain": "現在完了の疑問文は〈have＋主語＋過去分詞〉。have been to 〜 で「〜に行ったことがある」です。"
+        },
+        {
+          "id": "4-p3-04",
+          "ja": "私が昨日買った本はとても面白いです。",
+          "chunks": ["The book", "I bought", "yesterday", "is", "very interesting"],
+          "sentence": "The book I bought yesterday is very interesting.",
+          "explain": "The book のあとに I bought yesterday（目的格の関係代名詞が省略された節）が続き、そのあとに動詞 is が来ます。"
+        },
+        {
+          "id": "4-p3-05",
+          "ja": "彼はサッカーだけでなく野球も好きです。",
+          "chunks": ["He likes", "not only", "soccer", "but also", "baseball"],
+          "sentence": "He likes not only soccer but also baseball.",
+          "explain": "not only A but also B で「AだけでなくBも」という意味です。"
         }
       ]
     },
@@ -298,6 +394,45 @@
               ]
             }
           ]
+        },
+        {
+          "id": "4-p4-c",
+          "format": "掲示",
+          "title": "Summer Cooking Class",
+          "passage": "Summer Cooking Class for Students\n\nGreen Community Center will hold a cooking class for junior high school students this August. Students will learn how to make simple, healthy meals with a professional chef.\n\nDate: August 8 (Saturday) and August 15 (Saturday)\nTime: 10:00 a.m. - 12:30 p.m.\nPlace: Green Community Center, Room 3\nFee: 800 yen (includes all ingredients)\n\nStudents must join both days because the second class continues from the first. Please bring an apron and a hand towel. Space is limited to 20 students, so please sign up early at the front desk or call 03-1234-5678.\n\nIf it is your first time cooking, don't worry! The chef will show you every step carefully.",
+          "translation": "グリーン地域センターが8月に中学生向けの料理教室を開く。プロのシェフから簡単で健康的な料理を学べる。日程は8月8日と15日の土曜日、時間は午前10時から12時30分。場所はセンターの3号室。参加費は800円（材料費込み）。2回目は1回目の続きなので両日参加が必須。エプロンとタオルを持参すること。定員20名なので早めの申し込みが必要。料理が初めてでも大丈夫、シェフが丁寧に教えてくれる。",
+          "questions": [
+            {
+              "id": "4-p4-c-q1",
+              "q": "When will the second cooking class be held?",
+              "choices": [
+                { "text": "On August 15.", "correct": true, "explain": "\"August 8 (Saturday) and August 15 (Saturday)\" とあり、2回目は15日です。" },
+                { "text": "On August 8.", "correct": false, "explain": "8日は1回目です。" },
+                { "text": "On August 22.", "correct": false, "explain": "22日という日付は出てきません。" },
+                { "text": "On August 1.", "correct": false, "explain": "1日という日付は出てきません。" }
+              ]
+            },
+            {
+              "id": "4-p4-c-q2",
+              "q": "What should students bring to the class?",
+              "choices": [
+                { "text": "An apron and a hand towel.", "correct": true, "explain": "\"Please bring an apron and a hand towel.\" とあります。" },
+                { "text": "Their own ingredients.", "correct": false, "explain": "材料費は参加費に含まれています。" },
+                { "text": "A cooking book.", "correct": false, "explain": "料理の本についての記述はありません。" },
+                { "text": "Money for lunch.", "correct": false, "explain": "昼食代についての記述はありません。" }
+              ]
+            },
+            {
+              "id": "4-p4-c-q3",
+              "q": "Why must students join both days?",
+              "choices": [
+                { "text": "Because the second class continues from the first.", "correct": true, "explain": "\"the second class continues from the first\" とあります。" },
+                { "text": "Because the fee is different each day.", "correct": false, "explain": "参加費は両日合わせて800円で、日ごとに異なるという記述はありません。" },
+                { "text": "Because the chef changes each day.", "correct": false, "explain": "シェフが変わるという記述はありません。" },
+                { "text": "Because the place changes each day.", "correct": false, "explain": "場所はどちらもセンターの3号室です。" }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -367,6 +502,48 @@
             { "text": "Then you can use it for thirty minutes.", "correct": true, "explain": "2時半から3時までなので30分使えます。" },
             { "text": "No, I do not have a computer.", "correct": false, "explain": "直前で使ってよいと言っているので矛盾します。" },
             { "text": "It is Tuesday today.", "correct": false, "explain": "曜日の話は流れに合いません。" }
+          ]
+        },
+        {
+          "id": "4-l1-05",
+          "script": [
+            { "speaker": "A", "text": "I heard you got a new bike." },
+            { "speaker": "B", "text": "Yes, my father bought it for my birthday." },
+            { "speaker": "A", "text": "That's great! Can I see it after school?" }
+          ],
+          "translation": "A：新しい自転車を買ってもらったって聞いたよ。　B：うん、誕生日に父が買ってくれたんだ。　A：すごいね！放課後見せてもらってもいい？",
+          "choices": [
+            { "text": "Sure, come to my house.", "correct": true, "explain": "Can I 〜? という頼みに対して快く受け入れる返事が自然です。" },
+            { "text": "No, I don't like bikes.", "correct": false, "explain": "自転車を買ってもらったばかりなので、自転車がきらいという返事は矛盾します。" },
+            { "text": "It was very expensive.", "correct": false, "explain": "値段の話で、見せてほしいという頼みへの返事になっていません。" }
+          ]
+        },
+        {
+          "id": "4-l1-06",
+          "script": [
+            { "speaker": "A", "text": "Did you finish your science project?" },
+            { "speaker": "B", "text": "Not yet. I still need to write the report." },
+            { "speaker": "A", "text": "Do you want some help tonight?" }
+          ],
+          "translation": "A：理科の自由研究は終わった？　B：まだだよ。レポートを書かないといけないんだ。　A：今夜、手伝おうか？",
+          "choices": [
+            { "text": "That would be great, thanks.", "correct": true, "explain": "手伝いの申し出に対して感謝して受け入れる返事が自然です。" },
+            { "text": "I already finished my homework.", "correct": false, "explain": "宿題の話ではなく、自由研究についての会話です。" },
+            { "text": "The project is about volcanoes.", "correct": false, "explain": "研究テーマの話で、手伝いの申し出への返事になっていません。" }
+          ]
+        },
+        {
+          "id": "4-l1-07",
+          "script": [
+            { "speaker": "A", "text": "Are you free this Saturday?" },
+            { "speaker": "B", "text": "I think so. Why?" },
+            { "speaker": "A", "text": "There's a new movie theater near the station. Want to go?" }
+          ],
+          "translation": "A：今度の土曜日、あいてる？　B：たぶんね。どうして？　A：駅の近くに新しい映画館ができたんだ。行かない？",
+          "choices": [
+            { "text": "Sure, what time should we meet?", "correct": true, "explain": "誘いに対して快く受け入れ、詳細をたずねる返事が自然です。" },
+            { "text": "I don't have a car.", "correct": false, "explain": "駅の近くの映画館なので、車の話は流れに合いません。" },
+            { "text": "The library closes at five.", "correct": false, "explain": "図書館の話は映画館の誘いと関係ありません。" }
           ]
         }
       ]
@@ -449,6 +626,57 @@
             { "text": "Tomorrow morning.", "correct": false, "explain": "午前中とは言っていません。" },
             { "text": "Next week.", "correct": false, "explain": "来週の話は出てきません。" }
           ]
+        },
+        {
+          "id": "4-l2-05",
+          "script": [
+            { "speaker": "A", "text": "Tom, have you seen my dictionary?" },
+            { "speaker": "B", "text": "I think you left it in the classroom." },
+            { "speaker": "A", "text": "Oh no, I need it for homework tonight." },
+            { "speaker": "B", "text": "Let's go back and get it before the gate closes." }
+          ],
+          "question": "What will they do next?",
+          "translation": "A：トム、私の辞書を見なかった？　B：教室に置き忘れたんじゃないかな。　A：しまった、今夜の宿題に必要なんだ。　B：門が閉まる前に戻って取りに行こう。（質問：2人はこれから何をしますか）",
+          "choices": [
+            { "text": "Go back to the classroom.", "correct": true, "explain": "\"Let's go back and get it\" と言っています。" },
+            { "text": "Buy a new dictionary.", "correct": false, "explain": "新しい辞書を買うのではなく、取りに戻ります。" },
+            { "text": "Do homework without it.", "correct": false, "explain": "辞書を取りに戻ることにしています。" },
+            { "text": "Ask the teacher for help.", "correct": false, "explain": "先生に頼むという記述はありません。" }
+          ]
+        },
+        {
+          "id": "4-l2-06",
+          "script": [
+            { "speaker": "A", "text": "Excuse me, what time does the next bus to the zoo leave?" },
+            { "speaker": "B", "text": "It leaves at 1:15, in about ten minutes." },
+            { "speaker": "A", "text": "Great, and how long does it take to get there?" },
+            { "speaker": "B", "text": "About twenty minutes." }
+          ],
+          "question": "What time will they probably arrive at the zoo?",
+          "translation": "A：すみません、次の動物園行きのバスは何時に出ますか。　B：1時15分、あと10分くらいで出ます。　A：よかった、着くまでどのくらいかかりますか。　B：20分くらいです。（質問：2人はおよそ何時に動物園に着きますか）",
+          "choices": [
+            { "text": "Around 1:45.", "correct": true, "explain": "1時15分発で20分かかるので、およそ1時35分〜1時45分ごろです。" },
+            { "text": "Around 1:15.", "correct": false, "explain": "1時15分はバスの出発時刻です。" },
+            { "text": "Around 2:15.", "correct": false, "explain": "所要時間は20分なので、2時15分にはなりません。" },
+            { "text": "Around 12:45.", "correct": false, "explain": "バスはまだ出発していません。" }
+          ]
+        },
+        {
+          "id": "4-l2-07",
+          "script": [
+            { "speaker": "A", "text": "Mika, why weren't you at practice yesterday?" },
+            { "speaker": "B", "text": "I had a fever, so I stayed home." },
+            { "speaker": "A", "text": "I hope you feel better. Did you rest well?" },
+            { "speaker": "B", "text": "Yes, I slept all afternoon." }
+          ],
+          "question": "Why was Mika absent from practice?",
+          "translation": "A：ミカ、昨日どうして練習に来なかったの？　B：熱があって、家で休んでいたの。　A：早くよくなるといいね。ゆっくり休めた？　B：うん、午後はずっと寝ていたよ。（質問：ミカはなぜ練習を休みましたか）",
+          "choices": [
+            { "text": "She had a fever.", "correct": true, "explain": "\"I had a fever, so I stayed home.\" と言っています。" },
+            { "text": "She had a test.", "correct": false, "explain": "テストについての記述はありません。" },
+            { "text": "She went to the hospital with a friend.", "correct": false, "explain": "病院に行ったという記述はありません。" },
+            { "text": "She forgot about practice.", "correct": false, "explain": "忘れていたのではなく、熱で休んでいました。" }
+          ]
         }
       ]
     },
@@ -509,6 +737,42 @@
             { "text": "A late train.", "correct": false, "explain": "おくれについては言っていません。" },
             { "text": "A ticket price.", "correct": false, "explain": "料金の話はありません。" },
             { "text": "A new station.", "correct": false, "explain": "新しい駅の話ではありません。" }
+          ]
+        },
+        {
+          "id": "4-l3-05",
+          "script": "The school library will be closed next Monday for cleaning. It will open again on Tuesday as usual.",
+          "question": "When will the library open again?",
+          "translation": "来週月曜日、学校の図書館は清掃のため休館します。火曜日にはいつも通り開きます。（質問：図書館はいつまた開きますか）",
+          "choices": [
+            { "text": "On Tuesday.", "correct": true, "explain": "\"It will open again on Tuesday\" とあります。" },
+            { "text": "On Monday.", "correct": false, "explain": "月曜日は休館日です。" },
+            { "text": "On Wednesday.", "correct": false, "explain": "本文では火曜日と言っています。" },
+            { "text": "It will not open again.", "correct": false, "explain": "火曜日には再開すると言っています。" }
+          ]
+        },
+        {
+          "id": "4-l3-06",
+          "script": "Yuta practices basketball every day after school, but on Wednesdays he has a piano lesson instead.",
+          "question": "What does Yuta do on Wednesdays?",
+          "translation": "ユウタは放課後毎日バスケットボールを練習しますが、水曜日はかわりにピアノのレッスンがあります。（質問：ユウタは水曜日に何をしますか）",
+          "choices": [
+            { "text": "He has a piano lesson.", "correct": true, "explain": "\"on Wednesdays he has a piano lesson instead\" とあります。" },
+            { "text": "He practices basketball.", "correct": false, "explain": "水曜日はピアノのレッスンがあるため、バスケの練習はありません。" },
+            { "text": "He does homework.", "correct": false, "explain": "宿題についての記述はありません。" },
+            { "text": "He rests at home.", "correct": false, "explain": "休むのではなく、ピアノのレッスンがあります。" }
+          ]
+        },
+        {
+          "id": "4-l3-07",
+          "script": "The weather will be rainy in the morning, but it will clear up by the afternoon, so the baseball game will start as planned.",
+          "question": "What will happen to the baseball game?",
+          "translation": "朝は雨ですが、午後には晴れるので、野球の試合は予定通り始まります。（質問：野球の試合はどうなりますか）",
+          "choices": [
+            { "text": "It will start as planned.", "correct": true, "explain": "\"the baseball game will start as planned\" とあります。" },
+            { "text": "It will be canceled.", "correct": false, "explain": "中止ではなく、予定通り始まると言っています。" },
+            { "text": "It will start earlier.", "correct": false, "explain": "早まるという記述はありません。" },
+            { "text": "It will move indoors.", "correct": false, "explain": "屋内に移動するという記述はありません。" }
           ]
         }
       ]
