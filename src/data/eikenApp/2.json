@@ -5090,6 +5090,58 @@
               "explain": "本文はむしろメンテナンス関連の仕事が生まれると述べています。"
             }
           ]
+        },
+        {
+          "id": "r2-01-q4",
+          "q": "According to the passage, what have companies gained from automation?",
+          "choices": [
+            {
+              "text": "Increased productivity and reduced costs.",
+              "correct": true,
+              "explain": "\"this shift has increased productivity and reduced costs for companies\" とあります。"
+            },
+            {
+              "text": "Higher taxes.",
+              "correct": false,
+              "explain": "税金についての記述はありません。"
+            },
+            {
+              "text": "Smaller factories.",
+              "correct": false,
+              "explain": "工場の規模についての記述はありません。"
+            },
+            {
+              "text": "Fewer customers.",
+              "correct": false,
+              "explain": "顧客数についての記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-01-q5",
+          "q": "What do those who warn about a difficult transition period focus on?",
+          "choices": [
+            {
+              "text": "Workers who lack the resources or opportunity to retrain.",
+              "correct": true,
+              "explain": "\"the transition period could be difficult for workers who lack the resources or opportunity to retrain\" とあります。"
+            },
+            {
+              "text": "Companies that cannot afford new robots.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            },
+            {
+              "text": "Governments that ban automation.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            },
+            {
+              "text": "Countries with no factories at all.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            }
+          ]
         }
       ]
     },
@@ -5173,6 +5225,1154 @@
               "text": "They have no value to any employer.",
               "correct": false,
               "explain": "本文はむしろ一部の雇用主が高く評価していると述べています。"
+            }
+          ]
+        },
+        {
+          "id": "r2-02-q4",
+          "q": "How long do micro-credential programs typically take to complete?",
+          "choices": [
+            {
+              "text": "A matter of weeks rather than years.",
+              "correct": true,
+              "explain": "\"often completed online in a matter of weeks rather than years\" とあります。"
+            },
+            {
+              "text": "Four years, like a traditional degree.",
+              "correct": false,
+              "explain": "本文には数週間と書かれています。"
+            },
+            {
+              "text": "Ten years.",
+              "correct": false,
+              "explain": "本文には数週間と書かれています。"
+            },
+            {
+              "text": "A single day.",
+              "correct": false,
+              "explain": "本文には数週間と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r2-02-q5",
+          "q": "What caution do critics suggest employers should take?",
+          "choices": [
+            {
+              "text": "Be cautious about treating a short course as equivalent to years of formal study.",
+              "correct": true,
+              "explain": "\"employers should be cautious about treating a short course as equivalent to years of formal study\" とあります。"
+            },
+            {
+              "text": "Stop hiring candidates with degrees.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            },
+            {
+              "text": "Require every employee to take a micro-credential.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            },
+            {
+              "text": "Pay micro-credential holders more than degree holders.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2-03",
+      "title": "The Four-Day Work Week Debate",
+      "passage": "Several companies around the world have experimented with reducing the standard work week from five days to four while keeping employee pay unchanged. Early trial results have generally been encouraging: participating employees reported lower stress and better sleep, and most companies saw productivity remain steady or even improve slightly, suggesting that a typical workday contains more wasted time than managers previously assumed. Skeptics, however, point out that the companies willing to try such trials tend to be small, office-based businesses whose work can be reorganized relatively easily. Hospitals, factories, and retail stores, they argue, cannot simply reduce hours without hiring additional staff, which would raise costs substantially and make the model far harder to apply universally.",
+      "questions": [
+        {
+          "id": "r2-03-q1",
+          "q": "What have several companies experimented with?",
+          "choices": [
+            {
+              "text": "Reducing the work week to four days while keeping pay unchanged.",
+              "correct": true,
+              "explain": "\"reducing the standard work week from five days to four while keeping employee pay unchanged\" とあります。"
+            },
+            {
+              "text": "Increasing the work week to six days.",
+              "correct": false,
+              "explain": "本文には四日制への短縮と書かれています。"
+            },
+            {
+              "text": "Cutting employee salaries in half.",
+              "correct": false,
+              "explain": "給与は変えないと書かれています。"
+            },
+            {
+              "text": "Replacing all employees with robots.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-03-q2",
+          "q": "What did early trial results generally show?",
+          "choices": [
+            {
+              "text": "Lower stress, better sleep, and steady or improved productivity.",
+              "correct": true,
+              "explain": "\"participating employees reported lower stress and better sleep, and most companies saw productivity remain steady or even improve slightly\" とあります。"
+            },
+            {
+              "text": "A sharp decline in productivity.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "No change in employee well-being.",
+              "correct": false,
+              "explain": "ストレス減少などの変化が報告されています。"
+            },
+            {
+              "text": "Higher rates of employee resignation.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-03-q3",
+          "q": "What does the passage suggest a typical workday might contain?",
+          "choices": [
+            {
+              "text": "More wasted time than managers previously assumed.",
+              "correct": true,
+              "explain": "\"suggesting that a typical workday contains more wasted time than managers previously assumed\" とあります。"
+            },
+            {
+              "text": "No wasted time at all.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "Mandatory overtime for all employees.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            },
+            {
+              "text": "Fewer meetings than most people realize.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-03-q4",
+          "q": "What kind of companies do skeptics say are most likely to try these trials?",
+          "choices": [
+            {
+              "text": "Small, office-based businesses whose work can be reorganized easily.",
+              "correct": true,
+              "explain": "\"the companies willing to try such trials tend to be small, office-based businesses whose work can be reorganized relatively easily\" とあります。"
+            },
+            {
+              "text": "Large hospitals and factories.",
+              "correct": false,
+              "explain": "本文はこれらの業種には適用が難しいと述べています。"
+            },
+            {
+              "text": "Government agencies only.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            },
+            {
+              "text": "International shipping companies.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-03-q5",
+          "q": "Why do skeptics say the model is hard to apply universally?",
+          "choices": [
+            {
+              "text": "Sectors like hospitals and factories would need extra staff, raising costs.",
+              "correct": true,
+              "explain": "\"Hospitals, factories, and retail stores ... cannot simply reduce hours without hiring additional staff, which would raise costs substantially\" とあります。"
+            },
+            {
+              "text": "Employees in those sectors do not want shorter weeks.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            },
+            {
+              "text": "Those sectors are already fully automated.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            },
+            {
+              "text": "Government regulations forbid it.",
+              "correct": false,
+              "explain": "そのような記述はありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2-04",
+      "title": "Rewilding the Countryside",
+      "passage": "In parts of Europe, conservationists have begun a practice known as rewilding: withdrawing human management from certain areas of land and allowing natural processes, including the reintroduction of large herbivores and predators, to shape the landscape with minimal interference. Proponents argue that centuries of intensive farming and forestry have left ecosystems simplified and fragile, and that rewilding can restore biodiversity more effectively than carefully managed conservation programs. Farmers in nearby communities, however, often oppose the reintroduction of predators such as wolves, fearing for their livestock, and some ecologists caution that landscapes altered by humans for so long may not simply revert to a natural state just because management stops, meaning the results of rewilding are harder to predict than supporters sometimes suggest.",
+      "questions": [
+        {
+          "id": "r2-04-q1",
+          "q": "What is rewilding, as described in the passage?",
+          "choices": [
+            {
+              "text": "Withdrawing human management and letting natural processes shape the land.",
+              "correct": true,
+              "explain": "\"withdrawing human management from certain areas of land and allowing natural processes ... to shape the landscape with minimal interference\" とあります。"
+            },
+            {
+              "text": "Planting the same crops every year to maximize yield.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Building new towns in rural areas.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Removing all animals from a region.",
+              "correct": false,
+              "explain": "むしろ大型動物を再導入すると書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r2-04-q2",
+          "q": "What do proponents of rewilding argue about intensive farming and forestry?",
+          "choices": [
+            {
+              "text": "They have left ecosystems simplified and fragile.",
+              "correct": true,
+              "explain": "\"centuries of intensive farming and forestry have left ecosystems simplified and fragile\" とあります。"
+            },
+            {
+              "text": "They have made ecosystems stronger than ever.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "They have no effect on ecosystems.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "They should be expanded further.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-04-q3",
+          "q": "Why do farmers often oppose the reintroduction of predators?",
+          "choices": [
+            {
+              "text": "They fear for their livestock.",
+              "correct": true,
+              "explain": "\"Farmers in nearby communities ... often oppose the reintroduction of predators such as wolves, fearing for their livestock\" とあります。"
+            },
+            {
+              "text": "They believe predators eat too many crops.",
+              "correct": false,
+              "explain": "捕食者は家畜を襲う懸念です。作物ではありません。"
+            },
+            {
+              "text": "They are required by law to remove them.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "They think predators are not native species.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-04-q4",
+          "q": "What caution do some ecologists give about rewilding?",
+          "choices": [
+            {
+              "text": "Long-altered landscapes may not simply revert to a natural state.",
+              "correct": true,
+              "explain": "\"landscapes altered by humans for so long may not simply revert to a natural state just because management stops\" とあります。"
+            },
+            {
+              "text": "Rewilding always fails completely.",
+              "correct": false,
+              "explain": "そのような断定はされていません。"
+            },
+            {
+              "text": "Rewilding is illegal in most countries.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Rewilding costs more than traditional farming.",
+              "correct": false,
+              "explain": "費用の比較についての記述はありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-04-q5",
+          "q": "According to the passage, how predictable are the results of rewilding?",
+          "choices": [
+            {
+              "text": "Harder to predict than supporters sometimes suggest.",
+              "correct": true,
+              "explain": "\"the results of rewilding are harder to predict than supporters sometimes suggest\" とあります。"
+            },
+            {
+              "text": "Completely predictable in every case.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "Identical to traditional conservation methods.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Guaranteed to increase farmland value.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2-05",
+      "title": "Ownership in the Subscription Economy",
+      "passage": "Streaming services have fundamentally changed how people consume music, movies, and software, replacing one-time purchases with ongoing monthly subscriptions. Supporters of this model point out those subscriptions grant access to vast libraries of content for a fraction of what it would cost to buy each item individually, and that companies are incentivized to keep improving their services in order to retain paying customers. Critics counter that subscribers ultimately own nothing: a song purchased on a physical disc decades ago can still be played today, but access to a streamed song disappears the moment a subscription lapses or a company removes it from its catalog. This shift, some argue, has quietly transformed consumers from owners of cultural goods into renters who never gain permanent access to anything they pay for.",
+      "questions": [
+        {
+          "id": "r2-05-q1",
+          "q": "What has the subscription model replaced, according to the passage?",
+          "choices": [
+            {
+              "text": "One-time purchases of music, movies, and software.",
+              "correct": true,
+              "explain": "\"replacing one-time purchases with ongoing monthly subscriptions\" とあります。"
+            },
+            {
+              "text": "Free access to all digital content.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Physical stores entirely.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Advertising-based business models only.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-05-q2",
+          "q": "What do supporters of the subscription model point out?",
+          "choices": [
+            {
+              "text": "It grants access to vast libraries for a fraction of the cost of buying items individually.",
+              "correct": true,
+              "explain": "\"subscriptions grant access to vast libraries of content for a fraction of what it would cost to buy each item individually\" とあります。"
+            },
+            {
+              "text": "It guarantees permanent ownership of all content.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します（批評家の論点です）。"
+            },
+            {
+              "text": "It eliminates the need for internet access.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "It is always cheaper than piracy.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-05-q3",
+          "q": "What happens to a streamed song if a subscription lapses, according to critics?",
+          "choices": [
+            {
+              "text": "Access to it disappears.",
+              "correct": true,
+              "explain": "\"access to a streamed song disappears the moment a subscription lapses or a company removes it from its catalog\" とあります。"
+            },
+            {
+              "text": "It is permanently downloaded to the user's device.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "The company must refund the user.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Nothing changes.",
+              "correct": false,
+              "explain": "アクセスが失われると書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r2-05-q4",
+          "q": "How does a purchased physical disc compare to a streamed song, according to the passage?",
+          "choices": [
+            {
+              "text": "A disc bought decades ago can still be played today.",
+              "correct": true,
+              "explain": "\"a song purchased on a physical disc decades ago can still be played today\" とあります。"
+            },
+            {
+              "text": "Both work exactly the same way.",
+              "correct": false,
+              "explain": "本文はディスクとストリーミングの違いを対比しています。"
+            },
+            {
+              "text": "Discs are described as less reliable than streaming.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "Discs are no longer manufactured at all.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-05-q5",
+          "q": "How does the passage describe the shift caused by subscriptions?",
+          "choices": [
+            {
+              "text": "It has transformed consumers from owners into renters who never gain permanent access.",
+              "correct": true,
+              "explain": "\"this shift ... has quietly transformed consumers from owners of cultural goods into renters who never gain permanent access to anything they pay for\" とあります。"
+            },
+            {
+              "text": "It has made all content permanently free.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "It has had no real effect on consumers.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "It has increased the price of physical discs.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2-06",
+      "title": "Testing Universal Basic Income",
+      "passage": "Several governments and research organizations have conducted pilot programs giving a fixed sum of money to a group of citizens each month, no strings attached, an idea known as universal basic income. Advocates argue that the policy could reduce poverty and anxiety about basic needs, freeing recipients to pursue education, start businesses, or care for family members without the constant pressure of low-wage employment. Results from several trials have shown modest improvements in mental health and, contrary to a common assumption, little evidence that recipients simply stop working. Opponents remain unconvinced, arguing that funding a nationwide program would require tax increases far larger than any pilot study has tested, and that a small trial cannot reliably predict how an entire economy would respond if everyone received the same guarantee.",
+      "questions": [
+        {
+          "id": "r2-06-q1",
+          "q": "What do pilot programs for universal basic income give citizens?",
+          "choices": [
+            {
+              "text": "A fixed sum of money each month, with no conditions attached.",
+              "correct": true,
+              "explain": "\"giving a fixed sum of money to a group of citizens each month, no strings attached\" とあります。"
+            },
+            {
+              "text": "Free housing only.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Job training programs.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Loans that must be repaid.",
+              "correct": false,
+              "explain": "返済不要な支給だと書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r2-06-q2",
+          "q": "What do advocates say the policy could do?",
+          "choices": [
+            {
+              "text": "Reduce poverty and anxiety about basic needs.",
+              "correct": true,
+              "explain": "\"the policy could reduce poverty and anxiety about basic needs\" とあります。"
+            },
+            {
+              "text": "Eliminate all taxes.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "End unemployment completely.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Replace public education.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-06-q3",
+          "q": "What have trial results shown about work, contrary to a common assumption?",
+          "choices": [
+            {
+              "text": "Little evidence that recipients simply stop working.",
+              "correct": true,
+              "explain": "\"contrary to a common assumption, little evidence that recipients simply stop working\" とあります。"
+            },
+            {
+              "text": "Most recipients quit their jobs immediately.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "Recipients worked longer hours than before.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "No data on employment was collected.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-06-q4",
+          "q": "What do opponents argue about funding a nationwide program?",
+          "choices": [
+            {
+              "text": "It would require tax increases far larger than any pilot study has tested.",
+              "correct": true,
+              "explain": "\"funding a nationwide program would require tax increases far larger than any pilot study has tested\" とあります。"
+            },
+            {
+              "text": "It would cost nothing extra.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "It has already been fully funded.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "It would be funded entirely by private donations.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-06-q5",
+          "q": "Why do opponents say a small trial cannot reliably predict a nationwide result?",
+          "choices": [
+            {
+              "text": "An entire economy might respond differently if everyone received the guarantee.",
+              "correct": true,
+              "explain": "\"a small trial cannot reliably predict how an entire economy would respond if everyone received the same guarantee\" とあります。"
+            },
+            {
+              "text": "Small trials always use inaccurate methods.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Governments refuse to fund any research.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Pilot programs are illegal in most countries.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2-07",
+      "title": "The Growth of Telemedicine",
+      "passage": "Video consultations with doctors, once a niche service, became commonplace during recent years, and many patients and providers have continued using them even as in-person visits have become available again. Telemedicine offers clear advantages for patients in rural areas, who previously had to travel long distances for routine check-ups, as well as for anyone with mobility issues or a tight schedule. Physicians note, however, that certain conditions genuinely require physical examination, and that diagnosing patients through a screen carries a higher risk of missing subtle symptoms that a doctor might otherwise notice in person, such as changes in skin color or gait. As a result, most healthcare systems now treat telemedicine as a useful complement to, rather than a full replacement for, traditional in-person care.",
+      "questions": [
+        {
+          "id": "r2-07-q1",
+          "q": "What has happened to video consultations with doctors in recent years?",
+          "choices": [
+            {
+              "text": "They became commonplace, and many people kept using them.",
+              "correct": true,
+              "explain": "\"became commonplace during recent years, and many patients and providers have continued using them\" とあります。"
+            },
+            {
+              "text": "They were banned by most governments.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "They disappeared once in-person visits resumed.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "They were never adopted by patients.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-07-q2",
+          "q": "Who especially benefits from telemedicine, according to the passage?",
+          "choices": [
+            {
+              "text": "Patients in rural areas and those with mobility issues or tight schedules.",
+              "correct": true,
+              "explain": "\"clear advantages for patients in rural areas ... as well as for anyone with mobility issues or a tight schedule\" とあります。"
+            },
+            {
+              "text": "Only hospital administrators.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Only patients who dislike doctors.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Only children under ten.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-07-q3",
+          "q": "What concern do physicians raise about telemedicine?",
+          "choices": [
+            {
+              "text": "A higher risk of missing subtle symptoms visible only in person.",
+              "correct": true,
+              "explain": "\"diagnosing patients through a screen carries a higher risk of missing subtle symptoms that a doctor might otherwise notice in person\" とあります。"
+            },
+            {
+              "text": "It costs far more than in-person visits.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "It requires expensive new hospital buildings.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Patients refuse to use the technology.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-07-q4",
+          "q": "What example of a subtle symptom does the passage give?",
+          "choices": [
+            {
+              "text": "Changes in skin color or gait.",
+              "correct": true,
+              "explain": "\"such as changes in skin color or gait\" とあります。"
+            },
+            {
+              "text": "A slight fever.",
+              "correct": false,
+              "explain": "本文には skin color or gait と書かれています。"
+            },
+            {
+              "text": "A change in voice pitch.",
+              "correct": false,
+              "explain": "本文には skin color or gait と書かれています。"
+            },
+            {
+              "text": "Hand tremors only.",
+              "correct": false,
+              "explain": "本文には skin color or gait と書かれています。"
+            }
+          ]
+        },
+        {
+          "id": "r2-07-q5",
+          "q": "How do most healthcare systems now treat telemedicine?",
+          "choices": [
+            {
+              "text": "As a useful complement to, rather than a replacement for, in-person care.",
+              "correct": true,
+              "explain": "\"most healthcare systems now treat telemedicine as a useful complement to, rather than a full replacement for, traditional in-person care\" とあります。"
+            },
+            {
+              "text": "As a total replacement for all hospital visits.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "As an experimental technology with no real use.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "As something only for emergency situations.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2-08",
+      "title": "Rights in the Gig Economy",
+      "passage": "Ride-hailing and food-delivery apps have created millions of jobs in which workers are classified as independent contractors rather than employees, a distinction that determines whether they receive benefits such as health insurance, paid leave, and a guaranteed minimum wage. Companies argue that this flexible arrangement benefits workers who value the freedom to set their own hours and work for multiple platforms simultaneously. Labor advocates counter that many gig workers depend on this income as their primary livelihood, not as occasional extra earnings, and that classifying them as contractors allows companies to avoid costs they would otherwise bear as employers. Several courts and legislatures around the world have recently ruled on this question, with outcomes that vary considerably depending on the jurisdiction, leaving the legal status of gig workers unsettled in many places.",
+      "questions": [
+        {
+          "id": "r2-08-q1",
+          "q": "How are workers on ride-hailing and delivery apps typically classified?",
+          "choices": [
+            {
+              "text": "As independent contractors rather than employees.",
+              "correct": true,
+              "explain": "\"workers are classified as independent contractors rather than employees\" とあります。"
+            },
+            {
+              "text": "As government employees.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "As unpaid volunteers.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "As company shareholders.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-08-q2",
+          "q": "What does this classification determine, according to the passage?",
+          "choices": [
+            {
+              "text": "Whether workers receive benefits like health insurance and a minimum wage.",
+              "correct": true,
+              "explain": "\"a distinction that determines whether they receive benefits such as health insurance, paid leave, and a guaranteed minimum wage\" とあります。"
+            },
+            {
+              "text": "Which app they are allowed to use.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Their working hours exactly.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "The color of their delivery vehicle.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-08-q3",
+          "q": "What do companies argue in favor of the contractor arrangement?",
+          "choices": [
+            {
+              "text": "It benefits workers who value flexibility and working for multiple platforms.",
+              "correct": true,
+              "explain": "\"this flexible arrangement benefits workers who value the freedom to set their own hours and work for multiple platforms simultaneously\" とあります。"
+            },
+            {
+              "text": "It guarantees workers a higher salary than employees.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "It is required by international law.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "It eliminates the need for any regulation.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-08-q4",
+          "q": "What do labor advocates point out about many gig workers?",
+          "choices": [
+            {
+              "text": "Many depend on this income as their primary livelihood, not extra earnings.",
+              "correct": true,
+              "explain": "\"many gig workers depend on this income as their primary livelihood, not as occasional extra earnings\" とあります。"
+            },
+            {
+              "text": "Most gig workers already have full employee benefits.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "Few gig workers actually need the income.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "Gig work is illegal in most countries.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-08-q5",
+          "q": "What is the current legal status of gig workers, according to the passage?",
+          "choices": [
+            {
+              "text": "Unsettled in many places, with outcomes varying by jurisdiction.",
+              "correct": true,
+              "explain": "\"leaving the legal status of gig workers unsettled in many places\" とあります。"
+            },
+            {
+              "text": "Fully resolved worldwide in favor of companies.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Fully resolved worldwide in favor of workers.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Identical in every country.",
+              "correct": false,
+              "explain": "本文には国・地域によって異なると書かれています。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2-09",
+      "title": "The Ethics of Space Tourism",
+      "passage": "As private companies begin offering short trips to the edge of space for paying customers, the emerging industry of space tourism has attracted both excitement and criticism. Supporters see it as a natural extension of human exploration, arguing that the technology developed for tourist flights could eventually make space travel more affordable and accessible to scientists and future generations. Critics counter that each flight consumes vast amounts of fuel and releases emissions high in the atmosphere, where their environmental impact is not yet fully understood, all to provide a brief experience for wealthy individuals who could arguably spend their money addressing problems on Earth instead. Some space agencies have responded by funding research into more efficient, lower-emission rocket fuels, hoping to address environmental concerns without abandoning the broader goal of expanding access to space.",
+      "questions": [
+        {
+          "id": "r2-09-q1",
+          "q": "What has the emerging space tourism industry attracted, according to the passage?",
+          "choices": [
+            {
+              "text": "Both excitement and criticism.",
+              "correct": true,
+              "explain": "\"has attracted both excitement and criticism\" とあります。"
+            },
+            {
+              "text": "Only enthusiastic support.",
+              "correct": false,
+              "explain": "批判もあると書かれています。"
+            },
+            {
+              "text": "Complete indifference from the public.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Immediate government bans.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-09-q2",
+          "q": "What do supporters of space tourism argue?",
+          "choices": [
+            {
+              "text": "The technology could eventually make space travel more affordable and accessible.",
+              "correct": true,
+              "explain": "\"the technology developed for tourist flights could eventually make space travel more affordable and accessible to scientists and future generations\" とあります。"
+            },
+            {
+              "text": "It has no connection to scientific progress.",
+              "correct": false,
+              "explain": "本文の内容と矛盾します。"
+            },
+            {
+              "text": "It should be limited to government astronauts only.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "It is already fully affordable for everyone.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-09-q3",
+          "q": "What environmental concern do critics raise?",
+          "choices": [
+            {
+              "text": "Each flight consumes vast fuel and releases emissions whose impact is not fully understood.",
+              "correct": true,
+              "explain": "\"each flight consumes vast amounts of fuel and releases emissions high in the atmosphere, where their environmental impact is not yet fully understood\" とあります。"
+            },
+            {
+              "text": "Rockets make too much noise for nearby residents.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Space debris is falling back to Earth.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Fuel costs are too low to sustain the industry.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-09-q4",
+          "q": "What do critics say about the passengers on these flights?",
+          "choices": [
+            {
+              "text": "They are wealthy individuals who could spend their money on problems on Earth instead.",
+              "correct": true,
+              "explain": "\"a brief experience for wealthy individuals who could arguably spend their money addressing problems on Earth instead\" とあります。"
+            },
+            {
+              "text": "They are mostly scientists conducting research.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "They receive their tickets for free.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "They are required to work during the flight.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-09-q5",
+          "q": "How have some space agencies responded to environmental concerns?",
+          "choices": [
+            {
+              "text": "By funding research into more efficient, lower-emission rocket fuels.",
+              "correct": true,
+              "explain": "\"Some space agencies have responded by funding research into more efficient, lower-emission rocket fuels\" とあります。"
+            },
+            {
+              "text": "By canceling all future space tourism flights.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "By ignoring the criticism entirely.",
+              "correct": false,
+              "explain": "本文には対応策を取ったと書かれています。"
+            },
+            {
+              "text": "By raising ticket prices to reduce demand.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2-10",
+      "title": "Consumer Genetic Testing and Privacy",
+      "passage": "Direct-to-consumer genetic testing kits, which allow anyone to learn about their ancestry and potential health risks by mailing in a saliva sample, have grown enormously popular over the past decade. Enthusiasts value the personal insights the tests provide, and some have even helped reunite biological family members separated for decades. Privacy advocates, however, warn that the genetic data collected by these companies is uniquely sensitive, since it reveals information not only about the individual tested but also about their relatives, who never consented to have their genetic information shared. Several companies have faced criticism after sharing customer data with pharmaceutical companies or law enforcement agencies, prompting calls for stricter regulations on how such deeply personal information can be stored, sold, or used in criminal investigations.",
+      "questions": [
+        {
+          "id": "r2-10-q1",
+          "q": "What do direct-to-consumer genetic testing kits allow people to learn?",
+          "choices": [
+            {
+              "text": "About their ancestry and potential health risks.",
+              "correct": true,
+              "explain": "\"allow anyone to learn about their ancestry and potential health risks by mailing in a saliva sample\" とあります。"
+            },
+            {
+              "text": "Their exact life expectancy.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Their blood type only.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Their eligibility for citizenship.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-10-q2",
+          "q": "What have some genetic tests helped accomplish, according to the passage?",
+          "choices": [
+            {
+              "text": "Reuniting biological family members separated for decades.",
+              "correct": true,
+              "explain": "\"some have even helped reunite biological family members separated for decades\" とあります。"
+            },
+            {
+              "text": "Curing genetic diseases.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Predicting the weather.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Reducing testing costs to zero.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-10-q3",
+          "q": "Why do privacy advocates say genetic data is uniquely sensitive?",
+          "choices": [
+            {
+              "text": "It reveals information about relatives who never consented to share it.",
+              "correct": true,
+              "explain": "\"it reveals information not only about the individual tested but also about their relatives, who never consented to have their genetic information shared\" とあります。"
+            },
+            {
+              "text": "It is more expensive to collect than other data.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "It cannot be stored digitally.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "It is only sensitive for celebrities.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-10-q4",
+          "q": "What criticism have several companies faced?",
+          "choices": [
+            {
+              "text": "Sharing customer data with pharmaceutical companies or law enforcement.",
+              "correct": true,
+              "explain": "\"Several companies have faced criticism after sharing customer data with pharmaceutical companies or law enforcement agencies\" とあります。"
+            },
+            {
+              "text": "Charging customers too little for testing.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Refusing to test any customers.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "Losing customers' saliva samples in the mail.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "r2-10-q5",
+          "q": "What has this criticism prompted, according to the passage?",
+          "choices": [
+            {
+              "text": "Calls for stricter regulations on how genetic information is stored, sold, or used.",
+              "correct": true,
+              "explain": "\"prompting calls for stricter regulations on how such deeply personal information can be stored, sold, or used in criminal investigations\" とあります。"
+            },
+            {
+              "text": "A complete ban on all genetic testing.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "A boycott that shut down the entire industry.",
+              "correct": false,
+              "explain": "そのような記述ではありません。"
+            },
+            {
+              "text": "No response from regulators at all.",
+              "correct": false,
+              "explain": "規制強化を求める声が上がったと書かれています。"
             }
           ]
         }
