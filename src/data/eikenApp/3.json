@@ -265,6 +265,90 @@
         { "text": "Because", "correct": false, "explain": "Because（〜なので）は理由を表し、この文の意味に合いません。" },
         { "text": "Unless", "correct": false, "explain": "Unless（〜しない限り）は条件を表し、この文の意味に合いません。" }
       ]
+    },
+    {
+      "id": "g3-06",
+      "sentence": "It is important ___ enough water every day.",
+      "ja": "毎日十分な水を飲むことは大切です。",
+      "point": "It is ... to do（〜することは…だ）：形式主語構文",
+      "choices": [
+        { "text": "to drink", "correct": true, "explain": "It is + 形容詞 + to do で「〜することは…だ」という意味を表します。" },
+        { "text": "drinking", "correct": false, "explain": "この形式主語構文では動名詞ではなく to不定詞を使います。" },
+        { "text": "drink", "correct": false, "explain": "動詞の原形だけでは文の中で正しい形になりません。" },
+        { "text": "drunk", "correct": false, "explain": "過去分詞（drunk）ではこの構文になりません。" }
+      ]
+    },
+    {
+      "id": "g3-07",
+      "sentence": "She ___ English for three years.",
+      "ja": "彼女は3年間英語を勉強し続けています。",
+      "point": "現在完了進行形（have been + 動詞のing形）：継続を表す",
+      "choices": [
+        { "text": "has been studying", "correct": true, "explain": "for three years（3年間）という継続期間があるので、現在完了進行形（has been studying）を使います。" },
+        { "text": "studies", "correct": false, "explain": "現在形では「継続している」という意味を表せません。" },
+        { "text": "studied", "correct": false, "explain": "過去形では現在まで続いている継続の意味になりません。" },
+        { "text": "is studying", "correct": false, "explain": "現在進行形は「今している最中」を表し、3年間の継続を表すには現在完了進行形が適切です。" }
+      ]
+    },
+    {
+      "id": "g3-08",
+      "sentence": "The box was ___ heavy for me to carry alone.",
+      "ja": "その箱は重すぎて、私一人では運べませんでした。",
+      "point": "too ... to do（あまりに〜すぎて…できない）",
+      "choices": [
+        { "text": "too", "correct": true, "explain": "too + 形容詞 + to do で「あまりに〜すぎて…できない」という意味を表します。" },
+        { "text": "so", "correct": false, "explain": "so を使う場合は so heavy that I couldn't carry のように that節が必要です。" },
+        { "text": "very", "correct": false, "explain": "very heavy for me to carry という形は不自然です。" },
+        { "text": "enough", "correct": false, "explain": "enough は形容詞の後に置く語で、この位置には使いません。" }
+      ]
+    },
+    {
+      "id": "g3-09",
+      "sentence": "Mt. Fuji is ___ than any other mountain in Japan.",
+      "ja": "富士山は日本の他のどの山よりも高いです。",
+      "point": "比較級 + than any other + 単数名詞（〜より…な、最上級的な意味を表す）",
+      "choices": [
+        { "text": "higher", "correct": true, "explain": "比較級 + than any other + 単数名詞で「他のどの〜より…だ」という最上級に近い意味を表します。" },
+        { "text": "high", "correct": false, "explain": "この構文では比較級（higher）が必要です。" },
+        { "text": "highest", "correct": false, "explain": "than any other の前には最上級ではなく比較級を使います。" },
+        { "text": "the highest", "correct": false, "explain": "than any other と最上級（the highest）は一緒に使いません。" }
+      ]
+    },
+    {
+      "id": "g3-10",
+      "sentence": "This time tomorrow, I ___ on a plane to London.",
+      "ja": "明日の今頃、私はロンドン行きの飛行機に乗っているでしょう。",
+      "point": "未来進行形（will be + 動詞のing形）：未来のある時点で進行中の動作",
+      "choices": [
+        { "text": "will be flying", "correct": true, "explain": "This time tomorrow（明日の今頃）という未来の一時点で進行中の動作を表すので、未来進行形（will be flying）を使います。" },
+        { "text": "will fly", "correct": false, "explain": "will fly は単純未来を表し、「その時進行中」という意味は表しません。" },
+        { "text": "fly", "correct": false, "explain": "動詞の原形だけでは未来の文になりません。" },
+        { "text": "am flying", "correct": false, "explain": "現在進行形では明日の未来の場面を表せません。" }
+      ]
+    },
+    {
+      "id": "g3-11",
+      "sentence": "___ a beautiful sunset this is!",
+      "ja": "なんて美しい夕日なのでしょう！",
+      "point": "感嘆文：What + a/an + 形容詞 + 名詞（＋主語＋動詞）！",
+      "choices": [
+        { "text": "What", "correct": true, "explain": "What + a/an + 形容詞 + 名詞！の形で「なんて〜な…でしょう」という感嘆文を作ります。" },
+        { "text": "How", "correct": false, "explain": "How を使う感嘆文は How + 形容詞/副詞（＋主語＋動詞）！の形で、名詞（sunset）は続けません。" },
+        { "text": "So", "correct": false, "explain": "So はこの感嘆文の形には使いません。" },
+        { "text": "Such", "correct": false, "explain": "Such を使う場合は Such a beautiful sunset this is! のように語順が変わります（this の位置が同じでも Such の後は主語を続けない形が基本）。" }
+      ]
+    },
+    {
+      "id": "g3-12",
+      "sentence": "You've finished your homework, ___?",
+      "ja": "あなたは宿題を終えましたね？",
+      "point": "付加疑問文：肯定文には否定の付加疑問をつける",
+      "choices": [
+        { "text": "haven't you", "correct": true, "explain": "肯定文（現在完了）の付加疑問は、助動詞 have を使った否定形（haven't you）にします。" },
+        { "text": "don't you", "correct": false, "explain": "文の動詞が have（現在完了）なので、付加疑問にも have を使う必要があります。" },
+        { "text": "didn't you", "correct": false, "explain": "この文は現在完了形なので、過去形の didn't ではなく haven't を使います。" },
+        { "text": "have you", "correct": false, "explain": "肯定文には否定の付加疑問をつけるので、肯定形（have you）ではなく否定形が必要です。" }
+      ]
     }
   ],
   "reading": [
@@ -301,6 +385,43 @@
             { "text": "About ancient history.", "correct": false, "explain": "歴史についての記述はありません。" },
             { "text": "About cooking.", "correct": false, "explain": "料理についての記述はありません。" },
             { "text": "About foreign languages.", "correct": false, "explain": "外国語についての記述はありません。" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r3-02",
+      "title": "A Class Trip to a Farm",
+      "passage": "Last week, Ms. Yamada's class visited a dairy farm outside the city. The students learned how to milk a cow and watched the farmer feed the animals. Many students were surprised to learn how much work farmers do every single day, even on holidays. After the tour, the class made ice cream using fresh milk from the farm. Everyone agreed that the ice cream tasted much better than the kind from a store. Ms. Yamada said she hopes the trip helped students understand where their food really comes from.",
+      "questions": [
+        {
+          "id": "r3-02-q1",
+          "q": "What did the students learn how to do?",
+          "choices": [
+            { "text": "Milk a cow.", "correct": true, "explain": "\"The students learned how to milk a cow\" とあります。" },
+            { "text": "Drive a tractor.", "correct": false, "explain": "トラクターの運転についての記述はありません。" },
+            { "text": "Plant vegetables.", "correct": false, "explain": "野菜の植え付けについての記述はありません。" },
+            { "text": "Build a barn.", "correct": false, "explain": "納屋を建てるという記述はありません。" }
+          ]
+        },
+        {
+          "id": "r3-02-q2",
+          "q": "What surprised many students about farmers?",
+          "choices": [
+            { "text": "How much work they do every day, even on holidays.", "correct": true, "explain": "\"Many students were surprised to learn how much work farmers do every single day, even on holidays\" とあります。" },
+            { "text": "How little money they earn.", "correct": false, "explain": "収入についての記述はありません。" },
+            { "text": "How few animals they have.", "correct": false, "explain": "動物の数についての記述はありません。" },
+            { "text": "How far they live from the city.", "correct": false, "explain": "居住地の距離についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "r3-02-q3",
+          "q": "What did the class do after the tour?",
+          "choices": [
+            { "text": "They made ice cream using fresh milk.", "correct": true, "explain": "\"the class made ice cream using fresh milk from the farm\" とあります。" },
+            { "text": "They had a picnic lunch.", "correct": false, "explain": "ピクニックについての記述はありません。" },
+            { "text": "They watched a movie about farming.", "correct": false, "explain": "映画鑑賞についての記述はありません。" },
+            { "text": "They planted trees.", "correct": false, "explain": "植樹についての記述はありません。" }
           ]
         }
       ]
@@ -398,6 +519,25 @@
         { "text": "I don't have any money.", "correct": false, "explain": "お金がないという返答は会話の流れに合いません。" },
         { "text": "The weather is nice today.", "correct": false, "explain": "天気の話は注文の会話の流れに合いません。" },
         { "text": "I finished my homework already.", "correct": false, "explain": "宿題の話は注文の会話に関係ありません。" }
+      ]
+    },
+    {
+      "id": "d3-02",
+      "title": "Asking for Directions",
+      "translation": "A：すみません、ここから駅までの行き方を教えていただけますか。 B：はい。まっすぐ2ブロック進んで、本屋のところを左に曲がってください。 A：___ B：ここから歩いて10分くらいです。 A：ありがとうございます、助かりました。",
+      "lines": [
+        { "speaker": "A", "text": "Excuse me, could you tell me how to get to the station from here?" },
+        { "speaker": "B", "text": "Sure. Go straight for two blocks, and then turn left at the bookstore." },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "It's about a ten-minute walk from here." },
+        { "speaker": "A", "text": "Thank you so much for your help." }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "Thank you. How long does it take to walk there?", "correct": true, "explain": "直後にBが所要時間（10分）を答えているので、時間をたずねる発言が自然です。" },
+        { "text": "I don't want to go there anymore.", "correct": false, "explain": "その後もお礼を言って会話が続いているので、行きたくないという発言は不自然です。" },
+        { "text": "I already know the way, thanks.", "correct": false, "explain": "道をすでに知っているなら、その後さらに道案内を受け取る流れと矛盾します。" },
+        { "text": "What time does the bookstore close?", "correct": false, "explain": "本屋の閉店時間は道案内の流れに関係ありません。" }
       ]
     }
   ]
