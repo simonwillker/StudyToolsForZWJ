@@ -139,6 +139,78 @@
             { "text": "resilient", "correct": false, "explain": "resilient は「回復力のある」で、削減の理由になりません。" },
             { "text": "reciprocal", "correct": false, "explain": "reciprocal は「相互の」という意味です。" }
           ]
+        },
+        {
+          "id": "1-p1-11",
+          "sentence": "The minister's assurances did little to （　） public anxiety about the water supply.",
+          "ja": "大臣の言明は、水道水に対する国民の不安を和らげるのにほとんど役立たなかった。",
+          "point": "allay（〜を和らげる、鎮める）",
+          "choices": [
+            { "text": "allay", "correct": true, "explain": "allay anxiety で「不安を和らげる」という定型表現です。" },
+            { "text": "allocate", "correct": false, "explain": "allocate は「割り当てる」という意味です。" },
+            { "text": "allude", "correct": false, "explain": "allude to で「それとなく言及する」という意味です。" },
+            { "text": "align", "correct": false, "explain": "align は「一列に並べる、整合させる」という意味です。" }
+          ]
+        },
+        {
+          "id": "1-p1-12",
+          "sentence": "The negotiations broke down at the eleventh hour, （　） months of careful diplomacy.",
+          "ja": "交渉は土壇場で決裂し、数か月にわたる慎重な外交努力を台無しにした。",
+          "point": "undo（〜を台無しにする）の -ing 形",
+          "choices": [
+            { "text": "undoing", "correct": true, "explain": "undo は「元に戻す、台無しにする」で、分詞構文として結果を表します。" },
+            { "text": "undergoing", "correct": false, "explain": "undergo は「（試練などを）経験する」という意味です。" },
+            { "text": "underlining", "correct": false, "explain": "underline は「下線を引く、強調する」という意味です。" },
+            { "text": "underwriting", "correct": false, "explain": "underwrite は「（保険などを）引き受ける」という意味です。" }
+          ]
+        },
+        {
+          "id": "1-p1-13",
+          "sentence": "It is imperative that the report （　） before the board meets on Friday.",
+          "ja": "取締役会が金曜に開かれる前に、その報告書が提出されることが不可欠だ。",
+          "point": "It is imperative that 主語＋原形（仮定法現在）",
+          "choices": [
+            { "text": "be submitted", "correct": true, "explain": "imperative など要求・必要を表す形容詞に続く that 節は仮定法現在（原形）になります。" },
+            { "text": "is submitted", "correct": false, "explain": "仮定法現在が必要なため、三人称単数の -s 形は使いません。" },
+            { "text": "will be submitted", "correct": false, "explain": "that 節内は原形が必要です。" },
+            { "text": "was submitted", "correct": false, "explain": "過去形ではなく原形が必要です。" }
+          ]
+        },
+        {
+          "id": "1-p1-14",
+          "sentence": "The company's recovery, far from being （　）, could unravel at the first sign of economic trouble.",
+          "ja": "その会社の回復は盤石にはほど遠く、経済に少しでも不安の兆しが出れば崩れかねない。",
+          "point": "far from being 〜（〜にはほど遠い）",
+          "choices": [
+            { "text": "secure", "correct": true, "explain": "崩れかねないという文脈から、回復が「盤石」にはほど遠いという意味になります。" },
+            { "text": "scarce", "correct": false, "explain": "scarce は「乏しい」で、回復の質を表す語として不自然です。" },
+            { "text": "sparse", "correct": false, "explain": "sparse は「まばらな」という意味です。" },
+            { "text": "severe", "correct": false, "explain": "severe は「厳しい、深刻な」という意味です。" }
+          ]
+        },
+        {
+          "id": "1-p1-15",
+          "sentence": "He could barely afford the bus fare, （　） the cost of a plane ticket.",
+          "ja": "彼はバス代さえ払うのがやっとで、飛行機代など論外だった。",
+          "point": "let alone（〜はおろか、まして〜など）",
+          "choices": [
+            { "text": "let alone", "correct": true, "explain": "否定的な内容のあとに続け、「まして〜など」と程度の大きいものを付け足す定型表現です。" },
+            { "text": "still more", "correct": false, "explain": "still more は肯定文で使う「まして〜はなおさら」の表現です。" },
+            { "text": "even so", "correct": false, "explain": "even so は「それでも」という意味の接続副詞です。" },
+            { "text": "no less", "correct": false, "explain": "no less は通常 no less than の形で「〜も同然」という意味になります。" }
+          ]
+        },
+        {
+          "id": "1-p1-16",
+          "sentence": "Without insurance, small farmers are entirely （　） the whims of the weather.",
+          "ja": "保険がなければ、零細農家はまったく天候の気まぐれのなすがままである。",
+          "point": "at the mercy of 〜（〜のなすがままで）",
+          "choices": [
+            { "text": "at the mercy of", "correct": true, "explain": "at the mercy of で「〜のなすがままで、〜に翻弄されて」という定型表現です。" },
+            { "text": "in the interest of", "correct": false, "explain": "in the interest of は「〜の利益のために」という意味です。" },
+            { "text": "on behalf of", "correct": false, "explain": "on behalf of は「〜を代表して」という意味です。" },
+            { "text": "in lieu of", "correct": false, "explain": "in lieu of は「〜の代わりに」という意味です。" }
+          ]
         }
       ]
     },
@@ -196,6 +268,35 @@
                 { "text": "irrelevant", "correct": false, "explain": "強力な証拠とされたという文脈と矛盾します。" },
                 { "text": "inadmissible", "correct": false, "explain": "証拠として採用できないという意味になり、文脈と逆になります。" },
                 { "text": "optional", "correct": false, "explain": "任意かどうかという話ではありません。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1-p2-b",
+          "format": "説明文",
+          "title": "Why Airlines Overbook Flights",
+          "passage": "Passengers who arrive at the gate only to be told that their confirmed seat no longer exists tend to assume that the airline has simply sold more tickets than the aircraft can hold. That is precisely what happens, and airlines defend the practice as ( 1 ) rather than reckless. On most routes, a predictable fraction of ticketed passengers fail to show up, whether because of missed connections, last-minute cancellations, or simple no-shows. An airline that sold exactly as many seats as there were places would routinely fly with rows sitting empty, an outcome that keeps fares higher for everyone else.\n\nRegulators have not banned the practice, but they have made it considerably more expensive to get wrong. Carriers that bump more passengers than anticipated must now offer compensation that rises steeply with the length of the resulting delay, and in several jurisdictions must first ask for volunteers willing to give up their seats in exchange for vouchers. The incentive this creates is ( 2 ): airlines that overbook too aggressively lose money on compensation, while airlines that never overbook lose money on empty seats, so practice has converged on statistical models tuned closely to each route's historical no-show rate.",
+          "translation": "搭乗口に着いて、確約されていたはずの座席がもう存在しないと告げられた乗客は、航空会社が単に機材の定員以上にチケットを売っただけだと考えがちである。まさにその通りのことが起きており、航空会社はこの慣行を無謀ではなく（ 1 ）だと弁護する。ほとんどの路線で、予約済み乗客の一定割合は必ず現れない。乗り継ぎに乗り遅れたり、直前にキャンセルしたり、単に無断欠席したりするためだ。座席数とちょうど同じ枚数だけ売る航空会社は、常に空席のまま飛ぶことになり、その分ほかの乗客の運賃は高くなる。規制当局はこの慣行を禁止してはいないが、失敗した場合の代償をかなり大きくした。予想以上に乗客を締め出した航空会社は、遅延の長さに応じて急激に増える補償を提供しなければならず、複数の法域ではまず座席を譲る意思のある乗客をバウチャーと引き換えに募らなければならない。ここに生まれる誘因は（ 2 ）である。過剰予約をしすぎる航空会社は補償で損をし、まったく過剰予約をしない航空会社は空席で損をする。そのため実務は各路線の過去の無断欠席率に細かく合わせた統計モデルへと収斂してきた。",
+          "questions": [
+            {
+              "id": "1-p2-b-q1",
+              "blank": 1,
+              "choices": [
+                { "text": "a calculated trade-off", "correct": true, "explain": "現れない乗客の割合を見込んだ合理的な判断であることを、続く説明が裏づけています。" },
+                { "text": "an act of charity", "correct": false, "explain": "利益を守るための慣行であり、善意の行為ではありません。" },
+                { "text": "a legal loophole", "correct": false, "explain": "法の抜け穴を利用しているという文脈ではありません。" },
+                { "text": "a temporary error", "correct": false, "explain": "意図的な慣行であり、一時的な誤りではありません。" }
+              ]
+            },
+            {
+              "id": "1-p2-b-q2",
+              "blank": 2,
+              "choices": [
+                { "text": "self-correcting", "correct": true, "explain": "過剰予約しすぎても、しなさすぎても損をするため、実務が自然と適正水準に収斂すると説明されています。" },
+                { "text": "self-defeating", "correct": false, "explain": "統計モデルへの収斂という好ましい結果と矛盾します。" },
+                { "text": "self-evident", "correct": false, "explain": "「自明」という意味で、誘因の性質を表しません。" },
+                { "text": "self-conscious", "correct": false, "explain": "「自意識過剰な」という意味で、文脈に合いません。" }
               ]
             }
           ]
@@ -295,6 +396,45 @@
                 { "text": "Heat from the rock below melts the deepest layers.", "correct": false, "explain": "それは層の順序が壊れる別の問題です。" },
                 { "text": "Drilling introduces modern air into the core.", "correct": false, "explain": "掘削時の混入については述べられていません。" },
                 { "text": "The layers mix as they accumulate.", "correct": false, "explain": "層は混ざらずに堆積すると述べられています。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1-p3-c",
+          "format": "説明文",
+          "title": "De-Extinction and Its Discontents",
+          "passage": "A small number of biotechnology firms now claim to be within reach of doing what conservation has traditionally treated as impossible: bringing back a species that no longer exists. The methods vary, but the most publicized approach involves editing the genome of a living relative, inserting genetic sequences recovered from preserved specimens, until the resulting animal resembles the extinct original closely enough to fill its ecological role. Proponents cite the woolly mammoth as the flagship project, arguing that mammoth-like elephants introduced to the Arctic tundra could trample shrubs, expose reflective snow, and help slow permafrost thaw.\n\nSkeptics within genetics itself have raised the loudest objections. An elephant modified with a handful of mammoth genes, they point out, is not a mammoth; it is an elephant with several dozen altered traits out of tens of thousands, lacking the physiology, gut microbiome, and maternal knowledge that a mammoth calf would have acquired from a mammoth mother. Whatever emerges from the laboratory will need to learn, essentially from scratch, how to survive in an environment no member of its lineage has faced in four thousand years.\n\nA separate line of criticism concerns priorities rather than feasibility. Conservation budgets are, by any measure, badly strained, and the animals currently sliding toward extinction—vaquita porpoises, certain rhinoceros subspecies, numerous amphibians—could plausibly be saved for a fraction of what de-extinction research costs. Diverting attention and funding toward reviving charismatic extinct species, critics argue, risks sending the public a dangerously reassuring message: that extinction is a reversible mistake rather than a permanent one, and that today's endangered species can simply be regenerated later if efforts to protect them now should fail.\n\nSupporters counter that the comparison is misleading, since de-extinction research is funded largely by private investors uninterested in conventional conservation work, meaning that little money is actually being diverted. They also note that techniques developed for de-extinction, particularly methods for preserving genetic diversity in small populations, could directly benefit species that are endangered but not yet extinct. Whether the public absorbs a reassuring message, they add, has more to do with how the research is reported than with whether it is conducted at all.",
+          "translation": "一部のバイオテクノロジー企業は今、従来の保全活動が不可能とみなしてきたこと、すなわちすでに存在しない種を復活させることに手が届きつつあると主張している。手法はさまざまだが、最も注目される方法は、近縁の現生種のゲノムを編集し、保存標本から回収した遺伝配列を挿入して、結果として生まれる動物が元の絶滅種の生態的役割を担えるほど近づけるというものだ。支持者はケナガマンモスを旗艦プロジェクトとして挙げ、マンモスに似たゾウを北極ツンドラに導入すれば低木を踏み倒し、反射率の高い雪面を露出させ、永久凍土の融解を遅らせる助けになると主張する。\n\n最も強い異論は遺伝学者自身から出ている。マンモス由来の遺伝子を数個加えたゾウは、彼らに言わせればマンモスではない。数万の形質のうち数十が変わっただけのゾウであり、マンモスの母親から子が受け継ぐはずの生理機能や腸内細菌叢、母から学ぶ知識を欠いている。研究室から生まれるものが何であれ、その系統のどの個体も4000年間直面していない環境で、事実上ゼロから生き延び方を学ばねばならない。\n\n別の批判は実現可能性ではなく優先順位に関わる。保全予算はどう見ても逼迫しており、いま絶滅に向かいつつある動物、たとえばコガシラネズミイルカや一部のサイの亜種、多くの両生類は、絶滅種復活研究の費用のごく一部で救える可能性がある。魅力的な絶滅種の復活に注意と資金を振り向けることは、危険なほど安心させるメッセージを世間に送りかねないと批判者は言う。絶滅は取り返しのつかない誤りではなく可逆的な過ちであり、今の絶滅危惧種も今の保護が失敗すれば後で再生すればよい、というメッセージである。\n\n支持者は、その比較は誤解を招くと反論する。絶滅種復活研究の資金の多くは従来型の保全活動に関心のない民間投資家によるもので、実際に振り向けられている資金はほとんどないというのだ。また、絶滅種復活のために開発された技術、とりわけ小さな個体群の遺伝的多様性を保つ手法は、絶滅してはいないが絶滅危惧にある種に直接役立ちうるとも指摘する。世間が安心するメッセージを受け取るかどうかは、研究が実施されるかどうかよりも、どう報道されるかに左右されると彼らは付け加える。",
+          "questions": [
+            {
+              "id": "1-p3-c-q1",
+              "q": "According to skeptics within genetics, what is the problem with a genetically modified elephant?",
+              "choices": [
+                { "text": "It lacks far more than genes to make it a true mammoth.", "correct": true, "explain": "遺伝子だけでなく生理機能や母からの学習など、多くを欠いていると指摘されています。" },
+                { "text": "It cannot survive in captivity.", "correct": false, "explain": "飼育下での生存については述べられていません。" },
+                { "text": "Its genome cannot be edited accurately.", "correct": false, "explain": "編集の精度の問題ではなく、それだけでは不十分だという指摘です。" },
+                { "text": "It would be hostile to real elephants.", "correct": false, "explain": "本物のゾウとの敵対関係については述べられていません。" }
+              ]
+            },
+            {
+              "id": "1-p3-c-q2",
+              "q": "What is the main concern of critics who focus on priorities rather than feasibility?",
+              "choices": [
+                { "text": "Resources spent on de-extinction could instead save currently endangered species.", "correct": true, "explain": "絶滅種復活の費用のごく一部で、現存の絶滅危惧種を救える可能性があると指摘されています。" },
+                { "text": "De-extinction technology does not actually work.", "correct": false, "explain": "この段落の論点は実現可能性ではなく優先順位です。" },
+                { "text": "Mammoths would compete with living elephants for habitat.", "correct": false, "explain": "生息地の競合については述べられていません。" },
+                { "text": "The Arctic tundra cannot support large animals.", "correct": false, "explain": "そのような主張はありません。" }
+              ]
+            },
+            {
+              "id": "1-p3-c-q3",
+              "q": "How do supporters respond to the criticism about diverted funding?",
+              "choices": [
+                { "text": "They argue the funding comes from investors who would not have funded conservation anyway.", "correct": true, "explain": "従来型の保全活動に関心のない民間投資家の資金であり、実際の転用は少ないと反論しています。" },
+                { "text": "They admit that conservation budgets are being significantly reduced.", "correct": false, "explain": "予算削減を認める記述はありません。" },
+                { "text": "They claim de-extinction is cheaper than conventional conservation.", "correct": false, "explain": "費用の安さは主張していません。" },
+                { "text": "They deny that any private investors are involved.", "correct": false, "explain": "むしろ民間投資家の関与を根拠にしています。" }
               ]
             }
           ]
@@ -440,6 +580,57 @@
             { "text": "The topics have become too difficult.", "correct": false, "explain": "テーマは変わっていません。" },
             { "text": "The building has closed permanently.", "correct": false, "explain": "閉館時間の変更で、閉鎖ではありません。" }
           ]
+        },
+        {
+          "id": "1-l1-05",
+          "script": [
+            { "speaker": "A", "text": "I noticed the internal audit flagged your department's travel expenses again this quarter." },
+            { "speaker": "B", "text": "I saw that too. Most of it is one contractor who keeps booking business class without approval." },
+            { "speaker": "A", "text": "Have you addressed it directly?" },
+            { "speaker": "B", "text": "Twice. He says the client insists on it for appearances. I am inclined to let his contract lapse rather than keep having this argument." }
+          ],
+          "question": "What does the woman plan to do about the contractor?",
+          "translation": "A：内部監査で今期もあなたの部署の出張費が指摘されましたね。　B：私も見ました。ほとんどは一人の業務委託先が承認なしにビジネスクラスを予約し続けているせいです。　A：直接注意しましたか。　B：二度。クライアントが体面のために求めていると言うんです。この議論を続けるより、契約を更新しないほうがいいと考えています。（質問：女性はその委託先についてどうするつもりですか）",
+          "choices": [
+            { "text": "Let his contract expire instead of continuing the dispute.", "correct": true, "explain": "議論を続けるより契約を更新しない方向に傾いていると述べています。" },
+            { "text": "Approve business class travel for all contractors.", "correct": false, "explain": "むしろ問題視しています。" },
+            { "text": "Report the client to senior management.", "correct": false, "explain": "クライアントへの報告は述べていません。" },
+            { "text": "Reduce the contractor's pay this quarter.", "correct": false, "explain": "報酬削減の話は出ていません。" }
+          ]
+        },
+        {
+          "id": "1-l1-06",
+          "script": [
+            { "speaker": "A", "text": "The landlord wants to raise the rent by fifteen percent when our lease renews." },
+            { "speaker": "B", "text": "That is well above what similar units are going for nearby." },
+            { "speaker": "A", "text": "I mentioned that. He said the increase covers a new roof and updated wiring, neither of which affects our unit directly." },
+            { "speaker": "B", "text": "Then push back with the market comparisons. If he won't budge, at least you'll have grounds to walk away without feeling like you overpaid out of ignorance." }
+          ],
+          "question": "What does the man suggest doing?",
+          "translation": "A：契約更新時に家主が家賃を15パーセント上げたいそうです。　B：近隣の同等物件よりかなり高いですね。　A：それは伝えました。新しい屋根と配線更新の費用だと言われましたが、どちらも私たちの部屋には直接関係ありません。　B：それなら近隣相場の比較を持ち出して押し返しましょう。応じなくても、知らずに払いすぎたと感じずに退去する根拠にはなります。（質問：男性は何を提案していますか）",
+          "choices": [
+            { "text": "Negotiate using evidence of comparable rents nearby.", "correct": true, "explain": "近隣相場の比較データを使って交渉するよう勧めています。" },
+            { "text": "Accept the increase because of the building repairs.", "correct": false, "explain": "修繕費用を理由に受け入れるよう勧めてはいません。" },
+            { "text": "Move out immediately without negotiating.", "correct": false, "explain": "交渉せず退去するよう勧めてはいません。" },
+            { "text": "Ask the landlord to delay the repairs.", "correct": false, "explain": "修繕の延期は提案されていません。" }
+          ]
+        },
+        {
+          "id": "1-l1-07",
+          "script": [
+            { "speaker": "A", "text": "The manuscript reviewer wants us to run three more years of data before publishing." },
+            { "speaker": "B", "text": "Three years would put us well behind the competing lab in Toronto." },
+            { "speaker": "A", "text": "I know. But the reviewer has a point—our current trend could still reverse." },
+            { "speaker": "B", "text": "Then let's publish a shorter paper now with what we have, flagged clearly as preliminary, and follow up with the full study later." }
+          ],
+          "question": "What compromise does the woman propose?",
+          "translation": "A：査読者は発表前にあと3年分のデータを求めています。　B：3年もかけたらトロントの競合研究室に大きく遅れます。　A：分かっています。でも査読者の指摘にも一理あります。今の傾向はまだ逆転しうるので。　B：それなら今ある分で短い論文を予備的なものと明記して発表し、あとで本格的な研究を続報として出しましょう。（質問：女性はどんな妥協案を提案していますか）",
+          "choices": [
+            { "text": "Publish a preliminary paper now and a fuller one later.", "correct": true, "explain": "予備的と明記した短い論文をまず出し、あとで本格的な研究を発表する案です。" },
+            { "text": "Wait three more years before publishing anything.", "correct": false, "explain": "それでは妥協案になりません。" },
+            { "text": "Ignore the reviewer's request entirely.", "correct": false, "explain": "査読者の指摘には一理あると認めています。" },
+            { "text": "Ask the Toronto lab to collaborate.", "correct": false, "explain": "トロントの研究室との協力は提案されていません。" }
+          ]
         }
       ]
     },
@@ -501,6 +692,42 @@
             { "text": "Pedestrians are banned from the area.", "correct": false, "explain": "歩行者の排除ではありません。" },
             { "text": "Signs are often difficult to read at night.", "correct": false, "explain": "視認性の問題は論じられていません。" }
           ]
+        },
+        {
+          "id": "1-l2-05",
+          "script": "Long regarded as a purely recreational pursuit, competitive chess has recently drawn scientific attention for what happens to players' bodies during tournament play. Researchers monitoring elite players during multi-hour matches recorded heart rates exceeding those of some marathon runners at rest, along with measurable spikes in cortisol during critical positions. The explanation appears to lie not in physical exertion but in sustained mental strain: players must suppress the urge to move quickly, continuously evaluate branching possibilities, and manage the psychological pressure of a single error potentially undoing hours of careful play. Some federations have begun consulting sports physiologists, previously employed only by endurance athletes, to help players manage fatigue across multi-day tournaments.",
+          "question": "What did researchers find about elite chess players during matches?",
+          "translation": "長らく純粋な娯楽とみなされてきた競技チェスは、最近、トーナメント中に選手の身体に何が起きているかという点で科学的関心を集めている。数時間に及ぶ対局中のトップ選手を計測した研究者は、安静時のマラソン選手を上回る心拍数と、重要な局面でのコルチゾール値の測定可能な急上昇を記録した。その説明は身体的な運動量ではなく、持続的な精神的負荷にあるようだ。選手は素早く指したい衝動を抑え、分岐する可能性を絶えず評価し、一つの誤りが何時間もの慎重な指し手を台無しにしかねないという心理的重圧を管理しなければならない。一部の連盟は、これまで持久系アスリートしか使わなかったスポーツ生理学者に相談し、複数日にわたるトーナメントでの疲労管理を選手に助言させ始めている。（質問：研究者はトップ選手の対局中について何を発見しましたか）",
+          "choices": [
+            { "text": "Their physiological stress responses resembled those of endurance athletes.", "correct": true, "explain": "心拍数やコルチゾール値の変化が持久系アスリートに匹敵すると記録されています。" },
+            { "text": "Their heart rates remained lower than average at rest.", "correct": false, "explain": "むしろ安静時のマラソン選手を上回ると述べられています。" },
+            { "text": "Physical exertion was the main cause of their stress.", "correct": false, "explain": "原因は身体的運動ではなく精神的負荷だと説明されています。" },
+            { "text": "Federations have always employed sports physiologists for chess.", "correct": false, "explain": "最近相談し始めたばかりだと述べられています。" }
+          ]
+        },
+        {
+          "id": "1-l2-06",
+          "script": "Urban planners have long assumed that adding lanes to a congested highway relieves traffic, yet data collected across hundreds of expansion projects tells a different story. Within a few years of widening, congestion typically returns to its previous level, or worse. The phenomenon, known as induced demand, occurs because reduced travel time initially attracts drivers who had previously avoided the route, chosen a different mode of transport, or simply made the trip less often. Total capacity effectively fills back up. Some cities have responded by abandoning expansion altogether in favor of dedicated transit lanes, which cannot be filled in quite the same self-defeating way, since a lane restricted to buses attracts additional bus riders rather than additional cars.",
+          "question": "What is 'induced demand' as described in the passage?",
+          "translation": "都市計画者は長らく、渋滞する幹線道路に車線を追加すれば渋滞が緩和されると想定してきたが、何百もの拡幅事業から集められたデータは違う話を語る。拡幅から数年のうちに、渋滞はたいてい以前の水準かそれ以上に戻る。「誘発需要」として知られるこの現象は、所要時間の短縮が、それまでその道を避けていた運転者や、別の交通手段を選んでいた人、あるいは単に移動回数を減らしていた人を新たに引き寄せることで起きる。総容量は事実上また満杯になる。一部の都市はこれを受け、拡幅を完全にやめてバス専用レーンを設ける方向に転換した。バスに限定された車線は、バス利用者を追加で呼び込むだけで自動車は呼び込まないため、同じように自滅的に満杯になることはない。（質問：本文で説明される「誘発需要」とは何ですか）",
+          "choices": [
+            { "text": "New capacity attracts drivers who previously avoided the route, refilling it.", "correct": true, "explain": "所要時間の短縮がそれまで道を避けていた運転者を呼び込み、容量が再び満杯になる現象です。" },
+            { "text": "Highway expansion always reduces the number of drivers.", "correct": false, "explain": "むしろ運転者が増えると説明されています。" },
+            { "text": "Traffic naturally decreases over time regardless of road capacity.", "correct": false, "explain": "容量とは無関係に減るとは述べられていません。" },
+            { "text": "Transit lanes eliminate congestion permanently.", "correct": false, "explain": "完全になくすとまでは述べられていません。" }
+          ]
+        },
+        {
+          "id": "1-l2-07",
+          "script": "In many older office towers, the temperature settings for centralized heating and cooling systems were calibrated using a formula developed in the 1960s, based on the estimated metabolic rate of a forty-year-old man weighing seventy kilograms. Because that formula overestimates the metabolic heat generated by most other body types, buildings following it are frequently over-cooled relative to the comfort needs of a substantial portion of occupants. Recent studies recalculating the formula with more representative body compositions suggest that many offices could raise their cooling setpoints by several degrees without any occupant reporting discomfort, while simultaneously reducing energy consumption considerably.",
+          "question": "What problem does the passage identify with older cooling formulas?",
+          "translation": "多くの古いオフィスビルでは、集中冷暖房設備の温度設定が、体重70キログラムの40歳男性の推定代謝率にもとづく1960年代開発の計算式で調整されている。その式はほかの多くの体格の代謝発熱量を過大に見積もるため、それに従うビルは在住者のかなりの部分の快適さの必要に対して、しばしば冷やしすぎになる。より代表的な体格構成で式を再計算した最近の研究によれば、多くのオフィスは不快を訴える人を出すことなく冷房設定温度を数度上げられ、同時にエネルギー消費もかなり削減できるという。（質問：本文は古い冷房計算式についてどんな問題を指摘していますか）",
+          "choices": [
+            { "text": "They were based on one body type and over-cool many occupants.", "correct": true, "explain": "特定の体格にもとづく式が、多くの在住者にとって冷やしすぎを生んでいると指摘しています。" },
+            { "text": "They were designed to save energy above all else.", "correct": false, "explain": "省エネを最優先に設計されたとは述べていません。" },
+            { "text": "They only apply to buildings built after the 1960s.", "correct": false, "explain": "1960年代に開発された式が、その後も使われ続けていると述べています。" },
+            { "text": "They accurately reflect the needs of most workers today.", "correct": false, "explain": "むしろ現在の多くの人の必要を反映していないと指摘されています。" }
+          ]
         }
       ]
     },
@@ -549,6 +776,30 @@
             { "text": "Use the south elevator at ten.", "correct": false, "explain": "南側は9〜12階に停止しません。" },
             { "text": "Use the north elevator after two.", "correct": false, "explain": "午後2時以降なら北側は動きますが、配送は午前10時の予定です。" },
             { "text": "Carry the furniture up the north stairwell.", "correct": false, "explain": "大型家具を階段で運ぶことは案内されていません。" }
+          ]
+        },
+        {
+          "id": "1-l3-04",
+          "script": "Welcome to the vehicle rental counter. Compact and economy cars booked online may be picked up at any of our airport locations without additional paperwork. Luxury and specialty vehicles, however, require the renter to present a printed reservation confirmation and a credit card in the renter's own name at the time of pickup; a debit card is not accepted for this category, regardless of the funds available. Renters who arrive without the printed confirmation for a luxury vehicle will be reassigned to the nearest available economy vehicle at no additional charge.",
+          "question": "状況：あなたは高級車をオンラインで予約しましたが、予約確認書を印刷し忘れ、持っているのはデビットカードだけです。　質問：What will happen?",
+          "translation": "レンタカーカウンターの案内。オンラインで予約されたコンパクト・エコノミー車は、追加の書類なしに空港内のどの店舗でも受け取れる。ただし高級車・特殊車両は、受け取り時に印刷済みの予約確認書と、借主本人名義のクレジットカードの提示が必要である。このカテゴリーではデビットカードは残高にかかわらず使用できない。高級車の印刷済み確認書を持たずに来た借主は、追加料金なしで最寄りの利用可能なエコノミー車に変更される。",
+          "choices": [
+            { "text": "You will be given an economy car instead, at no extra cost.", "correct": true, "explain": "確認書がない場合、追加料金なしでエコノミー車に変更されると案内されています。" },
+            { "text": "You will be charged extra for not printing the confirmation.", "correct": false, "explain": "追加料金は発生しないと述べられています。" },
+            { "text": "You can use the debit card if you show identification.", "correct": false, "explain": "高級車のカテゴリーではデビットカードは残高にかかわらず使えません。" },
+            { "text": "The rental will be cancelled entirely.", "correct": false, "explain": "予約自体がキャンセルされるわけではなく、車種が変更されます。" }
+          ]
+        },
+        {
+          "id": "1-l3-05",
+          "script": "This is a reminder from the fitness center. Members on the standard plan may reserve one class per day up to seven days in advance. Premium members may reserve up to three classes per day and may book fourteen days in advance. Any reservation not cancelled at least two hours before class time will count toward the member's monthly cancellation limit; standard members exceeding two missed reservations in a month will have booking privileges suspended for one week.",
+          "question": "状況：あなたはスタンダード会員で、今月すでに2回予約を無断キャンセルしています。3回目のクラスを予約し、開始1時間前にキャンセルしようとしています。　質問：What will happen?",
+          "translation": "フィットネスセンターからのお知らせ。スタンダード会員は1日1クラスまで、7日前から予約できる。プレミアム会員は1日3クラスまで、14日前から予約できる。クラス開始の2時間以上前にキャンセルしなかった予約はすべて、会員の月間キャンセル上限に数えられる。スタンダード会員が月に2回を超えて予約を無断キャンセルした場合、予約権が1週間停止される。",
+          "choices": [
+            { "text": "Your booking privileges will be suspended for a week.", "correct": true, "explain": "開始1時間前のキャンセルは無断扱いとなり、月3回目でスタンダード会員の上限（2回）を超えるため予約権が停止されます。" },
+            { "text": "You will be upgraded to premium automatically.", "correct": false, "explain": "自動的にアップグレードされるという案内はありません。" },
+            { "text": "Nothing will happen since you cancelled before class started.", "correct": false, "explain": "2時間前を切ってのキャンセルは無断扱いにカウントされます。" },
+            { "text": "You will be charged a cancellation fee.", "correct": false, "explain": "料金の請求については述べられていません。" }
           ]
         }
       ]
