@@ -265,6 +265,90 @@
         { "text": "It is", "correct": false, "explain": "It is は「それは〜です」という意味で、存在を表す文には使いません。" },
         { "text": "They are", "correct": false, "explain": "文頭で「〜がある」と存在を表すときは There are を使います。" }
       ]
+    },
+    {
+      "id": "g4-06",
+      "sentence": "___ I open the window? It's a bit hot in here.",
+      "ja": "窓を開けてもいいですか。ここは少し暑いので。",
+      "point": "許可を求める May（〜してもいいですか）",
+      "choices": [
+        { "text": "May", "correct": true, "explain": "May I ...? で「〜してもいいですか」という許可を求める丁寧な表現になります。" },
+        { "text": "Must", "correct": false, "explain": "Must は「〜しなければならない」という義務を表し、許可を求める意味にはなりません。" },
+        { "text": "Should", "correct": false, "explain": "Should は「〜すべきだ」という助言を表し、許可を求める意味にはなりません。" },
+        { "text": "Need", "correct": false, "explain": "Need は「〜する必要がある」という意味で、許可を求める表現ではありません。" }
+      ]
+    },
+    {
+      "id": "g4-07",
+      "sentence": "I enjoy ___ soccer with my friends after school.",
+      "ja": "私は放課後、友だちとサッカーをするのを楽しみます。",
+      "point": "enjoy + 動名詞（動名詞を目的語にとる動詞）",
+      "choices": [
+        { "text": "playing", "correct": true, "explain": "enjoy の後は動名詞（playing）を目的語にします。" },
+        { "text": "play", "correct": false, "explain": "enjoy の後に動詞の原形は続けません。" },
+        { "text": "to play", "correct": false, "explain": "enjoy の後には to不定詞ではなく動名詞を使います。" },
+        { "text": "played", "correct": false, "explain": "enjoy の後は動名詞（-ing形）が必要です。" }
+      ]
+    },
+    {
+      "id": "g4-08",
+      "sentence": "This is ___ movie I have ever seen.",
+      "ja": "これは私が今まで見た中で一番おもしろい映画です。",
+      "point": "最上級：the + 最上級 + 名詞（〜の中で一番…）",
+      "choices": [
+        { "text": "the most interesting", "correct": true, "explain": "I have ever seen（今まで見た中で）と一緒に使うときは最上級（the most interesting）にします。" },
+        { "text": "more interesting", "correct": false, "explain": "more interesting は比較級で、2つを比べるときに使います。ここでは最上級が必要です。" },
+        { "text": "interesting", "correct": false, "explain": "原級だけでは「一番」という意味を表せません。" },
+        { "text": "the interesting", "correct": false, "explain": "最上級には -est または most をつける必要があります。" }
+      ]
+    },
+    {
+      "id": "g4-09",
+      "sentence": "I think it ___ rain tomorrow.",
+      "ja": "明日は雨が降ると思います。",
+      "point": "will（未来の予測）",
+      "choices": [
+        { "text": "will", "correct": true, "explain": "will は「〜だろう」という未来の予測を表します。" },
+        { "text": "is", "correct": false, "explain": "is は現在形で、明日（未来）の予測を表せません。" },
+        { "text": "was", "correct": false, "explain": "was は過去形で、未来のことには使いません。" },
+        { "text": "does", "correct": false, "explain": "does は一般動詞の疑問文・否定文で使う助動詞で、ここには合いません。" }
+      ]
+    },
+    {
+      "id": "g4-10",
+      "sentence": "She ___ to work on Sundays because the store is closed.",
+      "ja": "日曜日は店が閉まっているので、彼女は働く必要がありません。",
+      "point": "doesn't have to（〜する必要がない）：一般動詞の否定形",
+      "choices": [
+        { "text": "doesn't have", "correct": true, "explain": "主語が三人称単数（She）で「〜する必要がない」というときは doesn't have to を使います。" },
+        { "text": "isn't have", "correct": false, "explain": "have は一般動詞なので、be動詞（isn't）と一緒には使いません。" },
+        { "text": "hasn't", "correct": false, "explain": "hasn't to という形は使いません。" },
+        { "text": "don't have", "correct": false, "explain": "主語が三人称単数（She）なので、don't ではなく doesn't を使います。" }
+      ]
+    },
+    {
+      "id": "g4-11",
+      "sentence": "Could you show me ___ this machine?",
+      "ja": "この機械の使い方を教えていただけますか。",
+      "point": "疑問詞 + 不定詞（how to do：〜の仕方）",
+      "choices": [
+        { "text": "how to use", "correct": true, "explain": "how to + 動詞の原形で「〜の仕方」という意味を表します。" },
+        { "text": "how use", "correct": false, "explain": "how の後に to が必要です。" },
+        { "text": "how using", "correct": false, "explain": "how to + 原形の形になり、using（ing形）は使いません。" },
+        { "text": "how used", "correct": false, "explain": "how to + 原形の形で、過去分詞（used）は使いません。" }
+      ]
+    },
+    {
+      "id": "g4-12",
+      "sentence": "We stayed in Kyoto ___ five days.",
+      "ja": "私たちは京都に5日間滞在しました。",
+      "point": "for（期間の長さ）：数字を使った期間には for を使う",
+      "choices": [
+        { "text": "for", "correct": true, "explain": "five days のような具体的な期間の長さには for を使います。" },
+        { "text": "during", "correct": false, "explain": "during は the vacation のような特定の期間の「中で」を表し、期間の長さには使いません。" },
+        { "text": "while", "correct": false, "explain": "while は接続詞で、後ろに主語＋動詞の文が必要です。" },
+        { "text": "since", "correct": false, "explain": "since は「〜以来」という開始点を表し、期間の長さ（five days）には使いません。" }
+      ]
     }
   ],
   "reading": [
@@ -304,6 +388,43 @@
           ]
         }
       ]
+    },
+    {
+      "id": "r4-02",
+      "title": "A Birthday Surprise",
+      "passage": "Yesterday was my little sister's birthday. My mother and I planned a surprise party for her. We invited her best friends and decorated the living room with balloons. When my sister came home from school, she was very surprised to see everyone waiting for her. She smiled and said it was the best birthday she had ever had. We ate cake together and played games until night.",
+      "questions": [
+        {
+          "id": "r4-02-q1",
+          "q": "Who planned the surprise party?",
+          "choices": [
+            { "text": "The speaker and their mother.", "correct": true, "explain": "\"My mother and I planned a surprise party for her\" とあります。" },
+            { "text": "The sister herself.", "correct": false, "explain": "妹自身が計画したのではなく、サプライズとして計画されました。" },
+            { "text": "The sister's teacher.", "correct": false, "explain": "先生についての記述はありません。" },
+            { "text": "Her best friend alone.", "correct": false, "explain": "友だちだけが計画したという記述はありません。" }
+          ]
+        },
+        {
+          "id": "r4-02-q2",
+          "q": "How did the sister feel when she came home?",
+          "choices": [
+            { "text": "Very surprised.", "correct": true, "explain": "\"she was very surprised to see everyone waiting for her\" とあります。" },
+            { "text": "Angry.", "correct": false, "explain": "怒っていたという記述はありません。" },
+            { "text": "Bored.", "correct": false, "explain": "退屈していたという記述はありません。" },
+            { "text": "Tired.", "correct": false, "explain": "疲れていたという記述はありません。" }
+          ]
+        },
+        {
+          "id": "r4-02-q3",
+          "q": "What did they do after eating cake?",
+          "choices": [
+            { "text": "They played games until night.", "correct": true, "explain": "\"We ate cake together and played games until night.\" とあります。" },
+            { "text": "They went to bed early.", "correct": false, "explain": "早く寝たという記述はありません。" },
+            { "text": "They cleaned the house.", "correct": false, "explain": "掃除についての記述はありません。" },
+            { "text": "They watched a movie.", "correct": false, "explain": "映画を見たという記述はありません。" }
+          ]
+        }
+      ]
     }
   ],
   "listening": [
@@ -330,6 +451,42 @@
         { "text": "Next Monday", "correct": false, "explain": "本文では Friday evening（金曜の夜）と言っています。" },
         { "text": "Today", "correct": false, "explain": "本文では this Friday（今週の金曜日）と言っています。" }
       ]
+    },
+    {
+      "id": "l4-03",
+      "script": "I usually walk to school, but today it was raining, so my father drove me instead.",
+      "translation": "私はふだん学校まで歩いていきますが、今日は雨だったので、父が車で送ってくれました。",
+      "question": "Why did the speaker's father drive them to school today?",
+      "choices": [
+        { "text": "Because it was raining.", "correct": true, "explain": "\"today it was raining, so my father drove me instead\" と言っています。" },
+        { "text": "Because they woke up late.", "correct": false, "explain": "寝坊についての記述はありません。" },
+        { "text": "Because the bus was broken.", "correct": false, "explain": "バスについての記述はありません。" },
+        { "text": "Because they forgot their bag.", "correct": false, "explain": "かばんを忘れたという記述はありません。" }
+      ]
+    },
+    {
+      "id": "l4-04",
+      "script": "My favorite subject used to be math, but now I like science more because our new teacher makes the experiments fun.",
+      "translation": "私の好きな教科は前は数学でしたが、今は理科のほうが好きです。新しい先生が実験を楽しくしてくれるからです。",
+      "question": "Why does the speaker like science more now?",
+      "choices": [
+        { "text": "Because the new teacher makes the experiments fun.", "correct": true, "explain": "\"because our new teacher makes the experiments fun\" と言っています。" },
+        { "text": "Because math became too difficult.", "correct": false, "explain": "数学が難しくなったという記述はありません。" },
+        { "text": "Because there is no homework in science.", "correct": false, "explain": "宿題についての記述はありません。" },
+        { "text": "Because their friends all like science.", "correct": false, "explain": "友だちについての記述はありません。" }
+      ]
+    },
+    {
+      "id": "l4-05",
+      "script": "We couldn't find a table at the restaurant, so we decided to order takeout and eat at home instead.",
+      "translation": "レストランで席が見つからなかったので、私たちはテイクアウトを注文して家で食べることにしました。",
+      "question": "What did they decide to do?",
+      "choices": [
+        { "text": "Order takeout and eat at home.", "correct": true, "explain": "\"we decided to order takeout and eat at home instead\" と言っています。" },
+        { "text": "Wait an hour for a table.", "correct": false, "explain": "1時間待つという記述はありません。" },
+        { "text": "Go to a different restaurant.", "correct": false, "explain": "別のレストランに行ったという記述はありません。" },
+        { "text": "Cancel dinner completely.", "correct": false, "explain": "夕食を完全に取りやめたわけではありません。" }
+      ]
     }
   ],
   "dialogue": [
@@ -350,6 +507,25 @@
         { "text": "I don't like watching movies at all.", "correct": false, "explain": "その後 A が喜んで予定を決めているので、否定的な返答は流れに合いません。" },
         { "text": "I have to feed my dog.", "correct": false, "explain": "映画の提案への返答になっていません。" },
         { "text": "The weather is very hot today.", "correct": false, "explain": "天気の話は会話の流れに合いません。" }
+      ]
+    },
+    {
+      "id": "d4-02",
+      "title": "Inviting a Friend",
+      "translation": "A：今週の土曜日に小さな誕生日パーティーをするんだけど、来ない？ B：ぜひ行きたい！何時に行けばいい？ A：___ B：いいね。何か持っていったほうがいい？ A：あなたが来てくれるだけでいいよ！じゃあその時にね。",
+      "lines": [
+        { "speaker": "A", "text": "I'm having a small birthday party this Saturday. Would you like to come?" },
+        { "speaker": "B", "text": "I'd love to! What time should I be there?" },
+        { "speaker": "A", "text": "___" },
+        { "speaker": "B", "text": "Sounds great. Should I bring anything?" },
+        { "speaker": "A", "text": "Just yourself! See you then." }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        { "text": "How about six o'clock? We'll have dinner and then watch a movie.", "correct": true, "explain": "直前に時間をたずねられているので、具体的な時間と予定を答える発言が自然です。" },
+        { "text": "I'm not sure if I even want a party.", "correct": false, "explain": "パーティーを開くこと自体をAは既に決めているので、迷っているという発言は不自然です。" },
+        { "text": "You shouldn't come at all.", "correct": false, "explain": "招待している流れなので、来ないでほしいという発言は矛盾します。" },
+        { "text": "The party was actually canceled.", "correct": false, "explain": "その後も会話が続いているので、パーティーが中止になったという発言は流れに合いません。" }
       ]
     }
   ]
