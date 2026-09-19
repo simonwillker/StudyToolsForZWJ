@@ -139,6 +139,54 @@
             { "text": "whose", "correct": false, "explain": "whose のあとには名詞がきます。" },
             { "text": "which", "correct": false, "explain": "選択の対象が示されていないので不自然です。" }
           ]
+        },
+        {
+          "id": "pre2-p1-11",
+          "sentence": "I wish I （　） more time to prepare for the exam.",
+          "ja": "試験の準備にもっと時間があればよかったのに。",
+          "point": "I wish + 仮定法過去（現在の事実に反する願望）",
+          "choices": [
+            { "text": "had", "correct": true, "explain": "I wish のあとは仮定法過去（過去形）で、現在の事実に反する願望を表します。" },
+            { "text": "have", "correct": false, "explain": "I wish のあとに現在形は使いません。" },
+            { "text": "will have", "correct": false, "explain": "I wish のあとに未来形は使いません。" },
+            { "text": "having", "correct": false, "explain": "having だけでは文の動詞として成立しません。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-12",
+          "sentence": "The more you practice, the （　） you will get.",
+          "ja": "練習すればするほど、上達するでしょう。",
+          "point": "The + 比較級 …, the + 比較級 …（〜すればするほど…）",
+          "choices": [
+            { "text": "better", "correct": true, "explain": "The more ..., the better ... で「〜すればするほど良くなる」という比例の意味を表します。" },
+            { "text": "good", "correct": false, "explain": "比例表現では the の後に比較級（better）を使います。" },
+            { "text": "best", "correct": false, "explain": "最上級ではなく比較級を使う構文です。" },
+            { "text": "well", "correct": false, "explain": "well の比較級は better なので、この形は誤りです。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-13",
+          "sentence": "She has been waiting for the bus （　） twenty minutes.",
+          "ja": "彼女は20分間バスを待ち続けています。",
+          "point": "for + 期間（現在完了進行形とともに継続期間を表す）",
+          "choices": [
+            { "text": "for", "correct": true, "explain": "twenty minutes のような具体的な期間の長さには for を使います。" },
+            { "text": "since", "correct": false, "explain": "since は開始時点（3時から、など）を表すときに使います。" },
+            { "text": "during", "correct": false, "explain": "during は特定の期間の「中で」を表し、期間の長さには使いません。" },
+            { "text": "while", "correct": false, "explain": "while は接続詞で、後ろに主語＋動詞の文が必要です。" }
+          ]
+        },
+        {
+          "id": "pre2-p1-14",
+          "sentence": "Neither Tom （　） his brother likes vegetables.",
+          "ja": "トムも彼の兄も野菜が好きではありません。",
+          "point": "Neither A nor B（AもBも〜ない）",
+          "choices": [
+            { "text": "nor", "correct": true, "explain": "Neither A nor B で「AもBも〜ない」という意味の相関構文です。" },
+            { "text": "or", "correct": false, "explain": "Neither とセットで使うのは or ではなく nor です。" },
+            { "text": "and", "correct": false, "explain": "Neither とセットで使うのは and ではなく nor です。" },
+            { "text": "but", "correct": false, "explain": "Neither とセットで使うのは but ではなく nor です。" }
+          ]
         }
       ]
     },
@@ -201,6 +249,40 @@
             { "text": "Yes, I bought a new one yesterday.", "correct": false, "explain": "捨ててよい理由になるので、保管する流れに合いません。" },
             { "text": "No, I have never seen that desk.", "correct": false, "explain": "自宅の家具についての返事として不自然です。" }
           ]
+        },
+        {
+          "id": "pre2-p2-04",
+          "title": "文化祭の準備で",
+          "translation": "少女：文化祭にはポスターとチラシ、どっちを作る？　少年：（　）　少女：わかった、放課後いっしょにデザインしよう。",
+          "lines": [
+            { "speaker": "A", "text": "Should we make posters or flyers for the festival?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "OK, let's design them together after school." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "I think posters would attract more attention.", "correct": true, "explain": "直後にいっしょにデザインしようと合意しているので、どちらか一方を選ぶ理由つきの返事が自然です。" },
+            { "text": "I don't think we need any advertising.", "correct": false, "explain": "宣伝が不要という返事は、その後デザインを始める流れと矛盾します。" },
+            { "text": "The festival was canceled last year.", "correct": false, "explain": "去年の文化祭の話は、今回の準備の会話と関係ありません。" },
+            { "text": "I already printed the tickets.", "correct": false, "explain": "チケットの話で、ポスターかチラシかという質問への返事になっていません。" }
+          ]
+        },
+        {
+          "id": "pre2-p2-05",
+          "title": "宿泊先を予約する",
+          "translation": "少年：旅行の宿泊先は見つかった？　少女：（　）　少年：それは完璧だね、予約しよう。",
+          "lines": [
+            { "speaker": "A", "text": "Have you found a place to stay for the trip?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "That sounds perfect, let's book it." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Yes, I found a nice hotel near the station.", "correct": true, "explain": "直後に「予約しよう」と言っているので、具体的な宿泊先を見つけたという返事が自然です。" },
+            { "text": "No, I don't want to travel anymore.", "correct": false, "explain": "旅行をやめたいという返事は、その後予約しようという流れと矛盾します。" },
+            { "text": "I forgot to bring my passport.", "correct": false, "explain": "パスポートを忘れたという話は、宿泊先の質問への返事になっていません。" },
+            { "text": "The weather will be sunny this weekend.", "correct": false, "explain": "天気の話は宿泊先についての質問と関係ありません。" }
+          ]
         }
       ]
     },
@@ -258,6 +340,55 @@
                 { "text": "For instance", "correct": false, "explain": "前文の具体例ではなく、それを受けた対応です。" },
                 { "text": "By contrast", "correct": false, "explain": "前文と対立する内容ではありません。" },
                 { "text": "In other words", "correct": false, "explain": "前文の言いかえではありません。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pre2-p3-b",
+          "format": "説明文",
+          "title": "Reducing Food Waste at School",
+          "passage": "Every day, school cafeterias across the country throw away a surprising amount of food. Some students take more than they can eat, and the rest ends up in the trash. ( 1 ), many schools have started programs to reduce this waste.\n\nOne popular idea is to let students choose their own portion sizes instead of receiving a fixed amount. This way, students take only what they think they can finish. ( 2 ), some schools have started weighing the food that is thrown away each week and posting the results for students to see.\n\nTeachers say that when students can see the actual numbers, they become more ( 3 ) of how much food they waste. A few schools have even started small gardens where leftover vegetable scraps are turned into compost.\n\nExperts believe that these small changes can ( 4 ) a big difference over time, both for the environment and for teaching students responsibility.",
+          "translation": "全国の学校の食堂では毎日かなりの量の食べ物が捨てられている。食べきれない量を取る生徒もいて、残りはごみになる。その結果、多くの学校がこの無駄を減らす取り組みを始めた。人気のある方法は、決まった量ではなく生徒が自分で量を選べるようにすること。さらに、毎週捨てられた食べ物の重さを量って結果をはり出す学校もある。先生たちは、実際の数字を見ることで生徒たちがどれだけ食べ物を無駄にしているかをより意識するようになると言う。生ごみを堆肥にする小さな畑を始めた学校もある。専門家は、こうした小さな変化が環境のためにも、生徒に責任感を教えるためにも、やがて大きな違いを生むと考えている。",
+          "questions": [
+            {
+              "id": "pre2-p3-b-q1",
+              "blank": 1,
+              "choices": [
+                { "text": "As a result", "correct": true, "explain": "前段落の問題を受けて、その結果として対策が始まったという流れに合います。" },
+                { "text": "For example", "correct": false, "explain": "前の内容の具体例ではなく、それを受けた対応です。" },
+                { "text": "However", "correct": false, "explain": "前後は同じ方向の内容なので逆接は合いません。" },
+                { "text": "Instead", "correct": false, "explain": "代わりにという意味では、この文脈に合いません。" }
+              ]
+            },
+            {
+              "id": "pre2-p3-b-q2",
+              "blank": 2,
+              "choices": [
+                { "text": "In addition", "correct": true, "explain": "前の取り組みに加えて、別の取り組みを紹介しているので「さらに」が適切です。" },
+                { "text": "On the other hand", "correct": false, "explain": "対立する内容ではないので、対比を表す表現は合いません。" },
+                { "text": "Instead", "correct": false, "explain": "前の取り組みの代わりではなく、追加の取り組みです。" },
+                { "text": "Otherwise", "correct": false, "explain": "「そうしなければ」という意味で、この文脈には合いません。" }
+              ]
+            },
+            {
+              "id": "pre2-p3-b-q3",
+              "blank": 3,
+              "choices": [
+                { "text": "aware", "correct": true, "explain": "実際の数字を見ることで「意識するようになる」という文脈に合います。" },
+                { "text": "confused", "correct": false, "explain": "混乱するという文脈ではありません。" },
+                { "text": "tired", "correct": false, "explain": "疲れるという文脈ではありません。" },
+                { "text": "careless", "correct": false, "explain": "不注意になるというのは文脈と逆の意味です。" }
+              ]
+            },
+            {
+              "id": "pre2-p3-b-q4",
+              "blank": 4,
+              "choices": [
+                { "text": "make", "correct": true, "explain": "make a big difference で「大きな違いを生む」という決まった言い方です。" },
+                { "text": "take", "correct": false, "explain": "take a difference という言い方はしません。" },
+                { "text": "do", "correct": false, "explain": "do a difference という言い方はしません。" },
+                { "text": "give", "correct": false, "explain": "give a difference という言い方はしません。" }
               ]
             }
           ]
@@ -347,6 +478,45 @@
                 { "text": "They earn more money.", "correct": false, "explain": "収入についての記述はありません。" },
                 { "text": "They move to other cities.", "correct": false, "explain": "引っ越しの話はありません。" },
                 { "text": "They spend more time commuting.", "correct": false, "explain": "通勤時間が長くなるとは書かれていません。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pre2-p4-c",
+          "format": "掲示",
+          "title": "School Talent Show Sign-Up",
+          "passage": "Annual Talent Show - Sign Up Now!\n\nOur school's talent show will be held on October 20 in the auditorium. Students of all grades are welcome to perform, whether it's music, dance, comedy, or magic.\n\nHow to sign up:\n- Fill out the sign-up sheet outside the music room by October 6.\n- Each act can be no longer than five minutes.\n- Groups of up to four students may perform together.\n\nA short rehearsal will be held on October 18 after school so performers can check the sound equipment and stage. Please arrive on time, since the schedule will be tight.\n\nTickets will go on sale on October 13 for 200 yen each, and all proceeds will go to the school library fund. We hope to see many exciting performances this year!",
+          "translation": "毎年恒例の才能発表会が10月20日に講堂で開催される。全学年の生徒が音楽・ダンス・コメディ・マジックなどで参加できる。申し込みは10月6日までに音楽室前の用紙に記入すること。1つの出し物は5分以内、4人までのグループでの参加も可能。10月18日の放課後にリハーサルがあり、音響と舞台を確認できる。時間に遅れないよう注意。チケットは10月13日から1枚200円で発売され、売上はすべて図書室の資金になる。",
+          "questions": [
+            {
+              "id": "pre2-p4-c-q1",
+              "q": "By when must students sign up?",
+              "choices": [
+                { "text": "By October 6.", "correct": true, "explain": "\"Fill out the sign-up sheet outside the music room by October 6.\" とあります。" },
+                { "text": "By October 13.", "correct": false, "explain": "10月13日はチケット発売日です。" },
+                { "text": "By October 18.", "correct": false, "explain": "10月18日はリハーサルの日です。" },
+                { "text": "By October 20.", "correct": false, "explain": "10月20日は本番の日です。" }
+              ]
+            },
+            {
+              "id": "pre2-p4-c-q2",
+              "q": "What is the maximum length of each act?",
+              "choices": [
+                { "text": "Five minutes.", "correct": true, "explain": "\"Each act can be no longer than five minutes.\" とあります。" },
+                { "text": "Ten minutes.", "correct": false, "explain": "本文では5分以内と書かれています。" },
+                { "text": "Twenty minutes.", "correct": false, "explain": "本文では5分以内と書かれています。" },
+                { "text": "There is no limit.", "correct": false, "explain": "制限時間は明記されています。" }
+              ]
+            },
+            {
+              "id": "pre2-p4-c-q3",
+              "q": "What will the ticket money be used for?",
+              "choices": [
+                { "text": "The school library fund.", "correct": true, "explain": "\"all proceeds will go to the school library fund\" とあります。" },
+                { "text": "New sound equipment.", "correct": false, "explain": "音響機材の購入についての記述はありません。" },
+                { "text": "Prizes for winners.", "correct": false, "explain": "優勝賞品についての記述はありません。" },
+                { "text": "A year-end party.", "correct": false, "explain": "パーティーについての記述はありません。" }
               ]
             }
           ]
@@ -477,6 +647,48 @@
             { "text": "It was at the head office downtown.", "correct": false, "explain": "場所の答えになっています。" },
             { "text": "Because I studied hard for it.", "correct": false, "explain": "理由の答えで、時をたずねる質問に合いません。" }
           ]
+        },
+        {
+          "id": "pre2-l1-05",
+          "script": [
+            { "speaker": "A", "text": "I'm thinking about studying abroad next year." },
+            { "speaker": "B", "text": "Wow, that's exciting. Which country are you considering?" },
+            { "speaker": "A", "text": "I'm not sure yet. Do you have any suggestions?" }
+          ],
+          "translation": "A：来年留学しようかと考えているんだ。　B：わあ、すごいね。どの国を考えているの？　A：まだ決めていないんだ。何かおすすめある？",
+          "choices": [
+            { "text": "Canada has great programs for language students.", "correct": true, "explain": "おすすめを求められているので、具体的な国を提案する返事が自然です。" },
+            { "text": "I have never traveled outside Japan.", "correct": false, "explain": "話し手自身の経験の話で、提案になっていません。" },
+            { "text": "No, I don't want to study at all.", "correct": false, "explain": "質問の流れと関係のない返事です。" }
+          ]
+        },
+        {
+          "id": "pre2-l1-06",
+          "script": [
+            { "speaker": "A", "text": "This printer isn't working again." },
+            { "speaker": "B", "text": "Did you check if it's out of paper?" },
+            { "speaker": "A", "text": "Yes, there's plenty of paper. It just won't print." }
+          ],
+          "translation": "A：このプリンター、また調子が悪いよ。　B：紙切れじゃない？　A：うん、紙はたっぷりあるよ。ただ印刷されないんだ。",
+          "choices": [
+            { "text": "Maybe we should call the technician.", "correct": true, "explain": "紙切れではないと分かったので、次の対応（専門家を呼ぶ）を提案する返事が自然です。" },
+            { "text": "I will buy more paper.", "correct": false, "explain": "紙は十分にあると言っているので、この返事は矛盾します。" },
+            { "text": "The printer is brand new.", "correct": false, "explain": "新しさの話は、故障している状況への返事になっていません。" }
+          ]
+        },
+        {
+          "id": "pre2-l1-07",
+          "script": [
+            { "speaker": "A", "text": "How was your job interview this morning?" },
+            { "speaker": "B", "text": "It went better than I expected." },
+            { "speaker": "A", "text": "That's great! When will you hear the results?" }
+          ],
+          "translation": "A：今朝の面接どうだった？　B：思っていたよりうまくいったよ。　A：よかったね！結果はいつ分かるの？",
+          "choices": [
+            { "text": "They said they would email me by Friday.", "correct": true, "explain": "結果がいつ分かるかという質問に対して、具体的な時期を答える返事が自然です。" },
+            { "text": "I applied for three different jobs.", "correct": false, "explain": "応募した数の話で、結果が分かる時期の質問への返事になっていません。" },
+            { "text": "The interview lasted about an hour.", "correct": false, "explain": "面接の長さの話で、質問に対する返事になっていません。" }
+          ]
         }
       ]
     },
@@ -559,6 +771,57 @@
             { "text": "He did not visit the doctor.", "correct": false, "explain": "今まさに受診しています。" },
             { "text": "He lost his medicine.", "correct": false, "explain": "薬をなくしたとは言っていません。" }
           ]
+        },
+        {
+          "id": "pre2-l2-05",
+          "script": [
+            { "speaker": "A", "text": "I heard you switched to a new apartment." },
+            { "speaker": "B", "text": "Yes, it's much closer to my office now." },
+            { "speaker": "A", "text": "How long is your commute now?" },
+            { "speaker": "B", "text": "Just about ten minutes by bike, compared to an hour before." }
+          ],
+          "question": "How does the speaker's commute compare to before?",
+          "translation": "A：新しいアパートに引っ越したって聞いたよ。　B：うん、今は職場にずっと近いんだ。　A：今の通勤時間はどのくらい？　B：自転車で10分くらい、前は1時間だったんだ。（質問：話し手の通勤時間は以前と比べてどうですか）",
+          "choices": [
+            { "text": "It is much shorter than before.", "correct": true, "explain": "1時間から10分になったので、大幅に短くなっています。" },
+            { "text": "It is about the same as before.", "correct": false, "explain": "1時間から10分へ大きく変わっています。" },
+            { "text": "It is longer than before.", "correct": false, "explain": "本文では短くなったと言っています。" },
+            { "text": "It takes exactly one hour.", "correct": false, "explain": "1時間だったのは引っ越し前です。" }
+          ]
+        },
+        {
+          "id": "pre2-l2-06",
+          "script": [
+            { "speaker": "A", "text": "Did you get a chance to look at my presentation slides?" },
+            { "speaker": "B", "text": "Yes, they look good, but the third slide has too much text." },
+            { "speaker": "A", "text": "I see. Should I split it into two slides?" },
+            { "speaker": "B", "text": "That would be much clearer for the audience." }
+          ],
+          "question": "What problem did B find with the presentation?",
+          "translation": "A：私のプレゼン資料、見てくれた？　B：うん、良い出来だけど、3枚目のスライドは文字が多すぎるね。　A：そうか。2枚に分けたほうがいいかな。　B：そのほうが聞き手にとってわかりやすいと思うよ。（質問：Bはプレゼンのどんな問題点を見つけましたか）",
+          "choices": [
+            { "text": "The third slide has too much text.", "correct": true, "explain": "\"the third slide has too much text\" と言っています。" },
+            { "text": "The slides have no images.", "correct": false, "explain": "画像についての記述はありません。" },
+            { "text": "The presentation is too short.", "correct": false, "explain": "長さについての記述はありません。" },
+            { "text": "The colors are hard to read.", "correct": false, "explain": "色についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "pre2-l2-07",
+          "script": [
+            { "speaker": "A", "text": "Are you coming to the study group tonight?" },
+            { "speaker": "B", "text": "I want to, but I have a part-time job until eight." },
+            { "speaker": "A", "text": "We are meeting at seven thirty, but we can wait for you." },
+            { "speaker": "B", "text": "Thanks, I will come as soon as I finish work." }
+          ],
+          "question": "When will B probably arrive at the study group?",
+          "translation": "A：今夜の勉強会に来る？　B：行きたいけど、8時までアルバイトがあるんだ。　A：7時半に集まるけど、待っててもいいよ。　B：ありがとう、仕事が終わり次第行くね。（質問：Bはおそらくいつ勉強会に着きますか）",
+          "choices": [
+            { "text": "After eight o'clock.", "correct": true, "explain": "アルバイトが8時までなので、それ以降に到着すると考えられます。" },
+            { "text": "Before seven thirty.", "correct": false, "explain": "7時半より前には到着できません。" },
+            { "text": "At seven thirty.", "correct": false, "explain": "7時半は他のメンバーが集まる時間です。" },
+            { "text": "He will not come at all.", "correct": false, "explain": "「仕事が終わり次第行く」と言っています。" }
+          ]
         }
       ]
     },
@@ -619,6 +882,42 @@
             { "text": "9:40.", "correct": false, "explain": "9時40分は変更前の時刻です。" },
             { "text": "2:00.", "correct": false, "explain": "2階のラウンジの話と混同しています。" },
             { "text": "10:20.", "correct": false, "explain": "そのような時刻は放送されていません。" }
+          ]
+        },
+        {
+          "id": "pre2-l3-05",
+          "script": "The city plans to plant one thousand new trees along the main streets over the next three years to help reduce summer heat.",
+          "question": "Why does the city plan to plant new trees?",
+          "translation": "市は夏の暑さを和らげるため、今後3年間で主要な通り沿いに1000本の新しい木を植える計画です。（質問：市はなぜ新しい木を植える計画をしていますか）",
+          "choices": [
+            { "text": "To help reduce summer heat.", "correct": true, "explain": "\"to help reduce summer heat\" とあります。" },
+            { "text": "To attract more tourists.", "correct": false, "explain": "観光客誘致についての記述はありません。" },
+            { "text": "To replace trees that died.", "correct": false, "explain": "枯れた木の話はありません。" },
+            { "text": "To prepare for a festival.", "correct": false, "explain": "祭りについての記述はありません。" }
+          ]
+        },
+        {
+          "id": "pre2-l3-06",
+          "script": "Although the museum's new exhibit was expected to open in March, delays in shipping some artworks pushed the opening back to May.",
+          "question": "Why was the museum's new exhibit delayed?",
+          "translation": "美術館の新しい展示は3月に開幕する予定でしたが、一部の作品の輸送遅延により開幕が5月に延期されました。（質問：美術館の新しい展示はなぜ延期されましたか）",
+          "choices": [
+            { "text": "Because some artworks were delayed in shipping.", "correct": true, "explain": "\"delays in shipping some artworks pushed the opening back\" とあります。" },
+            { "text": "Because the museum needed repairs.", "correct": false, "explain": "修繕についての記述はありません。" },
+            { "text": "Because of a lack of funding.", "correct": false, "explain": "資金不足についての記述はありません。" },
+            { "text": "Because the artist changed the design.", "correct": false, "explain": "デザイン変更についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "pre2-l3-07",
+          "script": "The company introduced a four-day work week last year, and employee surveys since then have shown higher satisfaction and similar productivity.",
+          "question": "What has happened since the company introduced the four-day work week?",
+          "translation": "その会社は昨年、週4日勤務制を導入しました。それ以降の従業員調査では満足度が高まり、生産性はほぼ変わらないという結果が出ています。（質問：週4日勤務制の導入後、何が起こりましたか）",
+          "choices": [
+            { "text": "Employee satisfaction rose while productivity stayed similar.", "correct": true, "explain": "\"higher satisfaction and similar productivity\" とあります。" },
+            { "text": "Productivity dropped sharply.", "correct": false, "explain": "生産性はほぼ変わらないと述べられています。" },
+            { "text": "Many employees quit the company.", "correct": false, "explain": "離職についての記述はありません。" },
+            { "text": "The company canceled the new schedule.", "correct": false, "explain": "制度を取りやめたという記述はありません。" }
           ]
         }
       ]
