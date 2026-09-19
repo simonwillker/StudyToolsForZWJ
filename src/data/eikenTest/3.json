@@ -115,6 +115,54 @@
             { "text": "during", "correct": false, "explain": "during のあとには the holidays のような特定の期間の名前がきます。" },
             { "text": "in", "correct": false, "explain": "in three days は「3日後に」という意味になります。" }
           ]
+        },
+        {
+          "id": "3-p1-09",
+          "sentence": "I have never （　） such a delicious cake before.",
+          "ja": "私は今までこんなにおいしいケーキを食べたことがありません。",
+          "point": "現在完了（経験用法）：have never + 過去分詞",
+          "choices": [
+            { "text": "eaten", "correct": true, "explain": "have never のあとには過去分詞（eaten）が続きます。" },
+            { "text": "eat", "correct": false, "explain": "現在完了形では動詞は過去分詞にします。" },
+            { "text": "ate", "correct": false, "explain": "過去形ではなく過去分詞（eaten）が必要です。" },
+            { "text": "eating", "correct": false, "explain": "現在完了形は have + 過去分詞で、ing形は使いません。" }
+          ]
+        },
+        {
+          "id": "3-p1-10",
+          "sentence": "The letter was （　） by my grandmother.",
+          "ja": "その手紙は私の祖母によって書かれました。",
+          "point": "受け身（受動態）：be動詞 + 過去分詞",
+          "choices": [
+            { "text": "written", "correct": true, "explain": "受け身は be動詞（was）+ 過去分詞（written）で表します。" },
+            { "text": "write", "correct": false, "explain": "write は原形で、受け身の形になっていません。" },
+            { "text": "wrote", "correct": false, "explain": "wrote は能動態の過去形です。" },
+            { "text": "writing", "correct": false, "explain": "writing では受け身の意味を表せません。" }
+          ]
+        },
+        {
+          "id": "3-p1-11",
+          "sentence": "She went to the store （　） buy some milk.",
+          "ja": "彼女は牛乳を買うために店に行きました。",
+          "point": "不定詞の副詞的用法（目的：〜するために）",
+          "choices": [
+            { "text": "to", "correct": true, "explain": "「〜するために」という目的は to + 動詞の原形で表します。" },
+            { "text": "for", "correct": false, "explain": "for のあとに動詞の原形は続けません。" },
+            { "text": "at", "correct": false, "explain": "at では目的の意味を表せません。" },
+            { "text": "of", "correct": false, "explain": "of では目的の意味を表せません。" }
+          ]
+        },
+        {
+          "id": "3-p1-12",
+          "sentence": "The boy （　） is sitting over there is my cousin.",
+          "ja": "あそこに座っている男の子は私のいとこです。",
+          "point": "関係代名詞 who（人を説明する）",
+          "choices": [
+            { "text": "who", "correct": true, "explain": "先行詞が人（The boy）のときは関係代名詞 who を使います。" },
+            { "text": "which", "correct": false, "explain": "which は物や動物を説明するときに使います。" },
+            { "text": "whose", "correct": false, "explain": "whose は「〜の」という所有を表すときに使います。" },
+            { "text": "what", "correct": false, "explain": "what は先行詞を必要としない関係代名詞で、この文には合いません。" }
+          ]
         }
       ]
     },
@@ -177,6 +225,40 @@
             { "text": "No, I have never been there.", "correct": false, "explain": "電車が停まるかどうかの答えになっていません。" },
             { "text": "Yes, the ticket was expensive.", "correct": false, "explain": "料金の感想で、質問に答えていません。" }
           ]
+        },
+        {
+          "id": "3-p2-04",
+          "title": "薬局で",
+          "translation": "少年：すみません、頭痛に効くものはありますか。　薬剤師：（　）　少年：いいですね、それをください。",
+          "lines": [
+            { "speaker": "A", "text": "Excuse me, do you have anything for a headache?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "Great, I will take that one." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Yes, this one works quickly.", "correct": true, "explain": "直後に「それをください」と言っているので、薬をすすめる返事が自然です。" },
+            { "text": "No, the pharmacy is closed.", "correct": false, "explain": "薬局が閉まっているなら「それをください」という返事につながりません。" },
+            { "text": "I have a headache too.", "correct": false, "explain": "薬剤師自身の体調の話で、質問への返事になっていません。" },
+            { "text": "You should see a dentist.", "correct": false, "explain": "歯医者をすすめる返事は、頭痛薬をたずねている質問と合いません。" }
+          ]
+        },
+        {
+          "id": "3-p2-05",
+          "title": "友だちと勉強会で",
+          "translation": "少女：今日は数学と英語、どっちから始める？　少年：（　）　少女：わかった、それからにしよう。",
+          "lines": [
+            { "speaker": "A", "text": "Should we start with math or English today?" },
+            { "speaker": "B", "text": "＿＿＿" },
+            { "speaker": "A", "text": "OK, let's do that first." }
+          ],
+          "blankIndex": 1,
+          "choices": [
+            { "text": "Let's start with math since the test is tomorrow.", "correct": true, "explain": "直後に「それからにしよう」と同意しているので、どちらか一方を選ぶ理由つきの返事が自然です。" },
+            { "text": "I don't want to study today.", "correct": false, "explain": "勉強しないという返事は、その後「それからにしよう」と続く流れに合いません。" },
+            { "text": "English is my favorite subject.", "correct": false, "explain": "好きな教科の話だけでは、どちらから始めるかの答えになっていません。" },
+            { "text": "We finished studying yesterday.", "correct": false, "explain": "これから勉強を始めようとしている場面と矛盾します。" }
+          ]
         }
       ]
     },
@@ -209,6 +291,20 @@
           "chunks": ["is not", "This room", "so you can use it", "being used"],
           "sentence": "This room is not being used, so you can use it.",
           "explain": "受け身の進行形は〈be動詞＋being＋過去分詞〉。否定は be動詞のあとに not を置きます。"
+        },
+        {
+          "id": "3-p3-04",
+          "ja": "彼が経営しているレストランはこの街でとても人気があります。",
+          "chunks": ["The restaurant", "he runs", "is", "very popular", "in this town"],
+          "sentence": "The restaurant he runs is very popular in this town.",
+          "explain": "The restaurant のあとに he runs（目的格の関係代名詞が省略された節）が続き、そのあとに動詞 is が来ます。"
+        },
+        {
+          "id": "3-p3-05",
+          "ja": "もっと早く出発していれば、電車に間に合っていたでしょう。",
+          "chunks": ["If we had left", "earlier", "we would have", "caught", "the train"],
+          "sentence": "If we had left earlier, we would have caught the train.",
+          "explain": "仮定法過去完了は〈If + 主語 + had + 過去分詞, 主語 + would have + 過去分詞〉の形です。"
         }
       ]
     },
@@ -295,6 +391,45 @@
                 { "text": "Cacao beans became money again.", "correct": false, "explain": "お金として使われたのは古い時代の話です。" },
                 { "text": "Rich people stopped buying it.", "correct": false, "explain": "富裕層が買わなくなったとは書かれていません。" },
                 { "text": "People found cacao in Europe.", "correct": false, "explain": "カカオはヨーロッパで見つかったのではなく、持ち帰られました。" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3-p4-c",
+          "format": "掲示",
+          "title": "Summer Reading Challenge",
+          "passage": "City Library Summer Reading Challenge\n\nRead five or more books this summer and join our special event! Students in elementary and junior high school can take part.\n\nHow to join:\n1. Pick up a reading card at the library desk.\n2. Write the title of each book you finish.\n3. Bring your card back by August 31.\n\nStudents who finish the challenge will receive a certificate and a free bookmark. The three students who read the most books will also get a special prize at our closing ceremony on September 5.\n\nIf you have questions, please ask a librarian or call 03-9876-5432.",
+          "translation": "市立図書館の夏の読書チャレンジ。今年の夏に5冊以上本を読むと参加できる小中学生向けイベント。参加方法は、図書館の受付で読書カードをもらい、読み終えた本の題名を記入し、8月31日までにカードを提出すること。達成者には修了証と無料のしおりが贈られ、最も多く読んだ上位3名には9月5日の閉会式で特別賞が贈られる。質問は司書にたずねるか、電話で問い合わせること。",
+          "questions": [
+            {
+              "id": "3-p4-c-q1",
+              "q": "What must students do to join the challenge?",
+              "choices": [
+                { "text": "Pick up a reading card and read five or more books.", "correct": true, "explain": "\"Pick up a reading card at the library desk\" と \"Read five or more books\" とあります。" },
+                { "text": "Pay a fee at the library desk.", "correct": false, "explain": "参加費についての記述はありません。" },
+                { "text": "Bring a friend to the library.", "correct": false, "explain": "友だちを連れてくるという条件はありません。" },
+                { "text": "Write a report about their favorite book.", "correct": false, "explain": "書くのは本の題名で、感想文ではありません。" }
+              ]
+            },
+            {
+              "id": "3-p4-c-q2",
+              "q": "What will students who finish the challenge receive?",
+              "choices": [
+                { "text": "A certificate and a free bookmark.", "correct": true, "explain": "\"will receive a certificate and a free bookmark\" とあります。" },
+                { "text": "A new library card.", "correct": false, "explain": "新しい図書館カードについての記述はありません。" },
+                { "text": "A free book.", "correct": false, "explain": "無料の本についての記述はありません。" },
+                { "text": "Money.", "correct": false, "explain": "お金についての記述はありません。" }
+              ]
+            },
+            {
+              "id": "3-p4-c-q3",
+              "q": "When is the closing ceremony?",
+              "choices": [
+                { "text": "On September 5.", "correct": true, "explain": "\"our closing ceremony on September 5\" とあります。" },
+                { "text": "On August 31.", "correct": false, "explain": "8月31日はカードの提出期限です。" },
+                { "text": "On September 31.", "correct": false, "explain": "9月31日という日付は存在しません。" },
+                { "text": "On August 5.", "correct": false, "explain": "本文には9月5日と書かれています。" }
               ]
             }
           ]
@@ -425,6 +560,48 @@
             { "text": "I have a toothache.", "correct": false, "explain": "症状の説明で、日時の答えになっていません。" },
             { "text": "Yes, this is my first visit.", "correct": false, "explain": "いつ来たいかという質問への答えになりません。" }
           ]
+        },
+        {
+          "id": "3-l1-05",
+          "script": [
+            { "speaker": "A", "text": "Have you decided what to get your sister for her birthday?" },
+            { "speaker": "B", "text": "Not yet. Do you have any ideas?" },
+            { "speaker": "A", "text": "How about a nice notebook or some art supplies?" }
+          ],
+          "translation": "A：妹の誕生日プレゼント、決めた？　B：まだなんだ。何かアイデアある？　A：素敵なノートか、画材とかはどう？",
+          "choices": [
+            { "text": "That's a good idea, she loves drawing.", "correct": true, "explain": "プレゼントの提案に対して、妹の好みと合わせて賛成する返事が自然です。" },
+            { "text": "I don't have a sister.", "correct": false, "explain": "すでに妹の話をしているので矛盾します。" },
+            { "text": "The store closes at nine.", "correct": false, "explain": "閉店時間の話は、プレゼントの提案への返事になっていません。" }
+          ]
+        },
+        {
+          "id": "3-l1-06",
+          "script": [
+            { "speaker": "A", "text": "I'm thinking about joining the tennis club." },
+            { "speaker": "B", "text": "That's great, they practice every Tuesday and Thursday." },
+            { "speaker": "A", "text": "Do I need my own racket?" }
+          ],
+          "translation": "A：テニス部に入ろうかなと思ってるんだ。　B：いいね、火曜と木曜に練習してるよ。　A：自分のラケットが必要かな？",
+          "choices": [
+            { "text": "No, the club has extra ones you can borrow.", "correct": true, "explain": "ラケットが必要かという質問への返事として自然です。" },
+            { "text": "The club meets on Mondays.", "correct": false, "explain": "練習日はすでに火曜と木曜だと述べられています。" },
+            { "text": "I already have a racket.", "correct": false, "explain": "話しかけられている相手自身のラケットの話ではありません。" }
+          ]
+        },
+        {
+          "id": "3-l1-07",
+          "script": [
+            { "speaker": "A", "text": "This soup tastes a little bland." },
+            { "speaker": "B", "text": "Try adding some salt." },
+            { "speaker": "A", "text": "Good idea, where do you keep it?" }
+          ],
+          "translation": "A：このスープ、ちょっと味がうすいね。　B：塩を足してみたら。　A：いい考えだね、塩はどこにあるの？",
+          "choices": [
+            { "text": "It's in the cabinet above the stove.", "correct": true, "explain": "塩の場所をたずねられているので、場所を答える返事が自然です。" },
+            { "text": "I don't like soup.", "correct": false, "explain": "好みの話で、場所をたずねる質問への返事になっていません。" },
+            { "text": "The soup is too hot to eat.", "correct": false, "explain": "熱さの話は、塩の場所についての質問と関係ありません。" }
+          ]
         }
       ]
     },
@@ -507,6 +684,57 @@
             { "text": "He stayed at the hotel.", "correct": false, "explain": "ホテルにいたとは言っていません。" },
             { "text": "He went shopping.", "correct": false, "explain": "買い物の話は出てきません。" }
           ]
+        },
+        {
+          "id": "3-l2-05",
+          "script": [
+            { "speaker": "A", "text": "Did you finish reading the book for class?" },
+            { "speaker": "B", "text": "Almost, I have about twenty pages left." },
+            { "speaker": "A", "text": "The report is due tomorrow morning." },
+            { "speaker": "B", "text": "Then I should finish it tonight." }
+          ],
+          "question": "What will B probably do tonight?",
+          "translation": "A：授業の本、読み終わった？　B：もうすぐだよ、あと20ページくらい。　A：レポートの締め切りは明日の朝だよ。　B：じゃあ今夜終わらせないと。（質問：Bは今夜おそらく何をしますか）",
+          "choices": [
+            { "text": "Finish reading the book.", "correct": true, "explain": "\"I should finish it tonight\" と言っています。" },
+            { "text": "Watch a movie.", "correct": false, "explain": "映画についての記述はありません。" },
+            { "text": "Write the report first.", "correct": false, "explain": "まず本を読み終える必要があると言っています。" },
+            { "text": "Go to the library.", "correct": false, "explain": "図書館に行くという記述はありません。" }
+          ]
+        },
+        {
+          "id": "3-l2-06",
+          "script": [
+            { "speaker": "A", "text": "Excuse me, does this bus stop at Central Park?" },
+            { "speaker": "B", "text": "Yes, it's the fourth stop from here." },
+            { "speaker": "A", "text": "How long will that take?" },
+            { "speaker": "B", "text": "About fifteen minutes." }
+          ],
+          "question": "How many stops away is Central Park?",
+          "translation": "A：すみません、このバスはセントラル公園に停まりますか。　B：はい、ここから4つ目の停留所です。　A：どのくらいかかりますか。　B：15分くらいです。（質問：セントラル公園はいくつ先の停留所ですか）",
+          "choices": [
+            { "text": "Four.", "correct": true, "explain": "\"it's the fourth stop from here\" と言っています。" },
+            { "text": "Two.", "correct": false, "explain": "本文では4つ目と言っています。" },
+            { "text": "Fifteen.", "correct": false, "explain": "15は所要時間（分）です。" },
+            { "text": "One.", "correct": false, "explain": "本文では4つ目と言っています。" }
+          ]
+        },
+        {
+          "id": "3-l2-07",
+          "script": [
+            { "speaker": "A", "text": "Mom, can we get a dog?" },
+            { "speaker": "B", "text": "We talked about this before. Dogs need a lot of care." },
+            { "speaker": "A", "text": "I promise I will walk it every day." },
+            { "speaker": "B", "text": "Let's discuss it with your father this weekend." }
+          ],
+          "question": "What will the family do this weekend?",
+          "translation": "A：ママ、犬を飼ってもいい？　B：前にも話したでしょ。犬の世話は大変なのよ。　A：毎日散歩させるって約束するよ。　B：今週末、お父さんと話し合いましょう。（質問：家族は今週末何をしますか）",
+          "choices": [
+            { "text": "Discuss getting a dog with the father.", "correct": true, "explain": "\"Let's discuss it with your father this weekend.\" と言っています。" },
+            { "text": "Buy a dog immediately.", "correct": false, "explain": "すぐに飼うのではなく、話し合うと言っています。" },
+            { "text": "Visit a pet store.", "correct": false, "explain": "ペットショップに行くという記述はありません。" },
+            { "text": "Walk their neighbor's dog.", "correct": false, "explain": "近所の犬についての記述はありません。" }
+          ]
         }
       ]
     },
@@ -567,6 +795,42 @@
             { "text": "Because it is raining now.", "correct": false, "explain": "雨が降ったのは昨夜です。" },
             { "text": "Because the gym is new.", "correct": false, "explain": "体育館が新しいとは言っていません。" },
             { "text": "Because there is a school event.", "correct": false, "explain": "行事の話は出てきません。" }
+          ]
+        },
+        {
+          "id": "3-l3-05",
+          "script": "The community center will offer free English lessons every Saturday morning starting next month.",
+          "question": "What will the community center offer?",
+          "translation": "地域センターは来月から毎週土曜日の午前中に無料の英語レッスンを提供します。（質問：地域センターは何を提供しますか）",
+          "choices": [
+            { "text": "Free English lessons on Saturday mornings.", "correct": true, "explain": "\"offer free English lessons every Saturday morning\" とあります。" },
+            { "text": "Free cooking lessons.", "correct": false, "explain": "料理レッスンについての記述はありません。" },
+            { "text": "Paid English lessons on weekdays.", "correct": false, "explain": "有料ではなく無料で、平日ではなく土曜日です。" },
+            { "text": "Free lessons every day.", "correct": false, "explain": "毎日ではなく毎週土曜日です。" }
+          ]
+        },
+        {
+          "id": "3-l3-06",
+          "script": "Because of road construction, the bus route to the shopping mall will change for two weeks.",
+          "question": "Why will the bus route change?",
+          "translation": "道路工事のため、ショッピングモールへのバス路線は2週間変更されます。（質問：なぜバス路線が変わるのですか）",
+          "choices": [
+            { "text": "Because of road construction.", "correct": true, "explain": "\"Because of road construction\" とあります。" },
+            { "text": "Because of bad weather.", "correct": false, "explain": "天候についての記述はありません。" },
+            { "text": "Because the mall is closed.", "correct": false, "explain": "モールが閉まっているという記述はありません。" },
+            { "text": "Because of a holiday.", "correct": false, "explain": "祝日についての記述はありません。" }
+          ]
+        },
+        {
+          "id": "3-l3-07",
+          "script": "Emma practiced her speech every night for a month before the contest, so she felt confident on the day.",
+          "question": "How did Emma feel on the day of the contest?",
+          "translation": "エマはコンテストの前に1か月間毎晩スピーチを練習したので、当日は自信を持っていました。（質問：コンテストの日、エマはどう感じていましたか）",
+          "choices": [
+            { "text": "Confident.", "correct": true, "explain": "\"she felt confident on the day\" とあります。" },
+            { "text": "Nervous.", "correct": false, "explain": "自信を持っていたと述べられています。" },
+            { "text": "Bored.", "correct": false, "explain": "退屈していたという記述はありません。" },
+            { "text": "Sick.", "correct": false, "explain": "体調不良についての記述はありません。" }
           ]
         }
       ]
