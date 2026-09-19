@@ -78,6 +78,8 @@ function findTest(id) {
 
 /** 単語は20語ずつの「組」に分けて出題する（CLAUDE.mdの出題範囲の考え方に合わせる） */
 const VOCAB_UNIT_SIZE = 20;
+/** 文法問題も20問ずつの「組」に分けて出題する */
+const GRAMMAR_UNIT_SIZE = 20;
 
 function vocabUnitCount(level) {
   return Math.ceil(level.vocab.length / VOCAB_UNIT_SIZE);
@@ -102,6 +104,29 @@ function clampVocabUnit(level, unit) {
   return unit === "all" || unit < vocabUnitCount(level) ? unit : 0;
 }
 
+function grammarUnitCount(level) {
+  return Math.ceil(level.grammar.length / GRAMMAR_UNIT_SIZE);
+}
+
+/** unit が "all" なら全問、数値ならその組（0始まり）の問題だけを返す */
+function grammarOfUnit(level, unit) {
+  if (unit === "all") return level.grammar;
+  const start = unit * GRAMMAR_UNIT_SIZE;
+  return level.grammar.slice(start, start + GRAMMAR_UNIT_SIZE);
+}
+
+function grammarUnitLabel(level, unit) {
+  if (unit === "all") return `すべて（${level.grammar.length}問）`;
+  const start = unit * GRAMMAR_UNIT_SIZE;
+  const end = Math.min(start + GRAMMAR_UNIT_SIZE, level.grammar.length);
+  return `${unit + 1}組（${start + 1}〜${end}）`;
+}
+
+/** 級を切りかえて組の数が減ったときなど、範囲外の組は1組目にもどす */
+function clampGrammarUnit(level, unit) {
+  return unit === "all" || unit < grammarUnitCount(level) ? unit : 0;
+}
+
 /** 出題範囲（組）の選択リスト。組が増えても1行に収まる */
 function VocabUnitSelect({ level, value, onChange, allowAll }) {
   return (
@@ -118,6 +143,27 @@ function VocabUnitSelect({ level, value, onChange, allowAll }) {
           </option>
         ))}
         {allowAll && <option value="all">{vocabUnitLabel(level, "all")}</option>}
+      </select>
+    </label>
+  );
+}
+
+/** 文法問題の出題範囲（組）の選択リスト */
+function GrammarUnitSelect({ level, value, onChange, allowAll }) {
+  return (
+    <label className="eiken-control-row">
+      <span className="eiken-control-label">出題範囲</span>
+      <select
+        className="eiken-unit-select"
+        value={String(value)}
+        onChange={(e) => onChange(e.target.value === "all" ? "all" : Number(e.target.value))}
+      >
+        {Array.from({ length: grammarUnitCount(level) }, (_, u) => (
+          <option key={u} value={u}>
+            {grammarUnitLabel(level, u)}
+          </option>
+        ))}
+        {allowAll && <option value="all">{grammarUnitLabel(level, "all")}</option>}
       </select>
     </label>
   );
@@ -177,8 +223,8 @@ function buildVocabItems(level, direction, words) {
   });
 }
 
-function buildGrammarItems(level) {
-  return shuffle(level.grammar).map((g) => ({
+function buildGrammarItems(level, items) {
+  return shuffle(items && items.length ? items : level.grammar).map((g) => ({
     id: g.id,
     header: () => (
       <div className="eiken-qhead">
@@ -611,18 +657,19 @@ export default function EikenApp({ onExitApp }) {
   const [mode, setMode] = useState(null);
   const [vocabDirection, setVocabDirection] = useState("en2ja");
   const [vocabUnit, setVocabUnit] = useState(0);
+  const [grammarUnit, setGrammarUnit] = useState(0);
 
   const level = levelId ? findLevel(levelId) : null;
 
   const items = useMemo(() => {
     if (!level || !mode) return [];
     if (mode === "vocab") return buildVocabItems(level, vocabDirection, vocabOfUnit(level, clampVocabUnit(level, vocabUnit)));
-    if (mode === "grammar") return buildGrammarItems(level);
+    if (mode === "grammar") return buildGrammarItems(level, grammarOfUnit(level, clampGrammarUnit(level, grammarUnit)));
     if (mode === "reading") return buildReadingItems(level);
     if (mode === "listening") return buildListeningItems(level);
     if (mode === "dialogue") return buildDialogueItems(level);
     return [];
-  }, [level, mode, vocabDirection, vocabUnit]);
+  }, [level, mode, vocabDirection, vocabUnit, grammarUnit]);
 
   const goModeSelect = useCallback((lvId) => {
     stopSpeaking();
@@ -902,6 +949,11 @@ export default function EikenApp({ onExitApp }) {
                 </button>
               </div>
               <VocabUnitSelect level={level} value={clampVocabUnit(level, vocabUnit)} onChange={setVocabUnit} allowAll />
+            </div>
+          )}
+          {mode === "grammar" && grammarUnitCount(level) > 1 && (
+            <div className="eiken-vocab-controls">
+              <GrammarUnitSelect level={level} value={clampGrammarUnit(level, grammarUnit)} onChange={setGrammarUnit} allowAll />
             </div>
           )}
           <ChoiceQuiz level={level} mode={mode} items={items} accent={level.color} onExit={backToModeSelect} />
