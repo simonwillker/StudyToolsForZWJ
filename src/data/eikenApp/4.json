@@ -2541,6 +2541,2470 @@
           "explain": "since は「〜以来」という開始点を表し、期間の長さ（five days）には使いません。"
         }
       ]
+    },
+    {
+      "id": "g4-13",
+      "sentence": "I ___ in Kyoto last year.",
+      "ja": "私は昨年京都にいました。",
+      "point": "be動詞の過去形 was：主語が I や3人称単数のとき",
+      "choices": [
+        {
+          "text": "was",
+          "correct": true,
+          "explain": "主語が I なので be動詞の過去形は was です。"
+        },
+        {
+          "text": "were",
+          "correct": false,
+          "explain": "were は主語が you や複数のときに使います。"
+        },
+        {
+          "text": "am",
+          "correct": false,
+          "explain": "last year があるので過去形が必要です。"
+        },
+        {
+          "text": "did",
+          "correct": false,
+          "explain": "did は一般動詞の過去の疑問文や否定文で使います。"
+        }
+      ]
+    },
+    {
+      "id": "g4-14",
+      "sentence": "They ___ very busy yesterday.",
+      "ja": "彼らは昨日とても忙しかったです。",
+      "point": "be動詞の過去形 were：主語が you や複数のとき",
+      "choices": [
+        {
+          "text": "were",
+          "correct": true,
+          "explain": "主語 They は複数なので過去形は were です。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "was は主語が単数のときに使います。"
+        },
+        {
+          "text": "are",
+          "correct": false,
+          "explain": "yesterday があるので過去形にする必要があります。"
+        },
+        {
+          "text": "did",
+          "correct": false,
+          "explain": "busy は形容詞なので be動詞が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-15",
+      "sentence": "The shop ___ open last Sunday.",
+      "ja": "その店は先週の日曜日は開いていませんでした。",
+      "point": "be動詞の過去の否定文：was の後ろに not を置く",
+      "choices": [
+        {
+          "text": "wasn't",
+          "correct": true,
+          "explain": "主語が単数で過去のことなので wasn't（was not）を使います。"
+        },
+        {
+          "text": "weren't",
+          "correct": false,
+          "explain": "weren't は主語が複数のときに使います。"
+        },
+        {
+          "text": "didn't",
+          "correct": false,
+          "explain": "open は形容詞なので be動詞の否定形が必要です。"
+        },
+        {
+          "text": "isn't",
+          "correct": false,
+          "explain": "last Sunday があるので過去形にする必要があります。"
+        }
+      ]
+    },
+    {
+      "id": "g4-16",
+      "sentence": "___ you at home last night?",
+      "ja": "あなたは昨夜家にいましたか。",
+      "point": "be動詞の過去の疑問文：were を文の頭に出す",
+      "choices": [
+        {
+          "text": "Were",
+          "correct": true,
+          "explain": "主語が you で過去のことなので Were を文の頭に出します。"
+        },
+        {
+          "text": "Was",
+          "correct": false,
+          "explain": "主語が you なので was ではなく were です。"
+        },
+        {
+          "text": "Did",
+          "correct": false,
+          "explain": "at home の文には動詞 be が必要なので Did は使えません。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "last night があるので過去形にする必要があります。"
+        }
+      ]
+    },
+    {
+      "id": "g4-17",
+      "sentence": "I ___ watching TV when you called me.",
+      "ja": "あなたが電話をくれたとき、私はテレビを見ていました。",
+      "point": "過去進行形：was / were + 動詞のing形",
+      "choices": [
+        {
+          "text": "was",
+          "correct": true,
+          "explain": "過去のある時点でしていたことは was / were + ing形で表します。"
+        },
+        {
+          "text": "am",
+          "correct": false,
+          "explain": "過去のことなので現在形の am は使えません。"
+        },
+        {
+          "text": "did",
+          "correct": false,
+          "explain": "did のあとに ing形は続きません。"
+        },
+        {
+          "text": "were",
+          "correct": false,
+          "explain": "主語が I なので were ではなく was です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-18",
+      "sentence": "___ she cooking dinner at that time?",
+      "ja": "そのとき彼女は夕食を作っていましたか。",
+      "point": "過去進行形の疑問文：was / were を文の頭に出す",
+      "choices": [
+        {
+          "text": "Was",
+          "correct": true,
+          "explain": "過去進行形の疑問文は was / were を文の頭に出します。主語が she なので Was です。"
+        },
+        {
+          "text": "Did",
+          "correct": false,
+          "explain": "Did のあとに ing形は続きません。"
+        },
+        {
+          "text": "Were",
+          "correct": false,
+          "explain": "主語 she は単数なので Was を使います。"
+        },
+        {
+          "text": "Is",
+          "correct": false,
+          "explain": "at that time があるので過去形にする必要があります。"
+        }
+      ]
+    },
+    {
+      "id": "g4-19",
+      "sentence": "They ___ not sleeping when I came home.",
+      "ja": "私が帰宅したとき、彼らは眠っていませんでした。",
+      "point": "過去進行形の否定文：was / were の後ろに not を置く",
+      "choices": [
+        {
+          "text": "were",
+          "correct": true,
+          "explain": "主語 They は複数なので were not の形にします。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "was は主語が単数のときに使います。"
+        },
+        {
+          "text": "did",
+          "correct": false,
+          "explain": "did not のあとには原形が来るので ing形とは合いません。"
+        },
+        {
+          "text": "are",
+          "correct": false,
+          "explain": "過去のことなので現在形は使えません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-20",
+      "sentence": "I ___ a beautiful bird in the park yesterday.",
+      "ja": "私は昨日公園で美しい鳥を見ました。",
+      "point": "不規則動詞の過去形：see の過去形は saw",
+      "choices": [
+        {
+          "text": "saw",
+          "correct": true,
+          "explain": "see は不規則動詞で、過去形は saw です。"
+        },
+        {
+          "text": "seed",
+          "correct": false,
+          "explain": "see に ed をつける形はありません。"
+        },
+        {
+          "text": "seen",
+          "correct": false,
+          "explain": "seen は過去分詞で、単独では過去形として使えません。"
+        },
+        {
+          "text": "see",
+          "correct": false,
+          "explain": "yesterday があるので過去形が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-21",
+      "sentence": "We ___ pizza for lunch yesterday.",
+      "ja": "私たちは昨日の昼食にピザを食べました。",
+      "point": "不規則動詞の過去形：eat の過去形は ate",
+      "choices": [
+        {
+          "text": "ate",
+          "correct": true,
+          "explain": "eat は不規則動詞で、過去形は ate です。"
+        },
+        {
+          "text": "eated",
+          "correct": false,
+          "explain": "eat に ed をつける形はありません。"
+        },
+        {
+          "text": "eaten",
+          "correct": false,
+          "explain": "eaten は過去分詞で、単独では過去形として使えません。"
+        },
+        {
+          "text": "eat",
+          "correct": false,
+          "explain": "yesterday があるので過去形が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-22",
+      "sentence": "She ___ many pictures during her trip.",
+      "ja": "彼女は旅行中にたくさんの写真を撮りました。",
+      "point": "不規則動詞の過去形：take の過去形は took",
+      "choices": [
+        {
+          "text": "took",
+          "correct": true,
+          "explain": "take は不規則動詞で、過去形は took です。"
+        },
+        {
+          "text": "taked",
+          "correct": false,
+          "explain": "take に ed をつける形はありません。"
+        },
+        {
+          "text": "taken",
+          "correct": false,
+          "explain": "taken は過去分詞で、単独では過去形として使えません。"
+        },
+        {
+          "text": "takes",
+          "correct": false,
+          "explain": "takes は現在形なので、過去の文には合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-23",
+      "sentence": "He ___ English very hard last night.",
+      "ja": "彼は昨夜とても一生懸命に英語を勉強しました。",
+      "point": "規則動詞の過去形：子音 + y で終わる語は y を i に変えて ed",
+      "choices": [
+        {
+          "text": "studied",
+          "correct": true,
+          "explain": "study は子音 + y で終わるので、y を i に変えて ed をつけます。"
+        },
+        {
+          "text": "studyed",
+          "correct": false,
+          "explain": "y をそのまま残して ed をつける形はありません。"
+        },
+        {
+          "text": "studys",
+          "correct": false,
+          "explain": "これは現在形の形としても誤りで、過去も表せません。"
+        },
+        {
+          "text": "study",
+          "correct": false,
+          "explain": "last night があるので過去形が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-24",
+      "sentence": "The bus ___ in front of the station.",
+      "ja": "バスは駅の前で止まりました。",
+      "point": "規則動詞の過去形：短母音 + 子音で終わる語は子音を重ねて ed",
+      "choices": [
+        {
+          "text": "stopped",
+          "correct": true,
+          "explain": "stop は短い母音 + 子音で終わるので、p を重ねて ed をつけます。"
+        },
+        {
+          "text": "stoped",
+          "correct": false,
+          "explain": "p を重ねずに ed をつける形は誤りです。"
+        },
+        {
+          "text": "stopping",
+          "correct": false,
+          "explain": "ing形は be動詞といっしょに使う形です。"
+        },
+        {
+          "text": "stops",
+          "correct": false,
+          "explain": "stops は現在形で、過去のことは表せません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-25",
+      "sentence": "Did you finish your homework? — Yes, I ___.",
+      "ja": "宿題を終えましたか。— はい、終えました。",
+      "point": "Did の疑問文への答え方：did を使って答える",
+      "choices": [
+        {
+          "text": "did",
+          "correct": true,
+          "explain": "Did 〜? と聞かれたら Yes, I did. のように did で答えます。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "was で答えるのは Were you 〜? などの be動詞の疑問文です。"
+        },
+        {
+          "text": "do",
+          "correct": false,
+          "explain": "過去のことを聞かれているので現在形の do では答えません。"
+        },
+        {
+          "text": "finished",
+          "correct": false,
+          "explain": "答えの形では動詞を繰り返さず did を使います。"
+        }
+      ]
+    },
+    {
+      "id": "g4-26",
+      "sentence": "She ___ come to the party last night.",
+      "ja": "彼女は昨夜パーティーに来ませんでした。",
+      "point": "一般動詞の過去の否定文：didn't のあとの動詞は原形",
+      "choices": [
+        {
+          "text": "didn't",
+          "correct": true,
+          "explain": "didn't を使い、後ろの動詞は原形 come のままにします。"
+        },
+        {
+          "text": "didn't came",
+          "correct": false,
+          "explain": "didn't の後ろは原形なので came ではなく come です。"
+        },
+        {
+          "text": "doesn't",
+          "correct": false,
+          "explain": "last night があるので過去形の didn't が必要です。"
+        },
+        {
+          "text": "wasn't",
+          "correct": false,
+          "explain": "come は一般動詞なので be動詞では否定できません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-27",
+      "sentence": "There ___ many people in the hall yesterday.",
+      "ja": "昨日ホールにはたくさんの人がいました。",
+      "point": "There was / There were：過去の存在を表す",
+      "choices": [
+        {
+          "text": "were",
+          "correct": true,
+          "explain": "many people は複数で過去のことなので were を使います。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "was は後ろが単数のときに使います。"
+        },
+        {
+          "text": "are",
+          "correct": false,
+          "explain": "yesterday があるので過去形が必要です。"
+        },
+        {
+          "text": "had",
+          "correct": false,
+          "explain": "There had 〜 という言い方はありません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-28",
+      "sentence": "I ___ be late again. I promise.",
+      "ja": "もう遅刻はしません。約束します。",
+      "point": "will の否定形 won't：「〜しないつもりだ」を表す",
+      "choices": [
+        {
+          "text": "won't",
+          "correct": true,
+          "explain": "will not を短くすると won't になり、後ろは動詞の原形です。"
+        },
+        {
+          "text": "willn't",
+          "correct": false,
+          "explain": "will not の短縮形は willn't ではなく won't です。"
+        },
+        {
+          "text": "don't will",
+          "correct": false,
+          "explain": "will は助動詞なので don't といっしょには使いません。"
+        },
+        {
+          "text": "not will",
+          "correct": false,
+          "explain": "not は will の後ろに置きます。語順が逆です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-29",
+      "sentence": "___ you help me with this box?",
+      "ja": "この箱を運ぶのを手伝ってくれませんか。",
+      "point": "will の疑問文：Will を文の頭に置いて依頼を表すこともできる",
+      "choices": [
+        {
+          "text": "Will",
+          "correct": true,
+          "explain": "Will you 〜? は「〜してくれませんか」と依頼する言い方にもなります。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do you help me は「ふだん手伝いますか」という意味になってしまいます。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "help は一般動詞なので be動詞では疑問文を作れません。"
+        },
+        {
+          "text": "Did",
+          "correct": false,
+          "explain": "Did は過去のことをたずねる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-30",
+      "sentence": "___ you going to watch the game tonight?",
+      "ja": "今夜その試合を見るつもりですか。",
+      "point": "be going to の疑問文：be動詞を文の頭に出す",
+      "choices": [
+        {
+          "text": "Are",
+          "correct": true,
+          "explain": "be going to の疑問文は be動詞を文の頭に出します。主語が you なので Are です。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "going to の文では be動詞を前に出します。Do は使いません。"
+        },
+        {
+          "text": "Will",
+          "correct": false,
+          "explain": "Will のあとに going to は続けません。"
+        },
+        {
+          "text": "Is",
+          "correct": false,
+          "explain": "主語が you なので is ではなく are です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-31",
+      "sentence": "He is ___ going to join the club.",
+      "ja": "彼はそのクラブに入るつもりはありません。",
+      "point": "be going to の否定文：be動詞の後ろに not を置く",
+      "choices": [
+        {
+          "text": "not",
+          "correct": true,
+          "explain": "be going to の否定は be動詞のすぐ後ろに not を置きます。"
+        },
+        {
+          "text": "don't",
+          "correct": false,
+          "explain": "be動詞のある文なので don't は使いません。"
+        },
+        {
+          "text": "doesn't",
+          "correct": false,
+          "explain": "doesn't も一般動詞の否定に使う形です。"
+        },
+        {
+          "text": "won't",
+          "correct": false,
+          "explain": "won't のあとに going to は続けません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-32",
+      "sentence": "She is ___ to speak three languages.",
+      "ja": "彼女は3つの言語を話すことができます。",
+      "point": "be able to：can とほぼ同じ意味を表す",
+      "choices": [
+        {
+          "text": "able",
+          "correct": true,
+          "explain": "be able to + 動詞の原形で「〜することができる」を表します。"
+        },
+        {
+          "text": "can",
+          "correct": false,
+          "explain": "can は助動詞なので be動詞や to とはいっしょに使いません。"
+        },
+        {
+          "text": "possible",
+          "correct": false,
+          "explain": "possible は人を主語にして be possible to とは言いません。"
+        },
+        {
+          "text": "good",
+          "correct": false,
+          "explain": "be good to は「〜に親切だ」という別の意味になります。"
+        }
+      ]
+    },
+    {
+      "id": "g4-33",
+      "sentence": "You ___ take pictures in this museum.",
+      "ja": "この博物館で写真を撮ってはいけません。",
+      "point": "must not：「〜してはいけない」という強い禁止を表す",
+      "choices": [
+        {
+          "text": "must not",
+          "correct": true,
+          "explain": "must not は「〜してはいけない」という禁止を表します。"
+        },
+        {
+          "text": "don't must",
+          "correct": false,
+          "explain": "must は助動詞なので don't といっしょには使いません。"
+        },
+        {
+          "text": "not must",
+          "correct": false,
+          "explain": "not は must の後ろに置きます。語順が逆です。"
+        },
+        {
+          "text": "must don't",
+          "correct": false,
+          "explain": "助動詞のあとは動詞の原形なので don't は続きません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-34",
+      "sentence": "I ___ get up early tomorrow.",
+      "ja": "私は明日早く起きなければなりません。",
+      "point": "have to：「〜しなければならない」必要を表す",
+      "choices": [
+        {
+          "text": "have to",
+          "correct": true,
+          "explain": "have to + 動詞の原形で「〜しなければならない」を表します。"
+        },
+        {
+          "text": "have",
+          "correct": false,
+          "explain": "to がないと「〜しなければならない」の意味になりません。"
+        },
+        {
+          "text": "am to",
+          "correct": false,
+          "explain": "この意味では be動詞ではなく have を使います。"
+        },
+        {
+          "text": "have to getting",
+          "correct": false,
+          "explain": "to の後ろは動詞の原形なので getting は続きません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-35",
+      "sentence": "My brother ___ clean his room every Saturday.",
+      "ja": "弟は毎週土曜日に自分の部屋を掃除しなければなりません。",
+      "point": "has to：主語が3人称単数のときの have to",
+      "choices": [
+        {
+          "text": "has to",
+          "correct": true,
+          "explain": "主語が3人称単数なので have to は has to になります。"
+        },
+        {
+          "text": "have to",
+          "correct": false,
+          "explain": "主語 My brother は3人称単数なので has to にします。"
+        },
+        {
+          "text": "has",
+          "correct": false,
+          "explain": "to がないと「〜しなければならない」の意味になりません。"
+        },
+        {
+          "text": "musts",
+          "correct": false,
+          "explain": "must は助動詞なので s はつきません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-36",
+      "sentence": "You ___ see a doctor. You look pale.",
+      "ja": "医者に診てもらったほうがいいですよ。顔色が悪いです。",
+      "point": "should：「〜したほうがよい」と助言する",
+      "choices": [
+        {
+          "text": "should",
+          "correct": true,
+          "explain": "should は「〜したほうがよい」と助言するときに使い、後ろは原形です。"
+        },
+        {
+          "text": "should to",
+          "correct": false,
+          "explain": "should は助動詞なので to はつけません。"
+        },
+        {
+          "text": "shoulds",
+          "correct": false,
+          "explain": "助動詞に s はつきません。"
+        },
+        {
+          "text": "are should",
+          "correct": false,
+          "explain": "助動詞は be動詞といっしょには使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-37",
+      "sentence": "___ we meet at the station at ten?",
+      "ja": "10時に駅で待ち合わせましょうか。",
+      "point": "Shall we ~?：「〜しましょうか」と相手を誘う",
+      "choices": [
+        {
+          "text": "Shall",
+          "correct": true,
+          "explain": "Shall we 〜? は「（いっしょに）〜しましょうか」と誘う表現です。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do we meet 〜? は「私たちは会いますか」という事実をたずねる文になります。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "meet は一般動詞なので be動詞では疑問文を作れません。"
+        },
+        {
+          "text": "Will",
+          "correct": false,
+          "explain": "Will we 〜? は誘いではなく未来の予測をたずねる言い方になります。"
+        }
+      ]
+    },
+    {
+      "id": "g4-38",
+      "sentence": "___ you open the window, please?",
+      "ja": "窓を開けていただけますか。",
+      "point": "Could you ~?：ていねいに依頼する表現",
+      "choices": [
+        {
+          "text": "Could",
+          "correct": true,
+          "explain": "Could you 〜? は Can you 〜? よりていねいに依頼する言い方です。"
+        },
+        {
+          "text": "Should",
+          "correct": false,
+          "explain": "Should you 〜? は依頼の表現にはなりません。"
+        },
+        {
+          "text": "Must",
+          "correct": false,
+          "explain": "Must you 〜? は「〜しなければならないのですか」という意味になります。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do you open 〜? は「ふだん開けますか」という意味になります。"
+        }
+      ]
+    },
+    {
+      "id": "g4-39",
+      "sentence": "___ you like something to drink?",
+      "ja": "何かお飲み物はいかがですか。",
+      "point": "Would you like ~?：ていねいに相手にすすめる表現",
+      "choices": [
+        {
+          "text": "Would",
+          "correct": true,
+          "explain": "Would you like 〜? は「〜はいかがですか」とていねいにすすめる表現です。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do you like 〜? は「〜が好きですか」と好みをたずねる文になります。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "like は一般動詞なので be動詞では疑問文を作れません。"
+        },
+        {
+          "text": "Shall",
+          "correct": false,
+          "explain": "Shall you like 〜? という言い方はしません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-40",
+      "sentence": "Can you play the violin? — No, I ___.",
+      "ja": "バイオリンを弾けますか。— いいえ、弾けません。",
+      "point": "助動詞の疑問文への答え方：同じ助動詞を使って答える",
+      "choices": [
+        {
+          "text": "can't",
+          "correct": true,
+          "explain": "Can 〜? には can / can't を使って答えます。"
+        },
+        {
+          "text": "don't",
+          "correct": false,
+          "explain": "don't で答えるのは Do 〜? と聞かれたときです。"
+        },
+        {
+          "text": "am not",
+          "correct": false,
+          "explain": "be動詞で聞かれていないので am not では答えません。"
+        },
+        {
+          "text": "didn't",
+          "correct": false,
+          "explain": "過去のことを聞かれてはいないので didn't は合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-41",
+      "sentence": "This question is ___ difficult than that one.",
+      "ja": "この問題はあの問題より難しいです。",
+      "point": "比較級 more：つづりの長い形容詞は more をつける",
+      "choices": [
+        {
+          "text": "more",
+          "correct": true,
+          "explain": "difficult のようにつづりの長い形容詞は more をつけて比較級にします。"
+        },
+        {
+          "text": "difficulter",
+          "correct": false,
+          "explain": "つづりの長い形容詞に er はつけません。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "much は比較級を強める語で、比較級そのものを作る語ではありません。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は比較級とはいっしょに使えません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-42",
+      "sentence": "Her English is ___ than mine.",
+      "ja": "彼女の英語は私のより上手です。",
+      "point": "good / well の比較級は不規則に better になる",
+      "choices": [
+        {
+          "text": "better",
+          "correct": true,
+          "explain": "good と well の比較級はどちらも better です。"
+        },
+        {
+          "text": "gooder",
+          "correct": false,
+          "explain": "good に er をつける形はありません。"
+        },
+        {
+          "text": "more good",
+          "correct": false,
+          "explain": "good は more をつけて比較級にはしません。"
+        },
+        {
+          "text": "best",
+          "correct": false,
+          "explain": "best は最上級なので than とはいっしょに使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-43",
+      "sentence": "This is the ___ beautiful garden in this city.",
+      "ja": "これはこの市で最も美しい庭園です。",
+      "point": "最上級 most：つづりの長い形容詞は most をつける",
+      "choices": [
+        {
+          "text": "most",
+          "correct": true,
+          "explain": "beautiful のようにつづりの長い形容詞は most をつけて最上級にします。"
+        },
+        {
+          "text": "beautifulest",
+          "correct": false,
+          "explain": "つづりの長い形容詞に est はつけません。"
+        },
+        {
+          "text": "more",
+          "correct": false,
+          "explain": "more は比較級を作る語です。the と in this city があるので最上級が必要です。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は最上級を作る語ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-44",
+      "sentence": "This is the ___ movie I have ever watched.",
+      "ja": "これは私が今まで見た中で最高の映画です。",
+      "point": "good の最上級は不規則に best になる",
+      "choices": [
+        {
+          "text": "best",
+          "correct": true,
+          "explain": "good の最上級は不規則に変化して best になります。"
+        },
+        {
+          "text": "goodest",
+          "correct": false,
+          "explain": "good に est をつける形はありません。"
+        },
+        {
+          "text": "most good",
+          "correct": false,
+          "explain": "good は most をつけて最上級にはしません。"
+        },
+        {
+          "text": "better",
+          "correct": false,
+          "explain": "better は比較級なので the とはふつういっしょに使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-45",
+      "sentence": "Ken is ___ tall as his father.",
+      "ja": "ケンはお父さんと同じくらい背が高いです。",
+      "point": "as ~ as：2つが同じ程度であることを表す",
+      "choices": [
+        {
+          "text": "as",
+          "correct": true,
+          "explain": "同じ程度を表すときは as + 形容詞のもとの形 + as の形にします。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "肯定文ではふつう so ではなく as を使います。"
+        },
+        {
+          "text": "more",
+          "correct": false,
+          "explain": "more は比較級を作る語で、as とはいっしょに使いません。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very はこの形では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-46",
+      "sentence": "This bag is not as ___ as that one.",
+      "ja": "このかばんはあのかばんほど高くありません。",
+      "point": "not as ~ as：「〜ほど…ではない」を表す",
+      "choices": [
+        {
+          "text": "expensive",
+          "correct": true,
+          "explain": "as 〜 as の間には形容詞のもとの形を入れます。"
+        },
+        {
+          "text": "more expensive",
+          "correct": false,
+          "explain": "as 〜 as の間に比較級は入れません。"
+        },
+        {
+          "text": "most expensive",
+          "correct": false,
+          "explain": "as 〜 as の間に最上級は入れません。"
+        },
+        {
+          "text": "expensiver",
+          "correct": false,
+          "explain": "expensive に er をつける形はありません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-47",
+      "sentence": "Mt. Fuji is the highest mountain ___ Japan.",
+      "ja": "富士山は日本で最も高い山です。",
+      "point": "最上級のあとの in：範囲が場所や集団のとき",
+      "choices": [
+        {
+          "text": "in",
+          "correct": true,
+          "explain": "範囲が場所や集団のときは in を使います。"
+        },
+        {
+          "text": "of",
+          "correct": false,
+          "explain": "of は of the four のように複数のものを並べるときに使います。"
+        },
+        {
+          "text": "at",
+          "correct": false,
+          "explain": "最上級の範囲を表すときに at は使いません。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for は範囲を表す語ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-48",
+      "sentence": "Tom runs the fastest ___ the five boys.",
+      "ja": "トムはその5人の少年の中で最も速く走ります。",
+      "point": "最上級のあとの of：範囲が複数のものや人のとき",
+      "choices": [
+        {
+          "text": "of",
+          "correct": true,
+          "explain": "the five boys のように複数を並べた範囲には of を使います。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は場所や集団を1つのまとまりとして表すときに使います。"
+        },
+        {
+          "text": "among",
+          "correct": false,
+          "explain": "最上級の範囲を表すときはふつう of を使います。"
+        },
+        {
+          "text": "from",
+          "correct": false,
+          "explain": "from は出発点を表す語で、範囲は表しません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-49",
+      "sentence": "___ is longer, the Shinano River or the Tone River?",
+      "ja": "信濃川と利根川では、どちらが長いですか。",
+      "point": "Which is + 比較級, A or B?：2つを比べてたずねる",
+      "choices": [
+        {
+          "text": "Which",
+          "correct": true,
+          "explain": "2つを示して「どちらが」とたずねるときは Which を使います。"
+        },
+        {
+          "text": "What",
+          "correct": false,
+          "explain": "選択肢が示されているときは What ではなく Which を使います。"
+        },
+        {
+          "text": "Who",
+          "correct": false,
+          "explain": "Who は人をたずねる語です。"
+        },
+        {
+          "text": "How",
+          "correct": false,
+          "explain": "How は方法や様子をたずねる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-50",
+      "sentence": "This computer is ___ faster than mine.",
+      "ja": "このコンピューターは私のよりずっと速いです。",
+      "point": "比較級を強める much：「ずっと〜」を表す",
+      "choices": [
+        {
+          "text": "much",
+          "correct": true,
+          "explain": "比較級を強めて「ずっと」と言うときは much を使います。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は比較級を強めることができません。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "many は数えられる名詞の前に置く語です。"
+        },
+        {
+          "text": "more",
+          "correct": false,
+          "explain": "faster がすでに比較級なので more は重ねません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-51",
+      "sentence": "___ books is a lot of fun.",
+      "ja": "本を読むことはとても楽しいです。",
+      "point": "不定詞の名詞的用法：to + 動詞の原形が主語になる",
+      "choices": [
+        {
+          "text": "To read",
+          "correct": true,
+          "explain": "to + 動詞の原形は「〜すること」という意味で主語になれます。"
+        },
+        {
+          "text": "Read",
+          "correct": false,
+          "explain": "動詞の原形のままでは主語になれません。"
+        },
+        {
+          "text": "Reads",
+          "correct": false,
+          "explain": "s のついた形は主語にはなりません。"
+        },
+        {
+          "text": "To reading",
+          "correct": false,
+          "explain": "to の後ろは動詞の原形なので reading は続きません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-52",
+      "sentence": "I went to the store ___ some milk.",
+      "ja": "私は牛乳を買うためにその店へ行きました。",
+      "point": "不定詞の副詞的用法：「〜するために」と目的を表す",
+      "choices": [
+        {
+          "text": "to buy",
+          "correct": true,
+          "explain": "to + 動詞の原形は「〜するために」と目的を表すことができます。"
+        },
+        {
+          "text": "buy",
+          "correct": false,
+          "explain": "動詞を2つそのまま続けることはできません。"
+        },
+        {
+          "text": "buying",
+          "correct": false,
+          "explain": "ing形だけでは目的の意味になりません。"
+        },
+        {
+          "text": "for buy",
+          "correct": false,
+          "explain": "for の後ろに動詞の原形は続けません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-53",
+      "sentence": "I am glad ___ you again.",
+      "ja": "またあなたに会えてうれしいです。",
+      "point": "不定詞の副詞的用法：感情の原因「〜して」を表す",
+      "choices": [
+        {
+          "text": "to see",
+          "correct": true,
+          "explain": "glad などの感情を表す形容詞のあとに to + 原形を置くと、その原因を表します。"
+        },
+        {
+          "text": "see",
+          "correct": false,
+          "explain": "形容詞のあとに動詞の原形をそのまま続けることはできません。"
+        },
+        {
+          "text": "seeing",
+          "correct": false,
+          "explain": "glad のあとにはふつう to + 原形を続けます。"
+        },
+        {
+          "text": "for see",
+          "correct": false,
+          "explain": "for の後ろに動詞の原形は続けません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-54",
+      "sentence": "Would you like something ___?",
+      "ja": "何か冷たい飲み物はいかがですか。",
+      "point": "不定詞の形容詞的用法：前の名詞を説明する",
+      "choices": [
+        {
+          "text": "cold to drink",
+          "correct": true,
+          "explain": "something を説明する語は後ろに置き、形容詞 → to + 原形 の順になります。"
+        },
+        {
+          "text": "to drink cold",
+          "correct": false,
+          "explain": "形容詞は to + 原形より前に置きます。"
+        },
+        {
+          "text": "cold drink",
+          "correct": false,
+          "explain": "something のあとに名詞をそのまま続けることはできません。"
+        },
+        {
+          "text": "cold drinking",
+          "correct": false,
+          "explain": "something を説明するときは to + 原形を使います。"
+        }
+      ]
+    },
+    {
+      "id": "g4-55",
+      "sentence": "I don't know ___ next.",
+      "ja": "私は次に何をすればよいかわかりません。",
+      "point": "疑問詞 + 不定詞：what to do は「何をすればよいか」",
+      "choices": [
+        {
+          "text": "what to do",
+          "correct": true,
+          "explain": "what to + 原形で「何を〜すればよいか」という意味になります。"
+        },
+        {
+          "text": "what do",
+          "correct": false,
+          "explain": "to がないとこの意味にはなりません。"
+        },
+        {
+          "text": "what doing",
+          "correct": false,
+          "explain": "疑問詞のあとは to + 原形の形にします。"
+        },
+        {
+          "text": "to what do",
+          "correct": false,
+          "explain": "語順が誤りです。疑問詞を先に置きます。"
+        }
+      ]
+    },
+    {
+      "id": "g4-56",
+      "sentence": "Please tell me ___ for the ticket.",
+      "ja": "チケットを買うにはどこへ行けばよいか教えてください。",
+      "point": "疑問詞 + 不定詞：where to go は「どこへ行けばよいか」",
+      "choices": [
+        {
+          "text": "where to go",
+          "correct": true,
+          "explain": "where to + 原形で「どこへ〜すればよいか」という意味になります。"
+        },
+        {
+          "text": "where go",
+          "correct": false,
+          "explain": "to がないとこの意味にはなりません。"
+        },
+        {
+          "text": "where going",
+          "correct": false,
+          "explain": "疑問詞のあとは to + 原形の形にします。"
+        },
+        {
+          "text": "to where go",
+          "correct": false,
+          "explain": "語順が誤りです。疑問詞を先に置きます。"
+        }
+      ]
+    },
+    {
+      "id": "g4-57",
+      "sentence": "___ the guitar is my hobby.",
+      "ja": "ギターを弾くことが私の趣味です。",
+      "point": "動名詞：動詞のing形が主語になる",
+      "choices": [
+        {
+          "text": "Playing",
+          "correct": true,
+          "explain": "動詞のing形は「〜すること」という意味で主語になれます。"
+        },
+        {
+          "text": "Play",
+          "correct": false,
+          "explain": "動詞の原形のままでは主語になれません。"
+        },
+        {
+          "text": "Plays",
+          "correct": false,
+          "explain": "s のついた形は主語にはなりません。"
+        },
+        {
+          "text": "Played",
+          "correct": false,
+          "explain": "過去形のままでは主語になれません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-58",
+      "sentence": "My sister is good at ___ pictures.",
+      "ja": "姉は絵を描くのが得意です。",
+      "point": "前置詞のあとの動詞は動名詞（ing形）にする",
+      "choices": [
+        {
+          "text": "drawing",
+          "correct": true,
+          "explain": "at などの前置詞のあとに動詞を置くときは ing形にします。"
+        },
+        {
+          "text": "draw",
+          "correct": false,
+          "explain": "前置詞の後ろに動詞の原形はそのまま置けません。"
+        },
+        {
+          "text": "to draw",
+          "correct": false,
+          "explain": "前置詞のあとに to + 原形は続けません。"
+        },
+        {
+          "text": "drew",
+          "correct": false,
+          "explain": "前置詞のあとに過去形は置けません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-59",
+      "sentence": "I finished ___ the book last night.",
+      "ja": "私は昨夜その本を読み終えました。",
+      "point": "finish は動名詞を目的語にとる動詞",
+      "choices": [
+        {
+          "text": "reading",
+          "correct": true,
+          "explain": "finish の後ろに動詞を続けるときは ing形にします。"
+        },
+        {
+          "text": "to read",
+          "correct": false,
+          "explain": "finish は to + 原形を目的語にとりません。"
+        },
+        {
+          "text": "read",
+          "correct": false,
+          "explain": "動詞を2つそのまま続けることはできません。"
+        },
+        {
+          "text": "reads",
+          "correct": false,
+          "explain": "s のついた形をここに置くことはできません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-60",
+      "sentence": "He stopped ___ and looked at me.",
+      "ja": "彼は話すのをやめて私を見ました。",
+      "point": "stop + 動名詞：「〜するのをやめる」を表す",
+      "choices": [
+        {
+          "text": "talking",
+          "correct": true,
+          "explain": "「〜するのをやめる」は stop + ing形で表します。"
+        },
+        {
+          "text": "to talk",
+          "correct": false,
+          "explain": "stop to talk は「話すために立ち止まる」という別の意味になります。"
+        },
+        {
+          "text": "talk",
+          "correct": false,
+          "explain": "動詞を2つそのまま続けることはできません。"
+        },
+        {
+          "text": "talked",
+          "correct": false,
+          "explain": "stop の後ろに過去形は置けません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-61",
+      "sentence": "It began ___ in the afternoon.",
+      "ja": "午後に雨が降り始めました。",
+      "point": "begin / start は不定詞も動名詞も目的語にできる",
+      "choices": [
+        {
+          "text": "to rain",
+          "correct": true,
+          "explain": "begin は to + 原形でも ing形でも続けられます。ここでは to rain が入ります。"
+        },
+        {
+          "text": "rain",
+          "correct": false,
+          "explain": "動詞を2つそのまま続けることはできません。"
+        },
+        {
+          "text": "rained",
+          "correct": false,
+          "explain": "begin の後ろに過去形は置けません。"
+        },
+        {
+          "text": "rains",
+          "correct": false,
+          "explain": "s のついた形をここに置くことはできません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-62",
+      "sentence": "___ I was a child, I lived in Hokkaido.",
+      "ja": "子どものころ、私は北海道に住んでいました。",
+      "point": "接続詞 when：「〜のとき」と時を表す文をつなぐ",
+      "choices": [
+        {
+          "text": "When",
+          "correct": true,
+          "explain": "when は「〜のとき」という意味で、後ろに主語 + 動詞の文を続けます。"
+        },
+        {
+          "text": "What",
+          "correct": false,
+          "explain": "what は疑問詞で、文と文をつなぐ働きはここではしません。"
+        },
+        {
+          "text": "Which",
+          "correct": false,
+          "explain": "which は選択をたずねる語です。"
+        },
+        {
+          "text": "That",
+          "correct": false,
+          "explain": "that は「〜ということ」を表し、時を表す意味にはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-63",
+      "sentence": "___ it rains tomorrow, we will stay home.",
+      "ja": "もし明日雨が降ったら、私たちは家にいます。",
+      "point": "接続詞 if：条件を表し、中の動詞は未来のことでも現在形",
+      "choices": [
+        {
+          "text": "If",
+          "correct": true,
+          "explain": "if は「もし〜なら」と条件を表します。条件の文の中では未来のことも現在形で表します。"
+        },
+        {
+          "text": "So",
+          "correct": false,
+          "explain": "so は結果を表す語で、条件は表しません。"
+        },
+        {
+          "text": "But",
+          "correct": false,
+          "explain": "but は反対の内容をつなぐ語です。"
+        },
+        {
+          "text": "Or",
+          "correct": false,
+          "explain": "or は選択肢を並べる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-64",
+      "sentence": "I think ___ this book is interesting.",
+      "ja": "私はこの本はおもしろいと思います。",
+      "point": "接続詞 that：「〜ということ」を表し think などのあとに置く",
+      "choices": [
+        {
+          "text": "that",
+          "correct": true,
+          "explain": "think のあとに文を続けるときは「〜ということ」を表す that を使います。"
+        },
+        {
+          "text": "what",
+          "correct": false,
+          "explain": "what は疑問詞で、後ろの文が完全な形のときには使いません。"
+        },
+        {
+          "text": "if",
+          "correct": false,
+          "explain": "if だと「〜かどうか」という別の意味になります。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "which は選択をたずねる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-65",
+      "sentence": "It was very cold, ___ I wore a heavy coat.",
+      "ja": "とても寒かったので、私は厚いコートを着ました。",
+      "point": "接続詞 so：前の内容の結果を後ろに続ける",
+      "choices": [
+        {
+          "text": "so",
+          "correct": true,
+          "explain": "so は「だから」という意味で、前の内容の結果を続けます。"
+        },
+        {
+          "text": "because",
+          "correct": false,
+          "explain": "because の後ろには理由が来ます。ここは結果なので合いません。"
+        },
+        {
+          "text": "but",
+          "correct": false,
+          "explain": "but は反対の内容をつなぐ語です。"
+        },
+        {
+          "text": "if",
+          "correct": false,
+          "explain": "if は条件を表す語です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-66",
+      "sentence": "Wash your hands ___ you eat lunch.",
+      "ja": "昼食を食べる前に手を洗いなさい。",
+      "point": "接続詞 before：「〜する前に」と時の順番を表す",
+      "choices": [
+        {
+          "text": "before",
+          "correct": true,
+          "explain": "before の後ろに主語 + 動詞を続けて「〜する前に」を表します。"
+        },
+        {
+          "text": "after",
+          "correct": false,
+          "explain": "after だと「食べたあとに手を洗う」という反対の意味になります。"
+        },
+        {
+          "text": "when",
+          "correct": false,
+          "explain": "when は「〜のとき」で、順番をはっきり示しません。"
+        },
+        {
+          "text": "until",
+          "correct": false,
+          "explain": "until は「〜までずっと」という継続を表します。"
+        }
+      ]
+    },
+    {
+      "id": "g4-67",
+      "sentence": "___ she finished her work, she went out.",
+      "ja": "仕事を終えたあと、彼女は出かけました。",
+      "point": "接続詞 after：「〜したあとで」と時の順番を表す",
+      "choices": [
+        {
+          "text": "After",
+          "correct": true,
+          "explain": "after の後ろに主語 + 動詞を続けて「〜したあとで」を表します。"
+        },
+        {
+          "text": "Before",
+          "correct": false,
+          "explain": "before だと順番が逆の意味になります。"
+        },
+        {
+          "text": "If",
+          "correct": false,
+          "explain": "if は条件を表す語です。"
+        },
+        {
+          "text": "So",
+          "correct": false,
+          "explain": "so は文の前に置いて時を表す語ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-68",
+      "sentence": "My mother was cooking ___ I was doing my homework.",
+      "ja": "私が宿題をしている間、母は料理をしていました。",
+      "point": "接続詞 while：「〜している間」と同時に進む動作を表す",
+      "choices": [
+        {
+          "text": "while",
+          "correct": true,
+          "explain": "while は2つの動作が同時に進んでいることを表します。"
+        },
+        {
+          "text": "before",
+          "correct": false,
+          "explain": "before は順番を表す語で、同時であることは表しません。"
+        },
+        {
+          "text": "because",
+          "correct": false,
+          "explain": "because は理由を表す語です。"
+        },
+        {
+          "text": "until",
+          "correct": false,
+          "explain": "until は「〜までずっと」という終わりの時点を表します。"
+        }
+      ]
+    },
+    {
+      "id": "g4-69",
+      "sentence": "Hurry up, ___ you will catch the train.",
+      "ja": "急ぎなさい、そうすれば電車に間に合いますよ。",
+      "point": "命令文 + and：「そうすれば〜」という良い結果を表す",
+      "choices": [
+        {
+          "text": "and",
+          "correct": true,
+          "explain": "命令文のあとに and を置くと「そうすれば〜」という意味になります。"
+        },
+        {
+          "text": "or",
+          "correct": false,
+          "explain": "or だと「さもないと」という悪い結果を表すので、文の意味と合いません。"
+        },
+        {
+          "text": "but",
+          "correct": false,
+          "explain": "but は反対の内容をつなぐ語です。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "命令文のあとで結果を表すときは and を使います。"
+        }
+      ]
+    },
+    {
+      "id": "g4-70",
+      "sentence": "Leave now, ___ you will be late for school.",
+      "ja": "今出発しなさい、さもないと学校に遅れますよ。",
+      "point": "命令文 + or：「さもないと〜」という悪い結果を表す",
+      "choices": [
+        {
+          "text": "or",
+          "correct": true,
+          "explain": "命令文のあとに or を置くと「さもないと〜」という意味になります。"
+        },
+        {
+          "text": "and",
+          "correct": false,
+          "explain": "and だと「そうすれば遅れる」という意味になり、おかしくなります。"
+        },
+        {
+          "text": "but",
+          "correct": false,
+          "explain": "but は反対の内容をつなぐ語です。"
+        },
+        {
+          "text": "if",
+          "correct": false,
+          "explain": "if は条件を表す語で、命令文のあとにこの形では続けません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-71",
+      "sentence": "My uncle ___ a nice watch for my birthday.",
+      "ja": "おじは私の誕生日にすてきな腕時計をくれました。",
+      "point": "SVOO：give + 人 + もの の語順",
+      "choices": [
+        {
+          "text": "gave me",
+          "correct": true,
+          "explain": "give は「人」「もの」の順に目的語を2つとることができます。"
+        },
+        {
+          "text": "gave to me",
+          "correct": false,
+          "explain": "give me a watch の語順では to をつけません。"
+        },
+        {
+          "text": "gave I",
+          "correct": false,
+          "explain": "動詞のあとの代名詞は目的格なので I ではなく me です。"
+        },
+        {
+          "text": "gave for me",
+          "correct": false,
+          "explain": "give では for ではなく to を使い、しかもこの語順では前置詞は不要です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-72",
+      "sentence": "Could you ___ the way to the station?",
+      "ja": "駅への道を教えていただけますか。",
+      "point": "SVOO：show + 人 + もの の語順",
+      "choices": [
+        {
+          "text": "show me",
+          "correct": true,
+          "explain": "show も「人」「もの」の順に目的語を2つとることができます。"
+        },
+        {
+          "text": "show to me",
+          "correct": false,
+          "explain": "この語順では to はつけません。"
+        },
+        {
+          "text": "show I",
+          "correct": false,
+          "explain": "動詞のあとの代名詞は目的格の me にします。"
+        },
+        {
+          "text": "me show",
+          "correct": false,
+          "explain": "語順が誤りです。動詞を先に置きます。"
+        }
+      ]
+    },
+    {
+      "id": "g4-73",
+      "sentence": "She sent a birthday card ___ her friend.",
+      "ja": "彼女は友達に誕生日カードを送りました。",
+      "point": "SVOO の書きかえ：もの + to + 人 の語順にする",
+      "choices": [
+        {
+          "text": "to",
+          "correct": true,
+          "explain": "「もの」を先に置くときは、人の前に to を入れます。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "send では for ではなく to を使います。"
+        },
+        {
+          "text": "at",
+          "correct": false,
+          "explain": "at は相手を表す前置詞としてこの形では使いません。"
+        },
+        {
+          "text": "with",
+          "correct": false,
+          "explain": "with は「〜といっしょに」という意味です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-74",
+      "sentence": "You ___ happy today. Did something good happen?",
+      "ja": "今日はうれしそうですね。何かよいことがあったのですか。",
+      "point": "look + 形容詞：「〜に見える」を表す",
+      "choices": [
+        {
+          "text": "look",
+          "correct": true,
+          "explain": "look の後ろに形容詞を置くと「〜に見える」という意味になります。"
+        },
+        {
+          "text": "look at",
+          "correct": false,
+          "explain": "look at は「〜を見る」で、後ろには名詞が来ます。"
+        },
+        {
+          "text": "see",
+          "correct": false,
+          "explain": "see は「見える・見る」で、後ろに形容詞を置いてこの意味にはなりません。"
+        },
+        {
+          "text": "watch",
+          "correct": false,
+          "explain": "watch は動いているものをじっと見るという意味です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-75",
+      "sentence": "The sky ___ dark before the storm.",
+      "ja": "嵐の前に空は暗くなりました。",
+      "point": "become + 形容詞：「〜になる」と変化を表す",
+      "choices": [
+        {
+          "text": "became",
+          "correct": true,
+          "explain": "become の後ろに形容詞を置くと「〜になる」という変化を表します。"
+        },
+        {
+          "text": "became to",
+          "correct": false,
+          "explain": "become のあとに to はつけません。"
+        },
+        {
+          "text": "become",
+          "correct": false,
+          "explain": "before the storm があるので過去形が必要です。"
+        },
+        {
+          "text": "becoming",
+          "correct": false,
+          "explain": "ing形は be動詞といっしょに使う形です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-76",
+      "sentence": "Your plan ___ interesting.",
+      "ja": "あなたの計画はおもしろそうですね。",
+      "point": "sound + 形容詞：「〜に聞こえる・〜そうだ」を表す",
+      "choices": [
+        {
+          "text": "sounds",
+          "correct": true,
+          "explain": "sound の後ろに形容詞を置くと「〜に聞こえる・〜そうだ」という意味になります。"
+        },
+        {
+          "text": "sounds like",
+          "correct": false,
+          "explain": "sound like の後ろには名詞が来ます。形容詞のときは like をつけません。"
+        },
+        {
+          "text": "hears",
+          "correct": false,
+          "explain": "hear は「音が聞こえる」で、この形では使いません。"
+        },
+        {
+          "text": "listens",
+          "correct": false,
+          "explain": "listen は「耳を傾ける」で、後ろに形容詞は続きません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-77",
+      "sentence": "This soup ___ good.",
+      "ja": "このスープはおいしいです。",
+      "point": "taste + 形容詞：「〜の味がする」を表す",
+      "choices": [
+        {
+          "text": "tastes",
+          "correct": true,
+          "explain": "taste の後ろに形容詞を置くと「〜の味がする」という意味になります。"
+        },
+        {
+          "text": "tastes like",
+          "correct": false,
+          "explain": "taste like の後ろには名詞が来ます。"
+        },
+        {
+          "text": "eats",
+          "correct": false,
+          "explain": "eat は「食べる」で、主語がスープではおかしくなります。"
+        },
+        {
+          "text": "is taste",
+          "correct": false,
+          "explain": "taste は動詞なので be動詞とはいっしょに使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-78",
+      "sentence": "___ tall this tree is!",
+      "ja": "この木はなんて高いのでしょう。",
+      "point": "感嘆文 How + 形容詞 + 主語 + 動詞",
+      "choices": [
+        {
+          "text": "How",
+          "correct": true,
+          "explain": "形容詞だけを強めて感嘆するときは How + 形容詞 + 主語 + 動詞 の形にします。"
+        },
+        {
+          "text": "What",
+          "correct": false,
+          "explain": "What の感嘆文は後ろに名詞が必要です。"
+        },
+        {
+          "text": "Very",
+          "correct": false,
+          "explain": "very で感嘆文を作ることはできません。"
+        },
+        {
+          "text": "So",
+          "correct": false,
+          "explain": "so はこの語順で感嘆文を作る語ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-79",
+      "sentence": "___ a beautiful flower this is!",
+      "ja": "これはなんて美しい花なのでしょう。",
+      "point": "感嘆文 What a + 形容詞 + 名詞 + 主語 + 動詞",
+      "choices": [
+        {
+          "text": "What",
+          "correct": true,
+          "explain": "名詞を含めて感嘆するときは What (a) + 形容詞 + 名詞 の形にします。"
+        },
+        {
+          "text": "How",
+          "correct": false,
+          "explain": "How の感嘆文では後ろに名詞を置きません。"
+        },
+        {
+          "text": "Which",
+          "correct": false,
+          "explain": "which は選択をたずねる語です。"
+        },
+        {
+          "text": "That",
+          "correct": false,
+          "explain": "that で感嘆文を作ることはできません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-80",
+      "sentence": "Can I have a ___ of paper?",
+      "ja": "紙を1枚もらえますか。",
+      "point": "a piece of：数えられない名詞を1つ分として数える",
+      "choices": [
+        {
+          "text": "piece",
+          "correct": true,
+          "explain": "paper は数えられないので a piece of paper のように数えます。"
+        },
+        {
+          "text": "cup",
+          "correct": false,
+          "explain": "cup は飲み物を数えるときに使います。"
+        },
+        {
+          "text": "glass",
+          "correct": false,
+          "explain": "glass は水などの飲み物を数えるときに使います。"
+        },
+        {
+          "text": "slice",
+          "correct": false,
+          "explain": "slice はパンやチーズなど薄く切ったものに使います。"
+        }
+      ]
+    },
+    {
+      "id": "g4-81",
+      "sentence": "I lost my pen, so I bought a new ___.",
+      "ja": "ペンをなくしたので、新しいものを買いました。",
+      "point": "不定代名詞 one：前に出た名詞と同じ種類のものを指す",
+      "choices": [
+        {
+          "text": "one",
+          "correct": true,
+          "explain": "前に出た名詞と同じ種類の別のものを指すときは one を使います。"
+        },
+        {
+          "text": "it",
+          "correct": false,
+          "explain": "it はなくしたそのペン自身を指すので、新しく買うものには使えません。"
+        },
+        {
+          "text": "ones",
+          "correct": false,
+          "explain": "a new のあとなので単数形の one にします。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that は特定のものを指す語で、a new とはいっしょに使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-82",
+      "sentence": "Is there ___ in the box?",
+      "ja": "箱の中に何か入っていますか。",
+      "point": "疑問文では something ではなく anything を使う",
+      "choices": [
+        {
+          "text": "anything",
+          "correct": true,
+          "explain": "疑問文ではふつう something ではなく anything を使います。"
+        },
+        {
+          "text": "something",
+          "correct": false,
+          "explain": "something は肯定文で使うのがふつうです。"
+        },
+        {
+          "text": "nothing",
+          "correct": false,
+          "explain": "nothing は「何もない」という意味なので疑問文には合いません。"
+        },
+        {
+          "text": "everything",
+          "correct": false,
+          "explain": "everything は「すべてのもの」という意味です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-83",
+      "sentence": "Everyone in my class ___ the new teacher.",
+      "ja": "私のクラスのみんなが新しい先生を気に入っています。",
+      "point": "everyone は単数扱い：動詞に s をつける",
+      "choices": [
+        {
+          "text": "likes",
+          "correct": true,
+          "explain": "everyone は「みんな」という意味ですが単数扱いなので動詞に s をつけます。"
+        },
+        {
+          "text": "like",
+          "correct": false,
+          "explain": "everyone は単数扱いなので s のない形は使いません。"
+        },
+        {
+          "text": "are liking",
+          "correct": false,
+          "explain": "like は進行形にしない動詞で、しかも everyone は単数です。"
+        },
+        {
+          "text": "liking",
+          "correct": false,
+          "explain": "ing形は be動詞といっしょに使う形です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-84",
+      "sentence": "I visited many temples ___ my stay in Kyoto.",
+      "ja": "京都に滞在している間、私は多くの寺を訪れました。",
+      "point": "前置詞 during：後ろに名詞を置いて「〜の間に」を表す",
+      "choices": [
+        {
+          "text": "during",
+          "correct": true,
+          "explain": "during の後ろには名詞が来ます。my stay は名詞のまとまりです。"
+        },
+        {
+          "text": "while",
+          "correct": false,
+          "explain": "while の後ろには主語 + 動詞の文が必要です。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for は three days のように期間の長さを表す語と使います。"
+        },
+        {
+          "text": "when",
+          "correct": false,
+          "explain": "when の後ろにも主語 + 動詞の文が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-85",
+      "sentence": "The post office is ___ the bank and the library.",
+      "ja": "郵便局は銀行と図書館の間にあります。",
+      "point": "前置詞 between A and B：2つのものの間を表す",
+      "choices": [
+        {
+          "text": "between",
+          "correct": true,
+          "explain": "2つのものにはさまれた位置は between A and B で表します。"
+        },
+        {
+          "text": "among",
+          "correct": false,
+          "explain": "among は3つ以上のものの中にあるときに使います。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は「〜の中に」という意味です。"
+        },
+        {
+          "text": "along",
+          "correct": false,
+          "explain": "along は「〜に沿って」という意味です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-86",
+      "sentence": "Please return this book ___ next Friday.",
+      "ja": "この本を次の金曜日までに返してください。",
+      "point": "前置詞 by：「〜までに」と期限を表す",
+      "choices": [
+        {
+          "text": "by",
+          "correct": true,
+          "explain": "期限を表して「〜までに」と言うときは by を使います。"
+        },
+        {
+          "text": "until",
+          "correct": false,
+          "explain": "until は「〜までずっと」という継続を表すので、返却の期限には合いません。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は期限を表す語ではありません。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for は期間の長さを表す語です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-87",
+      "sentence": "I waited for her ___ six o'clock.",
+      "ja": "私は6時まで彼女を待ちました。",
+      "point": "前置詞 until：「〜までずっと」と継続を表す",
+      "choices": [
+        {
+          "text": "until",
+          "correct": true,
+          "explain": "動作がその時点までずっと続くときは until を使います。"
+        },
+        {
+          "text": "by",
+          "correct": false,
+          "explain": "by は「〜までに」と期限を表すので、待ち続ける意味には合いません。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は継続の終わりの時点を表しません。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "on は曜日や日付の前に使います。"
+        }
+      ]
+    },
+    {
+      "id": "g4-88",
+      "sentence": "I don't like coffee. — I don't like it, ___.",
+      "ja": "私はコーヒーが好きではありません。— 私も好きではありません。",
+      "point": "either：否定文の終わりで「〜も…ない」を表す",
+      "choices": [
+        {
+          "text": "either",
+          "correct": true,
+          "explain": "否定文で「〜も」と付け加えるときは too ではなく either を使います。"
+        },
+        {
+          "text": "too",
+          "correct": false,
+          "explain": "too は肯定文で「〜も」と言うときに使います。"
+        },
+        {
+          "text": "also",
+          "correct": false,
+          "explain": "also は肯定文で使うのがふつうで、文の終わりにも置きません。"
+        },
+        {
+          "text": "neither",
+          "correct": false,
+          "explain": "neither はこの語順では使わず、Neither do I. のような形で使います。"
+        }
+      ]
+    },
+    {
+      "id": "g4-89",
+      "sentence": "___ Tom and Mary joined the club.",
+      "ja": "トムとメアリーの二人ともそのクラブに入りました。",
+      "point": "both A and B：「AとBの両方とも」を表し複数扱い",
+      "choices": [
+        {
+          "text": "Both",
+          "correct": true,
+          "explain": "both A and B で「AとBの両方とも」を表し、動詞は複数に合わせます。"
+        },
+        {
+          "text": "Either",
+          "correct": false,
+          "explain": "either A or B は「AかBのどちらか」という意味です。"
+        },
+        {
+          "text": "Neither",
+          "correct": false,
+          "explain": "neither A nor B は「AもBも〜ない」という意味です。"
+        },
+        {
+          "text": "All",
+          "correct": false,
+          "explain": "all は and で2つを並べるこの形では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-90",
+      "sentence": "You can take ___ the bus or the train.",
+      "ja": "バスか電車のどちらかに乗ることができます。",
+      "point": "either A or B：「AかBのどちらか」を表す",
+      "choices": [
+        {
+          "text": "either",
+          "correct": true,
+          "explain": "either A or B で「AかBのどちらか」を表します。"
+        },
+        {
+          "text": "both",
+          "correct": false,
+          "explain": "both は and と組にして使います。or とは使いません。"
+        },
+        {
+          "text": "neither",
+          "correct": false,
+          "explain": "neither は nor と組にして使います。"
+        },
+        {
+          "text": "any",
+          "correct": false,
+          "explain": "any はこの形では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-91",
+      "sentence": "How ___ do you go to the gym? — Twice a week.",
+      "ja": "どのくらいの頻度でジムへ行きますか。— 週に2回です。",
+      "point": "How often：頻度をたずねる表現",
+      "choices": [
+        {
+          "text": "often",
+          "correct": true,
+          "explain": "頻度をたずねるときは How often 〜? を使います。"
+        },
+        {
+          "text": "long",
+          "correct": false,
+          "explain": "How long は期間や長さをたずねる表現です。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "How many の後ろには複数名詞が必要です。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "How much は量や値段をたずねる表現です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-92",
+      "sentence": "How ___ did you stay in London? — For two weeks.",
+      "ja": "ロンドンにどのくらい滞在しましたか。— 2週間です。",
+      "point": "How long：期間の長さをたずねる表現",
+      "choices": [
+        {
+          "text": "long",
+          "correct": true,
+          "explain": "期間の長さをたずねるときは How long 〜? を使います。"
+        },
+        {
+          "text": "often",
+          "correct": false,
+          "explain": "How often は頻度をたずねる表現です。答えが For two weeks なので合いません。"
+        },
+        {
+          "text": "far",
+          "correct": false,
+          "explain": "How far は距離をたずねる表現です。"
+        },
+        {
+          "text": "old",
+          "correct": false,
+          "explain": "How old は年齢をたずねる表現です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-93",
+      "sentence": "How ___ is it from here to the airport?",
+      "ja": "ここから空港まではどのくらいの距離ですか。",
+      "point": "How far：距離をたずねる表現",
+      "choices": [
+        {
+          "text": "far",
+          "correct": true,
+          "explain": "距離をたずねるときは How far 〜? を使います。"
+        },
+        {
+          "text": "long",
+          "correct": false,
+          "explain": "How long は期間や長さをたずねる表現です。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "How much は量や値段をたずねる表現です。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "How many の後ろには複数名詞が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-94",
+      "sentence": "Do you have ___ questions about this lesson?",
+      "ja": "この授業について何か質問はありますか。",
+      "point": "疑問文では some ではなく any を使うのがふつう",
+      "choices": [
+        {
+          "text": "any",
+          "correct": true,
+          "explain": "疑問文ではふつう some ではなく any を使います。"
+        },
+        {
+          "text": "some",
+          "correct": false,
+          "explain": "some は肯定文で使うのがふつうです。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "questions は数えられる名詞なので much は使いません。"
+        },
+        {
+          "text": "a little",
+          "correct": false,
+          "explain": "a little は数えられない名詞に使います。"
+        }
+      ]
+    },
+    {
+      "id": "g4-95",
+      "sentence": "I have ___ friends in Australia.",
+      "ja": "私はオーストラリアに数人の友達がいます。",
+      "point": "a few：数えられる名詞に使い「少しの」を表す",
+      "choices": [
+        {
+          "text": "a few",
+          "correct": true,
+          "explain": "friends は数えられる名詞なので a few を使います。"
+        },
+        {
+          "text": "a little",
+          "correct": false,
+          "explain": "a little は数えられない名詞に使います。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "much は数えられない名詞に使います。"
+        },
+        {
+          "text": "a few of",
+          "correct": false,
+          "explain": "そのまま名詞を続けるときは of をつけません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-96",
+      "sentence": "There is ___ milk left in the bottle.",
+      "ja": "びんに少し牛乳が残っています。",
+      "point": "a little：数えられない名詞に使い「少しの」を表す",
+      "choices": [
+        {
+          "text": "a little",
+          "correct": true,
+          "explain": "milk は数えられない名詞なので a little を使います。"
+        },
+        {
+          "text": "a few",
+          "correct": false,
+          "explain": "a few は数えられる名詞に使います。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "many は数えられる名詞の複数形に使います。"
+        },
+        {
+          "text": "a little of",
+          "correct": false,
+          "explain": "そのまま名詞を続けるときは of をつけません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-97",
+      "sentence": "This umbrella is not mine. It is ___.",
+      "ja": "この傘は私のではありません。彼女のです。",
+      "point": "所有代名詞 hers：「彼女のもの」を1語で表す",
+      "choices": [
+        {
+          "text": "hers",
+          "correct": true,
+          "explain": "「彼女のもの」は hers で、後ろに名詞をつけません。"
+        },
+        {
+          "text": "her",
+          "correct": false,
+          "explain": "her は「彼女の」で、後ろに名詞が必要です。"
+        },
+        {
+          "text": "she",
+          "correct": false,
+          "explain": "she は主格で、主語になるときの形です。"
+        },
+        {
+          "text": "her's",
+          "correct": false,
+          "explain": "hers にアポストロフィはつけません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-98",
+      "sentence": "I made this cake ___.",
+      "ja": "私はこのケーキを自分で作りました。",
+      "point": "再帰代名詞 myself：「自分で」を表す",
+      "choices": [
+        {
+          "text": "myself",
+          "correct": true,
+          "explain": "「自分で」と強めて言うときは myself を使います。"
+        },
+        {
+          "text": "me",
+          "correct": false,
+          "explain": "me は目的格で、「自分で」という意味にはなりません。"
+        },
+        {
+          "text": "my",
+          "correct": false,
+          "explain": "my は「私の」で、後ろに名詞が必要です。"
+        },
+        {
+          "text": "mine",
+          "correct": false,
+          "explain": "mine は「私のもの」という意味です。"
+        }
+      ]
+    },
+    {
+      "id": "g4-99",
+      "sentence": "My sister plays ___ piano every evening.",
+      "ja": "姉は毎晩ピアノを弾きます。",
+      "point": "楽器を演奏するときは楽器名の前に the をつける",
+      "choices": [
+        {
+          "text": "the",
+          "correct": true,
+          "explain": "楽器を演奏すると言うときは play the piano のように the をつけます。"
+        },
+        {
+          "text": "a",
+          "correct": false,
+          "explain": "楽器を演奏する意味のときは a ではなく the を使います。"
+        },
+        {
+          "text": "an",
+          "correct": false,
+          "explain": "an も楽器を演奏する意味のときには使いません。"
+        },
+        {
+          "text": "some",
+          "correct": false,
+          "explain": "some は数がはっきりしないときに使う語で、ここには合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g4-100",
+      "sentence": "He is interested ___ Japanese history.",
+      "ja": "彼は日本の歴史に興味があります。",
+      "point": "be interested in：「〜に興味がある」を表す決まった形",
+      "choices": [
+        {
+          "text": "in",
+          "correct": true,
+          "explain": "「〜に興味がある」は be interested in 〜 と決まっています。"
+        },
+        {
+          "text": "at",
+          "correct": false,
+          "explain": "interested のあとの前置詞は at ではなく in です。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "interested のあとの前置詞は on ではなく in です。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "interested のあとの前置詞は for ではなく in です。"
+        }
+      ]
     }
   ],
   "reading": [
