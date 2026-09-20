@@ -2541,6 +2541,2470 @@
           "explain": "Even how という表現はありません。"
         }
       ]
+    },
+    {
+      "id": "gp2-13",
+      "sentence": "I ___ in this town since I was a child.",
+      "ja": "私は子どものころからこの町に住んでいます。",
+      "point": "現在完了（継続）：since + 過去の起点",
+      "choices": [
+        {
+          "text": "have lived",
+          "correct": true,
+          "explain": "since I was a child は過去から現在までの継続を表すので現在完了 have lived を使います。"
+        },
+        {
+          "text": "lived",
+          "correct": false,
+          "explain": "過去形は過去の一点を表すだけで、現在まで続いていることを表せません。"
+        },
+        {
+          "text": "live",
+          "correct": false,
+          "explain": "現在形では since 〜 の継続の意味を表せません。"
+        },
+        {
+          "text": "am living",
+          "correct": false,
+          "explain": "現在進行形は今この瞬間の動作で、since と一緒には使えません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-14",
+      "sentence": "She ___ been studying English for three hours.",
+      "ja": "彼女は3時間ずっと英語を勉強し続けています。",
+      "point": "現在完了進行形（have/has been + -ing）：動作の継続",
+      "choices": [
+        {
+          "text": "has",
+          "correct": true,
+          "explain": "主語が She なので has been studying となり、動作がずっと続いていることを表します。"
+        },
+        {
+          "text": "have",
+          "correct": false,
+          "explain": "主語が三人称単数 She なので have ではなく has を使います。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "is been という形は存在しません。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "was been という形は存在しません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-15",
+      "sentence": "This bridge ___ built fifty years ago.",
+      "ja": "この橋は50年前に建てられました。",
+      "point": "受動態の過去形（was/were + 過去分詞）",
+      "choices": [
+        {
+          "text": "was",
+          "correct": true,
+          "explain": "主語 This bridge は「建てられる」側で、fifty years ago があるので過去の受動態 was built です。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "fifty years ago があるので現在形ではなく過去形が必要です。"
+        },
+        {
+          "text": "has",
+          "correct": false,
+          "explain": "has built は能動態の現在完了で、橋が何かを建てたことになってしまいます。"
+        },
+        {
+          "text": "were",
+          "correct": false,
+          "explain": "主語が単数 This bridge なので were ではなく was です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-16",
+      "sentence": "The mountain was covered ___ snow.",
+      "ja": "その山は雪でおおわれていました。",
+      "point": "受動態で by 以外の前置詞を使う表現（be covered with）",
+      "choices": [
+        {
+          "text": "with",
+          "correct": true,
+          "explain": "be covered with 〜 で「〜でおおわれている」という決まった言い方です。"
+        },
+        {
+          "text": "by",
+          "correct": false,
+          "explain": "be covered は動作主ではなく材料を示すため、by ではなく with を使います。"
+        },
+        {
+          "text": "of",
+          "correct": false,
+          "explain": "be covered of という言い方はありません。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "covered in も使われますが、この問題では標準的な with が正解です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-17",
+      "sentence": "He is too young ___ drive a car.",
+      "ja": "彼は車を運転するには若すぎます。",
+      "point": "too + 形容詞 + to 不定詞（〜するには…すぎる）",
+      "choices": [
+        {
+          "text": "to",
+          "correct": true,
+          "explain": "too 〜 to … で「…するには〜すぎる」という意味になります。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for の後ろには動詞の原形は来ません。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "too 〜 that … という構文はありません。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "too 〜 so … という形は使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-18",
+      "sentence": "She is old ___ to travel alone.",
+      "ja": "彼女は一人で旅行できる年齢です。",
+      "point": "形容詞 + enough + to 不定詞（〜するのに十分…）",
+      "choices": [
+        {
+          "text": "enough",
+          "correct": true,
+          "explain": "形容詞の後ろに enough を置いて enough to 〜 で「〜するのに十分…」を表します。"
+        },
+        {
+          "text": "too",
+          "correct": false,
+          "explain": "too を使うと「年を取りすぎて旅行できない」と逆の意味になります。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は to 不定詞と結びついてこの意味を作りません。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "so old to travel という形は正しくありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-19",
+      "sentence": "It is important ___ us to protect the environment.",
+      "ja": "私たちが環境を守ることは大切です。",
+      "point": "It is + 形容詞 + for + 人 + to 不定詞",
+      "choices": [
+        {
+          "text": "for",
+          "correct": true,
+          "explain": "important のような性質を表さない形容詞では、意味上の主語に for を使います。"
+        },
+        {
+          "text": "of",
+          "correct": false,
+          "explain": "of は kind, nice など人の性質を表す形容詞のときに使います。"
+        },
+        {
+          "text": "to",
+          "correct": false,
+          "explain": "to us では意味上の主語を表せません。"
+        },
+        {
+          "text": "with",
+          "correct": false,
+          "explain": "with は意味上の主語を導く前置詞ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-20",
+      "sentence": "It was very kind ___ you to help me.",
+      "ja": "手伝ってくださってご親切にありがとうございます。",
+      "point": "人の性質を表す形容詞は of + 人",
+      "choices": [
+        {
+          "text": "of",
+          "correct": true,
+          "explain": "kind は人の性質を表す形容詞なので、意味上の主語には of を使います。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for は important や difficult など性質を表さない形容詞のときに使います。"
+        },
+        {
+          "text": "to",
+          "correct": false,
+          "explain": "to you ではこの構文になりません。"
+        },
+        {
+          "text": "from",
+          "correct": false,
+          "explain": "from は意味上の主語を導きません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-21",
+      "sentence": "I remember ___ him at the party last year.",
+      "ja": "去年のパーティーで彼に会ったのを覚えています。",
+      "point": "remember + 動名詞（過去にしたことを覚えている）",
+      "choices": [
+        {
+          "text": "meeting",
+          "correct": true,
+          "explain": "remember + -ing は「（過去に）〜したことを覚えている」です。last year があるので動名詞が適切です。"
+        },
+        {
+          "text": "to meet",
+          "correct": false,
+          "explain": "remember to 〜 は「（これから）〜するのを忘れない」で、未来のことに使います。"
+        },
+        {
+          "text": "met",
+          "correct": false,
+          "explain": "remember の後ろに過去形をそのまま置くことはできません。"
+        },
+        {
+          "text": "meet",
+          "correct": false,
+          "explain": "原形をそのまま置く形は取りません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-22",
+      "sentence": "Don't forget ___ the door when you leave.",
+      "ja": "出るときドアに鍵をかけるのを忘れないでね。",
+      "point": "forget + to 不定詞（これからすることを忘れる）",
+      "choices": [
+        {
+          "text": "to lock",
+          "correct": true,
+          "explain": "forget to 〜 は「（これから）〜するのを忘れる」で、これから行う動作に使います。"
+        },
+        {
+          "text": "locking",
+          "correct": false,
+          "explain": "forget -ing は「〜したことを忘れる」で、過去の記憶を指します。"
+        },
+        {
+          "text": "locked",
+          "correct": false,
+          "explain": "forget の後ろに過去形は置けません。"
+        },
+        {
+          "text": "lock",
+          "correct": false,
+          "explain": "原形だけでは forget の目的語になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-23",
+      "sentence": "He stopped ___ because it was bad for his health.",
+      "ja": "健康に悪いので彼はたばこをやめました。",
+      "point": "stop + 動名詞（〜するのをやめる）",
+      "choices": [
+        {
+          "text": "smoking",
+          "correct": true,
+          "explain": "stop -ing は「〜するのをやめる」です。たばこを吸う行為をやめた意味になります。"
+        },
+        {
+          "text": "to smoke",
+          "correct": false,
+          "explain": "stop to 〜 は「〜するために立ち止まる」で、逆にたばこを吸うことになります。"
+        },
+        {
+          "text": "smoke",
+          "correct": false,
+          "explain": "stop の直後に原形は置けません。"
+        },
+        {
+          "text": "smoked",
+          "correct": false,
+          "explain": "stop の後ろに過去形は置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-24",
+      "sentence": "The boy ___ on the bench is my brother.",
+      "ja": "ベンチに座っている少年は私の弟です。",
+      "point": "現在分詞の形容詞用法（〜している）",
+      "choices": [
+        {
+          "text": "sitting",
+          "correct": true,
+          "explain": "the boy が「座っている」と能動の関係なので現在分詞 sitting を使います。"
+        },
+        {
+          "text": "sat",
+          "correct": false,
+          "explain": "過去分詞 sat では「座らされた」という不自然な意味になります。"
+        },
+        {
+          "text": "sits",
+          "correct": false,
+          "explain": "すでに is という動詞があるので、もう一つ定形動詞は置けません。"
+        },
+        {
+          "text": "to sit",
+          "correct": false,
+          "explain": "to 不定詞では「座っている少年」という進行中の状態を表せません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-25",
+      "sentence": "This is a novel ___ in French.",
+      "ja": "これはフランス語で書かれた小説です。",
+      "point": "過去分詞の形容詞用法（〜された）",
+      "choices": [
+        {
+          "text": "written",
+          "correct": true,
+          "explain": "小説は「書かれる」側なので受け身の意味を持つ過去分詞 written を使います。"
+        },
+        {
+          "text": "writing",
+          "correct": false,
+          "explain": "現在分詞では「小説が書いている」という意味になってしまいます。"
+        },
+        {
+          "text": "wrote",
+          "correct": false,
+          "explain": "過去形は名詞を修飾できません。"
+        },
+        {
+          "text": "writes",
+          "correct": false,
+          "explain": "定形動詞は名詞を直接修飾できません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-26",
+      "sentence": "___ from the plane, the city looked beautiful.",
+      "ja": "飛行機から見ると、その街は美しく見えました。",
+      "point": "分詞構文（受け身の意味は過去分詞で始める）",
+      "choices": [
+        {
+          "text": "Seen",
+          "correct": true,
+          "explain": "街は「見られる」側なので過去分詞 Seen で始める分詞構文になります。"
+        },
+        {
+          "text": "Seeing",
+          "correct": false,
+          "explain": "Seeing では街が何かを見ていることになり、意味が通りません。"
+        },
+        {
+          "text": "To see",
+          "correct": false,
+          "explain": "To see は目的を表し、この文脈には合いません。"
+        },
+        {
+          "text": "See",
+          "correct": false,
+          "explain": "原形では分詞構文になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-27",
+      "sentence": "The woman ___ bag was stolen went to the police.",
+      "ja": "かばんを盗まれた女性は警察に行きました。",
+      "point": "所有格の関係代名詞 whose",
+      "choices": [
+        {
+          "text": "whose",
+          "correct": true,
+          "explain": "「その女性のかばん」という所有の関係なので whose を使います。"
+        },
+        {
+          "text": "who",
+          "correct": false,
+          "explain": "who は主格で、後ろに名詞 bag が続く形にはなりません。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "先行詞が人なので which は使えません。"
+        },
+        {
+          "text": "whom",
+          "correct": false,
+          "explain": "whom は目的格で、所有を表せません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-28",
+      "sentence": "This is the company ___ I want to work.",
+      "ja": "ここが私が働きたい会社です。",
+      "point": "前置詞 + 関係代名詞（for which）",
+      "choices": [
+        {
+          "text": "for which",
+          "correct": true,
+          "explain": "work for the company の for が前に出て for which となります。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "which だけでは work の後に必要な前置詞 for が欠けてしまいます。"
+        },
+        {
+          "text": "where",
+          "correct": false,
+          "explain": "work for 〜 の関係なので、場所の where では前置詞の意味が表せません。"
+        },
+        {
+          "text": "what",
+          "correct": false,
+          "explain": "what は先行詞を取らないので、the company の後には置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-29",
+      "sentence": "I don't know the reason ___ he was absent.",
+      "ja": "彼が欠席した理由がわかりません。",
+      "point": "関係副詞 why（先行詞 the reason）",
+      "choices": [
+        {
+          "text": "why",
+          "correct": true,
+          "explain": "先行詞が the reason なので関係副詞 why を使います。"
+        },
+        {
+          "text": "how",
+          "correct": false,
+          "explain": "how は the reason を先行詞に取りません。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "which の後ろは要素の欠けた文になりますが、ここは完全な文です。"
+        },
+        {
+          "text": "where",
+          "correct": false,
+          "explain": "where は場所を表す先行詞に使います。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-30",
+      "sentence": "That is ___ he solved the problem.",
+      "ja": "そうやって彼はその問題を解決しました。",
+      "point": "関係副詞 how（方法を表す。the way how とは言わない）",
+      "choices": [
+        {
+          "text": "how",
+          "correct": true,
+          "explain": "「〜する方法」は how だけで表します。the way how とは言いません。"
+        },
+        {
+          "text": "the way how",
+          "correct": false,
+          "explain": "the way と how は重ねて使えません。どちらか一方だけを使います。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "which では方法を表せません。"
+        },
+        {
+          "text": "what",
+          "correct": false,
+          "explain": "what は方法そのものを表す関係副詞ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-31",
+      "sentence": "This book is ___ interesting than that one.",
+      "ja": "この本はあの本より面白いです。",
+      "point": "比較級 + than",
+      "choices": [
+        {
+          "text": "more",
+          "correct": true,
+          "explain": "interesting は長い形容詞なので more をつけて比較級を作ります。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "much だけでは比較級になりません。much more なら可能です。"
+        },
+        {
+          "text": "most",
+          "correct": false,
+          "explain": "than があるので最上級ではなく比較級が必要です。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は比較級を作れません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-32",
+      "sentence": "He runs ___ fast as his brother.",
+      "ja": "彼は兄と同じくらい速く走ります。",
+      "point": "as + 原級 + as（同じくらい〜）",
+      "choices": [
+        {
+          "text": "as",
+          "correct": true,
+          "explain": "as 〜 as で「同じくらい〜」を表します。間には原級が入ります。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "肯定文では so 〜 as ではなく as 〜 as を使うのが普通です。"
+        },
+        {
+          "text": "more",
+          "correct": false,
+          "explain": "more fast という形は誤りで、fast の比較級は faster です。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very 〜 as という構文はありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-33",
+      "sentence": "The ___ you practice, the better you will become.",
+      "ja": "練習すればするほど上達します。",
+      "point": "the 比較級, the 比較級（〜すればするほど…）",
+      "choices": [
+        {
+          "text": "more",
+          "correct": true,
+          "explain": "The + 比較級, the + 比較級 の形で「〜すればするほど…」を表します。"
+        },
+        {
+          "text": "most",
+          "correct": false,
+          "explain": "この構文では最上級ではなく比較級を使います。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "the much という形はこの構文では使えません。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "practice は動詞なので many は修飾できません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-34",
+      "sentence": "This room is three times ___ large as that one.",
+      "ja": "この部屋はあの部屋の3倍の広さです。",
+      "point": "倍数表現（〜 times as + 原級 + as）",
+      "choices": [
+        {
+          "text": "as",
+          "correct": true,
+          "explain": "倍数 + as + 原級 + as で「〜倍の…」を表します。"
+        },
+        {
+          "text": "more",
+          "correct": false,
+          "explain": "倍数表現では比較級ではなく原級を as 〜 as で挟みます。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "肯定文の倍数表現では as を使います。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very では倍数を表せません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-35",
+      "sentence": "You ___ to see a doctor right away.",
+      "ja": "すぐに医者に診てもらったほうがいいですよ。",
+      "point": "had better（〜したほうがよい）の形",
+      "choices": [
+        {
+          "text": "had better",
+          "correct": false,
+          "explain": "had better の後ろは動詞の原形で、to は付きません。"
+        },
+        {
+          "text": "ought",
+          "correct": true,
+          "explain": "ought to + 動詞の原形で「〜すべきだ」を表します。"
+        },
+        {
+          "text": "should",
+          "correct": false,
+          "explain": "should の後ろに to は置きません。"
+        },
+        {
+          "text": "must",
+          "correct": false,
+          "explain": "must の後ろに to は置きません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-36",
+      "sentence": "You ___ have seen him. He was in Osaka yesterday.",
+      "ja": "君が彼を見たはずがない。昨日は大阪にいたのだから。",
+      "point": "can't have + 過去分詞（〜したはずがない）",
+      "choices": [
+        {
+          "text": "can't",
+          "correct": true,
+          "explain": "can't have + 過去分詞で「〜したはずがない」という過去への強い否定の推量を表します。"
+        },
+        {
+          "text": "must",
+          "correct": false,
+          "explain": "must have 〜 は「〜したに違いない」で、後の文と矛盾します。"
+        },
+        {
+          "text": "should",
+          "correct": false,
+          "explain": "should have 〜 は「〜すべきだったのに」で文脈に合いません。"
+        },
+        {
+          "text": "may",
+          "correct": false,
+          "explain": "may have 〜 は「〜したかもしれない」で、否定の意味になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-37",
+      "sentence": "She ___ have studied hard. She passed the exam easily.",
+      "ja": "彼女は一生懸命勉強したに違いない。試験に楽々と合格したのだから。",
+      "point": "must have + 過去分詞（〜したに違いない）",
+      "choices": [
+        {
+          "text": "must",
+          "correct": true,
+          "explain": "must have + 過去分詞で過去のことへの確信のある推量を表します。"
+        },
+        {
+          "text": "can't",
+          "correct": false,
+          "explain": "can't have は「〜したはずがない」で、合格した事実と矛盾します。"
+        },
+        {
+          "text": "need",
+          "correct": false,
+          "explain": "need have は否定文や疑問文で使う形で、ここでは不自然です。"
+        },
+        {
+          "text": "would",
+          "correct": false,
+          "explain": "would have は仮定法で使われ、この推量の意味にはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-38",
+      "sentence": "I ___ play the piano when I was little, but I don't now.",
+      "ja": "小さいころはピアノを弾いたものですが、今は弾きません。",
+      "point": "used to +原形（以前は〜したものだ：今は違う）",
+      "choices": [
+        {
+          "text": "used to",
+          "correct": true,
+          "explain": "used to + 原形は「昔は〜だったが今は違う」という過去の習慣を表します。"
+        },
+        {
+          "text": "am used to",
+          "correct": false,
+          "explain": "be used to の後ろは動名詞で、意味も「慣れている」になります。"
+        },
+        {
+          "text": "was using",
+          "correct": false,
+          "explain": "過去進行形ではその時点の動作を表すだけです。"
+        },
+        {
+          "text": "use to",
+          "correct": false,
+          "explain": "肯定文では used to と過去形にします。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-39",
+      "sentence": "My mother made me ___ my room.",
+      "ja": "母は私に部屋を掃除させました。",
+      "point": "使役動詞 make + 目的語 + 原形不定詞",
+      "choices": [
+        {
+          "text": "clean",
+          "correct": true,
+          "explain": "使役動詞 make の後ろは to のつかない原形不定詞になります。"
+        },
+        {
+          "text": "to clean",
+          "correct": false,
+          "explain": "make は原形不定詞を取るので to は不要です。"
+        },
+        {
+          "text": "cleaning",
+          "correct": false,
+          "explain": "make + 目的語 + -ing という形は取りません。"
+        },
+        {
+          "text": "cleaned",
+          "correct": false,
+          "explain": "過去分詞にすると「部屋が掃除される」意味になり、ここでは不適切です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-40",
+      "sentence": "I had my hair ___ yesterday.",
+      "ja": "昨日、髪を切ってもらいました。",
+      "point": "have + 目的語 + 過去分詞（〜してもらう）",
+      "choices": [
+        {
+          "text": "cut",
+          "correct": true,
+          "explain": "髪は「切られる」側なので have + 目的語 + 過去分詞の形にします。cut の過去分詞は cut です。"
+        },
+        {
+          "text": "cutting",
+          "correct": false,
+          "explain": "現在分詞では「髪が切っている」という意味になってしまいます。"
+        },
+        {
+          "text": "to cut",
+          "correct": false,
+          "explain": "have のこの用法では to 不定詞は使いません。"
+        },
+        {
+          "text": "cuts",
+          "correct": false,
+          "explain": "定形動詞はこの位置に置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-41",
+      "sentence": "I saw him ___ the street.",
+      "ja": "私は彼が通りを渡るのを見ました。",
+      "point": "知覚動詞 see + 目的語 + 原形不定詞（一部始終を見る）",
+      "choices": [
+        {
+          "text": "cross",
+          "correct": true,
+          "explain": "知覚動詞 see の後ろは原形不定詞で、動作の全体を見たことを表します。"
+        },
+        {
+          "text": "to cross",
+          "correct": false,
+          "explain": "知覚動詞では to を付けません。"
+        },
+        {
+          "text": "crossed",
+          "correct": false,
+          "explain": "過去形はこの位置に置けません。"
+        },
+        {
+          "text": "crosses",
+          "correct": false,
+          "explain": "定形動詞はこの位置に置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-42",
+      "sentence": "___ it was raining, we went out for a walk.",
+      "ja": "雨が降っていたけれども、私たちは散歩に出かけました。",
+      "point": "譲歩の接続詞 Although（〜だけれども）",
+      "choices": [
+        {
+          "text": "Although",
+          "correct": true,
+          "explain": "前後が逆接の関係なので Although を使います。後ろには文が続きます。"
+        },
+        {
+          "text": "Despite",
+          "correct": false,
+          "explain": "Despite は前置詞なので後ろには名詞句が来ます。"
+        },
+        {
+          "text": "Because",
+          "correct": false,
+          "explain": "因果関係ではなく逆接なので Because は不適切です。"
+        },
+        {
+          "text": "So",
+          "correct": false,
+          "explain": "So は結果を導く語で、文頭のこの位置には合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-43",
+      "sentence": "___ you hurry, you will miss the train.",
+      "ja": "急がないと電車に乗り遅れますよ。",
+      "point": "Unless（〜しない限り）",
+      "choices": [
+        {
+          "text": "Unless",
+          "correct": true,
+          "explain": "Unless は「〜しない限り」という否定の条件を表します。"
+        },
+        {
+          "text": "If",
+          "correct": false,
+          "explain": "If だと「急げば乗り遅れる」と意味が逆になります。"
+        },
+        {
+          "text": "Although",
+          "correct": false,
+          "explain": "逆接では文意が通りません。"
+        },
+        {
+          "text": "When",
+          "correct": false,
+          "explain": "時を表す接続詞では条件の意味になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-44",
+      "sentence": "Take an umbrella ___ it rains.",
+      "ja": "雨が降るといけないので傘を持って行きなさい。",
+      "point": "in case（〜するといけないから）",
+      "choices": [
+        {
+          "text": "in case",
+          "correct": true,
+          "explain": "in case は「〜するといけないので、念のため」という備えを表します。"
+        },
+        {
+          "text": "in case of",
+          "correct": false,
+          "explain": "in case of の後ろには名詞が来ます。ここは文が続いています。"
+        },
+        {
+          "text": "because",
+          "correct": false,
+          "explain": "まだ降っていないので理由を表す because は不適切です。"
+        },
+        {
+          "text": "so that",
+          "correct": false,
+          "explain": "so that は目的を表し、この文脈には合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-45",
+      "sentence": "___ the time I got home, the movie had already started.",
+      "ja": "私が家に着いたころには、映画はもう始まっていました。",
+      "point": "by the time + 文（〜するころまでに）",
+      "choices": [
+        {
+          "text": "By",
+          "correct": true,
+          "explain": "by the time で「〜するころまでには」という時の起点を表します。"
+        },
+        {
+          "text": "Until",
+          "correct": false,
+          "explain": "until the time という言い方はこの文脈では使いません。"
+        },
+        {
+          "text": "In",
+          "correct": false,
+          "explain": "in the time という表現はこの意味になりません。"
+        },
+        {
+          "text": "At",
+          "correct": false,
+          "explain": "at the time は「その当時」で、後ろに文が続く形ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-46",
+      "sentence": "I will call you when he ___ back.",
+      "ja": "彼が戻ったら電話します。",
+      "point": "時の副詞節では未来のことも現在形で表す",
+      "choices": [
+        {
+          "text": "comes",
+          "correct": true,
+          "explain": "時を表す副詞節の中では未来のことでも現在形を使います。"
+        },
+        {
+          "text": "will come",
+          "correct": false,
+          "explain": "時の副詞節の中では will を使いません。"
+        },
+        {
+          "text": "came",
+          "correct": false,
+          "explain": "過去形では未来の話になりません。"
+        },
+        {
+          "text": "is coming",
+          "correct": false,
+          "explain": "この構文では単純現在形が適切です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-47",
+      "sentence": "By next March, I ___ here for ten years.",
+      "ja": "来年の3月で、私はここで10年働いたことになります。",
+      "point": "未来完了（will have + 過去分詞）",
+      "choices": [
+        {
+          "text": "will have worked",
+          "correct": true,
+          "explain": "By next March という未来の時点までの継続なので未来完了を使います。"
+        },
+        {
+          "text": "will work",
+          "correct": false,
+          "explain": "単純未来では「10年間」という継続の完了を表せません。"
+        },
+        {
+          "text": "have worked",
+          "correct": false,
+          "explain": "現在完了では未来の時点を基準にできません。"
+        },
+        {
+          "text": "worked",
+          "correct": false,
+          "explain": "過去形では未来のことを表せません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-48",
+      "sentence": "I don't know ___ to say in this situation.",
+      "ja": "こういう状況で何と言えばいいのかわかりません。",
+      "point": "疑問詞 + to 不定詞（what to 〜）",
+      "choices": [
+        {
+          "text": "what",
+          "correct": true,
+          "explain": "say の目的語が欠けているので what to say「何を言うべきか」となります。"
+        },
+        {
+          "text": "how",
+          "correct": false,
+          "explain": "how to say では say の目的語が欠けたままになります。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "選択肢が示されていないので which は不自然です。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that to 〜 という形は存在しません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-49",
+      "sentence": "___ a beautiful garden this is!",
+      "ja": "なんて美しい庭でしょう！",
+      "point": "感嘆文 What + a + 形容詞 + 名詞",
+      "choices": [
+        {
+          "text": "What",
+          "correct": true,
+          "explain": "名詞（garden）が続く感嘆文は What を使います。"
+        },
+        {
+          "text": "How",
+          "correct": false,
+          "explain": "How の後ろには形容詞や副詞が直接続き、名詞は続きません。"
+        },
+        {
+          "text": "Which",
+          "correct": false,
+          "explain": "Which は感嘆文を作りません。"
+        },
+        {
+          "text": "That",
+          "correct": false,
+          "explain": "That では感嘆文になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-50",
+      "sentence": "You have been to Canada, ___?",
+      "ja": "あなたはカナダに行ったことがありますよね？",
+      "point": "付加疑問（肯定文には否定の付加疑問）",
+      "choices": [
+        {
+          "text": "haven't you",
+          "correct": true,
+          "explain": "肯定文の付加疑問は否定形にし、have を使った文なので haven't you となります。"
+        },
+        {
+          "text": "have you",
+          "correct": false,
+          "explain": "肯定文の後ろは否定の付加疑問にします。"
+        },
+        {
+          "text": "didn't you",
+          "correct": false,
+          "explain": "本文が have been なので do 系ではなく have を使います。"
+        },
+        {
+          "text": "aren't you",
+          "correct": false,
+          "explain": "本文の助動詞は have なので be動詞では受けられません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-51",
+      "sentence": "It was Tom ___ broke the window.",
+      "ja": "窓を割ったのはトムでした。",
+      "point": "強調構文 It is/was 〜 that …",
+      "choices": [
+        {
+          "text": "that",
+          "correct": true,
+          "explain": "It was 〜 that … の強調構文で、主語の Tom を強調しています。"
+        },
+        {
+          "text": "what",
+          "correct": false,
+          "explain": "強調構文では what は使いません。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "人を強調しているので which は使えません。"
+        },
+        {
+          "text": "whose",
+          "correct": false,
+          "explain": "所有を表す whose はこの構文に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-52",
+      "sentence": "I have no idea ___ he will come or not.",
+      "ja": "彼が来るかどうか見当もつきません。",
+      "point": "whether 〜 or not（〜かどうか）",
+      "choices": [
+        {
+          "text": "whether",
+          "correct": true,
+          "explain": "or not と一緒に使えるのは whether です。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that は「〜かどうか」の意味を持ちません。"
+        },
+        {
+          "text": "if",
+          "correct": false,
+          "explain": "if 〜 or not も使われますが、直後に or not を置く形では whether が標準です。"
+        },
+        {
+          "text": "what",
+          "correct": false,
+          "explain": "what では「〜かどうか」を表せません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-53",
+      "sentence": "We were surprised at the news ___ he had won the prize.",
+      "ja": "彼が賞を取ったという知らせに私たちは驚きました。",
+      "point": "同格の that（the news that + 完全な文）",
+      "choices": [
+        {
+          "text": "that",
+          "correct": true,
+          "explain": "the news の内容を説明する同格の that で、後ろは完全な文になります。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "関係代名詞 which の後ろは要素の欠けた文になりますが、ここは完全な文です。"
+        },
+        {
+          "text": "what",
+          "correct": false,
+          "explain": "what は先行詞を取らないので the news の後には置けません。"
+        },
+        {
+          "text": "of",
+          "correct": false,
+          "explain": "of の後ろに文は続きません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-54",
+      "sentence": "I wish I ___ speak Chinese fluently.",
+      "ja": "中国語が流暢に話せたらいいのに。",
+      "point": "I wish + 仮定法過去（現在の事実に反する願望）",
+      "choices": [
+        {
+          "text": "could",
+          "correct": true,
+          "explain": "I wish の後ろは仮定法で、現在の願望は過去形（could）を使います。"
+        },
+        {
+          "text": "can",
+          "correct": false,
+          "explain": "I wish の後ろに現在形は使いません。"
+        },
+        {
+          "text": "will",
+          "correct": false,
+          "explain": "I wish の後ろに will は使いません。"
+        },
+        {
+          "text": "could have",
+          "correct": false,
+          "explain": "could have は過去の事実に反する内容を表し、ここでは時制が合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-55",
+      "sentence": "He talks ___ he knew everything.",
+      "ja": "彼はまるで何でも知っているかのように話します。",
+      "point": "as if + 仮定法過去（まるで〜のように）",
+      "choices": [
+        {
+          "text": "as if",
+          "correct": true,
+          "explain": "as if + 仮定法過去で「まるで〜であるかのように」を表します。"
+        },
+        {
+          "text": "even if",
+          "correct": false,
+          "explain": "even if は「たとえ〜でも」で意味が違います。"
+        },
+        {
+          "text": "as",
+          "correct": false,
+          "explain": "as だけでは「まるで〜のように」の意味になりません。"
+        },
+        {
+          "text": "though",
+          "correct": false,
+          "explain": "though は逆接で、この文意に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-56",
+      "sentence": "___ your help, I couldn't have finished the work.",
+      "ja": "あなたの助けがなければ、その仕事を終えられなかったでしょう。",
+      "point": "Without 〜（〜がなければ）＋仮定法",
+      "choices": [
+        {
+          "text": "Without",
+          "correct": true,
+          "explain": "Without + 名詞で「〜がなければ」という仮定の条件を表します。"
+        },
+        {
+          "text": "With",
+          "correct": false,
+          "explain": "With では「助けがあれば終えられなかった」と意味が逆になります。"
+        },
+        {
+          "text": "Unless",
+          "correct": false,
+          "explain": "Unless の後ろには文が続きます。"
+        },
+        {
+          "text": "Except",
+          "correct": false,
+          "explain": "Except は「〜を除いて」で仮定の意味を表しません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-57",
+      "sentence": "The meeting was put ___ until next Monday.",
+      "ja": "会議は来週の月曜まで延期されました。",
+      "point": "句動詞 put off（延期する）の受動態",
+      "choices": [
+        {
+          "text": "off",
+          "correct": true,
+          "explain": "put off は「延期する」。受動態でも off はそのまま残ります。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "put on は「身につける」で意味が合いません。"
+        },
+        {
+          "text": "up",
+          "correct": false,
+          "explain": "put up は「掲げる、泊める」で文意に合いません。"
+        },
+        {
+          "text": "out",
+          "correct": false,
+          "explain": "put out は「消す」で文意に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-58",
+      "sentence": "Who will look ___ your dog while you are away?",
+      "ja": "留守の間、誰が犬の世話をするのですか。",
+      "point": "句動詞 look after（世話をする）",
+      "choices": [
+        {
+          "text": "after",
+          "correct": true,
+          "explain": "look after 〜 で「〜の世話をする」という意味になります。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "look for は「探す」で、世話をする意味にはなりません。"
+        },
+        {
+          "text": "up",
+          "correct": false,
+          "explain": "look up は「調べる、見上げる」です。"
+        },
+        {
+          "text": "into",
+          "correct": false,
+          "explain": "look into は「調査する」です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-59",
+      "sentence": "We have run ___ of milk. Could you buy some?",
+      "ja": "牛乳を切らしてしまいました。買ってきてくれますか。",
+      "point": "run out of（〜を切らす、使い果たす）",
+      "choices": [
+        {
+          "text": "out",
+          "correct": true,
+          "explain": "run out of 〜 で「〜を使い果たす」という意味の句動詞です。"
+        },
+        {
+          "text": "off",
+          "correct": false,
+          "explain": "run off of という言い方はこの意味では使いません。"
+        },
+        {
+          "text": "away",
+          "correct": false,
+          "explain": "run away は「逃げる」です。"
+        },
+        {
+          "text": "over",
+          "correct": false,
+          "explain": "run over は「ひく、ざっと見る」です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-60",
+      "sentence": "I came ___ an old photo while cleaning my room.",
+      "ja": "部屋を掃除していて古い写真を偶然見つけました。",
+      "point": "come across（偶然見つける・出会う）",
+      "choices": [
+        {
+          "text": "across",
+          "correct": true,
+          "explain": "come across 〜 は「偶然〜を見つける、〜に出くわす」です。"
+        },
+        {
+          "text": "along",
+          "correct": false,
+          "explain": "come along は「一緒に来る、うまくいく」です。"
+        },
+        {
+          "text": "up",
+          "correct": false,
+          "explain": "come up は「近づく、生じる」です。"
+        },
+        {
+          "text": "out",
+          "correct": false,
+          "explain": "come out は「出てくる、発売される」です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-61",
+      "sentence": "She takes ___ her mother in appearance.",
+      "ja": "彼女は外見が母親に似ています。",
+      "point": "take after（〜に似ている：血縁者に対して）",
+      "choices": [
+        {
+          "text": "after",
+          "correct": true,
+          "explain": "take after 〜 は血縁者に「似ている」という意味です。"
+        },
+        {
+          "text": "care",
+          "correct": false,
+          "explain": "take care of の形なら「世話をする」ですが of がありません。"
+        },
+        {
+          "text": "over",
+          "correct": false,
+          "explain": "take over は「引き継ぐ」です。"
+        },
+        {
+          "text": "off",
+          "correct": false,
+          "explain": "take off は「脱ぐ、離陸する」です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-62",
+      "sentence": "I can't put ___ with this noise any longer.",
+      "ja": "この騒音にはもう我慢できません。",
+      "point": "put up with（〜を我慢する）",
+      "choices": [
+        {
+          "text": "up",
+          "correct": true,
+          "explain": "put up with 〜 で「〜を我慢する」という three-word の句動詞になります。"
+        },
+        {
+          "text": "off",
+          "correct": false,
+          "explain": "put off with という言い方はありません。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "put on with という形は使いません。"
+        },
+        {
+          "text": "out",
+          "correct": false,
+          "explain": "put out with という形は使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-63",
+      "sentence": "Please wait here ___ I come back.",
+      "ja": "私が戻るまでここで待っていてください。",
+      "point": "until（〜するまでずっと）と by の違い",
+      "choices": [
+        {
+          "text": "until",
+          "correct": true,
+          "explain": "「戻るまでずっと待つ」という継続なので until を使います。"
+        },
+        {
+          "text": "by",
+          "correct": false,
+          "explain": "by は「〜までに」という期限で、動作の継続には使いません。"
+        },
+        {
+          "text": "while",
+          "correct": false,
+          "explain": "while は「〜する間」で、ここでは意味が通りません。"
+        },
+        {
+          "text": "since",
+          "correct": false,
+          "explain": "since は「〜以来」で、未来のことには使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-64",
+      "sentence": "He fell asleep ___ the movie.",
+      "ja": "彼は映画の間に眠ってしまいました。",
+      "point": "during + 名詞（〜の間に）",
+      "choices": [
+        {
+          "text": "during",
+          "correct": true,
+          "explain": "during の後ろには名詞が来ます。the movie は名詞句です。"
+        },
+        {
+          "text": "while",
+          "correct": false,
+          "explain": "while の後ろには主語＋動詞の文が来ます。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for は期間の長さ（for two hours など）を表します。"
+        },
+        {
+          "text": "when",
+          "correct": false,
+          "explain": "when の後ろには文が続きます。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-65",
+      "sentence": "There is a big difference ___ the two plans.",
+      "ja": "その2つの計画には大きな違いがあります。",
+      "point": "between（2者の間）と among（3者以上）の区別",
+      "choices": [
+        {
+          "text": "between",
+          "correct": true,
+          "explain": "the two plans と2つなので between を使います。"
+        },
+        {
+          "text": "among",
+          "correct": false,
+          "explain": "among は3つ以上のものの間に使います。"
+        },
+        {
+          "text": "within",
+          "correct": false,
+          "explain": "within は「〜の内部に」で、2者の対比を表しません。"
+        },
+        {
+          "text": "through",
+          "correct": false,
+          "explain": "through は「〜を通して」で意味が合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-66",
+      "sentence": "I have ___ friends in this city, so I often feel lonely.",
+      "ja": "この街には友達がほとんどいないので、よく寂しく感じます。",
+      "point": "few（ほとんどない：可算名詞）",
+      "choices": [
+        {
+          "text": "few",
+          "correct": true,
+          "explain": "後半が「寂しい」なので否定的な few（ほとんどない）が適切です。"
+        },
+        {
+          "text": "a few",
+          "correct": false,
+          "explain": "a few は「少しはいる」という肯定的な意味で、後半と矛盾します。"
+        },
+        {
+          "text": "little",
+          "correct": false,
+          "explain": "little は数えられない名詞に使います。friends は可算名詞です。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "much は数えられない名詞に使います。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-67",
+      "sentence": "There is ___ water left in the bottle. We need to buy more.",
+      "ja": "ボトルにはほとんど水が残っていません。もっと買う必要があります。",
+      "point": "little（ほとんどない：不可算名詞）",
+      "choices": [
+        {
+          "text": "little",
+          "correct": true,
+          "explain": "water は不可算名詞で、後半から「ほとんどない」という否定的な意味だとわかります。"
+        },
+        {
+          "text": "a little",
+          "correct": false,
+          "explain": "a little は「少しはある」で、後半の内容と矛盾します。"
+        },
+        {
+          "text": "few",
+          "correct": false,
+          "explain": "few は可算名詞に使います。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "many は可算名詞に使います。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-68",
+      "sentence": "___ of the students in this class like sports.",
+      "ja": "このクラスの生徒のほとんどはスポーツが好きです。",
+      "point": "most of the + 名詞（〜のほとんど）",
+      "choices": [
+        {
+          "text": "Most",
+          "correct": true,
+          "explain": "most of the 〜 で「〜のほとんど」を表します。"
+        },
+        {
+          "text": "Almost",
+          "correct": false,
+          "explain": "almost は副詞なので almost of とは言えません。almost all of なら可能です。"
+        },
+        {
+          "text": "Much",
+          "correct": false,
+          "explain": "students は可算名詞の複数形なので much は使えません。"
+        },
+        {
+          "text": "Every",
+          "correct": false,
+          "explain": "every の後ろは単数名詞で、of も取りません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-69",
+      "sentence": "___ of my parents can speak English. They only speak Japanese.",
+      "ja": "両親はどちらも英語を話せません。日本語しか話しません。",
+      "point": "Neither of（どちらも〜ない）",
+      "choices": [
+        {
+          "text": "Neither",
+          "correct": true,
+          "explain": "後半から両方とも話せないとわかるので Neither of を使います。"
+        },
+        {
+          "text": "Both",
+          "correct": false,
+          "explain": "Both では「両方話せる」となり後半と矛盾します。"
+        },
+        {
+          "text": "Either",
+          "correct": false,
+          "explain": "Either of は「どちらか一方」で、この文意には合いません。"
+        },
+        {
+          "text": "All",
+          "correct": false,
+          "explain": "両親は2人なので all ではなく neither / both を使います。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-70",
+      "sentence": "I lost my umbrella, so I have to buy a new ___.",
+      "ja": "傘をなくしたので新しいのを買わなければなりません。",
+      "point": "one（前に出た名詞の代用：不特定の同種類）",
+      "choices": [
+        {
+          "text": "one",
+          "correct": true,
+          "explain": "同じ種類の別の物を指すときは one を使います。"
+        },
+        {
+          "text": "it",
+          "correct": false,
+          "explain": "it は前に出たその物自体を指すので、新しく買う別の傘には使えません。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that は特定の物を指し、この文脈では不自然です。"
+        },
+        {
+          "text": "other",
+          "correct": false,
+          "explain": "a new other という形は使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-71",
+      "sentence": "I have two brothers. One is a doctor and ___ is a teacher.",
+      "ja": "私には兄弟が2人います。1人は医者で、もう1人は教師です。",
+      "point": "one 〜 the other …（2つのうちの一方ともう一方）",
+      "choices": [
+        {
+          "text": "the other",
+          "correct": true,
+          "explain": "2人のうち残りの1人は特定されるので the other を使います。"
+        },
+        {
+          "text": "another",
+          "correct": false,
+          "explain": "another は不特定の「もう一つ」で、残り1人が確定している場面には合いません。"
+        },
+        {
+          "text": "other",
+          "correct": false,
+          "explain": "other だけでは名詞の代わりになりません。"
+        },
+        {
+          "text": "others",
+          "correct": false,
+          "explain": "others は複数を指しますが、残りは1人です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-72",
+      "sentence": "___ all rich people are happy.",
+      "ja": "金持ちがみんな幸せというわけではありません。",
+      "point": "部分否定（not all 〜：すべてが〜というわけではない）",
+      "choices": [
+        {
+          "text": "Not",
+          "correct": true,
+          "explain": "Not all 〜 で「すべてが〜とは限らない」という部分否定になります。"
+        },
+        {
+          "text": "No",
+          "correct": false,
+          "explain": "No all という形は使いません。"
+        },
+        {
+          "text": "None",
+          "correct": false,
+          "explain": "None of all という形にする必要があり、この位置では不自然です。"
+        },
+        {
+          "text": "Never",
+          "correct": false,
+          "explain": "Never は動詞を否定する副詞で、all を直接否定できません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-73",
+      "sentence": "Never ___ I seen such a beautiful sunset.",
+      "ja": "あんなに美しい夕日は見たことがありません。",
+      "point": "否定語が文頭に来ると倒置が起こる",
+      "choices": [
+        {
+          "text": "have",
+          "correct": true,
+          "explain": "Never が文頭に出ると助動詞が主語の前に出る倒置が起こり、Never have I seen となります。"
+        },
+        {
+          "text": "I",
+          "correct": false,
+          "explain": "倒置では助動詞が先に来るので語順が違います。"
+        },
+        {
+          "text": "did",
+          "correct": false,
+          "explain": "seen という過去分詞があるので have が必要です。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "was seen では受動態になり意味が変わります。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-74",
+      "sentence": "Not only ___ he play the guitar, but he also sings well.",
+      "ja": "彼はギターを弾くだけでなく、歌も上手です。",
+      "point": "Not only が文頭に来ると倒置",
+      "choices": [
+        {
+          "text": "does",
+          "correct": true,
+          "explain": "Not only が文頭に出ると倒置が起こり、一般動詞では does + 主語 + 原形になります。"
+        },
+        {
+          "text": "do",
+          "correct": false,
+          "explain": "主語が he なので do ではなく does です。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "play は一般動詞なので be 動詞では受けられません。"
+        },
+        {
+          "text": "has",
+          "correct": false,
+          "explain": "has play という形にはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-75",
+      "sentence": "This book is worth ___ twice.",
+      "ja": "この本は2回読む価値があります。",
+      "point": "be worth + 動名詞（〜する価値がある）",
+      "choices": [
+        {
+          "text": "reading",
+          "correct": true,
+          "explain": "be worth の後ろは動名詞にします。to 不定詞は使いません。"
+        },
+        {
+          "text": "to read",
+          "correct": false,
+          "explain": "worth の後ろに to 不定詞は置きません。"
+        },
+        {
+          "text": "read",
+          "correct": false,
+          "explain": "原形だけでは worth の後ろに置けません。"
+        },
+        {
+          "text": "to reading",
+          "correct": false,
+          "explain": "worth to reading という形は誤りです。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-76",
+      "sentence": "It is no use ___ about it now.",
+      "ja": "今それについて心配しても無駄です。",
+      "point": "It is no use + 動名詞（〜しても無駄だ）",
+      "choices": [
+        {
+          "text": "worrying",
+          "correct": true,
+          "explain": "It is no use -ing で「〜しても無駄だ」という決まった言い方です。"
+        },
+        {
+          "text": "to worry",
+          "correct": false,
+          "explain": "この構文では to 不定詞ではなく動名詞を使います。"
+        },
+        {
+          "text": "worry",
+          "correct": false,
+          "explain": "原形は use の後ろに置けません。"
+        },
+        {
+          "text": "worried",
+          "correct": false,
+          "explain": "過去分詞はこの構文に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-77",
+      "sentence": "I couldn't help ___ when I heard the story.",
+      "ja": "その話を聞いて笑わずにはいられませんでした。",
+      "point": "cannot help + 動名詞（〜せずにはいられない）",
+      "choices": [
+        {
+          "text": "laughing",
+          "correct": true,
+          "explain": "cannot help -ing で「〜せずにはいられない」という意味になります。"
+        },
+        {
+          "text": "to laugh",
+          "correct": false,
+          "explain": "この慣用表現では to 不定詞は使いません。"
+        },
+        {
+          "text": "laugh",
+          "correct": false,
+          "explain": "原形は help の直後には置けません（help + 原形は別の意味です）。"
+        },
+        {
+          "text": "laughed",
+          "correct": false,
+          "explain": "過去形はこの位置に置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-78",
+      "sentence": "She spent two hours ___ for the exam.",
+      "ja": "彼女は試験勉強に2時間費やしました。",
+      "point": "spend + 時間 + 動名詞（〜して時間を過ごす）",
+      "choices": [
+        {
+          "text": "studying",
+          "correct": true,
+          "explain": "spend + 時間 + -ing で「〜して時間を費やす」を表します。"
+        },
+        {
+          "text": "to study",
+          "correct": false,
+          "explain": "spend の後ろは to 不定詞ではなく動名詞です。"
+        },
+        {
+          "text": "study",
+          "correct": false,
+          "explain": "原形はこの構文では使いません。"
+        },
+        {
+          "text": "studied",
+          "correct": false,
+          "explain": "過去形はこの位置に置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-79",
+      "sentence": "I have difficulty ___ early in the morning.",
+      "ja": "私は朝早く起きるのが苦手です。",
+      "point": "have difficulty (in) + 動名詞",
+      "choices": [
+        {
+          "text": "getting up",
+          "correct": true,
+          "explain": "have difficulty -ing で「〜するのに苦労する」を表します。"
+        },
+        {
+          "text": "to get up",
+          "correct": false,
+          "explain": "difficulty の後ろは動名詞にします。"
+        },
+        {
+          "text": "get up",
+          "correct": false,
+          "explain": "原形はこの構文では使いません。"
+        },
+        {
+          "text": "got up",
+          "correct": false,
+          "explain": "過去形はこの位置に置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-80",
+      "sentence": "It was ___ a boring movie that I fell asleep.",
+      "ja": "とても退屈な映画だったので私は眠ってしまいました。",
+      "point": "such a + 形容詞 + 名詞 + that（とても〜なので…）",
+      "choices": [
+        {
+          "text": "such",
+          "correct": true,
+          "explain": "後ろに a + 形容詞 + 名詞が続くので such を使います。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "so の後ろには形容詞や副詞が直接来ます。名詞を含む場合は such です。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は that 節と呼応する構文を作りません。"
+        },
+        {
+          "text": "too",
+          "correct": false,
+          "explain": "too 〜 that という構文はありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-81",
+      "sentence": "Hurry up, ___ you will miss the bus.",
+      "ja": "急ぎなさい、さもないとバスに乗り遅れますよ。",
+      "point": "命令文 + or（さもないと）",
+      "choices": [
+        {
+          "text": "or",
+          "correct": true,
+          "explain": "命令文 + or で「さもないと〜」という意味になります。"
+        },
+        {
+          "text": "and",
+          "correct": false,
+          "explain": "命令文 + and は「そうすれば〜」で、意味が逆になります。"
+        },
+        {
+          "text": "but",
+          "correct": false,
+          "explain": "but では「さもないと」の意味になりません。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "so ではこの決まった言い方になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-82",
+      "sentence": "The children were laughed ___ by their classmates.",
+      "ja": "その子どもたちはクラスメートに笑われました。",
+      "point": "群動詞の受動態（laugh at → be laughed at）",
+      "choices": [
+        {
+          "text": "at",
+          "correct": true,
+          "explain": "laugh at 〜 の受動態では at が残り、be laughed at by 〜 となります。"
+        },
+        {
+          "text": "to",
+          "correct": false,
+          "explain": "laugh to という句動詞はありません。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "laugh on という言い方はありません。"
+        },
+        {
+          "text": "with",
+          "correct": false,
+          "explain": "laugh with は「一緒に笑う」で受動態の形が異なります。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-83",
+      "sentence": "He ___ me that he would be late.",
+      "ja": "彼は遅れると私に言いました。",
+      "point": "tell + 人 + that 節（say との使い分け）",
+      "choices": [
+        {
+          "text": "told",
+          "correct": true,
+          "explain": "直後に人（me）が来るのは tell です。say は say to me の形になります。"
+        },
+        {
+          "text": "said",
+          "correct": false,
+          "explain": "say は直接目的語に人を取れず、said to me とする必要があります。"
+        },
+        {
+          "text": "spoke",
+          "correct": false,
+          "explain": "speak は that 節を直接取れません。"
+        },
+        {
+          "text": "talked",
+          "correct": false,
+          "explain": "talk は that 節を直接取れません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-84",
+      "sentence": "May I ___ your dictionary for a moment?",
+      "ja": "少しの間、辞書を借りてもいいですか。",
+      "point": "borrow（無料で借りて持ち去る）と lend の区別",
+      "choices": [
+        {
+          "text": "borrow",
+          "correct": true,
+          "explain": "自分が借りる側なので borrow を使います。"
+        },
+        {
+          "text": "lend",
+          "correct": false,
+          "explain": "lend は「貸す」で、主語が貸す側のときに使います。"
+        },
+        {
+          "text": "rent",
+          "correct": false,
+          "explain": "rent は有料で借りるときに使います。"
+        },
+        {
+          "text": "use",
+          "correct": false,
+          "explain": "use も可能ですが、持ち去って借りる意味では borrow が適切です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-85",
+      "sentence": "We ___ at the airport at seven o'clock.",
+      "ja": "私たちは7時に空港に着きました。",
+      "point": "arrive at（到着する）：reach は前置詞不要",
+      "choices": [
+        {
+          "text": "arrived",
+          "correct": true,
+          "explain": "arrive は自動詞で、場所の前に at や in が必要です。ここは at があるので arrive が適切です。"
+        },
+        {
+          "text": "reached",
+          "correct": false,
+          "explain": "reach は他動詞なので at を伴わず reached the airport とします。"
+        },
+        {
+          "text": "got",
+          "correct": false,
+          "explain": "get は to を使い got to the airport となります。"
+        },
+        {
+          "text": "visited",
+          "correct": false,
+          "explain": "visit も他動詞で at を伴いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-86",
+      "sentence": "Have you finished your homework ___?",
+      "ja": "もう宿題は終わりましたか。",
+      "point": "現在完了の疑問文で使う yet（もう）",
+      "choices": [
+        {
+          "text": "yet",
+          "correct": true,
+          "explain": "疑問文・否定文では「もう・まだ」の意味で yet を使います。"
+        },
+        {
+          "text": "already",
+          "correct": false,
+          "explain": "already は主に肯定文で使い、疑問文では驚きを表す特別な場合に限られます。"
+        },
+        {
+          "text": "still",
+          "correct": false,
+          "explain": "still は「まだ〜している」で、完了の意味には合いません。"
+        },
+        {
+          "text": "ever",
+          "correct": false,
+          "explain": "ever は経験を尋ねるときに使います。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-87",
+      "sentence": "This time tomorrow, I ___ on the beach.",
+      "ja": "明日の今ごろ、私は浜辺で横になっているでしょう。",
+      "point": "未来進行形（will be + -ing）",
+      "choices": [
+        {
+          "text": "will be lying",
+          "correct": true,
+          "explain": "未来のある時点で進行中の動作は未来進行形で表します。"
+        },
+        {
+          "text": "will lie",
+          "correct": false,
+          "explain": "単純未来では「その時進行中」というニュアンスが出ません。"
+        },
+        {
+          "text": "am lying",
+          "correct": false,
+          "explain": "現在進行形では明日のことを表せません。"
+        },
+        {
+          "text": "have lain",
+          "correct": false,
+          "explain": "現在完了は未来の時点を基準にできません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-88",
+      "sentence": "The doctor suggested that he ___ more vegetables.",
+      "ja": "医者は彼にもっと野菜を食べるよう勧めました。",
+      "point": "suggest that S (should) + 原形",
+      "choices": [
+        {
+          "text": "eat",
+          "correct": true,
+          "explain": "提案を表す suggest の that 節では should が省略され、動詞は原形になります。"
+        },
+        {
+          "text": "eats",
+          "correct": false,
+          "explain": "この構文では三人称単数の s は付きません。"
+        },
+        {
+          "text": "ate",
+          "correct": false,
+          "explain": "過去形ではなく原形を使います。"
+        },
+        {
+          "text": "eating",
+          "correct": false,
+          "explain": "that 節の中なので動名詞ではなく動詞が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-89",
+      "sentence": "He was sitting on the sofa with his arms ___.",
+      "ja": "彼は腕を組んでソファに座っていました。",
+      "point": "with + 目的語 + 過去分詞（付帯状況）",
+      "choices": [
+        {
+          "text": "folded",
+          "correct": true,
+          "explain": "腕は「組まれる」側なので過去分詞 folded を使います。"
+        },
+        {
+          "text": "folding",
+          "correct": false,
+          "explain": "現在分詞では腕が何かを組んでいることになります。"
+        },
+        {
+          "text": "fold",
+          "correct": false,
+          "explain": "原形はこの構文では使いません。"
+        },
+        {
+          "text": "to fold",
+          "correct": false,
+          "explain": "to 不定詞では付帯状況を表せません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-90",
+      "sentence": "This question is ___ more difficult than that one.",
+      "ja": "この問題はあの問題よりずっと難しいです。",
+      "point": "比較級の強調（much / far）",
+      "choices": [
+        {
+          "text": "much",
+          "correct": true,
+          "explain": "比較級を強めるときは much や far を使います。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は原級を強めますが、比較級は強められません。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "so は比較級の強調には使いません。"
+        },
+        {
+          "text": "too",
+          "correct": false,
+          "explain": "too は比較級を強調しません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-91",
+      "sentence": "Kyoto is one of the most beautiful ___ in Japan.",
+      "ja": "京都は日本で最も美しい都市の一つです。",
+      "point": "one of the + 最上級 + 複数名詞",
+      "choices": [
+        {
+          "text": "cities",
+          "correct": true,
+          "explain": "one of the 〜 の後ろは複数名詞になります。"
+        },
+        {
+          "text": "city",
+          "correct": false,
+          "explain": "one of the の後ろは必ず複数形です。"
+        },
+        {
+          "text": "a city",
+          "correct": false,
+          "explain": "冠詞は付けず複数形にします。"
+        },
+        {
+          "text": "citys",
+          "correct": false,
+          "explain": "city の複数形は cities です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-92",
+      "sentence": "___ he said was completely true.",
+      "ja": "彼が言ったことは完全に真実でした。",
+      "point": "関係代名詞 what（〜すること／もの）",
+      "choices": [
+        {
+          "text": "What",
+          "correct": true,
+          "explain": "先行詞を含む関係代名詞 what で「彼が言ったこと」という名詞節を作ります。"
+        },
+        {
+          "text": "That",
+          "correct": false,
+          "explain": "that 節は said の目的語が欠けた形を取れません。"
+        },
+        {
+          "text": "Which",
+          "correct": false,
+          "explain": "which には先行詞が必要です。"
+        },
+        {
+          "text": "Who",
+          "correct": false,
+          "explain": "who では「言ったこと」という意味になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-93",
+      "sentence": "___ wants to join the club is welcome.",
+      "ja": "クラブに入りたい人は誰でも歓迎です。",
+      "point": "複合関係代名詞 Whoever（〜する人は誰でも）",
+      "choices": [
+        {
+          "text": "Whoever",
+          "correct": true,
+          "explain": "Whoever は「〜する人は誰でも」という意味で名詞節を作ります。"
+        },
+        {
+          "text": "Whatever",
+          "correct": false,
+          "explain": "Whatever は「〜するものは何でも」で、人を指しません。"
+        },
+        {
+          "text": "Whichever",
+          "correct": false,
+          "explain": "Whichever は限られた選択肢から選ぶときに使います。"
+        },
+        {
+          "text": "However",
+          "correct": false,
+          "explain": "However は副詞節を作り、主語にはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-94",
+      "sentence": "She finished the work all by ___.",
+      "ja": "彼女はその仕事を全部一人でやり終えました。",
+      "point": "by oneself（一人で、独力で）",
+      "choices": [
+        {
+          "text": "herself",
+          "correct": true,
+          "explain": "主語が She なので再帰代名詞は herself になります。"
+        },
+        {
+          "text": "her",
+          "correct": false,
+          "explain": "by her では「彼女によって」となり、一人での意味になりません。"
+        },
+        {
+          "text": "she",
+          "correct": false,
+          "explain": "前置詞の後ろに主格は置けません。"
+        },
+        {
+          "text": "hers",
+          "correct": false,
+          "explain": "hers は所有代名詞で、この形では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-95",
+      "sentence": "Please help ___ to some cake.",
+      "ja": "ケーキをご自由にお取りください。",
+      "point": "help oneself to（自由に取って食べる）",
+      "choices": [
+        {
+          "text": "yourself",
+          "correct": true,
+          "explain": "help oneself to 〜 で「〜を自由に取る」。命令文の主語は you なので yourself です。"
+        },
+        {
+          "text": "you",
+          "correct": false,
+          "explain": "この慣用表現では再帰代名詞を使います。"
+        },
+        {
+          "text": "myself",
+          "correct": false,
+          "explain": "相手に勧めているので myself では合いません。"
+        },
+        {
+          "text": "themselves",
+          "correct": false,
+          "explain": "目の前の相手に言っているので themselves は不適切です。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-96",
+      "sentence": "He is no ___ a child. He can decide by himself.",
+      "ja": "彼はもう子どもではありません。自分で決められます。",
+      "point": "no longer（もはや〜でない）",
+      "choices": [
+        {
+          "text": "longer",
+          "correct": true,
+          "explain": "no longer 〜 で「もはや〜でない」という意味になります。"
+        },
+        {
+          "text": "more",
+          "correct": false,
+          "explain": "no more は数量について使い、この位置では不自然です。"
+        },
+        {
+          "text": "further",
+          "correct": false,
+          "explain": "no further はこの意味では使いません。"
+        },
+        {
+          "text": "else",
+          "correct": false,
+          "explain": "no else という言い方はありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-97",
+      "sentence": "Keep the door ___ so that fresh air can come in.",
+      "ja": "新鮮な空気が入るようにドアを開けておいてください。",
+      "point": "keep + 目的語 + 形容詞（SVOC）",
+      "choices": [
+        {
+          "text": "open",
+          "correct": true,
+          "explain": "keep + 目的語 + 形容詞の形で、open は「開いた状態の」という形容詞です。"
+        },
+        {
+          "text": "opening",
+          "correct": false,
+          "explain": "現在分詞ではドアが何かを開けていることになります。"
+        },
+        {
+          "text": "to open",
+          "correct": false,
+          "explain": "keep のこの用法では to 不定詞は取りません。"
+        },
+        {
+          "text": "opens",
+          "correct": false,
+          "explain": "定形動詞はこの位置に置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-98",
+      "sentence": "I found the book very ___.",
+      "ja": "私はその本をとても面白いと思いました。",
+      "point": "find + 目的語 + 形容詞（〜だと分かる・思う）",
+      "choices": [
+        {
+          "text": "interesting",
+          "correct": true,
+          "explain": "本が「面白い」と感情を引き起こす側なので -ing の形容詞を使います。"
+        },
+        {
+          "text": "interested",
+          "correct": false,
+          "explain": "interested は人が「興味を持っている」ときに使います。"
+        },
+        {
+          "text": "interest",
+          "correct": false,
+          "explain": "名詞・動詞の形では補語になりません。"
+        },
+        {
+          "text": "to interest",
+          "correct": false,
+          "explain": "この構文では to 不定詞は使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-99",
+      "sentence": "There is no ___ what will happen tomorrow.",
+      "ja": "明日何が起こるかは分かりません。",
+      "point": "There is no + 動名詞（〜できない）",
+      "choices": [
+        {
+          "text": "telling",
+          "correct": true,
+          "explain": "There is no -ing で「〜することはできない」という意味になります。"
+        },
+        {
+          "text": "to tell",
+          "correct": false,
+          "explain": "この構文では to 不定詞は使いません。"
+        },
+        {
+          "text": "tell",
+          "correct": false,
+          "explain": "原形はこの位置に置けません。"
+        },
+        {
+          "text": "told",
+          "correct": false,
+          "explain": "過去分詞はこの構文に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp2-100",
+      "sentence": "My sister, ___ lives in London, is coming home next week.",
+      "ja": "ロンドンに住んでいる姉は、来週帰ってきます。",
+      "point": "非制限用法の関係代名詞（コンマ + who）",
+      "choices": [
+        {
+          "text": "who",
+          "correct": true,
+          "explain": "コンマの後の非制限用法では who を使い、先行詞を補足説明します。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that は非制限用法（コンマの後）では使えません。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "先行詞が人なので which は使えません。"
+        },
+        {
+          "text": "whom",
+          "correct": false,
+          "explain": "後ろに lives という動詞が続くので主格の who が必要です。"
+        }
+      ]
     }
   ],
   "reading": [
