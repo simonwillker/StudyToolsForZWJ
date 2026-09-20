@@ -2569,6 +2569,2442 @@
           "explain": "How long は長さや期間をたずねる表現です。"
         }
       ]
+    },
+    {
+      "id": "g5-14",
+      "sentence": "I ___ a junior high school student.",
+      "ja": "私は中学生です。",
+      "point": "be動詞（am）：主語が I のときは am を使う",
+      "choices": [
+        {
+          "text": "am",
+          "correct": true,
+          "explain": "主語が I のときの be動詞は am です。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "is は主語が he / she / it など3人称単数のときに使います。"
+        },
+        {
+          "text": "are",
+          "correct": false,
+          "explain": "are は主語が you や複数のときに使います。"
+        },
+        {
+          "text": "do",
+          "correct": false,
+          "explain": "do は be動詞ではないので、名詞の前に置いて「〜です」とは言えません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-15",
+      "sentence": "You ___ very kind.",
+      "ja": "あなたはとても親切です。",
+      "point": "be動詞（are）：主語が you のときは are を使う",
+      "choices": [
+        {
+          "text": "are",
+          "correct": true,
+          "explain": "主語が you のときの be動詞は are です。"
+        },
+        {
+          "text": "am",
+          "correct": false,
+          "explain": "am は主語が I のときだけ使います。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "is は3人称単数の主語に使います。you には使いません。"
+        },
+        {
+          "text": "be",
+          "correct": false,
+          "explain": "be は原形なので、このまま文の中では使えません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-16",
+      "sentence": "Ken and I ___ good friends.",
+      "ja": "ケンと私は仲の良い友達です。",
+      "point": "be動詞（are）：主語が複数のときは are を使う",
+      "choices": [
+        {
+          "text": "are",
+          "correct": true,
+          "explain": "Ken and I は2人（複数）なので are を使います。"
+        },
+        {
+          "text": "am",
+          "correct": false,
+          "explain": "and でつながっていても主語は複数なので am は使えません。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "is は主語が単数のときに使います。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "was は過去形で、しかも単数用です。今のことを言う文には合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-17",
+      "sentence": "That ___ my bag. It is Tom's.",
+      "ja": "あれは私のかばんではありません。トムのです。",
+      "point": "be動詞の否定文：is の後ろに not を置く",
+      "choices": [
+        {
+          "text": "is not",
+          "correct": true,
+          "explain": "be動詞の否定は be動詞のすぐ後ろに not を置きます。"
+        },
+        {
+          "text": "not is",
+          "correct": false,
+          "explain": "not は be動詞の前ではなく後ろに置きます。"
+        },
+        {
+          "text": "does not",
+          "correct": false,
+          "explain": "does not は一般動詞の否定に使います。be動詞の文では使いません。"
+        },
+        {
+          "text": "is no",
+          "correct": false,
+          "explain": "no は名詞の前につける語で、be動詞の否定には not を使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-18",
+      "sentence": "___ you a soccer fan?",
+      "ja": "あなたはサッカーファンですか。",
+      "point": "be動詞の疑問文：be動詞を文の頭に出す",
+      "choices": [
+        {
+          "text": "Are",
+          "correct": true,
+          "explain": "主語が you なので are を文の頭に出して疑問文にします。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do は一般動詞の疑問文に使います。この文には動詞 be が必要です。"
+        },
+        {
+          "text": "Is",
+          "correct": false,
+          "explain": "主語が you なので is ではなく are を使います。"
+        },
+        {
+          "text": "Am",
+          "correct": false,
+          "explain": "am は主語が I のときだけ使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-19",
+      "sentence": "Are you hungry? — Yes, I ___.",
+      "ja": "おなかがすいていますか。— はい、すいています。",
+      "point": "be動詞の疑問文への答え方：Yes, I am. のように be動詞で答える",
+      "choices": [
+        {
+          "text": "am",
+          "correct": true,
+          "explain": "Are you 〜? と聞かれたら Yes, I am. と be動詞で答えます。"
+        },
+        {
+          "text": "do",
+          "correct": false,
+          "explain": "do で答えるのは Do you 〜? と聞かれたときです。"
+        },
+        {
+          "text": "are",
+          "correct": false,
+          "explain": "答えの主語は I なので are ではなく am になります。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "is は主語が he / she / it のときに使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-20",
+      "sentence": "My sister ___ tennis every Sunday.",
+      "ja": "姉は毎週日曜日にテニスをします。",
+      "point": "3人称単数現在の s：主語が he / she などのとき動詞に s をつける",
+      "choices": [
+        {
+          "text": "plays",
+          "correct": true,
+          "explain": "主語 My sister は3人称単数なので、動詞に s をつけて plays にします。"
+        },
+        {
+          "text": "play",
+          "correct": false,
+          "explain": "s のない形は主語が I / you / 複数のときに使います。"
+        },
+        {
+          "text": "playing",
+          "correct": false,
+          "explain": "ing形は be動詞といっしょに使います。1語では文になりません。"
+        },
+        {
+          "text": "to play",
+          "correct": false,
+          "explain": "to play は「〜すること」で、この位置には入りません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-21",
+      "sentence": "___ your father like coffee?",
+      "ja": "あなたのお父さんはコーヒーが好きですか。",
+      "point": "3人称単数の疑問文：Does を文の頭に置く",
+      "choices": [
+        {
+          "text": "Does",
+          "correct": true,
+          "explain": "主語 your father は3人称単数なので Does を使います。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do は主語が I / you / 複数のときに使います。"
+        },
+        {
+          "text": "Is",
+          "correct": false,
+          "explain": "like は一般動詞なので、be動詞の is では疑問文を作れません。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "are も be動詞なので一般動詞の疑問文には使えません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-22",
+      "sentence": "I ___ like natto.",
+      "ja": "私は納豆が好きではありません。",
+      "point": "一般動詞の否定文：主語が I のときは don't を使う",
+      "choices": [
+        {
+          "text": "don't",
+          "correct": true,
+          "explain": "主語が I なので don't（do not）を動詞の前に置きます。"
+        },
+        {
+          "text": "doesn't",
+          "correct": false,
+          "explain": "doesn't は主語が3人称単数のときに使います。"
+        },
+        {
+          "text": "am not",
+          "correct": false,
+          "explain": "like は一般動詞なので be動詞の否定形は使えません。"
+        },
+        {
+          "text": "not",
+          "correct": false,
+          "explain": "一般動詞の否定には not だけでなく don't の形が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-23",
+      "sentence": "Mika ___ have a dog.",
+      "ja": "ミカは犬を飼っていません。",
+      "point": "一般動詞の否定文：主語が3人称単数のときは doesn't を使う",
+      "choices": [
+        {
+          "text": "doesn't",
+          "correct": true,
+          "explain": "主語 Mika は3人称単数なので doesn't を使い、動詞は原形 have のままです。"
+        },
+        {
+          "text": "don't",
+          "correct": false,
+          "explain": "don't は主語が I / you / 複数のときに使います。"
+        },
+        {
+          "text": "isn't",
+          "correct": false,
+          "explain": "have は一般動詞なので be動詞の否定形は使えません。"
+        },
+        {
+          "text": "doesn't has",
+          "correct": false,
+          "explain": "doesn't の後ろの動詞は原形なので has ではなく have です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-24",
+      "sentence": "I have ___ apple in my bag.",
+      "ja": "私はかばんにリンゴを1つ持っています。",
+      "point": "冠詞 a と an：母音の音で始まる語の前は an",
+      "choices": [
+        {
+          "text": "an",
+          "correct": true,
+          "explain": "apple は母音の音で始まるので an を使います。"
+        },
+        {
+          "text": "a",
+          "correct": false,
+          "explain": "a は子音の音で始まる語の前に使います。"
+        },
+        {
+          "text": "the",
+          "correct": false,
+          "explain": "はじめて話に出る1つのものには a / an を使います。"
+        },
+        {
+          "text": "some",
+          "correct": false,
+          "explain": "some は数が1つに決まっていないときに使います。ここは1つなので合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-25",
+      "sentence": "I have a cat. ___ cat is white.",
+      "ja": "私は猫を飼っています。その猫は白いです。",
+      "point": "冠詞 the：一度話に出たものをもう一度指すときに使う",
+      "choices": [
+        {
+          "text": "The",
+          "correct": true,
+          "explain": "前の文に出た cat をもう一度指しているので the を使います。"
+        },
+        {
+          "text": "A",
+          "correct": false,
+          "explain": "a ははじめて話に出るものに使います。ここは2回目なので合いません。"
+        },
+        {
+          "text": "An",
+          "correct": false,
+          "explain": "an も初出のものに使う語で、しかも cat は子音の音で始まります。"
+        },
+        {
+          "text": "Some",
+          "correct": false,
+          "explain": "some は「いくつかの」という意味で、1匹の猫を指す場面に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-26",
+      "sentence": "___ are my pencils.",
+      "ja": "これらは私のえんぴつです。",
+      "point": "these：近くにある複数のものを指す",
+      "choices": [
+        {
+          "text": "These",
+          "correct": true,
+          "explain": "近くにある複数のものを指すときは these を使います。"
+        },
+        {
+          "text": "This",
+          "correct": false,
+          "explain": "this は単数のものを指します。後ろが are なので複数が必要です。"
+        },
+        {
+          "text": "That",
+          "correct": false,
+          "explain": "that も単数で、しかも遠くのものを指します。"
+        },
+        {
+          "text": "It",
+          "correct": false,
+          "explain": "it は単数を指すので are とはいっしょに使えません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-27",
+      "sentence": "Look at ___ birds in the sky.",
+      "ja": "空にいるあの鳥たちを見てください。",
+      "point": "those：遠くにある複数のものを指す",
+      "choices": [
+        {
+          "text": "those",
+          "correct": true,
+          "explain": "遠くにある複数のものを指すときは those を使います。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that は単数のものを指します。birds は複数です。"
+        },
+        {
+          "text": "this",
+          "correct": false,
+          "explain": "this は近くの単数のものを指します。"
+        },
+        {
+          "text": "it",
+          "correct": false,
+          "explain": "it は単数を指す代名詞で、名詞の前には置けません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-28",
+      "sentence": "She is Ann. ___ brother is Bob.",
+      "ja": "彼女はアンです。彼女の兄はボブです。",
+      "point": "所有格 her：「彼女の」を表す",
+      "choices": [
+        {
+          "text": "Her",
+          "correct": true,
+          "explain": "「彼女の」は her で、後ろに名詞を続けます。"
+        },
+        {
+          "text": "She",
+          "correct": false,
+          "explain": "she は「彼女は」という主格で、名詞の前には置けません。"
+        },
+        {
+          "text": "Hers",
+          "correct": false,
+          "explain": "hers は「彼女のもの」で、後ろに名詞を続けません。"
+        },
+        {
+          "text": "His",
+          "correct": false,
+          "explain": "his は「彼の」なので、Ann を指すこの文には合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-29",
+      "sentence": "This is ___ bike.",
+      "ja": "これはトムの自転車です。",
+      "point": "名詞の所有格：人を表す名詞に アポストロフィ s をつける",
+      "choices": [
+        {
+          "text": "Tom's",
+          "correct": true,
+          "explain": "人の名前に アポストロフィ s をつけると「〜の」という意味になります。"
+        },
+        {
+          "text": "Tom",
+          "correct": false,
+          "explain": "そのままの形では「トムの」という意味になりません。"
+        },
+        {
+          "text": "Toms",
+          "correct": false,
+          "explain": "s だけをつけると複数形になってしまい、所有の意味になりません。"
+        },
+        {
+          "text": "of Tom",
+          "correct": false,
+          "explain": "人の場合は of ではなく アポストロフィ s を使うのがふつうです。"
+        }
+      ]
+    },
+    {
+      "id": "g5-30",
+      "sentence": "That is Ken. ___ is my classmate.",
+      "ja": "あれはケンです。彼は私のクラスメイトです。",
+      "point": "主格の代名詞 he：男性1人を指す",
+      "choices": [
+        {
+          "text": "He",
+          "correct": true,
+          "explain": "Ken は男性1人なので、主語として he を使います。"
+        },
+        {
+          "text": "His",
+          "correct": false,
+          "explain": "his は「彼の」で、後ろに名詞が必要です。"
+        },
+        {
+          "text": "Him",
+          "correct": false,
+          "explain": "him は目的格で、主語にはなれません。"
+        },
+        {
+          "text": "She",
+          "correct": false,
+          "explain": "she は女性を指すので Ken には使えません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-31",
+      "sentence": "___ is rainy today.",
+      "ja": "今日は雨です。",
+      "point": "天気を表す文の主語には it を使う",
+      "choices": [
+        {
+          "text": "It",
+          "correct": true,
+          "explain": "天気を言うときは主語に it を使います。この it は「それ」とは訳しません。"
+        },
+        {
+          "text": "This",
+          "correct": false,
+          "explain": "this は目の前のものを指す語で、天気の文の主語には使いません。"
+        },
+        {
+          "text": "That",
+          "correct": false,
+          "explain": "that も特定のものを指す語で、天気の文には使いません。"
+        },
+        {
+          "text": "There",
+          "correct": false,
+          "explain": "there は There is 〜 の形で使い、天気を表す文には使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-32",
+      "sentence": "___ is this? — It is a camera.",
+      "ja": "これは何ですか。— カメラです。",
+      "point": "疑問詞 What：「何」をたずねる",
+      "choices": [
+        {
+          "text": "What",
+          "correct": true,
+          "explain": "ものが何かをたずねるときは What を使います。"
+        },
+        {
+          "text": "Who",
+          "correct": false,
+          "explain": "Who は人をたずねる語です。答えが a camera なので合いません。"
+        },
+        {
+          "text": "Where",
+          "correct": false,
+          "explain": "Where は場所をたずねる語です。"
+        },
+        {
+          "text": "How",
+          "correct": false,
+          "explain": "How は方法や様子をたずねる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-33",
+      "sentence": "___ is that man? — He is my uncle.",
+      "ja": "あの男性は誰ですか。— 私のおじです。",
+      "point": "疑問詞 Who：「誰」をたずねる",
+      "choices": [
+        {
+          "text": "Who",
+          "correct": true,
+          "explain": "人が誰かをたずねるときは Who を使います。"
+        },
+        {
+          "text": "What",
+          "correct": false,
+          "explain": "What はものをたずねる語です。答えが人なので合いません。"
+        },
+        {
+          "text": "Whose",
+          "correct": false,
+          "explain": "Whose は「誰の」と持ち主をたずねる語です。"
+        },
+        {
+          "text": "Which",
+          "correct": false,
+          "explain": "Which は複数の中から選ぶときに使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-34",
+      "sentence": "___ do you live? — I live in Osaka.",
+      "ja": "どこに住んでいますか。— 大阪に住んでいます。",
+      "point": "疑問詞 Where：「どこ」をたずねる",
+      "choices": [
+        {
+          "text": "Where",
+          "correct": true,
+          "explain": "場所をたずねるときは Where を使います。"
+        },
+        {
+          "text": "When",
+          "correct": false,
+          "explain": "When は時をたずねる語です。答えが場所なので合いません。"
+        },
+        {
+          "text": "What",
+          "correct": false,
+          "explain": "What はものをたずねる語です。"
+        },
+        {
+          "text": "Who",
+          "correct": false,
+          "explain": "Who は人をたずねる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-35",
+      "sentence": "___ is your birthday? — It is July 3rd.",
+      "ja": "あなたの誕生日はいつですか。— 7月3日です。",
+      "point": "疑問詞 When：「いつ」をたずねる",
+      "choices": [
+        {
+          "text": "When",
+          "correct": true,
+          "explain": "時や日付をたずねるときは When を使います。"
+        },
+        {
+          "text": "Where",
+          "correct": false,
+          "explain": "Where は場所をたずねる語です。"
+        },
+        {
+          "text": "Why",
+          "correct": false,
+          "explain": "Why は理由をたずねる語です。"
+        },
+        {
+          "text": "How",
+          "correct": false,
+          "explain": "How は方法や様子をたずねる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-36",
+      "sentence": "Why do you like summer? — ___ I can swim in the sea.",
+      "ja": "なぜ夏が好きなのですか。— 海で泳げるからです。",
+      "point": "Why への答え方：Because 〜 で理由を言う",
+      "choices": [
+        {
+          "text": "Because",
+          "correct": true,
+          "explain": "Why でたずねられたら Because 〜 で理由を答えます。"
+        },
+        {
+          "text": "So",
+          "correct": false,
+          "explain": "so は「だから」で結果を表す語なので、理由の答えには合いません。"
+        },
+        {
+          "text": "But",
+          "correct": false,
+          "explain": "but は「しかし」で、理由を表す語ではありません。"
+        },
+        {
+          "text": "And",
+          "correct": false,
+          "explain": "and は語や文をつなぐ語で、理由を表しません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-37",
+      "sentence": "___ do you go to school? — By bus.",
+      "ja": "どうやって学校へ行きますか。— バスでです。",
+      "point": "疑問詞 How：手段や方法をたずねる",
+      "choices": [
+        {
+          "text": "How",
+          "correct": true,
+          "explain": "手段や方法をたずねるときは How を使います。"
+        },
+        {
+          "text": "What",
+          "correct": false,
+          "explain": "What はものをたずねる語です。"
+        },
+        {
+          "text": "Where",
+          "correct": false,
+          "explain": "Where は場所をたずねる語です。答えが By bus なので合いません。"
+        },
+        {
+          "text": "Why",
+          "correct": false,
+          "explain": "Why は理由をたずねる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-38",
+      "sentence": "___ old is your sister? — She is ten.",
+      "ja": "あなたの妹は何歳ですか。— 10歳です。",
+      "point": "How old：年齢をたずねる表現",
+      "choices": [
+        {
+          "text": "How",
+          "correct": true,
+          "explain": "年齢をたずねるときは How old 〜? という形を使います。"
+        },
+        {
+          "text": "What",
+          "correct": false,
+          "explain": "What old という言い方はしません。"
+        },
+        {
+          "text": "Who",
+          "correct": false,
+          "explain": "Who は人が誰かをたずねる語です。"
+        },
+        {
+          "text": "Which",
+          "correct": false,
+          "explain": "Which は複数の中から選ぶときに使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-39",
+      "sentence": "How ___ is this cap? — It is ten dollars.",
+      "ja": "この帽子はいくらですか。— 10ドルです。",
+      "point": "How much：値段をたずねる表現",
+      "choices": [
+        {
+          "text": "much",
+          "correct": true,
+          "explain": "値段をたずねるときは How much 〜? を使います。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "How many は数をたずねる表現で、後ろに複数名詞が必要です。"
+        },
+        {
+          "text": "old",
+          "correct": false,
+          "explain": "How old は年齢をたずねる表現です。"
+        },
+        {
+          "text": "long",
+          "correct": false,
+          "explain": "How long は長さや期間をたずねる表現です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-40",
+      "sentence": "What ___ do you get up? — At six thirty.",
+      "ja": "何時に起きますか。— 6時30分です。",
+      "point": "What time：時刻をたずねる表現",
+      "choices": [
+        {
+          "text": "time",
+          "correct": true,
+          "explain": "時刻をたずねるときは What time 〜? を使います。"
+        },
+        {
+          "text": "day",
+          "correct": false,
+          "explain": "What day は曜日をたずねる表現です。答えが時刻なので合いません。"
+        },
+        {
+          "text": "color",
+          "correct": false,
+          "explain": "What color は色をたずねる表現です。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "What much という言い方はしません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-41",
+      "sentence": "We have a music class ___ Monday.",
+      "ja": "私たちは月曜日に音楽の授業があります。",
+      "point": "前置詞 on：曜日や日付の前に使う",
+      "choices": [
+        {
+          "text": "on",
+          "correct": true,
+          "explain": "曜日や日付の前には on を使います。"
+        },
+        {
+          "text": "at",
+          "correct": false,
+          "explain": "at は時刻の前に使います。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は月・季節・年など長い期間の前に使います。"
+        },
+        {
+          "text": "to",
+          "correct": false,
+          "explain": "to は方向を表す語で、曜日の前には使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-42",
+      "sentence": "I get up ___ six every morning.",
+      "ja": "私は毎朝6時に起きます。",
+      "point": "前置詞 at：時刻の前に使う",
+      "choices": [
+        {
+          "text": "at",
+          "correct": true,
+          "explain": "時刻の前には at を使います。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "on は曜日や日付の前に使います。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は月や年など長い期間の前に使います。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for は「〜の間」と期間の長さを表す語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-43",
+      "sentence": "My birthday is ___ May.",
+      "ja": "私の誕生日は5月です。",
+      "point": "前置詞 in：月・季節・年の前に使う",
+      "choices": [
+        {
+          "text": "in",
+          "correct": true,
+          "explain": "月の名前の前には in を使います。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "on は「5月3日」のように日付まで言うときに使います。"
+        },
+        {
+          "text": "at",
+          "correct": false,
+          "explain": "at は時刻の前に使います。"
+        },
+        {
+          "text": "of",
+          "correct": false,
+          "explain": "of は「〜の」という意味で、月の前には使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-44",
+      "sentence": "The cat is ___ the box.",
+      "ja": "猫は箱の中にいます。",
+      "point": "前置詞 in：「〜の中に」を表す",
+      "choices": [
+        {
+          "text": "in",
+          "correct": true,
+          "explain": "「〜の中に」は in で表します。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "on は「〜の上に」と接している状態を表します。"
+        },
+        {
+          "text": "under",
+          "correct": false,
+          "explain": "under は「〜の下に」を表します。"
+        },
+        {
+          "text": "to",
+          "correct": false,
+          "explain": "to は方向を表す語で、場所を表す文には合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-45",
+      "sentence": "The book is ___ the desk.",
+      "ja": "その本は机の上にあります。",
+      "point": "前置詞 on：「〜の上に」接している状態を表す",
+      "choices": [
+        {
+          "text": "on",
+          "correct": true,
+          "explain": "面に接して上にあるときは on を使います。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は「〜の中に」という意味です。"
+        },
+        {
+          "text": "under",
+          "correct": false,
+          "explain": "under は「〜の下に」という意味です。"
+        },
+        {
+          "text": "with",
+          "correct": false,
+          "explain": "with は「〜といっしょに」という意味で、場所を表しません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-46",
+      "sentence": "My ball is ___ the bed.",
+      "ja": "私のボールはベッドの下にあります。",
+      "point": "前置詞 under：「〜の下に」を表す",
+      "choices": [
+        {
+          "text": "under",
+          "correct": true,
+          "explain": "「〜の下に」は under で表します。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "on は「〜の上に」という意味です。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は「〜の中に」という意味です。"
+        },
+        {
+          "text": "from",
+          "correct": false,
+          "explain": "from は「〜から」と出発点を表す語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-47",
+      "sentence": "The park is ___ my house.",
+      "ja": "その公園は私の家の近くにあります。",
+      "point": "前置詞 near：「〜の近くに」を表す",
+      "choices": [
+        {
+          "text": "near",
+          "correct": true,
+          "explain": "「〜の近くに」は near で表します。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in だと「私の家の中に公園がある」という意味になってしまいます。"
+        },
+        {
+          "text": "on",
+          "correct": false,
+          "explain": "on は面に接して上にあることを表します。"
+        },
+        {
+          "text": "of",
+          "correct": false,
+          "explain": "of は「〜の」という意味で、場所を表しません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-48",
+      "sentence": "I play tennis ___ my brother on Sundays.",
+      "ja": "私は日曜日に兄とテニスをします。",
+      "point": "前置詞 with：「〜といっしょに」を表す",
+      "choices": [
+        {
+          "text": "with",
+          "correct": true,
+          "explain": "「〜といっしょに」は with で表します。"
+        },
+        {
+          "text": "and",
+          "correct": false,
+          "explain": "and は語と語を対等につなぐ語で、ここでは主語が I だけなので合いません。"
+        },
+        {
+          "text": "to",
+          "correct": false,
+          "explain": "to は方向を表す語です。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for は「〜のために」という意味で、相手といっしょにする意味にはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-49",
+      "sentence": "I go ___ school by bike.",
+      "ja": "私は自転車で学校へ行きます。",
+      "point": "前置詞 to：「〜へ」と方向を表す",
+      "choices": [
+        {
+          "text": "to",
+          "correct": true,
+          "explain": "「〜へ行く」は go to 〜 の形で表します。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は「〜の中に」という意味で、方向は表しません。"
+        },
+        {
+          "text": "at",
+          "correct": false,
+          "explain": "at は地点を表しますが、go のあとで行き先を示すときは to を使います。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "go for 〜 は「〜をしに行く」という別の意味になります。"
+        }
+      ]
+    },
+    {
+      "id": "g5-50",
+      "sentence": "I am ___ Japan.",
+      "ja": "私は日本の出身です。",
+      "point": "前置詞 from：「〜出身で」を表す",
+      "choices": [
+        {
+          "text": "from",
+          "correct": true,
+          "explain": "出身地を言うときは be動詞 + from 〜 を使います。"
+        },
+        {
+          "text": "to",
+          "correct": false,
+          "explain": "to は「〜へ」と方向を表す語です。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "I am in Japan は「今日本にいる」という意味で、出身は表しません。"
+        },
+        {
+          "text": "of",
+          "correct": false,
+          "explain": "of は「〜の」という意味で、出身は表しません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-51",
+      "sentence": "I like cats, ___ I do not like dogs.",
+      "ja": "私は猫が好きですが、犬は好きではありません。",
+      "point": "接続詞 but：前と反対の内容をつなぐ",
+      "choices": [
+        {
+          "text": "but",
+          "correct": true,
+          "explain": "前後が反対の内容なので but でつなぎます。"
+        },
+        {
+          "text": "and",
+          "correct": false,
+          "explain": "and は同じ方向の内容を並べるときに使います。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "so は「だから」と結果を表します。"
+        },
+        {
+          "text": "or",
+          "correct": false,
+          "explain": "or は「または」と選択肢を並べるときに使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-52",
+      "sentence": "There are two ___ on the table.",
+      "ja": "テーブルの上に箱が2つあります。",
+      "point": "複数形 -es：x で終わる名詞には es をつける",
+      "choices": [
+        {
+          "text": "boxes",
+          "correct": true,
+          "explain": "box のように x で終わる語には es をつけて複数形にします。"
+        },
+        {
+          "text": "boxs",
+          "correct": false,
+          "explain": "x で終わる語に s だけをつける形はありません。"
+        },
+        {
+          "text": "box",
+          "correct": false,
+          "explain": "two があるので複数形にする必要があります。"
+        },
+        {
+          "text": "boxies",
+          "correct": false,
+          "explain": "ies になるのは子音 + y で終わる語です。box は当てはまりません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-53",
+      "sentence": "Many ___ are playing in the park.",
+      "ja": "たくさんの子どもたちが公園で遊んでいます。",
+      "point": "不規則な複数形：child の複数形は children",
+      "choices": [
+        {
+          "text": "children",
+          "correct": true,
+          "explain": "child の複数形は s をつけず children になります。"
+        },
+        {
+          "text": "childs",
+          "correct": false,
+          "explain": "child は s をつける形の複数形にはなりません。"
+        },
+        {
+          "text": "child",
+          "correct": false,
+          "explain": "Many のあとなので複数形が必要です。"
+        },
+        {
+          "text": "childrens",
+          "correct": false,
+          "explain": "children はすでに複数形なので、さらに s はつけません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-54",
+      "sentence": "Please give me a glass ___ water.",
+      "ja": "水を1杯ください。",
+      "point": "数えられない名詞の数え方：a glass of 〜 の形を使う",
+      "choices": [
+        {
+          "text": "of",
+          "correct": true,
+          "explain": "water は数えられないので、a glass of 〜 のように入れ物で数えます。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "a glass in water では「水の中のコップ」という意味になってしまいます。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for は「〜のために」という意味で、量を表す形ではありません。"
+        },
+        {
+          "text": "with",
+          "correct": false,
+          "explain": "with は「〜といっしょに」という意味で、この形では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-55",
+      "sentence": "___ is a cat under the table.",
+      "ja": "テーブルの下に猫が1匹います。",
+      "point": "There is 〜：単数のものが「ある・いる」ことを表す",
+      "choices": [
+        {
+          "text": "There",
+          "correct": true,
+          "explain": "「〜がある・いる」は There is 〜 の形で表します。"
+        },
+        {
+          "text": "It",
+          "correct": false,
+          "explain": "It is a cat は「それは猫です」という別の意味になります。"
+        },
+        {
+          "text": "This",
+          "correct": false,
+          "explain": "This is a cat は「これは猫です」という意味で、存在を表しません。"
+        },
+        {
+          "text": "Here",
+          "correct": false,
+          "explain": "Here is 〜 は「ここに〜があります」と手渡すときなどに使う表現です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-56",
+      "sentence": "There ___ five books on the desk.",
+      "ja": "机の上に本が5冊あります。",
+      "point": "There are 〜：複数のものが「ある」ときは are を使う",
+      "choices": [
+        {
+          "text": "are",
+          "correct": true,
+          "explain": "five books は複数なので There are 〜 になります。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "is は後ろが単数のときに使います。"
+        },
+        {
+          "text": "be",
+          "correct": false,
+          "explain": "be は原形なので、このまま文の中では使えません。"
+        },
+        {
+          "text": "have",
+          "correct": false,
+          "explain": "There have 〜 という言い方はありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-57",
+      "sentence": "___ there a park near here? — Yes, there is.",
+      "ja": "この近くに公園はありますか。— はい、あります。",
+      "point": "There is 〜 の疑問文：Is を文の頭に出す",
+      "choices": [
+        {
+          "text": "Is",
+          "correct": true,
+          "explain": "There is 〜 の疑問文は is を there の前に出して作ります。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "a park は単数なので are ではなく is を使います。"
+        },
+        {
+          "text": "Does",
+          "correct": false,
+          "explain": "does は一般動詞の疑問文に使います。"
+        },
+        {
+          "text": "Has",
+          "correct": false,
+          "explain": "There has 〜 という言い方はありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-58",
+      "sentence": "He is ___ playing the piano now.",
+      "ja": "彼は今ピアノを弾いていません。",
+      "point": "現在進行形の否定文：be動詞の後ろに not を置く",
+      "choices": [
+        {
+          "text": "not",
+          "correct": true,
+          "explain": "現在進行形の否定は be動詞のすぐ後ろに not を置きます。"
+        },
+        {
+          "text": "don't",
+          "correct": false,
+          "explain": "don't は一般動詞の否定に使います。be動詞のある文では使いません。"
+        },
+        {
+          "text": "doesn't",
+          "correct": false,
+          "explain": "doesn't も一般動詞の否定に使う形です。"
+        },
+        {
+          "text": "no",
+          "correct": false,
+          "explain": "no は名詞の前につける語で、動詞を否定する働きはありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-59",
+      "sentence": "___ you studying English now?",
+      "ja": "あなたは今英語を勉強していますか。",
+      "point": "現在進行形の疑問文：be動詞を文の頭に出す",
+      "choices": [
+        {
+          "text": "Are",
+          "correct": true,
+          "explain": "現在進行形の疑問文は be動詞を文の頭に出します。主語が you なので Are です。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do を使うのはふつうの一般動詞の疑問文です。ing形とはいっしょに使いません。"
+        },
+        {
+          "text": "Is",
+          "correct": false,
+          "explain": "主語が you なので is ではなく are を使います。"
+        },
+        {
+          "text": "Does",
+          "correct": false,
+          "explain": "Does も一般動詞の疑問文に使う語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-60",
+      "sentence": "I ___ play the guitar, but I can play the piano.",
+      "ja": "私はギターは弾けませんが、ピアノは弾けます。",
+      "point": "can の否定形 cannot / can't：「〜できない」を表す",
+      "choices": [
+        {
+          "text": "can't",
+          "correct": true,
+          "explain": "can の否定は can't（cannot）で、後ろは動詞の原形です。"
+        },
+        {
+          "text": "don't can",
+          "correct": false,
+          "explain": "can は助動詞なので don't といっしょには使いません。"
+        },
+        {
+          "text": "am not",
+          "correct": false,
+          "explain": "play は一般動詞なので be動詞の否定形では否定できません。"
+        },
+        {
+          "text": "not can",
+          "correct": false,
+          "explain": "not は can の後ろに置きます。語順が逆です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-61",
+      "sentence": "___ you swim well? — Yes, I can.",
+      "ja": "あなたは上手に泳げますか。— はい、泳げます。",
+      "point": "can の疑問文：Can を文の頭に置く",
+      "choices": [
+        {
+          "text": "Can",
+          "correct": true,
+          "explain": "「〜できますか」とたずねるときは Can を文の頭に出します。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "答えが Yes, I can. なので、たずねる語も can でなければいけません。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "swim は一般動詞なので be動詞では疑問文を作れません。"
+        },
+        {
+          "text": "Does",
+          "correct": false,
+          "explain": "主語が you なので does は使えませんし、答えとも合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-62",
+      "sentence": "___ play soccer after school!",
+      "ja": "放課後にサッカーをしましょう。",
+      "point": "Let's + 動詞の原形：「〜しましょう」と誘う表現",
+      "choices": [
+        {
+          "text": "Let's",
+          "correct": true,
+          "explain": "「〜しましょう」と相手を誘うときは Let's + 動詞の原形を使います。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do から始めると疑問文になり、誘う意味にはなりません。"
+        },
+        {
+          "text": "We",
+          "correct": false,
+          "explain": "We play soccer では「私たちはサッカーをします」という説明の文になります。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "Are から始めると be動詞の疑問文になってしまいます。"
+        }
+      ]
+    },
+    {
+      "id": "g5-63",
+      "sentence": "___ open the window. It is cold.",
+      "ja": "窓を開けないでください。寒いです。",
+      "point": "否定の命令文：Don't + 動詞の原形",
+      "choices": [
+        {
+          "text": "Don't",
+          "correct": true,
+          "explain": "「〜しないで」という否定の命令文は Don't + 動詞の原形で作ります。"
+        },
+        {
+          "text": "Not",
+          "correct": false,
+          "explain": "Not だけでは命令文を否定できません。Don't が必要です。"
+        },
+        {
+          "text": "Doesn't",
+          "correct": false,
+          "explain": "命令文は相手に言う文なので、主語による形の変化はありません。"
+        },
+        {
+          "text": "No",
+          "correct": false,
+          "explain": "No は名詞の前につける語で、動詞を否定する働きはありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-64",
+      "sentence": "Please ___ down here.",
+      "ja": "ここに座ってください。",
+      "point": "please のついた命令文でも動詞は原形を使う",
+      "choices": [
+        {
+          "text": "sit",
+          "correct": true,
+          "explain": "命令文は please がついても動詞は原形のままです。"
+        },
+        {
+          "text": "sits",
+          "correct": false,
+          "explain": "命令文の動詞に s はつけません。"
+        },
+        {
+          "text": "sitting",
+          "correct": false,
+          "explain": "ing形は be動詞といっしょに使う形で、命令文には使いません。"
+        },
+        {
+          "text": "to sit",
+          "correct": false,
+          "explain": "命令文では to をつけずに動詞の原形をそのまま使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-65",
+      "sentence": "She is a ___ singer.",
+      "ja": "彼女は上手な歌手です。",
+      "point": "形容詞の位置：名詞を説明するときは名詞の前に置く",
+      "choices": [
+        {
+          "text": "good",
+          "correct": true,
+          "explain": "形容詞は名詞の前に置いて、その名詞を説明します。"
+        },
+        {
+          "text": "well",
+          "correct": false,
+          "explain": "well は副詞で、名詞を直接説明することはできません。"
+        },
+        {
+          "text": "goods",
+          "correct": false,
+          "explain": "形容詞に s はつけません。"
+        },
+        {
+          "text": "to good",
+          "correct": false,
+          "explain": "形容詞に to はつけません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-66",
+      "sentence": "This book is ___ interesting.",
+      "ja": "この本はとてもおもしろいです。",
+      "point": "very：形容詞を強めて「とても」を表す",
+      "choices": [
+        {
+          "text": "very",
+          "correct": true,
+          "explain": "very は形容詞の前に置いて「とても」という意味を加えます。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "many は数えられる名詞の前に置く語で、形容詞は強められません。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "much はふつう数えられない名詞の前に置きます。"
+        },
+        {
+          "text": "a lot",
+          "correct": false,
+          "explain": "a lot は動詞のあとに置く表現で、形容詞の前には使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-67",
+      "sentence": "I like music. My sister likes music, ___.",
+      "ja": "私は音楽が好きです。姉も音楽が好きです。",
+      "point": "too：文の終わりに置いて「〜も」を表す",
+      "choices": [
+        {
+          "text": "too",
+          "correct": true,
+          "explain": "「〜も」と付け加えるときは文の終わりに too を置きます。"
+        },
+        {
+          "text": "to",
+          "correct": false,
+          "explain": "to は方向などを表す語で、「〜も」の意味はありません。"
+        },
+        {
+          "text": "two",
+          "correct": false,
+          "explain": "two は数の2で、音は同じですが意味が違います。"
+        },
+        {
+          "text": "either",
+          "correct": false,
+          "explain": "either は否定文の終わりで「〜も…ない」と言うときに使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-68",
+      "sentence": "He plays the piano ___.",
+      "ja": "彼は上手にピアノを弾きます。",
+      "point": "副詞 well：動詞を説明して「上手に」を表す",
+      "choices": [
+        {
+          "text": "well",
+          "correct": true,
+          "explain": "動詞のしかたを説明するときは副詞 well を使います。"
+        },
+        {
+          "text": "good",
+          "correct": false,
+          "explain": "good は形容詞なので、動詞を直接説明できません。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は形容詞や副詞を強める語で、1語では動詞を説明できません。"
+        },
+        {
+          "text": "nice",
+          "correct": false,
+          "explain": "nice は形容詞なので、この位置で動詞を説明することはできません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-69",
+      "sentence": "I ___ watch TV. I do not have one.",
+      "ja": "私はまったくテレビを見ません。テレビを持っていないからです。",
+      "point": "頻度を表す副詞 never：「一度も〜しない」という意味",
+      "choices": [
+        {
+          "text": "never",
+          "correct": true,
+          "explain": "never は「一度も〜しない」という意味で、それだけで否定を表します。"
+        },
+        {
+          "text": "always",
+          "correct": false,
+          "explain": "always は「いつも」なので、後ろの文と意味が合いません。"
+        },
+        {
+          "text": "usually",
+          "correct": false,
+          "explain": "usually は「たいてい」で、テレビを持っていない状況と合いません。"
+        },
+        {
+          "text": "don't never",
+          "correct": false,
+          "explain": "never だけで否定なので、don't といっしょには使いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-70",
+      "sentence": "I ___ soccer with my friends yesterday.",
+      "ja": "私は昨日友達とサッカーをしました。",
+      "point": "一般動詞の過去形：規則変化は動詞に ed をつける",
+      "choices": [
+        {
+          "text": "played",
+          "correct": true,
+          "explain": "yesterday があるので過去形にします。play は ed をつけて played です。"
+        },
+        {
+          "text": "play",
+          "correct": false,
+          "explain": "現在形なので、yesterday とは合いません。"
+        },
+        {
+          "text": "plays",
+          "correct": false,
+          "explain": "plays は3人称単数の現在形です。過去のことは表せません。"
+        },
+        {
+          "text": "playing",
+          "correct": false,
+          "explain": "ing形は be動詞といっしょに使う形で、1語では文になりません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-71",
+      "sentence": "We ___ to the zoo last Sunday.",
+      "ja": "私たちは先週の日曜日に動物園へ行きました。",
+      "point": "不規則動詞の過去形：go の過去形は went",
+      "choices": [
+        {
+          "text": "went",
+          "correct": true,
+          "explain": "go の過去形は ed をつけず went になります。"
+        },
+        {
+          "text": "goed",
+          "correct": false,
+          "explain": "go は不規則動詞なので ed をつける形にはなりません。"
+        },
+        {
+          "text": "go",
+          "correct": false,
+          "explain": "last Sunday があるので過去形が必要です。"
+        },
+        {
+          "text": "going",
+          "correct": false,
+          "explain": "ing形は be動詞といっしょに使う形です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-72",
+      "sentence": "___ you study English yesterday? — Yes, I did.",
+      "ja": "あなたは昨日英語を勉強しましたか。— はい、しました。",
+      "point": "一般動詞の過去の疑問文：Did を文の頭に置く",
+      "choices": [
+        {
+          "text": "Did",
+          "correct": true,
+          "explain": "過去のことをたずねるときは Did を文の頭に置き、動詞は原形にします。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do は現在のことをたずねるときに使います。"
+        },
+        {
+          "text": "Were",
+          "correct": false,
+          "explain": "study は一般動詞なので be動詞では疑問文を作れません。"
+        },
+        {
+          "text": "Does",
+          "correct": false,
+          "explain": "Does は現在形で、しかも主語が3人称単数のときに使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-73",
+      "sentence": "I ___ go to school yesterday. I was sick.",
+      "ja": "私は昨日学校へ行きませんでした。具合が悪かったのです。",
+      "point": "一般動詞の過去の否定文：didn't + 動詞の原形",
+      "choices": [
+        {
+          "text": "didn't",
+          "correct": true,
+          "explain": "過去の否定は didn't を使い、後ろの動詞は原形 go のままにします。"
+        },
+        {
+          "text": "don't",
+          "correct": false,
+          "explain": "don't は現在の否定に使います。yesterday と合いません。"
+        },
+        {
+          "text": "wasn't",
+          "correct": false,
+          "explain": "go は一般動詞なので be動詞の否定形では否定できません。"
+        },
+        {
+          "text": "didn't went",
+          "correct": false,
+          "explain": "didn't の後ろの動詞は原形なので went ではなく go です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-74",
+      "sentence": "I ___ going to visit my aunt tomorrow.",
+      "ja": "私は明日おばを訪ねる予定です。",
+      "point": "be going to：これからの予定を表す",
+      "choices": [
+        {
+          "text": "am",
+          "correct": true,
+          "explain": "be going to の be は主語に合わせます。主語が I なので am です。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "is は主語が3人称単数のときに使います。"
+        },
+        {
+          "text": "are",
+          "correct": false,
+          "explain": "are は主語が you や複数のときに使います。"
+        },
+        {
+          "text": "do",
+          "correct": false,
+          "explain": "be going to の形では be動詞が必要です。do は使えません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-75",
+      "sentence": "It ___ be sunny tomorrow.",
+      "ja": "明日は晴れるでしょう。",
+      "point": "will + 動詞の原形：これからのことを表す",
+      "choices": [
+        {
+          "text": "will",
+          "correct": true,
+          "explain": "これからのことは will + 動詞の原形で表します。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "is be という形はありません。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "was は過去形なので tomorrow と合いません。"
+        },
+        {
+          "text": "does",
+          "correct": false,
+          "explain": "does be という形はありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-76",
+      "sentence": "I want ___ a doctor in the future.",
+      "ja": "私は将来医者になりたいです。",
+      "point": "want to + 動詞の原形：「〜したい」を表す",
+      "choices": [
+        {
+          "text": "to be",
+          "correct": true,
+          "explain": "「〜したい」は want to + 動詞の原形です。「〜になる」は be を使います。"
+        },
+        {
+          "text": "be",
+          "correct": false,
+          "explain": "want の後ろに動詞を続けるときは to が必要です。"
+        },
+        {
+          "text": "being",
+          "correct": false,
+          "explain": "want の後ろに ing形は続けません。"
+        },
+        {
+          "text": "to am",
+          "correct": false,
+          "explain": "to の後ろは原形なので am ではなく be です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-77",
+      "sentence": "She likes ___ books before bed.",
+      "ja": "彼女は寝る前に本を読むのが好きです。",
+      "point": "like + 動詞のing形：「〜するのが好き」を表す",
+      "choices": [
+        {
+          "text": "reading",
+          "correct": true,
+          "explain": "like の後ろに動詞を続けるときは ing形か to + 原形にします。"
+        },
+        {
+          "text": "read",
+          "correct": false,
+          "explain": "動詞をそのまま2つ続けることはできません。"
+        },
+        {
+          "text": "reads",
+          "correct": false,
+          "explain": "s のついた形をここに置くことはできません。"
+        },
+        {
+          "text": "to reading",
+          "correct": false,
+          "explain": "to の後ろは原形なので、to reading という形はありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-78",
+      "sentence": "Sunday is the ___ day of the week.",
+      "ja": "日曜日は1週間の最初の日です。",
+      "point": "序数 first：順番を表すときは one ではなく first を使う",
+      "choices": [
+        {
+          "text": "first",
+          "correct": true,
+          "explain": "順番を表すときは序数を使います。1番目は first です。"
+        },
+        {
+          "text": "one",
+          "correct": false,
+          "explain": "one は数を表す語で、順番は表しません。"
+        },
+        {
+          "text": "once",
+          "correct": false,
+          "explain": "once は「1回」という意味で、順番は表しません。"
+        },
+        {
+          "text": "firstly",
+          "correct": false,
+          "explain": "firstly は「まず第一に」と話を始めるときに使う副詞です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-79",
+      "sentence": "___ do you like, tea or coffee?",
+      "ja": "紅茶とコーヒーではどちらが好きですか。",
+      "point": "疑問詞 Which：限られた選択肢から選ぶときに使う",
+      "choices": [
+        {
+          "text": "Which",
+          "correct": true,
+          "explain": "2つ以上の決まった選択肢から選ぶときは Which を使います。"
+        },
+        {
+          "text": "What",
+          "correct": false,
+          "explain": "What は選択肢を示さずに広くたずねるときに使います。"
+        },
+        {
+          "text": "Who",
+          "correct": false,
+          "explain": "Who は人をたずねる語です。"
+        },
+        {
+          "text": "Where",
+          "correct": false,
+          "explain": "Where は場所をたずねる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-80",
+      "sentence": "These are my friends. I like ___ very much.",
+      "ja": "この人たちは私の友達です。私は彼らがとても好きです。",
+      "point": "目的格の代名詞 them：動詞のあとでは they ではなく them",
+      "choices": [
+        {
+          "text": "them",
+          "correct": true,
+          "explain": "動詞の後ろに置く代名詞は目的格なので them を使います。"
+        },
+        {
+          "text": "they",
+          "correct": false,
+          "explain": "they は主格で、主語になるときの形です。"
+        },
+        {
+          "text": "their",
+          "correct": false,
+          "explain": "their は「彼らの」で、後ろに名詞が必要です。"
+        },
+        {
+          "text": "theirs",
+          "correct": false,
+          "explain": "theirs は「彼らのもの」という意味です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-81",
+      "sentence": "Please come with ___.",
+      "ja": "私たちといっしょに来てください。",
+      "point": "目的格の代名詞 us：前置詞のあとでは we ではなく us",
+      "choices": [
+        {
+          "text": "us",
+          "correct": true,
+          "explain": "前置詞 with の後ろには目的格の us を使います。"
+        },
+        {
+          "text": "we",
+          "correct": false,
+          "explain": "we は主格で、主語になるときの形です。"
+        },
+        {
+          "text": "our",
+          "correct": false,
+          "explain": "our は「私たちの」で、後ろに名詞が必要です。"
+        },
+        {
+          "text": "ours",
+          "correct": false,
+          "explain": "ours は「私たちのもの」という意味です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-82",
+      "sentence": "This pen is ___. I bought it yesterday.",
+      "ja": "このペンは私のものです。昨日買いました。",
+      "point": "所有代名詞 mine：「私のもの」を1語で表す",
+      "choices": [
+        {
+          "text": "mine",
+          "correct": true,
+          "explain": "「私のもの」は mine で、後ろに名詞をつけません。"
+        },
+        {
+          "text": "my",
+          "correct": false,
+          "explain": "my は「私の」で、後ろに名詞が必要です。"
+        },
+        {
+          "text": "me",
+          "correct": false,
+          "explain": "me は目的格で、「私のもの」という意味にはなりません。"
+        },
+        {
+          "text": "I",
+          "correct": false,
+          "explain": "I は主格で、主語になるときの形です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-83",
+      "sentence": "I have ___ books in my room.",
+      "ja": "私は部屋にたくさんの本を持っています。",
+      "point": "many：数えられる名詞の複数形の前に置いて「たくさんの」を表す",
+      "choices": [
+        {
+          "text": "many",
+          "correct": true,
+          "explain": "books は数えられる名詞なので many を使います。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "much は数えられない名詞の前に使います。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は形容詞や副詞を強める語で、名詞の前には置けません。"
+        },
+        {
+          "text": "any",
+          "correct": false,
+          "explain": "any はふつう否定文や疑問文で使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-84",
+      "sentence": "I do not have ___ money today.",
+      "ja": "私は今日あまりお金を持っていません。",
+      "point": "much：数えられない名詞の前に置いて量を表す",
+      "choices": [
+        {
+          "text": "much",
+          "correct": true,
+          "explain": "money は数えられない名詞なので much を使います。"
+        },
+        {
+          "text": "many",
+          "correct": false,
+          "explain": "many は数えられる名詞の複数形の前に使います。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は名詞の前に置いて量を表す語ではありません。"
+        },
+        {
+          "text": "a few",
+          "correct": false,
+          "explain": "a few は数えられる名詞に使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-85",
+      "sentence": "She has ___ friends at school.",
+      "ja": "彼女は学校にたくさんの友達がいます。",
+      "point": "a lot of：数えられる名詞にも数えられない名詞にも使える",
+      "choices": [
+        {
+          "text": "a lot of",
+          "correct": true,
+          "explain": "a lot of は数えられる名詞にも数えられない名詞にも使えます。"
+        },
+        {
+          "text": "much",
+          "correct": false,
+          "explain": "much は数えられない名詞に使うので friends には合いません。"
+        },
+        {
+          "text": "a lot",
+          "correct": false,
+          "explain": "名詞の前に置くときは of が必要です。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very は名詞の前に置いて数を表す語ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-86",
+      "sentence": "I study English ___.",
+      "ja": "私は毎日英語を勉強します。",
+      "point": "every day：「毎日」を表し、ふつう文の終わりに置く",
+      "choices": [
+        {
+          "text": "every day",
+          "correct": true,
+          "explain": "「毎日」は every day で、ふつう文の終わりに置きます。"
+        },
+        {
+          "text": "everyday",
+          "correct": false,
+          "explain": "1語の everyday は「日常の」という形容詞で、名詞の前に置きます。"
+        },
+        {
+          "text": "all day",
+          "correct": false,
+          "explain": "all day は「1日中」という意味で、毎日とは違います。"
+        },
+        {
+          "text": "every days",
+          "correct": false,
+          "explain": "every の後ろの名詞は単数形なので days にはしません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-87",
+      "sentence": "My father is ___ teacher.",
+      "ja": "私の父は教師です。",
+      "point": "職業を言うときは名詞の前に a / an をつける",
+      "choices": [
+        {
+          "text": "a",
+          "correct": true,
+          "explain": "職業を1人分言うときは、名詞の前に a / an をつけます。"
+        },
+        {
+          "text": "an",
+          "correct": false,
+          "explain": "teacher は子音の音で始まるので an ではなく a です。"
+        },
+        {
+          "text": "the",
+          "correct": false,
+          "explain": "職業をふつうに紹介するときは the ではなく a を使います。"
+        },
+        {
+          "text": "some",
+          "correct": false,
+          "explain": "some は数がはっきりしないときに使う語で、ここには合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-88",
+      "sentence": "I go to ___ by bus every morning.",
+      "ja": "私は毎朝バスで学校へ行きます。",
+      "point": "go to school：建物ではなく目的を表すときは the をつけない",
+      "choices": [
+        {
+          "text": "school",
+          "correct": true,
+          "explain": "「勉強しに学校へ行く」という意味のときは the をつけずに go to school と言います。"
+        },
+        {
+          "text": "the school",
+          "correct": false,
+          "explain": "the school は建物そのものを指すときの言い方で、この文にはふつう使いません。"
+        },
+        {
+          "text": "a school",
+          "correct": false,
+          "explain": "a school だと「どこかの学校へ行く」という意味になってしまいます。"
+        },
+        {
+          "text": "schools",
+          "correct": false,
+          "explain": "複数形にすると「いくつもの学校へ行く」という意味になります。"
+        }
+      ]
+    },
+    {
+      "id": "g5-89",
+      "sentence": "I ___ a new bike.",
+      "ja": "私は新しい自転車を持っています。",
+      "point": "have：「持っている」を表す。主語が I のときは have",
+      "choices": [
+        {
+          "text": "have",
+          "correct": true,
+          "explain": "主語が I なので have をそのまま使います。"
+        },
+        {
+          "text": "has",
+          "correct": false,
+          "explain": "has は主語が3人称単数のときの形です。"
+        },
+        {
+          "text": "am",
+          "correct": false,
+          "explain": "I am a new bike では「私は新しい自転車です」という意味になってしまいます。"
+        },
+        {
+          "text": "having",
+          "correct": false,
+          "explain": "ing形は be動詞といっしょに使う形で、1語では文になりません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-90",
+      "sentence": "He ___ two brothers.",
+      "ja": "彼には兄弟が2人います。",
+      "point": "have の3人称単数現在形は has",
+      "choices": [
+        {
+          "text": "has",
+          "correct": true,
+          "explain": "主語 He は3人称単数なので have は has になります。"
+        },
+        {
+          "text": "have",
+          "correct": false,
+          "explain": "have は主語が I / you / 複数のときの形です。"
+        },
+        {
+          "text": "haves",
+          "correct": false,
+          "explain": "have は s をつける形ではなく has に変わります。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "He is two brothers では意味が通りません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-91",
+      "sentence": "___ you have a pen? — Yes, I do.",
+      "ja": "ペンを持っていますか。— はい、持っています。",
+      "point": "have の疑問文：Do を文の頭に置く",
+      "choices": [
+        {
+          "text": "Do",
+          "correct": true,
+          "explain": "have は一般動詞なので、主語が you のときは Do で疑問文を作ります。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "have は一般動詞なので be動詞では疑問文を作れません。"
+        },
+        {
+          "text": "Does",
+          "correct": false,
+          "explain": "Does は主語が3人称単数のときに使います。"
+        },
+        {
+          "text": "Have",
+          "correct": false,
+          "explain": "この意味では Do you have 〜? の形を使います。"
+        }
+      ]
+    },
+    {
+      "id": "g5-92",
+      "sentence": "___ quiet in the library, please.",
+      "ja": "図書館では静かにしてください。",
+      "point": "be動詞の命令文は原形の Be から始める",
+      "choices": [
+        {
+          "text": "Be",
+          "correct": true,
+          "explain": "be動詞の命令文は原形の Be から始めます。"
+        },
+        {
+          "text": "Are",
+          "correct": false,
+          "explain": "命令文では be動詞は原形になるので are は使いません。"
+        },
+        {
+          "text": "Is",
+          "correct": false,
+          "explain": "命令文では be動詞は原形になるので is は使いません。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "後ろが形容詞 quiet なので、be動詞の命令文が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-93",
+      "sentence": "___ your name? — My name is Yuki.",
+      "ja": "あなたの名前は何ですか。— 私の名前はユキです。",
+      "point": "名前をたずねる表現：What is your name?",
+      "choices": [
+        {
+          "text": "What is",
+          "correct": true,
+          "explain": "名前をたずねるときは What is your name? と言います。"
+        },
+        {
+          "text": "Who is",
+          "correct": false,
+          "explain": "Who is your name? とは言いません。名前は What でたずねます。"
+        },
+        {
+          "text": "How is",
+          "correct": false,
+          "explain": "How is 〜? は様子をたずねる表現です。"
+        },
+        {
+          "text": "Whose is",
+          "correct": false,
+          "explain": "Whose は持ち主をたずねる語で、名前をたずねる表現ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-94",
+      "sentence": "How are you? — I am ___, thank you.",
+      "ja": "元気ですか。— 元気です、ありがとう。",
+      "point": "How are you? への答え方：I am fine. などで答える",
+      "choices": [
+        {
+          "text": "fine",
+          "correct": true,
+          "explain": "How are you? には I am fine. のように調子を表す語で答えます。"
+        },
+        {
+          "text": "yes",
+          "correct": false,
+          "explain": "How は疑問詞なので、Yes / No では答えません。"
+        },
+        {
+          "text": "very",
+          "correct": false,
+          "explain": "very だけでは意味を持たず、答えになりません。"
+        },
+        {
+          "text": "too",
+          "correct": false,
+          "explain": "too は「〜も」という意味で、調子を表す語ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-95",
+      "sentence": "I like winter ___ I can ski.",
+      "ja": "スキーができるので私は冬が好きです。",
+      "point": "接続詞 because：後ろに理由を続ける",
+      "choices": [
+        {
+          "text": "because",
+          "correct": true,
+          "explain": "because の後ろには理由を表す文を続けます。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "so の後ろには結果が来ます。ここは理由なので合いません。"
+        },
+        {
+          "text": "but",
+          "correct": false,
+          "explain": "but は反対の内容をつなぐ語です。"
+        },
+        {
+          "text": "or",
+          "correct": false,
+          "explain": "or は選択肢を並べる語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-96",
+      "sentence": "Do you want tea ___ coffee?",
+      "ja": "紅茶とコーヒーのどちらがほしいですか。",
+      "point": "接続詞 or：「〜か…か」と選択肢を並べる",
+      "choices": [
+        {
+          "text": "or",
+          "correct": true,
+          "explain": "どちらかを選んでもらうときは or で選択肢を並べます。"
+        },
+        {
+          "text": "and",
+          "correct": false,
+          "explain": "and だと「紅茶とコーヒーの両方」という意味になります。"
+        },
+        {
+          "text": "but",
+          "correct": false,
+          "explain": "but は反対の内容をつなぐ語です。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "so は結果を表す語です。"
+        }
+      ]
+    },
+    {
+      "id": "g5-97",
+      "sentence": "I like apples ___ oranges.",
+      "ja": "私はリンゴとオレンジが好きです。",
+      "point": "接続詞 and：同じ種類の語を並べてつなぐ",
+      "choices": [
+        {
+          "text": "and",
+          "correct": true,
+          "explain": "同じ種類の語を並べるときは and でつなぎます。"
+        },
+        {
+          "text": "or",
+          "correct": false,
+          "explain": "or だと「どちらか一方」という意味になります。"
+        },
+        {
+          "text": "but",
+          "correct": false,
+          "explain": "but は反対の内容をつなぐ語です。"
+        },
+        {
+          "text": "with",
+          "correct": false,
+          "explain": "with は「〜といっしょに」という意味で、語を並べる働きはありません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-98",
+      "sentence": "I met him ___ week.",
+      "ja": "私は先週彼に会いました。",
+      "point": "last week：「先週」を表し、前置詞をつけない",
+      "choices": [
+        {
+          "text": "last",
+          "correct": true,
+          "explain": "「先週」は last week で、前に in や on はつけません。"
+        },
+        {
+          "text": "next",
+          "correct": false,
+          "explain": "next week は「来週」で、過去形 met と合いません。"
+        },
+        {
+          "text": "this",
+          "correct": false,
+          "explain": "this week は「今週」で、過去のことを表す文には合いません。"
+        },
+        {
+          "text": "every",
+          "correct": false,
+          "explain": "every week は「毎週」で、1回の出来事を表す文には合いません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-99",
+      "sentence": "The cat is sitting ___ the chair and the table.",
+      "ja": "猫はいすとテーブルの間に座っています。",
+      "point": "前置詞 between：2つのものの「間に」を表す",
+      "choices": [
+        {
+          "text": "between",
+          "correct": true,
+          "explain": "2つのものにはさまれた位置は between A and B で表します。"
+        },
+        {
+          "text": "among",
+          "correct": false,
+          "explain": "among は3つ以上のものの中にあるときに使います。"
+        },
+        {
+          "text": "under",
+          "correct": false,
+          "explain": "under は「〜の下に」という意味です。"
+        },
+        {
+          "text": "near",
+          "correct": false,
+          "explain": "near は「〜の近くに」で、2つの間という意味にはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "g5-100",
+      "sentence": "I brush my teeth ___ breakfast every morning.",
+      "ja": "私は毎朝朝食の前に歯をみがきます。",
+      "point": "前置詞 before：「〜の前に」と時の順番を表す",
+      "choices": [
+        {
+          "text": "before",
+          "correct": true,
+          "explain": "「〜の前に」と時の順番を表すときは before を使います。"
+        },
+        {
+          "text": "after",
+          "correct": false,
+          "explain": "after は「〜のあとに」という反対の意味です。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in は時の順番を表す語ではありません。"
+        },
+        {
+          "text": "at",
+          "correct": false,
+          "explain": "at は時刻の前に使う語で、順番は表しません。"
+        }
+      ]
     }
   ],
   "reading": [
