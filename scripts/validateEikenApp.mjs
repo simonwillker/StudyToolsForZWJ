@@ -68,6 +68,48 @@ for (const file of files) {
     }
   });
 
+  // リスニングは英検の出題形式ごとに形が違う。形式に合わない問題を弾く。
+  //   response = 会話の応答文選択（質問文なし・3択・会話スクリプト）
+  //   dialogue = 会話の内容一致選択（質問文あり・4択・会話スクリプト）
+  //   passage  = 文の内容一致選択（質問文あり・4択・1本の英文）
+  //   reallife / interview = 準1級以上（質問文あり・4択・1本の英文）
+  const LISTENING_FORMATS = {
+    response: { question: false, choices: 3, script: "array" },
+    dialogue: { question: true, choices: 4, script: "array" },
+    passage: { question: true, choices: 4, script: "string" },
+    reallife: { question: true, choices: 4, script: "string" },
+    interview: { question: true, choices: 4, script: "array" },
+  };
+  (d.listening || []).forEach((l, i) => {
+    const p2 = `listening[${i}](${l.id || "?"})`;
+    const fmt = LISTENING_FORMATS[l.part];
+    if (!fmt) {
+      err(file, p2, `part が不正です（${l.part ?? "未設定"}）。${Object.keys(LISTENING_FORMATS).join(" / ")} のいずれかにしてください`);
+      return;
+    }
+    const isArray = Array.isArray(l.script);
+    if (fmt.script === "array" && !isArray) err(file, p2, `part=${l.part} のスクリプトは会話（配列）である必要があります`);
+    if (fmt.script === "string" && isArray) err(file, p2, `part=${l.part} のスクリプトは1本の英文（文字列）である必要があります`);
+    if (isArray) {
+      l.script.forEach((line, j) => {
+        if (!["A", "B", "N"].includes(line.speaker)) err(file, p2, `script[${j}] の speaker が不正です（${line.speaker}）`);
+        if (!line.text || !String(line.text).trim()) err(file, p2, `script[${j}] のセリフが空です`);
+      });
+    } else if (!l.script || !String(l.script).trim()) {
+      err(file, p2, "script が空です");
+    }
+    if (fmt.question && !l.question) err(file, p2, `part=${l.part} には question が必要です`);
+    if (!fmt.question && l.question) err(file, p2, `part=${l.part}（応答文選択）に question は置きません`);
+    if (!l.translation) err(file, p2, "translation がありません");
+    const ch = l.choices || [];
+    if (ch.length !== fmt.choices) err(file, p2, `part=${l.part} の選択肢は${fmt.choices}つです（現在${ch.length}つ）`);
+    if (ch.filter((c) => c.correct).length !== 1) err(file, p2, "correct: true がちょうど1つではありません");
+    if (new Set(ch.map((c) => c.text)).size !== ch.length) err(file, p2, "選択肢のテキストが重複しています");
+    ch.forEach((c, j) => {
+      if (!c.explain) err(file, p2, `choices[${j}] に explain がありません`);
+    });
+  });
+
   const n = (d.vocab || []).length;
   summary.push({
     級: d.levelLabel,

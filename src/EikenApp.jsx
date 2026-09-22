@@ -344,31 +344,75 @@ function buildListeningItems(level) {
     extra: (
       <div className="eiken-note-box">
         <div className="eiken-note-point">📝 スクリプト</div>
-        <div className="eiken-example-en">{l.script}</div>
+        {Array.isArray(l.script) ? (
+          l.script.map((line, i) => (
+            <div className="eiken-example-en" key={i}>
+              <b>{line.speaker}：</b>{line.text}
+            </div>
+          ))
+        ) : (
+          <div className="eiken-example-en">{l.script}</div>
+        )}
         <div className="eiken-note-ja" style={{ marginTop: 6 }}>訳：{l.translation}</div>
       </div>
     ),
   }));
 }
 
+/** 会話形式のスクリプトを、話者ごとに声色を変えて順に読み上げる。
+ *  1文字列のときは1人のナレーションとして読む。 */
+function speakScript(script) {
+  if (!isSpeechSynthesisSupported()) return;
+  stopSpeaking();
+  const lines = Array.isArray(script) ? script : [{ speaker: "N", text: script }];
+  let i = 0;
+  const next = () => {
+    if (i >= lines.length) return;
+    const u = new SpeechSynthesisUtterance(lines[i].text);
+    u.lang = "en-US";
+    u.rate = 0.92;
+    u.pitch = lines[i].speaker === "A" ? 1.15 : lines[i].speaker === "B" ? 0.85 : 1;
+    u.onend = () => { i += 1; next(); };
+    window.speechSynthesis.speak(u);
+  };
+  next();
+}
+
+/** 英検の出題形式に合わせた見出し。データの part に対応させる。 */
+const LISTENING_PARTS = {
+  response: { label: "会話の応答文選択", hint: "会話の最後の発言に対する応答として最も適切なものを選びましょう" },
+  dialogue: { label: "会話の内容一致選択", hint: "会話を聞いて、質問の答えを選びましょう" },
+  passage: { label: "文の内容一致選択", hint: "英文を聞いて、質問の答えを選びましょう" },
+  reallife: { label: "Real-Life形式の内容一致選択", hint: "状況と質問を読んでから放送を聞き、答えを選びましょう" },
+  interview: { label: "インタビューの内容一致選択", hint: "インタビューを聞いて、質問の答えを選びましょう" },
+};
+
 function ListeningHeader({ item, answered }) {
   const [played, setPlayed] = useState(false);
+  const fmt = LISTENING_PARTS[item.part] || LISTENING_PARTS.passage;
+  const isDialogue = Array.isArray(item.script);
   return (
     <div className="eiken-qhead">
-      <div className="eiken-qhead-eyebrow">音声を聞いて、質問に答えましょう</div>
+      <div className="eiken-qhead-eyebrow">
+        <span className="eiken-part-tag">{fmt.label}</span>
+        {fmt.hint}
+      </div>
+      {/* Real-Life形式は本番でも状況説明が印刷されるため、音声より先に見せる */}
+      {item.situation && <div className="eiken-situation">{item.situation}</div>}
       <button
         className="eiken-play-btn"
-        onClick={() => {
-          speak(item.script);
-          setPlayed(true);
-        }}
+        onClick={() => { speakScript(item.script); setPlayed(true); }}
       >
-        {played ? "🔁 もう一度再生する" : "▶ 音声を再生する"}
+        {played ? "🔁 もう一度再生する" : isDialogue ? "▶ 会話を再生する" : "▶ 音声を再生する"}
       </button>
       {!isSpeechSynthesisSupported() && (
         <div className="eiken-warn">このブラウザは読み上げに対応していません。下の「スクリプト」を確認してください（回答後に表示されます）。</div>
       )}
-      <div className="eiken-qhead-main sentence" style={{ marginTop: 12 }}>{item.question}</div>
+      {/* 応答文選択には質問文が無い。本番でも選択肢は読み上げのみだが、
+          ドリルでは学習のため画面にも表示する（本番形式は模擬テストで体験できる）。 */}
+      {item.question && (
+        <div className="eiken-qhead-main sentence" style={{ marginTop: 12 }}>{item.question}</div>
+      )}
       {!answered && <div className="eiken-hint">※ スクリプトと日本語訳は回答後に表示されます</div>}
     </div>
   );
@@ -1053,6 +1097,17 @@ export default function EikenApp({ onExitApp }) {
         .eiken-storage-note {
           font-size: 11px; color: #9CA3AF; line-height: 1.6; margin-top: 18px;
           padding-top: 12px; border-top: 1px dashed #E4E2DA;
+        }
+
+        /* リスニングの出題形式ラベルと、Real-Life形式の状況説明 */
+        /* 形式ラベルは独立した行にする（説明文と並べると中途半端に折り返す） */
+        .eiken-part-tag {
+          display: block; width: fit-content; margin-bottom: 6px; padding: 2px 8px; border-radius: 4px;
+          background: #1F6B45; color: #fff; font-size: 11px; font-weight: 700;
+        }
+        .eiken-situation {
+          margin: 10px 0; padding: 10px 12px; border-left: 3px solid #1F6B45;
+          background: #F2F8F4; font-size: 13px; line-height: 1.7; color: #1A1A1A;
         }
 
         .eiken-progressbar { margin-bottom: 16px; }
