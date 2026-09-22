@@ -280,7 +280,8 @@ function buildGrammarItems(level, items) {
         <div className="eiken-qhead-main sentence">{g.sentence}</div>
       </div>
     ),
-    choices: g.choices,
+    // 選択肢はデータ上ほぼ常に正解が先頭に置かれているため、出題時に必ずシャッフルする
+    choices: shuffle(g.choices),
     extra: (
       <div className="eiken-note-box">
         <div className="eiken-note-point">📌 {g.point}</div>
@@ -320,7 +321,7 @@ function buildReadingItems(level, flatItems) {
         <div className="eiken-qhead-main sentence">{q.q}</div>
       </div>
     ),
-    choices: q.choices,
+    choices: shuffle(q.choices),
   }));
 }
 
@@ -328,7 +329,7 @@ function buildListeningItems(level) {
   return level.listening.map((l) => ({
     id: l.id,
     header: (answered) => <ListeningHeader item={l} answered={answered} />,
-    choices: l.choices,
+    choices: shuffle(l.choices),
     extra: (
       <div className="eiken-note-box">
         <div className="eiken-note-point">📝 スクリプト</div>
@@ -366,7 +367,7 @@ function buildDialogueItems(level) {
   return level.dialogue.map((d) => ({
     id: d.id,
     header: (answered) => <DialogueHeader item={d} answered={answered} />,
-    choices: d.choices,
+    choices: shuffle(d.choices),
     extra: (
       <div className="eiken-note-box">
         <div className="eiken-note-point">📝 日本語訳</div>
