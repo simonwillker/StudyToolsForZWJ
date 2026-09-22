@@ -2541,6 +2541,2470 @@
           "explain": "By + 動名詞は「〜することによって」という手段を表し、この文意には合いません。"
         }
       ]
+    },
+    {
+      "id": "gp1-13",
+      "sentence": "Not only ___ the report late, but it was also full of errors.",
+      "ja": "その報告書は遅れただけでなく、誤りだらけでもあった。",
+      "point": "Not only が文頭に出ると倒置が起こる",
+      "choices": [
+        {
+          "text": "was",
+          "correct": true,
+          "explain": "否定語句 Not only が文頭に来ると、後ろは疑問文と同じ語順（倒置）になります。"
+        },
+        {
+          "text": "the report was",
+          "correct": false,
+          "explain": "倒置が必要なので、主語より先に be動詞を置きます。"
+        },
+        {
+          "text": "did",
+          "correct": false,
+          "explain": "後ろが late という形容詞なので、be動詞が必要です。"
+        },
+        {
+          "text": "it was",
+          "correct": false,
+          "explain": "主語 the report が直後にあるため、it は不要です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-14",
+      "sentence": "Never before ___ such a beautiful sunset.",
+      "ja": "これほど美しい夕日はそれまで見たことがなかった。",
+      "point": "Never before が文頭に来るときの倒置（助動詞 + 主語 + 動詞）",
+      "choices": [
+        {
+          "text": "had I seen",
+          "correct": true,
+          "explain": "否定の副詞句が文頭に出ると倒置になり、had + 主語 + 過去分詞の語順になります。"
+        },
+        {
+          "text": "I had seen",
+          "correct": false,
+          "explain": "倒置が起きていないため、Never before の後ろには置けません。"
+        },
+        {
+          "text": "did I saw",
+          "correct": false,
+          "explain": "助動詞 did の後ろは原形なので saw は誤りです。"
+        },
+        {
+          "text": "I saw",
+          "correct": false,
+          "explain": "倒置も完了形も欠けています。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-15",
+      "sentence": "___ had I sat down when the phone rang.",
+      "ja": "腰を下ろすやいなや電話が鳴った。",
+      "point": "Hardly had + 主語 + 過去分詞 ... when 〜（〜するやいなや）",
+      "choices": [
+        {
+          "text": "Hardly",
+          "correct": true,
+          "explain": "Hardly had 〜 when ... で「〜するやいなや…」を表します。"
+        },
+        {
+          "text": "No sooner",
+          "correct": false,
+          "explain": "No sooner と組になるのは than であって when ではありません。"
+        },
+        {
+          "text": "Rarely",
+          "correct": false,
+          "explain": "Rarely は頻度の低さを表し、when と組にはなりません。"
+        },
+        {
+          "text": "Seldom",
+          "correct": false,
+          "explain": "Seldom も頻度を表す語で、この構文は作れません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-16",
+      "sentence": "No sooner had the meeting started ___ the power went out.",
+      "ja": "会議が始まったとたんに停電した。",
+      "point": "No sooner ... than 〜（〜するやいなや）",
+      "choices": [
+        {
+          "text": "than",
+          "correct": true,
+          "explain": "No sooner は比較級なので、組になるのは than です。"
+        },
+        {
+          "text": "when",
+          "correct": false,
+          "explain": "when と組になるのは Hardly / Scarcely です。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "この構文で that は使いません。"
+        },
+        {
+          "text": "as",
+          "correct": false,
+          "explain": "as ではこの「〜するやいなや」の型になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-17",
+      "sentence": "___ that the deal had already collapsed.",
+      "ja": "その取引がすでに破談になっていたとは、少しも知らなかった。",
+      "point": "Little did + 主語 + 動詞の原形（〜とは思いもしなかった）",
+      "choices": [
+        {
+          "text": "Little did I know",
+          "correct": true,
+          "explain": "否定的な意味の Little が文頭に出るため倒置となり、did + 主語 + 原形の語順になります。"
+        },
+        {
+          "text": "Little I knew",
+          "correct": false,
+          "explain": "倒置が起きていません。"
+        },
+        {
+          "text": "Little I did know",
+          "correct": false,
+          "explain": "語順が誤りで、助動詞は主語の前に出します。"
+        },
+        {
+          "text": "Little knew I",
+          "correct": false,
+          "explain": "一般動詞をそのまま前に出す形は現代英語では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-18",
+      "sentence": "Only after the results were published ___ the seriousness of the issue.",
+      "ja": "結果が公表されて初めて、彼らは問題の深刻さを理解した。",
+      "point": "Only + 副詞句が文頭に来ると倒置になる",
+      "choices": [
+        {
+          "text": "did they understand",
+          "correct": true,
+          "explain": "Only で始まる副詞句が文頭に出ると倒置になり、did + 主語 + 原形の語順になります。"
+        },
+        {
+          "text": "they understood",
+          "correct": false,
+          "explain": "倒置が必要な位置です。"
+        },
+        {
+          "text": "they did understand",
+          "correct": false,
+          "explain": "強調の do を使っても語順は倒置のままにします。"
+        },
+        {
+          "text": "understood they",
+          "correct": false,
+          "explain": "一般動詞を主語の前に置く形は使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-19",
+      "sentence": "Under no circumstances ___ this door be left unlocked.",
+      "ja": "いかなる場合でも、このドアを施錠しないままにしてはならない。",
+      "point": "Under no circumstances が文頭に来るときの倒置",
+      "choices": [
+        {
+          "text": "should",
+          "correct": true,
+          "explain": "否定の副詞句が文頭に出るため、助動詞を主語の前に置きます。"
+        },
+        {
+          "text": "is",
+          "correct": false,
+          "explain": "後ろが be という原形なので、助動詞が必要です。"
+        },
+        {
+          "text": "does",
+          "correct": false,
+          "explain": "does の後ろに be を続けるこの形は使いません。"
+        },
+        {
+          "text": "this door should",
+          "correct": false,
+          "explain": "主語が重複し、倒置にもなっていません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-20",
+      "sentence": "So convincing ___ that nobody raised any objection.",
+      "ja": "彼の議論はあまりに説得力があったので、誰も異議を唱えなかった。",
+      "point": "So + 形容詞 が文頭に出るときの倒置（So ... that 構文）",
+      "choices": [
+        {
+          "text": "was his argument",
+          "correct": true,
+          "explain": "So + 形容詞 を強調して文頭に出すと、be動詞 + 主語の倒置になります。"
+        },
+        {
+          "text": "his argument was",
+          "correct": false,
+          "explain": "倒置が起きていません。"
+        },
+        {
+          "text": "did his argument",
+          "correct": false,
+          "explain": "後ろに形容詞が続くので be動詞が必要です。"
+        },
+        {
+          "text": "his argument is",
+          "correct": false,
+          "explain": "倒置がなく、時制も後半と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-21",
+      "sentence": "Not until the next morning ___ what had happened.",
+      "ja": "翌朝になって初めて、彼女は何が起きたのかを知った。",
+      "point": "Not until + 副詞句 が文頭に来るときの倒置",
+      "choices": [
+        {
+          "text": "did she learn",
+          "correct": true,
+          "explain": "Not until が文頭に出ると倒置になり、did + 主語 + 原形の語順になります。"
+        },
+        {
+          "text": "she learned",
+          "correct": false,
+          "explain": "倒置が必要です。"
+        },
+        {
+          "text": "she did learn",
+          "correct": false,
+          "explain": "語順が倒置になっていません。"
+        },
+        {
+          "text": "learned she",
+          "correct": false,
+          "explain": "一般動詞を主語の前に出す形は使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-22",
+      "sentence": "___ for your support, the project would have failed.",
+      "ja": "あなたの支援がなかったら、その計画は失敗していただろう。",
+      "point": "Were it not for / Had it not been for（〜がなかったら）",
+      "choices": [
+        {
+          "text": "Had it not been",
+          "correct": true,
+          "explain": "過去の事実に反する仮定なので、If it had not been for の if を省略した倒置形を使います。"
+        },
+        {
+          "text": "Were it not",
+          "correct": false,
+          "explain": "Were it not for は現在の事実に反する仮定で、would have failed とは時制が合いません。"
+        },
+        {
+          "text": "Was it not",
+          "correct": false,
+          "explain": "仮定法では was ではなく were を使い、しかもここは過去完了が必要です。"
+        },
+        {
+          "text": "If it were not",
+          "correct": false,
+          "explain": "現在の仮定になってしまい、後半の would have failed と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-23",
+      "sentence": "___ it not for the rain, we could go hiking today.",
+      "ja": "雨さえ降っていなければ、今日ハイキングに行けるのに。",
+      "point": "Were it not for 〜（今〜がなければ）：現在の事実に反する仮定",
+      "choices": [
+        {
+          "text": "Were",
+          "correct": true,
+          "explain": "現在の事実に反する仮定なので、If it were not for の倒置形 Were it not for を使います。"
+        },
+        {
+          "text": "Had",
+          "correct": false,
+          "explain": "Had it not been for は過去の仮定で、後半の could go とは合いません。"
+        },
+        {
+          "text": "Was",
+          "correct": false,
+          "explain": "仮定法では主語が it でも were を使います。"
+        },
+        {
+          "text": "Is",
+          "correct": false,
+          "explain": "仮定法にならず、倒置の形にもなりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-24",
+      "sentence": "___ you need any help, please do not hesitate to contact us.",
+      "ja": "もし助けが必要でしたら、遠慮なくご連絡ください。",
+      "point": "Should + 主語 + 原形（if を省略した倒置の条件節、ていねいな表現）",
+      "choices": [
+        {
+          "text": "Should",
+          "correct": true,
+          "explain": "If you should need の if を省略すると Should you need という倒置になります。"
+        },
+        {
+          "text": "Would",
+          "correct": false,
+          "explain": "条件節を作る倒置には would は使いません。"
+        },
+        {
+          "text": "Could",
+          "correct": false,
+          "explain": "could もこの倒置条件文は作れません。"
+        },
+        {
+          "text": "Do",
+          "correct": false,
+          "explain": "Do you need は疑問文になってしまいます。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-25",
+      "sentence": "___ his quick judgment, the accident could have been far worse.",
+      "ja": "彼の素早い判断がなかったら、事故はもっとひどくなっていただろう。",
+      "point": "But for 〜（〜がなければ）：仮定法とともに使う前置詞句",
+      "choices": [
+        {
+          "text": "But for",
+          "correct": true,
+          "explain": "But for 〜 は「〜がなければ」という意味で、仮定法の文とともに使います。"
+        },
+        {
+          "text": "Except for",
+          "correct": false,
+          "explain": "Except for は「〜を除いて」で、仮定の意味は持ちません。"
+        },
+        {
+          "text": "Apart from",
+          "correct": false,
+          "explain": "Apart from も「〜は別として」で、仮定を表しません。"
+        },
+        {
+          "text": "Because of",
+          "correct": false,
+          "explain": "「〜のおかげで」となり、後半の仮定法と意味が合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-26",
+      "sentence": "She left early; ___ she would have missed the last train.",
+      "ja": "彼女は早めに出た。そうしなければ終電を逃していただろう。",
+      "point": "otherwise（さもなければ）＋ 仮定法過去完了",
+      "choices": [
+        {
+          "text": "otherwise",
+          "correct": true,
+          "explain": "otherwise は「そうしなければ」という条件を表し、後ろに仮定法を続けられます。"
+        },
+        {
+          "text": "therefore",
+          "correct": false,
+          "explain": "therefore は結果を表すので、仮定法の帰結とは合いません。"
+        },
+        {
+          "text": "moreover",
+          "correct": false,
+          "explain": "moreover は追加を表す語です。"
+        },
+        {
+          "text": "nevertheless",
+          "correct": false,
+          "explain": "nevertheless は逆接を表し、条件の意味はありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-27",
+      "sentence": "It is high time we ___ this outdated system.",
+      "ja": "そろそろこの時代遅れのシステムを見直してもよいころだ。",
+      "point": "It is high time + 主語 + 過去形（もう〜してよいころだ）",
+      "choices": [
+        {
+          "text": "reviewed",
+          "correct": true,
+          "explain": "It is high time の後ろの節では、内容が現在のことでも過去形を使います。"
+        },
+        {
+          "text": "review",
+          "correct": false,
+          "explain": "この構文では原形ではなく過去形を使います。"
+        },
+        {
+          "text": "will review",
+          "correct": false,
+          "explain": "未来形はこの構文では使いません。"
+        },
+        {
+          "text": "have reviewed",
+          "correct": false,
+          "explain": "現在完了ではこの構文になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-28",
+      "sentence": "I wish I ___ more carefully before signing the contract.",
+      "ja": "契約書にサインする前に、もっと慎重に読んでおけばよかった。",
+      "point": "I wish + 過去完了（過去の事実に反する後悔）",
+      "choices": [
+        {
+          "text": "had read",
+          "correct": true,
+          "explain": "過去にしなかったことを悔やむときは I wish + 過去完了を使います。"
+        },
+        {
+          "text": "read",
+          "correct": false,
+          "explain": "過去形では現在の事実に反する願望になり、過去の後悔は表せません。"
+        },
+        {
+          "text": "have read",
+          "correct": false,
+          "explain": "I wish の後ろに現在完了は使いません。"
+        },
+        {
+          "text": "would read",
+          "correct": false,
+          "explain": "would read では過去の後悔になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-29",
+      "sentence": "___ I could speak Spanish as fluently as you do.",
+      "ja": "あなたのようにスペイン語を流暢に話せたらなあ。",
+      "point": "If only + 仮定法（〜でさえあればなあ）",
+      "choices": [
+        {
+          "text": "If only",
+          "correct": true,
+          "explain": "If only は I wish より強い願望を表し、後ろは仮定法になります。"
+        },
+        {
+          "text": "Only if",
+          "correct": false,
+          "explain": "Only if は「〜の場合に限り」という条件を表す別の表現です。"
+        },
+        {
+          "text": "Even if",
+          "correct": false,
+          "explain": "Even if は譲歩を表し、願望にはなりません。"
+        },
+        {
+          "text": "What if",
+          "correct": false,
+          "explain": "What if は「〜したらどうなる？」と問いかける表現です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-30",
+      "sentence": "He spoke slowly ___ anyone should misunderstand him.",
+      "ja": "誰にも誤解されないように、彼はゆっくり話した。",
+      "point": "lest + 主語 + (should) + 原形（〜しないように）",
+      "choices": [
+        {
+          "text": "lest",
+          "correct": true,
+          "explain": "lest は「〜しないように」という意味で、それ自体に否定が含まれます。"
+        },
+        {
+          "text": "unless",
+          "correct": false,
+          "explain": "unless は「〜でない限り」で、目的を表しません。"
+        },
+        {
+          "text": "in case of",
+          "correct": false,
+          "explain": "in case of の後ろには名詞が来ます。"
+        },
+        {
+          "text": "so that not",
+          "correct": false,
+          "explain": "so that not という形は使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-31",
+      "sentence": "I would rather you ___ anything about this to the press.",
+      "ja": "この件については報道機関に何も言わないでいただきたい。",
+      "point": "would rather + 主語 + 過去形（相手にしてほしくないことを表す）",
+      "choices": [
+        {
+          "text": "didn't say",
+          "correct": true,
+          "explain": "would rather の後ろに節が来るときは、現在のことでも過去形を使います。"
+        },
+        {
+          "text": "don't say",
+          "correct": false,
+          "explain": "この構文では現在形は使いません。"
+        },
+        {
+          "text": "not to say",
+          "correct": false,
+          "explain": "would rather の後ろに不定詞の否定は続きません。"
+        },
+        {
+          "text": "won't say",
+          "correct": false,
+          "explain": "未来形はこの構文では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-32",
+      "sentence": "___ from the top of the hill, the town looks like a toy village.",
+      "ja": "丘の上から見ると、その町はおもちゃの村のように見える。",
+      "point": "過去分詞で始まる分詞構文（受け身の意味）",
+      "choices": [
+        {
+          "text": "Seen",
+          "correct": true,
+          "explain": "主語 the town は「見られる」側なので、過去分詞の分詞構文にします。"
+        },
+        {
+          "text": "Seeing",
+          "correct": false,
+          "explain": "現在分詞だと町が「見る」ことになり、意味が通りません。"
+        },
+        {
+          "text": "To see",
+          "correct": false,
+          "explain": "不定詞では「見るために」となり、意味が変わります。"
+        },
+        {
+          "text": "Having seen",
+          "correct": false,
+          "explain": "完了分詞でも能動の意味になるため合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-33",
+      "sentence": "___ what to say, he remained silent throughout the meeting.",
+      "ja": "何と言えばよいか分からず、彼は会議中ずっと黙っていた。",
+      "point": "分詞構文の否定は Not を分詞の前に置く",
+      "choices": [
+        {
+          "text": "Not knowing",
+          "correct": true,
+          "explain": "分詞構文を否定するときは、not を分詞の直前に置きます。"
+        },
+        {
+          "text": "Knowing not",
+          "correct": false,
+          "explain": "not は分詞の後ろではなく前に置きます。"
+        },
+        {
+          "text": "Don't know",
+          "correct": false,
+          "explain": "命令文の形になってしまい、分詞構文になりません。"
+        },
+        {
+          "text": "Not known",
+          "correct": false,
+          "explain": "過去分詞では受け身の意味になり、主語 he と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-34",
+      "sentence": "___ the assignment, she finally allowed herself a short break.",
+      "ja": "課題を終えてから、彼女はようやく短い休憩を取った。",
+      "point": "完了分詞構文 Having + 過去分詞（主節より前に起きたこと）",
+      "choices": [
+        {
+          "text": "Having finished",
+          "correct": true,
+          "explain": "主節より前に起きたことは、完了分詞構文 Having + 過去分詞で表します。"
+        },
+        {
+          "text": "Finishing",
+          "correct": false,
+          "explain": "単純形では同時のことになり、前後関係がはっきりしません。"
+        },
+        {
+          "text": "Finished",
+          "correct": false,
+          "explain": "過去分詞だと受け身になり、主語 she と合いません。"
+        },
+        {
+          "text": "To finish",
+          "correct": false,
+          "explain": "不定詞では目的の意味になってしまいます。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-35",
+      "sentence": "___ permitting, the ceremony will be held in the courtyard.",
+      "ja": "天気が許せば、式典は中庭で行われます。",
+      "point": "独立分詞構文：分詞の意味上の主語を前に置く",
+      "choices": [
+        {
+          "text": "Weather",
+          "correct": true,
+          "explain": "分詞の意味上の主語が主節と異なるときは、その主語を分詞の前に置きます。"
+        },
+        {
+          "text": "The weather is",
+          "correct": false,
+          "explain": "動詞を入れると節になり、分詞構文の形が崩れます。"
+        },
+        {
+          "text": "If weather",
+          "correct": false,
+          "explain": "接続詞を付けると節が必要で、permitting だけでは成り立ちません。"
+        },
+        {
+          "text": "Weather to",
+          "correct": false,
+          "explain": "to permitting という形は存在しません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-36",
+      "sentence": "___ in plain language, the manual is easy even for beginners.",
+      "ja": "平易な言葉で書かれているので、そのマニュアルは初心者にも分かりやすい。",
+      "point": "Being の省略：受け身の分詞構文は過去分詞だけで始められる",
+      "choices": [
+        {
+          "text": "Written",
+          "correct": true,
+          "explain": "Being written の Being はふつう省略され、過去分詞だけで始めます。"
+        },
+        {
+          "text": "Writing",
+          "correct": false,
+          "explain": "現在分詞ではマニュアルが「書く」ことになってしまいます。"
+        },
+        {
+          "text": "To write",
+          "correct": false,
+          "explain": "不定詞では目的の意味になります。"
+        },
+        {
+          "text": "Having written",
+          "correct": false,
+          "explain": "能動の完了形なので、主語 the manual と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-37",
+      "sentence": "He sat on the bench with his arms ___.",
+      "ja": "彼は腕を組んでベンチに座っていた。",
+      "point": "with + 目的語 + 分詞（付帯状況）：受け身の関係なら過去分詞",
+      "choices": [
+        {
+          "text": "folded",
+          "correct": true,
+          "explain": "arms は「組まれる」側なので過去分詞を使います。"
+        },
+        {
+          "text": "folding",
+          "correct": false,
+          "explain": "現在分詞では腕が何かを組んでいることになります。"
+        },
+        {
+          "text": "to fold",
+          "correct": false,
+          "explain": "この付帯状況の構文で不定詞は使いません。"
+        },
+        {
+          "text": "fold",
+          "correct": false,
+          "explain": "原形はこの位置に置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-38",
+      "sentence": "___ the door, I noticed that the lights were still on.",
+      "ja": "ドアを開けたとき、明かりがまだついていることに気づいた。",
+      "point": "分詞構文の意味上の主語は主節の主語と一致させる",
+      "choices": [
+        {
+          "text": "Opening",
+          "correct": true,
+          "explain": "ドアを開けたのは主節の主語 I なので、現在分詞で始めます。"
+        },
+        {
+          "text": "Opened",
+          "correct": false,
+          "explain": "過去分詞では「私が開けられた」という意味になってしまいます。"
+        },
+        {
+          "text": "Being opened",
+          "correct": false,
+          "explain": "受け身になり、主語 I と合いません。"
+        },
+        {
+          "text": "To be opened",
+          "correct": false,
+          "explain": "この位置で受け身の不定詞は意味をなしません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-39",
+      "sentence": "This is the report ___ the committee based its decision.",
+      "ja": "これが、委員会が判断の根拠とした報告書です。",
+      "point": "前置詞 + 関係代名詞（base A on B の on が前に出る）",
+      "choices": [
+        {
+          "text": "on which",
+          "correct": true,
+          "explain": "base its decision on the report の on が関係代名詞の前に出た形です。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "on が欠けているため、base 〜 on の形が完成しません。"
+        },
+        {
+          "text": "in which",
+          "correct": false,
+          "explain": "base は on と組になる動詞なので in は使えません。"
+        },
+        {
+          "text": "that on",
+          "correct": false,
+          "explain": "that の前に前置詞は置けず、語順も誤りです。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-40",
+      "sentence": "He arrived two hours late, ___ annoyed everyone at the meeting.",
+      "ja": "彼は2時間遅れて到着し、そのことが出席者全員をいらだたせた。",
+      "point": "非制限用法の which：前の文全体を先行詞にできる",
+      "choices": [
+        {
+          "text": "which",
+          "correct": true,
+          "explain": "コンマの後ろの which は、前の文の内容全体を受けることができます。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that は非制限用法では使えません。"
+        },
+        {
+          "text": "what",
+          "correct": false,
+          "explain": "what は先行詞を含む関係代名詞なので、この位置には置けません。"
+        },
+        {
+          "text": "it",
+          "correct": false,
+          "explain": "it では2つの文をつなぐ接続詞が足りません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-41",
+      "sentence": "We visited the village, ___ my grandfather spent his childhood.",
+      "ja": "私たちはその村を訪れたが、そこは祖父が子ども時代を過ごした場所だ。",
+      "point": "関係副詞 where の非制限用法（場所を補足説明する）",
+      "choices": [
+        {
+          "text": "where",
+          "correct": true,
+          "explain": "後ろが完全な文で、場所を補足説明しているので関係副詞 where を使います。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "which を使うなら in which のように前置詞が必要です。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "非制限用法で that は使えません。"
+        },
+        {
+          "text": "when",
+          "correct": false,
+          "explain": "when は時を表す先行詞に使います。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-42",
+      "sentence": "___ finishes the task first will be given a bonus.",
+      "ja": "その仕事を最初に終えた者には誰でも賞与が与えられる。",
+      "point": "複合関係代名詞 whoever（〜する人は誰でも）",
+      "choices": [
+        {
+          "text": "Whoever",
+          "correct": true,
+          "explain": "whoever は「〜する人は誰でも」という意味で、それ自体が主語になります。"
+        },
+        {
+          "text": "Whomever",
+          "correct": false,
+          "explain": "後ろの動詞 finishes の主語になるので、目的格ではなく主格を使います。"
+        },
+        {
+          "text": "Whichever",
+          "correct": false,
+          "explain": "whichever は限られた選択肢から選ぶときに使います。"
+        },
+        {
+          "text": "Who",
+          "correct": false,
+          "explain": "who だけでは「〜する人は誰でも」という意味になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-43",
+      "sentence": "___ the outcome may be, we must accept it.",
+      "ja": "結果がどうであれ、私たちはそれを受け入れなければならない。",
+      "point": "複合関係代名詞 whatever の譲歩用法（何が〜であろうとも）",
+      "choices": [
+        {
+          "text": "Whatever",
+          "correct": true,
+          "explain": "Whatever 〜 may be で「何が〜であろうとも」という譲歩を表します。"
+        },
+        {
+          "text": "However",
+          "correct": false,
+          "explain": "However の後ろには形容詞や副詞が必要です。"
+        },
+        {
+          "text": "Whenever",
+          "correct": false,
+          "explain": "whenever は時を表し、この文には合いません。"
+        },
+        {
+          "text": "Whoever",
+          "correct": false,
+          "explain": "whoever は人を指すので the outcome には使えません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-44",
+      "sentence": "The survey measured the ___ to which employees trust management.",
+      "ja": "その調査は、従業員が経営陣をどの程度信頼しているかを測定した。",
+      "point": "the extent to which 〜（〜する程度）",
+      "choices": [
+        {
+          "text": "extent",
+          "correct": true,
+          "explain": "the extent to which 〜 で「〜する程度」という意味のまとまりになります。"
+        },
+        {
+          "text": "degree of",
+          "correct": false,
+          "explain": "of を付けると to which と続かなくなります。"
+        },
+        {
+          "text": "way",
+          "correct": false,
+          "explain": "the way to which という言い方はしません。"
+        },
+        {
+          "text": "level",
+          "correct": false,
+          "explain": "level はふつう to which を続けてこの意味では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-45",
+      "sentence": "___ struck me most was the honesty of his answer.",
+      "ja": "私が最も心を打たれたのは、彼の答えの率直さだった。",
+      "point": "関係代名詞 what（〜するもの・こと）：先行詞を含む",
+      "choices": [
+        {
+          "text": "What",
+          "correct": true,
+          "explain": "what は先行詞を含み、「〜すること」という名詞のまとまりを作ります。"
+        },
+        {
+          "text": "That",
+          "correct": false,
+          "explain": "that には先行詞が必要です。"
+        },
+        {
+          "text": "Which",
+          "correct": false,
+          "explain": "which にも先行詞が必要です。"
+        },
+        {
+          "text": "It",
+          "correct": false,
+          "explain": "It struck me most では後ろの was とつながりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-46",
+      "sentence": "This is ___ is called a win-win situation.",
+      "ja": "これがいわゆるウィンウィンの状況というものだ。",
+      "point": "what is called 〜（いわゆる〜）",
+      "choices": [
+        {
+          "text": "what",
+          "correct": true,
+          "explain": "what is called 〜 で「いわゆる〜」という決まった言い方になります。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that では先行詞が必要になり、この形にはなりません。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "which にも先行詞が必要です。"
+        },
+        {
+          "text": "it",
+          "correct": false,
+          "explain": "it を入れると文が二つに割れてしまいます。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-47",
+      "sentence": "The lights are off, so she ___ home already.",
+      "ja": "明かりが消えているので、彼女はもう帰宅したに違いない。",
+      "point": "must have + 過去分詞（過去のことについての確信のある推量）",
+      "choices": [
+        {
+          "text": "must have gone",
+          "correct": true,
+          "explain": "過去のことを「〜したに違いない」と推量するときは must have + 過去分詞を使います。"
+        },
+        {
+          "text": "must go",
+          "correct": false,
+          "explain": "現在の義務や推量になり、already と合いません。"
+        },
+        {
+          "text": "had to go",
+          "correct": false,
+          "explain": "had to は「〜しなければならなかった」という義務の意味です。"
+        },
+        {
+          "text": "must be gone to",
+          "correct": false,
+          "explain": "go は自動詞なので to は不要で、形も誤りです。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-48",
+      "sentence": "He ___ the email; he was in a meeting with no signal all morning.",
+      "ja": "彼がそのメールを読んだはずがない。午前中ずっと電波の届かない会議にいたのだから。",
+      "point": "cannot have + 過去分詞（〜したはずがない）",
+      "choices": [
+        {
+          "text": "cannot have read",
+          "correct": true,
+          "explain": "過去のことを強く否定して推量するときは cannot have + 過去分詞を使います。"
+        },
+        {
+          "text": "must not have read",
+          "correct": false,
+          "explain": "must not は禁止を表し、「〜したはずがない」という推量にはなりません。"
+        },
+        {
+          "text": "cannot read",
+          "correct": false,
+          "explain": "現在のことになり、過去の状況と合いません。"
+        },
+        {
+          "text": "should not have read",
+          "correct": false,
+          "explain": "「読むべきではなかった」という非難の意味になります。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-49",
+      "sentence": "I ___ the deadline more seriously; now everything is delayed.",
+      "ja": "締め切りをもっと真剣に受け止めるべきだった。今ではすべてが遅れている。",
+      "point": "should have + 過去分詞（〜すべきだったのにしなかった）",
+      "choices": [
+        {
+          "text": "should have taken",
+          "correct": true,
+          "explain": "しなかったことへの後悔は should have + 過去分詞で表します。"
+        },
+        {
+          "text": "should take",
+          "correct": false,
+          "explain": "現在の助言になり、すでに起きたことへの後悔になりません。"
+        },
+        {
+          "text": "must have taken",
+          "correct": false,
+          "explain": "「〜したに違いない」という推量になってしまいます。"
+        },
+        {
+          "text": "would have taken",
+          "correct": false,
+          "explain": "仮定法の帰結になり、後悔の意味にはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-50",
+      "sentence": "You ___ so early; the train was delayed by an hour anyway.",
+      "ja": "そんなに早く出発する必要はなかったのに。どのみち電車は1時間遅れたのだから。",
+      "point": "need not have + 過去分詞（〜する必要はなかったのに実際はした）",
+      "choices": [
+        {
+          "text": "need not have left",
+          "correct": true,
+          "explain": "実際にはしたが不要だったことは need not have + 過去分詞で表します。"
+        },
+        {
+          "text": "did not need to leave",
+          "correct": false,
+          "explain": "これは「必要がなかったので実際にしなかった」という意味になります。"
+        },
+        {
+          "text": "must not have left",
+          "correct": false,
+          "explain": "「出発しなかったに違いない」という別の意味です。"
+        },
+        {
+          "text": "need not leave",
+          "correct": false,
+          "explain": "現在の話になり、過去の状況と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-51",
+      "sentence": "Considering his experience, he ___ be right about this.",
+      "ja": "彼の経験を考えれば、この件について彼が正しい可能性は十分にある。",
+      "point": "may well + 原形（十分に〜しそうだ）",
+      "choices": [
+        {
+          "text": "may well",
+          "correct": true,
+          "explain": "may well は「十分に〜でありうる」と可能性の高さを表します。"
+        },
+        {
+          "text": "may as well",
+          "correct": false,
+          "explain": "may as well は「〜したほうがましだ」という別の意味です。"
+        },
+        {
+          "text": "might well have",
+          "correct": false,
+          "explain": "後ろが be という原形なので have は不要です。"
+        },
+        {
+          "text": "can well",
+          "correct": false,
+          "explain": "can well はこの意味の決まった言い方ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-52",
+      "sentence": "The last bus has gone, so we ___ take a taxi.",
+      "ja": "終バスが行ってしまったので、タクシーに乗るしかなさそうだ。",
+      "point": "may as well + 原形（ほかに手がないので〜したほうがよい）",
+      "choices": [
+        {
+          "text": "may as well",
+          "correct": true,
+          "explain": "may as well は「どうせなら〜したほうがよい」という消極的な選択を表します。"
+        },
+        {
+          "text": "may well",
+          "correct": false,
+          "explain": "may well は可能性の高さを表し、提案にはなりません。"
+        },
+        {
+          "text": "had better to",
+          "correct": false,
+          "explain": "had better の後ろに to は付けません。"
+        },
+        {
+          "text": "would rather to",
+          "correct": false,
+          "explain": "would rather の後ろにも to は付けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-53",
+      "sentence": "When we were children, we ___ spend entire afternoons by the river.",
+      "ja": "子どものころ、私たちは川辺で午後をまるごと過ごしたものだった。",
+      "point": "would（過去に繰り返した動作）：used to との違い",
+      "choices": [
+        {
+          "text": "would",
+          "correct": true,
+          "explain": "would は過去に繰り返した動作を回想するときに使えます。"
+        },
+        {
+          "text": "would be",
+          "correct": false,
+          "explain": "後ろに原形 spend が続くので be は不要です。"
+        },
+        {
+          "text": "used",
+          "correct": false,
+          "explain": "used の後ろには to が必要です。"
+        },
+        {
+          "text": "were used to",
+          "correct": false,
+          "explain": "be used to は「〜に慣れている」で、後ろは動名詞です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-54",
+      "sentence": "After ten years abroad, he is now used to ___ in three languages every day.",
+      "ja": "10年の海外生活を経て、彼は今では毎日3か国語で働くことに慣れている。",
+      "point": "be used to + 動名詞（〜することに慣れている）",
+      "choices": [
+        {
+          "text": "working",
+          "correct": true,
+          "explain": "be used to の to は前置詞なので、後ろは動名詞にします。"
+        },
+        {
+          "text": "work",
+          "correct": false,
+          "explain": "used to + 原形は「以前は〜した」という別の意味になります。"
+        },
+        {
+          "text": "be working",
+          "correct": false,
+          "explain": "前置詞の後ろに原形は置けません。"
+        },
+        {
+          "text": "have worked",
+          "correct": false,
+          "explain": "前置詞の後ろに現在完了は続きません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-55",
+      "sentence": "You ___ be too careful when handling personal data.",
+      "ja": "個人情報を扱うときは、いくら注意してもしすぎることはない。",
+      "point": "cannot + 動詞 + too 〜（いくら〜してもしすぎではない）",
+      "choices": [
+        {
+          "text": "cannot",
+          "correct": true,
+          "explain": "cannot 〜 too ... で「いくら…しても十分ではない」という意味になります。"
+        },
+        {
+          "text": "should not",
+          "correct": false,
+          "explain": "「注意しすぎるべきではない」という逆の意味になります。"
+        },
+        {
+          "text": "must not",
+          "correct": false,
+          "explain": "禁止の意味になり、文意が反対になります。"
+        },
+        {
+          "text": "need not",
+          "correct": false,
+          "explain": "「注意する必要はない」となり、意味が反対です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-56",
+      "sentence": "By the end of next month, she ___ here for twenty years.",
+      "ja": "来月末で、彼女はここに20年勤めたことになる。",
+      "point": "未来完了 will have + 過去分詞（未来のある時点までの継続）",
+      "choices": [
+        {
+          "text": "will have worked",
+          "correct": true,
+          "explain": "未来のある時点までの継続は未来完了で表します。"
+        },
+        {
+          "text": "will work",
+          "correct": false,
+          "explain": "単なる未来形では「20年間続けてきた」という継続を表せません。"
+        },
+        {
+          "text": "has worked",
+          "correct": false,
+          "explain": "現在完了では未来の時点を基準にできません。"
+        },
+        {
+          "text": "had worked",
+          "correct": false,
+          "explain": "過去完了は過去の時点を基準にする形です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-57",
+      "sentence": "She ___ for three hours by the time the doctor finally called her name.",
+      "ja": "医師がようやく名前を呼んだときには、彼女は3時間待ち続けていた。",
+      "point": "過去完了進行形 had been + ing（過去のある時点までの動作の継続）",
+      "choices": [
+        {
+          "text": "had been waiting",
+          "correct": true,
+          "explain": "過去のある時点まで続いていた動作は過去完了進行形で表します。"
+        },
+        {
+          "text": "has been waiting",
+          "correct": false,
+          "explain": "現在完了進行形は現在を基準にする形です。"
+        },
+        {
+          "text": "was waiting",
+          "correct": false,
+          "explain": "過去進行形では「3時間続いていた」という継続が表せません。"
+        },
+        {
+          "text": "waited",
+          "correct": false,
+          "explain": "単純過去では基準時点までの継続が示せません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-58",
+      "sentence": "By the time the results ___, we will already have left the country.",
+      "ja": "結果が発表されるころには、私たちはすでに出国しているだろう。",
+      "point": "時を表す副詞節では、未来のことでも現在形を使う",
+      "choices": [
+        {
+          "text": "are announced",
+          "correct": true,
+          "explain": "By the time が導く副詞節では、未来のことでも現在形で表します。"
+        },
+        {
+          "text": "will be announced",
+          "correct": false,
+          "explain": "時を表す副詞節の中では will を使いません。"
+        },
+        {
+          "text": "will announce",
+          "correct": false,
+          "explain": "結果は発表される側なので受け身が必要で、will も不要です。"
+        },
+        {
+          "text": "are announcing",
+          "correct": false,
+          "explain": "進行形では受け身の意味になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-59",
+      "sentence": "He looks exhausted. He ___ on that proposal since early this morning.",
+      "ja": "彼は疲れきって見える。今朝早くからずっとその企画書に取り組んでいるのだ。",
+      "point": "現在完了進行形（今も続いている動作の継続を強調する）",
+      "choices": [
+        {
+          "text": "has been working",
+          "correct": true,
+          "explain": "今まで続いている動作を強調するときは現在完了進行形を使います。"
+        },
+        {
+          "text": "works",
+          "correct": false,
+          "explain": "現在形では since 〜 と合いません。"
+        },
+        {
+          "text": "is working",
+          "correct": false,
+          "explain": "現在進行形だけでは「今朝から続いている」ことを表せません。"
+        },
+        {
+          "text": "had been working",
+          "correct": false,
+          "explain": "過去完了進行形は過去の時点を基準にする形です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-60",
+      "sentence": "The renovation cost ___ than we had originally estimated.",
+      "ja": "改修費用は当初の見積もりの2倍かかった。",
+      "point": "倍数表現：twice as much as ではなく、比較級を使う形",
+      "choices": [
+        {
+          "text": "twice as much",
+          "correct": true,
+          "explain": "倍数は twice as much as 〜 の形で表します。than の前の as much がその一部です。"
+        },
+        {
+          "text": "twice more",
+          "correct": false,
+          "explain": "twice more という倍数の言い方はしません。"
+        },
+        {
+          "text": "two times much",
+          "correct": false,
+          "explain": "as が抜けており、形が成り立ちません。"
+        },
+        {
+          "text": "double as much",
+          "correct": false,
+          "explain": "double は動詞や名詞で使い、この形では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-61",
+      "sentence": "The renovation took ___ three days, far less than we feared.",
+      "ja": "改修はわずか3日しかかからなかった。心配していたよりずっと短い。",
+      "point": "no more than（わずか〜しか：少なさを強調）",
+      "choices": [
+        {
+          "text": "no more than",
+          "correct": true,
+          "explain": "no more than は「たった〜だけ」と少なさを強調します。"
+        },
+        {
+          "text": "not more than",
+          "correct": false,
+          "explain": "not more than は「多くても〜」と上限を示す表現です。"
+        },
+        {
+          "text": "no less than",
+          "correct": false,
+          "explain": "no less than は「〜もの多く」と多さを強調します。"
+        },
+        {
+          "text": "not less than",
+          "correct": false,
+          "explain": "not less than は「少なくとも〜」という意味です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-62",
+      "sentence": "___ five hundred people attended the lecture, far beyond expectations.",
+      "ja": "500人もの人がその講演に参加した。予想をはるかに超える数だ。",
+      "point": "no less than（〜もの多く：多さを強調）",
+      "choices": [
+        {
+          "text": "No less than",
+          "correct": true,
+          "explain": "no less than は「〜もの多く」と数の多さを強調します。"
+        },
+        {
+          "text": "No more than",
+          "correct": false,
+          "explain": "「たった500人」という少なさの意味になり、後半と矛盾します。"
+        },
+        {
+          "text": "Not less than",
+          "correct": false,
+          "explain": "「少なくとも」という事務的な下限の表現で、驚きを表しません。"
+        },
+        {
+          "text": "Less than",
+          "correct": false,
+          "explain": "「500人未満」となり、文意と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-63",
+      "sentence": "He is ___ person to betray a friend.",
+      "ja": "彼は友人を裏切るような人間では決してない。",
+      "point": "the last person to do（最も〜しそうにない人）",
+      "choices": [
+        {
+          "text": "the last",
+          "correct": true,
+          "explain": "the last + 名詞 + to do で「最も〜しそうにない」という強い否定を表します。"
+        },
+        {
+          "text": "the least",
+          "correct": false,
+          "explain": "the least person という言い方はしません。"
+        },
+        {
+          "text": "no",
+          "correct": false,
+          "explain": "no person to betray ではこの意味になりません。"
+        },
+        {
+          "text": "the worst",
+          "correct": false,
+          "explain": "「最悪の人」という別の意味になります。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-64",
+      "sentence": "There is ___ so refreshing as a cold shower after a long run.",
+      "ja": "長く走ったあとの冷たいシャワーほど爽快なものはない。",
+      "point": "nothing so ~ as ...（…ほど〜なものはない）",
+      "choices": [
+        {
+          "text": "nothing",
+          "correct": true,
+          "explain": "There is nothing so 〜 as ... で最上級に近い意味を表します。"
+        },
+        {
+          "text": "anything",
+          "correct": false,
+          "explain": "肯定文の主語に anything を使うとこの意味になりません。"
+        },
+        {
+          "text": "something",
+          "correct": false,
+          "explain": "something ではこの否定による最上級表現になりません。"
+        },
+        {
+          "text": "everything",
+          "correct": false,
+          "explain": "everything では意味が反対になります。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-65",
+      "sentence": "I respect her ___ because she never boasts about her achievements.",
+      "ja": "彼女が決して自分の業績を自慢しないからこそ、なおさら尊敬している。",
+      "point": "all the more because 〜（〜だからこそなおさら）",
+      "choices": [
+        {
+          "text": "all the more",
+          "correct": true,
+          "explain": "all the + 比較級 + because 〜 で「〜だからなおさら」という意味になります。"
+        },
+        {
+          "text": "much more",
+          "correct": false,
+          "explain": "much more ではこの決まった言い方になりません。"
+        },
+        {
+          "text": "the most",
+          "correct": false,
+          "explain": "最上級ではこの構文を作れません。"
+        },
+        {
+          "text": "any more",
+          "correct": false,
+          "explain": "any more は否定文で「もはや〜ない」の形で使います。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-66",
+      "sentence": "As a negotiator, she is as skilled ___ in the industry.",
+      "ja": "交渉人として、彼女は業界の誰にも劣らず腕が立つ。",
+      "point": "as ~ as any + 名詞（誰にも劣らず〜だ）",
+      "choices": [
+        {
+          "text": "as anyone",
+          "correct": true,
+          "explain": "as 〜 as anyone で「誰にも劣らず〜だ」という意味になります。"
+        },
+        {
+          "text": "than anyone",
+          "correct": false,
+          "explain": "as 〜 as の形なので than は使えません。"
+        },
+        {
+          "text": "as someone",
+          "correct": false,
+          "explain": "someone ではこの決まった言い方になりません。"
+        },
+        {
+          "text": "as no one",
+          "correct": false,
+          "explain": "as no one という形は使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-67",
+      "sentence": "The new engine is not so much powerful ___ efficient.",
+      "ja": "その新型エンジンは強力というより、むしろ効率がよい。",
+      "point": "not so much A as B（AというよりむしろB）",
+      "choices": [
+        {
+          "text": "as",
+          "correct": true,
+          "explain": "not so much A as B で「AというよりむしろB」という意味になります。"
+        },
+        {
+          "text": "than",
+          "correct": false,
+          "explain": "この構文では than ではなく as を使います。"
+        },
+        {
+          "text": "but",
+          "correct": false,
+          "explain": "but ではこの決まった形になりません。"
+        },
+        {
+          "text": "or",
+          "correct": false,
+          "explain": "or では対比の意味が出ません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-68",
+      "sentence": "He chose to resign ___ compromise his principles.",
+      "ja": "彼は自分の信念を曲げるくらいなら辞職することを選んだ。",
+      "point": "rather than + 動詞の原形（〜するよりむしろ）",
+      "choices": [
+        {
+          "text": "rather than",
+          "correct": true,
+          "explain": "rather than の後ろは、前と同じ形（ここでは原形）をそろえます。"
+        },
+        {
+          "text": "instead of",
+          "correct": false,
+          "explain": "instead of の後ろは動名詞にする必要があります。"
+        },
+        {
+          "text": "other than",
+          "correct": false,
+          "explain": "other than は「〜以外に」という意味です。"
+        },
+        {
+          "text": "more than",
+          "correct": false,
+          "explain": "more than ではこの選択の意味になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-69",
+      "sentence": "He left the office early ___ catch the last express train.",
+      "ja": "彼は最終の特急に間に合うよう、早めに退社した。",
+      "point": "so as to + 原形（〜するために）",
+      "choices": [
+        {
+          "text": "so as to",
+          "correct": true,
+          "explain": "so as to + 原形で目的を表します。"
+        },
+        {
+          "text": "so that to",
+          "correct": false,
+          "explain": "so that の後ろには節が必要で、to は続きません。"
+        },
+        {
+          "text": "in order for",
+          "correct": false,
+          "explain": "in order for は後ろに意味上の主語 + to が必要です。"
+        },
+        {
+          "text": "for to",
+          "correct": false,
+          "explain": "for to という形は英語にはありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-70",
+      "sentence": "Speak a little louder ___ everyone at the back can hear you.",
+      "ja": "後ろの人みんなに聞こえるよう、もう少し大きな声で話してください。",
+      "point": "so that + 主語 + can（〜できるように）",
+      "choices": [
+        {
+          "text": "so that",
+          "correct": true,
+          "explain": "so that + 主語 + can 〜 で目的を表します。"
+        },
+        {
+          "text": "so as",
+          "correct": false,
+          "explain": "so as の後ろには to + 原形が必要です。"
+        },
+        {
+          "text": "in order to",
+          "correct": false,
+          "explain": "後ろに主語のある節が続くので、in order that の形にします。"
+        },
+        {
+          "text": "such that",
+          "correct": false,
+          "explain": "such that はこの目的の意味では使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-71",
+      "sentence": "It goes ___ saying that safety comes before profit.",
+      "ja": "安全が利益に優先することは言うまでもない。",
+      "point": "It goes without saying that 〜（〜は言うまでもない）",
+      "choices": [
+        {
+          "text": "without",
+          "correct": true,
+          "explain": "It goes without saying that 〜 という決まった言い方です。"
+        },
+        {
+          "text": "with",
+          "correct": false,
+          "explain": "with ではこの慣用表現になりません。"
+        },
+        {
+          "text": "beyond",
+          "correct": false,
+          "explain": "beyond saying という言い方はこの意味では使いません。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for saying ではこの慣用表現になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-72",
+      "sentence": "There is no ___ what the committee will decide.",
+      "ja": "委員会が何を決定するかは知りようがない。",
+      "point": "There is no + 動名詞（〜することはできない）",
+      "choices": [
+        {
+          "text": "knowing",
+          "correct": true,
+          "explain": "There is no + 動名詞で「〜することはできない」という意味になります。"
+        },
+        {
+          "text": "know",
+          "correct": false,
+          "explain": "no の後ろには動名詞が必要です。"
+        },
+        {
+          "text": "to know",
+          "correct": false,
+          "explain": "この構文で不定詞は使いません。"
+        },
+        {
+          "text": "known",
+          "correct": false,
+          "explain": "過去分詞ではこの構文になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-73",
+      "sentence": "It was not until he lost his job ___ he realized how much it had meant to him.",
+      "ja": "職を失って初めて、彼はそれが自分にとってどれほど大切だったかに気づいた。",
+      "point": "It is not until ... that 〜（…して初めて〜する）",
+      "choices": [
+        {
+          "text": "that",
+          "correct": true,
+          "explain": "It is not until ... that 〜 は強調構文の形をとります。"
+        },
+        {
+          "text": "when",
+          "correct": false,
+          "explain": "この強調構文では when ではなく that を使います。"
+        },
+        {
+          "text": "then",
+          "correct": false,
+          "explain": "then では文をつなげません。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "which を使うと関係詞節になり、この構文になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-74",
+      "sentence": "The new regulations made ___ difficult for small firms to compete.",
+      "ja": "新しい規制により、小規模企業が競争することが難しくなった。",
+      "point": "形式目的語 it（make it + 形容詞 + to do）",
+      "choices": [
+        {
+          "text": "it",
+          "correct": true,
+          "explain": "to 不定詞を後ろに回すとき、その位置に形式目的語 it を置きます。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that は形式目的語にはなりません。"
+        },
+        {
+          "text": "them",
+          "correct": false,
+          "explain": "them では後ろの to 不定詞を受けられません。"
+        },
+        {
+          "text": "this",
+          "correct": false,
+          "explain": "this はこの位置で形式目的語としては使いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-75",
+      "sentence": "The fact ___ she apologized publicly surprised everyone.",
+      "ja": "彼女が公の場で謝罪したという事実は、皆を驚かせた。",
+      "point": "同格の that（the fact that 〜：〜という事実）",
+      "choices": [
+        {
+          "text": "that",
+          "correct": true,
+          "explain": "the fact の内容を説明する同格の that です。後ろは完全な文になります。"
+        },
+        {
+          "text": "which",
+          "correct": false,
+          "explain": "which は関係代名詞なので、後ろの文に欠けた要素が必要です。"
+        },
+        {
+          "text": "what",
+          "correct": false,
+          "explain": "what は先行詞を含むため the fact の後ろには置けません。"
+        },
+        {
+          "text": "of which",
+          "correct": false,
+          "explain": "of which ではこの同格の意味になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-76",
+      "sentence": "The professor ___ I studied has just published a new book.",
+      "ja": "私が師事した教授が、ちょうど新著を出版した。",
+      "point": "前置詞 + whom（study under 〜 の under が前に出る）",
+      "choices": [
+        {
+          "text": "under whom",
+          "correct": true,
+          "explain": "study under 〜（〜のもとで学ぶ）の under が関係代名詞の前に出た形です。"
+        },
+        {
+          "text": "whom",
+          "correct": false,
+          "explain": "前置詞 under が欠けており、意味が完成しません。"
+        },
+        {
+          "text": "under who",
+          "correct": false,
+          "explain": "前置詞の後ろは目的格 whom にします。"
+        },
+        {
+          "text": "under that",
+          "correct": false,
+          "explain": "that の前に前置詞は置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-77",
+      "sentence": "Please revise the draft, ___ necessary, before Friday.",
+      "ja": "必要であれば、金曜までに草稿を修正してください。",
+      "point": "副詞節の省略（if it is necessary → if necessary）",
+      "choices": [
+        {
+          "text": "if",
+          "correct": true,
+          "explain": "if it is necessary の主語と be動詞が省略され、if necessary となります。"
+        },
+        {
+          "text": "as",
+          "correct": false,
+          "explain": "as necessary も使えますが、ここでは条件を示す if が自然です。"
+        },
+        {
+          "text": "for",
+          "correct": false,
+          "explain": "for necessary という言い方はしません。"
+        },
+        {
+          "text": "in",
+          "correct": false,
+          "explain": "in necessary という形はありません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-78",
+      "sentence": "Young ___ he is, he already manages a team of thirty.",
+      "ja": "彼は若いけれども、すでに30人のチームを率いている。",
+      "point": "譲歩の as（形容詞 + as + 主語 + 動詞：〜ではあるが）",
+      "choices": [
+        {
+          "text": "as",
+          "correct": true,
+          "explain": "形容詞を文頭に出して as を続けると「〜ではあるが」という譲歩になります。"
+        },
+        {
+          "text": "though he",
+          "correct": false,
+          "explain": "主語が重複してしまいます。"
+        },
+        {
+          "text": "that",
+          "correct": false,
+          "explain": "that ではこの譲歩構文になりません。"
+        },
+        {
+          "text": "so",
+          "correct": false,
+          "explain": "so ではこの語順の譲歩表現は作れません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-79",
+      "sentence": "___ hard the task may seem, we cannot give up now.",
+      "ja": "その仕事がどれほど難しく思えても、今あきらめるわけにはいかない。",
+      "point": "No matter how + 形容詞（どれほど〜でも）",
+      "choices": [
+        {
+          "text": "No matter how",
+          "correct": true,
+          "explain": "No matter how + 形容詞 + 主語 + 動詞で「どれほど〜でも」という譲歩を表します。"
+        },
+        {
+          "text": "No matter what",
+          "correct": false,
+          "explain": "what の後ろに形容詞 hard は続けられません。"
+        },
+        {
+          "text": "Whatever",
+          "correct": false,
+          "explain": "whatever も後ろに形容詞単独は取りません。"
+        },
+        {
+          "text": "However much",
+          "correct": false,
+          "explain": "much を入れると hard と重なり、形が崩れます。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-80",
+      "sentence": "The policy applies to all staff ___ of whether they work remotely.",
+      "ja": "その方針は、在宅勤務かどうかにかかわらず全職員に適用される。",
+      "point": "regardless of whether 〜（〜かどうかにかかわらず）",
+      "choices": [
+        {
+          "text": "regardless",
+          "correct": true,
+          "explain": "regardless of whether 〜 で「〜かどうかにかかわらず」という意味になります。"
+        },
+        {
+          "text": "instead",
+          "correct": false,
+          "explain": "instead of whether という言い方はしません。"
+        },
+        {
+          "text": "because",
+          "correct": false,
+          "explain": "because of whether という形は使いません。"
+        },
+        {
+          "text": "in spite",
+          "correct": false,
+          "explain": "in spite of の後ろに whether 節は続けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-81",
+      "sentence": "You may use the meeting room, ___ that you return the key.",
+      "ja": "鍵を返してくれるのであれば、会議室を使ってかまいません。",
+      "point": "provided that 〜（〜という条件であれば）",
+      "choices": [
+        {
+          "text": "provided",
+          "correct": true,
+          "explain": "provided that 〜 は「〜という条件であれば」という条件を表します。"
+        },
+        {
+          "text": "supposing",
+          "correct": false,
+          "explain": "supposing は仮の話を持ち出すときに使い、許可の条件には合いません。"
+        },
+        {
+          "text": "granted",
+          "correct": false,
+          "explain": "granted that は「〜は認めるとしても」という譲歩の表現です。"
+        },
+        {
+          "text": "regarding",
+          "correct": false,
+          "explain": "regarding は「〜に関して」で、条件を表しません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-82",
+      "sentence": "Take an umbrella ___ it rains this afternoon.",
+      "ja": "午後に雨が降るといけないので、傘を持っていきなさい。",
+      "point": "in case 〜（〜する場合に備えて）",
+      "choices": [
+        {
+          "text": "in case",
+          "correct": true,
+          "explain": "in case 〜 は「〜するといけないので」と備えを表します。"
+        },
+        {
+          "text": "in case of",
+          "correct": false,
+          "explain": "in case of の後ろには名詞が来ます。"
+        },
+        {
+          "text": "unless",
+          "correct": false,
+          "explain": "unless では「雨が降らない限り」となり、意味が反対です。"
+        },
+        {
+          "text": "even if",
+          "correct": false,
+          "explain": "even if は譲歩で、備えの意味にはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-83",
+      "sentence": "___ that he had only two weeks, the result is remarkable.",
+      "ja": "彼に2週間しかなかったことを考えれば、その成果は見事だ。",
+      "point": "Given that 〜（〜を考慮すると）",
+      "choices": [
+        {
+          "text": "Given",
+          "correct": true,
+          "explain": "Given that 〜 は「〜を考慮すると」という前提を示します。"
+        },
+        {
+          "text": "Giving",
+          "correct": false,
+          "explain": "現在分詞ではこの慣用表現になりません。"
+        },
+        {
+          "text": "Taken",
+          "correct": false,
+          "explain": "Taken that という言い方はありません。"
+        },
+        {
+          "text": "Seeing of",
+          "correct": false,
+          "explain": "seeing that なら使えますが、of は不要で形が誤りです。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-84",
+      "sentence": "The flight was canceled ___ the heavy snow.",
+      "ja": "大雪のため、その便は欠航となった。",
+      "point": "owing to / due to（〜のために）：後ろは名詞",
+      "choices": [
+        {
+          "text": "owing to",
+          "correct": true,
+          "explain": "owing to は原因を表す前置詞句で、後ろに名詞が続きます。"
+        },
+        {
+          "text": "owing",
+          "correct": false,
+          "explain": "to が欠けており、前置詞句として成り立ちません。"
+        },
+        {
+          "text": "because",
+          "correct": false,
+          "explain": "because の後ろには主語と動詞のある節が必要です。"
+        },
+        {
+          "text": "due",
+          "correct": false,
+          "explain": "due の後ろにも to が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-85",
+      "sentence": "You can stay here ___ you keep the noise down.",
+      "ja": "音を抑えてくれる限り、ここにいてかまいません。",
+      "point": "as long as（〜という条件が続く限り）：as far as との違い",
+      "choices": [
+        {
+          "text": "as long as",
+          "correct": true,
+          "explain": "as long as は条件を表します。as far as は範囲や程度を表す別の表現です。"
+        },
+        {
+          "text": "as far as",
+          "correct": false,
+          "explain": "as far as は「〜の範囲では」で、条件を示す用法とは異なります。"
+        },
+        {
+          "text": "as soon as",
+          "correct": false,
+          "explain": "as soon as は時を表します。"
+        },
+        {
+          "text": "as much as",
+          "correct": false,
+          "explain": "as much as は程度や量を表します。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-86",
+      "sentence": "It was the lack of preparation, not the difficulty of the task, ___ caused the failure.",
+      "ja": "失敗を招いたのは課題の難しさではなく、準備不足だった。",
+      "point": "強調構文 It is ... that（主語を強調する）",
+      "choices": [
+        {
+          "text": "that",
+          "correct": true,
+          "explain": "It is 〜 that ... の強調構文で、強調されている部分が主語の働きをしています。"
+        },
+        {
+          "text": "what",
+          "correct": false,
+          "explain": "強調構文では what は使いません。"
+        },
+        {
+          "text": "which caused it",
+          "correct": false,
+          "explain": "目的語が重複し、構文が壊れます。"
+        },
+        {
+          "text": "it",
+          "correct": false,
+          "explain": "it では文をつなげません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-87",
+      "sentence": "Expensive restaurants are ___ better than small family-run ones.",
+      "ja": "高級店が小さな家族経営の店より必ずしも優れているわけではない。",
+      "point": "部分否定 not always / not necessarily（必ずしも〜とは限らない）",
+      "choices": [
+        {
+          "text": "not necessarily",
+          "correct": true,
+          "explain": "not necessarily は「必ずしも〜とは限らない」という部分否定です。"
+        },
+        {
+          "text": "never",
+          "correct": false,
+          "explain": "never は全部を否定してしまい、部分否定にはなりません。"
+        },
+        {
+          "text": "not at all",
+          "correct": false,
+          "explain": "not at all は完全否定で、意味が強すぎます。"
+        },
+        {
+          "text": "no",
+          "correct": false,
+          "explain": "no better than は「〜と同じくらいひどい」という別の意味になります。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-88",
+      "sentence": "He never passes the bakery ___ buying a loaf of bread.",
+      "ja": "彼はそのパン屋の前を通ると必ずパンを1斤買う。",
+      "point": "never ... without ~ing（〜すれば必ず…する）",
+      "choices": [
+        {
+          "text": "without",
+          "correct": true,
+          "explain": "never 〜 without ...ing は二重否定で「必ず…する」という意味になります。"
+        },
+        {
+          "text": "with",
+          "correct": false,
+          "explain": "with では二重否定にならず、意味が変わります。"
+        },
+        {
+          "text": "unless",
+          "correct": false,
+          "explain": "unless の後ろには節が必要です。"
+        },
+        {
+          "text": "but for",
+          "correct": false,
+          "explain": "but for は仮定の表現で、この構文には合いません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-89",
+      "sentence": "We were surprised at ___ passing the exam on the first try.",
+      "ja": "私たちは、彼が一度で試験に合格したことに驚いた。",
+      "point": "動名詞の意味上の主語（所有格または目的格を動名詞の前に置く）",
+      "choices": [
+        {
+          "text": "his",
+          "correct": true,
+          "explain": "動名詞の動作主が文の主語と異なるときは、所有格（または目的格）を前に置きます。"
+        },
+        {
+          "text": "he",
+          "correct": false,
+          "explain": "前置詞 at の後ろに主格は置けません。"
+        },
+        {
+          "text": "he is",
+          "correct": false,
+          "explain": "前置詞の後ろに節は続きません。"
+        },
+        {
+          "text": "himself",
+          "correct": false,
+          "explain": "再帰代名詞は動名詞の意味上の主語にはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-90",
+      "sentence": "She denied ___ the document before the meeting.",
+      "ja": "彼女は会議の前にその書類を見たことを否定した。",
+      "point": "完了動名詞 having + 過去分詞（主節より前のことを表す）",
+      "choices": [
+        {
+          "text": "having seen",
+          "correct": true,
+          "explain": "否定した時点より前のことなので、完了動名詞で表します。"
+        },
+        {
+          "text": "to see",
+          "correct": false,
+          "explain": "deny は不定詞を目的語にとりません。"
+        },
+        {
+          "text": "to have seen",
+          "correct": false,
+          "explain": "deny の後ろに不定詞は続きません。"
+        },
+        {
+          "text": "seen",
+          "correct": false,
+          "explain": "過去分詞だけでは目的語になりません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-91",
+      "sentence": "I clearly remember ___ him at the conference two years ago.",
+      "ja": "2年前の学会で彼に会ったことをはっきり覚えている。",
+      "point": "remember + 動名詞（すでにしたことを覚えている）",
+      "choices": [
+        {
+          "text": "meeting",
+          "correct": true,
+          "explain": "過去にしたことを覚えている場合は remember + 動名詞です。"
+        },
+        {
+          "text": "to meet",
+          "correct": false,
+          "explain": "remember to do は「これから〜するのを忘れない」という意味です。"
+        },
+        {
+          "text": "to have met",
+          "correct": false,
+          "explain": "remember の後ろにこの形は使いません。"
+        },
+        {
+          "text": "met",
+          "correct": false,
+          "explain": "過去形をそのまま目的語にはできません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-92",
+      "sentence": "We regret ___ you that your application was not successful.",
+      "ja": "残念ながら、ご応募は不採用となりましたことをお知らせいたします。",
+      "point": "regret to do（これから残念なことを伝える）と regret doing の違い",
+      "choices": [
+        {
+          "text": "to inform",
+          "correct": true,
+          "explain": "regret to do は「残念ながらこれから〜する」という意味で、通知の定型表現です。"
+        },
+        {
+          "text": "informing",
+          "correct": false,
+          "explain": "regret doing は「〜したことを後悔している」という意味になります。"
+        },
+        {
+          "text": "having informed",
+          "correct": false,
+          "explain": "すでに伝えたことを後悔する意味になり、文意と合いません。"
+        },
+        {
+          "text": "inform",
+          "correct": false,
+          "explain": "regret の後ろに原形は続きません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-93",
+      "sentence": "The shipment ___ arrive yesterday, but it is still in customs.",
+      "ja": "その荷物は昨日到着するはずだったが、まだ税関にある。",
+      "point": "be supposed to（〜することになっている）",
+      "choices": [
+        {
+          "text": "was supposed to",
+          "correct": true,
+          "explain": "予定や約束を表す be supposed to の過去形で、実際にはそうならなかったことを示せます。"
+        },
+        {
+          "text": "is supposed to",
+          "correct": false,
+          "explain": "yesterday があるので過去形にします。"
+        },
+        {
+          "text": "was supposing to",
+          "correct": false,
+          "explain": "suppose の現在分詞ではこの表現になりません。"
+        },
+        {
+          "text": "supposed",
+          "correct": false,
+          "explain": "be動詞が欠けています。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-94",
+      "sentence": "The minister ___ visit the disaster area the following week.",
+      "ja": "大臣は翌週、被災地を訪問することになっていた。",
+      "point": "be to 不定詞（予定・取り決め）",
+      "choices": [
+        {
+          "text": "was to",
+          "correct": true,
+          "explain": "be to 不定詞は公式な予定や取り決めを表し、やや改まった書き言葉で使われます。"
+        },
+        {
+          "text": "was",
+          "correct": false,
+          "explain": "to が欠けており、後ろの原形とつながりません。"
+        },
+        {
+          "text": "is to",
+          "correct": false,
+          "explain": "the following week という過去を基準にした表現と時制が合いません。"
+        },
+        {
+          "text": "was going",
+          "correct": false,
+          "explain": "going の後ろにも to が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-95",
+      "sentence": "You ___ mention this to anyone until the announcement is official.",
+      "ja": "正式発表までは、この件を誰にも話さないほうがよい。",
+      "point": "had better の否定形は had better not + 原形",
+      "choices": [
+        {
+          "text": "had better not",
+          "correct": true,
+          "explain": "had better の否定は not を had better の後ろに置きます。"
+        },
+        {
+          "text": "had not better",
+          "correct": false,
+          "explain": "not の位置が誤りです。"
+        },
+        {
+          "text": "would better not",
+          "correct": false,
+          "explain": "would better という形はありません。"
+        },
+        {
+          "text": "had better don't",
+          "correct": false,
+          "explain": "後ろは動詞の原形なので don't は続きません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-96",
+      "sentence": "I ___ laugh when I saw his expression.",
+      "ja": "彼の表情を見て、笑わずにはいられなかった。",
+      "point": "cannot help but + 原形（〜せずにはいられない）",
+      "choices": [
+        {
+          "text": "could not help but",
+          "correct": true,
+          "explain": "cannot help but + 原形で「〜せずにはいられない」を表します。"
+        },
+        {
+          "text": "could not help but to",
+          "correct": false,
+          "explain": "but の後ろは原形なので to は付けません。"
+        },
+        {
+          "text": "could not help laugh",
+          "correct": false,
+          "explain": "cannot help の後ろに直接続けるときは動名詞 laughing にします。"
+        },
+        {
+          "text": "could not but to",
+          "correct": false,
+          "explain": "cannot but の後ろも原形で、to は不要です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-97",
+      "sentence": "It ___ to me that I had left my passport in the hotel safe.",
+      "ja": "パスポートをホテルの金庫に置いてきたことがふと頭に浮かんだ。",
+      "point": "It occurs to 人 that 〜（〜がふと心に浮かぶ）",
+      "choices": [
+        {
+          "text": "occurred",
+          "correct": true,
+          "explain": "It occurs to 人 that 〜 で「〜が人の頭に浮かぶ」という意味になります。"
+        },
+        {
+          "text": "happened",
+          "correct": false,
+          "explain": "happen はこの構文では that 節をこの形で取りません。"
+        },
+        {
+          "text": "reminded",
+          "correct": false,
+          "explain": "remind は remind 人 of 〜 の形で使います。"
+        },
+        {
+          "text": "came",
+          "correct": false,
+          "explain": "come の場合は It came to my mind that のように mind が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-98",
+      "sentence": "There is no point ___ about what cannot be changed.",
+      "ja": "変えられないことについて思い悩んでも意味がない。",
+      "point": "There is no point in + 動名詞（〜しても意味がない）",
+      "choices": [
+        {
+          "text": "in worrying",
+          "correct": true,
+          "explain": "There is no point in 〜ing で「〜しても無駄だ」という意味になります。"
+        },
+        {
+          "text": "to worry",
+          "correct": false,
+          "explain": "この構文では不定詞ではなく in + 動名詞を使います。"
+        },
+        {
+          "text": "of worrying",
+          "correct": false,
+          "explain": "前置詞は of ではなく in です。"
+        },
+        {
+          "text": "worry",
+          "correct": false,
+          "explain": "前置詞と動名詞の両方が欠けています。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-99",
+      "sentence": "The museum is well worth ___ even if you have only an hour.",
+      "ja": "1時間しかなくても、その美術館は訪れる価値が十分にある。",
+      "point": "be worth + 動名詞（〜する価値がある）",
+      "choices": [
+        {
+          "text": "visiting",
+          "correct": true,
+          "explain": "worth の後ろは動名詞にします。目的語は不要で、能動の形のまま受け身の意味になります。"
+        },
+        {
+          "text": "to visit",
+          "correct": false,
+          "explain": "worth の後ろに不定詞は続きません。"
+        },
+        {
+          "text": "being visited",
+          "correct": false,
+          "explain": "worth 〜ing はそのままで受け身の意味を持つため、受動態にはしません。"
+        },
+        {
+          "text": "visit",
+          "correct": false,
+          "explain": "worth の後ろに原形は置けません。"
+        }
+      ]
+    },
+    {
+      "id": "gp1-100",
+      "sentence": "___ the report been submitted on time, the outcome might have been different.",
+      "ja": "報告書が期限どおりに提出されていれば、結果は違っていたかもしれない。",
+      "point": "if の省略による倒置（Had + 主語 + 過去分詞）",
+      "choices": [
+        {
+          "text": "Had",
+          "correct": true,
+          "explain": "If the report had been submitted の if を省略すると、had が主語の前に出ます。"
+        },
+        {
+          "text": "Should",
+          "correct": false,
+          "explain": "Should は未来の可能性を表す条件で、might have been とは合いません。"
+        },
+        {
+          "text": "Were",
+          "correct": false,
+          "explain": "Were では過去完了の意味になりません。"
+        },
+        {
+          "text": "If",
+          "correct": false,
+          "explain": "if を残すなら had は主語の後ろに置く必要があります。"
+        }
+      ]
     }
   ],
   "reading": [
