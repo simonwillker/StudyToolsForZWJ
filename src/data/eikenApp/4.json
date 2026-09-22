@@ -9953,6 +9953,7400 @@
           "explain": "友達の話は出てきません。"
         }
       ]
+    },
+    {
+      "id": "l4-101",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What time does your club start?"
+        },
+        {
+          "speaker": "B",
+          "text": "At four o'clock."
+        },
+        {
+          "speaker": "A",
+          "text": "Where do you meet?"
+        }
+      ],
+      "translation": "A：部活は何時から？　B：4時だよ。　A：どこに集まるの？",
+      "choices": [
+        {
+          "text": "In the music room.",
+          "correct": true,
+          "explain": "場所を聞かれているので、場所を答えます。"
+        },
+        {
+          "text": "For two hours.",
+          "correct": false,
+          "explain": "時間の長さで、質問の答えになりません。"
+        },
+        {
+          "text": "Twelve members.",
+          "correct": false,
+          "explain": "人数で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-102",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I'm hungry."
+        },
+        {
+          "speaker": "B",
+          "text": "There's some bread in the kitchen."
+        },
+        {
+          "speaker": "A",
+          "text": "Can I have it?"
+        }
+      ],
+      "translation": "A：おなかすいた。　B：台所にパンがあるよ。　A：食べていい？",
+      "choices": [
+        {
+          "text": "Yes, go ahead.",
+          "correct": true,
+          "explain": "許可を求められているので、答えます。"
+        },
+        {
+          "text": "I ate at seven.",
+          "correct": false,
+          "explain": "自分の食事の話で、質問の答えになりません。"
+        },
+        {
+          "text": "The kitchen is small.",
+          "correct": false,
+          "explain": "部屋の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-103",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Look at that big dog."
+        },
+        {
+          "speaker": "B",
+          "text": "It's very friendly."
+        },
+        {
+          "speaker": "A",
+          "text": "Can I touch it?"
+        }
+      ],
+      "translation": "A：あの大きい犬見て。　B：とても人なつっこいね。　A：触ってもいい？",
+      "choices": [
+        {
+          "text": "Ask the owner first.",
+          "correct": true,
+          "explain": "触ってよいかという質問に、手順を答えています。"
+        },
+        {
+          "text": "It is three years old.",
+          "correct": false,
+          "explain": "年齢の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I have a cat.",
+          "correct": false,
+          "explain": "自分のペットの話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-104",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I forgot my textbook."
+        },
+        {
+          "speaker": "B",
+          "text": "You can look at mine."
+        },
+        {
+          "speaker": "A",
+          "text": "Are you sure?"
+        }
+      ],
+      "translation": "A：教科書を忘れちゃった。　B：私のを見ていいよ。　A：本当にいいの？",
+      "choices": [
+        {
+          "text": "Of course. Sit next to me.",
+          "correct": true,
+          "explain": "申し出を確認されているので、承諾を伝えます。"
+        },
+        {
+          "text": "It costs eight hundred yen.",
+          "correct": false,
+          "explain": "値段の話で、質問の答えになりません。"
+        },
+        {
+          "text": "I like math.",
+          "correct": false,
+          "explain": "好みの話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-105",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "It's raining hard."
+        },
+        {
+          "speaker": "B",
+          "text": "Did you bring an umbrella?"
+        },
+        {
+          "speaker": "A",
+          "text": "No. What should I do?"
+        }
+      ],
+      "translation": "A：雨がひどい。　B：傘持ってきた？　A：ううん。どうしよう？",
+      "choices": [
+        {
+          "text": "Wait here until it stops.",
+          "correct": true,
+          "explain": "どうするか聞かれているので、方法を答えます。"
+        },
+        {
+          "text": "My umbrella is blue.",
+          "correct": false,
+          "explain": "持ち物の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "It rained yesterday too.",
+          "correct": false,
+          "explain": "過去の天気で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-106",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Let's play soccer after school."
+        },
+        {
+          "speaker": "B",
+          "text": "Where?"
+        },
+        {
+          "speaker": "A",
+          "text": "In the park. Can you come?"
+        }
+      ],
+      "translation": "A：放課後サッカーしようよ。　B：どこで？　A：公園で。来られる？",
+      "choices": [
+        {
+          "text": "Yes, but I have to be home by six.",
+          "correct": true,
+          "explain": "来られるかという質問に、条件を添えて答えています。"
+        },
+        {
+          "text": "Soccer is popular in Japan.",
+          "correct": false,
+          "explain": "一般論で、質問の答えになりません。"
+        },
+        {
+          "text": "The park has many trees.",
+          "correct": false,
+          "explain": "場所の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-107",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "This math problem is hard."
+        },
+        {
+          "speaker": "B",
+          "text": "Which number?"
+        },
+        {
+          "speaker": "A",
+          "text": "Number five. Do you know how to do it?"
+        }
+      ],
+      "translation": "A：この数学の問題、難しい。　B：何番？　A：5番。解き方分かる？",
+      "choices": [
+        {
+          "text": "I think so. Let me see it.",
+          "correct": true,
+          "explain": "分かるかという質問に答えています。"
+        },
+        {
+          "text": "There are ten problems.",
+          "correct": false,
+          "explain": "問題数の話で、質問の答えになりません。"
+        },
+        {
+          "text": "Math is on Tuesday.",
+          "correct": false,
+          "explain": "時間割の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-108",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I got a new bike."
+        },
+        {
+          "speaker": "B",
+          "text": "What color is it?"
+        },
+        {
+          "speaker": "A",
+          "text": "Green. Do you want to see it?"
+        }
+      ],
+      "translation": "A：新しい自転車を買ったんだ。　B：何色？　A：緑。見たい？",
+      "choices": [
+        {
+          "text": "Yes, let's go outside.",
+          "correct": true,
+          "explain": "見たいかという質問への返事として自然です。"
+        },
+        {
+          "text": "I ride to school.",
+          "correct": false,
+          "explain": "自分の習慣の話で、質問の答えになりません。"
+        },
+        {
+          "text": "Bikes are expensive.",
+          "correct": false,
+          "explain": "値段の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-109",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Are you free on Sunday?"
+        },
+        {
+          "speaker": "B",
+          "text": "In the morning, yes."
+        },
+        {
+          "speaker": "A",
+          "text": "Shall we go shopping?"
+        }
+      ],
+      "translation": "A：日曜は空いてる？　B：午前中ならね。　A：買い物に行かない？",
+      "choices": [
+        {
+          "text": "Sure. Let's meet at ten.",
+          "correct": true,
+          "explain": "誘いへの返事として自然です。"
+        },
+        {
+          "text": "I bought a shirt.",
+          "correct": false,
+          "explain": "過去の買い物の話で、誘いの答えになりません。"
+        },
+        {
+          "text": "The store is new.",
+          "correct": false,
+          "explain": "店の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-110",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "My sister is sick today."
+        },
+        {
+          "speaker": "B",
+          "text": "That's too bad. Does she have a fever?"
+        },
+        {
+          "speaker": "A",
+          "text": "A little. Should she see a doctor?"
+        }
+      ],
+      "translation": "A：妹が今日、具合が悪いんだ。　B：それは大変。熱はあるの？　A：少し。医者に行ったほうがいい？",
+      "choices": [
+        {
+          "text": "If it gets higher, yes.",
+          "correct": true,
+          "explain": "受診すべきか聞かれ、条件を答えています。"
+        },
+        {
+          "text": "She is in my class.",
+          "correct": false,
+          "explain": "人物の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I was sick last week.",
+          "correct": false,
+          "explain": "自分の体験で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-111",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Excuse me. Where is the library?"
+        },
+        {
+          "speaker": "B",
+          "text": "On the third floor."
+        },
+        {
+          "speaker": "A",
+          "text": "How do I get there?"
+        }
+      ],
+      "translation": "A：すみません、図書室はどこですか。　B：3階です。　A：どう行けばいいですか。",
+      "choices": [
+        {
+          "text": "Take the stairs near the entrance.",
+          "correct": true,
+          "explain": "行き方を聞かれているので、経路を答えます。"
+        },
+        {
+          "text": "It has many books.",
+          "correct": false,
+          "explain": "施設の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "It opens at nine.",
+          "correct": false,
+          "explain": "時間の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-112",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I want to watch a movie tonight."
+        },
+        {
+          "speaker": "B",
+          "text": "Which one?"
+        },
+        {
+          "speaker": "A",
+          "text": "The new animation. Have you seen it?"
+        }
+      ],
+      "translation": "A：今夜映画を見たい。　B：どれ？　A：新しいアニメ。見た？",
+      "choices": [
+        {
+          "text": "Not yet, but I want to.",
+          "correct": true,
+          "explain": "見たかという質問に答えています。"
+        },
+        {
+          "text": "It starts at eight.",
+          "correct": false,
+          "explain": "時間の話で、質問の答えになりません。"
+        },
+        {
+          "text": "The theater is far.",
+          "correct": false,
+          "explain": "場所の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-113",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "My pencil broke."
+        },
+        {
+          "speaker": "B",
+          "text": "Do you have another one?"
+        },
+        {
+          "speaker": "A",
+          "text": "No. Can I borrow yours?"
+        }
+      ],
+      "translation": "A：鉛筆が折れた。　B：他にある？　A：ない。貸してくれる？",
+      "choices": [
+        {
+          "text": "Here you are.",
+          "correct": true,
+          "explain": "貸してほしいという頼みへの返事です。"
+        },
+        {
+          "text": "I like writing.",
+          "correct": false,
+          "explain": "好みの話で、頼みの答えになりません。"
+        },
+        {
+          "text": "It's a short pencil.",
+          "correct": false,
+          "explain": "物の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-114",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "We're having a party for Ken."
+        },
+        {
+          "speaker": "B",
+          "text": "When is it?"
+        },
+        {
+          "speaker": "A",
+          "text": "Next Friday. Can you help?"
+        }
+      ],
+      "translation": "A：健のためにパーティーをするんだ。　B：いつ？　A：来週の金曜。手伝ってくれる？",
+      "choices": [
+        {
+          "text": "Yes, I can make a cake.",
+          "correct": true,
+          "explain": "手伝いの頼みに、できることを答えています。"
+        },
+        {
+          "text": "Ken is my friend.",
+          "correct": false,
+          "explain": "人物の説明で、頼みの答えになりません。"
+        },
+        {
+          "text": "Parties are fun.",
+          "correct": false,
+          "explain": "一般論で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-115",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I can't find my key."
+        },
+        {
+          "speaker": "B",
+          "text": "Did you check your pocket?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes. Where else should I look?"
+        }
+      ],
+      "translation": "A：鍵が見つからない。　B：ポケットは見た？　A：見た。他にどこを探せばいい？",
+      "choices": [
+        {
+          "text": "Try your school bag.",
+          "correct": true,
+          "explain": "探す場所を聞かれているので、候補を答えます。"
+        },
+        {
+          "text": "The key is small.",
+          "correct": false,
+          "explain": "物の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I lost mine before.",
+          "correct": false,
+          "explain": "自分の体験で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-116",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "How was your weekend?"
+        },
+        {
+          "speaker": "B",
+          "text": "Good. I went to my grandmother's house."
+        },
+        {
+          "speaker": "A",
+          "text": "What did you do there?"
+        }
+      ],
+      "translation": "A：週末はどうだった？　B：よかったよ。祖母の家に行った。　A：そこで何をしたの？",
+      "choices": [
+        {
+          "text": "We made cookies together.",
+          "correct": true,
+          "explain": "何をしたか聞かれているので、行動を答えます。"
+        },
+        {
+          "text": "It takes one hour by train.",
+          "correct": false,
+          "explain": "移動時間の話で、質問の答えになりません。"
+        },
+        {
+          "text": "She is seventy years old.",
+          "correct": false,
+          "explain": "年齢の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-117",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The test is tomorrow."
+        },
+        {
+          "speaker": "B",
+          "text": "I studied last night."
+        },
+        {
+          "speaker": "A",
+          "text": "How long did you study?"
+        }
+      ],
+      "translation": "A：明日はテストだね。　B：昨夜勉強したよ。　A：どのくらい勉強したの？",
+      "choices": [
+        {
+          "text": "About two hours.",
+          "correct": true,
+          "explain": "長さを聞かれているので、時間を答えます。"
+        },
+        {
+          "text": "It's an English test.",
+          "correct": false,
+          "explain": "科目の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I sit in the front.",
+          "correct": false,
+          "explain": "席の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-118",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "This box is heavy."
+        },
+        {
+          "speaker": "B",
+          "text": "What's inside?"
+        },
+        {
+          "speaker": "A",
+          "text": "Books. Can you help me?"
+        }
+      ],
+      "translation": "A：この箱、重い。　B：中身は何？　A：本。手伝ってくれる？",
+      "choices": [
+        {
+          "text": "Sure, I'll take one side.",
+          "correct": true,
+          "explain": "手伝いの頼みへの返事として自然です。"
+        },
+        {
+          "text": "I read every night.",
+          "correct": false,
+          "explain": "読書の話で、頼みの答えになりません。"
+        },
+        {
+          "text": "The box is brown.",
+          "correct": false,
+          "explain": "見た目の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-119",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Do you play any instruments?"
+        },
+        {
+          "speaker": "B",
+          "text": "I play the piano."
+        },
+        {
+          "speaker": "A",
+          "text": "How long have you played?"
+        }
+      ],
+      "translation": "A：何か楽器をやってる？　B：ピアノを弾くよ。　A：どのくらい続けてるの？",
+      "choices": [
+        {
+          "text": "Since I was five.",
+          "correct": true,
+          "explain": "期間を聞かれているので、いつからかを答えます。"
+        },
+        {
+          "text": "My piano is black.",
+          "correct": false,
+          "explain": "楽器の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I practice at home.",
+          "correct": false,
+          "explain": "場所の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-120",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "We need to clean the classroom."
+        },
+        {
+          "speaker": "B",
+          "text": "Where should I start?"
+        },
+        {
+          "speaker": "A",
+          "text": "The windows, please. Do you have a cloth?"
+        }
+      ],
+      "translation": "A：教室を掃除しないと。　B：どこから始める？　A：窓をお願い。布はある？",
+      "choices": [
+        {
+          "text": "There's one in the cupboard.",
+          "correct": true,
+          "explain": "布があるか聞かれ、場所を答えています。"
+        },
+        {
+          "text": "The windows are dirty.",
+          "correct": false,
+          "explain": "状態の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "We clean every day.",
+          "correct": false,
+          "explain": "習慣の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-121",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Happy birthday! This is for you."
+        },
+        {
+          "speaker": "B",
+          "text": "Thank you. Can I open it now?"
+        },
+        {
+          "speaker": "A",
+          "text": "Please do. I hope you like it."
+        }
+      ],
+      "translation": "A：誕生日おめでとう。これどうぞ。　B：ありがとう。今開けていい？　A：どうぞ。気に入るといいな。",
+      "choices": [
+        {
+          "text": "Wow, it's exactly what I wanted.",
+          "correct": true,
+          "explain": "贈り物を開けた場面の反応として自然です。"
+        },
+        {
+          "text": "My birthday is in May.",
+          "correct": false,
+          "explain": "時期の話で、場面に合いません。"
+        },
+        {
+          "text": "I will buy you one.",
+          "correct": false,
+          "explain": "お返しの話で、場面に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-122",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I'm going to the post office."
+        },
+        {
+          "speaker": "B",
+          "text": "Can you buy some stamps for me?"
+        },
+        {
+          "speaker": "A",
+          "text": "Sure. How many do you need?"
+        }
+      ],
+      "translation": "A：郵便局に行ってくる。　B：切手を買ってきてくれる？　A：いいよ。何枚必要？",
+      "choices": [
+        {
+          "text": "Five, please.",
+          "correct": true,
+          "explain": "枚数を聞かれているので、数を答えます。"
+        },
+        {
+          "text": "It's near the station.",
+          "correct": false,
+          "explain": "場所の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I sent a letter yesterday.",
+          "correct": false,
+          "explain": "過去の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-123",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Your bag is open."
+        },
+        {
+          "speaker": "B",
+          "text": "Oh no, did anything fall out?"
+        },
+        {
+          "speaker": "A",
+          "text": "I don't think so. Shall I close it?"
+        }
+      ],
+      "translation": "A：かばんが開いてるよ。　B：え、何か落ちた？　A：落ちてなさそう。閉めようか？",
+      "choices": [
+        {
+          "text": "Yes, please. Thank you.",
+          "correct": true,
+          "explain": "申し出への返事として自然です。"
+        },
+        {
+          "text": "It's a new bag.",
+          "correct": false,
+          "explain": "持ち物の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I walk to school.",
+          "correct": false,
+          "explain": "通学の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-124",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What are you doing this afternoon?"
+        },
+        {
+          "speaker": "B",
+          "text": "I have to walk my dog."
+        },
+        {
+          "speaker": "A",
+          "text": "Can I come with you?"
+        }
+      ],
+      "translation": "A：今日の午後は何するの？　B：犬の散歩をしないと。　A：一緒に行っていい？",
+      "choices": [
+        {
+          "text": "Of course. Come at three.",
+          "correct": true,
+          "explain": "同行してよいかという質問に答えています。"
+        },
+        {
+          "text": "My dog is white.",
+          "correct": false,
+          "explain": "犬の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I walk him every day.",
+          "correct": false,
+          "explain": "習慣の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-125",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "This shirt is too small."
+        },
+        {
+          "speaker": "B",
+          "text": "We have a larger size."
+        },
+        {
+          "speaker": "A",
+          "text": "Can I try it on?"
+        }
+      ],
+      "translation": "A：このシャツは小さすぎます。　B：大きいサイズがございます。　A：試着できますか。",
+      "choices": [
+        {
+          "text": "Yes, the fitting room is there.",
+          "correct": true,
+          "explain": "試着の可否と場所を答えています。"
+        },
+        {
+          "text": "It costs two thousand yen.",
+          "correct": false,
+          "explain": "値段の話で、質問の答えになりません。"
+        },
+        {
+          "text": "Blue is popular.",
+          "correct": false,
+          "explain": "色の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-126",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I'm going to Canada this summer."
+        },
+        {
+          "speaker": "B",
+          "text": "Really? Who with?"
+        },
+        {
+          "speaker": "A",
+          "text": "My whole family. Have you been there?"
+        }
+      ],
+      "translation": "A：この夏カナダに行くんだ。　B：本当？　誰と？　A：家族全員で。行ったことある？",
+      "choices": [
+        {
+          "text": "No, but I'd like to go.",
+          "correct": true,
+          "explain": "行ったことがあるかという質問に答えています。"
+        },
+        {
+          "text": "It takes ten hours.",
+          "correct": false,
+          "explain": "移動時間の話で、質問の答えになりません。"
+        },
+        {
+          "text": "Summer is hot here.",
+          "correct": false,
+          "explain": "天気の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-127",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The teacher wants to see you."
+        },
+        {
+          "speaker": "B",
+          "text": "Now?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes. Do you know where her room is?"
+        }
+      ],
+      "translation": "A：先生が呼んでるよ。　B：今？　A：うん。先生の部屋の場所分かる？",
+      "choices": [
+        {
+          "text": "It's next to the office, right?",
+          "correct": true,
+          "explain": "場所を知っているかという質問に答えています。"
+        },
+        {
+          "text": "She teaches science.",
+          "correct": false,
+          "explain": "担当科目の話で、質問の答えになりません。"
+        },
+        {
+          "text": "I saw her this morning.",
+          "correct": false,
+          "explain": "過去の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-128",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I made lunch for both of us."
+        },
+        {
+          "speaker": "B",
+          "text": "That's kind of you. What is it?"
+        },
+        {
+          "speaker": "A",
+          "text": "Sandwiches. Do you like tomatoes?"
+        }
+      ],
+      "translation": "A：二人分のお昼を作ったよ。　B：ありがとう。何？　A：サンドイッチ。トマトは好き？",
+      "choices": [
+        {
+          "text": "Yes, I eat them every day.",
+          "correct": true,
+          "explain": "好みを聞かれているので、答えます。"
+        },
+        {
+          "text": "I made lunch yesterday.",
+          "correct": false,
+          "explain": "自分の話で、質問の答えになりません。"
+        },
+        {
+          "text": "Lunch is at twelve thirty.",
+          "correct": false,
+          "explain": "時間の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-129",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Do you know this song?"
+        },
+        {
+          "speaker": "B",
+          "text": "I've heard it before."
+        },
+        {
+          "speaker": "A",
+          "text": "Who sings it?"
+        }
+      ],
+      "translation": "A：この歌知ってる？　B：聞いたことある。　A：誰が歌ってるの？",
+      "choices": [
+        {
+          "text": "A band from Osaka, I think.",
+          "correct": true,
+          "explain": "歌い手を聞かれているので、答えます。"
+        },
+        {
+          "text": "It's four minutes long.",
+          "correct": false,
+          "explain": "長さの話で、質問の答えになりません。"
+        },
+        {
+          "text": "I like slow songs.",
+          "correct": false,
+          "explain": "好みの話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-130",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "It's cold in here."
+        },
+        {
+          "speaker": "B",
+          "text": "Shall I close the window?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, please. Is the heater on?"
+        }
+      ],
+      "translation": "A：ここ寒いね。　B：窓を閉めようか。　A：お願い。暖房はついてる？",
+      "choices": [
+        {
+          "text": "I'll turn it on now.",
+          "correct": true,
+          "explain": "暖房の状況を聞かれ、対応を答えています。"
+        },
+        {
+          "text": "The window is big.",
+          "correct": false,
+          "explain": "窓の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "It snowed last week.",
+          "correct": false,
+          "explain": "天気の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-131",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I have swimming class on Saturday."
+        },
+        {
+          "speaker": "B",
+          "text": "Is it fun?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, but the water is cold. Do you swim?"
+        }
+      ],
+      "translation": "A：土曜に水泳教室があるんだ。　B：楽しい？　A：うん、でも水が冷たい。君は泳ぐ？",
+      "choices": [
+        {
+          "text": "Only in summer.",
+          "correct": true,
+          "explain": "泳ぐかという質問に答えています。"
+        },
+        {
+          "text": "Saturday is my birthday.",
+          "correct": false,
+          "explain": "予定の話で、質問の答えになりません。"
+        },
+        {
+          "text": "The pool is big.",
+          "correct": false,
+          "explain": "施設の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-132",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Did you bring your gym shoes?"
+        },
+        {
+          "speaker": "B",
+          "text": "I left them at home."
+        },
+        {
+          "speaker": "A",
+          "text": "What will you do?"
+        }
+      ],
+      "translation": "A：体育館シューズ持ってきた？　B：家に置いてきちゃった。　A：どうするの？",
+      "choices": [
+        {
+          "text": "I'll ask the teacher to lend me some.",
+          "correct": true,
+          "explain": "どうするか聞かれているので、対応を答えます。"
+        },
+        {
+          "text": "They are white and blue.",
+          "correct": false,
+          "explain": "見た目の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "P.E. is my favorite class.",
+          "correct": false,
+          "explain": "好みの話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-133",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Look, the bus is coming."
+        },
+        {
+          "speaker": "B",
+          "text": "Which one is it?"
+        },
+        {
+          "speaker": "A",
+          "text": "Number twelve. Is that ours?"
+        }
+      ],
+      "translation": "A：見て、バスが来た。　B：何番？　A：12番。私たちのバス？",
+      "choices": [
+        {
+          "text": "No, we need number fifteen.",
+          "correct": true,
+          "explain": "そのバスかという質問に答えています。"
+        },
+        {
+          "text": "The bus stop is here.",
+          "correct": false,
+          "explain": "場所の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I ride the bus often.",
+          "correct": false,
+          "explain": "習慣の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-134",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "My brother is coming home today."
+        },
+        {
+          "speaker": "B",
+          "text": "From university?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes. Would you like to meet him?"
+        }
+      ],
+      "translation": "A：今日、兄が帰ってくるんだ。　B：大学から？　A：うん。会ってみる？",
+      "choices": [
+        {
+          "text": "I'd like that very much.",
+          "correct": true,
+          "explain": "会いたいかという質問への返事です。"
+        },
+        {
+          "text": "He studies science.",
+          "correct": false,
+          "explain": "専攻の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "University is far.",
+          "correct": false,
+          "explain": "距離の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-135",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I want to take a photo of the flowers."
+        },
+        {
+          "speaker": "B",
+          "text": "They're beautiful this week."
+        },
+        {
+          "speaker": "A",
+          "text": "Can you hold my bag?"
+        }
+      ],
+      "translation": "A：花の写真を撮りたい。　B：今週はきれいだね。　A：かばん持っててくれる？",
+      "choices": [
+        {
+          "text": "Sure, take your time.",
+          "correct": true,
+          "explain": "頼みへの返事として自然です。"
+        },
+        {
+          "text": "The flowers are pink.",
+          "correct": false,
+          "explain": "花の説明で、頼みの答えになりません。"
+        },
+        {
+          "text": "I have a camera too.",
+          "correct": false,
+          "explain": "持ち物の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-136",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "We have a test on Friday."
+        },
+        {
+          "speaker": "B",
+          "text": "Which subject?"
+        },
+        {
+          "speaker": "A",
+          "text": "Science. Shall we study together?"
+        }
+      ],
+      "translation": "A：金曜にテストがあるよ。　B：何の科目？　A：理科。一緒に勉強する？",
+      "choices": [
+        {
+          "text": "Good idea. My house or yours?",
+          "correct": true,
+          "explain": "誘いへの返事として自然です。"
+        },
+        {
+          "text": "Science is difficult.",
+          "correct": false,
+          "explain": "感想で、誘いの答えになりません。"
+        },
+        {
+          "text": "The test is short.",
+          "correct": false,
+          "explain": "テストの説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-137",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I need to buy a present for my mother."
+        },
+        {
+          "speaker": "B",
+          "text": "What does she like?"
+        },
+        {
+          "speaker": "A",
+          "text": "She likes flowers. Where can I buy some?"
+        }
+      ],
+      "translation": "A：母にプレゼントを買いたい。　B：何が好きなの？　A：花が好き。どこで買える？",
+      "choices": [
+        {
+          "text": "There's a flower shop near the station.",
+          "correct": true,
+          "explain": "買える場所を聞かれているので、店を答えます。"
+        },
+        {
+          "text": "Your mother is kind.",
+          "correct": false,
+          "explain": "人物の話で、質問の答えになりません。"
+        },
+        {
+          "text": "I bought one last year.",
+          "correct": false,
+          "explain": "自分の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-138",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The door won't open."
+        },
+        {
+          "speaker": "B",
+          "text": "Is it locked?"
+        },
+        {
+          "speaker": "A",
+          "text": "I think so. Who has the key?"
+        }
+      ],
+      "translation": "A：ドアが開かない。　B：鍵がかかってる？　A：たぶん。鍵は誰が持ってる？",
+      "choices": [
+        {
+          "text": "The teacher in the next room.",
+          "correct": true,
+          "explain": "誰が持っているか聞かれているので、人を答えます。"
+        },
+        {
+          "text": "The door is old.",
+          "correct": false,
+          "explain": "物の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I came at eight.",
+          "correct": false,
+          "explain": "時間の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-139",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I finished my book."
+        },
+        {
+          "speaker": "B",
+          "text": "Was it interesting?"
+        },
+        {
+          "speaker": "A",
+          "text": "Very. Would you like to read it?"
+        }
+      ],
+      "translation": "A：本を読み終わった。　B：面白かった？　A：すごく。読んでみる？",
+      "choices": [
+        {
+          "text": "Yes, please lend it to me.",
+          "correct": true,
+          "explain": "読みたいかという質問への返事です。"
+        },
+        {
+          "text": "I read it last month.",
+          "correct": false,
+          "explain": "そうなら「読みたい」に合いません。"
+        },
+        {
+          "text": "Books are heavy.",
+          "correct": false,
+          "explain": "一般論で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-140",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "My computer is slow today."
+        },
+        {
+          "speaker": "B",
+          "text": "Did you try turning it off?"
+        },
+        {
+          "speaker": "A",
+          "text": "Not yet. Should I?"
+        }
+      ],
+      "translation": "A：今日パソコンが遅い。　B：一度切ってみた？　A：まだ。そうすべき？",
+      "choices": [
+        {
+          "text": "Yes, that often helps.",
+          "correct": true,
+          "explain": "そうすべきかという質問に答えています。"
+        },
+        {
+          "text": "My computer is new.",
+          "correct": false,
+          "explain": "自分の機器の話で、質問の答えになりません。"
+        },
+        {
+          "text": "I use it for homework.",
+          "correct": false,
+          "explain": "用途の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-141",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "There's a new student in our class."
+        },
+        {
+          "speaker": "B",
+          "text": "Where is she from?"
+        },
+        {
+          "speaker": "A",
+          "text": "From Osaka. Have you talked to her?"
+        }
+      ],
+      "translation": "A：クラスに転校生が来たよ。　B：どこから来たの？　A：大阪から。もう話した？",
+      "choices": [
+        {
+          "text": "Not yet, but I will at lunch.",
+          "correct": true,
+          "explain": "話したかという質問に答えています。"
+        },
+        {
+          "text": "Osaka is a big city.",
+          "correct": false,
+          "explain": "地理の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "Our class has thirty students.",
+          "correct": false,
+          "explain": "人数の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-142",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I have to feed the fish today."
+        },
+        {
+          "speaker": "B",
+          "text": "How often do they eat?"
+        },
+        {
+          "speaker": "A",
+          "text": "Once a day. Do you want to help?"
+        }
+      ],
+      "translation": "A：今日は魚に餌をやらないと。　B：どのくらいの頻度で食べるの？　A：1日1回。手伝う？",
+      "choices": [
+        {
+          "text": "Yes, show me how much to give.",
+          "correct": true,
+          "explain": "手伝うかという誘いへの返事です。"
+        },
+        {
+          "text": "We have five fish.",
+          "correct": false,
+          "explain": "数の話で、質問の答えになりません。"
+        },
+        {
+          "text": "The tank is by the window.",
+          "correct": false,
+          "explain": "場所の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-143",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "It's very quiet today."
+        },
+        {
+          "speaker": "B",
+          "text": "The third-year students are on a trip."
+        },
+        {
+          "speaker": "A",
+          "text": "When will they come back?"
+        }
+      ],
+      "translation": "A：今日は静かだね。　B：3年生が旅行に行ってるんだ。　A：いつ戻るの？",
+      "choices": [
+        {
+          "text": "On Thursday evening.",
+          "correct": true,
+          "explain": "戻る時期を聞かれているので、時を答えます。"
+        },
+        {
+          "text": "They went to Kyoto.",
+          "correct": false,
+          "explain": "行き先の話で、質問の答えになりません。"
+        },
+        {
+          "text": "There are two classes.",
+          "correct": false,
+          "explain": "クラス数の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-144",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I can't hear the teacher from here."
+        },
+        {
+          "speaker": "B",
+          "text": "Do you want to move?"
+        },
+        {
+          "speaker": "A",
+          "text": "Is there a free seat?"
+        }
+      ],
+      "translation": "A：ここからだと先生の声が聞こえない。　B：移動する？　A：空いてる席ある？",
+      "choices": [
+        {
+          "text": "There's one in the second row.",
+          "correct": true,
+          "explain": "空席の有無を聞かれ、場所を答えています。"
+        },
+        {
+          "text": "The teacher speaks fast.",
+          "correct": false,
+          "explain": "先生の話で、質問の答えになりません。"
+        },
+        {
+          "text": "Class ends at three.",
+          "correct": false,
+          "explain": "時間の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-145",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Is this your notebook?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, mine is red."
+        },
+        {
+          "speaker": "A",
+          "text": "Do you know whose it is?"
+        }
+      ],
+      "translation": "A：これ君のノート？　B：ううん、私のは赤。　A：誰のか分かる？",
+      "choices": [
+        {
+          "text": "Maybe Taro's. Ask him.",
+          "correct": true,
+          "explain": "誰のものか聞かれているので、心当たりを答えます。"
+        },
+        {
+          "text": "I have three notebooks.",
+          "correct": false,
+          "explain": "自分の話で、質問の答えになりません。"
+        },
+        {
+          "text": "It's on the desk.",
+          "correct": false,
+          "explain": "場所の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-146",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "We're going camping next month."
+        },
+        {
+          "speaker": "B",
+          "text": "Sounds fun. Where?"
+        },
+        {
+          "speaker": "A",
+          "text": "By a lake. What should I take?"
+        }
+      ],
+      "translation": "A：来月キャンプに行くんだ。　B：楽しそう。どこ？　A：湖のそば。何を持っていけばいい？",
+      "choices": [
+        {
+          "text": "A warm jacket for the night.",
+          "correct": true,
+          "explain": "持ち物を聞かれているので、品物を答えます。"
+        },
+        {
+          "text": "The lake is deep.",
+          "correct": false,
+          "explain": "場所の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I went camping once.",
+          "correct": false,
+          "explain": "自分の体験で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-147",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Your English is very good."
+        },
+        {
+          "speaker": "B",
+          "text": "Thank you. I watch English videos."
+        },
+        {
+          "speaker": "A",
+          "text": "How often do you watch them?"
+        }
+      ],
+      "translation": "A：英語が上手だね。　B：ありがとう。英語の動画を見てるの。　A：どのくらいの頻度で見るの？",
+      "choices": [
+        {
+          "text": "Every evening for thirty minutes.",
+          "correct": true,
+          "explain": "頻度を聞かれているので、答えます。"
+        },
+        {
+          "text": "They are about animals.",
+          "correct": false,
+          "explain": "内容の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "English is useful.",
+          "correct": false,
+          "explain": "一般論で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-148",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The library book is due today."
+        },
+        {
+          "speaker": "B",
+          "text": "Did you finish it?"
+        },
+        {
+          "speaker": "A",
+          "text": "Not yet. Can I keep it longer?"
+        }
+      ],
+      "translation": "A：図書館の本、今日が期限だ。　B：読み終わった？　A：まだ。もう少し借りられる？",
+      "choices": [
+        {
+          "text": "You can renew it at the desk.",
+          "correct": true,
+          "explain": "延長できるかという質問に、方法を答えています。"
+        },
+        {
+          "text": "The book is thick.",
+          "correct": false,
+          "explain": "物の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I borrowed two books.",
+          "correct": false,
+          "explain": "自分の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-149",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I hurt my finger in P.E."
+        },
+        {
+          "speaker": "B",
+          "text": "Does it hurt a lot?"
+        },
+        {
+          "speaker": "A",
+          "text": "A little. Should I go to the nurse?"
+        }
+      ],
+      "translation": "A：体育で指をけがした。　B：すごく痛い？　A：少し。保健室に行ったほうがいい？",
+      "choices": [
+        {
+          "text": "Yes, just to be safe.",
+          "correct": true,
+          "explain": "行くべきかという質問に答えています。"
+        },
+        {
+          "text": "P.E. is on Monday.",
+          "correct": false,
+          "explain": "時間割の話で、質問の答えになりません。"
+        },
+        {
+          "text": "I played basketball.",
+          "correct": false,
+          "explain": "競技の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-150",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our class is making a video."
+        },
+        {
+          "speaker": "B",
+          "text": "What's it about?"
+        },
+        {
+          "speaker": "A",
+          "text": "Our school day. Will you be in it?"
+        }
+      ],
+      "translation": "A：クラスで動画を作ってるんだ。　B：何についての？　A：学校の一日。出てくれる？",
+      "choices": [
+        {
+          "text": "Only if I don't have to speak.",
+          "correct": true,
+          "explain": "出演の誘いに条件をつけて答えています。"
+        },
+        {
+          "text": "Videos are popular.",
+          "correct": false,
+          "explain": "一般論で、誘いの答えになりません。"
+        },
+        {
+          "text": "We have a camera.",
+          "correct": false,
+          "explain": "道具の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-151",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I want to ride the roller coaster."
+        },
+        {
+          "speaker": "B",
+          "text": "The line is really long."
+        },
+        {
+          "speaker": "A",
+          "text": "How long do we have to wait?"
+        }
+      ],
+      "translation": "A：ジェットコースターに乗りたい。　B：すごく並んでるね。　A：どのくらい待つの？",
+      "choices": [
+        {
+          "text": "The sign says forty minutes.",
+          "correct": true,
+          "explain": "待ち時間を聞かれているので、答えます。"
+        },
+        {
+          "text": "I rode it last year.",
+          "correct": false,
+          "explain": "過去の話で、質問の答えになりません。"
+        },
+        {
+          "text": "It goes very fast.",
+          "correct": false,
+          "explain": "乗り物の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-152",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "My father made curry last night."
+        },
+        {
+          "speaker": "B",
+          "text": "Does he cook often?"
+        },
+        {
+          "speaker": "A",
+          "text": "On weekends. Can your father cook?"
+        }
+      ],
+      "translation": "A：昨夜父がカレーを作った。　B：よく料理するの？　A：週末はね。君のお父さんは料理する？",
+      "choices": [
+        {
+          "text": "He only makes breakfast.",
+          "correct": true,
+          "explain": "料理するかという質問に答えています。"
+        },
+        {
+          "text": "Curry is spicy.",
+          "correct": false,
+          "explain": "料理の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "We eat at seven.",
+          "correct": false,
+          "explain": "時間の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-153",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I can't open this file."
+        },
+        {
+          "speaker": "B",
+          "text": "Maybe it's the wrong type."
+        },
+        {
+          "speaker": "A",
+          "text": "What should I do?"
+        }
+      ],
+      "translation": "A：このファイルが開けない。　B：形式が違うのかも。　A：どうすればいい？",
+      "choices": [
+        {
+          "text": "Ask the teacher to send it again.",
+          "correct": true,
+          "explain": "どうするか聞かれているので、対処を答えます。"
+        },
+        {
+          "text": "My computer is new.",
+          "correct": false,
+          "explain": "機器の話で、質問の答えになりません。"
+        },
+        {
+          "text": "The file is large.",
+          "correct": false,
+          "explain": "物の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-154",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The school festival is on Saturday."
+        },
+        {
+          "speaker": "B",
+          "text": "Are your parents coming?"
+        },
+        {
+          "speaker": "A",
+          "text": "My mother is. Is yours coming?"
+        }
+      ],
+      "translation": "A：土曜は学園祭だね。　B：ご両親は来る？　A：母は来る。君のところは？",
+      "choices": [
+        {
+          "text": "My father is coming in the afternoon.",
+          "correct": true,
+          "explain": "来るかという質問に答えています。"
+        },
+        {
+          "text": "The festival is fun.",
+          "correct": false,
+          "explain": "感想で、質問の答えになりません。"
+        },
+        {
+          "text": "I made a poster.",
+          "correct": false,
+          "explain": "自分の担当の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-155",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I forgot my lunch money."
+        },
+        {
+          "speaker": "B",
+          "text": "I can lend you some."
+        },
+        {
+          "speaker": "A",
+          "text": "Thanks. When should I pay you back?"
+        }
+      ],
+      "translation": "A：昼食代を忘れた。　B：貸すよ。　A：ありがとう。いつ返せばいい？",
+      "choices": [
+        {
+          "text": "Any time this week is fine.",
+          "correct": true,
+          "explain": "返す時期を聞かれているので、答えます。"
+        },
+        {
+          "text": "Lunch costs four hundred yen.",
+          "correct": false,
+          "explain": "値段の話で、質問の答えになりません。"
+        },
+        {
+          "text": "I brought my own lunch.",
+          "correct": false,
+          "explain": "自分の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-156",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Can you see the board from there?"
+        },
+        {
+          "speaker": "B",
+          "text": "Not very well."
+        },
+        {
+          "speaker": "A",
+          "text": "Do you want to sit here?"
+        }
+      ],
+      "translation": "A：そこから黒板見える？　B：あまり見えない。　A：ここに座る？",
+      "choices": [
+        {
+          "text": "Thanks, that would help.",
+          "correct": true,
+          "explain": "席を譲る申し出への返事です。"
+        },
+        {
+          "text": "The board is green.",
+          "correct": false,
+          "explain": "物の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I wear glasses.",
+          "correct": false,
+          "explain": "自分のことの説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-157",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "We're planting flowers on Friday."
+        },
+        {
+          "speaker": "B",
+          "text": "Do I need to bring anything?"
+        },
+        {
+          "speaker": "A",
+          "text": "Just old clothes. Do you have gloves?"
+        }
+      ],
+      "translation": "A：金曜に花を植えるよ。　B：何か持っていく？　A：古い服だけ。手袋ある？",
+      "choices": [
+        {
+          "text": "I'll borrow some from my mother.",
+          "correct": true,
+          "explain": "手袋があるか聞かれ、どうするかを答えています。"
+        },
+        {
+          "text": "Flowers need water.",
+          "correct": false,
+          "explain": "一般論で、質問の答えになりません。"
+        },
+        {
+          "text": "Friday is a holiday.",
+          "correct": false,
+          "explain": "日程の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-158",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I saw your brother at the station."
+        },
+        {
+          "speaker": "B",
+          "text": "Really? This morning?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, about eight. Where was he going?"
+        }
+      ],
+      "translation": "A：駅でお兄さんを見かけたよ。　B：本当？　今朝？　A：うん、8時ごろ。どこに行くところだったの？",
+      "choices": [
+        {
+          "text": "To his part-time job.",
+          "correct": true,
+          "explain": "行き先を聞かれているので、答えます。"
+        },
+        {
+          "text": "He is two years older.",
+          "correct": false,
+          "explain": "年齢の話で、質問の答えになりません。"
+        },
+        {
+          "text": "The station is crowded.",
+          "correct": false,
+          "explain": "場所の説明で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-159",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The rice is ready."
+        },
+        {
+          "speaker": "B",
+          "text": "Shall I set the table?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, please. How many plates do we need?"
+        }
+      ],
+      "translation": "A：ご飯が炊けたよ。　B：食卓の用意する？　A：お願い。お皿は何枚必要？",
+      "choices": [
+        {
+          "text": "Four, including Grandma.",
+          "correct": true,
+          "explain": "枚数を聞かれているので、数を答えます。"
+        },
+        {
+          "text": "The rice smells good.",
+          "correct": false,
+          "explain": "感想で、質問の答えになりません。"
+        },
+        {
+          "text": "I washed the dishes.",
+          "correct": false,
+          "explain": "過去の行動で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-160",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I got a letter from my friend in Australia."
+        },
+        {
+          "speaker": "B",
+          "text": "In English?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes. Can you help me write back?"
+        }
+      ],
+      "translation": "A：オーストラリアの友達から手紙が来た。　B：英語で？　A：うん。返事を書くの手伝ってくれる？",
+      "choices": [
+        {
+          "text": "Sure, bring it tomorrow.",
+          "correct": true,
+          "explain": "手伝いの頼みへの返事として自然です。"
+        },
+        {
+          "text": "Australia is far away.",
+          "correct": false,
+          "explain": "地理の話で、頼みの答えになりません。"
+        },
+        {
+          "text": "I have many friends.",
+          "correct": false,
+          "explain": "自分の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-161",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The movie starts in ten minutes."
+        },
+        {
+          "speaker": "B",
+          "text": "Do we have time to buy popcorn?"
+        },
+        {
+          "speaker": "A",
+          "text": "The line is short. Shall we?"
+        }
+      ],
+      "translation": "A：映画まであと10分。　B：ポップコーン買う時間ある？　A：列は短いよ。買う？",
+      "choices": [
+        {
+          "text": "Yes, let's hurry.",
+          "correct": true,
+          "explain": "買うかという提案への返事です。"
+        },
+        {
+          "text": "The movie is two hours.",
+          "correct": false,
+          "explain": "上映時間の話で、提案の答えになりません。"
+        },
+        {
+          "text": "I like this theater.",
+          "correct": false,
+          "explain": "感想で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-162",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I want to join the newspaper club."
+        },
+        {
+          "speaker": "B",
+          "text": "Do you like writing?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes. How do I join?"
+        }
+      ],
+      "translation": "A：新聞部に入りたい。　B：文章を書くのが好きなの？　A：うん。どうやって入るの？",
+      "choices": [
+        {
+          "text": "Go to Room 105 after school.",
+          "correct": true,
+          "explain": "入り方を聞かれているので、手順を答えます。"
+        },
+        {
+          "text": "The club is popular.",
+          "correct": false,
+          "explain": "部の説明で、質問の答えになりません。"
+        },
+        {
+          "text": "I read the newspaper.",
+          "correct": false,
+          "explain": "自分の習慣の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-163",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "It's my turn to give the weather report."
+        },
+        {
+          "speaker": "B",
+          "text": "In the morning meeting?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes. Where can I check tomorrow's weather?"
+        }
+      ],
+      "translation": "A：天気の発表は私の番なんだ。　B：朝の会で？　A：うん。明日の天気はどこで調べられる？",
+      "choices": [
+        {
+          "text": "There's a weather app on my phone.",
+          "correct": true,
+          "explain": "調べ方を聞かれているので、方法を答えます。"
+        },
+        {
+          "text": "It was sunny today.",
+          "correct": false,
+          "explain": "今日の天気で、質問の答えになりません。"
+        },
+        {
+          "text": "The meeting is at eight.",
+          "correct": false,
+          "explain": "時間の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-164",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I want to make a cake for my father."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you made one before?"
+        },
+        {
+          "speaker": "A",
+          "text": "Never. Is it difficult?"
+        }
+      ],
+      "translation": "A：父にケーキを作りたい。　B：作ったことある？　A：一度もない。難しい？",
+      "choices": [
+        {
+          "text": "Not if you follow the recipe.",
+          "correct": true,
+          "explain": "難しいかという質問に答えています。"
+        },
+        {
+          "text": "My father likes cake.",
+          "correct": false,
+          "explain": "人の好みの話で、質問の答えになりません。"
+        },
+        {
+          "text": "I bought one yesterday.",
+          "correct": false,
+          "explain": "自分の話で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-165",
+      "part": "response",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our train is delayed."
+        },
+        {
+          "speaker": "B",
+          "text": "How long?"
+        },
+        {
+          "speaker": "A",
+          "text": "Fifteen minutes. Should we tell your mother?"
+        }
+      ],
+      "translation": "A：電車が遅れてる。　B：どのくらい？　A：15分。お母さんに連絡する？",
+      "choices": [
+        {
+          "text": "Yes, I'll send her a message.",
+          "correct": true,
+          "explain": "連絡するかという質問に答えています。"
+        },
+        {
+          "text": "The train is crowded.",
+          "correct": false,
+          "explain": "車内の様子で、質問の答えになりません。"
+        },
+        {
+          "text": "We left at four.",
+          "correct": false,
+          "explain": "出発時刻で、質問に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-166",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What did you do yesterday?"
+        },
+        {
+          "speaker": "B",
+          "text": "I went to the park with my dog."
+        },
+        {
+          "speaker": "A",
+          "text": "Was it warm?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, but windy."
+        }
+      ],
+      "question": "Where did the girl go yesterday?",
+      "translation": "A：昨日は何をしたの？　B：犬と公園に行った。　A：暖かかった？　B：うん、でも風が強かった。（質問：女の子は昨日どこへ行きましたか）",
+      "choices": [
+        {
+          "text": "To the park.",
+          "correct": true,
+          "explain": "犬と公園に行ったと言っています。"
+        },
+        {
+          "text": "To the library.",
+          "correct": false,
+          "explain": "図書館の話は出てきません。"
+        },
+        {
+          "text": "To the pool.",
+          "correct": false,
+          "explain": "プールの話はありません。"
+        },
+        {
+          "text": "To school.",
+          "correct": false,
+          "explain": "学校の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-167",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Do you want tea or juice?"
+        },
+        {
+          "speaker": "B",
+          "text": "Juice, please."
+        },
+        {
+          "speaker": "A",
+          "text": "Orange or apple?"
+        },
+        {
+          "speaker": "B",
+          "text": "Apple, thank you."
+        }
+      ],
+      "question": "What will the boy drink?",
+      "translation": "A：お茶とジュース、どっちがいい？　B：ジュースをお願い。　A：オレンジとりんご、どっち？　B：りんごで。ありがとう。（質問：男の子は何を飲みますか）",
+      "choices": [
+        {
+          "text": "Apple juice.",
+          "correct": true,
+          "explain": "りんごジュースを選んでいます。"
+        },
+        {
+          "text": "Orange juice.",
+          "correct": false,
+          "explain": "りんごを選びました。"
+        },
+        {
+          "text": "Tea.",
+          "correct": false,
+          "explain": "ジュースを選びました。"
+        },
+        {
+          "text": "Water.",
+          "correct": false,
+          "explain": "水の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-168",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Is this your pencil case?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, mine is blue."
+        },
+        {
+          "speaker": "A",
+          "text": "This one is black."
+        },
+        {
+          "speaker": "B",
+          "text": "Maybe it's Ken's."
+        }
+      ],
+      "question": "What color is the girl's pencil case?",
+      "translation": "A：これ君の筆箱？　B：ううん、私のは青。　A：これは黒だね。　B：健のかも。（質問：女の子の筆箱は何色ですか）",
+      "choices": [
+        {
+          "text": "Blue.",
+          "correct": true,
+          "explain": "自分のは青だと言っています。"
+        },
+        {
+          "text": "Black.",
+          "correct": false,
+          "explain": "黒は見つかった筆箱です。"
+        },
+        {
+          "text": "Red.",
+          "correct": false,
+          "explain": "赤の話は出てきません。"
+        },
+        {
+          "text": "Green.",
+          "correct": false,
+          "explain": "緑の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-169",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What time do you get up?"
+        },
+        {
+          "speaker": "B",
+          "text": "At six thirty."
+        },
+        {
+          "speaker": "A",
+          "text": "That's early."
+        },
+        {
+          "speaker": "B",
+          "text": "I walk my dog before breakfast."
+        }
+      ],
+      "question": "Why does the boy get up early?",
+      "translation": "A：何時に起きるの？　B：6時半。　A：早いね。　B：朝食前に犬の散歩をするんだ。（質問：男の子はなぜ早く起きるのですか）",
+      "choices": [
+        {
+          "text": "To walk his dog.",
+          "correct": true,
+          "explain": "朝食前に犬の散歩をするためです。"
+        },
+        {
+          "text": "To study.",
+          "correct": false,
+          "explain": "勉強の話は出てきません。"
+        },
+        {
+          "text": "To cook breakfast.",
+          "correct": false,
+          "explain": "料理の話はありません。"
+        },
+        {
+          "text": "To catch a train.",
+          "correct": false,
+          "explain": "電車の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-170",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "How many brothers do you have?"
+        },
+        {
+          "speaker": "B",
+          "text": "Two brothers and one sister."
+        },
+        {
+          "speaker": "A",
+          "text": "Are you the oldest?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, I'm the youngest."
+        }
+      ],
+      "question": "What do we learn about the girl?",
+      "translation": "A：兄弟は何人？　B：兄が2人と姉が1人。　A：君が一番上？　B：ううん、一番下。（質問：女の子について何が分かりますか）",
+      "choices": [
+        {
+          "text": "She is the youngest child.",
+          "correct": true,
+          "explain": "一番下だと言っています。"
+        },
+        {
+          "text": "She is the oldest child.",
+          "correct": false,
+          "explain": "一番下です。"
+        },
+        {
+          "text": "She has no sisters.",
+          "correct": false,
+          "explain": "姉が1人います。"
+        },
+        {
+          "text": "She has four brothers.",
+          "correct": false,
+          "explain": "兄は2人です。"
+        }
+      ]
+    },
+    {
+      "id": "l4-171",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Did you finish your homework?"
+        },
+        {
+          "speaker": "B",
+          "text": "Not yet. I have two pages left."
+        },
+        {
+          "speaker": "A",
+          "text": "When will you finish?"
+        },
+        {
+          "speaker": "B",
+          "text": "Before dinner, I hope."
+        }
+      ],
+      "question": "How much homework is left?",
+      "translation": "A：宿題終わった？　B：まだ。あと2ページ。　A：いつ終わる？　B：夕食前には終えたいな。（質問：宿題はどのくらい残っていますか）",
+      "choices": [
+        {
+          "text": "Two pages.",
+          "correct": true,
+          "explain": "あと2ページだと言っています。"
+        },
+        {
+          "text": "One page.",
+          "correct": false,
+          "explain": "1ページではありません。"
+        },
+        {
+          "text": "Five pages.",
+          "correct": false,
+          "explain": "5ページではありません。"
+        },
+        {
+          "text": "None.",
+          "correct": false,
+          "explain": "まだ残っています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-172",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I like your shoes."
+        },
+        {
+          "speaker": "B",
+          "text": "Thanks. My aunt gave them to me."
+        },
+        {
+          "speaker": "A",
+          "text": "For your birthday?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, last month."
+        }
+      ],
+      "question": "Who gave the boy the shoes?",
+      "translation": "A：その靴いいね。　B：ありがとう。おばがくれたんだ。　A：誕生日に？　B：うん、先月。（質問：誰が靴をあげましたか）",
+      "choices": [
+        {
+          "text": "His aunt.",
+          "correct": true,
+          "explain": "おばがくれたと言っています。"
+        },
+        {
+          "text": "His mother.",
+          "correct": false,
+          "explain": "母の話は出てきません。"
+        },
+        {
+          "text": "His friend.",
+          "correct": false,
+          "explain": "友達の話はありません。"
+        },
+        {
+          "text": "He bought them.",
+          "correct": false,
+          "explain": "もらったものです。"
+        }
+      ]
+    },
+    {
+      "id": "l4-173",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Where is the science room?"
+        },
+        {
+          "speaker": "B",
+          "text": "Next to the library."
+        },
+        {
+          "speaker": "A",
+          "text": "On this floor?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, one floor up."
+        }
+      ],
+      "question": "Where is the science room?",
+      "translation": "A：理科室はどこ？　B：図書室の隣。　A：この階？　B：ううん、1つ上。（質問：理科室はどこにありますか）",
+      "choices": [
+        {
+          "text": "One floor up, next to the library.",
+          "correct": true,
+          "explain": "1つ上の階の図書室の隣です。"
+        },
+        {
+          "text": "On this floor.",
+          "correct": false,
+          "explain": "1つ上です。"
+        },
+        {
+          "text": "Next to the gym.",
+          "correct": false,
+          "explain": "体育館の話は出てきません。"
+        },
+        {
+          "text": "On the first floor.",
+          "correct": false,
+          "explain": "そのような説明はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-174",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What sport do you like?"
+        },
+        {
+          "speaker": "B",
+          "text": "I like tennis best."
+        },
+        {
+          "speaker": "A",
+          "text": "Do you play in a club?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, I play with my father on Sundays."
+        }
+      ],
+      "question": "When does the girl play tennis?",
+      "translation": "A：どのスポーツが好き？　B：テニスが一番好き。　A：部活でやってるの？　B：ううん、日曜に父と。（質問：女の子はいつテニスをしますか）",
+      "choices": [
+        {
+          "text": "On Sundays with her father.",
+          "correct": true,
+          "explain": "日曜に父とすると言っています。"
+        },
+        {
+          "text": "Every day in a club.",
+          "correct": false,
+          "explain": "部活ではありません。"
+        },
+        {
+          "text": "After school.",
+          "correct": false,
+          "explain": "放課後の話は出てきません。"
+        },
+        {
+          "text": "On Saturdays.",
+          "correct": false,
+          "explain": "土曜ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-175",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "It's cold today."
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, I'm wearing two sweaters."
+        },
+        {
+          "speaker": "A",
+          "text": "Did you bring a coat?"
+        },
+        {
+          "speaker": "B",
+          "text": "I left it at home."
+        }
+      ],
+      "question": "What problem does the boy have?",
+      "translation": "A：今日は寒いね。　B：うん、セーターを2枚着てる。　A：コートは持ってきた？　B：家に置いてきた。（質問：男の子はどんな問題がありますか）",
+      "choices": [
+        {
+          "text": "He has no coat with him.",
+          "correct": true,
+          "explain": "コートを家に置いてきました。"
+        },
+        {
+          "text": "He lost his sweater.",
+          "correct": false,
+          "explain": "セーターは着ています。"
+        },
+        {
+          "text": "He is too hot.",
+          "correct": false,
+          "explain": "寒い日です。"
+        },
+        {
+          "text": "He is sick.",
+          "correct": false,
+          "explain": "体調の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-176",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Can I use your phone?"
+        },
+        {
+          "speaker": "B",
+          "text": "Sure. Who do you want to call?"
+        },
+        {
+          "speaker": "A",
+          "text": "My mother. I'll be late today."
+        },
+        {
+          "speaker": "B",
+          "text": "Here you are."
+        }
+      ],
+      "question": "Why does the girl want to call?",
+      "translation": "A：電話借りていい？　B：いいよ。誰にかけるの？　A：母に。今日は遅くなるから。　B：どうぞ。（質問：女の子はなぜ電話したいのですか）",
+      "choices": [
+        {
+          "text": "To tell her mother she will be late.",
+          "correct": true,
+          "explain": "遅くなることを母に伝えるためです。"
+        },
+        {
+          "text": "To call a friend.",
+          "correct": false,
+          "explain": "友達ではありません。"
+        },
+        {
+          "text": "To order food.",
+          "correct": false,
+          "explain": "注文の話は出てきません。"
+        },
+        {
+          "text": "To ask about homework.",
+          "correct": false,
+          "explain": "宿題の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-177",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our class trip is next week."
+        },
+        {
+          "speaker": "B",
+          "text": "Where are we going?"
+        },
+        {
+          "speaker": "A",
+          "text": "To the science museum."
+        },
+        {
+          "speaker": "B",
+          "text": "I went there last year with my family."
+        }
+      ],
+      "question": "Where is the class going?",
+      "translation": "A：来週は遠足だね。　B：どこへ行くの？　A：科学博物館。　B：去年家族と行ったよ。（質問：クラスはどこへ行きますか）",
+      "choices": [
+        {
+          "text": "To the science museum.",
+          "correct": true,
+          "explain": "科学博物館へ行きます。"
+        },
+        {
+          "text": "To the zoo.",
+          "correct": false,
+          "explain": "動物園の話は出てきません。"
+        },
+        {
+          "text": "To the mountains.",
+          "correct": false,
+          "explain": "山の話はありません。"
+        },
+        {
+          "text": "To the beach.",
+          "correct": false,
+          "explain": "海の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-178",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Do you have any pets?"
+        },
+        {
+          "speaker": "B",
+          "text": "I have two cats."
+        },
+        {
+          "speaker": "A",
+          "text": "What are their names?"
+        },
+        {
+          "speaker": "B",
+          "text": "Momo and Kuro."
+        }
+      ],
+      "question": "How many cats does the boy have?",
+      "translation": "A：ペットは飼ってる？　B：猫を2匹。　A：名前は？　B：モモとクロ。（質問：男の子は猫を何匹飼っていますか）",
+      "choices": [
+        {
+          "text": "Two.",
+          "correct": true,
+          "explain": "猫を2匹飼っています。"
+        },
+        {
+          "text": "One.",
+          "correct": false,
+          "explain": "1匹ではありません。"
+        },
+        {
+          "text": "Three.",
+          "correct": false,
+          "explain": "3匹ではありません。"
+        },
+        {
+          "text": "None.",
+          "correct": false,
+          "explain": "飼っています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-179",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "This bag is nice. How much is it?"
+        },
+        {
+          "speaker": "B",
+          "text": "Three thousand yen."
+        },
+        {
+          "speaker": "A",
+          "text": "Do you have it in red?"
+        },
+        {
+          "speaker": "B",
+          "text": "Only black and brown, I'm afraid."
+        }
+      ],
+      "question": "What colors are available?",
+      "translation": "A：このかばんいいですね。いくらですか。　B：3千円です。　A：赤はありますか。　B：あいにく黒と茶色だけです。（質問：どの色がありますか）",
+      "choices": [
+        {
+          "text": "Black and brown.",
+          "correct": true,
+          "explain": "黒と茶色だけだと言っています。"
+        },
+        {
+          "text": "Red and black.",
+          "correct": false,
+          "explain": "赤はありません。"
+        },
+        {
+          "text": "Every color.",
+          "correct": false,
+          "explain": "2色だけです。"
+        },
+        {
+          "text": "Only red.",
+          "correct": false,
+          "explain": "赤はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-180",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "You look tired."
+        },
+        {
+          "speaker": "B",
+          "text": "I watched a movie until midnight."
+        },
+        {
+          "speaker": "A",
+          "text": "On a school night?"
+        },
+        {
+          "speaker": "B",
+          "text": "I know. I won't do it again."
+        }
+      ],
+      "question": "Why is the girl tired?",
+      "translation": "A：疲れてるみたいだね。　B：夜中まで映画を見ちゃった。　A：明日も学校なのに？　B：分かってる。もうしない。（質問：女の子はなぜ疲れているのですか）",
+      "choices": [
+        {
+          "text": "She watched a movie until midnight.",
+          "correct": true,
+          "explain": "夜中まで映画を見たためです。"
+        },
+        {
+          "text": "She studied all night.",
+          "correct": false,
+          "explain": "勉強の話は出てきません。"
+        },
+        {
+          "text": "She ran in the morning.",
+          "correct": false,
+          "explain": "運動の話はありません。"
+        },
+        {
+          "text": "She was sick.",
+          "correct": false,
+          "explain": "体調の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-181",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What's for lunch today?"
+        },
+        {
+          "speaker": "B",
+          "text": "Bread and soup."
+        },
+        {
+          "speaker": "A",
+          "text": "Is there any salad?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, and milk too."
+        }
+      ],
+      "question": "What is served for lunch?",
+      "translation": "A：今日の給食は何？　B：パンとスープ。　A：サラダはある？　B：あるよ、牛乳もね。（質問：給食には何が出ますか）",
+      "choices": [
+        {
+          "text": "Bread, soup, salad and milk.",
+          "correct": true,
+          "explain": "パン・スープ・サラダ・牛乳が出ます。"
+        },
+        {
+          "text": "Only bread and soup.",
+          "correct": false,
+          "explain": "サラダと牛乳もあります。"
+        },
+        {
+          "text": "Rice and fish.",
+          "correct": false,
+          "explain": "そのような献立ではありません。"
+        },
+        {
+          "text": "Nothing today.",
+          "correct": false,
+          "explain": "給食はあります。"
+        }
+      ]
+    },
+    {
+      "id": "l4-182",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Are you going to the library after school?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, I have to return a book."
+        },
+        {
+          "speaker": "A",
+          "text": "Can I come with you?"
+        },
+        {
+          "speaker": "B",
+          "text": "Sure. Let's meet at the gate."
+        }
+      ],
+      "question": "Where will they meet?",
+      "translation": "A：放課後、図書館に行く？　B：うん、本を返さないと。　A：一緒に行っていい？　B：いいよ。門で待ち合わせよう。（質問：二人はどこで会いますか）",
+      "choices": [
+        {
+          "text": "At the gate.",
+          "correct": true,
+          "explain": "門で待ち合わせます。"
+        },
+        {
+          "text": "In the library.",
+          "correct": false,
+          "explain": "待ち合わせは門です。"
+        },
+        {
+          "text": "In the classroom.",
+          "correct": false,
+          "explain": "教室ではありません。"
+        },
+        {
+          "text": "At the station.",
+          "correct": false,
+          "explain": "駅ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-183",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "How do you come to school?"
+        },
+        {
+          "speaker": "B",
+          "text": "By bicycle."
+        },
+        {
+          "speaker": "A",
+          "text": "How long does it take?"
+        },
+        {
+          "speaker": "B",
+          "text": "About fifteen minutes."
+        }
+      ],
+      "question": "How long is the boy's trip to school?",
+      "translation": "A：学校にはどうやって来るの？　B：自転車。　A：どのくらいかかる？　B：15分くらい。（質問：男の子の通学時間はどのくらいですか）",
+      "choices": [
+        {
+          "text": "About fifteen minutes.",
+          "correct": true,
+          "explain": "15分くらいだと言っています。"
+        },
+        {
+          "text": "About five minutes.",
+          "correct": false,
+          "explain": "5分ではありません。"
+        },
+        {
+          "text": "About an hour.",
+          "correct": false,
+          "explain": "1時間ではありません。"
+        },
+        {
+          "text": "He does not say.",
+          "correct": false,
+          "explain": "15分と答えています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-184",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The movie was long."
+        },
+        {
+          "speaker": "B",
+          "text": "Almost three hours."
+        },
+        {
+          "speaker": "A",
+          "text": "Did you like it?"
+        },
+        {
+          "speaker": "B",
+          "text": "The ending was the best part."
+        }
+      ],
+      "question": "What did the girl like best?",
+      "translation": "A：映画、長かったね。　B：3時間近くあった。　A：気に入った？　B：終わりが一番よかった。（質問：女の子は何が一番よかったですか）",
+      "choices": [
+        {
+          "text": "The ending.",
+          "correct": true,
+          "explain": "終わりが一番よかったと言っています。"
+        },
+        {
+          "text": "The beginning.",
+          "correct": false,
+          "explain": "最初の話は出てきません。"
+        },
+        {
+          "text": "The music.",
+          "correct": false,
+          "explain": "音楽の話はありません。"
+        },
+        {
+          "text": "Nothing.",
+          "correct": false,
+          "explain": "終わりを評価しています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-185",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "My grandmother is coming tomorrow."
+        },
+        {
+          "speaker": "B",
+          "text": "How long will she stay?"
+        },
+        {
+          "speaker": "A",
+          "text": "Three days."
+        },
+        {
+          "speaker": "B",
+          "text": "You must be happy."
+        }
+      ],
+      "question": "How long will the grandmother stay?",
+      "translation": "A：明日、祖母が来るんだ。　B：どのくらいいるの？　A：3日間。　B：うれしいね。（質問：祖母はどのくらい滞在しますか）",
+      "choices": [
+        {
+          "text": "Three days.",
+          "correct": true,
+          "explain": "3日間だと言っています。"
+        },
+        {
+          "text": "One day.",
+          "correct": false,
+          "explain": "1日ではありません。"
+        },
+        {
+          "text": "A week.",
+          "correct": false,
+          "explain": "1週間ではありません。"
+        },
+        {
+          "text": "A month.",
+          "correct": false,
+          "explain": "1か月ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-186",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Can you help me carry the chairs?"
+        },
+        {
+          "speaker": "B",
+          "text": "Sure. How many do we need?"
+        },
+        {
+          "speaker": "A",
+          "text": "Twenty for the meeting."
+        },
+        {
+          "speaker": "B",
+          "text": "Let's take ten each."
+        }
+      ],
+      "question": "How many chairs will each person carry?",
+      "translation": "A：いすを運ぶの手伝ってくれる？　B：いいよ。何脚必要？　A：会議用に20脚。　B：じゃあ10脚ずつ運ぼう。（質問：一人何脚運びますか）",
+      "choices": [
+        {
+          "text": "Ten.",
+          "correct": true,
+          "explain": "10脚ずつ運ぶことにしました。"
+        },
+        {
+          "text": "Twenty.",
+          "correct": false,
+          "explain": "20脚は合計です。"
+        },
+        {
+          "text": "Five.",
+          "correct": false,
+          "explain": "5脚ではありません。"
+        },
+        {
+          "text": "Fifteen.",
+          "correct": false,
+          "explain": "15脚ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-187",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What do you want to be in the future?"
+        },
+        {
+          "speaker": "B",
+          "text": "A nurse, like my mother."
+        },
+        {
+          "speaker": "A",
+          "text": "That's a hard job."
+        },
+        {
+          "speaker": "B",
+          "text": "I know, but I want to help people."
+        }
+      ],
+      "question": "What does the girl want to be?",
+      "translation": "A：将来何になりたい？　B：母のように看護師。　A：大変な仕事だね。　B：分かってる。でも人を助けたいの。（質問：女の子は何になりたいのですか）",
+      "choices": [
+        {
+          "text": "A nurse.",
+          "correct": true,
+          "explain": "看護師になりたいと言っています。"
+        },
+        {
+          "text": "A doctor.",
+          "correct": false,
+          "explain": "医師ではありません。"
+        },
+        {
+          "text": "A teacher.",
+          "correct": false,
+          "explain": "教師の話は出てきません。"
+        },
+        {
+          "text": "She has not decided.",
+          "correct": false,
+          "explain": "決めています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-188",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Your hair is wet."
+        },
+        {
+          "speaker": "B",
+          "text": "It started raining on the way here."
+        },
+        {
+          "speaker": "A",
+          "text": "Do you want a towel?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, please."
+        }
+      ],
+      "question": "Why is the boy's hair wet?",
+      "translation": "A：髪がぬれてるね。　B：来る途中で雨が降り出して。　A：タオル要る？　B：お願い。（質問：男の子の髪はなぜぬれているのですか）",
+      "choices": [
+        {
+          "text": "It rained on his way here.",
+          "correct": true,
+          "explain": "来る途中で雨が降ったためです。"
+        },
+        {
+          "text": "He went swimming.",
+          "correct": false,
+          "explain": "水泳の話は出てきません。"
+        },
+        {
+          "text": "He washed his hair.",
+          "correct": false,
+          "explain": "洗髪の話はありません。"
+        },
+        {
+          "text": "He fell in a river.",
+          "correct": false,
+          "explain": "川の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-189",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "We have a new teacher in music class."
+        },
+        {
+          "speaker": "B",
+          "text": "What is he like?"
+        },
+        {
+          "speaker": "A",
+          "text": "He plays the guitar very well."
+        },
+        {
+          "speaker": "B",
+          "text": "I want to hear him."
+        }
+      ],
+      "question": "What is special about the new teacher?",
+      "translation": "A：音楽に新しい先生が来たよ。　B：どんな人？　A：ギターがとても上手なんだ。　B：聞いてみたいな。（質問：新しい先生の特徴は何ですか）",
+      "choices": [
+        {
+          "text": "He plays the guitar well.",
+          "correct": true,
+          "explain": "ギターが上手だと言っています。"
+        },
+        {
+          "text": "He is very tall.",
+          "correct": false,
+          "explain": "外見の話は出てきません。"
+        },
+        {
+          "text": "He speaks English.",
+          "correct": false,
+          "explain": "言語の話はありません。"
+        },
+        {
+          "text": "He sings in a band.",
+          "correct": false,
+          "explain": "バンドの話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-190",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Where did you buy that hat?"
+        },
+        {
+          "speaker": "B",
+          "text": "At the shop near the station."
+        },
+        {
+          "speaker": "A",
+          "text": "Was it expensive?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, it was on sale."
+        }
+      ],
+      "question": "Why was the hat cheap?",
+      "translation": "A：その帽子どこで買ったの？　B：駅の近くの店。　A：高かった？　B：ううん、セールだったの。（質問：帽子はなぜ安かったのですか）",
+      "choices": [
+        {
+          "text": "It was on sale.",
+          "correct": true,
+          "explain": "セール中だったためです。"
+        },
+        {
+          "text": "It was old.",
+          "correct": false,
+          "explain": "古いからではありません。"
+        },
+        {
+          "text": "It was a gift.",
+          "correct": false,
+          "explain": "買ったものです。"
+        },
+        {
+          "text": "It was small.",
+          "correct": false,
+          "explain": "大きさの話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-191",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I can't come to practice tomorrow."
+        },
+        {
+          "speaker": "B",
+          "text": "Why not?"
+        },
+        {
+          "speaker": "A",
+          "text": "I have a dentist appointment."
+        },
+        {
+          "speaker": "B",
+          "text": "I'll tell the coach."
+        }
+      ],
+      "question": "Why can't the girl come to practice?",
+      "translation": "A：明日の練習に行けない。　B：どうして？　A：歯医者の予約があるの。　B：コーチに伝えておくね。（質問：女の子はなぜ練習に行けないのですか）",
+      "choices": [
+        {
+          "text": "She has a dentist appointment.",
+          "correct": true,
+          "explain": "歯医者の予約があるためです。"
+        },
+        {
+          "text": "She is sick.",
+          "correct": false,
+          "explain": "体調の話は出てきません。"
+        },
+        {
+          "text": "She has too much homework.",
+          "correct": false,
+          "explain": "宿題の話はありません。"
+        },
+        {
+          "text": "She is going on a trip.",
+          "correct": false,
+          "explain": "旅行の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-192",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Is this seat free?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, please sit down."
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you. Is the train always this crowded?"
+        },
+        {
+          "speaker": "B",
+          "text": "Only in the morning."
+        }
+      ],
+      "question": "When is the train crowded?",
+      "translation": "A：この席空いていますか。　B：はい、どうぞ。　A：ありがとう。この電車はいつもこんなに混みますか。　B：朝だけです。（質問：電車はいつ混みますか）",
+      "choices": [
+        {
+          "text": "In the morning.",
+          "correct": true,
+          "explain": "朝だけだと言っています。"
+        },
+        {
+          "text": "All day.",
+          "correct": false,
+          "explain": "一日中ではありません。"
+        },
+        {
+          "text": "In the evening.",
+          "correct": false,
+          "explain": "夕方の話は出てきません。"
+        },
+        {
+          "text": "On weekends.",
+          "correct": false,
+          "explain": "週末の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-193",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I got a letter from my cousin."
+        },
+        {
+          "speaker": "B",
+          "text": "Where does she live?"
+        },
+        {
+          "speaker": "A",
+          "text": "In Okinawa."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you visited her?"
+        }
+      ],
+      "question": "Where does the cousin live?",
+      "translation": "A：いとこから手紙が来た。　B：どこに住んでるの？　A：沖縄。　B：会いに行ったことある？（質問：いとこはどこに住んでいますか）",
+      "choices": [
+        {
+          "text": "In Okinawa.",
+          "correct": true,
+          "explain": "沖縄に住んでいます。"
+        },
+        {
+          "text": "In Tokyo.",
+          "correct": false,
+          "explain": "東京ではありません。"
+        },
+        {
+          "text": "In Hokkaido.",
+          "correct": false,
+          "explain": "北海道ではありません。"
+        },
+        {
+          "text": "Abroad.",
+          "correct": false,
+          "explain": "海外の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-194",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Do you know how to use this machine?"
+        },
+        {
+          "speaker": "B",
+          "text": "Put the money in first."
+        },
+        {
+          "speaker": "A",
+          "text": "Then press the button?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, that's right."
+        }
+      ],
+      "question": "What should the girl do first?",
+      "translation": "A：この機械の使い方分かる？　B：まずお金を入れて。　A：それからボタンを押す？　B：うん、そう。（質問：女の子はまず何をすべきですか）",
+      "choices": [
+        {
+          "text": "Put the money in.",
+          "correct": true,
+          "explain": "まずお金を入れます。"
+        },
+        {
+          "text": "Press the button.",
+          "correct": false,
+          "explain": "ボタンは後です。"
+        },
+        {
+          "text": "Ask a staff member.",
+          "correct": false,
+          "explain": "係員の話は出てきません。"
+        },
+        {
+          "text": "Take the item out.",
+          "correct": false,
+          "explain": "取り出しは最後です。"
+        }
+      ]
+    },
+    {
+      "id": "l4-195",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Did you see my English notebook?"
+        },
+        {
+          "speaker": "B",
+          "text": "Is it the green one?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes."
+        },
+        {
+          "speaker": "B",
+          "text": "It's on the teacher's desk."
+        }
+      ],
+      "question": "Where is the notebook?",
+      "translation": "A：私の英語のノート見なかった？　B：緑のやつ？　A：そう。　B：先生の机の上にあるよ。（質問：ノートはどこにありますか）",
+      "choices": [
+        {
+          "text": "On the teacher's desk.",
+          "correct": true,
+          "explain": "先生の机の上にあります。"
+        },
+        {
+          "text": "In her bag.",
+          "correct": false,
+          "explain": "かばんの話は出てきません。"
+        },
+        {
+          "text": "In the library.",
+          "correct": false,
+          "explain": "図書室の話はありません。"
+        },
+        {
+          "text": "It is lost.",
+          "correct": false,
+          "explain": "見つかっています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-196",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Let's take a picture together."
+        },
+        {
+          "speaker": "B",
+          "text": "Here, in front of the tree?"
+        },
+        {
+          "speaker": "A",
+          "text": "The sun is behind us. Let's move."
+        },
+        {
+          "speaker": "B",
+          "text": "How about near the pond?"
+        }
+      ],
+      "question": "Why do they want to move?",
+      "translation": "A：一緒に写真撮ろう。　B：この木の前で？　A：太陽が後ろだから移動しよう。　B：池の近くはどう？（質問：なぜ移動したいのですか）",
+      "choices": [
+        {
+          "text": "The sun is behind them.",
+          "correct": true,
+          "explain": "太陽が後ろにあるためです。"
+        },
+        {
+          "text": "The tree is too small.",
+          "correct": false,
+          "explain": "木の大きさの話は出てきません。"
+        },
+        {
+          "text": "There are too many people.",
+          "correct": false,
+          "explain": "人の話はありません。"
+        },
+        {
+          "text": "It is raining.",
+          "correct": false,
+          "explain": "天気の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-197",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What club did you join?"
+        },
+        {
+          "speaker": "B",
+          "text": "The art club."
+        },
+        {
+          "speaker": "A",
+          "text": "How many times a week do you meet?"
+        },
+        {
+          "speaker": "B",
+          "text": "Twice, on Tuesday and Friday."
+        }
+      ],
+      "question": "Which days does the art club meet?",
+      "translation": "A：どの部に入ったの？　B：美術部。　A：週に何回活動するの？　B：2回、火曜と金曜。（質問：美術部はいつ活動しますか）",
+      "choices": [
+        {
+          "text": "On Tuesday and Friday.",
+          "correct": true,
+          "explain": "火曜と金曜の週2回です。"
+        },
+        {
+          "text": "Every day.",
+          "correct": false,
+          "explain": "毎日ではありません。"
+        },
+        {
+          "text": "Only on Friday.",
+          "correct": false,
+          "explain": "火曜もあります。"
+        },
+        {
+          "text": "On weekends.",
+          "correct": false,
+          "explain": "週末ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-198",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "This soup is delicious."
+        },
+        {
+          "speaker": "B",
+          "text": "My father made it."
+        },
+        {
+          "speaker": "A",
+          "text": "What's in it?"
+        },
+        {
+          "speaker": "B",
+          "text": "Potatoes, onions and carrots."
+        }
+      ],
+      "question": "Who made the soup?",
+      "translation": "A：このスープおいしい。　B：父が作ったの。　A：何が入ってるの？　B：じゃがいも、玉ねぎ、にんじん。（質問：スープは誰が作りましたか）",
+      "choices": [
+        {
+          "text": "The girl's father.",
+          "correct": true,
+          "explain": "父が作ったと言っています。"
+        },
+        {
+          "text": "The girl herself.",
+          "correct": false,
+          "explain": "本人ではありません。"
+        },
+        {
+          "text": "Her mother.",
+          "correct": false,
+          "explain": "母の話は出てきません。"
+        },
+        {
+          "text": "A restaurant.",
+          "correct": false,
+          "explain": "店の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-199",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I want to learn to cook."
+        },
+        {
+          "speaker": "B",
+          "text": "Start with something easy."
+        },
+        {
+          "speaker": "A",
+          "text": "Like what?"
+        },
+        {
+          "speaker": "B",
+          "text": "Rice balls. My mother taught me."
+        }
+      ],
+      "question": "What does the boy suggest making?",
+      "translation": "A：料理を覚えたい。　B：簡単なものから始めなよ。　A：例えば？　B：おにぎり。母に教わったんだ。（質問：男の子は何を作ることを勧めていますか）",
+      "choices": [
+        {
+          "text": "Rice balls.",
+          "correct": true,
+          "explain": "おにぎりを勧めています。"
+        },
+        {
+          "text": "Curry.",
+          "correct": false,
+          "explain": "カレーの話は出てきません。"
+        },
+        {
+          "text": "Soup.",
+          "correct": false,
+          "explain": "スープの話はありません。"
+        },
+        {
+          "text": "Cake.",
+          "correct": false,
+          "explain": "ケーキの話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-200",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our team won today."
+        },
+        {
+          "speaker": "B",
+          "text": "What was the score?"
+        },
+        {
+          "speaker": "A",
+          "text": "Three to two."
+        },
+        {
+          "speaker": "B",
+          "text": "That was close."
+        }
+      ],
+      "question": "What was the score?",
+      "translation": "A：今日チームが勝ったよ。　B：点数は？　A：3対2。　B：接戦だったね。（質問：点数は何でしたか）",
+      "choices": [
+        {
+          "text": "Three to two.",
+          "correct": true,
+          "explain": "3対2だったと言っています。"
+        },
+        {
+          "text": "Two to one.",
+          "correct": false,
+          "explain": "2対1ではありません。"
+        },
+        {
+          "text": "Five to three.",
+          "correct": false,
+          "explain": "5対3ではありません。"
+        },
+        {
+          "text": "They lost.",
+          "correct": false,
+          "explain": "勝ちました。"
+        }
+      ]
+    },
+    {
+      "id": "l4-201",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Can I see your homework?"
+        },
+        {
+          "speaker": "B",
+          "text": "Why? Did you forget yours?"
+        },
+        {
+          "speaker": "A",
+          "text": "No, I want to check number three."
+        },
+        {
+          "speaker": "B",
+          "text": "All right, but do it quickly."
+        }
+      ],
+      "question": "Why does the girl want to see the homework?",
+      "translation": "A：宿題見せてくれる？　B：どうして？　忘れたの？　A：ううん、3番を確かめたくて。　B：いいけど、早くしてね。（質問：女の子はなぜ宿題を見たいのですか）",
+      "choices": [
+        {
+          "text": "To check one answer.",
+          "correct": true,
+          "explain": "3番を確かめたいと言っています。"
+        },
+        {
+          "text": "She forgot her homework.",
+          "correct": false,
+          "explain": "忘れてはいません。"
+        },
+        {
+          "text": "To copy all of it.",
+          "correct": false,
+          "explain": "写す話は出てきません。"
+        },
+        {
+          "text": "To give it to the teacher.",
+          "correct": false,
+          "explain": "提出の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-202",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "It's my mother's birthday on Sunday."
+        },
+        {
+          "speaker": "B",
+          "text": "What will you give her?"
+        },
+        {
+          "speaker": "A",
+          "text": "I'm making a card."
+        },
+        {
+          "speaker": "B",
+          "text": "She'll like that."
+        }
+      ],
+      "question": "What will the boy give his mother?",
+      "translation": "A：日曜は母の誕生日なんだ。　B：何をあげるの？　A：カードを作ってる。　B：喜ぶよ。（質問：男の子は母に何をあげますか）",
+      "choices": [
+        {
+          "text": "A card he makes himself.",
+          "correct": true,
+          "explain": "自分で作るカードです。"
+        },
+        {
+          "text": "Flowers.",
+          "correct": false,
+          "explain": "花の話は出てきません。"
+        },
+        {
+          "text": "A cake.",
+          "correct": false,
+          "explain": "ケーキの話はありません。"
+        },
+        {
+          "text": "Nothing.",
+          "correct": false,
+          "explain": "カードをあげます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-203",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Excuse me, is there a bank near here?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, go straight for two blocks."
+        },
+        {
+          "speaker": "A",
+          "text": "On the left or right?"
+        },
+        {
+          "speaker": "B",
+          "text": "On the right, next to the bakery."
+        }
+      ],
+      "question": "Where is the bank?",
+      "translation": "A：すみません、この近くに銀行はありますか。　B：はい、2ブロックまっすぐです。　A：左右どちらですか。　B：右側、パン屋の隣です。（質問：銀行はどこにありますか）",
+      "choices": [
+        {
+          "text": "On the right, next to the bakery.",
+          "correct": true,
+          "explain": "右側のパン屋の隣です。"
+        },
+        {
+          "text": "On the left.",
+          "correct": false,
+          "explain": "右側です。"
+        },
+        {
+          "text": "Behind the station.",
+          "correct": false,
+          "explain": "駅の話は出てきません。"
+        },
+        {
+          "text": "Inside the bakery.",
+          "correct": false,
+          "explain": "隣です。"
+        }
+      ]
+    },
+    {
+      "id": "l4-204",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "We're having a test next week."
+        },
+        {
+          "speaker": "B",
+          "text": "Which pages?"
+        },
+        {
+          "speaker": "A",
+          "text": "Chapters four and five."
+        },
+        {
+          "speaker": "B",
+          "text": "That's a lot. Let's study together."
+        }
+      ],
+      "question": "What will the test cover?",
+      "translation": "A：来週テストがあるよ。　B：どこまで？　A：4章と5章。　B：多いね。一緒に勉強しよう。（質問：テストの範囲はどこですか）",
+      "choices": [
+        {
+          "text": "Chapters four and five.",
+          "correct": true,
+          "explain": "4章と5章です。"
+        },
+        {
+          "text": "Chapter four only.",
+          "correct": false,
+          "explain": "5章も含みます。"
+        },
+        {
+          "text": "The whole book.",
+          "correct": false,
+          "explain": "全体ではありません。"
+        },
+        {
+          "text": "Chapters one to three.",
+          "correct": false,
+          "explain": "1〜3章ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-205",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Your room is very clean."
+        },
+        {
+          "speaker": "B",
+          "text": "I cleaned it this morning."
+        },
+        {
+          "speaker": "A",
+          "text": "How long did it take?"
+        },
+        {
+          "speaker": "B",
+          "text": "Almost two hours."
+        }
+      ],
+      "question": "When did the girl clean her room?",
+      "translation": "A：部屋がとてもきれいだね。　B：今朝掃除したの。　A：どのくらいかかった？　B：2時間近く。（質問：女の子はいつ部屋を掃除しましたか）",
+      "choices": [
+        {
+          "text": "This morning.",
+          "correct": true,
+          "explain": "今朝掃除したと言っています。"
+        },
+        {
+          "text": "Last night.",
+          "correct": false,
+          "explain": "昨夜ではありません。"
+        },
+        {
+          "text": "Yesterday.",
+          "correct": false,
+          "explain": "昨日ではありません。"
+        },
+        {
+          "text": "She has not cleaned it.",
+          "correct": false,
+          "explain": "掃除しました。"
+        }
+      ]
+    },
+    {
+      "id": "l4-206",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Are you free on Saturday morning?"
+        },
+        {
+          "speaker": "B",
+          "text": "I have juku until noon."
+        },
+        {
+          "speaker": "A",
+          "text": "What about the afternoon?"
+        },
+        {
+          "speaker": "B",
+          "text": "That's fine. What do you want to do?"
+        }
+      ],
+      "question": "When is the boy free?",
+      "translation": "A：土曜の午前は空いてる？　B：昼まで塾なんだ。　A：午後は？　B：大丈夫。何かする？（質問：男の子はいつ空いていますか）",
+      "choices": [
+        {
+          "text": "Saturday afternoon.",
+          "correct": true,
+          "explain": "午後なら空いています。"
+        },
+        {
+          "text": "Saturday morning.",
+          "correct": false,
+          "explain": "午前は塾です。"
+        },
+        {
+          "text": "Sunday.",
+          "correct": false,
+          "explain": "日曜の話は出てきません。"
+        },
+        {
+          "text": "He is never free.",
+          "correct": false,
+          "explain": "午後は空いています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-207",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I like this picture."
+        },
+        {
+          "speaker": "B",
+          "text": "My sister painted it."
+        },
+        {
+          "speaker": "A",
+          "text": "Is she an artist?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, it's just her hobby."
+        }
+      ],
+      "question": "What do we learn about the sister?",
+      "translation": "A：この絵いいね。　B：姉が描いたんだ。　A：画家なの？　B：ううん、趣味だよ。（質問：姉について何が分かりますか）",
+      "choices": [
+        {
+          "text": "Painting is her hobby.",
+          "correct": true,
+          "explain": "趣味で描いています。"
+        },
+        {
+          "text": "She is a professional artist.",
+          "correct": false,
+          "explain": "画家ではありません。"
+        },
+        {
+          "text": "She teaches art.",
+          "correct": false,
+          "explain": "指導の話は出てきません。"
+        },
+        {
+          "text": "She sells her pictures.",
+          "correct": false,
+          "explain": "販売の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-208",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Did you hear the news about the pool?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, what happened?"
+        },
+        {
+          "speaker": "A",
+          "text": "It will open a week early this year."
+        },
+        {
+          "speaker": "B",
+          "text": "Great. I love swimming."
+        }
+      ],
+      "question": "What is the news?",
+      "translation": "A：プールのニュース聞いた？　B：ううん、何かあった？　A：今年は1週間早く開くんだ。　B：いいね。泳ぐの大好き。（質問：ニュースは何ですか）",
+      "choices": [
+        {
+          "text": "The pool will open a week early.",
+          "correct": true,
+          "explain": "1週間早く開きます。"
+        },
+        {
+          "text": "The pool will close.",
+          "correct": false,
+          "explain": "閉鎖ではありません。"
+        },
+        {
+          "text": "The pool is being repaired.",
+          "correct": false,
+          "explain": "修理の話は出てきません。"
+        },
+        {
+          "text": "Swimming class is cancelled.",
+          "correct": false,
+          "explain": "授業の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-209",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Can you read this word?"
+        },
+        {
+          "speaker": "B",
+          "text": "Let me see. It's 'island'."
+        },
+        {
+          "speaker": "A",
+          "text": "How do you say it?"
+        },
+        {
+          "speaker": "B",
+          "text": "The 's' is silent."
+        }
+      ],
+      "question": "What does the boy explain?",
+      "translation": "A：この単語読める？　B：見せて。'island' だよ。　A：どう発音するの？　B：'s' は読まないんだ。（質問：男の子は何を説明していますか）",
+      "choices": [
+        {
+          "text": "That one letter is not pronounced.",
+          "correct": true,
+          "explain": "'s' を読まないと説明しています。"
+        },
+        {
+          "text": "The meaning of the word.",
+          "correct": false,
+          "explain": "意味の説明ではありません。"
+        },
+        {
+          "text": "How to spell the word.",
+          "correct": false,
+          "explain": "つづりの説明ではありません。"
+        },
+        {
+          "text": "Where the word comes from.",
+          "correct": false,
+          "explain": "語源の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-210",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Do you want to come to my house after school?"
+        },
+        {
+          "speaker": "B",
+          "text": "I have to ask my mother first."
+        },
+        {
+          "speaker": "A",
+          "text": "Call her now."
+        },
+        {
+          "speaker": "B",
+          "text": "She said yes. Let's go."
+        }
+      ],
+      "question": "What did the girl do before going?",
+      "translation": "A：放課後うちに来ない？　B：先に母に聞かないと。　A：今電話しなよ。　B：いいって。行こう。（質問：女の子は行く前に何をしましたか）",
+      "choices": [
+        {
+          "text": "She asked her mother.",
+          "correct": true,
+          "explain": "母に電話して許可をもらいました。"
+        },
+        {
+          "text": "She finished her homework.",
+          "correct": false,
+          "explain": "宿題の話は出てきません。"
+        },
+        {
+          "text": "She went home first.",
+          "correct": false,
+          "explain": "帰宅の話はありません。"
+        },
+        {
+          "text": "She bought a snack.",
+          "correct": false,
+          "explain": "買い物の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-211",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "It's noisy outside."
+        },
+        {
+          "speaker": "B",
+          "text": "They're building a new house."
+        },
+        {
+          "speaker": "A",
+          "text": "When will they finish?"
+        },
+        {
+          "speaker": "B",
+          "text": "In about two months."
+        }
+      ],
+      "question": "Why is it noisy?",
+      "translation": "A：外がうるさいね。　B：新しい家を建ててるんだ。　A：いつ終わるの？　B：2か月くらい。（質問：なぜうるさいのですか）",
+      "choices": [
+        {
+          "text": "A house is being built.",
+          "correct": true,
+          "explain": "新しい家の工事のためです。"
+        },
+        {
+          "text": "There is a festival.",
+          "correct": false,
+          "explain": "祭りの話は出てきません。"
+        },
+        {
+          "text": "Cars are passing.",
+          "correct": false,
+          "explain": "車の話はありません。"
+        },
+        {
+          "text": "Children are playing.",
+          "correct": false,
+          "explain": "子どもの話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-212",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Have you been to the new bakery?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, the bread is good."
+        },
+        {
+          "speaker": "A",
+          "text": "Is it expensive?"
+        },
+        {
+          "speaker": "B",
+          "text": "A little, but it's worth it."
+        }
+      ],
+      "question": "What does the boy say about the bakery?",
+      "translation": "A：新しいパン屋行った？　B：うん、パンがおいしい。　A：高い？　B：少しね、でもその価値はある。（質問：男の子はパン屋について何と言っていますか）",
+      "choices": [
+        {
+          "text": "It is a little expensive but good.",
+          "correct": true,
+          "explain": "少し高いが価値があると言っています。"
+        },
+        {
+          "text": "It is very cheap.",
+          "correct": false,
+          "explain": "少し高いと言っています。"
+        },
+        {
+          "text": "He has not been there.",
+          "correct": false,
+          "explain": "行っています。"
+        },
+        {
+          "text": "The bread is not good.",
+          "correct": false,
+          "explain": "おいしいと言っています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-213",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What time is the next bus?"
+        },
+        {
+          "speaker": "B",
+          "text": "At three fifteen."
+        },
+        {
+          "speaker": "A",
+          "text": "It's three ten now."
+        },
+        {
+          "speaker": "B",
+          "text": "Let's run."
+        }
+      ],
+      "question": "How long until the bus comes?",
+      "translation": "A：次のバスは何時？　B：3時15分。　A：今3時10分だ。　B：走ろう。（質問：バスまであと何分ですか）",
+      "choices": [
+        {
+          "text": "Five minutes.",
+          "correct": true,
+          "explain": "3時10分から3時15分までです。"
+        },
+        {
+          "text": "Fifteen minutes.",
+          "correct": false,
+          "explain": "15分ではありません。"
+        },
+        {
+          "text": "Thirty minutes.",
+          "correct": false,
+          "explain": "30分ではありません。"
+        },
+        {
+          "text": "One hour.",
+          "correct": false,
+          "explain": "1時間ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-214",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I'm reading a book about space."
+        },
+        {
+          "speaker": "B",
+          "text": "Is it difficult?"
+        },
+        {
+          "speaker": "A",
+          "text": "There are many pictures, so it's easy."
+        },
+        {
+          "speaker": "B",
+          "text": "Can I read it next?"
+        }
+      ],
+      "question": "Why is the book easy?",
+      "translation": "A：宇宙の本を読んでるんだ。　B：難しい？　A：写真が多いから簡単だよ。　B：次に貸してくれる？（質問：その本はなぜ簡単なのですか）",
+      "choices": [
+        {
+          "text": "It has many pictures.",
+          "correct": true,
+          "explain": "写真が多いためです。"
+        },
+        {
+          "text": "It is very short.",
+          "correct": false,
+          "explain": "長さの話は出てきません。"
+        },
+        {
+          "text": "It is for children.",
+          "correct": false,
+          "explain": "対象年齢の話はありません。"
+        },
+        {
+          "text": "He has read it before.",
+          "correct": false,
+          "explain": "再読の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-215",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Where are you going for the holiday?"
+        },
+        {
+          "speaker": "B",
+          "text": "To my grandparents' house in the country."
+        },
+        {
+          "speaker": "A",
+          "text": "What will you do there?"
+        },
+        {
+          "speaker": "B",
+          "text": "Help with the rice fields."
+        }
+      ],
+      "question": "What will the girl do at her grandparents' house?",
+      "translation": "A：休みはどこへ行くの？　B：田舎の祖父母の家。　A：そこで何をするの？　B：田んぼの手伝い。（質問：女の子は祖父母の家で何をしますか）",
+      "choices": [
+        {
+          "text": "Help with the rice fields.",
+          "correct": true,
+          "explain": "田んぼの手伝いをします。"
+        },
+        {
+          "text": "Go swimming.",
+          "correct": false,
+          "explain": "水泳の話は出てきません。"
+        },
+        {
+          "text": "Study for a test.",
+          "correct": false,
+          "explain": "勉強の話はありません。"
+        },
+        {
+          "text": "Visit a museum.",
+          "correct": false,
+          "explain": "博物館の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-216",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Did you bring your umbrella?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, the weather report said it would be sunny."
+        },
+        {
+          "speaker": "A",
+          "text": "But it's cloudy now."
+        },
+        {
+          "speaker": "B",
+          "text": "I hope it doesn't rain."
+        }
+      ],
+      "question": "Why did the boy not bring an umbrella?",
+      "translation": "A：傘持ってきた？　B：ううん、予報では晴れだった。　A：でも今は曇ってる。　B：降らないといいけど。（質問：男の子はなぜ傘を持ってこなかったのですか）",
+      "choices": [
+        {
+          "text": "The weather report said it would be sunny.",
+          "correct": true,
+          "explain": "予報が晴れだったためです。"
+        },
+        {
+          "text": "He forgot it at home.",
+          "correct": false,
+          "explain": "忘れたのではありません。"
+        },
+        {
+          "text": "He lost it.",
+          "correct": false,
+          "explain": "紛失の話は出てきません。"
+        },
+        {
+          "text": "He does not have one.",
+          "correct": false,
+          "explain": "所有の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-217",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "This is my first time in this town."
+        },
+        {
+          "speaker": "B",
+          "text": "Would you like to see the castle?"
+        },
+        {
+          "speaker": "A",
+          "text": "Is it far?"
+        },
+        {
+          "speaker": "B",
+          "text": "Ten minutes by bus."
+        }
+      ],
+      "question": "How can they get to the castle?",
+      "translation": "A：この町に来るのは初めてです。　B：お城を見ますか。　A：遠いですか。　B：バスで10分です。（質問：城へはどう行けますか）",
+      "choices": [
+        {
+          "text": "By bus in ten minutes.",
+          "correct": true,
+          "explain": "バスで10分です。"
+        },
+        {
+          "text": "On foot in ten minutes.",
+          "correct": false,
+          "explain": "バスです。"
+        },
+        {
+          "text": "By train.",
+          "correct": false,
+          "explain": "電車の話は出てきません。"
+        },
+        {
+          "text": "It is too far to visit.",
+          "correct": false,
+          "explain": "10分で行けます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-218",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our dog ran away this morning."
+        },
+        {
+          "speaker": "B",
+          "text": "Oh no. Did you find him?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, he was in the neighbor's garden."
+        },
+        {
+          "speaker": "B",
+          "text": "I'm glad he's safe."
+        }
+      ],
+      "question": "Where was the dog found?",
+      "translation": "A：今朝、うちの犬が逃げたんだ。　B：大変。見つかった？　A：うん、隣の家の庭にいた。　B：無事でよかった。（質問：犬はどこで見つかりましたか）",
+      "choices": [
+        {
+          "text": "In the neighbor's garden.",
+          "correct": true,
+          "explain": "隣家の庭で見つかりました。"
+        },
+        {
+          "text": "At the park.",
+          "correct": false,
+          "explain": "公園ではありません。"
+        },
+        {
+          "text": "At the station.",
+          "correct": false,
+          "explain": "駅ではありません。"
+        },
+        {
+          "text": "He was not found.",
+          "correct": false,
+          "explain": "見つかりました。"
+        }
+      ]
+    },
+    {
+      "id": "l4-219",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "How was the concert?"
+        },
+        {
+          "speaker": "B",
+          "text": "The music was great but the hall was hot."
+        },
+        {
+          "speaker": "A",
+          "text": "Was it crowded?"
+        },
+        {
+          "speaker": "B",
+          "text": "Every seat was full."
+        }
+      ],
+      "question": "What was the problem at the concert?",
+      "translation": "A：コンサートどうだった？　B：音楽はよかったけど会場が暑かった。　A：混んでた？　B：満席だったよ。（質問：コンサートの問題は何でしたか）",
+      "choices": [
+        {
+          "text": "The hall was hot.",
+          "correct": true,
+          "explain": "会場が暑かったと言っています。"
+        },
+        {
+          "text": "The music was bad.",
+          "correct": false,
+          "explain": "音楽はよかったです。"
+        },
+        {
+          "text": "It started late.",
+          "correct": false,
+          "explain": "開始時刻の話は出てきません。"
+        },
+        {
+          "text": "There were few people.",
+          "correct": false,
+          "explain": "満席でした。"
+        }
+      ]
+    },
+    {
+      "id": "l4-220",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I want to buy this comic book."
+        },
+        {
+          "speaker": "B",
+          "text": "How much money do you have?"
+        },
+        {
+          "speaker": "A",
+          "text": "Five hundred yen."
+        },
+        {
+          "speaker": "B",
+          "text": "It costs six hundred. I'll lend you a hundred."
+        }
+      ],
+      "question": "How will the girl buy the book?",
+      "translation": "A：この漫画を買いたい。　B：いくら持ってるの？　A：500円。　B：600円だよ。100円貸すよ。（質問：女の子はどう本を買いますか）",
+      "choices": [
+        {
+          "text": "Her friend will lend her a hundred yen.",
+          "correct": true,
+          "explain": "友達が100円貸してくれます。"
+        },
+        {
+          "text": "She will buy a cheaper book.",
+          "correct": false,
+          "explain": "別の本の話は出てきません。"
+        },
+        {
+          "text": "She will come back tomorrow.",
+          "correct": false,
+          "explain": "後日の話はありません。"
+        },
+        {
+          "text": "She will not buy it.",
+          "correct": false,
+          "explain": "買えます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-221",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Are you good at drawing?"
+        },
+        {
+          "speaker": "B",
+          "text": "Not really, but I like it."
+        },
+        {
+          "speaker": "A",
+          "text": "What do you draw?"
+        },
+        {
+          "speaker": "B",
+          "text": "Mostly animals."
+        }
+      ],
+      "question": "What does the boy draw?",
+      "translation": "A：絵は得意？　B：うまくないけど好き。　A：何を描くの？　B：たいてい動物。（質問：男の子は何を描きますか）",
+      "choices": [
+        {
+          "text": "Animals.",
+          "correct": true,
+          "explain": "たいてい動物を描きます。"
+        },
+        {
+          "text": "People.",
+          "correct": false,
+          "explain": "人物の話は出てきません。"
+        },
+        {
+          "text": "Buildings.",
+          "correct": false,
+          "explain": "建物の話はありません。"
+        },
+        {
+          "text": "Cars.",
+          "correct": false,
+          "explain": "車の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-222",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "We need a name for our team."
+        },
+        {
+          "speaker": "B",
+          "text": "How about 'Blue Sky'?"
+        },
+        {
+          "speaker": "A",
+          "text": "That's nice. Let's ask the others."
+        },
+        {
+          "speaker": "B",
+          "text": "I'll write it on the board."
+        }
+      ],
+      "question": "What will the boy do?",
+      "translation": "A：チーム名を決めないと。　B：「ブルースカイ」はどう？　A：いいね。みんなに聞こう。　B：黒板に書いておくよ。（質問：男の子は何をしますか）",
+      "choices": [
+        {
+          "text": "Write the name on the board.",
+          "correct": true,
+          "explain": "黒板に書くと言っています。"
+        },
+        {
+          "text": "Ask the teacher.",
+          "correct": false,
+          "explain": "先生の話は出てきません。"
+        },
+        {
+          "text": "Make a poster.",
+          "correct": false,
+          "explain": "ポスターの話はありません。"
+        },
+        {
+          "text": "Choose a different name.",
+          "correct": false,
+          "explain": "この名前を提案しています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-223",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "My shoes are too small now."
+        },
+        {
+          "speaker": "B",
+          "text": "You've grown a lot this year."
+        },
+        {
+          "speaker": "A",
+          "text": "Five centimeters."
+        },
+        {
+          "speaker": "B",
+          "text": "Let's go shopping on Saturday."
+        }
+      ],
+      "question": "What will they do on Saturday?",
+      "translation": "A：靴が小さくなっちゃった。　B：今年ずいぶん背が伸びたものね。　A：5センチ。　B：土曜に買い物に行こう。（質問：土曜に何をしますか）",
+      "choices": [
+        {
+          "text": "Go shopping for shoes.",
+          "correct": true,
+          "explain": "土曜に買い物へ行きます。"
+        },
+        {
+          "text": "Measure his height.",
+          "correct": false,
+          "explain": "身長測定の話は出てきません。"
+        },
+        {
+          "text": "Clean the shoes.",
+          "correct": false,
+          "explain": "手入れの話はありません。"
+        },
+        {
+          "text": "Give the shoes away.",
+          "correct": false,
+          "explain": "譲る話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-224",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Where is everyone?"
+        },
+        {
+          "speaker": "B",
+          "text": "They went to the gym."
+        },
+        {
+          "speaker": "A",
+          "text": "Why?"
+        },
+        {
+          "speaker": "B",
+          "text": "There's a meeting about the sports day."
+        }
+      ],
+      "question": "Why did everyone go to the gym?",
+      "translation": "A：みんなどこ？　B：体育館に行ったよ。　A：どうして？　B：運動会の集まりがあるんだ。（質問：みんなはなぜ体育館へ行ったのですか）",
+      "choices": [
+        {
+          "text": "For a meeting about sports day.",
+          "correct": true,
+          "explain": "運動会の集まりのためです。"
+        },
+        {
+          "text": "To play basketball.",
+          "correct": false,
+          "explain": "競技の話は出てきません。"
+        },
+        {
+          "text": "To clean the gym.",
+          "correct": false,
+          "explain": "掃除の話はありません。"
+        },
+        {
+          "text": "To watch a game.",
+          "correct": false,
+          "explain": "観戦の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-225",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "What do you usually eat for breakfast?"
+        },
+        {
+          "speaker": "B",
+          "text": "Toast and eggs."
+        },
+        {
+          "speaker": "A",
+          "text": "Every day?"
+        },
+        {
+          "speaker": "B",
+          "text": "Almost. Sometimes rice."
+        }
+      ],
+      "question": "What does the girl usually eat?",
+      "translation": "A：朝食はいつも何を食べるの？　B：トーストと卵。　A：毎日？　B：ほぼね。たまにご飯。（質問：女の子はふだん何を食べますか）",
+      "choices": [
+        {
+          "text": "Toast and eggs.",
+          "correct": true,
+          "explain": "ふだんはトーストと卵です。"
+        },
+        {
+          "text": "Rice every day.",
+          "correct": false,
+          "explain": "ご飯はたまにです。"
+        },
+        {
+          "text": "Nothing.",
+          "correct": false,
+          "explain": "食べています。"
+        },
+        {
+          "text": "Soup and salad.",
+          "correct": false,
+          "explain": "そのような話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-226",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The classroom is dark."
+        },
+        {
+          "speaker": "B",
+          "text": "The light is broken."
+        },
+        {
+          "speaker": "A",
+          "text": "Did you tell anyone?"
+        },
+        {
+          "speaker": "B",
+          "text": "I told the teacher this morning."
+        }
+      ],
+      "question": "What has the boy already done?",
+      "translation": "A：教室が暗いね。　B：照明が壊れてるんだ。　A：誰かに言った？　B：今朝先生に言ったよ。（質問：男の子はすでに何をしましたか）",
+      "choices": [
+        {
+          "text": "He told the teacher.",
+          "correct": true,
+          "explain": "今朝、先生に伝えました。"
+        },
+        {
+          "text": "He repaired the light.",
+          "correct": false,
+          "explain": "修理はしていません。"
+        },
+        {
+          "text": "He opened the curtains.",
+          "correct": false,
+          "explain": "カーテンの話は出てきません。"
+        },
+        {
+          "text": "He did nothing.",
+          "correct": false,
+          "explain": "先生に伝えています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-227",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Are you coming to the park tomorrow?"
+        },
+        {
+          "speaker": "B",
+          "text": "What time?"
+        },
+        {
+          "speaker": "A",
+          "text": "At two."
+        },
+        {
+          "speaker": "B",
+          "text": "I can come at three."
+        }
+      ],
+      "question": "When will the girl arrive?",
+      "translation": "A：明日公園に来る？　B：何時？　A：2時。　B：3時なら行ける。（質問：女の子は何時に来ますか）",
+      "choices": [
+        {
+          "text": "At three.",
+          "correct": true,
+          "explain": "3時なら行けると言っています。"
+        },
+        {
+          "text": "At two.",
+          "correct": false,
+          "explain": "2時は誘われた時刻です。"
+        },
+        {
+          "text": "At one.",
+          "correct": false,
+          "explain": "1時ではありません。"
+        },
+        {
+          "text": "She will not come.",
+          "correct": false,
+          "explain": "来られます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-228",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I like your new haircut."
+        },
+        {
+          "speaker": "B",
+          "text": "Thank you. My mother cut it."
+        },
+        {
+          "speaker": "A",
+          "text": "Really? She's good."
+        },
+        {
+          "speaker": "B",
+          "text": "She used to work at a salon."
+        }
+      ],
+      "question": "Who cut the girl's hair?",
+      "translation": "A：髪型いいね。　B：ありがとう。母が切ってくれたの。　A：本当？　上手だね。　B：昔、美容院で働いてたの。（質問：誰が髪を切りましたか）",
+      "choices": [
+        {
+          "text": "Her mother.",
+          "correct": true,
+          "explain": "母が切りました。"
+        },
+        {
+          "text": "A salon worker.",
+          "correct": false,
+          "explain": "母が切りました。"
+        },
+        {
+          "text": "She cut it herself.",
+          "correct": false,
+          "explain": "自分ではありません。"
+        },
+        {
+          "text": "Her sister.",
+          "correct": false,
+          "explain": "姉妹の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-229",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our school has a new rule."
+        },
+        {
+          "speaker": "B",
+          "text": "What is it?"
+        },
+        {
+          "speaker": "A",
+          "text": "No running in the hallway."
+        },
+        {
+          "speaker": "B",
+          "text": "Someone fell last week, right?"
+        }
+      ],
+      "question": "What is the new rule?",
+      "translation": "A：学校に新しい決まりができた。　B：何？　A：廊下を走らないこと。　B：先週誰か転んだよね？（質問：新しい決まりは何ですか）",
+      "choices": [
+        {
+          "text": "No running in the hallway.",
+          "correct": true,
+          "explain": "廊下を走らないという決まりです。"
+        },
+        {
+          "text": "No eating in class.",
+          "correct": false,
+          "explain": "飲食の話は出てきません。"
+        },
+        {
+          "text": "No phones at school.",
+          "correct": false,
+          "explain": "携帯の話はありません。"
+        },
+        {
+          "text": "No talking in the library.",
+          "correct": false,
+          "explain": "図書室の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-230",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Did you watch the game last night?"
+        },
+        {
+          "speaker": "B",
+          "text": "I had to study."
+        },
+        {
+          "speaker": "A",
+          "text": "Do you want to know who won?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, I'll watch it later."
+        }
+      ],
+      "question": "Why doesn't the boy want to know?",
+      "translation": "A：昨夜の試合見た？　B：勉強しなきゃいけなかった。　A：どっちが勝ったか知りたい？　B：ううん、後で見るから。（質問：男の子はなぜ知りたくないのですか）",
+      "choices": [
+        {
+          "text": "He will watch the game later.",
+          "correct": true,
+          "explain": "後で見るつもりだからです。"
+        },
+        {
+          "text": "He does not like the sport.",
+          "correct": false,
+          "explain": "好みの話は出てきません。"
+        },
+        {
+          "text": "He already knows.",
+          "correct": false,
+          "explain": "知りません。"
+        },
+        {
+          "text": "He was at the game.",
+          "correct": false,
+          "explain": "勉強していました。"
+        }
+      ]
+    },
+    {
+      "id": "l4-231",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "This desk is too heavy for me."
+        },
+        {
+          "speaker": "B",
+          "text": "Let's take the drawers out first."
+        },
+        {
+          "speaker": "A",
+          "text": "Good idea."
+        },
+        {
+          "speaker": "B",
+          "text": "Then we can carry it together."
+        }
+      ],
+      "question": "What will they do first?",
+      "translation": "A：この机は重すぎる。　B：まず引き出しを抜こう。　A：いい考え。　B：それから二人で運ぼう。（質問：二人はまず何をしますか）",
+      "choices": [
+        {
+          "text": "Take out the drawers.",
+          "correct": true,
+          "explain": "まず引き出しを抜きます。"
+        },
+        {
+          "text": "Carry the desk together.",
+          "correct": false,
+          "explain": "それは引き出しを抜いた後です。"
+        },
+        {
+          "text": "Ask a teacher for help.",
+          "correct": false,
+          "explain": "先生の話は出てきません。"
+        },
+        {
+          "text": "Leave the desk there.",
+          "correct": false,
+          "explain": "運ぶつもりです。"
+        }
+      ]
+    },
+    {
+      "id": "l4-232",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I want to sit by the window on the bus."
+        },
+        {
+          "speaker": "B",
+          "text": "Then we should get on early."
+        },
+        {
+          "speaker": "A",
+          "text": "What time does it come?"
+        },
+        {
+          "speaker": "B",
+          "text": "At eight, but let's be there at seven fifty."
+        }
+      ],
+      "question": "What time will they arrive at the bus stop?",
+      "translation": "A：バスでは窓際に座りたい。　B：じゃあ早めに乗らないと。　A：何時に来るの？　B：8時。でも7時50分には行こう。（質問：二人は何時にバス停に着きますか）",
+      "choices": [
+        {
+          "text": "At seven fifty.",
+          "correct": true,
+          "explain": "7時50分に着くことにしました。"
+        },
+        {
+          "text": "At eight.",
+          "correct": false,
+          "explain": "8時はバスの時刻です。"
+        },
+        {
+          "text": "At eight ten.",
+          "correct": false,
+          "explain": "8時10分ではありません。"
+        },
+        {
+          "text": "At seven thirty.",
+          "correct": false,
+          "explain": "7時半ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-233",
+      "part": "passage",
+      "script": "Mika wants to be a vet. Every Saturday she helps at an animal hospital near her house. She cleans the cages and gives water to the animals.",
+      "question": "What does Mika do on Saturdays?",
+      "translation": "美香は獣医になりたい。毎週土曜、家の近くの動物病院で手伝いをしている。ケージを掃除し、動物に水をやる。",
+      "choices": [
+        {
+          "text": "She helps at an animal hospital.",
+          "correct": true,
+          "explain": "毎週土曜に動物病院で手伝いをします。"
+        },
+        {
+          "text": "She studies at the library.",
+          "correct": false,
+          "explain": "図書館の話は出てきません。"
+        },
+        {
+          "text": "She walks dogs in the park.",
+          "correct": false,
+          "explain": "散歩の話はありません。"
+        },
+        {
+          "text": "She works at a pet shop.",
+          "correct": false,
+          "explain": "ペット店ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-234",
+      "part": "passage",
+      "script": "Attention, students. The school bus will leave at four thirty today, not four. Please wait in the gym until then. Do not wait outside because it is raining.",
+      "question": "Where should students wait?",
+      "translation": "生徒の皆さんにお知らせします。本日のスクールバスは4時でなく4時半に出発します。それまで体育館で待ってください。雨なので外では待たないでください。",
+      "choices": [
+        {
+          "text": "In the gym.",
+          "correct": true,
+          "explain": "体育館で待つよう言われています。"
+        },
+        {
+          "text": "Outside the school.",
+          "correct": false,
+          "explain": "雨なので外では待ちません。"
+        },
+        {
+          "text": "In the classroom.",
+          "correct": false,
+          "explain": "教室の話は出てきません。"
+        },
+        {
+          "text": "At the bus stop.",
+          "correct": false,
+          "explain": "バス停の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-235",
+      "part": "passage",
+      "script": "Ryo's family went to the beach last Sunday. The weather was cloudy, so they did not swim. Instead they made a sand castle and ate lunch on the sand.",
+      "question": "Why didn't they swim?",
+      "translation": "良の家族は先週の日曜、海に行った。曇っていたので泳がなかった。代わりに砂の城を作り、砂浜で昼食を食べた。",
+      "choices": [
+        {
+          "text": "The weather was cloudy.",
+          "correct": true,
+          "explain": "曇りだったため泳ぎませんでした。"
+        },
+        {
+          "text": "The sea was closed.",
+          "correct": false,
+          "explain": "遊泳禁止の話は出てきません。"
+        },
+        {
+          "text": "They forgot their swimsuits.",
+          "correct": false,
+          "explain": "水着の話はありません。"
+        },
+        {
+          "text": "They arrived too late.",
+          "correct": false,
+          "explain": "時間の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-236",
+      "part": "passage",
+      "script": "Our school library is open from eight to five. You can borrow three books for two weeks. If you are late, you cannot borrow books for one week.",
+      "question": "How many books can students borrow?",
+      "translation": "本校の図書室は8時から5時まで開いています。3冊を2週間借りられます。返却が遅れると、1週間借りられなくなります。",
+      "choices": [
+        {
+          "text": "Three books.",
+          "correct": true,
+          "explain": "3冊借りられます。"
+        },
+        {
+          "text": "Two books.",
+          "correct": false,
+          "explain": "2は週数です。"
+        },
+        {
+          "text": "Five books.",
+          "correct": false,
+          "explain": "5冊ではありません。"
+        },
+        {
+          "text": "As many as they want.",
+          "correct": false,
+          "explain": "3冊までです。"
+        }
+      ]
+    },
+    {
+      "id": "l4-237",
+      "part": "passage",
+      "script": "Kenta likes to get up early. He runs for twenty minutes before breakfast. He says running in the morning makes him feel awake all day.",
+      "question": "When does Kenta run?",
+      "translation": "健太は早起きが好きだ。朝食前に20分走る。朝走ると一日中目が覚めていられるという。",
+      "choices": [
+        {
+          "text": "Before breakfast.",
+          "correct": true,
+          "explain": "朝食前に走ります。"
+        },
+        {
+          "text": "After school.",
+          "correct": false,
+          "explain": "放課後ではありません。"
+        },
+        {
+          "text": "Before bed.",
+          "correct": false,
+          "explain": "就寝前ではありません。"
+        },
+        {
+          "text": "On weekends only.",
+          "correct": false,
+          "explain": "週末限定ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-238",
+      "part": "passage",
+      "script": "Thank you for visiting the zoo. The elephants will have their lunch at one o'clock. You can watch the keeper feed them. Please do not give any food to the animals.",
+      "question": "What are visitors asked not to do?",
+      "translation": "動物園にお越しいただきありがとうございます。ゾウの食事は1時です。飼育員が餌をやるところをご覧いただけます。動物に食べ物を与えないでください。",
+      "choices": [
+        {
+          "text": "Feed the animals.",
+          "correct": true,
+          "explain": "動物に食べ物を与えないよう求めています。"
+        },
+        {
+          "text": "Watch the elephants.",
+          "correct": false,
+          "explain": "見学はできます。"
+        },
+        {
+          "text": "Take photographs.",
+          "correct": false,
+          "explain": "撮影の話は出てきません。"
+        },
+        {
+          "text": "Come at one o'clock.",
+          "correct": false,
+          "explain": "食事の時間です。"
+        }
+      ]
+    },
+    {
+      "id": "l4-239",
+      "part": "passage",
+      "script": "Aya joined the cooking club this year. At first she could not cut vegetables well. Now she can make three kinds of soup, and she cooks dinner for her family on Fridays.",
+      "question": "What can Aya do now?",
+      "translation": "彩は今年、料理部に入った。最初は野菜をうまく切れなかった。今では3種類のスープが作れ、金曜には家族に夕食を作る。",
+      "choices": [
+        {
+          "text": "Make three kinds of soup.",
+          "correct": true,
+          "explain": "3種類のスープが作れます。"
+        },
+        {
+          "text": "Cut vegetables badly.",
+          "correct": false,
+          "explain": "それは最初の状態です。"
+        },
+        {
+          "text": "Teach the cooking club.",
+          "correct": false,
+          "explain": "指導の話は出てきません。"
+        },
+        {
+          "text": "Work at a restaurant.",
+          "correct": false,
+          "explain": "仕事の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-240",
+      "part": "passage",
+      "script": "This is an announcement about tomorrow's trip. Please bring your lunch, a water bottle and a hat. Do not bring money or games. We will meet at the school gate at eight.",
+      "question": "What should students not bring?",
+      "translation": "明日の遠足についてお知らせします。弁当、水筒、帽子を持ってきてください。お金やゲームは持ってこないでください。8時に校門に集合します。",
+      "choices": [
+        {
+          "text": "Money and games.",
+          "correct": true,
+          "explain": "お金やゲームは持参不可です。"
+        },
+        {
+          "text": "A water bottle.",
+          "correct": false,
+          "explain": "水筒は必要です。"
+        },
+        {
+          "text": "A hat.",
+          "correct": false,
+          "explain": "帽子は必要です。"
+        },
+        {
+          "text": "Lunch.",
+          "correct": false,
+          "explain": "弁当は必要です。"
+        }
+      ]
+    },
+    {
+      "id": "l4-241",
+      "part": "passage",
+      "script": "Many people think that all bears sleep all winter. In fact, some bears wake up several times. They come out of their holes to look around and then go back to sleep.",
+      "question": "What do some bears do in winter?",
+      "translation": "クマはみな冬の間ずっと眠ると多くの人が思っている。実際には、何度か目を覚ますクマもいる。穴から出て周りを見て、また眠りに戻る。",
+      "choices": [
+        {
+          "text": "They wake up several times.",
+          "correct": true,
+          "explain": "何度か目を覚ますクマもいます。"
+        },
+        {
+          "text": "They never sleep.",
+          "correct": false,
+          "explain": "眠ります。"
+        },
+        {
+          "text": "They look for food all winter.",
+          "correct": false,
+          "explain": "採食の話は出てきません。"
+        },
+        {
+          "text": "They move to warm places.",
+          "correct": false,
+          "explain": "移動の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-242",
+      "part": "passage",
+      "script": "Sho's father works at a bakery. He leaves home at three in the morning and comes back at noon. Sho sometimes helps him on Sunday mornings.",
+      "question": "When does Sho's father come home?",
+      "translation": "翔の父はパン屋で働いている。午前3時に家を出て、正午に帰ってくる。翔は日曜の朝にときどき手伝う。",
+      "choices": [
+        {
+          "text": "At noon.",
+          "correct": true,
+          "explain": "正午に帰ってきます。"
+        },
+        {
+          "text": "At three in the morning.",
+          "correct": false,
+          "explain": "それは出発時刻です。"
+        },
+        {
+          "text": "In the evening.",
+          "correct": false,
+          "explain": "夕方ではありません。"
+        },
+        {
+          "text": "On Sunday only.",
+          "correct": false,
+          "explain": "毎日の勤務です。"
+        }
+      ]
+    },
+    {
+      "id": "l4-243",
+      "part": "passage",
+      "script": "Good morning. Today's P.E. class will be in the gym because the ground is wet. Please bring your indoor shoes. Students who forget them can watch from the side.",
+      "question": "Why is the class in the gym?",
+      "translation": "おはようございます。校庭がぬれているため、本日の体育は体育館で行います。上履きを持ってきてください。忘れた生徒は横で見学します。",
+      "choices": [
+        {
+          "text": "The ground is wet.",
+          "correct": true,
+          "explain": "校庭がぬれているためです。"
+        },
+        {
+          "text": "It is too hot outside.",
+          "correct": false,
+          "explain": "暑さの話は出てきません。"
+        },
+        {
+          "text": "The gym is new.",
+          "correct": false,
+          "explain": "施設の話はありません。"
+        },
+        {
+          "text": "There are too many students.",
+          "correct": false,
+          "explain": "人数の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-244",
+      "part": "passage",
+      "script": "Yuki's grandmother lives alone. Yuki calls her every Wednesday evening. They talk for about twenty minutes. Yuki's grandmother always asks about her school life.",
+      "question": "How often does Yuki call her grandmother?",
+      "translation": "由紀の祖母は一人暮らしだ。由紀は毎週水曜の夜に電話する。20分ほど話す。祖母はいつも学校のことを尋ねる。",
+      "choices": [
+        {
+          "text": "Every Wednesday.",
+          "correct": true,
+          "explain": "毎週水曜に電話します。"
+        },
+        {
+          "text": "Every day.",
+          "correct": false,
+          "explain": "毎日ではありません。"
+        },
+        {
+          "text": "Once a month.",
+          "correct": false,
+          "explain": "月1回ではありません。"
+        },
+        {
+          "text": "Only on holidays.",
+          "correct": false,
+          "explain": "休日限定ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-245",
+      "part": "passage",
+      "script": "Our town has a small festival every August. There are food stalls and traditional dancing. Last year, over two thousand people came. This year the festival will be two days long.",
+      "question": "What is new this year?",
+      "translation": "私たちの町では毎年8月に小さな祭りがある。屋台と伝統の踊りがある。昨年は2千人以上が来た。今年は祭りが2日間になる。",
+      "choices": [
+        {
+          "text": "The festival will last two days.",
+          "correct": true,
+          "explain": "今年は2日間になります。"
+        },
+        {
+          "text": "There will be no dancing.",
+          "correct": false,
+          "explain": "踊りの中止の話はありません。"
+        },
+        {
+          "text": "It will be held in July.",
+          "correct": false,
+          "explain": "8月です。"
+        },
+        {
+          "text": "Fewer people will come.",
+          "correct": false,
+          "explain": "来場者数の予想は述べられていません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-246",
+      "part": "passage",
+      "script": "Please listen. The water in the third-floor bathroom is not working today. Please use the bathroom on the second floor. A worker will fix it this afternoon.",
+      "question": "What is the problem?",
+      "translation": "お知らせします。本日、3階のトイレの水が出ません。2階のトイレをご利用ください。午後に業者が直します。",
+      "choices": [
+        {
+          "text": "The water on the third floor is not working.",
+          "correct": true,
+          "explain": "3階の水が出ません。"
+        },
+        {
+          "text": "The second floor is closed.",
+          "correct": false,
+          "explain": "2階は使えます。"
+        },
+        {
+          "text": "There is no worker today.",
+          "correct": false,
+          "explain": "午後に来ます。"
+        },
+        {
+          "text": "The building has no water at all.",
+          "correct": false,
+          "explain": "2階は使えます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-247",
+      "part": "passage",
+      "script": "Daiki got a camera for his birthday. He takes pictures of trains near his house. He has taken over five hundred photos, and his favorite is one of a train in the snow.",
+      "question": "What does Daiki take pictures of?",
+      "translation": "大輝は誕生日にカメラをもらった。家の近くで電車の写真を撮る。500枚以上撮り、お気に入りは雪の中の電車の写真だ。",
+      "choices": [
+        {
+          "text": "Trains.",
+          "correct": true,
+          "explain": "電車の写真を撮っています。"
+        },
+        {
+          "text": "Animals.",
+          "correct": false,
+          "explain": "動物の話は出てきません。"
+        },
+        {
+          "text": "Flowers.",
+          "correct": false,
+          "explain": "花の話はありません。"
+        },
+        {
+          "text": "His family.",
+          "correct": false,
+          "explain": "家族の写真の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-248",
+      "part": "passage",
+      "script": "Cats sleep for about sixteen hours a day. They usually sleep in short times, not all at once. Wild cats sleep like this so that they can hunt at any time.",
+      "question": "How do cats sleep?",
+      "translation": "猫は1日に約16時間眠る。たいてい一度にではなく短い時間に分けて眠る。野生の猫は、いつでも狩りができるようにこうして眠る。",
+      "choices": [
+        {
+          "text": "In short times, not all at once.",
+          "correct": true,
+          "explain": "短い時間に分けて眠ります。"
+        },
+        {
+          "text": "For sixteen hours without waking.",
+          "correct": false,
+          "explain": "一度にではありません。"
+        },
+        {
+          "text": "Only at night.",
+          "correct": false,
+          "explain": "夜だけではありません。"
+        },
+        {
+          "text": "Only after eating.",
+          "correct": false,
+          "explain": "食後の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-249",
+      "part": "passage",
+      "script": "Our class made a garden behind the school. We planted tomatoes in May. In August we picked forty tomatoes and gave them to the school kitchen.",
+      "question": "What did the class do with the tomatoes?",
+      "translation": "私たちのクラスは校舎裏に菜園を作った。5月にトマトを植えた。8月に40個収穫し、給食室に渡した。",
+      "choices": [
+        {
+          "text": "They gave them to the school kitchen.",
+          "correct": true,
+          "explain": "給食室に渡しました。"
+        },
+        {
+          "text": "They sold them at a shop.",
+          "correct": false,
+          "explain": "販売の話は出てきません。"
+        },
+        {
+          "text": "They ate them in class.",
+          "correct": false,
+          "explain": "教室で食べる話はありません。"
+        },
+        {
+          "text": "They took them home.",
+          "correct": false,
+          "explain": "持ち帰りの話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-250",
+      "part": "passage",
+      "script": "Welcome to the science center. The show about the stars begins at two o'clock in the dome. It is thirty minutes long. Please do not eat or drink inside the dome.",
+      "question": "How long is the show?",
+      "translation": "科学館へようこそ。星の上映はドームで2時に始まります。30分間です。ドーム内では飲食をご遠慮ください。",
+      "choices": [
+        {
+          "text": "Thirty minutes.",
+          "correct": true,
+          "explain": "30分間です。"
+        },
+        {
+          "text": "Two hours.",
+          "correct": false,
+          "explain": "2時は開始時刻です。"
+        },
+        {
+          "text": "One hour.",
+          "correct": false,
+          "explain": "1時間ではありません。"
+        },
+        {
+          "text": "Fifteen minutes.",
+          "correct": false,
+          "explain": "15分ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-251",
+      "part": "passage",
+      "script": "Nana could not ride a bicycle until she was ten. Her older brother helped her every evening for two weeks. Now she rides to school every day.",
+      "question": "Who helped Nana?",
+      "translation": "菜々は10歳まで自転車に乗れなかった。兄が2週間、毎晩手伝ってくれた。今は毎日自転車で通学している。",
+      "choices": [
+        {
+          "text": "Her older brother.",
+          "correct": true,
+          "explain": "兄が毎晩手伝いました。"
+        },
+        {
+          "text": "Her teacher.",
+          "correct": false,
+          "explain": "先生の話は出てきません。"
+        },
+        {
+          "text": "Her friend.",
+          "correct": false,
+          "explain": "友達の話はありません。"
+        },
+        {
+          "text": "Nobody.",
+          "correct": false,
+          "explain": "兄が手伝いました。"
+        }
+      ]
+    },
+    {
+      "id": "l4-252",
+      "part": "passage",
+      "script": "Attention. The school shop will be closed tomorrow because the staff are taking stock. It will open again on Thursday morning. Please buy what you need today.",
+      "question": "When will the shop open again?",
+      "translation": "お知らせします。購買部は棚卸しのため明日休業します。木曜の朝に再開します。必要なものは本日お買い求めください。",
+      "choices": [
+        {
+          "text": "On Thursday morning.",
+          "correct": true,
+          "explain": "木曜の朝に再開します。"
+        },
+        {
+          "text": "Tomorrow afternoon.",
+          "correct": false,
+          "explain": "明日は休業です。"
+        },
+        {
+          "text": "Next week.",
+          "correct": false,
+          "explain": "来週ではありません。"
+        },
+        {
+          "text": "It will not open again.",
+          "correct": false,
+          "explain": "再開します。"
+        }
+      ]
+    },
+    {
+      "id": "l4-253",
+      "part": "passage",
+      "script": "Ken likes old coins. His grandfather gave him twenty coins from different countries. Ken keeps them in a small box and looks up each country on a map.",
+      "question": "What does Ken do with the coins?",
+      "translation": "健は古い硬貨が好きだ。祖父が各国の硬貨を20枚くれた。健は小箱にしまい、それぞれの国を地図で調べる。",
+      "choices": [
+        {
+          "text": "He looks up each country on a map.",
+          "correct": true,
+          "explain": "各国を地図で調べています。"
+        },
+        {
+          "text": "He sells them.",
+          "correct": false,
+          "explain": "販売の話は出てきません。"
+        },
+        {
+          "text": "He uses them as money.",
+          "correct": false,
+          "explain": "使用の話はありません。"
+        },
+        {
+          "text": "He gives them away.",
+          "correct": false,
+          "explain": "譲る話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-254",
+      "part": "passage",
+      "script": "The train from this platform goes to Higashi Station. It stops at five stations on the way. The trip takes about twenty minutes. The next train comes in six minutes.",
+      "question": "How long is the trip?",
+      "translation": "このホームの電車は東駅行きです。途中5駅に停まります。所要時間は約20分です。次の電車は6分後に来ます。",
+      "choices": [
+        {
+          "text": "About twenty minutes.",
+          "correct": true,
+          "explain": "所要時間は約20分です。"
+        },
+        {
+          "text": "Six minutes.",
+          "correct": false,
+          "explain": "6分は次の電車までの時間です。"
+        },
+        {
+          "text": "Five minutes.",
+          "correct": false,
+          "explain": "5は停車駅の数です。"
+        },
+        {
+          "text": "One hour.",
+          "correct": false,
+          "explain": "1時間ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-255",
+      "part": "passage",
+      "script": "Moe's family moved to this town three years ago. At first she missed her old friends. Now she is in the volleyball club and has many new friends here.",
+      "question": "How does Moe feel now?",
+      "translation": "萌の家族は3年前にこの町へ引っ越した。最初は前の友達が恋しかった。今はバレー部に入り、新しい友達がたくさんいる。",
+      "choices": [
+        {
+          "text": "She has many new friends.",
+          "correct": true,
+          "explain": "今は新しい友達がたくさんいます。"
+        },
+        {
+          "text": "She still misses her old friends.",
+          "correct": false,
+          "explain": "それは最初のことです。"
+        },
+        {
+          "text": "She wants to move again.",
+          "correct": false,
+          "explain": "引っ越しの話は出てきません。"
+        },
+        {
+          "text": "She has no club.",
+          "correct": false,
+          "explain": "バレー部に入っています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-256",
+      "part": "passage",
+      "script": "Soccer is the most popular sport in our school. More than sixty students are in the club. Because the ground is small, they practice in two groups.",
+      "question": "Why do they practice in two groups?",
+      "translation": "サッカーは本校で最も人気のスポーツだ。部員は60人を超える。校庭が狭いため、2班に分かれて練習する。",
+      "choices": [
+        {
+          "text": "The ground is small.",
+          "correct": true,
+          "explain": "校庭が狭いためです。"
+        },
+        {
+          "text": "There are two coaches.",
+          "correct": false,
+          "explain": "指導者の話は出てきません。"
+        },
+        {
+          "text": "They practice at different times.",
+          "correct": false,
+          "explain": "理由は校庭の広さです。"
+        },
+        {
+          "text": "Half the students are beginners.",
+          "correct": false,
+          "explain": "経験の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-257",
+      "part": "passage",
+      "script": "Please remember that the swimming pool will open next Monday. Bring a swimming cap and a towel. Students who have a cold should not swim.",
+      "question": "Who should not swim?",
+      "translation": "プールは来週月曜に開きます。水泳帽とタオルを持ってきてください。風邪をひいている生徒は泳がないでください。",
+      "choices": [
+        {
+          "text": "Students with a cold.",
+          "correct": true,
+          "explain": "風邪の生徒は泳ぎません。"
+        },
+        {
+          "text": "Students without a towel.",
+          "correct": false,
+          "explain": "タオルは持ち物です。"
+        },
+        {
+          "text": "First-year students.",
+          "correct": false,
+          "explain": "学年の話は出てきません。"
+        },
+        {
+          "text": "Everyone.",
+          "correct": false,
+          "explain": "開放されます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-258",
+      "part": "passage",
+      "script": "Sota's dream is to visit Egypt. He has read many books about the pyramids. He is saving money from his New Year gifts, and he has saved thirty thousand yen.",
+      "question": "How is Sota saving money?",
+      "translation": "颯太の夢はエジプトに行くことだ。ピラミッドの本をたくさん読んでいる。お年玉を貯めており、3万円貯まった。",
+      "choices": [
+        {
+          "text": "From his New Year gifts.",
+          "correct": true,
+          "explain": "お年玉を貯めています。"
+        },
+        {
+          "text": "From a part-time job.",
+          "correct": false,
+          "explain": "アルバイトの話は出てきません。"
+        },
+        {
+          "text": "By selling books.",
+          "correct": false,
+          "explain": "販売の話はありません。"
+        },
+        {
+          "text": "His parents give him money.",
+          "correct": false,
+          "explain": "親からの援助の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-259",
+      "part": "passage",
+      "script": "Good afternoon. Today the second-floor computer room is closed for cleaning. Students who need a computer can use the ones in the library until five o'clock.",
+      "question": "Where can students use a computer?",
+      "translation": "こんにちは。本日、2階のコンピューター室は清掃のため閉まっています。パソコンが必要な生徒は5時まで図書室のものを使えます。",
+      "choices": [
+        {
+          "text": "In the library.",
+          "correct": true,
+          "explain": "図書室のパソコンを使えます。"
+        },
+        {
+          "text": "In the computer room.",
+          "correct": false,
+          "explain": "閉まっています。"
+        },
+        {
+          "text": "In the classroom.",
+          "correct": false,
+          "explain": "教室の話は出てきません。"
+        },
+        {
+          "text": "Nowhere today.",
+          "correct": false,
+          "explain": "図書室が使えます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-260",
+      "part": "passage",
+      "script": "Hana wanted a puppy, but her family lives in a small apartment. Instead, her parents got her a small bird. Hana now feeds it every morning and talks to it.",
+      "question": "What pet did Hana get?",
+      "translation": "花は子犬を欲しがったが、家族は狭いアパートに住んでいる。代わりに両親は小鳥を買ってくれた。花は毎朝餌をやり、話しかけている。",
+      "choices": [
+        {
+          "text": "A small bird.",
+          "correct": true,
+          "explain": "小鳥をもらいました。"
+        },
+        {
+          "text": "A puppy.",
+          "correct": false,
+          "explain": "子犬ではありません。"
+        },
+        {
+          "text": "A cat.",
+          "correct": false,
+          "explain": "猫の話は出てきません。"
+        },
+        {
+          "text": "A fish.",
+          "correct": false,
+          "explain": "魚の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-261",
+      "part": "passage",
+      "script": "Rain fell for six days last week. Our sports day was moved from Saturday to the next Wednesday. Luckily, Wednesday was sunny and warm.",
+      "question": "When was sports day held?",
+      "translation": "先週は6日間雨が降った。運動会は土曜から翌週の水曜に延期された。幸い、水曜は晴れて暖かかった。",
+      "choices": [
+        {
+          "text": "On Wednesday.",
+          "correct": true,
+          "explain": "翌週の水曜に行われました。"
+        },
+        {
+          "text": "On Saturday.",
+          "correct": false,
+          "explain": "土曜は延期になりました。"
+        },
+        {
+          "text": "It was cancelled.",
+          "correct": false,
+          "explain": "開催されました。"
+        },
+        {
+          "text": "On Sunday.",
+          "correct": false,
+          "explain": "日曜ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-262",
+      "part": "passage",
+      "script": "Our school has a farm club. Members grow rice in a small field near the school. In October they cut the rice by hand and cook it together.",
+      "question": "What do the club members do in October?",
+      "translation": "本校には農業部がある。部員は学校近くの小さな田で米を育てる。10月には手で刈り取り、一緒に炊いて食べる。",
+      "choices": [
+        {
+          "text": "They harvest and cook the rice.",
+          "correct": true,
+          "explain": "刈り取って一緒に炊きます。"
+        },
+        {
+          "text": "They plant the rice.",
+          "correct": false,
+          "explain": "田植えの時期は述べられていません。"
+        },
+        {
+          "text": "They sell the rice.",
+          "correct": false,
+          "explain": "販売の話は出てきません。"
+        },
+        {
+          "text": "They clean the field.",
+          "correct": false,
+          "explain": "清掃の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-263",
+      "part": "passage",
+      "script": "This is an announcement for parents. The class concert will start at one thirty in the gym. Please come in through the north door. There are seats for two hundred people.",
+      "question": "Which door should parents use?",
+      "translation": "保護者の皆様へお知らせします。クラスの音楽会は体育館で1時半に始まります。北側の扉からお入りください。座席は200席です。",
+      "choices": [
+        {
+          "text": "The north door.",
+          "correct": true,
+          "explain": "北側の扉から入ります。"
+        },
+        {
+          "text": "The south door.",
+          "correct": false,
+          "explain": "南側の話は出てきません。"
+        },
+        {
+          "text": "The main gate.",
+          "correct": false,
+          "explain": "正門の話はありません。"
+        },
+        {
+          "text": "Any door.",
+          "correct": false,
+          "explain": "北側と指定されています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-264",
+      "part": "passage",
+      "script": "Some flowers open in the morning and close at night. Others open only at night. Night flowers are often white because white is easy for insects to see in the dark.",
+      "question": "Why are night flowers often white?",
+      "translation": "朝に開いて夜に閉じる花がある。夜にだけ開く花もある。夜咲く花が白いことが多いのは、暗い中で虫が見つけやすいからだ。",
+      "choices": [
+        {
+          "text": "White is easy to see in the dark.",
+          "correct": true,
+          "explain": "暗い中で虫が見つけやすいためです。"
+        },
+        {
+          "text": "White flowers smell stronger.",
+          "correct": false,
+          "explain": "香りの話は出てきません。"
+        },
+        {
+          "text": "White flowers grow faster.",
+          "correct": false,
+          "explain": "成長の話はありません。"
+        },
+        {
+          "text": "Insects like white food.",
+          "correct": false,
+          "explain": "そのような記述はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-265",
+      "part": "passage",
+      "script": "Miku forgot her umbrella at the station on Tuesday. She went back on Wednesday, and the station staff had kept it. She was very happy and thanked them.",
+      "question": "What happened to the umbrella?",
+      "translation": "美空は火曜に駅で傘を忘れた。水曜に戻ると、駅員が預かっていてくれた。とても喜んでお礼を言った。",
+      "choices": [
+        {
+          "text": "The station staff kept it for her.",
+          "correct": true,
+          "explain": "駅員が預かっていました。"
+        },
+        {
+          "text": "It was lost forever.",
+          "correct": false,
+          "explain": "見つかりました。"
+        },
+        {
+          "text": "Someone took it home.",
+          "correct": false,
+          "explain": "駅にありました。"
+        },
+        {
+          "text": "She bought a new one.",
+          "correct": false,
+          "explain": "購入の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-266",
+      "part": "passage",
+      "script": "Please note that the vending machines near the gym will be removed next week. The school wants students to bring water bottles instead. A water fountain will be put in the same place.",
+      "question": "What will be put near the gym?",
+      "translation": "体育館近くの自動販売機は来週撤去されます。学校は生徒に水筒を持ってきてほしいと考えています。同じ場所に水飲み場が設けられます。",
+      "choices": [
+        {
+          "text": "A water fountain.",
+          "correct": true,
+          "explain": "同じ場所に水飲み場ができます。"
+        },
+        {
+          "text": "New vending machines.",
+          "correct": false,
+          "explain": "自販機は撤去されます。"
+        },
+        {
+          "text": "A shop.",
+          "correct": false,
+          "explain": "店の話は出てきません。"
+        },
+        {
+          "text": "Nothing.",
+          "correct": false,
+          "explain": "水飲み場が設けられます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-267",
+      "part": "passage",
+      "script": "Tomo's class has a pet rabbit. Each week two students take care of it. They give it vegetables and clean its cage. In winter they move it inside the classroom.",
+      "question": "What do the students do in winter?",
+      "translation": "朋のクラスではウサギを飼っている。毎週2人が世話をする。野菜をやり、ケージを掃除する。冬は教室の中に移す。",
+      "choices": [
+        {
+          "text": "They move the rabbit inside.",
+          "correct": true,
+          "explain": "冬は教室の中に移します。"
+        },
+        {
+          "text": "They give it more water.",
+          "correct": false,
+          "explain": "水の話は出てきません。"
+        },
+        {
+          "text": "They take it home.",
+          "correct": false,
+          "explain": "持ち帰りの話はありません。"
+        },
+        {
+          "text": "They stop feeding it.",
+          "correct": false,
+          "explain": "餌やりは続きます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-268",
+      "part": "passage",
+      "script": "Long ago, people in this area made paper by hand. Today only three families still do it. Students from our school visit them every year to learn how paper is made.",
+      "question": "Why do students visit the families?",
+      "translation": "昔、この地域の人々は手すきで紙を作っていた。今も続けているのは3軒だけだ。本校の生徒は毎年訪ね、紙の作り方を学んでいる。",
+      "choices": [
+        {
+          "text": "To learn how paper is made.",
+          "correct": true,
+          "explain": "紙の作り方を学ぶためです。"
+        },
+        {
+          "text": "To buy paper.",
+          "correct": false,
+          "explain": "購入の話は出てきません。"
+        },
+        {
+          "text": "To help them work.",
+          "correct": false,
+          "explain": "労働の話はありません。"
+        },
+        {
+          "text": "To take photographs.",
+          "correct": false,
+          "explain": "撮影の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-269",
+      "part": "passage",
+      "script": "Our city built a new library last year. It has a room where children can read aloud. Many parents bring small children there on Saturday mornings.",
+      "question": "What is special about the new library?",
+      "translation": "市は昨年、新しい図書館を建てた。子どもが声に出して読める部屋がある。土曜の朝、多くの親が小さな子どもを連れてくる。",
+      "choices": [
+        {
+          "text": "It has a room for reading aloud.",
+          "correct": true,
+          "explain": "声に出して読める部屋があります。"
+        },
+        {
+          "text": "It is open all night.",
+          "correct": false,
+          "explain": "開館時間の話は出てきません。"
+        },
+        {
+          "text": "It has a café.",
+          "correct": false,
+          "explain": "喫茶の話はありません。"
+        },
+        {
+          "text": "It is only for children.",
+          "correct": false,
+          "explain": "子ども専用ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-270",
+      "part": "passage",
+      "script": "Attention all students. Because of the strong wind, the bicycle parking area is closed this morning. Please leave your bicycles behind the gym. The area will open again after lunch.",
+      "question": "Where should students leave their bicycles?",
+      "translation": "生徒の皆さんにお知らせします。強風のため、今朝は駐輪場が閉鎖されています。自転車は体育館の裏に置いてください。昼食後に再開します。",
+      "choices": [
+        {
+          "text": "Behind the gym.",
+          "correct": true,
+          "explain": "体育館の裏に置きます。"
+        },
+        {
+          "text": "In the usual parking area.",
+          "correct": false,
+          "explain": "閉鎖されています。"
+        },
+        {
+          "text": "At the school gate.",
+          "correct": false,
+          "explain": "校門の話は出てきません。"
+        },
+        {
+          "text": "At home.",
+          "correct": false,
+          "explain": "自宅の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-271",
+      "part": "passage",
+      "script": "Jun plays the drums in a school band. He cannot practice at home because it is too noisy. He practices in the music room after school three times a week.",
+      "question": "Why can't Jun practice at home?",
+      "translation": "純は学校のバンドでドラムを叩く。家では音がうるさいので練習できない。週3回、放課後に音楽室で練習する。",
+      "choices": [
+        {
+          "text": "It is too noisy.",
+          "correct": true,
+          "explain": "音がうるさいためです。"
+        },
+        {
+          "text": "He has no drums.",
+          "correct": false,
+          "explain": "楽器の有無の話は出てきません。"
+        },
+        {
+          "text": "His house is small.",
+          "correct": false,
+          "explain": "広さの話はありません。"
+        },
+        {
+          "text": "His parents are away.",
+          "correct": false,
+          "explain": "家族の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-272",
+      "part": "passage",
+      "script": "Our school started a new rule this year. Students clean their own classroom for ten minutes before lunch. Teachers say the classrooms are much cleaner than before.",
+      "question": "When do students clean?",
+      "translation": "本校は今年から新しい決まりを始めた。生徒は昼食前に10分間、自分の教室を掃除する。教員によれば、教室は以前よりずっときれいだという。",
+      "choices": [
+        {
+          "text": "Before lunch.",
+          "correct": true,
+          "explain": "昼食前に10分間掃除します。"
+        },
+        {
+          "text": "After school.",
+          "correct": false,
+          "explain": "放課後ではありません。"
+        },
+        {
+          "text": "Before class starts.",
+          "correct": false,
+          "explain": "始業前ではありません。"
+        },
+        {
+          "text": "Once a week.",
+          "correct": false,
+          "explain": "毎日行います。"
+        }
+      ]
+    },
+    {
+      "id": "l4-273",
+      "part": "passage",
+      "script": "Mao likes reading English books. She started with picture books and now reads short stories. She writes down new words in a notebook and reads them again on the train.",
+      "question": "What does Mao do with new words?",
+      "translation": "真央は英語の本を読むのが好きだ。絵本から始め、今は短編を読む。新しい単語をノートに書き、電車の中で読み返す。",
+      "choices": [
+        {
+          "text": "She writes them in a notebook.",
+          "correct": true,
+          "explain": "ノートに書き、電車で読み返します。"
+        },
+        {
+          "text": "She asks her teacher.",
+          "correct": false,
+          "explain": "質問の話は出てきません。"
+        },
+        {
+          "text": "She ignores them.",
+          "correct": false,
+          "explain": "書き留めています。"
+        },
+        {
+          "text": "She looks them up online.",
+          "correct": false,
+          "explain": "インターネットの話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-274",
+      "part": "passage",
+      "script": "Thank you for coming to the sports day. Parents can watch from the chairs on the west side. Please do not stand on the running track. Drinks are on sale near the gate.",
+      "question": "Where should parents watch?",
+      "translation": "運動会にお越しいただきありがとうございます。保護者の方は西側の椅子席からご覧ください。トラックの上には立たないでください。飲み物は門の近くで販売しています。",
+      "choices": [
+        {
+          "text": "From the chairs on the west side.",
+          "correct": true,
+          "explain": "西側の椅子席から見ます。"
+        },
+        {
+          "text": "On the running track.",
+          "correct": false,
+          "explain": "トラックには立ちません。"
+        },
+        {
+          "text": "Near the gate.",
+          "correct": false,
+          "explain": "門の近くは飲み物の販売所です。"
+        },
+        {
+          "text": "From the gym.",
+          "correct": false,
+          "explain": "体育館の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-275",
+      "part": "passage",
+      "script": "Penguins live in cold places, but a few kinds live near the equator. These penguins are smaller and stand in the shade during the day. They swim in cool water to keep their bodies cool.",
+      "question": "How do these penguins stay cool?",
+      "translation": "ペンギンは寒い所に住むが、赤道近くに住む種もいる。こうしたペンギンは体が小さく、昼間は日陰に立つ。体を冷やすため冷たい水の中を泳ぐ。",
+      "choices": [
+        {
+          "text": "They stand in the shade and swim in cool water.",
+          "correct": true,
+          "explain": "日陰に立ち、冷たい水を泳ぎます。"
+        },
+        {
+          "text": "They sleep all day.",
+          "correct": false,
+          "explain": "睡眠の話は出てきません。"
+        },
+        {
+          "text": "They move to colder places.",
+          "correct": false,
+          "explain": "移動の話はありません。"
+        },
+        {
+          "text": "They eat cold food.",
+          "correct": false,
+          "explain": "食事の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-276",
+      "part": "passage",
+      "script": "Riku's town has no bookstore. Once a month, a bookmobile comes to the park. Riku always borrows three books, and he waits for the truck at the gate.",
+      "question": "How does Riku get books?",
+      "translation": "陸の町には書店がない。月に1回、移動図書館が公園に来る。陸はいつも3冊借り、門のところで車を待つ。",
+      "choices": [
+        {
+          "text": "From a bookmobile that visits monthly.",
+          "correct": true,
+          "explain": "月1回来る移動図書館から借ります。"
+        },
+        {
+          "text": "From a bookstore in town.",
+          "correct": false,
+          "explain": "町に書店はありません。"
+        },
+        {
+          "text": "He buys them online.",
+          "correct": false,
+          "explain": "通販の話は出てきません。"
+        },
+        {
+          "text": "From his school library.",
+          "correct": false,
+          "explain": "学校の図書室の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-277",
+      "part": "passage",
+      "script": "Good morning. Because the music teacher is absent today, third period will be a study period. Please stay in your classroom and do your homework quietly.",
+      "question": "What will students do in third period?",
+      "translation": "おはようございます。本日は音楽の先生がお休みのため、3時間目は自習になります。教室で静かに宿題をしてください。",
+      "choices": [
+        {
+          "text": "Study quietly in the classroom.",
+          "correct": true,
+          "explain": "教室で静かに自習します。"
+        },
+        {
+          "text": "Go to the music room.",
+          "correct": false,
+          "explain": "音楽室の話は出てきません。"
+        },
+        {
+          "text": "Go home early.",
+          "correct": false,
+          "explain": "早退の話はありません。"
+        },
+        {
+          "text": "Have P.E. instead.",
+          "correct": false,
+          "explain": "体育の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-278",
+      "part": "passage",
+      "script": "Wakana's family has a small shop. After school she sometimes helps by putting goods on the shelves. Her father says she is good at arranging things neatly.",
+      "question": "What does Wakana do at the shop?",
+      "translation": "若菜の家は小さな店を営んでいる。放課後、ときどき商品を棚に並べる手伝いをする。父は、彼女はきれいに並べるのが上手だと言う。",
+      "choices": [
+        {
+          "text": "She puts goods on the shelves.",
+          "correct": true,
+          "explain": "商品を棚に並べます。"
+        },
+        {
+          "text": "She takes money from customers.",
+          "correct": false,
+          "explain": "会計の話は出てきません。"
+        },
+        {
+          "text": "She cleans the floor.",
+          "correct": false,
+          "explain": "掃除の話はありません。"
+        },
+        {
+          "text": "She cooks food.",
+          "correct": false,
+          "explain": "調理の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-279",
+      "part": "passage",
+      "script": "The old school building will be taken down next year. Students are making a book of photographs and memories. Every class will write one page for the book.",
+      "question": "What are students making?",
+      "translation": "古い校舎は来年取り壊される。生徒は写真と思い出の本を作っている。各クラスが1ページずつ書く。",
+      "choices": [
+        {
+          "text": "A book of photographs and memories.",
+          "correct": true,
+          "explain": "写真と思い出の本を作っています。"
+        },
+        {
+          "text": "A model of the building.",
+          "correct": false,
+          "explain": "模型の話は出てきません。"
+        },
+        {
+          "text": "A video.",
+          "correct": false,
+          "explain": "動画の話はありません。"
+        },
+        {
+          "text": "A new classroom.",
+          "correct": false,
+          "explain": "教室建設の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-280",
+      "part": "passage",
+      "script": "Please listen carefully. Tomorrow the first bus will come at seven forty, ten minutes earlier than usual. This is because of road work on Green Street.",
+      "question": "Why will the bus come earlier?",
+      "translation": "よくお聞きください。明日、始発のバスは通常より10分早い7時40分に来ます。グリーン通りの道路工事のためです。",
+      "choices": [
+        {
+          "text": "Because of road work.",
+          "correct": true,
+          "explain": "道路工事のためです。"
+        },
+        {
+          "text": "Because of a festival.",
+          "correct": false,
+          "explain": "祭りの話は出てきません。"
+        },
+        {
+          "text": "Because of snow.",
+          "correct": false,
+          "explain": "天候の話はありません。"
+        },
+        {
+          "text": "Because there are more passengers.",
+          "correct": false,
+          "explain": "乗客数の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-281",
+      "part": "passage",
+      "script": "Kou wanted to play the violin, but his family could not buy one. His school lends instruments to students in the orchestra. Kou borrowed one and has played for two years.",
+      "question": "How did Kou get a violin?",
+      "translation": "光はバイオリンを弾きたかったが、家では買えなかった。学校は合奏部の生徒に楽器を貸している。光は借りて2年間弾いている。",
+      "choices": [
+        {
+          "text": "He borrowed one from the school.",
+          "correct": true,
+          "explain": "学校から借りました。"
+        },
+        {
+          "text": "His family bought one.",
+          "correct": false,
+          "explain": "買えませんでした。"
+        },
+        {
+          "text": "A friend gave him one.",
+          "correct": false,
+          "explain": "友達の話は出てきません。"
+        },
+        {
+          "text": "He made one himself.",
+          "correct": false,
+          "explain": "製作の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-282",
+      "part": "passage",
+      "script": "Our class studied where our food comes from. We found that the bananas in the school lunch travel over five thousand kilometers. We made a map showing each food's country.",
+      "question": "What did the class make?",
+      "translation": "私たちのクラスは食べ物がどこから来るかを調べた。給食のバナナは5千キロ以上運ばれていると分かった。各食材の国を示す地図を作った。",
+      "choices": [
+        {
+          "text": "A map showing each food's country.",
+          "correct": true,
+          "explain": "各食材の国を示す地図を作りました。"
+        },
+        {
+          "text": "A banana cake.",
+          "correct": false,
+          "explain": "料理の話は出てきません。"
+        },
+        {
+          "text": "A new lunch menu.",
+          "correct": false,
+          "explain": "献立の話はありません。"
+        },
+        {
+          "text": "A poster about farmers.",
+          "correct": false,
+          "explain": "農家の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-283",
+      "part": "passage",
+      "script": "Thank you for visiting the art museum. Today's special room shows pictures painted by children in this city. The room closes at four, one hour before the museum.",
+      "question": "When does the special room close?",
+      "translation": "美術館にお越しいただきありがとうございます。本日の特別室では市内の子どもが描いた絵を展示しています。特別室は美術館より1時間早い4時に閉まります。",
+      "choices": [
+        {
+          "text": "At four.",
+          "correct": true,
+          "explain": "特別室は4時に閉まります。"
+        },
+        {
+          "text": "At five.",
+          "correct": false,
+          "explain": "5時は美術館の閉館です。"
+        },
+        {
+          "text": "At three.",
+          "correct": false,
+          "explain": "3時ではありません。"
+        },
+        {
+          "text": "It does not close.",
+          "correct": false,
+          "explain": "4時に閉まります。"
+        }
+      ]
+    },
+    {
+      "id": "l4-284",
+      "part": "passage",
+      "script": "Yui runs a small blog about her town. She writes about new shops and events. Last month more than a thousand people read her posts, and a local newspaper asked to use one.",
+      "question": "What happened last month?",
+      "translation": "結衣は町についての小さなブログを書いている。新しい店や行事について書く。先月は千人以上が読み、地元の新聞が記事の使用を申し出た。",
+      "choices": [
+        {
+          "text": "A newspaper asked to use one of her posts.",
+          "correct": true,
+          "explain": "地元紙が記事の使用を申し出ました。"
+        },
+        {
+          "text": "She stopped writing.",
+          "correct": false,
+          "explain": "続けています。"
+        },
+        {
+          "text": "She opened a shop.",
+          "correct": false,
+          "explain": "開業の話は出てきません。"
+        },
+        {
+          "text": "Her blog was closed.",
+          "correct": false,
+          "explain": "閉鎖の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-285",
+      "part": "passage",
+      "script": "Some fish can change color to match the sand or rocks around them. This helps them hide from bigger fish. A few kinds can change in less than a second.",
+      "question": "Why do these fish change color?",
+      "translation": "周りの砂や岩に合わせて体色を変えられる魚がいる。大きな魚から隠れるのに役立つ。1秒足らずで変えられる種もいる。",
+      "choices": [
+        {
+          "text": "To hide from bigger fish.",
+          "correct": true,
+          "explain": "大きな魚から隠れるためです。"
+        },
+        {
+          "text": "To find food.",
+          "correct": false,
+          "explain": "採食の話は出てきません。"
+        },
+        {
+          "text": "To keep warm.",
+          "correct": false,
+          "explain": "体温の話はありません。"
+        },
+        {
+          "text": "To swim faster.",
+          "correct": false,
+          "explain": "遊泳速度の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-286",
+      "part": "passage",
+      "script": "Attention students. The photographs from the school trip are now on the wall outside the office. If you want a copy, write your name and the photo number on the list by Friday.",
+      "question": "What should students do to get a copy?",
+      "translation": "生徒の皆さんにお知らせします。修学旅行の写真が事務室前の壁に掲示されています。焼き増しを希望する人は、金曜までに名簿に氏名と写真番号を書いてください。",
+      "choices": [
+        {
+          "text": "Write their name and the photo number by Friday.",
+          "correct": true,
+          "explain": "金曜までに氏名と番号を記入します。"
+        },
+        {
+          "text": "Pay at the office today.",
+          "correct": false,
+          "explain": "支払いの話は出てきません。"
+        },
+        {
+          "text": "Take the photo off the wall.",
+          "correct": false,
+          "explain": "持ち去りの話はありません。"
+        },
+        {
+          "text": "Ask the teacher directly.",
+          "correct": false,
+          "explain": "名簿への記入です。"
+        }
+      ]
+    },
+    {
+      "id": "l4-287",
+      "part": "passage",
+      "script": "Yuma's grandfather is eighty but still works in his garden every day. He says moving his body keeps him well. Yuma helps him pull weeds on Sunday afternoons.",
+      "question": "What does Yuma do on Sundays?",
+      "translation": "悠真の祖父は80歳だが、今も毎日庭仕事をする。体を動かすことで元気でいられるという。悠真は日曜の午後、草取りを手伝う。",
+      "choices": [
+        {
+          "text": "He helps pull weeds.",
+          "correct": true,
+          "explain": "日曜の午後に草取りを手伝います。"
+        },
+        {
+          "text": "He plants flowers.",
+          "correct": false,
+          "explain": "植え付けの話は出てきません。"
+        },
+        {
+          "text": "He visits his grandfather at work.",
+          "correct": false,
+          "explain": "庭仕事の手伝いです。"
+        },
+        {
+          "text": "He goes shopping.",
+          "correct": false,
+          "explain": "買い物の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-288",
+      "part": "passage",
+      "script": "Our town put small libraries on five street corners. Anyone can take a book and leave another one. Most books are children's books, and people say they are read many times.",
+      "question": "How do the street libraries work?",
+      "translation": "町は5か所の街角に小さな図書コーナーを置いた。誰でも本を持っていき、別の本を置いていける。多くは児童書で、何度も読まれているという。",
+      "choices": [
+        {
+          "text": "People take a book and leave another.",
+          "correct": true,
+          "explain": "持っていき、別の本を置いていきます。"
+        },
+        {
+          "text": "Books must be returned in two weeks.",
+          "correct": false,
+          "explain": "返却期限の話は出てきません。"
+        },
+        {
+          "text": "Only children may use them.",
+          "correct": false,
+          "explain": "誰でも使えます。"
+        },
+        {
+          "text": "Books are sold cheaply.",
+          "correct": false,
+          "explain": "販売ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-289",
+      "part": "passage",
+      "script": "Airi broke her glasses during P.E. last week. She could not read the board for three days. Her new glasses arrived on Thursday, and now she sits in her usual seat again.",
+      "question": "What happened on Thursday?",
+      "translation": "愛莉は先週、体育中にめがねを壊した。3日間、黒板が読めなかった。木曜に新しいめがねが届き、今はまた元の席に座っている。",
+      "choices": [
+        {
+          "text": "Her new glasses arrived.",
+          "correct": true,
+          "explain": "木曜に新しいめがねが届きました。"
+        },
+        {
+          "text": "She broke her glasses.",
+          "correct": false,
+          "explain": "壊したのは先週です。"
+        },
+        {
+          "text": "She changed seats.",
+          "correct": false,
+          "explain": "元の席に戻りました。"
+        },
+        {
+          "text": "She had P.E. class.",
+          "correct": false,
+          "explain": "体育の話は先週のことです。"
+        }
+      ]
+    },
+    {
+      "id": "l4-290",
+      "part": "passage",
+      "script": "Please note that the school gate opens at seven thirty. Students who arrive before that must wait outside. The gate is locked at eight fifteen, so please do not be late.",
+      "question": "What time is the gate locked?",
+      "translation": "校門は7時半に開きます。それより早く着いた生徒は外で待ってください。門は8時15分に施錠しますので遅れないでください。",
+      "choices": [
+        {
+          "text": "At eight fifteen.",
+          "correct": true,
+          "explain": "8時15分に施錠します。"
+        },
+        {
+          "text": "At seven thirty.",
+          "correct": false,
+          "explain": "7時半は開門時刻です。"
+        },
+        {
+          "text": "At eight.",
+          "correct": false,
+          "explain": "8時ではありません。"
+        },
+        {
+          "text": "It is never locked.",
+          "correct": false,
+          "explain": "施錠されます。"
+        }
+      ]
+    },
+    {
+      "id": "l4-291",
+      "part": "passage",
+      "script": "Taku joined a table tennis club last April. He lost every game for three months. In August he won his first match, and he says he will never forget that day.",
+      "question": "When did Taku win his first match?",
+      "translation": "拓は4月に卓球部に入った。3か月間、全敗だった。8月に初めて勝ち、その日は忘れられないという。",
+      "choices": [
+        {
+          "text": "In August.",
+          "correct": true,
+          "explain": "8月に初勝利しました。"
+        },
+        {
+          "text": "In April.",
+          "correct": false,
+          "explain": "4月は入部した月です。"
+        },
+        {
+          "text": "After one year.",
+          "correct": false,
+          "explain": "1年後ではありません。"
+        },
+        {
+          "text": "He has not won yet.",
+          "correct": false,
+          "explain": "勝っています。"
+        }
+      ]
+    },
+    {
+      "id": "l4-292",
+      "part": "passage",
+      "script": "Good afternoon. The bookshop upstairs will have a used book sale this weekend. All books will be one hundred yen. Money from the sale will go to the town library.",
+      "question": "What will happen to the money?",
+      "translation": "こんにちは。上階の書店で今週末、古本市を行います。すべて100円です。売上は町の図書館に寄付されます。",
+      "choices": [
+        {
+          "text": "It will go to the town library.",
+          "correct": true,
+          "explain": "売上は町の図書館に渡されます。"
+        },
+        {
+          "text": "It will be used to buy new books.",
+          "correct": false,
+          "explain": "そのような記述はありません。"
+        },
+        {
+          "text": "It will be given to the staff.",
+          "correct": false,
+          "explain": "職員の話は出てきません。"
+        },
+        {
+          "text": "It will pay for the shop's rent.",
+          "correct": false,
+          "explain": "家賃の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-293",
+      "part": "passage",
+      "script": "Snow fell in our town for the first time in five years. School started two hours late. Many students made snowmen in the playground before class began.",
+      "question": "What did students do before class?",
+      "translation": "町に5年ぶりに雪が降った。学校は2時間遅れで始まった。多くの生徒は授業前に校庭で雪だるまを作った。",
+      "choices": [
+        {
+          "text": "They made snowmen.",
+          "correct": true,
+          "explain": "校庭で雪だるまを作りました。"
+        },
+        {
+          "text": "They cleaned the snow.",
+          "correct": false,
+          "explain": "除雪の話は出てきません。"
+        },
+        {
+          "text": "They stayed inside.",
+          "correct": false,
+          "explain": "校庭に出ました。"
+        },
+        {
+          "text": "They went home.",
+          "correct": false,
+          "explain": "授業は行われました。"
+        }
+      ]
+    },
+    {
+      "id": "l4-294",
+      "part": "passage",
+      "script": "Our class has a question box. Students write questions they are too shy to ask in class. Every Friday the teacher answers three of them. The box is always full.",
+      "question": "Why do students use the box?",
+      "translation": "私たちのクラスには質問箱がある。授業中に恥ずかしくて聞けない質問を書く。毎週金曜、先生が3つ答える。箱はいつもいっぱいだ。",
+      "choices": [
+        {
+          "text": "They are too shy to ask in class.",
+          "correct": true,
+          "explain": "授業中に聞くのが恥ずかしいためです。"
+        },
+        {
+          "text": "The teacher does not answer in class.",
+          "correct": false,
+          "explain": "授業での対応の話は出てきません。"
+        },
+        {
+          "text": "They want extra homework.",
+          "correct": false,
+          "explain": "宿題の話はありません。"
+        },
+        {
+          "text": "It is a class rule.",
+          "correct": false,
+          "explain": "義務の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-295",
+      "part": "passage",
+      "script": "Hiro's family does not have a car. They go everywhere by train or bicycle. Hiro says he knows the train map of his city better than anyone in his class.",
+      "question": "How does Hiro's family travel?",
+      "translation": "宏の家には車がない。どこへ行くにも電車か自転車だ。宏は、市内の路線図ならクラスの誰よりも詳しいと言う。",
+      "choices": [
+        {
+          "text": "By train or bicycle.",
+          "correct": true,
+          "explain": "電車か自転車で移動します。"
+        },
+        {
+          "text": "By car.",
+          "correct": false,
+          "explain": "車はありません。"
+        },
+        {
+          "text": "By bus.",
+          "correct": false,
+          "explain": "バスの話は出てきません。"
+        },
+        {
+          "text": "They always walk.",
+          "correct": false,
+          "explain": "徒歩だけではありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-296",
+      "part": "passage",
+      "script": "Please remember to bring your indoor shoes tomorrow. The hallway floor was waxed today, so no outdoor shoes are allowed inside. Students without indoor shoes will wait in the entrance hall.",
+      "question": "Why are outdoor shoes not allowed?",
+      "translation": "明日は上履きを忘れずに持ってきてください。本日、廊下の床にワックスをかけたため、屋外用の靴で入れません。上履きのない生徒は昇降口で待ちます。",
+      "choices": [
+        {
+          "text": "The floor was waxed.",
+          "correct": true,
+          "explain": "床にワックスをかけたためです。"
+        },
+        {
+          "text": "The hallway is being repaired.",
+          "correct": false,
+          "explain": "修理の話は出てきません。"
+        },
+        {
+          "text": "It is a new school rule.",
+          "correct": false,
+          "explain": "ワックス作業が理由です。"
+        },
+        {
+          "text": "It rained today.",
+          "correct": false,
+          "explain": "天気の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-297",
+      "part": "passage",
+      "script": "Sakura learned to swim at the age of twelve. She was afraid of water when she was small. Her teacher let her sit on the side and put only her feet in for the first month.",
+      "question": "What did the teacher do first?",
+      "translation": "さくらは12歳で泳げるようになった。小さい頃は水が怖かった。先生は最初の1か月、プールサイドに座って足だけ入れさせた。",
+      "choices": [
+        {
+          "text": "Let her put only her feet in the water.",
+          "correct": true,
+          "explain": "最初の1か月は足だけ入れさせました。"
+        },
+        {
+          "text": "Made her swim across the pool.",
+          "correct": false,
+          "explain": "泳がせてはいません。"
+        },
+        {
+          "text": "Told her to watch others.",
+          "correct": false,
+          "explain": "見学の話は出てきません。"
+        },
+        {
+          "text": "Gave her a swimming ring.",
+          "correct": false,
+          "explain": "浮き輪の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "l4-298",
+      "part": "passage",
+      "script": "Our school gives every new student a map of the building. The map has the classrooms, the library and the nurse's room. On the back there is a list of club rooms.",
+      "question": "What is on the back of the map?",
+      "translation": "本校は新入生全員に校舎の地図を配る。地図には教室、図書室、保健室が載っている。裏面には部室の一覧がある。",
+      "choices": [
+        {
+          "text": "A list of club rooms.",
+          "correct": true,
+          "explain": "裏面に部室の一覧があります。"
+        },
+        {
+          "text": "The school rules.",
+          "correct": false,
+          "explain": "規則の話は出てきません。"
+        },
+        {
+          "text": "A timetable.",
+          "correct": false,
+          "explain": "時間割の話はありません。"
+        },
+        {
+          "text": "Nothing.",
+          "correct": false,
+          "explain": "部室一覧があります。"
+        }
+      ]
+    },
+    {
+      "id": "l4-299",
+      "part": "passage",
+      "script": "Long ago, people told the time by looking at the sun. Then they made clocks with water and sand. Today most people use phones, and few students wear watches.",
+      "question": "How do most people tell the time today?",
+      "translation": "昔、人々は太陽を見て時刻を知った。やがて水や砂を使った時計を作った。今日、多くの人は携帯電話を使い、腕時計をする生徒は少ない。",
+      "choices": [
+        {
+          "text": "With their phones.",
+          "correct": true,
+          "explain": "多くの人は携帯電話を使います。"
+        },
+        {
+          "text": "With watches.",
+          "correct": false,
+          "explain": "腕時計をする生徒は少ないとあります。"
+        },
+        {
+          "text": "By looking at the sun.",
+          "correct": false,
+          "explain": "それは昔の方法です。"
+        },
+        {
+          "text": "With water clocks.",
+          "correct": false,
+          "explain": "昔の道具です。"
+        }
+      ]
+    },
+    {
+      "id": "l4-300",
+      "part": "passage",
+      "script": "Our town holds a cleaning day every spring. Last year four hundred people joined. They collected sixty bags of trash from the riverside in two hours.",
+      "question": "Where did people clean?",
+      "translation": "私たちの町では毎春、清掃の日がある。昨年は400人が参加した。2時間で川沿いからごみ袋60袋分を集めた。",
+      "choices": [
+        {
+          "text": "The riverside.",
+          "correct": true,
+          "explain": "川沿いを清掃しました。"
+        },
+        {
+          "text": "The school ground.",
+          "correct": false,
+          "explain": "校庭の話は出てきません。"
+        },
+        {
+          "text": "The park.",
+          "correct": false,
+          "explain": "公園の話はありません。"
+        },
+        {
+          "text": "The station.",
+          "correct": false,
+          "explain": "駅の話は出てきません。"
+        }
+      ]
     }
   ],
   "dialogue": [
