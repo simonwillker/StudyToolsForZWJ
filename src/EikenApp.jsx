@@ -166,6 +166,58 @@ function clampReadingUnit(level, unit) {
   return unit === "all" || unit < readingUnitCount(level) ? unit : 0;
 }
 
+/* ------------------------------------------------------------------
+   リスニングは「題型 → 20問ずつの組」の二段階で選ぶ。
+
+   他のモードと違い、リスニングは題型（応答文選択・会話の内容一致など）
+   ごとに解き方がまったく違う。まとめて出題すると、聞き方を切りかえ続ける
+   ことになって練習にならないため、まず題型を選んでもらう。
+   ------------------------------------------------------------------ */
+const LISTENING_UNIT_SIZE = 20;
+
+/** 本番の出題順。データに無い題型は出さない。 */
+const LISTENING_PART_ORDER = ["response", "dialogue", "passage", "reallife", "interview"];
+
+/** その級に実際に問題がある題型だけを、本番の順で返す */
+function listeningParts(level) {
+  const present = new Set((level.listening || []).map((l) => l.part));
+  return LISTENING_PART_ORDER.filter((p) => present.has(p));
+}
+
+function listeningOfPart(level, part) {
+  return (level.listening || []).filter((l) => l.part === part);
+}
+
+/** 級を切りかえて題型が無くなったときは、その級の最初の題型にもどす */
+function clampListeningPart(level, part) {
+  const parts = listeningParts(level);
+  return parts.includes(part) ? part : parts[0] || null;
+}
+
+function listeningUnitCount(level, part) {
+  return Math.ceil(listeningOfPart(level, part).length / LISTENING_UNIT_SIZE);
+}
+
+/** unit が "all" ならその題型の全問、数値ならその組（0始まり）だけを返す */
+function listeningOfUnit(level, part, unit) {
+  const all = listeningOfPart(level, part);
+  if (unit === "all") return all;
+  const start = unit * LISTENING_UNIT_SIZE;
+  return all.slice(start, start + LISTENING_UNIT_SIZE);
+}
+
+function listeningUnitLabel(level, part, unit) {
+  const all = listeningOfPart(level, part);
+  if (unit === "all") return `すべて（${all.length}問）`;
+  const start = unit * LISTENING_UNIT_SIZE;
+  const end = Math.min(start + LISTENING_UNIT_SIZE, all.length);
+  return `${unit + 1}組（${start + 1}〜${end}）`;
+}
+
+function clampListeningUnit(level, part, unit) {
+  return unit === "all" || unit < listeningUnitCount(level, part) ? unit : 0;
+}
+
 /** 出題範囲（組）の選択リスト。組が増えても1行に収まる */
 function VocabUnitSelect({ level, value, onChange, allowAll }) {
   return (
@@ -224,6 +276,48 @@ function ReadingUnitSelect({ level, value, onChange, allowAll }) {
           </option>
         ))}
         {allowAll && <option value="all">{readingUnitLabel(level, "all")}</option>}
+      </select>
+    </label>
+  );
+}
+
+/** リスニングの題型えらび。短い名前で出し、長い正式名は下のヒントに出る。 */
+function ListeningPartSelect({ level, value, onChange }) {
+  const parts = listeningParts(level);
+  if (parts.length < 2) return null;
+  return (
+    <div className="eiken-control-row">
+      <span className="eiken-control-label">題型</span>
+      {parts.map((p) => (
+        <button
+          key={p}
+          className={`eiken-word-chip ${value === p ? "active" : ""}`}
+          style={{ "--c": level.color }}
+          onClick={() => onChange(p)}
+        >
+          {LISTENING_PARTS[p].short}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/** リスニングの出題範囲（組）の選択リスト */
+function ListeningUnitSelect({ level, part, value, onChange, allowAll }) {
+  return (
+    <label className="eiken-control-row">
+      <span className="eiken-control-label">出題範囲</span>
+      <select
+        className="eiken-unit-select"
+        value={String(value)}
+        onChange={(e) => onChange(e.target.value === "all" ? "all" : Number(e.target.value))}
+      >
+        {Array.from({ length: listeningUnitCount(level, part) }, (_, u) => (
+          <option key={u} value={u}>
+            {listeningUnitLabel(level, part, u)}
+          </option>
+        ))}
+        {allowAll && <option value="all">{listeningUnitLabel(level, part, "all")}</option>}
       </select>
     </label>
   );
@@ -337,8 +431,8 @@ function buildReadingItems(level, flatItems) {
   }));
 }
 
-function buildListeningItems(level) {
-  return level.listening.map((l) => ({
+function buildListeningItems(level, list = level.listening) {
+  return list.map((l) => ({
     id: l.id,
     header: (answered) => <ListeningHeader item={l} answered={answered} />,
     choices: shuffle(l.choices),
@@ -381,11 +475,11 @@ function speakScript(script) {
 
 /** 英検の出題形式に合わせた見出し。データの part に対応させる。 */
 const LISTENING_PARTS = {
-  response: { label: "会話の応答文選択", hint: "会話の最後の発言に対する応答として最も適切なものを選びましょう" },
-  dialogue: { label: "会話の内容一致選択", hint: "会話を聞いて、質問の答えを選びましょう" },
-  passage: { label: "文の内容一致選択", hint: "英文を聞いて、質問の答えを選びましょう" },
-  reallife: { label: "Real-Life形式の内容一致選択", hint: "状況と質問を読んでから放送を聞き、答えを選びましょう" },
-  interview: { label: "インタビューの内容一致選択", hint: "インタビューを聞いて、質問の答えを選びましょう" },
+  response: { short: "応答", label: "会話の応答文選択", hint: "会話の最後の発言に対する応答として最も適切なものを選びましょう" },
+  dialogue: { short: "会話", label: "会話の内容一致選択", hint: "会話を聞いて、質問の答えを選びましょう" },
+  passage: { short: "文", label: "文の内容一致選択", hint: "英文を聞いて、質問の答えを選びましょう" },
+  reallife: { short: "Real-Life", label: "Real-Life形式の内容一致選択", hint: "状況と質問を読んでから放送を聞き、答えを選びましょう" },
+  interview: { short: "インタビュー", label: "インタビューの内容一致選択", hint: "インタビューを聞いて、質問の答えを選びましょう" },
 };
 
 function ListeningHeader({ item, answered }) {
@@ -984,6 +1078,8 @@ export default function EikenApp({ onExitApp }) {
   const [vocabDirection, setVocabDirection] = useState("en2ja");
   const [vocabUnit, setVocabUnit] = useState(0);
   const [grammarUnit, setGrammarUnit] = useState(0);
+  const [listeningPart, setListeningPart] = useState("response");
+  const [listeningUnit, setListeningUnit] = useState(0);
   const [readingUnit, setReadingUnit] = useState(0);
   // 復習リストは解答のたびに変わるので、画面を戻るたびに数え直すためのカウンタ
   const [reviewNonce, setReviewNonce] = useState(0);
@@ -1004,11 +1100,15 @@ export default function EikenApp({ onExitApp }) {
     if (mode === "vocab") return buildVocabItems(level, vocabDirection, vocabOfUnit(level, clampVocabUnit(level, vocabUnit)));
     if (mode === "grammar") return buildGrammarItems(level, grammarOfUnit(level, clampGrammarUnit(level, grammarUnit)));
     if (mode === "reading") return buildReadingItems(level, readingOfUnit(level, clampReadingUnit(level, readingUnit)));
-    if (mode === "listening") return buildListeningItems(level);
+    if (mode === "listening") {
+      const part = clampListeningPart(level, listeningPart);
+      if (!part) return [];
+      return buildListeningItems(level, listeningOfUnit(level, part, clampListeningUnit(level, part, listeningUnit)));
+    }
     if (mode === "dialogue") return buildDialogueItems(level);
     if (mode === "review") return buildReviewItems(level, vocabDirection);
     return [];
-  }, [level, mode, vocabDirection, vocabUnit, grammarUnit, readingUnit, reviewNonce]);
+  }, [level, mode, vocabDirection, vocabUnit, grammarUnit, readingUnit, listeningPart, listeningUnit, reviewNonce]);
 
   const goModeSelect = useCallback((lvId) => {
     stopSpeaking();
@@ -1423,6 +1523,22 @@ export default function EikenApp({ onExitApp }) {
           {mode === "reading" && readingUnitCount(level) > 1 && (
             <div className="eiken-vocab-controls">
               <ReadingUnitSelect level={level} value={clampReadingUnit(level, readingUnit)} onChange={setReadingUnit} allowAll />
+            </div>
+          )}
+          {mode === "listening" && listeningParts(level).length > 0 && (
+            <div className="eiken-vocab-controls">
+              <ListeningPartSelect
+                level={level}
+                value={clampListeningPart(level, listeningPart)}
+                onChange={(p) => { stopSpeaking(); setListeningPart(p); setListeningUnit(0); }}
+              />
+              <ListeningUnitSelect
+                level={level}
+                part={clampListeningPart(level, listeningPart)}
+                value={clampListeningUnit(level, clampListeningPart(level, listeningPart), listeningUnit)}
+                onChange={(u) => { stopSpeaking(); setListeningUnit(u); }}
+                allowAll
+              />
             </div>
           )}
           <ChoiceQuiz level={level} mode={mode} items={items} accent={level.color} onExit={backToModeSelect} />
