@@ -31,6 +31,18 @@ function countWords(text) {
   return t.split(/\s+/).length;
 }
 
+/** 選択肢をシャッフルする。データ上はほぼ常に正解が先頭に置かれているため、
+ *  そのまま出すと「1番を選べば必ず正解」になってしまう。
+ *  受験中に並びが変わらないよう、呼ぶのは試験開始時の1回だけ（下の useMemo）。 */
+function shuffleChoices(choices) {
+  const a = [...choices];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 /** セクション配列 → 1問ずつのフラットな配列 */
 export function flattenExam(test) {
   const items = [];
@@ -745,7 +757,12 @@ export default function EikenTest({ test, onExit }) {
     return flat.map((it) => {
       secCounter[it.section.id] = (secCounter[it.section.id] || 0) + 1;
       phaseCounter[it.phase] = (phaseCounter[it.phase] || 0) + 1;
-      return { ...it, sectionNo: secCounter[it.section.id], phaseNo: phaseCounter[it.phase] };
+      // 解答は選択肢の添字で保持するため、シャッフルはここで1回だけ行う
+      const q =
+        it.type !== "ordering" && it.q && Array.isArray(it.q.choices) && it.q.choices.length > 1
+          ? { ...it.q, choices: shuffleChoices(it.q.choices) }
+          : it.q;
+      return { ...it, q, sectionNo: secCounter[it.section.id], phaseNo: phaseCounter[it.phase] };
     });
   }, [test]);
 
