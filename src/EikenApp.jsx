@@ -23,6 +23,13 @@ import {
   resetLevelProgress,
 } from "./eikenProgress";
 import {
+  recordReviewResult,
+  getReviewEntries,
+  getReviewCount,
+  getReviewCountByMode,
+  clearLevelReview,
+} from "./eikenReview";
+import {
   isSpeechSynthesisSupported,
   isSpeechRecognitionSupported,
   speak,
@@ -280,7 +287,8 @@ function buildGrammarItems(level, items) {
         <div className="eiken-qhead-main sentence">{g.sentence}</div>
       </div>
     ),
-    choices: g.choices,
+    // 選択肢はデータ上ほぼ常に正解が先頭に置かれているため、出題時に必ずシャッフルする
+    choices: shuffle(g.choices),
     extra: (
       <div className="eiken-note-box">
         <div className="eiken-note-point">📌 {g.point}</div>
@@ -320,7 +328,7 @@ function buildReadingItems(level, flatItems) {
         <div className="eiken-qhead-main sentence">{q.q}</div>
       </div>
     ),
-    choices: q.choices,
+    choices: shuffle(q.choices),
   }));
 }
 
@@ -328,7 +336,7 @@ function buildListeningItems(level) {
   return level.listening.map((l) => ({
     id: l.id,
     header: (answered) => <ListeningHeader item={l} answered={answered} />,
-    choices: l.choices,
+    choices: shuffle(l.choices),
     extra: (
       <div className="eiken-note-box">
         <div className="eiken-note-point">📝 スクリプト</div>
@@ -366,7 +374,7 @@ function buildDialogueItems(level) {
   return level.dialogue.map((d) => ({
     id: d.id,
     header: (answered) => <DialogueHeader item={d} answered={answered} />,
-    choices: d.choices,
+    choices: shuffle(d.choices),
     extra: (
       <div className="eiken-note-box">
         <div className="eiken-note-point">📝 日本語訳</div>
@@ -431,6 +439,51 @@ function DialogueHeader({ item, answered }) {
 }
 
 /* ============================================================
+   復習ドリル：まちがえた問題だけを集めて出題する
+   ============================================================ */
+
+/** 復習リストにある問題だけを、元のモードの出題形式で組み立て直す。
+ *  どの問題も元のモードを reviewMode として持ち回り、解答時の記録に使う。 */
+function buildReviewItems(level, vocabDirection) {
+  const entries = getReviewEntries(level.level);
+  if (!entries.length) return [];
+
+  const idsOf = (mode) => new Set(entries.filter((e) => e.mode === mode).map((e) => e.itemId));
+  const tag = (list, mode) => list.map((it) => ({ ...it, reviewMode: mode }));
+  const out = [];
+
+  const vocabIds = idsOf("vocab");
+  if (vocabIds.size) {
+    const words = level.vocab.filter((w) => vocabIds.has(w.id));
+    if (words.length) out.push(...tag(buildVocabItems(level, vocabDirection, words), "vocab"));
+  }
+
+  const grammarIds = idsOf("grammar");
+  if (grammarIds.size) {
+    const gs = level.grammar.filter((g) => grammarIds.has(g.id));
+    if (gs.length) out.push(...tag(buildGrammarItems(level, gs), "grammar"));
+  }
+
+  const readingIds = idsOf("reading");
+  if (readingIds.size) {
+    const flat = flattenReading(level).filter((f) => readingIds.has(f.q.id));
+    if (flat.length) out.push(...tag(buildReadingItems(level, flat), "reading"));
+  }
+
+  const listeningIds = idsOf("listening");
+  if (listeningIds.size) {
+    out.push(...tag(buildListeningItems(level).filter((it) => listeningIds.has(it.id)), "listening"));
+  }
+
+  const dialogueIds = idsOf("dialogue");
+  if (dialogueIds.size) {
+    out.push(...tag(buildDialogueItems(level).filter((it) => dialogueIds.has(it.id)), "dialogue"));
+  }
+
+  return shuffle(out);
+}
+
+/* ============================================================
    共通クイズ画面
    ============================================================ */
 
@@ -462,7 +515,10 @@ function ChoiceQuiz({ level, mode, items, accent, onExit }) {
     const choice = item.choices[ci];
     setSelected(ci);
     setAnswered(true);
-    recordAnswer(level.level, mode, item.id, !!choice.correct);
+    // 復習ドリルでは、問題ごとに元のモード（文法・単語など）で記録する
+    const answeredMode = item.reviewMode || mode;
+    recordAnswer(level.level, answeredMode, item.id, !!choice.correct);
+    recordReviewResult(level.level, answeredMode, item.id, !!choice.correct);
     setScore((s) => ({ correct: s.correct + (choice.correct ? 1 : 0), total: s.total + 1 }));
   };
 
@@ -713,8 +769,19 @@ export default function EikenApp({ onExitApp }) {
   const [vocabUnit, setVocabUnit] = useState(0);
   const [grammarUnit, setGrammarUnit] = useState(0);
   const [readingUnit, setReadingUnit] = useState(0);
+  // 復習リストは解答のたびに変わるので、画面を戻るたびに数え直すためのカウンタ
+  const [reviewNonce, setReviewNonce] = useState(0);
 
   const level = levelId ? findLevel(levelId) : null;
+
+  const reviewCount = useMemo(
+    () => (level ? getReviewCount(level.level) : 0),
+    [level, reviewNonce]
+  );
+  const reviewByMode = useMemo(
+    () => (level ? getReviewCountByMode(level.level) : {}),
+    [level, reviewNonce]
+  );
 
   const items = useMemo(() => {
     if (!level || !mode) return [];
@@ -723,12 +790,14 @@ export default function EikenApp({ onExitApp }) {
     if (mode === "reading") return buildReadingItems(level, readingOfUnit(level, clampReadingUnit(level, readingUnit)));
     if (mode === "listening") return buildListeningItems(level);
     if (mode === "dialogue") return buildDialogueItems(level);
+    if (mode === "review") return buildReviewItems(level, vocabDirection);
     return [];
-  }, [level, mode, vocabDirection, vocabUnit, grammarUnit, readingUnit]);
+  }, [level, mode, vocabDirection, vocabUnit, grammarUnit, readingUnit, reviewNonce]);
 
   const goModeSelect = useCallback((lvId) => {
     stopSpeaking();
     setLevelId(lvId);
+    setReviewNonce((n) => n + 1);
     setScreen("modeSelect");
   }, []);
 
@@ -742,6 +811,7 @@ export default function EikenApp({ onExitApp }) {
 
   const backToModeSelect = useCallback(() => {
     stopSpeaking();
+    setReviewNonce((n) => n + 1);
     setScreen("modeSelect");
   }, []);
 
@@ -802,6 +872,10 @@ export default function EikenApp({ onExitApp }) {
         .eiken-mode-card .label { font-weight: 800; color: var(--c); margin-top: 6px; }
         .eiken-mode-card .desc { font-size: 12px; color: #6B7280; margin-top: 2px; }
         .eiken-mode-card.wide { grid-column: 1 / -1; border-width: 3px; background: #FBFAF6; }
+        /* 復習カードは最優先でやってほしいので、他のモードより目立たせる */
+        .eiken-review-card { background: #FFF7ED; border-color: #F59E0B; }
+        .eiken-review-card .label { color: #B45309; }
+        .eiken-review-card .desc { color: #92400E; }
 
         .eiken-quiz, .eiken-pronounce, .eiken-progress { max-width: 720px; margin: 0 auto; background: #fff; border: 1px solid #E4E2DA; border-radius: 12px; padding: 22px; }
 
@@ -965,6 +1039,22 @@ export default function EikenApp({ onExitApp }) {
             <div className="eiken-under" />
           </div>
           <div className="eiken-mode-grid">
+            {reviewCount > 0 && (
+              <button
+                className="eiken-mode-card wide eiken-review-card"
+                style={{ "--c": level.color }}
+                onClick={() => goMode("review")}
+              >
+                <div className="icon">🔁</div>
+                <div className="label">まちがえた問題の復習（{reviewCount}問）</div>
+                <div className="desc">
+                  {MODES.filter((m) => reviewByMode[m.id])
+                    .map((m) => `${m.label} ${reviewByMode[m.id]}`)
+                    .join(" ／ ")}
+                  {" ・ "}2回続けて正解すると消えます
+                </div>
+              </button>
+            )}
             {MODES.map((m) => (
               <button
                 key={m.id}
@@ -978,6 +1068,20 @@ export default function EikenApp({ onExitApp }) {
               </button>
             ))}
           </div>
+          {reviewCount > 0 && (
+            <button
+              className="eiken-back-link"
+              style={{ marginTop: 14 }}
+              onClick={() => {
+                if (window.confirm(`${level.levelLabel} の復習リスト${reviewCount}問をすべて消します。よろしいですか？`)) {
+                  clearLevelReview(level.level);
+                  setReviewNonce((n) => n + 1);
+                }
+              }}
+            >
+              復習リストを空にする
+            </button>
+          )}
         </>
       )}
 
