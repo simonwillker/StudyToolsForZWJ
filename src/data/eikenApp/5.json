@@ -6621,6 +6621,906 @@
           "explain": "好きな教科の話は、昼食についての質問と関係ありません。"
         }
       ]
+    },
+    {
+      "id": "d5-03",
+      "title": "In the Classroom",
+      "translation": "A：ごめん、消しゴムを持ってる？ B：うん、2つ持ってるよ。 A：1つ借りてもいい？ B：___ A：ありがとう。あとで返すね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Excuse me, do you have an eraser?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, I have two."
+        },
+        {
+          "speaker": "A",
+          "text": "Can I borrow one?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you. I will give it back later."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Sure, here you are.",
+          "correct": true,
+          "explain": "「借りてもいい？」と聞かれて貸してあげる場面なので、「どうぞ」と渡す返事が自然です。"
+        },
+        {
+          "text": "I am twelve years old.",
+          "correct": false,
+          "explain": "年齢の話は消しゴムの貸し借りと関係ありません。"
+        },
+        {
+          "text": "No, I don't have a pen.",
+          "correct": false,
+          "explain": "聞かれているのはペンではなく消しゴムです。"
+        },
+        {
+          "text": "It is Monday today.",
+          "correct": false,
+          "explain": "曜日の話は会話の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-04",
+      "title": "At the Library",
+      "translation": "A：この本を借りたいです。 B：図書カードはお持ちですか。 A：___ B：ありがとうございます。2週間で返してくださいね。 A：わかりました。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I want to borrow this book."
+        },
+        {
+          "speaker": "B",
+          "text": "Do you have a library card?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Thank you. Please return it in two weeks."
+        },
+        {
+          "speaker": "A",
+          "text": "OK, I will."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Yes, here it is.",
+          "correct": true,
+          "explain": "カードを持っているかと聞かれ、次に相手がお礼を言っているので、カードを差し出す返事が合います。"
+        },
+        {
+          "text": "I like reading books.",
+          "correct": false,
+          "explain": "本が好きかどうかは聞かれていません。"
+        },
+        {
+          "text": "The library is very big.",
+          "correct": false,
+          "explain": "図書館の大きさの話は質問の答えになっていません。"
+        },
+        {
+          "text": "My brother is a student.",
+          "correct": false,
+          "explain": "兄弟の話は会話の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-05",
+      "title": "On the Phone",
+      "translation": "A：もしもし、ケンです。メグはいますか。 B：ごめんなさい、今出かけています。 A：___ B：8時ごろだと思います。 A：わかりました。またかけます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Hello, this is Ken. Is Meg there?"
+        },
+        {
+          "speaker": "B",
+          "text": "Sorry, she is out now."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "I think she will be back around eight."
+        },
+        {
+          "speaker": "A",
+          "text": "I see. I will call again."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "What time will she come home?",
+          "correct": true,
+          "explain": "次に「8時ごろ」と時刻を答えているので、帰る時刻をたずねる文が入ります。"
+        },
+        {
+          "text": "How old is she?",
+          "correct": false,
+          "explain": "年齢をたずねる文には「8時ごろ」という答えは返ってきません。"
+        },
+        {
+          "text": "Where is your school?",
+          "correct": false,
+          "explain": "学校の場所は電話の用件と関係ありません。"
+        },
+        {
+          "text": "Do you like music?",
+          "correct": false,
+          "explain": "音楽の話は会話の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-06",
+      "title": "Breakfast at Home",
+      "translation": "A：朝ごはんの時間よ。 B：はーい、今行きます。 A：何が飲みたい？ B：___ A：はい、どうぞ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "It's time for breakfast."
+        },
+        {
+          "speaker": "B",
+          "text": "OK, I'm coming."
+        },
+        {
+          "speaker": "A",
+          "text": "What do you want to drink?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Here you are."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Orange juice, please.",
+          "correct": true,
+          "explain": "何を飲みたいかと聞かれているので、飲み物を答えるのが自然です。"
+        },
+        {
+          "text": "I go to school by bike.",
+          "correct": false,
+          "explain": "通学方法は飲み物の質問の答えになりません。"
+        },
+        {
+          "text": "She is my sister.",
+          "correct": false,
+          "explain": "人の紹介は会話の流れに合いません。"
+        },
+        {
+          "text": "It is very cold today.",
+          "correct": false,
+          "explain": "天気の話では飲み物を答えたことになりません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-07",
+      "title": "Meeting a New Friend",
+      "translation": "A：はじめまして。私はエミです。 B：はじめまして、エミ。僕はトムです。 A：どこの出身ですか。 B：___ A：わあ、行ってみたいです。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Nice to meet you. I'm Emi."
+        },
+        {
+          "speaker": "B",
+          "text": "Nice to meet you too, Emi. I'm Tom."
+        },
+        {
+          "speaker": "A",
+          "text": "Where are you from?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Wow, I want to go there someday."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "I'm from Australia.",
+          "correct": true,
+          "explain": "出身をたずねられているので、国や町を答えます。"
+        },
+        {
+          "text": "I'm fourteen years old.",
+          "correct": false,
+          "explain": "年齢は出身地の答えになりません。"
+        },
+        {
+          "text": "I have a cat.",
+          "correct": false,
+          "explain": "ペットの話は質問と関係ありません。"
+        },
+        {
+          "text": "It's three o'clock.",
+          "correct": false,
+          "explain": "時刻は出身地の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-08",
+      "title": "In the Park",
+      "translation": "A：あそこを見て。あの犬はかわいいね。 B：うん、とても小さいね。 A：あの犬を知ってる？ B：___ A：じゃあ、聞いてみようよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Look over there. That dog is cute."
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, it is very small."
+        },
+        {
+          "speaker": "A",
+          "text": "Do you know the dog?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Then let's ask about it."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "No, I don't. I've never seen it before.",
+          "correct": true,
+          "explain": "次に「聞いてみよう」と言っているので、知らないという返事が自然です。"
+        },
+        {
+          "text": "Yes, it is my dog.",
+          "correct": false,
+          "explain": "自分の犬なら「聞いてみよう」とはなりません。"
+        },
+        {
+          "text": "I like playing soccer.",
+          "correct": false,
+          "explain": "サッカーの話は犬の話と関係ありません。"
+        },
+        {
+          "text": "The park closes at five.",
+          "correct": false,
+          "explain": "閉園時間は質問の答えになっていません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-09",
+      "title": "At the Zoo",
+      "translation": "A：わあ、パンダがごはんを食べてる！ B：かわいいね。写真を撮ろうよ。 A：___ B：ここに「写真禁止」って書いてあるよ。 A：ほんとだ。やめておこう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Wow, the panda is eating!"
+        },
+        {
+          "speaker": "B",
+          "text": "So cute. Let's take a picture."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "This sign says 'No photos'."
+        },
+        {
+          "speaker": "A",
+          "text": "You're right. Let's not do it."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Wait. Can we take pictures here?",
+          "correct": true,
+          "explain": "次に看板の説明をしているので、写真を撮ってよいか確かめる文が入ります。"
+        },
+        {
+          "text": "I want to eat lunch now.",
+          "correct": false,
+          "explain": "昼食の話では看板の説明につながりません。"
+        },
+        {
+          "text": "The zoo is far from my house.",
+          "correct": false,
+          "explain": "距離の話は会話の流れに合いません。"
+        },
+        {
+          "text": "My favorite animal is the lion.",
+          "correct": false,
+          "explain": "好きな動物の話は次の返事とつながりません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-10",
+      "title": "Talking About Pets",
+      "translation": "A：ペットを飼ってる？ B：うん、犬を2匹飼ってるよ。 A：名前は何ていうの？ B：___ A：すてきな名前だね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Do you have any pets?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, I have two dogs."
+        },
+        {
+          "speaker": "A",
+          "text": "What are their names?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Those are nice names."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Momo and Kuro.",
+          "correct": true,
+          "explain": "名前をたずねられているので、名前を答えます。"
+        },
+        {
+          "text": "They are five years old.",
+          "correct": false,
+          "explain": "年齢は名前の答えになりません。"
+        },
+        {
+          "text": "I walk them every day.",
+          "correct": false,
+          "explain": "散歩の話は名前の答えになっていません。"
+        },
+        {
+          "text": "Yes, I do.",
+          "correct": false,
+          "explain": "疑問詞 What で始まる質問には Yes / No では答えません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-11",
+      "title": "Talking About Family",
+      "translation": "A：家族は何人ですか。 B：4人です。両親と姉が1人います。 A：___ B：高校生です。 A：じゃあ、私より3つ年上ですね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How many people are there in your family?"
+        },
+        {
+          "speaker": "B",
+          "text": "Four. My parents, my sister, and me."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "She is a high school student."
+        },
+        {
+          "speaker": "A",
+          "text": "Then she is three years older than me."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "How old is your sister?",
+          "correct": true,
+          "explain": "次に「高校生です」と姉について答えているので、姉についてたずねる文が入ります。"
+        },
+        {
+          "text": "Where do you live?",
+          "correct": false,
+          "explain": "住んでいる場所をたずねても「高校生です」とは答えません。"
+        },
+        {
+          "text": "What is your favorite food?",
+          "correct": false,
+          "explain": "好きな食べ物の話は会話の流れに合いません。"
+        },
+        {
+          "text": "Do you have a dog?",
+          "correct": false,
+          "explain": "ペットの話は家族の話とつながりません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-12",
+      "title": "Shopping for a Cap",
+      "translation": "A：すみません、この帽子はいくらですか。 B：1,200円です。 A：___ B：はい、青と白がございます。 A：では青いのをください。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Excuse me, how much is this cap?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's 1,200 yen."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, we have blue and white."
+        },
+        {
+          "speaker": "A",
+          "text": "Then I'll take the blue one."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Do you have other colors?",
+          "correct": true,
+          "explain": "次に「青と白があります」と色を答えているので、色についてたずねる文が入ります。"
+        },
+        {
+          "text": "What time do you open?",
+          "correct": false,
+          "explain": "開店時間をたずねても色の答えは返ってきません。"
+        },
+        {
+          "text": "I am looking for my friend.",
+          "correct": false,
+          "explain": "友達を探している話は会話の流れに合いません。"
+        },
+        {
+          "text": "It is too expensive.",
+          "correct": false,
+          "explain": "値段の感想では次の返事につながりません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-13",
+      "title": "At the Bus Stop",
+      "translation": "A：すみません、このバスは駅に行きますか。 B：はい、行きますよ。 A：___ B：10分後に来ます。 A：ありがとうございます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Excuse me, does this bus go to the station?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, it does."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "It comes in ten minutes."
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you very much."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "When does the next bus come?",
+          "correct": true,
+          "explain": "次に「10分後」と答えているので、次のバスの時間をたずねる文が入ります。"
+        },
+        {
+          "text": "How much is a ticket to Tokyo?",
+          "correct": false,
+          "explain": "値段をたずねても「10分後」とは答えません。"
+        },
+        {
+          "text": "Is this your bag?",
+          "correct": false,
+          "explain": "かばんの話はバスの話と関係ありません。"
+        },
+        {
+          "text": "I can't find my house.",
+          "correct": false,
+          "explain": "家を探している話は会話の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-14",
+      "title": "Talking About the Weather",
+      "translation": "A：今日は寒いね。 B：うん、とても寒いね。 A：明日の天気はどうかな。 B：___ A：やった！公園に行こうよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "It's cold today."
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, it's very cold."
+        },
+        {
+          "speaker": "A",
+          "text": "How will the weather be tomorrow?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Great! Let's go to the park."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "It will be warm and sunny.",
+          "correct": true,
+          "explain": "次に「公園に行こう」と喜んでいるので、良い天気になるという答えが合います。"
+        },
+        {
+          "text": "It was rainy last Sunday.",
+          "correct": false,
+          "explain": "先週の話では明日の天気の答えになりません。"
+        },
+        {
+          "text": "I don't like winter.",
+          "correct": false,
+          "explain": "好き嫌いの話では天気を答えたことになりません。"
+        },
+        {
+          "text": "My coat is very old.",
+          "correct": false,
+          "explain": "コートの話は質問の答えになっていません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-15",
+      "title": "A Birthday Party",
+      "translation": "A：土曜日に誕生日パーティーをするの。来られる？ B：うん、行きたい！ A：___ B：3時ね。わかった。 A：待ってるね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'm having a birthday party on Saturday. Can you come?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, I'd love to!"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Three o'clock. OK, I got it."
+        },
+        {
+          "speaker": "A",
+          "text": "See you then."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "It starts at three o'clock.",
+          "correct": true,
+          "explain": "次に相手が「3時ね」と時刻を確かめているので、開始時刻を伝える文が入ります。"
+        },
+        {
+          "text": "I don't like cake.",
+          "correct": false,
+          "explain": "ケーキの好き嫌いは時刻の確認につながりません。"
+        },
+        {
+          "text": "My house is near the school.",
+          "correct": false,
+          "explain": "場所の説明では「3時ね」という返事になりません。"
+        },
+        {
+          "text": "How old are you?",
+          "correct": false,
+          "explain": "年齢をたずねても時刻の返事は返ってきません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-16",
+      "title": "In the Music Room",
+      "translation": "A：ピアノが弾けるの？ B：うん、少しだけ。 A：___ B：8歳のときからだよ。 A：すごいね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can you play the piano?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, a little."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Since I was eight years old."
+        },
+        {
+          "speaker": "A",
+          "text": "That's great."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "When did you start playing it?",
+          "correct": true,
+          "explain": "次に「8歳のときから」と始めた時期を答えているので、いつ始めたかをたずねる文が入ります。"
+        },
+        {
+          "text": "Where is the music room?",
+          "correct": false,
+          "explain": "場所をたずねても「8歳のときから」とは答えません。"
+        },
+        {
+          "text": "Do you like sports?",
+          "correct": false,
+          "explain": "スポーツの話はピアノの話とつながりません。"
+        },
+        {
+          "text": "How much was your piano?",
+          "correct": false,
+          "explain": "値段をたずねる文の答えにはなっていません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-17",
+      "title": "After School",
+      "translation": "A：放課後は何をするの？ B：テニス部の練習があるよ。 A：___ B：毎日、月曜以外はね。 A：大変だね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What do you do after school?"
+        },
+        {
+          "speaker": "B",
+          "text": "I have tennis club practice."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Every day except Monday."
+        },
+        {
+          "speaker": "A",
+          "text": "That sounds hard."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "How often do you practice?",
+          "correct": true,
+          "explain": "次に「月曜以外は毎日」と頻度を答えているので、頻度をたずねる文が入ります。"
+        },
+        {
+          "text": "Who is your teacher?",
+          "correct": false,
+          "explain": "先生をたずねても頻度の答えは返ってきません。"
+        },
+        {
+          "text": "Where do you live?",
+          "correct": false,
+          "explain": "住んでいる場所の話は部活の話と関係ありません。"
+        },
+        {
+          "text": "Is tennis difficult?",
+          "correct": false,
+          "explain": "難しさをたずねる文の答えにはなっていません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-18",
+      "title": "Lunch Time",
+      "translation": "A：わあ、そのお弁当おいしそう。 B：ありがとう。母が作ってくれたんだ。 A：___ B：卵焼きが一番好きだよ。 A：私も好き！",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Wow, your lunch looks delicious."
+        },
+        {
+          "speaker": "B",
+          "text": "Thank you. My mother made it."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "I like the egg roll the best."
+        },
+        {
+          "speaker": "A",
+          "text": "I like it too!"
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Which food do you like the best?",
+          "correct": true,
+          "explain": "次に「卵焼きが一番好き」と答えているので、どれが一番好きかをたずねる文が入ります。"
+        },
+        {
+          "text": "Did you make it yourself?",
+          "correct": false,
+          "explain": "直前に「母が作った」と言っているので、作った人をもう一度聞くのは不自然です。"
+        },
+        {
+          "text": "What time is it now?",
+          "correct": false,
+          "explain": "時刻の質問では食べ物の答えになりません。"
+        },
+        {
+          "text": "Do you go home by bus?",
+          "correct": false,
+          "explain": "帰り方の話はお弁当の話と関係ありません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-19",
+      "title": "Talking About Sports",
+      "translation": "A：どんなスポーツが好き？ B：サッカーが好きだよ。 A：___ B：日曜日にやるよ。 A：今度見に行ってもいい？",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What sports do you like?"
+        },
+        {
+          "speaker": "B",
+          "text": "I like soccer."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "I play it on Sundays."
+        },
+        {
+          "speaker": "A",
+          "text": "Can I come and watch next time?"
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "When do you play it?",
+          "correct": true,
+          "explain": "次に「日曜日にやる」と答えているので、いつするのかをたずねる文が入ります。"
+        },
+        {
+          "text": "Who is your favorite singer?",
+          "correct": false,
+          "explain": "歌手の話はスポーツの話と関係ありません。"
+        },
+        {
+          "text": "How many books do you have?",
+          "correct": false,
+          "explain": "本の数をたずねても曜日の答えは返ってきません。"
+        },
+        {
+          "text": "Is your brother tall?",
+          "correct": false,
+          "explain": "兄弟の話は会話の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d5-20",
+      "title": "Saying Goodbye",
+      "translation": "A：もう5時だ。帰らなきゃ。 B：そうだね。楽しかったね。 A：___ B：うん、また明日ね。 A：バイバイ！",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "It's already five. I have to go home."
+        },
+        {
+          "speaker": "B",
+          "text": "Me too. That was fun."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Sure, see you tomorrow."
+        },
+        {
+          "speaker": "A",
+          "text": "Bye!"
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Let's play again tomorrow.",
+          "correct": true,
+          "explain": "次に「また明日ね」と答えているので、また明日遊ぼうと誘う文が入ります。"
+        },
+        {
+          "text": "I'm very hungry now.",
+          "correct": false,
+          "explain": "空腹の話では「また明日ね」という返事につながりません。"
+        },
+        {
+          "text": "What is your phone number?",
+          "correct": false,
+          "explain": "電話番号をたずねる文の答えにはなっていません。"
+        },
+        {
+          "text": "I don't know this place.",
+          "correct": false,
+          "explain": "場所がわからない話は別れのあいさつと合いません。"
+        }
+      ]
     }
   ]
 }

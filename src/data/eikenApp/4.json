@@ -6621,6 +6621,906 @@
           "explain": "その後も会話が続いているので、パーティーが中止になったという発言は流れに合いません。"
         }
       ]
+    },
+    {
+      "id": "d4-03",
+      "title": "Talking About the Weekend",
+      "translation": "A：週末はどうだった？ B：楽しかったよ。家族で山に行ったんだ。 A：___ B：電車とバスで行ったよ。 A：長い旅だったんだね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How was your weekend?"
+        },
+        {
+          "speaker": "B",
+          "text": "It was great. I went to the mountains with my family."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "We went by train and bus."
+        },
+        {
+          "speaker": "A",
+          "text": "That was a long trip."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "How did you get there?",
+          "correct": true,
+          "explain": "次に「電車とバスで」と交通手段を答えているので、行き方をたずねる文が入ります。"
+        },
+        {
+          "text": "Who cooked dinner?",
+          "correct": false,
+          "explain": "料理の話では交通手段の答えにつながりません。"
+        },
+        {
+          "text": "What time did you wake up?",
+          "correct": false,
+          "explain": "起きた時刻をたずねても「電車とバスで」とは答えません。"
+        },
+        {
+          "text": "Did you enjoy the movie?",
+          "correct": false,
+          "explain": "映画の話は山に行った話と関係ありません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-04",
+      "title": "At the Sports Festival",
+      "translation": "A：次の種目は何？ B：リレーだよ。 A：___ B：うん、アンカーを走るんだ。 A：がんばってね！",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What's the next event?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's the relay race."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, I'm running the last part."
+        },
+        {
+          "speaker": "A",
+          "text": "Good luck!"
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Are you going to run in it?",
+          "correct": true,
+          "explain": "次に「うん、アンカーを走る」と答えているので、走るかどうかをたずねる文が入ります。"
+        },
+        {
+          "text": "Where is the school gate?",
+          "correct": false,
+          "explain": "校門の場所は競技の話と関係ありません。"
+        },
+        {
+          "text": "How was your lunch?",
+          "correct": false,
+          "explain": "昼食の話では次の返事につながりません。"
+        },
+        {
+          "text": "What color is your hat?",
+          "correct": false,
+          "explain": "帽子の色の話は会話の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-05",
+      "title": "Borrowing a Book",
+      "translation": "A：その本、もう読み終わった？ B：うん、昨日読み終わったよ。 A：___ B：もちろん。明日持ってくるね。 A：ありがとう！",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Have you finished that book?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, I finished it yesterday."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Of course. I'll bring it tomorrow."
+        },
+        {
+          "speaker": "A",
+          "text": "Thanks a lot!"
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Can I borrow it?",
+          "correct": true,
+          "explain": "次に「もちろん。明日持ってくる」と答えているので、貸してほしいと頼む文が入ります。"
+        },
+        {
+          "text": "Did you buy it at the station?",
+          "correct": false,
+          "explain": "買った場所をたずねても「明日持ってくる」とは答えません。"
+        },
+        {
+          "text": "I don't like reading.",
+          "correct": false,
+          "explain": "読書が嫌いという話では次の返事につながりません。"
+        },
+        {
+          "text": "How many pages does it have?",
+          "correct": false,
+          "explain": "ページ数の質問の答えにはなっていません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-06",
+      "title": "Talking About a Trip",
+      "translation": "A：夏休みに沖縄へ行くんだ。 B：いいね！___ A：1週間いる予定だよ。 B：泳ぐのを楽しんできてね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'm going to Okinawa this summer."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I'm going to stay there for a week."
+        },
+        {
+          "speaker": "B",
+          "text": "Enjoy swimming in the sea."
+        },
+        {
+          "speaker": "A",
+          "text": "I will. Thank you!"
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "That's nice! How long will you stay?",
+          "correct": true,
+          "explain": "次に「1週間」と期間を答えているので、滞在期間をたずねる文が入ります。"
+        },
+        {
+          "text": "That's nice! What is your name?",
+          "correct": false,
+          "explain": "名前をたずねても期間の答えは返ってきません。"
+        },
+        {
+          "text": "That's too bad. Are you sick?",
+          "correct": false,
+          "explain": "旅行の話に対して残念がるのは不自然です。"
+        },
+        {
+          "text": "That's nice! How much was your bag?",
+          "correct": false,
+          "explain": "かばんの値段は滞在期間の答えにつながりません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-07",
+      "title": "At the Nurse's Office",
+      "translation": "A：どうしましたか。 B：頭が痛いんです。 A：___ B：今朝からです。 A：では、少し休みましょう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What's wrong?"
+        },
+        {
+          "speaker": "B",
+          "text": "I have a headache."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Since this morning."
+        },
+        {
+          "speaker": "A",
+          "text": "OK, let's rest for a while."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "How long have you had it?",
+          "correct": true,
+          "explain": "次に「今朝から」と答えているので、いつからかをたずねる文が入ります。"
+        },
+        {
+          "text": "What is your favorite subject?",
+          "correct": false,
+          "explain": "好きな教科の話は体調の話と関係ありません。"
+        },
+        {
+          "text": "Do you walk to school?",
+          "correct": false,
+          "explain": "通学方法をたずねても「今朝から」とは答えません。"
+        },
+        {
+          "text": "Where is your classroom?",
+          "correct": false,
+          "explain": "教室の場所は質問の答えになっていません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-08",
+      "title": "Choosing a Club",
+      "translation": "A：どの部活に入るか決めた？ B：まだ迷ってるんだ。 A：___ B：吹奏楽部かバスケ部かな。 A：どっちも楽しそうだね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Have you decided which club to join?"
+        },
+        {
+          "speaker": "B",
+          "text": "Not yet. I'm still thinking."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Maybe the brass band or the basketball team."
+        },
+        {
+          "speaker": "A",
+          "text": "Both sound fun."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Which clubs are you interested in?",
+          "correct": true,
+          "explain": "次に2つの部活の名前を挙げているので、興味のある部活をたずねる文が入ります。"
+        },
+        {
+          "text": "When does school finish?",
+          "correct": false,
+          "explain": "下校時刻をたずねても部活名の答えは返ってきません。"
+        },
+        {
+          "text": "Did you do your homework?",
+          "correct": false,
+          "explain": "宿題の話は部活選びと関係ありません。"
+        },
+        {
+          "text": "How many students are there?",
+          "correct": false,
+          "explain": "人数の質問の答えにはなっていません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-09",
+      "title": "Helping at Home",
+      "translation": "A：手伝ってくれない？ B：いいよ。何をすればいい？ A：___ B：わかった、すぐやるね。 A：ありがとう、助かるよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Can you help me?"
+        },
+        {
+          "speaker": "B",
+          "text": "Sure. What should I do?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "OK, I'll do it right away."
+        },
+        {
+          "speaker": "A",
+          "text": "Thanks, that helps a lot."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Please wash the dishes.",
+          "correct": true,
+          "explain": "「何をすればいい？」と聞かれているので、してほしいことを具体的に伝えます。"
+        },
+        {
+          "text": "I watched TV last night.",
+          "correct": false,
+          "explain": "昨夜の話では頼みごとになりません。"
+        },
+        {
+          "text": "My room is very clean.",
+          "correct": false,
+          "explain": "部屋の状態の説明では次の返事につながりません。"
+        },
+        {
+          "text": "Do you like cooking?",
+          "correct": false,
+          "explain": "好みをたずねる文は「すぐやるね」という返事に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-10",
+      "title": "At the Post Office",
+      "translation": "A：この手紙をアメリカに送りたいのですが。 B：かしこまりました。___ A：できるだけ早くお願いします。 B：では航空便になります。130円です。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to send this letter to America."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "As fast as possible, please."
+        },
+        {
+          "speaker": "B",
+          "text": "Then we'll send it by airmail. That's 130 yen."
+        },
+        {
+          "speaker": "A",
+          "text": "Here you are."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Certainly. How would you like to send it?",
+          "correct": true,
+          "explain": "次に「できるだけ早く」と送り方の希望を答えているので、送り方をたずねる文が入ります。"
+        },
+        {
+          "text": "Certainly. What is your address?",
+          "correct": false,
+          "explain": "住所をたずねても「できるだけ早く」とは答えません。"
+        },
+        {
+          "text": "Sorry, we are closed today.",
+          "correct": false,
+          "explain": "閉店していれば、そのあと料金の説明は続きません。"
+        },
+        {
+          "text": "Certainly. Do you like writing letters?",
+          "correct": false,
+          "explain": "好みの質問は手続きの流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-11",
+      "title": "Talking About Homework",
+      "translation": "A：数学の宿題もうやった？ B：ううん、まだ。難しくて。 A：___ B：本当？助かるよ。 A：昼休みに一緒にやろう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Did you do the math homework?"
+        },
+        {
+          "speaker": "B",
+          "text": "No, not yet. It's difficult."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Really? That would help."
+        },
+        {
+          "speaker": "A",
+          "text": "Let's do it together at lunchtime."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "I can help you if you want.",
+          "correct": true,
+          "explain": "次に「本当？助かる」と答えているので、手伝いを申し出る文が入ります。"
+        },
+        {
+          "text": "I forgot my textbook at home.",
+          "correct": false,
+          "explain": "教科書を忘れた話では「助かる」という返事につながりません。"
+        },
+        {
+          "text": "Math is my favorite subject.",
+          "correct": false,
+          "explain": "好きな教科の話だけでは申し出になりません。"
+        },
+        {
+          "text": "What time does the class start?",
+          "correct": false,
+          "explain": "授業の時刻の質問は次の返事に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-12",
+      "title": "Choosing a Present",
+      "translation": "A：来週はお母さんの誕生日なんだ。 B：何をあげるか決めた？ A：まだなんだ。___ B：花はどう？いつも喜ばれるよ。 A：いい考えだね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Next week is my mother's birthday."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you decided what to give her?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "How about flowers? They are always popular."
+        },
+        {
+          "speaker": "A",
+          "text": "That's a good idea."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Not yet. Do you have any ideas?",
+          "correct": true,
+          "explain": "次に「花はどう？」と提案しているので、考えを求める文が入ります。"
+        },
+        {
+          "text": "Yes, I bought a watch yesterday.",
+          "correct": false,
+          "explain": "すでに買ったのなら、相手が提案するのは不自然です。"
+        },
+        {
+          "text": "No, she doesn't like presents.",
+          "correct": false,
+          "explain": "プレゼントが嫌いなら花を勧める流れになりません。"
+        },
+        {
+          "text": "Not yet. What time is it now?",
+          "correct": false,
+          "explain": "時刻の質問では贈り物の提案につながりません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-13",
+      "title": "Missing the Bus",
+      "translation": "A：あっ、バスが行っちゃった。 B：次のは30分後だよ。 A：___ B：そうだね、歩いても20分くらいだし。 A：じゃあ歩こう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Oh no, the bus has just left."
+        },
+        {
+          "speaker": "B",
+          "text": "The next one comes in thirty minutes."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Right, it only takes about twenty minutes on foot."
+        },
+        {
+          "speaker": "A",
+          "text": "Then let's walk."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "That's too long. Why don't we walk?",
+          "correct": true,
+          "explain": "次に「歩いても20分くらい」と答えているので、歩くことを提案する文が入ります。"
+        },
+        {
+          "text": "Great, let's wait here and sleep.",
+          "correct": false,
+          "explain": "待つ提案では歩く時間の話につながりません。"
+        },
+        {
+          "text": "I left my umbrella at school.",
+          "correct": false,
+          "explain": "傘の話はバスを逃した話と関係ありません。"
+        },
+        {
+          "text": "How much is the bus ticket?",
+          "correct": false,
+          "explain": "運賃の質問の答えにはなっていません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-14",
+      "title": "Talking About Hobbies",
+      "translation": "A：ひまなときは何をしているの？ B：写真を撮るのが好きなんだ。 A：___ B：だいたい公園や川の近くだね。 A：今度見せてよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What do you do in your free time?"
+        },
+        {
+          "speaker": "B",
+          "text": "I like taking pictures."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Usually in the park or near the river."
+        },
+        {
+          "speaker": "A",
+          "text": "Please show me some pictures sometime."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Where do you usually take them?",
+          "correct": true,
+          "explain": "次に「公園や川の近く」と場所を答えているので、撮る場所をたずねる文が入ります。"
+        },
+        {
+          "text": "How old is your camera?",
+          "correct": false,
+          "explain": "カメラの古さをたずねても場所の答えは返ってきません。"
+        },
+        {
+          "text": "Do you have a brother?",
+          "correct": false,
+          "explain": "兄弟の話は趣味の話と関係ありません。"
+        },
+        {
+          "text": "What did you eat for lunch?",
+          "correct": false,
+          "explain": "昼食の話は会話の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-15",
+      "title": "At the Supermarket",
+      "translation": "A：すみません、牛乳はどこですか。 B：一番奥の右側にございます。 A：___ B：はい、8時まで開いています。 A：ありがとうございます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Excuse me, where is the milk?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's at the back, on your right."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, we are open until eight."
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you very much."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Are you open this evening?",
+          "correct": true,
+          "explain": "次に「8時まで開いています」と答えているので、営業時間についてたずねる文が入ります。"
+        },
+        {
+          "text": "How much is this bread?",
+          "correct": false,
+          "explain": "パンの値段をたずねても営業時間の答えは返ってきません。"
+        },
+        {
+          "text": "Can I use this bag?",
+          "correct": false,
+          "explain": "袋の話は次の返事につながりません。"
+        },
+        {
+          "text": "Is the milk cold?",
+          "correct": false,
+          "explain": "冷たいかどうかの質問の答えにはなっていません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-16",
+      "title": "Asking About a Test",
+      "translation": "A：明日のテスト、どこから出るか知ってる？ B：3課から5課までだよ。 A：___ B：単語をたくさん覚えるといいよ。 A：ありがとう、やってみる。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Do you know what's on tomorrow's test?"
+        },
+        {
+          "speaker": "B",
+          "text": "Lessons three to five."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "You should learn a lot of words."
+        },
+        {
+          "speaker": "A",
+          "text": "Thanks, I'll try."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "What should I study first?",
+          "correct": true,
+          "explain": "次に「単語を覚えるといい」と助言しているので、何を勉強すべきかたずねる文が入ります。"
+        },
+        {
+          "text": "Who is our English teacher?",
+          "correct": false,
+          "explain": "先生をたずねても勉強法の助言にはつながりません。"
+        },
+        {
+          "text": "Where is the gym?",
+          "correct": false,
+          "explain": "体育館の場所はテストの話と関係ありません。"
+        },
+        {
+          "text": "Did you sleep well last night?",
+          "correct": false,
+          "explain": "睡眠の話は会話の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-17",
+      "title": "A Phone Call",
+      "translation": "A：もしもし、タナカさんのお宅ですか。 B：はい、そうです。 A：___ B：少々お待ちください。呼んできます。 A：ありがとうございます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Hello, is this the Tanaka residence?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, it is."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Just a moment, please. I'll get him."
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "May I speak to Kenji, please?",
+          "correct": true,
+          "explain": "次に「呼んできます」と答えているので、誰かに代わってほしいと頼む文が入ります。"
+        },
+        {
+          "text": "What is your phone number?",
+          "correct": false,
+          "explain": "電話番号をたずねても「呼んできます」とは答えません。"
+        },
+        {
+          "text": "I'm sorry, I have the wrong number.",
+          "correct": false,
+          "explain": "間違い電話ならそこで会話は終わります。"
+        },
+        {
+          "text": "Where do you live?",
+          "correct": false,
+          "explain": "住所の質問は次の返事に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-18",
+      "title": "Talking About the Future",
+      "translation": "A：将来は何になりたいの？ B：獣医になりたいんだ。 A：___ B：動物が大好きだからだよ。 A：君にぴったりだね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What do you want to be in the future?"
+        },
+        {
+          "speaker": "B",
+          "text": "I want to be an animal doctor."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Because I really love animals."
+        },
+        {
+          "speaker": "A",
+          "text": "That's perfect for you."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Why do you want to be one?",
+          "correct": true,
+          "explain": "次に Because で理由を答えているので、理由をたずねる文が入ります。"
+        },
+        {
+          "text": "When is your birthday?",
+          "correct": false,
+          "explain": "誕生日をたずねても理由の答えは返ってきません。"
+        },
+        {
+          "text": "How many pets do you have?",
+          "correct": false,
+          "explain": "ペットの数の質問の答えにはなっていません。"
+        },
+        {
+          "text": "Where is the animal hospital?",
+          "correct": false,
+          "explain": "場所の質問は次の返事に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-19",
+      "title": "At the Swimming Pool",
+      "translation": "A：泳ぎに行こうよ。 B：いいね。でも今日は少し寒くない？ A：___ B：それなら大丈夫だね。行こう。 A：水着を持ってきてね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Let's go swimming."
+        },
+        {
+          "speaker": "B",
+          "text": "Sounds good. But isn't it a little cold today?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then it's fine. Let's go."
+        },
+        {
+          "speaker": "A",
+          "text": "Don't forget your swimsuit."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Don't worry. It's an indoor pool.",
+          "correct": true,
+          "explain": "寒さを心配されたので、屋内だから問題ないと答えるのが自然です。"
+        },
+        {
+          "text": "You're right. Let's stay home.",
+          "correct": false,
+          "explain": "家にいることにしたのなら「行こう」とは続きません。"
+        },
+        {
+          "text": "I can't swim at all.",
+          "correct": false,
+          "explain": "泳げないという話では次の返事につながりません。"
+        },
+        {
+          "text": "The pool is closed today.",
+          "correct": false,
+          "explain": "閉まっているなら「行こう」とはなりません。"
+        }
+      ]
+    },
+    {
+      "id": "d4-20",
+      "title": "Cooking Together",
+      "translation": "A：カレーを作ろうよ。 B：いいね。材料はそろってる？ A：___ B：じゃあ買いに行ってくるよ。 A：ありがとう、お願い。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Let's make curry."
+        },
+        {
+          "speaker": "B",
+          "text": "Good idea. Do we have everything we need?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then I'll go and buy some."
+        },
+        {
+          "speaker": "A",
+          "text": "Thanks, please do."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "We have the meat, but we need more onions.",
+          "correct": true,
+          "explain": "次に「買ってくる」と答えているので、足りない材料があることを伝える文が入ります。"
+        },
+        {
+          "text": "Yes, we have everything.",
+          "correct": false,
+          "explain": "全部そろっているなら買いに行く必要がありません。"
+        },
+        {
+          "text": "I don't like curry very much.",
+          "correct": false,
+          "explain": "好き嫌いの話では買い物の流れにつながりません。"
+        },
+        {
+          "text": "The supermarket is very big.",
+          "correct": false,
+          "explain": "店の大きさの話は質問の答えになっていません。"
+        }
+      ]
     }
   ]
 }
