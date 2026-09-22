@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback, useEffect } from "react";
+import React, { useMemo, useState, useCallback, useEffect, useRef } from "react";
 import LEVEL_5 from "./data/eikenApp/5.json";
 import LEVEL_4 from "./data/eikenApp/4.json";
 import LEVEL_3 from "./data/eikenApp/3.json";
@@ -493,6 +493,8 @@ function ChoiceQuiz({ level, mode, items, accent, onExit }) {
   const [answered, setAnswered] = useState(false);
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const [finished, setFinished] = useState(false);
+  // スマホでは解説と「次の問題へ」が画面の下にはみ出すため、答えたら自動で見える位置まで送る
+  const explainRef = useRef(null);
 
   useEffect(() => {
     setIndex(0);
@@ -520,6 +522,15 @@ function ChoiceQuiz({ level, mode, items, accent, onExit }) {
     recordAnswer(level.level, answeredMode, item.id, !!choice.correct);
     recordReviewResult(level.level, answeredMode, item.id, !!choice.correct);
     setScore((s) => ({ correct: s.correct + (choice.correct ? 1 : 0), total: s.total + 1 }));
+    // 解説が描画されてからスクロールする
+    window.requestAnimationFrame(() => {
+      const el = explainRef.current;
+      if (!el || typeof el.scrollIntoView !== "function") return;
+      const rect = el.getBoundingClientRect();
+      // すでに画面内に収まっているときは動かさない
+      if (rect.bottom <= window.innerHeight) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   };
 
   const handleNext = () => {
@@ -581,7 +592,7 @@ function ChoiceQuiz({ level, mode, items, accent, onExit }) {
       </div>
 
       {answered && (
-        <div className="eiken-explain">
+        <div className="eiken-explain" ref={explainRef}>
           <div className="eiken-explain-title">{item.choices[selected]?.correct ? "✅ 正解です！" : "❌ 不正解です"}</div>
           <div className="eiken-explain-list">
             {item.choices.map((c, ci) => (
