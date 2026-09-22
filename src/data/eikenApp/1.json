@@ -6593,6 +6593,906 @@
           "explain": "その後、具体的な妥協案が決まっているので、無期限の先送りは不自然です。"
         }
       ]
+    },
+    {
+      "id": "d1-03",
+      "title": "A Panel on Press Freedom",
+      "translation": "A：規制強化は報道の自由を損なうとお考えですか。 B：程度の問題だと思います。 A：___ B：暴力を伴う扇動に限れば、正当化の余地はあります。 A：線引きが難しいところですね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Do you see tighter regulation as a threat to press freedom?"
+        },
+        {
+          "speaker": "B",
+          "text": "I'd say it's a matter of degree."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "If it were confined to incitement to violence, there would be room to justify it."
+        },
+        {
+          "speaker": "A",
+          "text": "Drawing that line is the hard part."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "At what point would restriction become defensible?",
+          "correct": true,
+          "explain": "次に「扇動に限れば正当化の余地がある」と条件を答えているので、どこからなら容認しうるかをたずねる文が入ります。"
+        },
+        {
+          "text": "How many newspapers do you read daily?",
+          "correct": false,
+          "explain": "購読数の質問では線引きの答えにつながりません。"
+        },
+        {
+          "text": "Which political party do you support?",
+          "correct": false,
+          "explain": "党派の質問は議論の流れに合いません。"
+        },
+        {
+          "text": "When did you begin your career?",
+          "correct": false,
+          "explain": "経歴の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-04",
+      "title": "Cross-Examining an Argument",
+      "translation": "A：あなたの結論は前提に依存しすぎています。 B：どの前提のことでしょう。 A：___ B：確かにその点は自明ではありません。 A：ならば結論も留保が必要ですね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Your conclusion rests too heavily on an unexamined premise."
+        },
+        {
+          "speaker": "B",
+          "text": "Which premise do you mean?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Admittedly, that is not self-evident."
+        },
+        {
+          "speaker": "A",
+          "text": "Then the conclusion must be qualified as well."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "That participation always improves outcomes.",
+          "correct": true,
+          "explain": "どの前提かと問われているので、その前提の内容を具体的に述べる文が入ります。"
+        },
+        {
+          "text": "That your data were collected in March.",
+          "correct": false,
+          "explain": "収集時期は前提ではなく事実の確認で、「自明ではない」という受け方に合いません。"
+        },
+        {
+          "text": "I withdraw my objection entirely.",
+          "correct": false,
+          "explain": "異議を取り下げるなら、そのあと留保を求める流れになりません。"
+        },
+        {
+          "text": "How many sources did you consult?",
+          "correct": false,
+          "explain": "出典数の質問では前提の指摘になりません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-05",
+      "title": "Editorial Judgment",
+      "translation": "A：この記事、匿名の証言に依拠しすぎでは。 B：裏取りは二重に行っています。 A：___ B：三人目は取材に応じていません。 A：ならば記述を弱めるべきですね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "This piece leans rather heavily on anonymous testimony."
+        },
+        {
+          "speaker": "B",
+          "text": "We corroborated it through two independent sources."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "The third declined to be interviewed."
+        },
+        {
+          "speaker": "A",
+          "text": "Then the wording should be softened."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "And the third party named in the article?",
+          "correct": true,
+          "explain": "次に「三人目は取材に応じていない」と答えているので、その人物について問う文が入ります。"
+        },
+        {
+          "text": "And how long is the article?",
+          "correct": false,
+          "explain": "分量の質問では三人目の話につながりません。"
+        },
+        {
+          "text": "Then let's run it on the front page.",
+          "correct": false,
+          "explain": "掲載を進める発言では、記述を弱める流れになりません。"
+        },
+        {
+          "text": "And who took the photographs?",
+          "correct": false,
+          "explain": "写真の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-06",
+      "title": "Board-Level Risk Discussion",
+      "translation": "A：この買収案、最大の懸念は何でしょう。 B：統合後の人材流出です。 A：___ B：中核技術者の3割が競合に移る可能性があります。 A：それは致命的ですね。対策を。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What worries you most about this acquisition?"
+        },
+        {
+          "speaker": "B",
+          "text": "Loss of talent after integration."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "As much as thirty percent of core engineers could move to a competitor."
+        },
+        {
+          "speaker": "A",
+          "text": "That would be fatal. We need a retention plan."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Can you put a figure on that exposure?",
+          "correct": true,
+          "explain": "次に「3割」と数字で答えているので、規模を数値で示すよう求める文が入ります。"
+        },
+        {
+          "text": "Can you tell me who proposed the deal?",
+          "correct": false,
+          "explain": "提案者の質問では数値の答えにつながりません。"
+        },
+        {
+          "text": "Shall we sign the agreement today?",
+          "correct": false,
+          "explain": "即決の提案は、懸念を深掘りする流れと合いません。"
+        },
+        {
+          "text": "Where is their head office?",
+          "correct": false,
+          "explain": "所在地の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-07",
+      "title": "Peer Review Feedback",
+      "translation": "A：査読の所見をお伝えします。 B：よろしくお願いします。 A：___ B：統計処理の妥当性ですね。手法を差し替えます。 A：それで十分だと思います。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Let me give you the reviewers' assessment."
+        },
+        {
+          "speaker": "B",
+          "text": "Please go ahead."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "The validity of the statistical treatment, then. I'll replace the method."
+        },
+        {
+          "speaker": "A",
+          "text": "That should be sufficient."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Two of the three raised the same methodological concern.",
+          "correct": true,
+          "explain": "次に「統計処理の妥当性ですね」と受けているので、手法への懸念が共通していたと述べる文が入ります。"
+        },
+        {
+          "text": "All three recommended immediate acceptance.",
+          "correct": false,
+          "explain": "無条件の採択なら、手法を差し替える流れになりません。"
+        },
+        {
+          "text": "The reviewers asked about your funding source.",
+          "correct": false,
+          "explain": "資金源の話では統計処理の返事につながりません。"
+        },
+        {
+          "text": "The journal has changed its submission system.",
+          "correct": false,
+          "explain": "投稿システムの話は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-08",
+      "title": "Interpreting an Ambiguous Clause",
+      "translation": "A：この条項は双方の解釈が割れかねません。 B：具体的にはどの語ですか。 A：___ B：確かに「相当の」は主観的ですね。 A：数値基準に置き換えましょう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "This clause is open to two readings."
+        },
+        {
+          "speaker": "B",
+          "text": "Which word, specifically?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "You're right that 'reasonable' is subjective."
+        },
+        {
+          "speaker": "A",
+          "text": "Let's replace it with a numerical threshold."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "The word 'reasonable' in the second sentence.",
+          "correct": true,
+          "explain": "どの語かと問われているので、語を特定して答える文が入ります。"
+        },
+        {
+          "text": "The clause is numbered incorrectly.",
+          "correct": false,
+          "explain": "番号の誤りでは「reasonable は主観的」という受け方につながりません。"
+        },
+        {
+          "text": "There is no ambiguity at all.",
+          "correct": false,
+          "explain": "曖昧さを否定すると、置き換えの提案と矛盾します。"
+        },
+        {
+          "text": "The font size is too small to read.",
+          "correct": false,
+          "explain": "書式の話は解釈の議論と関係ありません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-09",
+      "title": "Responding to Criticism in Public",
+      "translation": "A：対応が遅かったとの批判がありますが。 B：ご指摘は受け止めます。 A：___ B：初動の判断基準が曖昧でした。今後は明文化します。 A：具体的な改善策として理解しました。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "There has been criticism that your response was slow."
+        },
+        {
+          "speaker": "B",
+          "text": "We accept that criticism."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Our criteria for the initial response were vague. We'll set them out in writing."
+        },
+        {
+          "speaker": "A",
+          "text": "I take that as a concrete remedy."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "What specifically went wrong in the first week?",
+          "correct": true,
+          "explain": "次に「初動の判断基準が曖昧だった」と答えているので、具体的な問題を問う文が入ります。"
+        },
+        {
+          "text": "Do you intend to resign over this?",
+          "correct": false,
+          "explain": "辞任の質問では、基準を明文化するという答えにつながりません。"
+        },
+        {
+          "text": "How many staff does your office employ?",
+          "correct": false,
+          "explain": "職員数の質問は次の返事と合いません。"
+        },
+        {
+          "text": "Would you like to end the interview here?",
+          "correct": false,
+          "explain": "打ち切りの提案では説明が続きません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-10",
+      "title": "Assessing a Historical Claim",
+      "translation": "A：この説は一次資料に基づいていますか。 B：一部は後世の編纂物です。 A：___ B：三世紀ほど後の記録です。 A：ならば慎重な扱いが必要ですね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Is this claim grounded in primary sources?"
+        },
+        {
+          "speaker": "B",
+          "text": "Partly in later compilations."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Records written some three centuries afterwards."
+        },
+        {
+          "speaker": "A",
+          "text": "Then it warrants cautious handling."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "How much later were they compiled?",
+          "correct": true,
+          "explain": "次に「三世紀ほど後」と時期を答えているので、どれほど後の編纂かをたずねる文が入ります。"
+        },
+        {
+          "text": "How many volumes are there?",
+          "correct": false,
+          "explain": "巻数の質問では時期の答えにつながりません。"
+        },
+        {
+          "text": "Who owns the original manuscripts?",
+          "correct": false,
+          "explain": "所有者の質問は次の返事と合いません。"
+        },
+        {
+          "text": "Shall we cite it without comment?",
+          "correct": false,
+          "explain": "無批判の引用は慎重な扱いという結論と矛盾します。"
+        }
+      ]
+    },
+    {
+      "id": "d1-11",
+      "title": "Negotiating Under Time Pressure",
+      "translation": "A：今日中に結論を出す必要があります。 B：拙速は避けたいところです。 A：___ B：価格と納期だけなら、今日決められます。 A：では残りは来週に回しましょう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "We need to reach a conclusion today."
+        },
+        {
+          "speaker": "B",
+          "text": "I'd rather not rush into something ill-considered."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Price and delivery alone could be settled today."
+        },
+        {
+          "speaker": "A",
+          "text": "Then let's leave the rest until next week."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Which points could we realistically settle now?",
+          "correct": true,
+          "explain": "次に「価格と納期なら今日決められる」と答えているので、今日決められる範囲をたずねる文が入ります。"
+        },
+        {
+          "text": "Then let's cancel the whole agreement.",
+          "correct": false,
+          "explain": "白紙化の提案では、部分合意の流れになりません。"
+        },
+        {
+          "text": "How was your journey here today?",
+          "correct": false,
+          "explain": "世間話では交渉の展開につながりません。"
+        },
+        {
+          "text": "Who else has signed so far?",
+          "correct": false,
+          "explain": "他社の話は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-12",
+      "title": "Challenging a Statistic",
+      "translation": "A：満足度が9割という数字を掲げていますね。 B：はい、直近の調査結果です。 A：___ B：既存顧客のみを対象としています。 A：それでは母集団が偏っていますね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "You're citing a ninety percent satisfaction figure."
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, from our most recent survey."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "It was limited to existing customers."
+        },
+        {
+          "speaker": "A",
+          "text": "Then the sample is self-selecting."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Who exactly was surveyed?",
+          "correct": true,
+          "explain": "次に「既存顧客のみ」と対象を答えているので、調査対象をたずねる文が入ります。"
+        },
+        {
+          "text": "When will the next survey be run?",
+          "correct": false,
+          "explain": "次回の予定では対象の答えにつながりません。"
+        },
+        {
+          "text": "How much did the survey cost?",
+          "correct": false,
+          "explain": "費用の質問は母集団の議論と関係ありません。"
+        },
+        {
+          "text": "Shall we publish the figure widely?",
+          "correct": false,
+          "explain": "公表の提案は次の指摘と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-13",
+      "title": "Discussing Translation of a Legal Term",
+      "translation": "A：この語に対応する日本語がありません。 B：どう処理しますか。 A：___ B：原語併記なら誤解が減りますね。 A：では初出時に括弧で示しましょう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "There's no exact Japanese equivalent for this term."
+        },
+        {
+          "speaker": "B",
+          "text": "How should we handle it?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Keeping the original alongside would reduce misreading."
+        },
+        {
+          "speaker": "A",
+          "text": "Then let's gloss it in brackets at first mention."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "I'd rather retain the English and add a short gloss.",
+          "correct": true,
+          "explain": "次に「原語併記なら誤解が減る」と応じているので、原語を残す案を述べる文が入ります。"
+        },
+        {
+          "text": "I'd rather omit the term altogether.",
+          "correct": false,
+          "explain": "削除案では、原語併記についての返事につながりません。"
+        },
+        {
+          "text": "How many pages does the document run to?",
+          "correct": false,
+          "explain": "分量の質問は用語処理の議論と関係ありません。"
+        },
+        {
+          "text": "Who is the intended publisher?",
+          "correct": false,
+          "explain": "出版社の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-14",
+      "title": "Evaluating a Counterargument",
+      "translation": "A：反対意見にも一理あると認めますか。 B：部分的には認めます。 A：___ B：短期的な負担が大きい点は否定できません。 A：ならば移行措置が要りますね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Do you concede the opposing view has merit?"
+        },
+        {
+          "speaker": "B",
+          "text": "In part, yes."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "I can't deny the short-term burden is heavy."
+        },
+        {
+          "speaker": "A",
+          "text": "Then transitional measures are needed."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Which part do you find hardest to dismiss?",
+          "correct": true,
+          "explain": "次に「短期的な負担」と具体的に認めているので、認めざるをえない部分をたずねる文が入ります。"
+        },
+        {
+          "text": "Why do you refuse to compromise?",
+          "correct": false,
+          "explain": "譲歩を認めている相手への問いとして噛み合いません。"
+        },
+        {
+          "text": "How long have you held this position?",
+          "correct": false,
+          "explain": "年数の質問では次の返事につながりません。"
+        },
+        {
+          "text": "Shall we move to the next agenda item?",
+          "correct": false,
+          "explain": "議題を進める提案では議論が続きません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-15",
+      "title": "A Difficult Personnel Decision",
+      "translation": "A：彼を配置転換すべきか悩んでいます。 B：本人の意向は確認しましたか。 A：___ B：ならば、まず本人と話すのが筋でしょう。 A：おっしゃるとおりです。来週面談します。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'm torn over whether to reassign him."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you asked how he feels about it?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then speaking with him first is the proper order of things."
+        },
+        {
+          "speaker": "A",
+          "text": "You're right. I'll meet him next week."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Not yet. I wanted to settle the structure first.",
+          "correct": true,
+          "explain": "次に「まず本人と話すのが筋」と諭しているので、まだ聞いていないと答える文が入ります。"
+        },
+        {
+          "text": "Yes, and he agreed to the move.",
+          "correct": false,
+          "explain": "本人が同意済みなら、先に話せという助言は成り立ちません。"
+        },
+        {
+          "text": "He has been with us for eight years.",
+          "correct": false,
+          "explain": "在籍年数の説明では質問に答えたことになりません。"
+        },
+        {
+          "text": "Which department are you in?",
+          "correct": false,
+          "explain": "所属の質問は相談の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-16",
+      "title": "Questioning a Forecast",
+      "translation": "A：来年度は2割成長を見込んでいます。 B：その前提は何でしょう。 A：___ B：新規市場が想定どおり開くとは限りませんよ。 A：確かに、保守的な数字も用意します。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "We're projecting twenty percent growth next year."
+        },
+        {
+          "speaker": "B",
+          "text": "On what assumption?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "The new market may not open up as you expect."
+        },
+        {
+          "speaker": "A",
+          "text": "Fair point. I'll prepare a conservative case as well."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "That the overseas market opens on schedule.",
+          "correct": true,
+          "explain": "前提を問われているので、海外市場の開放という前提を答える文が入ります。"
+        },
+        {
+          "text": "That we will hire twenty new staff.",
+          "correct": false,
+          "explain": "採用計画では「新規市場が開くとは限らない」という返事につながりません。"
+        },
+        {
+          "text": "We have no particular assumptions.",
+          "correct": false,
+          "explain": "前提がないと言えば、市場についての指摘が成り立ちません。"
+        },
+        {
+          "text": "The figure was suggested by our bank.",
+          "correct": false,
+          "explain": "出所の説明では前提を答えたことになりません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-17",
+      "title": "Setting the Terms of a Debate",
+      "translation": "A：議論を始める前に用語を揃えましょう。 B：賛成です。どの語から。 A：___ B：では「公正」を機会の平等と定義しましょう。 A：それで進めます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Before we begin, let's agree on our terms."
+        },
+        {
+          "speaker": "B",
+          "text": "Agreed. Which one first?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Let's define 'fairness' as equality of opportunity, then."
+        },
+        {
+          "speaker": "A",
+          "text": "We'll proceed on that basis."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "We each seem to mean something different by 'fairness'.",
+          "correct": true,
+          "explain": "次に「公正」の定義を提案しているので、その語の理解がずれていると指摘する文が入ります。"
+        },
+        {
+          "text": "We should limit each speech to five minutes.",
+          "correct": false,
+          "explain": "時間配分の話では語の定義につながりません。"
+        },
+        {
+          "text": "Let's skip the definitions entirely.",
+          "correct": false,
+          "explain": "定義を省くのなら、そのあと定義を決める流れになりません。"
+        },
+        {
+          "text": "Who will act as the moderator today?",
+          "correct": false,
+          "explain": "進行役の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-18",
+      "title": "Acknowledging an Error",
+      "translation": "A：前回の資料に誤りがありました。 B：どの部分でしょう。 A：___ B：結論に影響しますか。 A：幸い、傾向は変わりません。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "There was an error in the material I circulated."
+        },
+        {
+          "speaker": "B",
+          "text": "Which part?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Does it affect the conclusion?"
+        },
+        {
+          "speaker": "A",
+          "text": "Fortunately, the overall trend is unchanged."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "The figures in table two were from the wrong year.",
+          "correct": true,
+          "explain": "どの部分かと問われているので、誤りの箇所を具体的に述べる文が入ります。"
+        },
+        {
+          "text": "I will circulate the material again tomorrow.",
+          "correct": false,
+          "explain": "再配布の予定では、誤りの箇所を答えたことになりません。"
+        },
+        {
+          "text": "There is nothing wrong with it after all.",
+          "correct": false,
+          "explain": "誤りを否定すると、結論への影響を問う返事と矛盾します。"
+        },
+        {
+          "text": "The printer ran out of toner yesterday.",
+          "correct": false,
+          "explain": "印刷機の話は誤りの内容と関係ありません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-19",
+      "title": "Deciding Whether to Publish",
+      "translation": "A：この結果、今の段階で公表すべきでしょうか。 B：再現性が確認できていません。 A：___ B：少なくとも独立した一例は必要でしょう。 A：では追試を待ちます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Should we publish these results at this stage?"
+        },
+        {
+          "speaker": "B",
+          "text": "Reproducibility hasn't been established."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "At minimum, one independent replication."
+        },
+        {
+          "speaker": "A",
+          "text": "Then we'll wait for the follow-up study."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "What would you consider sufficient confirmation?",
+          "correct": true,
+          "explain": "次に「独立した一例は必要」と条件を答えているので、どの程度で十分かをたずねる文が入ります。"
+        },
+        {
+          "text": "Which journal has the highest impact factor?",
+          "correct": false,
+          "explain": "投稿先の質問では確認の基準につながりません。"
+        },
+        {
+          "text": "Then let's submit it this week.",
+          "correct": false,
+          "explain": "即時投稿の提案は、追試を待つ結論と矛盾します。"
+        },
+        {
+          "text": "How many co-authors are listed?",
+          "correct": false,
+          "explain": "著者数の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d1-20",
+      "title": "Closing a Long Negotiation",
+      "translation": "A：主要な論点はおおむね整理できました。 B：残るのは保証期間だけですね。 A：___ B：では18か月で折り合いましょう。 A：結構です。その線で書面にします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "We've worked through most of the substantive points."
+        },
+        {
+          "speaker": "B",
+          "text": "Only the warranty period remains."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then let's settle on eighteen months."
+        },
+        {
+          "speaker": "A",
+          "text": "Agreed. I'll put that in writing."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "You asked for two years; we proposed one.",
+          "correct": true,
+          "explain": "次に「18か月で折り合おう」と中間案を出しているので、双方の開きを確認する文が入ります。"
+        },
+        {
+          "text": "We have no position on the warranty.",
+          "correct": false,
+          "explain": "立場がないのなら、中間案で折り合う流れになりません。"
+        },
+        {
+          "text": "Shall we begin again from the first item?",
+          "correct": false,
+          "explain": "最初に戻す提案は、締めくくりの流れと合いません。"
+        },
+        {
+          "text": "How long have we been in this room?",
+          "correct": false,
+          "explain": "雑談では次の返事につながりません。"
+        }
+      ]
     }
   ]
 }

@@ -6671,6 +6671,856 @@
           "explain": "すでにキャンセルを伝えたという発言は、Bがこれから確認すると言っている流れと矛盾します。"
         }
       ]
+    },
+    {
+      "id": "d2-04",
+      "title": "A Performance Review",
+      "translation": "A：今期の成果はよく出ていますね。 B：ありがとうございます。 A：___ B：チーム内の情報共有をもっと早くしたいです。 A：ではその点を次期の目標にしましょう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Your results this term have been strong."
+        },
+        {
+          "speaker": "B",
+          "text": "Thank you, I appreciate that."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "I'd like to share information within the team more quickly."
+        },
+        {
+          "speaker": "A",
+          "text": "Let's make that your goal for next term, then."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Is there anything you'd like to improve going forward?",
+          "correct": true,
+          "explain": "次に改善したい点を具体的に答えているので、改善点をたずねる文が入ります。"
+        },
+        {
+          "text": "How long have you been with the company?",
+          "correct": false,
+          "explain": "在籍年数をたずねても改善点の答えにはなりません。"
+        },
+        {
+          "text": "Would you like a transfer to another office?",
+          "correct": false,
+          "explain": "異動の話では次の返事につながりません。"
+        },
+        {
+          "text": "Did you enjoy the company trip?",
+          "correct": false,
+          "explain": "社員旅行の話は評価面談の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-05",
+      "title": "Negotiating a Contract Term",
+      "translation": "A：契約期間は3年でお願いしたいのですが。 B：正直なところ長すぎます。 A：___ B：2年なら前向きに検討できます。 A：では2年を基準に詰めましょう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "We'd like the contract to run for three years."
+        },
+        {
+          "speaker": "B",
+          "text": "Frankly, that's longer than we're comfortable with."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Two years would be something we could consider."
+        },
+        {
+          "speaker": "A",
+          "text": "Then let's work from a two-year term."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "What length would you be comfortable with?",
+          "correct": true,
+          "explain": "次に「2年なら」と期間を提示しているので、希望する期間をたずねる文が入ります。"
+        },
+        {
+          "text": "Then we'll have to end the discussion here.",
+          "correct": false,
+          "explain": "交渉を打ち切る発言では、そのあと歩み寄る流れになりません。"
+        },
+        {
+          "text": "How many employees does your firm have?",
+          "correct": false,
+          "explain": "従業員数の質問は契約期間の答えにつながりません。"
+        },
+        {
+          "text": "When was your company founded?",
+          "correct": false,
+          "explain": "設立年の話は交渉の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-06",
+      "title": "Handling a Customer Complaint",
+      "translation": "A：先週依頼した修理がまだ終わっていません。 B：ご迷惑をおかけしております。___ A：金曜までに必要です。出張で使うので。 B：最優先で手配いたします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The repair I requested last week still isn't finished."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I need it by Friday. I'm using it on a business trip."
+        },
+        {
+          "speaker": "B",
+          "text": "We'll treat it as our top priority."
+        },
+        {
+          "speaker": "A",
+          "text": "I'd appreciate that."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "I'm very sorry. By when do you need it?",
+          "correct": true,
+          "explain": "次に「金曜まで」と期限を答えているので、いつまでに必要かをたずねる文が入ります。"
+        },
+        {
+          "text": "I'm very sorry. Did you pay in advance?",
+          "correct": false,
+          "explain": "支払いの確認では期限の答えにつながりません。"
+        },
+        {
+          "text": "That is not our responsibility.",
+          "correct": false,
+          "explain": "責任を否定しておきながら最優先で対応するのは矛盾します。"
+        },
+        {
+          "text": "I'm very sorry. Where did you buy it?",
+          "correct": false,
+          "explain": "購入店の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-07",
+      "title": "Discussing a Budget Cut",
+      "translation": "A：来期の予算が1割削減されます。 B：それは厳しいですね。 A：___ B：まず外部委託の費用を見直すべきかと。 A：では試算をお願いします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Next term's budget will be cut by ten percent."
+        },
+        {
+          "speaker": "B",
+          "text": "That's going to be tough."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "I'd start by reviewing what we spend on outsourcing."
+        },
+        {
+          "speaker": "A",
+          "text": "Could you put together some figures, then?"
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Where do you think we should cut first?",
+          "correct": true,
+          "explain": "次に「外部委託から」と具体的な項目を答えているので、どこを削るかたずねる文が入ります。"
+        },
+        {
+          "text": "How was your weekend?",
+          "correct": false,
+          "explain": "雑談では予算削減の議論につながりません。"
+        },
+        {
+          "text": "Who approved this decision?",
+          "correct": false,
+          "explain": "決定者の質問では削減箇所の答えにはなりません。"
+        },
+        {
+          "text": "Shall we increase the budget instead?",
+          "correct": false,
+          "explain": "増額の提案は削減という前提と矛盾します。"
+        }
+      ]
+    },
+    {
+      "id": "d2-08",
+      "title": "At an Academic Conference",
+      "translation": "A：発表を拝聴しました。サンプル数についてですが。 B：はい、どうぞ。 A：___ B：現在は120名ですが、来年度に倍に増やす予定です。 A：それは楽しみですね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I enjoyed your talk. I had a question about the sample size."
+        },
+        {
+          "speaker": "B",
+          "text": "Please, go ahead."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "It's 120 at present, but we plan to double it next year."
+        },
+        {
+          "speaker": "A",
+          "text": "That will be worth watching."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "How many participants were included in the study?",
+          "correct": true,
+          "explain": "次に「120名」と人数を答えているので、被験者数をたずねる文が入ります。"
+        },
+        {
+          "text": "Which university are you from?",
+          "correct": false,
+          "explain": "所属をたずねても人数の答えにはなりません。"
+        },
+        {
+          "text": "How long did your talk last?",
+          "correct": false,
+          "explain": "発表時間の質問では次の返事につながりません。"
+        },
+        {
+          "text": "Will the slides be available online?",
+          "correct": false,
+          "explain": "資料公開の質問は人数の答えと合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-09",
+      "title": "Requesting a Reference Letter",
+      "translation": "A：推薦状をお願いできないでしょうか。 B：もちろん構いませんよ。___ A：来月15日が締め切りです。 B：では今週中に下書きを用意します。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I was wondering if you could write me a reference letter."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "The deadline is the fifteenth of next month."
+        },
+        {
+          "speaker": "B",
+          "text": "Then I'll have a draft ready this week."
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you so much."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Of course. When do you need it by?",
+          "correct": true,
+          "explain": "次に締め切りを答えているので、いつまでに必要かをたずねる文が入ります。"
+        },
+        {
+          "text": "Of course. How many pages should it be?",
+          "correct": false,
+          "explain": "枚数の質問では締め切りの答えにつながりません。"
+        },
+        {
+          "text": "I'm afraid I don't know you well enough.",
+          "correct": false,
+          "explain": "断っているのに下書きを用意するのは矛盾します。"
+        },
+        {
+          "text": "Of course. Which course did you take?",
+          "correct": false,
+          "explain": "受講科目の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-10",
+      "title": "Debating a Company Policy",
+      "translation": "A：在宅勤務を週3日に拡大すべきだと思います。 B：生産性の面で不安があります。 A：___ B：確かに、数字が出れば説得力があります。 A：では半年の試験導入を提案します。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I think we should expand remote work to three days a week."
+        },
+        {
+          "speaker": "B",
+          "text": "I have concerns about productivity."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "True. Figures would make the case much stronger."
+        },
+        {
+          "speaker": "A",
+          "text": "Then I propose a six-month trial."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Then why don't we measure it before deciding?",
+          "correct": true,
+          "explain": "次に「数字が出れば説得力がある」と応じているので、測定を提案する文が入ります。"
+        },
+        {
+          "text": "Then we should drop the idea entirely.",
+          "correct": false,
+          "explain": "案を取り下げるのなら、試験導入を提案する流れになりません。"
+        },
+        {
+          "text": "How long is your commute?",
+          "correct": false,
+          "explain": "通勤時間の話では次の返事につながりません。"
+        },
+        {
+          "text": "Who else works from home?",
+          "correct": false,
+          "explain": "その質問では測定の話に結びつきません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-11",
+      "title": "Booking a Conference Room",
+      "translation": "A：来週の火曜、大会議室を押さえたいのですが。 B：午後は埋まっています。___ A：10時から正午までで大丈夫です。 B：では確保しておきます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to book the large meeting room for next Tuesday."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Ten to noon would work for us."
+        },
+        {
+          "speaker": "B",
+          "text": "I'll reserve it for you, then."
+        },
+        {
+          "speaker": "A",
+          "text": "Thanks for arranging that."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "The afternoon is taken. Would the morning work?",
+          "correct": true,
+          "explain": "次に「10時から正午」と午前の時間を答えているので、午前を提案する文が入ります。"
+        },
+        {
+          "text": "The afternoon is taken. How many people will attend?",
+          "correct": false,
+          "explain": "人数の質問では時間帯の答えにつながりません。"
+        },
+        {
+          "text": "The room is under renovation all month.",
+          "correct": false,
+          "explain": "使えないのに予約を確保するのは矛盾します。"
+        },
+        {
+          "text": "The afternoon is taken. Do you need a projector?",
+          "correct": false,
+          "explain": "備品の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-12",
+      "title": "Discussing a Job Offer",
+      "translation": "A：内定をもらったのですが、迷っています。 B：何が引っかかっているの？ A：___ B：通勤が長いのは効いてくるよ。よく考えて。 A：もう一度整理してみます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I received an offer, but I'm hesitating."
+        },
+        {
+          "speaker": "B",
+          "text": "What's holding you back?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "A long commute does wear on you. Think it through."
+        },
+        {
+          "speaker": "A",
+          "text": "I'll weigh it up again."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "The pay is good, but the commute would be ninety minutes each way.",
+          "correct": true,
+          "explain": "次に「通勤が長いのは効いてくる」と応じているので、通勤の長さを挙げる文が入ります。"
+        },
+        {
+          "text": "The office has a very nice cafeteria.",
+          "correct": false,
+          "explain": "良い点を挙げるだけでは、迷いの理由になりません。"
+        },
+        {
+          "text": "I already signed the contract yesterday.",
+          "correct": false,
+          "explain": "署名済みなら、まだ迷っているという流れと矛盾します。"
+        },
+        {
+          "text": "I have never been to that city.",
+          "correct": false,
+          "explain": "その説明では通勤についての返事につながりません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-13",
+      "title": "Coordinating a Team Schedule",
+      "translation": "A：全員そろう時間が見つかりません。 B：木曜の朝は？ A：___ B：では水曜の夕方に変えましょう。 A：それなら全員出られます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I can't find a time when everyone is free."
+        },
+        {
+          "speaker": "B",
+          "text": "What about Thursday morning?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Let's move it to Wednesday evening, then."
+        },
+        {
+          "speaker": "A",
+          "text": "That works for everyone."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Two people have client visits then.",
+          "correct": true,
+          "explain": "次に別の時間へ移す提案をしているので、木曜が難しい理由を述べる文が入ります。"
+        },
+        {
+          "text": "Yes, Thursday morning is perfect.",
+          "correct": false,
+          "explain": "都合がよいのなら、別の日に変更する流れになりません。"
+        },
+        {
+          "text": "How long will the meeting take?",
+          "correct": false,
+          "explain": "所要時間の質問では変更の提案につながりません。"
+        },
+        {
+          "text": "Shall we book the small room?",
+          "correct": false,
+          "explain": "部屋の話は日程調整の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-14",
+      "title": "Following Up on an Application",
+      "translation": "A：先月応募した件で確認のお電話です。 B：お待たせしております。___ A：書類選考の結果を伺えればと。 B：来週中にご連絡差し上げます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'm calling to follow up on the application I sent last month."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I was hoping to hear the result of the document screening."
+        },
+        {
+          "speaker": "B",
+          "text": "We'll be in touch sometime next week."
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you for letting me know."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Thank you for waiting. What would you like to know?",
+          "correct": true,
+          "explain": "次に「書類選考の結果を」と具体的に述べているので、何を知りたいかたずねる文が入ります。"
+        },
+        {
+          "text": "Thank you for waiting. Could you send it again?",
+          "correct": false,
+          "explain": "再送を求めると、選考結果を尋ねる流れになりません。"
+        },
+        {
+          "text": "We have no record of your application.",
+          "correct": false,
+          "explain": "記録がないのなら、来週連絡するとは言いません。"
+        },
+        {
+          "text": "Thank you for waiting. Where are you calling from?",
+          "correct": false,
+          "explain": "発信地の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-15",
+      "title": "Explaining a Delay to a Client",
+      "translation": "A：納品が2週間遅れるとのことですが。 B：申し訳ありません。___ A：部品の調達が理由ですか。 B：はい、供給元の工場が停止しておりまして。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I understand the delivery will be two weeks late."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Is it a problem with parts procurement?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, our supplier's plant has been shut down."
+        },
+        {
+          "speaker": "A",
+          "text": "Please keep us updated."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "I apologize. The cause is on the supply side.",
+          "correct": true,
+          "explain": "次に「部品調達が理由か」と確かめているので、原因が供給側にあると述べる文が入ります。"
+        },
+        {
+          "text": "I apologize. The design has been changed.",
+          "correct": false,
+          "explain": "設計変更が理由なら、部品調達を確かめる返事につながりません。"
+        },
+        {
+          "text": "There will be no delay at all.",
+          "correct": false,
+          "explain": "遅延を否定すると、そのあと工場停止の説明と矛盾します。"
+        },
+        {
+          "text": "I apologize. Could you pay in advance?",
+          "correct": false,
+          "explain": "支払いの依頼は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-16",
+      "title": "Giving Feedback on a Draft",
+      "translation": "A：原稿を読んでいただけましたか。 B：はい、全体としてよくできています。 A：___ B：第3章の根拠がやや弱いと感じました。 A：そこは補強します。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Did you have a chance to read the draft?"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, it's well put together overall."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "I felt the evidence in chapter three was a little thin."
+        },
+        {
+          "speaker": "A",
+          "text": "I'll strengthen that part."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Was there anything that didn't convince you?",
+          "correct": true,
+          "explain": "次に「第3章の根拠が弱い」と指摘しているので、納得できなかった点をたずねる文が入ります。"
+        },
+        {
+          "text": "How many hours did it take you to read?",
+          "correct": false,
+          "explain": "所要時間の質問では指摘につながりません。"
+        },
+        {
+          "text": "Shall I send you the next draft now?",
+          "correct": false,
+          "explain": "次稿の話では、この場での指摘を引き出せません。"
+        },
+        {
+          "text": "Do you prefer printed or digital copies?",
+          "correct": false,
+          "explain": "形式の話は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-17",
+      "title": "Asking About Overtime Policy",
+      "translation": "A：残業代の扱いについて伺いたいのですが。 B：どうぞ。 A：___ B：月45時間までは全額支給されます。 A：承知しました。ありがとうございます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to ask about how overtime is handled."
+        },
+        {
+          "speaker": "B",
+          "text": "Go ahead."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "It's paid in full up to forty-five hours a month."
+        },
+        {
+          "speaker": "A",
+          "text": "I see. Thank you for clarifying."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Is overtime paid in full, or is there a cap?",
+          "correct": true,
+          "explain": "次に「月45時間まで全額」と上限つきで答えているので、支給の範囲をたずねる文が入ります。"
+        },
+        {
+          "text": "What time does the office close?",
+          "correct": false,
+          "explain": "閉館時刻の質問では支給条件の答えになりません。"
+        },
+        {
+          "text": "How many days of leave do I get?",
+          "correct": false,
+          "explain": "休暇の質問は残業代の答えにつながりません。"
+        },
+        {
+          "text": "Who is my direct supervisor?",
+          "correct": false,
+          "explain": "上司の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-18",
+      "title": "Planning a Product Launch",
+      "translation": "A：発売はいつにしましょうか。 B：春がよいと思います。 A：___ B：競合が秋に新製品を出すので、その前に出したいのです。 A：なるほど、理にかなっていますね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "When should we launch?"
+        },
+        {
+          "speaker": "B",
+          "text": "I'd say spring."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "A competitor is releasing something in autumn, and I'd rather be first."
+        },
+        {
+          "speaker": "A",
+          "text": "That makes sense."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "What's behind that timing?",
+          "correct": true,
+          "explain": "次に競合の動きを理由として挙げているので、その時期を選ぶ理由をたずねる文が入ります。"
+        },
+        {
+          "text": "How much will it cost to produce?",
+          "correct": false,
+          "explain": "製造費の質問では時期の理由につながりません。"
+        },
+        {
+          "text": "Which color should we offer first?",
+          "correct": false,
+          "explain": "色の話は発売時期の理由と関係ありません。"
+        },
+        {
+          "text": "Who designed the packaging?",
+          "correct": false,
+          "explain": "担当者の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-19",
+      "title": "Declining an Invitation Politely",
+      "translation": "A：来週の懇親会、いらっしゃいますか。 B：お誘いありがとうございます。___ A：それは残念です。次の機会にぜひ。 B：ええ、必ず伺います。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Will you be coming to next week's reception?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "That's a shame. Please join us next time."
+        },
+        {
+          "speaker": "B",
+          "text": "I will, without fail."
+        },
+        {
+          "speaker": "A",
+          "text": "We'll look forward to it."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Thank you for the invitation, but I'll be away on business.",
+          "correct": true,
+          "explain": "次に「残念です、次の機会に」と応じているので、都合が悪いと断る文が入ります。"
+        },
+        {
+          "text": "Thank you. I'll definitely be there.",
+          "correct": false,
+          "explain": "出席するのなら「残念です」という返事にはなりません。"
+        },
+        {
+          "text": "Thank you. What time does it start?",
+          "correct": false,
+          "explain": "開始時刻の質問では断りの返事につながりません。"
+        },
+        {
+          "text": "I don't like that kind of event.",
+          "correct": false,
+          "explain": "率直すぎる拒絶で、次の丁寧なやりとりと調子が合いません。"
+        }
+      ]
+    },
+    {
+      "id": "d2-20",
+      "title": "Discussing Survey Results",
+      "translation": "A：アンケートの結果が出ました。 B：どのあたりが目立ちましたか。 A：___ B：価格より使い勝手を重視しているということですね。 A：ええ、設計方針を見直す必要がありそうです。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The survey results are in."
+        },
+        {
+          "speaker": "B",
+          "text": "What stood out?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "So they value usability over price."
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, we may need to rethink the design brief."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Ease of use was ranked first by nearly seventy percent.",
+          "correct": true,
+          "explain": "次に「価格より使い勝手を重視」とまとめているので、使いやすさが上位だったと述べる文が入ります。"
+        },
+        {
+          "text": "We received exactly four hundred responses.",
+          "correct": false,
+          "explain": "回答数だけでは、使い勝手についての結論につながりません。"
+        },
+        {
+          "text": "The survey took two weeks to complete.",
+          "correct": false,
+          "explain": "実施期間の説明では次の返事と合いません。"
+        },
+        {
+          "text": "We should run another survey next year.",
+          "correct": false,
+          "explain": "次回の話では今回の結果を述べたことになりません。"
+        }
+      ]
     }
   ]
 }
