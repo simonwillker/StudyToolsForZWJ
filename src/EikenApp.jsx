@@ -16,6 +16,10 @@ import TEST_PRE1 from "./data/eikenTest/pre1.json";
 import TEST_1 from "./data/eikenTest/1.json";
 import {
   recordAnswer,
+  getDailySeries,
+  getStreak,
+  getTodayStats,
+  getModeTotals,
   getLevelStats,
   getAllStats,
   accuracyPercent,
@@ -720,8 +724,25 @@ function PronunciationMode({ level, accent }) {
 function ProgressDashboard({ onBack }) {
   const [, forceRefresh] = useState(0);
   const stats = useMemo(() => getAllStats(LEVELS.map((l) => l.level)), []); // eslint-disable-line react-hooks/exhaustive-deps
+  const daily = useMemo(() => getDailySeries(14), []); // eslint-disable-line react-hooks/exhaustive-deps
+  const streak = useMemo(() => getStreak(), []); // eslint-disable-line react-hooks/exhaustive-deps
+  const today = useMemo(() => getTodayStats(), []); // eslint-disable-line react-hooks/exhaustive-deps
+  const modeTotals = useMemo(() => getModeTotals(), []); // eslint-disable-line react-hooks/exhaustive-deps
+
   const totalAttempted = stats.reduce((s, x) => s + x.attempted, 0);
   const totalCorrect = stats.reduce((s, x) => s + x.correct, 0);
+  const twoWeekTotal = daily.reduce((s, d) => s + d.attempted, 0);
+
+  // モード別。出題形式の順に並べ、まだ解いていないモードは出さない。
+  const modeRows = MODES.map((m) => ({ ...m, ...(modeTotals[m.id] || { attempted: 0, correct: 0 }) }))
+    .filter((m) => m.attempted > 0)
+    .map((m) => ({ ...m, pct: accuracyPercent(m) }));
+
+  // 「弱い」と言い切るには数が要る。5問以上やったモードが3つ以上あるときだけ指摘する。
+  const judgeable = modeRows.filter((m) => m.attempted >= 5);
+  const weakest = judgeable.length >= 3
+    ? judgeable.reduce((a, b) => (b.pct < a.pct ? b : a))
+    : null;
 
   const handleReset = () => {
     if (window.confirm("すべての学習記録を削除します。よろしいですか？")) {
@@ -731,6 +752,10 @@ function ProgressDashboard({ onBack }) {
     }
   };
 
+  // 解いた数に応じた4段階の濃さ。色だけに頼らないよう、マスの中に数字も出す。
+  const levelOfCount = (n) => (n === 0 ? 0 : n < 5 ? 1 : n < 10 ? 2 : n < 20 ? 3 : 4);
+  const WEEKDAY = ["日", "月", "火", "水", "木", "金", "土"];
+
   return (
     <div className="eiken-progress">
       <div className="eiken-title-block">
@@ -739,25 +764,102 @@ function ProgressDashboard({ onBack }) {
         <div className="eiken-under" />
       </div>
 
-      <div className="eiken-total-card">
-        <div className="eiken-total-num">{totalAttempted === 0 ? "-" : `${accuracyPercent({ attempted: totalAttempted, correct: totalCorrect })}%`}</div>
-        <div className="eiken-total-sub">全体正答率（のべ{totalAttempted}問中{totalCorrect}問正解）</div>
+      {/* ── 子ども向け：続けられているかどうかが一目で分かる部分 ── */}
+      <div className="eiken-report-section">
+        <div className="eiken-report-head">きみの記録</div>
+
+        <div className="eiken-stat-row">
+          <div className="eiken-stat-tile primary">
+            <div className="eiken-stat-num">{streak}</div>
+            <div className="eiken-stat-unit">日れんぞく</div>
+          </div>
+          <div className="eiken-stat-tile">
+            <div className="eiken-stat-num">{today.attempted}</div>
+            <div className="eiken-stat-unit">きょう解いた数</div>
+          </div>
+          <div className="eiken-stat-tile">
+            <div className="eiken-stat-num">{twoWeekTotal}</div>
+            <div className="eiken-stat-unit">2週間の合計</div>
+          </div>
+        </div>
+
+        <div className="eiken-cal-label">この2週間</div>
+        <div className="eiken-cal">
+          {WEEKDAY.map((w, i) => (
+            <div className="eiken-cal-wd" key={`wd${i}`}>{WEEKDAY[daily[i].weekday]}</div>
+          ))}
+          {daily.map((d, i) => {
+            const lv = levelOfCount(d.attempted);
+            const isToday = i === daily.length - 1;
+            return (
+              <div
+                className={`eiken-cal-cell lv${lv}${isToday ? " today" : ""}`}
+                key={d.date}
+                title={`${d.date}：${d.attempted}問`}
+              >
+                <span className="eiken-cal-day">{d.day}</span>
+                <span className="eiken-cal-count">{d.attempted > 0 ? d.attempted : "·"}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div className="eiken-cal-legend">
+          <span>すくない</span>
+          {[1, 2, 3, 4].map((n) => <i className={`eiken-cal-chip lv${n}`} key={n} />)}
+          <span>おおい</span>
+          <span className="eiken-cal-legend-note">マスの数字＝その日に解いた問題数</span>
+        </div>
       </div>
 
-      <div className="eiken-level-stats">
-        {stats.map((s) => {
-          const level = findLevel(s.level);
-          const pct = accuracyPercent(s);
-          return (
-            <div className="eiken-level-stat-row" key={s.level} style={{ "--c": level.color }}>
-              <div className="eiken-level-stat-name">{level.levelLabel}</div>
-              <div className="eiken-level-stat-bar-track">
-                <div className="eiken-level-stat-bar-fill" style={{ width: `${pct ?? 0}%` }} />
+      {/* ── 保護者向け：どこが弱いか、どれだけ正解できているか ── */}
+      <div className="eiken-report-section">
+        <div className="eiken-report-head">くわしい記録</div>
+
+        <div className="eiken-total-card">
+          <div className="eiken-total-num">{totalAttempted === 0 ? "-" : `${accuracyPercent({ attempted: totalAttempted, correct: totalCorrect })}%`}</div>
+          <div className="eiken-total-sub">全体正答率（のべ{totalAttempted}問中{totalCorrect}問正解）</div>
+        </div>
+
+        <div className="eiken-sub-head">出題形式べつの正答率</div>
+        {modeRows.length === 0 ? (
+          <div className="eiken-empty-note">まだ記録がありません。</div>
+        ) : (
+          <div className="eiken-level-stats">
+            {modeRows.map((m) => (
+              <div className="eiken-mode-stat" key={m.id} style={{ "--c": "#1F6B45" }}>
+                <div className="eiken-mode-stat-top">
+                  <span className="eiken-mode-stat-name">{m.label}</span>
+                  {weakest && weakest.id === m.id && <span className="eiken-weak-tag">ここが弱い</span>}
+                  <span className="eiken-mode-stat-num">{m.pct}%（{m.attempted}問）</span>
+                </div>
+                <div className="eiken-level-stat-bar-track">
+                  <div className="eiken-level-stat-bar-fill" style={{ width: `${m.pct ?? 0}%` }} />
+                </div>
               </div>
-              <div className="eiken-level-stat-num">{pct === null ? "未学習" : `${pct}%（${s.attempted}問）`}</div>
-            </div>
-          );
-        })}
+            ))}
+          </div>
+        )}
+
+        <div className="eiken-sub-head">級べつの正答率</div>
+        <div className="eiken-level-stats">
+          {stats.map((s) => {
+            const level = findLevel(s.level);
+            const pct = accuracyPercent(s);
+            return (
+              <div className="eiken-level-stat-row" key={s.level} style={{ "--c": level.color }}>
+                <div className="eiken-level-stat-name">{level.levelLabel}</div>
+                <div className="eiken-level-stat-bar-track">
+                  <div className="eiken-level-stat-bar-fill" style={{ width: `${pct ?? 0}%` }} />
+                </div>
+                <div className="eiken-level-stat-num">{pct === null ? "未学習" : `${pct}%（${s.attempted}問）`}</div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="eiken-storage-note">
+          この記録はこの端末のブラウザだけに保存されます。別の端末や、履歴を消したあとには引き継がれません。
+        </div>
       </div>
 
       <div className="eiken-footer-row">
@@ -889,6 +991,69 @@ export default function EikenApp({ onExitApp }) {
         .eiken-review-card .desc { color: #92400E; }
 
         .eiken-quiz, .eiken-pronounce, .eiken-progress { max-width: 720px; margin: 0 auto; background: #fff; border: 1px solid #E4E2DA; border-radius: 12px; padding: 22px; }
+
+        /* ── 学習記録（レポート）── */
+        .eiken-report-section { margin-bottom: 26px; }
+        .eiken-report-head {
+          font-weight: 800; font-size: 15px; color: #1A1A1A;
+          padding-bottom: 6px; margin-bottom: 12px; border-bottom: 2px solid #E4E2DA;
+        }
+        .eiken-sub-head { font-size: 13px; font-weight: 700; color: #6B7280; margin: 18px 0 8px; }
+        .eiken-empty-note { font-size: 13px; color: #6B7280; padding: 8px 0; }
+
+        .eiken-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .eiken-stat-tile {
+          background: #fff; border: 1px solid #E4E2DA; border-radius: 10px;
+          padding: 12px 8px; text-align: center;
+        }
+        .eiken-stat-tile.primary { border-color: #1F6B45; border-width: 2px; background: #F2F8F4; }
+        .eiken-stat-num { font-size: 28px; font-weight: 800; color: #1F6B45; line-height: 1.1; }
+        .eiken-stat-tile:not(.primary) .eiken-stat-num { color: #1A1A1A; }
+        .eiken-stat-unit { font-size: 11px; color: #6B7280; margin-top: 4px; }
+
+        .eiken-cal-label { font-size: 13px; font-weight: 700; color: #6B7280; margin: 18px 0 8px; }
+        .eiken-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+        .eiken-cal-wd { text-align: center; font-size: 11px; color: #6B7280; padding-bottom: 2px; }
+        .eiken-cal-cell {
+          aspect-ratio: 1 / 1; border-radius: 8px; display: flex; flex-direction: column;
+          align-items: center; justify-content: center; gap: 1px; border: 1px solid transparent;
+        }
+        .eiken-cal-day { font-size: 9px; opacity: 0.75; line-height: 1; }
+        .eiken-cal-count { font-size: 14px; font-weight: 800; line-height: 1; }
+        /* 解いた数の4段階。1色を薄→濃で使う（虹色にしない） */
+        .eiken-cal-cell.lv0 { background: #EDEBE3; color: #9CA3AF; }
+        .eiken-cal-cell.lv1 { background: #D6E7DC; color: #24513C; }
+        .eiken-cal-cell.lv2 { background: #A7CDB8; color: #1C4433; }
+        .eiken-cal-cell.lv3 { background: #5DA582; color: #FFFFFF; }
+        .eiken-cal-cell.lv4 { background: #1F6B45; color: #FFFFFF; }
+        .eiken-cal-cell.today { border-color: #1A1A1A; }
+
+        .eiken-cal-legend {
+          display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+          font-size: 11px; color: #6B7280; margin-top: 8px;
+        }
+        .eiken-cal-chip { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+        .eiken-cal-chip.lv1 { background: #D6E7DC; }
+        .eiken-cal-chip.lv2 { background: #A7CDB8; }
+        .eiken-cal-chip.lv3 { background: #5DA582; }
+        .eiken-cal-chip.lv4 { background: #1F6B45; }
+        .eiken-cal-legend-note { width: 100%; margin-top: 2px; }
+
+        /* モード名は「5級」より長いので、ラベル行とバーを縦に積んで折り返しを防ぐ */
+        .eiken-mode-stat { margin-bottom: 12px; }
+        .eiken-mode-stat-top {
+          display: flex; align-items: baseline; gap: 6px; margin-bottom: 5px;
+        }
+        .eiken-mode-stat-name { font-size: 13px; font-weight: 700; color: #1A1A1A; white-space: nowrap; }
+        .eiken-mode-stat-num { margin-left: auto; font-size: 12px; color: #6B7280; white-space: nowrap; }
+        .eiken-weak-tag {
+          display: inline-block; padding: 1px 6px; border-radius: 4px; white-space: nowrap;
+          background: #FEF3C7; color: #92400E; font-size: 10px; font-weight: 700;
+        }
+        .eiken-storage-note {
+          font-size: 11px; color: #9CA3AF; line-height: 1.6; margin-top: 18px;
+          padding-top: 12px; border-top: 1px dashed #E4E2DA;
+        }
 
         .eiken-progressbar { margin-bottom: 16px; }
         .eiken-progressbar-track { height: 6px; background: #EDEBE3; border-radius: 4px; overflow: hidden; }
