@@ -6524,6 +6524,3526 @@
         }
       ],
       "part": "passage"
+    },
+    {
+      "id": "lp1-06",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I've been asked to review the department's hiring criteria."
+        },
+        {
+          "speaker": "B",
+          "text": "The requirement for five years' experience is what worries me most."
+        },
+        {
+          "speaker": "A",
+          "text": "It does filter out promising graduates, doesn't it?"
+        },
+        {
+          "speaker": "B",
+          "text": "More than that, it's excluding people who took time off to raise children."
+        },
+        {
+          "speaker": "A",
+          "text": "Then I'll propose counting relevant volunteer work toward the requirement."
+        }
+      ],
+      "question": "What is the woman's main concern about the criteria?",
+      "translation": "A：部門の採用基準を見直すよう頼まれました。　B：実務5年という要件が一番気がかりです。　A：有望な新卒を除外してしまいますね。　B：それ以上に、育児で職を離れた人を締め出しています。　A：では関連するボランティア経験を要件に算入するよう提案します。（質問：女性が基準について最も懸念しているのは何ですか）",
+      "choices": [
+        {
+          "text": "It excludes people who took career breaks to raise children.",
+          "correct": true,
+          "explain": "育児で職を離れた人を締め出している点を最も問題視しています。"
+        },
+        {
+          "text": "It sets the salary range too low.",
+          "correct": false,
+          "explain": "給与については述べられていません。"
+        },
+        {
+          "text": "It requires too many interviews.",
+          "correct": false,
+          "explain": "面接回数の話は出てきません。"
+        },
+        {
+          "text": "It favors candidates from certain universities.",
+          "correct": false,
+          "explain": "出身大学の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-07",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Your manuscript is compelling, but the middle section loses momentum."
+        },
+        {
+          "speaker": "B",
+          "text": "That's where I explain the historical background."
+        },
+        {
+          "speaker": "A",
+          "text": "Readers don't need forty pages of it before the story resumes."
+        },
+        {
+          "speaker": "B",
+          "text": "Could I move the background into an appendix?"
+        },
+        {
+          "speaker": "A",
+          "text": "Better still, distribute it in small pieces where it becomes relevant."
+        }
+      ],
+      "question": "What does the editor finally recommend?",
+      "translation": "A：原稿は引き込まれますが、中盤で勢いが落ちます。　B：そこは歴史的背景を説明している部分です。　A：物語が再開する前に40ページも背景は要りません。　B：背景を付録に移しましょうか。　A：それより、必要になる場面で小分けに配置するほうがよいでしょう。（質問：編集者は最終的に何を勧めていますか）",
+      "choices": [
+        {
+          "text": "Spreading the background through the story where it is needed.",
+          "correct": true,
+          "explain": "必要になる場面で小分けに配置するよう勧めています。"
+        },
+        {
+          "text": "Moving all the background into an appendix.",
+          "correct": false,
+          "explain": "それより良い案として別の方法を示しています。"
+        },
+        {
+          "text": "Deleting the historical background entirely.",
+          "correct": false,
+          "explain": "削除は勧めていません。"
+        },
+        {
+          "text": "Adding more detail to the middle section.",
+          "correct": false,
+          "explain": "加筆は求めていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-08",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The pilot program cut emergency room visits by a fifth."
+        },
+        {
+          "speaker": "B",
+          "text": "Impressive, but it ran in a single district with unusually good public transport."
+        },
+        {
+          "speaker": "A",
+          "text": "You think the results wouldn't hold elsewhere?"
+        },
+        {
+          "speaker": "B",
+          "text": "I think we'd need a rural trial before we commit the whole budget."
+        },
+        {
+          "speaker": "A",
+          "text": "That's fair. I'll draft a proposal for a second site."
+        }
+      ],
+      "question": "Why is the man cautious about the results?",
+      "translation": "A：試行事業で救急外来の受診が2割減りました。　B：立派ですが、公共交通が異例に良い一地区での結果です。　A：他所では再現しないとお考えですか。　B：全予算を投じる前に農村部での試行が必要だと思います。　A：もっともです。第二の実施地の提案書を書きます。（質問：男性はなぜ結果に慎重なのですか）",
+      "choices": [
+        {
+          "text": "The district had unusually good public transport.",
+          "correct": true,
+          "explain": "公共交通が特に良い地区での結果だと指摘しています。"
+        },
+        {
+          "text": "The sample of patients was too old.",
+          "correct": false,
+          "explain": "年齢構成の話は出てきません。"
+        },
+        {
+          "text": "The program cost more than expected.",
+          "correct": false,
+          "explain": "費用については述べられていません。"
+        },
+        {
+          "text": "The data was collected over one week only.",
+          "correct": false,
+          "explain": "期間の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-09",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The university wants to make our journal open access."
+        },
+        {
+          "speaker": "B",
+          "text": "Who would cover the costs once subscriptions disappear?"
+        },
+        {
+          "speaker": "A",
+          "text": "Authors would pay a publication fee."
+        },
+        {
+          "speaker": "B",
+          "text": "That shifts the barrier from readers to researchers without funding."
+        },
+        {
+          "speaker": "A",
+          "text": "We could waive the fee for applicants from low-income institutions."
+        }
+      ],
+      "question": "What objection does the woman raise?",
+      "translation": "A：大学は学術誌をオープンアクセスにしたいそうです。　B：購読料がなくなったら誰が費用を負担するのですか。　A：著者が掲載料を払う形です。　B：それは障壁を読者から資金のない研究者に移すだけです。　A：低所得の機関からの投稿は免除できます。（質問：女性はどんな異論を述べていますか）",
+      "choices": [
+        {
+          "text": "The cost barrier would shift to unfunded researchers.",
+          "correct": true,
+          "explain": "障壁が資金のない研究者に移ると指摘しています。"
+        },
+        {
+          "text": "Open access would reduce the journal's quality.",
+          "correct": false,
+          "explain": "質の低下には触れていません。"
+        },
+        {
+          "text": "Readers would lose access to old issues.",
+          "correct": false,
+          "explain": "過去号の話は出てきません。"
+        },
+        {
+          "text": "The university would lose its reputation.",
+          "correct": false,
+          "explain": "評判の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-10",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Residents are protesting the plan to build housing on the old golf course."
+        },
+        {
+          "speaker": "B",
+          "text": "I'd have thought they'd welcome more affordable homes."
+        },
+        {
+          "speaker": "A",
+          "text": "Their objection is that the site absorbs rainwater for the whole valley."
+        },
+        {
+          "speaker": "B",
+          "text": "Has anyone commissioned a hydrological study?"
+        },
+        {
+          "speaker": "A",
+          "text": "The developer promised one, but not until after approval."
+        }
+      ],
+      "question": "Why do residents object to the plan?",
+      "translation": "A：住民が旧ゴルフ場の住宅開発計画に抗議しています。　B：手ごろな住宅が増えるのは歓迎されると思っていました。　A：あの土地が谷全体の雨水を吸収しているというのが反対理由です。　B：水文調査は誰か依頼しましたか。　A：開発業者が約束しましたが、承認後だそうです。（質問：住民はなぜ計画に反対しているのですか）",
+      "choices": [
+        {
+          "text": "The site absorbs rainwater for the valley.",
+          "correct": true,
+          "explain": "雨水を吸収する土地であることが反対理由です。"
+        },
+        {
+          "text": "The homes would be too expensive.",
+          "correct": false,
+          "explain": "手ごろな住宅と述べられています。"
+        },
+        {
+          "text": "They want the golf course reopened.",
+          "correct": false,
+          "explain": "ゴルフ場再開の話は出てきません。"
+        },
+        {
+          "text": "The area lacks schools.",
+          "correct": false,
+          "explain": "学校の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-11",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our translation software now handles legal documents surprisingly well."
+        },
+        {
+          "speaker": "B",
+          "text": "Does that mean fewer human translators?"
+        },
+        {
+          "speaker": "A",
+          "text": "Actually, we've hired more. The machine drafts, but someone must certify accuracy."
+        },
+        {
+          "speaker": "B",
+          "text": "So the job changed rather than disappeared."
+        },
+        {
+          "speaker": "A",
+          "text": "Exactly, and the certifying work pays better than the drafting ever did."
+        }
+      ],
+      "question": "What has happened to the translators' work?",
+      "translation": "A：うちの翻訳ソフトは法務文書も驚くほどうまく扱えるようになりました。　B：人間の翻訳者は減るということですか。　A：むしろ増やしました。機械が下訳をしますが、正確性を保証する人が要ります。　B：仕事は消えたのでなく変わったのですね。　A：その通りで、保証の仕事は下訳よりずっと報酬が高いのです。（質問：翻訳者の仕事はどうなりましたか）",
+      "choices": [
+        {
+          "text": "It shifted to certifying the machine's output.",
+          "correct": true,
+          "explain": "機械の下訳を保証する仕事に変わったと述べています。"
+        },
+        {
+          "text": "It disappeared almost entirely.",
+          "correct": false,
+          "explain": "むしろ増員しています。"
+        },
+        {
+          "text": "It became lower paid than before.",
+          "correct": false,
+          "explain": "報酬は高いと述べています。"
+        },
+        {
+          "text": "It moved overseas.",
+          "correct": false,
+          "explain": "海外移転の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-12",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Attendance at the orchestra has fallen for five straight seasons."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you looked at who is actually leaving?"
+        },
+        {
+          "speaker": "A",
+          "text": "Subscribers over seventy, mostly. Younger single-ticket buyers are steady."
+        },
+        {
+          "speaker": "B",
+          "text": "Then the problem isn't interest, it's the subscription model itself."
+        },
+        {
+          "speaker": "A",
+          "text": "You may be right. Committing to ten concerts a year asks a lot now."
+        }
+      ],
+      "question": "What conclusion do they reach?",
+      "translation": "A：管弦楽団の来場者が5季連続で減っています。　B：実際に離れているのは誰か調べましたか。　A：大半は70歳以上の定期会員です。若い単券の購入者は安定しています。　B：では問題は関心ではなく定期会員の仕組みそのものですね。　A：そうかもしれません。年10公演の約束は今では重い。（質問：二人はどんな結論に達しましたか）",
+      "choices": [
+        {
+          "text": "The subscription model is the problem, not a lack of interest.",
+          "correct": true,
+          "explain": "関心ではなく定期会員の仕組みが問題だと結論づけています。"
+        },
+        {
+          "text": "Young people have lost interest in orchestras.",
+          "correct": false,
+          "explain": "若い購入者は安定しています。"
+        },
+        {
+          "text": "Ticket prices must be raised.",
+          "correct": false,
+          "explain": "値上げの話は出てきません。"
+        },
+        {
+          "text": "The concert hall needs renovation.",
+          "correct": false,
+          "explain": "施設の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-13",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The committee rejected my request for a sabbatical."
+        },
+        {
+          "speaker": "B",
+          "text": "On what grounds? Your publication record is strong."
+        },
+        {
+          "speaker": "A",
+          "text": "They said my department can't spare anyone next year."
+        },
+        {
+          "speaker": "B",
+          "text": "That's a staffing problem, not a judgment on your work."
+        },
+        {
+          "speaker": "A",
+          "text": "True, but it means reapplying and losing the fellowship I'd secured."
+        }
+      ],
+      "question": "What is the real consequence for the man?",
+      "translation": "A：研究休暇の申請が委員会に却下されました。　B：理由は？　業績は立派なのに。　A：来年は学科に人を割く余裕がないとのことです。　B：それは人員の問題で、あなたの業績への評価ではありません。　A：そうですが、再申請となり、確保していた研究資金を失います。（質問：男性にとっての実際の影響は何ですか）",
+      "choices": [
+        {
+          "text": "He will lose the fellowship he had obtained.",
+          "correct": true,
+          "explain": "再申請となり研究資金を失うと述べています。"
+        },
+        {
+          "text": "His publication record will suffer.",
+          "correct": false,
+          "explain": "業績は立派だと述べられています。"
+        },
+        {
+          "text": "He must transfer to another department.",
+          "correct": false,
+          "explain": "異動の話は出てきません。"
+        },
+        {
+          "text": "His salary will be reduced.",
+          "correct": false,
+          "explain": "給与の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-14",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Why did the museum decide against air conditioning the main hall?"
+        },
+        {
+          "speaker": "B",
+          "text": "Rapid temperature changes damage the wooden sculptures more than steady warmth does."
+        },
+        {
+          "speaker": "A",
+          "text": "So the discomfort of visitors is a deliberate trade-off."
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, though they've added shaded seating and free water in summer."
+        },
+        {
+          "speaker": "A",
+          "text": "That seems a reasonable compromise."
+        }
+      ],
+      "question": "Why is the main hall not air conditioned?",
+      "translation": "A：博物館はなぜ大展示室に空調を入れないことにしたのですか。　B：急激な温度変化は、一定の暖かさより木彫を傷めるからです。　A：来館者の不快は意図的な代償なのですね。　B：ええ、ただ夏は日陰の席と無料の水を用意しています。　A：妥当な折衷案に思えます。（質問：なぜ大展示室に空調がないのですか）",
+      "choices": [
+        {
+          "text": "Temperature swings would damage the wooden works.",
+          "correct": true,
+          "explain": "急激な温度変化が木彫を傷めるためです。"
+        },
+        {
+          "text": "The building is too old to be modified.",
+          "correct": false,
+          "explain": "建物の構造の話は出てきません。"
+        },
+        {
+          "text": "The museum cannot afford the electricity.",
+          "correct": false,
+          "explain": "費用の話はありません。"
+        },
+        {
+          "text": "Visitors requested natural ventilation.",
+          "correct": false,
+          "explain": "来館者の要望ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-15",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our new supplier's prices are fifteen percent below the current one."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you visited their factory?"
+        },
+        {
+          "speaker": "A",
+          "text": "Not yet. Their certification documents all check out, though."
+        },
+        {
+          "speaker": "B",
+          "text": "Documents can be genuine while conditions on the floor are not."
+        },
+        {
+          "speaker": "A",
+          "text": "I'll arrange a visit before we sign anything."
+        }
+      ],
+      "question": "What does the woman imply?",
+      "translation": "A：新しい仕入先の価格は現行より15パーセント安いです。　B：工場は訪問しましたか。　A：まだです。認証書類はすべて問題ありません。　B：書類が本物でも現場の状況がそうとは限りません。　A：契約前に訪問を手配します。（質問：女性は何をほのめかしていますか）",
+      "choices": [
+        {
+          "text": "Certification documents do not guarantee actual conditions.",
+          "correct": true,
+          "explain": "書類が本物でも現場は別だとほのめかしています。"
+        },
+        {
+          "text": "The price difference is too small to matter.",
+          "correct": false,
+          "explain": "価格差の大きさは問題にしていません。"
+        },
+        {
+          "text": "The current supplier should be kept.",
+          "correct": false,
+          "explain": "現行維持は述べていません。"
+        },
+        {
+          "text": "The documents are probably forged.",
+          "correct": false,
+          "explain": "偽造だとは述べていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-16",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The city is considering charging drivers to enter the central district."
+        },
+        {
+          "speaker": "B",
+          "text": "Similar schemes abroad cut congestion by a quarter."
+        },
+        {
+          "speaker": "A",
+          "text": "But shopkeepers fear customers will simply go elsewhere."
+        },
+        {
+          "speaker": "B",
+          "text": "In London, retail turnover actually rose once the streets became walkable."
+        },
+        {
+          "speaker": "A",
+          "text": "That evidence should be presented at the public hearing."
+        }
+      ],
+      "question": "What point does the woman make about the scheme?",
+      "translation": "A：市は中心部への車の乗り入れを有料化する案を検討しています。　B：海外の類似制度は渋滞を4分の1減らしました。　A：しかし商店主は客が他所に流れると心配しています。　B：ロンドンでは街が歩きやすくなって小売の売上はむしろ伸びました。　A：その根拠を公聴会で示すべきですね。（質問：女性は制度についてどんな点を挙げていますか）",
+      "choices": [
+        {
+          "text": "Retail sales rose in a city that introduced it.",
+          "correct": true,
+          "explain": "ロンドンでは小売の売上が伸びたと述べています。"
+        },
+        {
+          "text": "The scheme failed in most foreign cities.",
+          "correct": false,
+          "explain": "成功例を挙げています。"
+        },
+        {
+          "text": "Shopkeepers should be compensated.",
+          "correct": false,
+          "explain": "補償の話は出てきません。"
+        },
+        {
+          "text": "Congestion cannot be reduced by pricing.",
+          "correct": false,
+          "explain": "渋滞は減ったと述べています。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-17",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I'm told the vaccine trial was halted early."
+        },
+        {
+          "speaker": "B",
+          "text": "Not because of harm. The results were so clear that continuing would have been unethical."
+        },
+        {
+          "speaker": "A",
+          "text": "Meaning the control group deserved the treatment?"
+        },
+        {
+          "speaker": "B",
+          "text": "Precisely. Withholding an effective vaccine once you know it works is indefensible."
+        },
+        {
+          "speaker": "A",
+          "text": "I hadn't considered that stopping early could be the ethical choice."
+        }
+      ],
+      "question": "Why was the trial stopped?",
+      "translation": "A：あのワクチン試験は早期中止になったそうですね。　B：有害だったからではありません。結果が明白で、続けることが非倫理的だったのです。　A：対照群にも投与すべきだったということですか。　B：その通り。効くと分かった後で有効なワクチンを与えないのは弁護できません。　A：早期中止が倫理的な選択になり得るとは考えていませんでした。（質問：試験はなぜ中止されたのですか）",
+      "choices": [
+        {
+          "text": "The results made withholding the vaccine unethical.",
+          "correct": true,
+          "explain": "効果が明白で、投与しないことが非倫理的になったためです。"
+        },
+        {
+          "text": "Serious side effects were discovered.",
+          "correct": false,
+          "explain": "有害だからではないと述べています。"
+        },
+        {
+          "text": "Funding for the trial ran out.",
+          "correct": false,
+          "explain": "資金の話は出てきません。"
+        },
+        {
+          "text": "Too few volunteers enrolled.",
+          "correct": false,
+          "explain": "参加者数の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-18",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Your proposal assumes we can recruit twenty apprentices a year."
+        },
+        {
+          "speaker": "B",
+          "text": "The local college produces about sixty graduates annually."
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, but most are hired by the shipyard before they finish."
+        },
+        {
+          "speaker": "B",
+          "text": "Then we should offer paid placements in their second year."
+        },
+        {
+          "speaker": "A",
+          "text": "That would put us ahead of the shipyard rather than competing with it."
+        }
+      ],
+      "question": "What is the problem with recruiting apprentices?",
+      "translation": "A：あなたの提案は年20人の見習いを採用できる前提です。　B：地元の専門学校は年60人ほどを送り出します。　A：ええ、ですが大半は卒業前に造船所に採られています。　B：ならば2年次に有給の実習を提供すべきです。　A：それなら造船所と競うのでなく先回りできますね。（質問：見習いの採用にはどんな問題がありますか）",
+      "choices": [
+        {
+          "text": "The shipyard hires students before graduation.",
+          "correct": true,
+          "explain": "卒業前に造船所が採用してしまう点が問題です。"
+        },
+        {
+          "text": "The college produces too few graduates.",
+          "correct": false,
+          "explain": "年60人と十分な数です。"
+        },
+        {
+          "text": "Apprentices demand high wages.",
+          "correct": false,
+          "explain": "賃金の話は出てきません。"
+        },
+        {
+          "text": "The training takes too long.",
+          "correct": false,
+          "explain": "期間の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-19",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The architect has proposed keeping only the facade of the old bank."
+        },
+        {
+          "speaker": "B",
+          "text": "That practice has a bad reputation among preservationists."
+        },
+        {
+          "speaker": "A",
+          "text": "Because the interior is what gives a building meaning?"
+        },
+        {
+          "speaker": "B",
+          "text": "Partly, though in this case the interior was gutted in the eighties anyway."
+        },
+        {
+          "speaker": "A",
+          "text": "So the objection carries less weight here than it usually would."
+        }
+      ],
+      "question": "Why is the usual objection weaker in this case?",
+      "translation": "A：建築家は旧銀行の正面だけを残す案を出しました。　B：その手法は保存の専門家に評判が悪いですね。　A：建物の意味は内部にあるからですか。　B：一部はそうですが、この建物の内部は80年代にすでに取り払われています。　A：ではここでは通常ほど反対の重みがないのですね。（質問：なぜ通常の反対論がこの場合は弱いのですか）",
+      "choices": [
+        {
+          "text": "The original interior was already removed decades ago.",
+          "correct": true,
+          "explain": "内部は80年代に取り払われていると述べています。"
+        },
+        {
+          "text": "The facade is more valuable than the interior.",
+          "correct": false,
+          "explain": "そのような比較はしていません。"
+        },
+        {
+          "text": "Preservationists support the project.",
+          "correct": false,
+          "explain": "支持しているとは述べていません。"
+        },
+        {
+          "text": "The building is not historically significant.",
+          "correct": false,
+          "explain": "歴史的価値の否定はしていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-20",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our fund has been criticized for investing in a mining company."
+        },
+        {
+          "speaker": "B",
+          "text": "Selling the shares would be the simplest response."
+        },
+        {
+          "speaker": "A",
+          "text": "It would also end our seat on the board."
+        },
+        {
+          "speaker": "B",
+          "text": "And with it, any ability to push for better practices from inside."
+        },
+        {
+          "speaker": "A",
+          "text": "That's the dilemma I want the trustees to understand."
+        }
+      ],
+      "question": "What is the dilemma?",
+      "translation": "A：当ファンドは鉱山会社への投資を批判されています。　B：株を売るのが最も簡単な対応でしょう。　A：しかしそれでは取締役会の席も失います。　B：内部から改善を求める力も失うわけですね。　A：それが理事たちに理解してほしいジレンマです。（質問：ジレンマとは何ですか）",
+      "choices": [
+        {
+          "text": "Selling the shares would remove their influence from within.",
+          "correct": true,
+          "explain": "株を売れば内部から改善を促す力を失う点です。"
+        },
+        {
+          "text": "The shares have lost most of their value.",
+          "correct": false,
+          "explain": "株価の話は出てきません。"
+        },
+        {
+          "text": "The trustees disagree about ethics.",
+          "correct": false,
+          "explain": "理事間の対立は述べられていません。"
+        },
+        {
+          "text": "The mining company plans to expand.",
+          "correct": false,
+          "explain": "拡張の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-21",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Enrollment in our Japanese literature course dropped by half this year."
+        },
+        {
+          "speaker": "B",
+          "text": "Did anything change about the timetable?"
+        },
+        {
+          "speaker": "A",
+          "text": "It now clashes with the required statistics class."
+        },
+        {
+          "speaker": "B",
+          "text": "That explains everything. Students aren't rejecting the subject."
+        },
+        {
+          "speaker": "A",
+          "text": "I'll ask the registrar to move us to a Thursday slot."
+        }
+      ],
+      "question": "Why did enrollment drop?",
+      "translation": "A：日本文学の受講者が今年半減しました。　B：時間割に変更はありましたか。　A：必修の統計学と重なるようになりました。　B：それで説明がつきます。学生が科目を敬遠しているのではありません。　A：教務に木曜の枠への移動を頼みます。（質問：受講者はなぜ減ったのですか）",
+      "choices": [
+        {
+          "text": "The course now clashes with a required class.",
+          "correct": true,
+          "explain": "必修の統計学と時間が重なったためです。"
+        },
+        {
+          "text": "Students find the subject too difficult.",
+          "correct": false,
+          "explain": "敬遠ではないと述べています。"
+        },
+        {
+          "text": "The professor changed.",
+          "correct": false,
+          "explain": "担当者の話は出てきません。"
+        },
+        {
+          "text": "Tuition for the course increased.",
+          "correct": false,
+          "explain": "費用の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-22",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The newspaper is closing its foreign bureaus and relying on freelancers."
+        },
+        {
+          "speaker": "B",
+          "text": "That cuts costs, but freelancers lack institutional protection."
+        },
+        {
+          "speaker": "A",
+          "text": "You mean legal support if they're detained?"
+        },
+        {
+          "speaker": "B",
+          "text": "That, and insurance, training, and someone senior to say no to a dangerous assignment."
+        },
+        {
+          "speaker": "A",
+          "text": "Put that way, the savings look considerably less attractive."
+        }
+      ],
+      "question": "What does the woman emphasize about freelancers?",
+      "translation": "A：新聞社が海外支局を閉じ、フリーランスに頼るそうです。　B：費用は減りますが、フリーランスには組織的な保護がありません。　A：拘束されたときの法的支援のことですか。　B：それに保険、訓練、そして危険な任務に「否」と言う上司もいません。　A：そう言われると節約の魅力はかなり薄れますね。（質問：女性はフリーランスについて何を強調していますか）",
+      "choices": [
+        {
+          "text": "They lack protections that staff reporters have.",
+          "correct": true,
+          "explain": "法的支援・保険・訓練・上司の判断が欠ける点を挙げています。"
+        },
+        {
+          "text": "They produce lower-quality reporting.",
+          "correct": false,
+          "explain": "報道の質には触れていません。"
+        },
+        {
+          "text": "They are more expensive than staff.",
+          "correct": false,
+          "explain": "費用は減ると述べています。"
+        },
+        {
+          "text": "They refuse dangerous assignments.",
+          "correct": false,
+          "explain": "断る上司がいないと述べています。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-23",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The lake has turned green again this summer."
+        },
+        {
+          "speaker": "B",
+          "text": "Fertilizer runoff from the farms upstream, I assume."
+        },
+        {
+          "speaker": "A",
+          "text": "Partly, but the sewage plant also discharges during heavy rain."
+        },
+        {
+          "speaker": "B",
+          "text": "Then blaming farmers alone lets the town off too easily."
+        },
+        {
+          "speaker": "A",
+          "text": "Which is why I want both sources measured before the council votes."
+        }
+      ],
+      "question": "What does the man want done before the vote?",
+      "translation": "A：今年もまた湖が緑色になりました。　B：上流の農地からの肥料の流出でしょうね。　A：一部はそうですが、大雨のときは下水処理場も放流しています。　B：では農家だけを責めるのは町に甘すぎますね。　A：だからこそ採決前に両方の発生源を測定したいのです。（質問：男性は採決前に何をしたいのですか）",
+      "choices": [
+        {
+          "text": "Measure both pollution sources.",
+          "correct": true,
+          "explain": "両方の発生源を測定したいと述べています。"
+        },
+        {
+          "text": "Ban fertilizer use upstream.",
+          "correct": false,
+          "explain": "禁止は述べていません。"
+        },
+        {
+          "text": "Close the sewage plant.",
+          "correct": false,
+          "explain": "閉鎖の話は出てきません。"
+        },
+        {
+          "text": "Postpone the council vote indefinitely.",
+          "correct": false,
+          "explain": "無期延期は述べていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-24",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our customer satisfaction scores are high, yet people still leave us."
+        },
+        {
+          "speaker": "B",
+          "text": "Satisfaction measures how they felt, not how hard it was to get things done."
+        },
+        {
+          "speaker": "A",
+          "text": "So we should be measuring effort instead?"
+        },
+        {
+          "speaker": "B",
+          "text": "In my experience, the number of times a customer has to repeat themselves predicts churn far better."
+        },
+        {
+          "speaker": "A",
+          "text": "Then I'll add that to the quarterly survey."
+        }
+      ],
+      "question": "What measure does the woman recommend?",
+      "translation": "A：顧客満足度は高いのに、解約が続きます。　B：満足度は気分を測るもので、手間の多さは測りません。　A：では手間を測るべきですか。　B：経験上、顧客が同じ説明を繰り返した回数のほうが解約をよく予測します。　A：では四半期調査に加えます。（質問：女性はどんな指標を勧めていますか）",
+      "choices": [
+        {
+          "text": "How often customers must repeat themselves.",
+          "correct": true,
+          "explain": "同じ説明を繰り返した回数が解約をよく予測すると述べています。"
+        },
+        {
+          "text": "How satisfied customers say they are.",
+          "correct": false,
+          "explain": "満足度では不十分だと述べています。"
+        },
+        {
+          "text": "How long customers wait on the phone.",
+          "correct": false,
+          "explain": "待ち時間には触れていません。"
+        },
+        {
+          "text": "How many products each customer buys.",
+          "correct": false,
+          "explain": "購入点数の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-25",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The heritage committee wants the cobblestones on Market Street restored."
+        },
+        {
+          "speaker": "B",
+          "text": "Wheelchair users fought for years to have them paved over."
+        },
+        {
+          "speaker": "A",
+          "text": "I'd forgotten that. Is there any material that satisfies both?"
+        },
+        {
+          "speaker": "B",
+          "text": "A smooth central strip with cobbles at the edges has worked in Bruges."
+        },
+        {
+          "speaker": "A",
+          "text": "I'll bring photographs of that to the next meeting."
+        }
+      ],
+      "question": "What compromise is mentioned?",
+      "translation": "A：文化財委員会はマーケット通りの敷石復元を望んでいます。　B：車いす利用者は何年もかけて舗装させたのですよ。　A：失念していました。両方を満たす素材はありますか。　B：中央を平滑にし、端を敷石にする方法がブリュージュで機能しています。　A：次回の会議にその写真を持参します。（質問：どんな折衷案が挙げられていますか）",
+      "choices": [
+        {
+          "text": "A smooth central strip with cobbles at the sides.",
+          "correct": true,
+          "explain": "中央を平滑にし端を敷石にする方法が挙げられています。"
+        },
+        {
+          "text": "Paving the whole street with asphalt.",
+          "correct": false,
+          "explain": "全面舗装は提案されていません。"
+        },
+        {
+          "text": "Closing the street to all traffic.",
+          "correct": false,
+          "explain": "通行止めの話は出てきません。"
+        },
+        {
+          "text": "Restoring the cobblestones completely.",
+          "correct": false,
+          "explain": "全面復元ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-26",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I'm reluctant to introduce continuous assessment in my seminar."
+        },
+        {
+          "speaker": "B",
+          "text": "Because of the marking load?"
+        },
+        {
+          "speaker": "A",
+          "text": "No, because students stop taking intellectual risks when every week counts."
+        },
+        {
+          "speaker": "B",
+          "text": "You could make the first four assignments unmarked practice."
+        },
+        {
+          "speaker": "A",
+          "text": "That might give them room to fail safely. I'll try it next term."
+        }
+      ],
+      "question": "Why was the man reluctant?",
+      "translation": "A：ゼミに継続的評価を導入するのは気が進みません。　B：採点の負担ですか。　A：いえ、毎週が評価対象だと学生が知的な冒険をしなくなるからです。　B：最初の4回を評価対象外の練習にすればよいのでは。　A：安全に失敗できる余地ができますね。来学期試します。（質問：男性はなぜ気が進まなかったのですか）",
+      "choices": [
+        {
+          "text": "Students would avoid taking intellectual risks.",
+          "correct": true,
+          "explain": "毎週評価されると冒険しなくなるためです。"
+        },
+        {
+          "text": "The marking would take too long.",
+          "correct": false,
+          "explain": "採点の負担ではないと述べています。"
+        },
+        {
+          "text": "Students would complain about fairness.",
+          "correct": false,
+          "explain": "公平性の話は出てきません。"
+        },
+        {
+          "text": "The department forbids it.",
+          "correct": false,
+          "explain": "規則の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-27",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The council voted to remove the statue rather than add a plaque explaining its history."
+        },
+        {
+          "speaker": "B",
+          "text": "I'd have preferred the plaque. Removal erases the argument along with the object."
+        },
+        {
+          "speaker": "A",
+          "text": "Some felt a plaque was too easy a way to avoid a decision."
+        },
+        {
+          "speaker": "B",
+          "text": "Perhaps, but a museum could have displayed it with full context."
+        },
+        {
+          "speaker": "A",
+          "text": "That option was raised late and never properly debated."
+        }
+      ],
+      "question": "What does the woman think should have happened?",
+      "translation": "A：議会は歴史を説明する銘板を加えるのでなく、像の撤去を決議しました。　B：私は銘板のほうがよかった。撤去は物と一緒に議論も消します。　A：銘板は決断を避ける安易な方法だと感じた人もいます。　B：かもしれませんが、博物館が文脈込みで展示できたはずです。　A：その案は遅く出され、十分に議論されませんでした。（質問：女性はどうすべきだったと考えていますか）",
+      "choices": [
+        {
+          "text": "The statue should have been kept with explanation.",
+          "correct": true,
+          "explain": "銘板や博物館での文脈付き展示を望んでいます。"
+        },
+        {
+          "text": "The statue should have been destroyed.",
+          "correct": false,
+          "explain": "破壊は望んでいません。"
+        },
+        {
+          "text": "The council should not have voted at all.",
+          "correct": false,
+          "explain": "採決自体は否定していません。"
+        },
+        {
+          "text": "A new statue should replace it.",
+          "correct": false,
+          "explain": "代替の像の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-28",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our clinical staff spend nearly two hours a day on documentation."
+        },
+        {
+          "speaker": "B",
+          "text": "Voice recognition could cut that substantially."
+        },
+        {
+          "speaker": "A",
+          "text": "We trialed it, but accents caused so many errors that nurses stopped using it."
+        },
+        {
+          "speaker": "B",
+          "text": "Newer systems adapt to individual speakers after a short training session."
+        },
+        {
+          "speaker": "A",
+          "text": "If that's true, it's worth a second trial with proper setup time."
+        }
+      ],
+      "question": "Why did the first trial fail?",
+      "translation": "A：臨床スタッフは記録作業に1日2時間近く費やしています。　B：音声認識で大幅に減らせます。　A：試しましたが、なまりによる誤認識が多く看護師が使わなくなりました。　B：新しい方式は短い訓練で話者ごとに適応します。　A：本当なら、設定時間を確保して再試行する価値がありますね。（質問：最初の試行はなぜ失敗したのですか）",
+      "choices": [
+        {
+          "text": "Accents caused too many recognition errors.",
+          "correct": true,
+          "explain": "なまりによる誤認識が多かったためです。"
+        },
+        {
+          "text": "The software was too expensive.",
+          "correct": false,
+          "explain": "費用の話は出てきません。"
+        },
+        {
+          "text": "Patients objected to being recorded.",
+          "correct": false,
+          "explain": "患者の反対は述べられていません。"
+        },
+        {
+          "text": "The hospital network was too slow.",
+          "correct": false,
+          "explain": "通信の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-29",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Why has the publisher priced the paperback so close to the hardback?"
+        },
+        {
+          "speaker": "B",
+          "text": "They want the hardback sales to hold through the holiday season."
+        },
+        {
+          "speaker": "A",
+          "text": "Isn't that likely to suppress both?"
+        },
+        {
+          "speaker": "B",
+          "text": "It can, but libraries buy hardbacks regardless, and that's where their margin is."
+        },
+        {
+          "speaker": "A",
+          "text": "So individual readers are effectively subsidizing the library market."
+        }
+      ],
+      "question": "Why is the paperback priced high?",
+      "translation": "A：出版社はなぜ文庫版をハードカバーに近い価格にしたのでしょう。　B：年末商戦までハードカバーの売上を保ちたいのです。　A：両方の売上を抑えることになりませんか。　B：なり得ますが、図書館は関係なくハードカバーを買い、そこに利益があります。　A：つまり個人読者が図書館市場を実質的に支えているわけですね。（質問：文庫版はなぜ高く設定されているのですか）",
+      "choices": [
+        {
+          "text": "To protect hardback sales, where the margin is.",
+          "correct": true,
+          "explain": "利益のあるハードカバーの売上を守るためです。"
+        },
+        {
+          "text": "Because printing costs have risen.",
+          "correct": false,
+          "explain": "印刷費の話は出てきません。"
+        },
+        {
+          "text": "Because libraries refuse to buy paperbacks.",
+          "correct": false,
+          "explain": "図書館はハードカバーを買うと述べています。"
+        },
+        {
+          "text": "To discourage readers from buying it.",
+          "correct": false,
+          "explain": "購入抑制が目的ではありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-30",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The insurer says our claim falls under the flood exclusion."
+        },
+        {
+          "speaker": "B",
+          "text": "But the water came from a burst pipe, not the river."
+        },
+        {
+          "speaker": "A",
+          "text": "They argue the river's rise caused the pressure change that burst it."
+        },
+        {
+          "speaker": "B",
+          "text": "That's a chain of causation a court would want evidence for."
+        },
+        {
+          "speaker": "A",
+          "text": "Then I'll ask the plumber for a written assessment before we respond."
+        }
+      ],
+      "question": "What will the man do next?",
+      "translation": "A：保険会社は当方の請求が洪水免責に当たると言っています。　B：しかし水は川でなく破裂した配管から来ました。　A：川の増水が圧力変化を招き破裂させたという主張です。　B：それは裁判所が証拠を求める因果の連鎖ですね。　A：では回答前に配管業者の書面所見をもらいます。（質問：男性は次に何をしますか）",
+      "choices": [
+        {
+          "text": "Obtain a written assessment from the plumber.",
+          "correct": true,
+          "explain": "回答前に配管業者の書面所見をもらうと述べています。"
+        },
+        {
+          "text": "Accept the insurer's decision.",
+          "correct": false,
+          "explain": "受け入れてはいません。"
+        },
+        {
+          "text": "Take the insurer to court immediately.",
+          "correct": false,
+          "explain": "すぐに提訴するとは述べていません。"
+        },
+        {
+          "text": "Repair the pipe himself.",
+          "correct": false,
+          "explain": "修理の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-31",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our dig has uncovered a wall that isn't on any of the survey maps."
+        },
+        {
+          "speaker": "B",
+          "text": "Could it be a later addition rather than part of the original settlement?"
+        },
+        {
+          "speaker": "A",
+          "text": "The mortar composition matches the oldest section."
+        },
+        {
+          "speaker": "B",
+          "text": "Then the settlement extended further west than anyone assumed."
+        },
+        {
+          "speaker": "A",
+          "text": "Which means the housing development boundary will have to be reconsidered."
+        }
+      ],
+      "question": "What is the practical consequence of the discovery?",
+      "translation": "A：発掘でどの測量図にもない壁が出ました。　B：元の集落でなく後世の増築ではありませんか。　A：漆喰の組成が最古の区画と一致します。　B：では集落は誰の想定よりも西に広がっていたことになります。　A：つまり住宅開発の境界を見直す必要があります。（質問：この発見の実際的な影響は何ですか）",
+      "choices": [
+        {
+          "text": "The housing development boundary must be reconsidered.",
+          "correct": true,
+          "explain": "開発の境界を見直す必要があると述べています。"
+        },
+        {
+          "text": "The dig will have to be abandoned.",
+          "correct": false,
+          "explain": "中止の話は出てきません。"
+        },
+        {
+          "text": "The survey maps were deliberately falsified.",
+          "correct": false,
+          "explain": "改ざんは述べられていません。"
+        },
+        {
+          "text": "The wall will be moved to a museum.",
+          "correct": false,
+          "explain": "移設の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-32",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Half the students in my class have never read a physical newspaper."
+        },
+        {
+          "speaker": "B",
+          "text": "Does that matter, if they follow news online?"
+        },
+        {
+          "speaker": "A",
+          "text": "A front page shows you what an editor judged important. A feed shows what you clicked yesterday."
+        },
+        {
+          "speaker": "B",
+          "text": "So the loss is exposure to things you wouldn't choose."
+        },
+        {
+          "speaker": "A",
+          "text": "Exactly, and that's harder to teach than any reading skill."
+        }
+      ],
+      "question": "What does the man consider the main loss?",
+      "translation": "A：私のクラスの半数は紙の新聞を読んだことがありません。　B：ネットでニュースを追うなら問題ですか。　A：一面は編集者が重要と判断したものを示します。フィードは昨日あなたが押したものを示します。　B：つまり自分で選ばないものに触れる機会の喪失ですね。　A：その通りで、どんな読解技術より教えるのが難しい。（質問：男性が主な損失と考えているのは何ですか）",
+      "choices": [
+        {
+          "text": "Exposure to news one would not choose oneself.",
+          "correct": true,
+          "explain": "自分では選ばないものに触れる機会の喪失だと述べています。"
+        },
+        {
+          "text": "The decline of reading comprehension.",
+          "correct": false,
+          "explain": "読解力の低下ではないと述べています。"
+        },
+        {
+          "text": "The cost of online subscriptions.",
+          "correct": false,
+          "explain": "費用の話は出てきません。"
+        },
+        {
+          "text": "The disappearance of local newspapers.",
+          "correct": false,
+          "explain": "地方紙の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-33",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "We've been asked to reduce our water use by thirty percent."
+        },
+        {
+          "speaker": "B",
+          "text": "Most of ours goes into cooling the machinery."
+        },
+        {
+          "speaker": "A",
+          "text": "Could that water be recirculated rather than discharged?"
+        },
+        {
+          "speaker": "B",
+          "text": "Technically yes, but the heat exchangers would need replacing."
+        },
+        {
+          "speaker": "A",
+          "text": "Given the new tariffs, that investment might pay for itself in three years."
+        }
+      ],
+      "question": "What is required to recirculate the water?",
+      "translation": "A：水使用量を3割削減するよう求められています。　B：当社の大半は機械の冷却に使われています。　A：その水を放流でなく循環させられませんか。　B：技術的には可能ですが、熱交換器の交換が必要です。　A：新しい料金体系なら、その投資は3年で回収できるかもしれません。（質問：水を循環させるには何が必要ですか）",
+      "choices": [
+        {
+          "text": "Replacing the heat exchangers.",
+          "correct": true,
+          "explain": "熱交換器の交換が必要だと述べています。"
+        },
+        {
+          "text": "Building a new well.",
+          "correct": false,
+          "explain": "井戸の話は出てきません。"
+        },
+        {
+          "text": "Reducing production by a third.",
+          "correct": false,
+          "explain": "減産は述べられていません。"
+        },
+        {
+          "text": "Hiring additional engineers.",
+          "correct": false,
+          "explain": "人員の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-34",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The foundation wants us to report the number of people we serve each month."
+        },
+        {
+          "speaker": "B",
+          "text": "That metric will push us toward short, shallow help."
+        },
+        {
+          "speaker": "A",
+          "text": "Because seeing one family properly takes the time of seeing ten briefly?"
+        },
+        {
+          "speaker": "B",
+          "text": "Exactly. I'd rather report outcomes at six months, even if the numbers look smaller."
+        },
+        {
+          "speaker": "A",
+          "text": "Let me put that alternative to them before we sign the agreement."
+        }
+      ],
+      "question": "Why does the woman object to the metric?",
+      "translation": "A：財団は毎月の支援人数の報告を求めています。　B：その指標は短く浅い支援へ我々を押しやります。　A：1家族をきちんと見る時間で10家族に手短に会えるからですか。　B：その通り。数字が小さく見えても6か月後の成果を報告したい。　A：契約前にその代案を提示してみます。（質問：女性はなぜその指標に反対しているのですか）",
+      "choices": [
+        {
+          "text": "It would encourage shallow, short-term help.",
+          "correct": true,
+          "explain": "短く浅い支援に向かわせると述べています。"
+        },
+        {
+          "text": "It would take too long to collect.",
+          "correct": false,
+          "explain": "集計の手間は問題にしていません。"
+        },
+        {
+          "text": "The foundation would reduce funding.",
+          "correct": false,
+          "explain": "減額の話は出てきません。"
+        },
+        {
+          "text": "Clients dislike being counted.",
+          "correct": false,
+          "explain": "利用者の反応は述べられていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-35",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The trees along the avenue are being cut down because of disease."
+        },
+        {
+          "speaker": "B",
+          "text": "Are they replanting the same species?"
+        },
+        {
+          "speaker": "A",
+          "text": "No, a mix of five, so one pathogen can't take the whole street again."
+        },
+        {
+          "speaker": "B",
+          "text": "That will look less uniform, which some residents won't like."
+        },
+        {
+          "speaker": "A",
+          "text": "The city is holding a session to explain the reasoning."
+        }
+      ],
+      "question": "Why will different species be planted?",
+      "translation": "A：街路の木が病気のため伐採されています。　B：同じ樹種を植え直すのですか。　A：いえ、5種を混ぜます。一つの病原体で通り全体が失われないように。　B：統一感は落ちるので、嫌う住民もいるでしょう。　A：市が理由を説明する説明会を開きます。（質問：なぜ異なる樹種が植えられるのですか）",
+      "choices": [
+        {
+          "text": "So one disease cannot destroy them all.",
+          "correct": true,
+          "explain": "一つの病原体で通り全体が失われないようにするためです。"
+        },
+        {
+          "text": "Because the original species is unavailable.",
+          "correct": false,
+          "explain": "入手できないとは述べていません。"
+        },
+        {
+          "text": "To reduce planting costs.",
+          "correct": false,
+          "explain": "費用の話は出てきません。"
+        },
+        {
+          "text": "Because residents requested variety.",
+          "correct": false,
+          "explain": "住民は統一感の低下を嫌う可能性があると述べています。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-36",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Our department's papers are cited often, but almost never by industry."
+        },
+        {
+          "speaker": "B",
+          "text": "Do we publish anywhere engineers actually look?"
+        },
+        {
+          "speaker": "A",
+          "text": "Mostly in journals behind paywalls that companies don't subscribe to."
+        },
+        {
+          "speaker": "B",
+          "text": "Then depositing preprints in the open repository would cost us nothing."
+        },
+        {
+          "speaker": "A",
+          "text": "I'll raise it at the faculty meeting. It's an easy first step."
+        }
+      ],
+      "question": "What is the proposed first step?",
+      "translation": "A：うちの部門の論文はよく引用されますが、産業界からはほとんどありません。　B：技術者が実際に見る場所に出していますか。　A：大半は企業が購読しない有料の学術誌です。　B：ならプレプリントを公開リポジトリに置くのは無料でできます。　A：教授会で提起します。手始めとして容易です。（質問：提案されている第一歩は何ですか）",
+      "choices": [
+        {
+          "text": "Depositing preprints in an open repository.",
+          "correct": true,
+          "explain": "公開リポジトリへのプレプリント登録が提案されています。"
+        },
+        {
+          "text": "Publishing only in industry magazines.",
+          "correct": false,
+          "explain": "業界誌のみとは述べていません。"
+        },
+        {
+          "text": "Paying companies to read the papers.",
+          "correct": false,
+          "explain": "そのような案はありません。"
+        },
+        {
+          "text": "Reducing the number of papers published.",
+          "correct": false,
+          "explain": "本数の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-37",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "The new tenant wants to install a commercial oven in the ground-floor unit."
+        },
+        {
+          "speaker": "B",
+          "text": "The ventilation shaft was designed for an office, not a bakery."
+        },
+        {
+          "speaker": "A",
+          "text": "Could it be upgraded without disturbing the upper floors?"
+        },
+        {
+          "speaker": "B",
+          "text": "Only by running a new duct up the exterior wall, which needs planning consent."
+        },
+        {
+          "speaker": "A",
+          "text": "I'll tell them the lease can't be signed until that consent is granted."
+        }
+      ],
+      "question": "What condition must be met before the lease is signed?",
+      "translation": "A：新しい入居者が1階に業務用オーブンを入れたいそうです。　B：換気シャフトは事務所用で、パン屋向けではありません。　A：上階に影響を与えずに改修できますか。　B：外壁に新しいダクトを通すしかなく、それには建築許可が要ります。　A：許可が下りるまで賃貸契約は結べないと伝えます。（質問：契約前に満たすべき条件は何ですか）",
+      "choices": [
+        {
+          "text": "Planning consent for a new exterior duct.",
+          "correct": true,
+          "explain": "外壁の新しいダクトに建築許可が必要です。"
+        },
+        {
+          "text": "Agreement from the upper-floor tenants.",
+          "correct": false,
+          "explain": "上階の同意は述べられていません。"
+        },
+        {
+          "text": "A larger security deposit.",
+          "correct": false,
+          "explain": "敷金の話は出てきません。"
+        },
+        {
+          "text": "Replacement of the building's wiring.",
+          "correct": false,
+          "explain": "配線の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-38",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Interpreters at the hearing were switching every twenty minutes."
+        },
+        {
+          "speaker": "B",
+          "text": "Simultaneous interpreting is exhausting. Accuracy falls off sharply after that."
+        },
+        {
+          "speaker": "A",
+          "text": "I assumed they were simply taking breaks."
+        },
+        {
+          "speaker": "B",
+          "text": "It's a professional standard, not a preference. Fatigue produces omissions people never notice."
+        },
+        {
+          "speaker": "A",
+          "text": "That's an argument for never hiring a single interpreter for a long session."
+        }
+      ],
+      "question": "Why do interpreters switch so often?",
+      "translation": "A：公聴会の通訳者は20分ごとに交代していました。　B：同時通訳は消耗が激しく、それ以降は正確さが急落します。　A：単に休憩を取っているのだと思っていました。　B：好みでなく職業上の基準です。疲労は誰も気づかない訳し落としを生みます。　A：長時間の会に通訳を1人だけ雇うべきでない根拠ですね。（質問：通訳者はなぜ頻繁に交代するのですか）",
+      "choices": [
+        {
+          "text": "Accuracy falls sharply after about twenty minutes.",
+          "correct": true,
+          "explain": "20分を超えると正確さが急落するためです。"
+        },
+        {
+          "text": "They are paid by the session.",
+          "correct": false,
+          "explain": "報酬の話は出てきません。"
+        },
+        {
+          "text": "They specialize in different subjects.",
+          "correct": false,
+          "explain": "専門分野の話はありません。"
+        },
+        {
+          "text": "The hearing rules require it.",
+          "correct": false,
+          "explain": "会の規則ではなく職業基準です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-39",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "Sales of our premium tea fell after we redesigned the packaging."
+        },
+        {
+          "speaker": "B",
+          "text": "Did the redesign change anything besides appearance?"
+        },
+        {
+          "speaker": "A",
+          "text": "The new box is slightly smaller, though the weight inside is identical."
+        },
+        {
+          "speaker": "B",
+          "text": "Customers read size as value. They may believe they're getting less."
+        },
+        {
+          "speaker": "A",
+          "text": "Then printing the weight prominently might undo the damage."
+        }
+      ],
+      "question": "What does the woman suggest is causing the fall?",
+      "translation": "A：包装を刷新したあと高級茶の売上が落ちました。　B：見た目以外に何か変えましたか。　A：箱がわずかに小さくなりましたが、中身の重量は同じです。　B：客は大きさを価値と読みます。減ったと思っているのでしょう。　A：では重量を目立つように印字すれば挽回できるかもしれません。（質問：女性は売上減の原因を何だと考えていますか）",
+      "choices": [
+        {
+          "text": "Customers perceive the smaller box as less product.",
+          "correct": true,
+          "explain": "大きさを価値と読み、減ったと思っていると述べています。"
+        },
+        {
+          "text": "The tea's quality has declined.",
+          "correct": false,
+          "explain": "品質の話は出てきません。"
+        },
+        {
+          "text": "The price was raised at the same time.",
+          "correct": false,
+          "explain": "値上げの話はありません。"
+        },
+        {
+          "text": "The new design is hard to open.",
+          "correct": false,
+          "explain": "開封しやすさの話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-40",
+      "part": "dialogue",
+      "script": [
+        {
+          "speaker": "A",
+          "text": "I'm considering turning down the directorship."
+        },
+        {
+          "speaker": "B",
+          "text": "After campaigning for the reforms for three years?"
+        },
+        {
+          "speaker": "A",
+          "text": "The role comes with no authority over the budget, which is where the reforms live or die."
+        },
+        {
+          "speaker": "B",
+          "text": "Then accept only if they attach budget authority to the position."
+        },
+        {
+          "speaker": "A",
+          "text": "Putting it that way makes the decision far clearer."
+        }
+      ],
+      "question": "Why is the man hesitating?",
+      "translation": "A：所長職を断ろうかと考えています。　B：3年も改革を訴えてきたのに？　A：その職には予算の権限がなく、改革の成否はそこで決まります。　B：ならば予算権限を職に付けることを条件に受けなさい。　A：そう言われると判断がずっと明確になります。（質問：男性はなぜためらっているのですか）",
+      "choices": [
+        {
+          "text": "The position carries no budget authority.",
+          "correct": true,
+          "explain": "予算の権限がない点を理由に挙げています。"
+        },
+        {
+          "text": "He no longer supports the reforms.",
+          "correct": false,
+          "explain": "改革を訴えてきた人物です。"
+        },
+        {
+          "text": "The salary is lower than his current one.",
+          "correct": false,
+          "explain": "給与の話は出てきません。"
+        },
+        {
+          "text": "He would have to relocate.",
+          "correct": false,
+          "explain": "転居の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-41",
+      "part": "passage",
+      "script": "For decades, economists assumed that people given cash assistance would work less. A series of trials across seven countries found no such effect; in most cases recipients worked the same hours or more, having used the money to pay for transport and childcare that had previously kept them out of the labor market.",
+      "question": "What did the trials find?",
+      "translation": "数十年にわたり経済学者は、現金給付を受けた人は働かなくなると考えてきた。7か国での一連の試験ではそうした影響は見られず、多くの場合、受給者は同じか、より長く働いた。それまで就労を妨げていた交通費や保育費に給付金を充てたためである。",
+      "choices": [
+        {
+          "text": "Recipients worked the same hours or more.",
+          "correct": true,
+          "explain": "多くの場合、同じか、より長く働いたとあります。"
+        },
+        {
+          "text": "Recipients reduced their working hours sharply.",
+          "correct": false,
+          "explain": "そうした影響は見られませんでした。"
+        },
+        {
+          "text": "Only families with children benefited.",
+          "correct": false,
+          "explain": "対象を限る記述はありません。"
+        },
+        {
+          "text": "The programs were too costly to continue.",
+          "correct": false,
+          "explain": "費用については述べられていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-42",
+      "part": "passage",
+      "script": "The manuscript had been catalogued as a seventeenth-century copy until a conservator noticed that the parchment carried traces of an earlier text beneath the visible writing. Imaging revealed a legal record two hundred years older, making the sheet itself more valuable than the document written on top of it.",
+      "question": "Why did the manuscript's value change?",
+      "translation": "その写本は17世紀の写しとして目録に載っていたが、保存修復家が羊皮紙の見える文字の下に先行する文の痕跡があることに気づいた。撮影により200年古い法的記録が現れ、上に書かれた文書より紙そのものの価値が高くなった。",
+      "choices": [
+        {
+          "text": "An older text was found beneath the visible writing.",
+          "correct": true,
+          "explain": "下層に200年古い法的記録が見つかったためです。"
+        },
+        {
+          "text": "The copy was proved to be a forgery.",
+          "correct": false,
+          "explain": "偽造の話は出てきません。"
+        },
+        {
+          "text": "The author was finally identified.",
+          "correct": false,
+          "explain": "著者の特定は述べられていません。"
+        },
+        {
+          "text": "It was damaged during imaging.",
+          "correct": false,
+          "explain": "損傷の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-43",
+      "part": "passage",
+      "script": "Ocean currents carry heat from the tropics toward the poles, moderating the climate of northwestern Europe. Measurements taken since 2004 suggest the circulation has weakened slightly, though scientists caution that the record is still too short to separate a long-term trend from natural variation.",
+      "question": "What do scientists caution about the measurements?",
+      "translation": "海流は熱を熱帯から極方向へ運び、北西ヨーロッパの気候を穏やかにしている。2004年以降の観測では循環がわずかに弱まったと示唆されるが、科学者は、長期的傾向と自然変動を切り分けるには記録がまだ短すぎると注意を促す。",
+      "choices": [
+        {
+          "text": "The record is too short to identify a long-term trend.",
+          "correct": true,
+          "explain": "記録がまだ短すぎると注意しています。"
+        },
+        {
+          "text": "The instruments used were inaccurate.",
+          "correct": false,
+          "explain": "機器の精度の話は出てきません。"
+        },
+        {
+          "text": "The circulation has clearly stopped.",
+          "correct": false,
+          "explain": "わずかな弱まりの示唆にとどまります。"
+        },
+        {
+          "text": "Europe's climate has already changed sharply.",
+          "correct": false,
+          "explain": "そのような断定はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-44",
+      "part": "passage",
+      "script": "When a city replaced its traffic signals with roundabouts at twelve intersections, total collisions fell only slightly. Injuries, however, dropped by more than half, because roundabouts eliminate the high-speed side impacts that cause the most serious harm.",
+      "question": "Why did injuries fall so sharply?",
+      "translation": "ある市が12の交差点の信号を環状交差点に替えたところ、衝突の総数はわずかしか減らなかった。しかし負傷は半分以上減った。環状交差点は最も重い被害をもたらす高速の側面衝突をなくすからである。",
+      "choices": [
+        {
+          "text": "High-speed side impacts were eliminated.",
+          "correct": true,
+          "explain": "重大な被害を生む側面衝突がなくなるためです。"
+        },
+        {
+          "text": "The number of collisions fell sharply.",
+          "correct": false,
+          "explain": "衝突の総数はわずかしか減っていません。"
+        },
+        {
+          "text": "Traffic volume decreased.",
+          "correct": false,
+          "explain": "交通量の話は出てきません。"
+        },
+        {
+          "text": "Drivers were required to wear helmets.",
+          "correct": false,
+          "explain": "そのような記述はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-45",
+      "part": "passage",
+      "script": "Early photographers required subjects to sit motionless for several minutes, which is often given as the reason nobody smiles in nineteenth-century portraits. Historians point out, however, that painted portraits of the same era are equally solemn, suggesting the convention was social rather than technical.",
+      "question": "What do historians suggest?",
+      "translation": "初期の写真は被写体に数分の静止を求めたため、19世紀の肖像で誰も微笑まない理由とされることが多い。しかし歴史家は、同時代の絵画の肖像も同様に厳粛であることを指摘し、この慣習は技術的でなく社会的なものだと示唆する。",
+      "choices": [
+        {
+          "text": "The serious expression was a social convention.",
+          "correct": true,
+          "explain": "絵画も同様に厳粛であることから社会的慣習だと示唆しています。"
+        },
+        {
+          "text": "Exposure times were shorter than believed.",
+          "correct": false,
+          "explain": "露光時間の再評価は述べられていません。"
+        },
+        {
+          "text": "Painters copied photographic portraits.",
+          "correct": false,
+          "explain": "模倣の話は出てきません。"
+        },
+        {
+          "text": "People of that era rarely smiled at all.",
+          "correct": false,
+          "explain": "そこまでの主張はしていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-46",
+      "part": "passage",
+      "script": "A company that removed job titles from its recruitment advertisements, describing duties instead, received forty percent more applications from women. The change had no effect on the number of applications from men, suggesting that titles rather than tasks had been discouraging one group.",
+      "question": "What was the effect of removing job titles?",
+      "translation": "求人広告から職名を外し、代わりに職務内容を書いた企業は、女性からの応募が4割増えた。男性の応募数には影響がなく、職務でなく職名が一方の層を遠ざけていたと示唆される。",
+      "choices": [
+        {
+          "text": "Applications from women rose sharply.",
+          "correct": true,
+          "explain": "女性からの応募が4割増えたとあります。"
+        },
+        {
+          "text": "Applications from men fell.",
+          "correct": false,
+          "explain": "男性には影響がありませんでした。"
+        },
+        {
+          "text": "The quality of applicants declined.",
+          "correct": false,
+          "explain": "質の話は出てきません。"
+        },
+        {
+          "text": "Fewer people applied overall.",
+          "correct": false,
+          "explain": "全体では増えています。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-47",
+      "part": "passage",
+      "script": "Antarctic ice cores preserve air bubbles trapped when the snow fell, allowing direct measurement of the atmosphere of the distant past. The deepest usable cores reach back about eight hundred thousand years, beyond which the pressure of the overlying ice deforms the layers and destroys the annual record.",
+      "question": "Why can't older records be obtained from ice cores?",
+      "translation": "南極の氷床コアは降雪時に閉じ込められた気泡を保存し、遠い過去の大気を直接測定できる。利用可能な最も深いコアは約80万年前まで遡るが、それ以前は上層の氷の圧力で層が変形し、年ごとの記録が失われる。",
+      "choices": [
+        {
+          "text": "The pressure of overlying ice destroys the layers.",
+          "correct": true,
+          "explain": "上層の氷の圧力で層が変形し記録が失われるためです。"
+        },
+        {
+          "text": "The air bubbles escape over time.",
+          "correct": false,
+          "explain": "気泡の逃散は述べられていません。"
+        },
+        {
+          "text": "Drilling equipment cannot reach deeper.",
+          "correct": false,
+          "explain": "掘削技術の限界の話はありません。"
+        },
+        {
+          "text": "Antarctic ice is not old enough.",
+          "correct": false,
+          "explain": "80万年前まで遡れます。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-48",
+      "part": "passage",
+      "script": "The restaurant kept its dining room half empty for two years, not from lack of customers but because the owner refused to seat more people than the kitchen could serve well. When a review finally appeared, it praised precisely the unhurried service that the empty tables had made possible.",
+      "question": "Why did the owner limit seating?",
+      "translation": "その店は2年間、客席を半分空けたままにしていた。客が来ないのではなく、厨房が十分に応じられる以上の人数を通すことを店主が拒んだからである。ようやく出た批評は、空席によって可能になったゆとりある接客をこそ称賛した。",
+      "choices": [
+        {
+          "text": "To keep service within the kitchen's capacity.",
+          "correct": true,
+          "explain": "厨房が十分に応じられる人数に抑えるためです。"
+        },
+        {
+          "text": "Because few customers came.",
+          "correct": false,
+          "explain": "客不足ではないと述べています。"
+        },
+        {
+          "text": "To reduce staff costs.",
+          "correct": false,
+          "explain": "人件費の話は出てきません。"
+        },
+        {
+          "text": "Because of building regulations.",
+          "correct": false,
+          "explain": "法規の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-49",
+      "part": "passage",
+      "script": "Bilingual children often reach vocabulary milestones in each language slightly later than their monolingual peers. Measured across both languages together, however, their total vocabulary is equal or larger, a distinction that early studies overlooked and that led to decades of unnecessary concern.",
+      "question": "What did early studies overlook?",
+      "translation": "二言語で育つ子どもは、各言語の語彙の節目に単一言語の子どもよりやや遅れて達することが多い。しかし両言語を合わせて測れば総語彙は同等以上であり、初期の研究はこの区別を見落とし、数十年にわたる不要な懸念を招いた。",
+      "choices": [
+        {
+          "text": "That total vocabulary across both languages is equal or larger.",
+          "correct": true,
+          "explain": "両言語を合わせた総語彙は同等以上である点を見落としました。"
+        },
+        {
+          "text": "That bilingual children speak earlier.",
+          "correct": false,
+          "explain": "早く話すとは述べていません。"
+        },
+        {
+          "text": "That monolingual children learn faster overall.",
+          "correct": false,
+          "explain": "逆の結論です。"
+        },
+        {
+          "text": "That vocabulary size cannot be measured.",
+          "correct": false,
+          "explain": "測定は行われています。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-50",
+      "part": "passage",
+      "script": "The company's safety record improved dramatically after it stopped rewarding departments for reporting no accidents. Managers had been quietly discouraging reports to protect their bonuses; once the incentive was removed, reported incidents rose at first and then fell steadily as real causes were addressed.",
+      "question": "Why did reported incidents rise at first?",
+      "translation": "無事故の報告に対する部署表彰をやめたあと、その会社の安全成績は劇的に改善した。管理職が賞与を守るため報告を内々に抑えていたのである。誘因がなくなると報告件数は当初増え、その後、真の原因が手当てされて着実に減った。",
+      "choices": [
+        {
+          "text": "Managers stopped suppressing reports.",
+          "correct": true,
+          "explain": "報告を抑える誘因がなくなったためです。"
+        },
+        {
+          "text": "The number of real accidents increased.",
+          "correct": false,
+          "explain": "実際の事故が増えたとは述べていません。"
+        },
+        {
+          "text": "New machinery was introduced.",
+          "correct": false,
+          "explain": "設備の話は出てきません。"
+        },
+        {
+          "text": "Inspectors visited more often.",
+          "correct": false,
+          "explain": "検査の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-51",
+      "part": "passage",
+      "script": "Traditional irrigation systems in parts of Oman distribute water by time rather than volume, with each household entitled to the flow for a set number of minutes. Because the channels are open and visible to all, disputes are rare, and the system has operated for over a thousand years without central enforcement.",
+      "question": "Why are disputes rare in this system?",
+      "translation": "オマーンの一部に伝わる灌漑は、水量でなく時間で配分し、各世帯は定められた分数だけ流れを使える。水路が開放されて誰の目にも見えるため争いは少なく、この仕組みは中央の強制なしに千年以上機能してきた。",
+      "choices": [
+        {
+          "text": "The channels are open and visible to everyone.",
+          "correct": true,
+          "explain": "誰の目にも見えるため争いが少ないと述べています。"
+        },
+        {
+          "text": "A central authority enforces the rules.",
+          "correct": false,
+          "explain": "中央の強制なしに機能しています。"
+        },
+        {
+          "text": "Water is abundant in the region.",
+          "correct": false,
+          "explain": "水量の豊富さは述べられていません。"
+        },
+        {
+          "text": "Each household receives the same volume.",
+          "correct": false,
+          "explain": "量でなく時間で配分します。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-52",
+      "part": "passage",
+      "script": "Museums have begun publishing the provenance of their collections online, listing every known owner of each object. The practice was initially resisted as an invitation to legal claims, but institutions that adopted it report that transparency has strengthened rather than weakened their relationships with countries of origin.",
+      "question": "What has publishing provenance achieved?",
+      "translation": "博物館は収蔵品の来歴をオンラインで公開し、各品の既知の所有者をすべて列挙し始めた。当初は法的請求を招くとして抵抗されたが、導入した機関は、透明性が原産国との関係を弱めるどころか強めたと報告している。",
+      "choices": [
+        {
+          "text": "It strengthened relationships with countries of origin.",
+          "correct": true,
+          "explain": "透明性が関係を強めたと報告されています。"
+        },
+        {
+          "text": "It led to a wave of successful lawsuits.",
+          "correct": false,
+          "explain": "訴訟が相次いだとは述べていません。"
+        },
+        {
+          "text": "It reduced the number of visitors.",
+          "correct": false,
+          "explain": "来館者の話は出てきません。"
+        },
+        {
+          "text": "It made cataloguing unnecessary.",
+          "correct": false,
+          "explain": "目録作業の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-53",
+      "part": "passage",
+      "script": "A long-running study of childhood friendships found that the strongest predictor of adult wellbeing was not the number of friends a child had but whether the child had at least one friendship that survived a serious conflict. Learning that a relationship can be repaired appears to matter more than avoiding disagreement.",
+      "question": "What best predicted adult wellbeing?",
+      "translation": "子どもの友人関係を長期に追った研究では、大人になってからの幸福を最もよく予測したのは友人の数ではなく、深刻な対立を乗り越えた友情が一つでもあったかどうかだった。関係は修復できると学ぶことが、不和を避けることより重要らしい。",
+      "choices": [
+        {
+          "text": "Having a friendship that survived serious conflict.",
+          "correct": true,
+          "explain": "対立を乗り越えた友情の有無が最も強い予測因子です。"
+        },
+        {
+          "text": "Having a large number of friends.",
+          "correct": false,
+          "explain": "数ではないと述べています。"
+        },
+        {
+          "text": "Avoiding arguments with friends.",
+          "correct": false,
+          "explain": "不和を避けることではありません。"
+        },
+        {
+          "text": "Keeping the same friends throughout school.",
+          "correct": false,
+          "explain": "継続期間の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-54",
+      "part": "passage",
+      "script": "When a national library digitized its newspaper archive, researchers expected historians to be the main users. In fact, the largest group proved to be people tracing family histories, whose searches revealed errors in the automatic text recognition that the library's own staff had never detected.",
+      "question": "What did the family historians contribute?",
+      "translation": "ある国立図書館が新聞資料を電子化したとき、主な利用者は歴史家だと予想された。実際に最大の層となったのは家系を辿る人々で、その検索が、図書館職員も気づかなかった文字認識の誤りを明らかにした。",
+      "choices": [
+        {
+          "text": "They revealed errors in the text recognition.",
+          "correct": true,
+          "explain": "文字認識の誤りを明らかにしたとあります。"
+        },
+        {
+          "text": "They paid for the digitization project.",
+          "correct": false,
+          "explain": "費用負担の話は出てきません。"
+        },
+        {
+          "text": "They wrote new historical studies.",
+          "correct": false,
+          "explain": "研究の執筆は述べられていません。"
+        },
+        {
+          "text": "They donated original newspapers.",
+          "correct": false,
+          "explain": "寄贈の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-55",
+      "part": "passage",
+      "script": "Coral reefs damaged by bleaching sometimes recover within a decade, but only where fish populations remain healthy. Grazing fish keep algae from covering the dead coral, leaving clean surfaces on which new larvae can settle. Where fishing has removed these species, the reef rarely returns.",
+      "question": "What role do grazing fish play?",
+      "translation": "白化で損なわれたサンゴ礁は10年ほどで回復することがあるが、それは魚の個体群が健全な場所に限られる。藻を食べる魚が死んだサンゴを藻で覆わせず、新しい幼生が定着できる清浄な表面を残すからだ。漁でこれらの種が失われた場所では、礁はほとんど戻らない。",
+      "choices": [
+        {
+          "text": "They keep algae from covering surfaces where larvae settle.",
+          "correct": true,
+          "explain": "藻の繁茂を防ぎ幼生の定着面を保つと述べています。"
+        },
+        {
+          "text": "They carry coral larvae to new areas.",
+          "correct": false,
+          "explain": "運搬の話は出てきません。"
+        },
+        {
+          "text": "They provide nutrients to the coral.",
+          "correct": false,
+          "explain": "栄養供給は述べられていません。"
+        },
+        {
+          "text": "They protect the reef from storms.",
+          "correct": false,
+          "explain": "嵐の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-56",
+      "part": "passage",
+      "script": "The invention of cheap window glass changed domestic architecture more than any decorative fashion. Once rooms could be lit without opening the wall to weather, houses grew deeper, corridors became practical, and the single multipurpose hall gave way to the specialized rooms we now take for granted.",
+      "question": "What did cheap window glass make possible?",
+      "translation": "安価な板ガラスの発明は、どんな装飾の流行よりも住宅建築を変えた。壁を外気に開かずに部屋を明るくできるようになると、住宅は奥行きを増し、廊下が実用的になり、多目的の広間は今日当たり前の専用室へと道を譲った。",
+      "choices": [
+        {
+          "text": "Deeper houses with specialized rooms.",
+          "correct": true,
+          "explain": "奥行きのある住宅と専用室が可能になったとあります。"
+        },
+        {
+          "text": "Cheaper building materials overall.",
+          "correct": false,
+          "explain": "資材全体の価格の話は出てきません。"
+        },
+        {
+          "text": "The end of decorative architecture.",
+          "correct": false,
+          "explain": "装飾の終焉は述べられていません。"
+        },
+        {
+          "text": "Larger multipurpose halls.",
+          "correct": false,
+          "explain": "広間は専用室に置き換わりました。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-57",
+      "part": "passage",
+      "script": "Volunteers who were told their work saved the charity money reported lower satisfaction than those told it helped a specific family. The finding troubles fundraisers, since the financial framing is accurate and the personal one, while true, describes only a fraction of what the organization does.",
+      "question": "Why does the finding trouble fundraisers?",
+      "translation": "自分の働きが団体の経費を節約したと告げられたボランティアは、特定の家族を助けたと告げられた人より満足度が低かった。この結果は資金調達担当を悩ませる。財務的な説明は正確であり、個人に即した説明は真実ではあっても組織の働きのごく一部しか表さないからだ。",
+      "choices": [
+        {
+          "text": "The more motivating framing describes only part of the work.",
+          "correct": true,
+          "explain": "個人的な説明は組織の働きの一部しか表さないためです。"
+        },
+        {
+          "text": "Volunteers refuse to accept financial explanations.",
+          "correct": false,
+          "explain": "拒否したとは述べていません。"
+        },
+        {
+          "text": "The financial framing is inaccurate.",
+          "correct": false,
+          "explain": "正確だと述べています。"
+        },
+        {
+          "text": "Satisfaction has no effect on volunteering.",
+          "correct": false,
+          "explain": "そのような主張はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-58",
+      "part": "passage",
+      "script": "Standard economic models treat time spent commuting as a cost that workers accept in exchange for cheaper housing. Surveys of actual behavior show that people consistently underestimate how much a long commute will reduce their happiness, and that those who move closer to work rarely regret it.",
+      "question": "What do surveys of behavior show?",
+      "translation": "標準的な経済モデルは通勤時間を、安い住居と引き換えに労働者が受け入れる費用とみなす。実際の行動調査によれば、人は長い通勤が幸福をどれだけ損なうかを一貫して過小評価しており、職場の近くに移った人が後悔することはまれである。",
+      "choices": [
+        {
+          "text": "People underestimate the cost of a long commute.",
+          "correct": true,
+          "explain": "通勤が幸福を損なう度合いを過小評価すると述べています。"
+        },
+        {
+          "text": "Cheaper housing always outweighs commuting time.",
+          "correct": false,
+          "explain": "逆の結論です。"
+        },
+        {
+          "text": "Most people prefer to live far from work.",
+          "correct": false,
+          "explain": "そのような記述はありません。"
+        },
+        {
+          "text": "Commuting has no measurable effect on happiness.",
+          "correct": false,
+          "explain": "幸福を損なうと述べています。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-59",
+      "part": "passage",
+      "script": "A drug developed to treat high blood pressure proved disappointing in trials but produced an unexpected side effect that made it commercially successful for an entirely different purpose. Cases like this have led some companies to keep failed compounds rather than abandon them, on the theory that a molecule's usefulness may not be known for years.",
+      "question": "Why do some companies keep failed compounds?",
+      "translation": "高血圧の治療薬として開発された化合物は試験で期待外れだったが、予想外の副作用により全く別の用途で商業的成功を収めた。こうした例から、化合物の有用性は何年も分からないことがあるという考えに立ち、失敗した化合物を捨てずに保持する企業もある。",
+      "choices": [
+        {
+          "text": "A compound's usefulness may emerge years later.",
+          "correct": true,
+          "explain": "有用性が何年も後に分かることがあるためです。"
+        },
+        {
+          "text": "Disposal of chemicals is expensive.",
+          "correct": false,
+          "explain": "廃棄費用の話は出てきません。"
+        },
+        {
+          "text": "Regulators require them to be stored.",
+          "correct": false,
+          "explain": "規制の話はありません。"
+        },
+        {
+          "text": "Failed drugs can be sold to competitors.",
+          "correct": false,
+          "explain": "売却の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-60",
+      "part": "passage",
+      "script": "Translators of poetry face a choice that has no correct answer: preserve the literal meaning and lose the music, or reproduce the rhythm and rhyme at the cost of precision. Many now publish both versions side by side, treating the gap between them as information the reader deserves.",
+      "question": "How do many translators now handle the problem?",
+      "translation": "詩の翻訳者は正解のない選択に直面する。字義を保って響きを失うか、韻律を再現して正確さを犠牲にするかである。今では両方の訳を並べて出し、その差自体を読者が知るべき情報として扱う者が多い。",
+      "choices": [
+        {
+          "text": "They publish both versions side by side.",
+          "correct": true,
+          "explain": "両方を並べて出す方法が述べられています。"
+        },
+        {
+          "text": "They always prioritize the literal meaning.",
+          "correct": false,
+          "explain": "どちらか一方を常に優先するとは述べていません。"
+        },
+        {
+          "text": "They avoid translating poetry altogether.",
+          "correct": false,
+          "explain": "翻訳をやめるとは述べていません。"
+        },
+        {
+          "text": "They ask the poet to rewrite the work.",
+          "correct": false,
+          "explain": "原作者への依頼は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-61",
+      "part": "passage",
+      "script": "After a major storm, the town discovered that its emergency plan assumed telephone networks would remain operational. They did not. The revised plan now designates six physical locations where residents can go for information, chosen because they are reachable on foot from every neighborhood.",
+      "question": "What was the flaw in the original plan?",
+      "translation": "大きな嵐のあと、町は防災計画が電話網の維持を前提としていたことに気づいた。実際には維持されなかった。改訂された計画では、住民が情報を得られる物理的な場所を6か所指定した。どの地区からも徒歩で行ける点が選定理由である。",
+      "choices": [
+        {
+          "text": "It assumed telephone networks would keep working.",
+          "correct": true,
+          "explain": "電話網の維持を前提としていた点が欠陥でした。"
+        },
+        {
+          "text": "It did not include evacuation routes.",
+          "correct": false,
+          "explain": "避難路の話は出てきません。"
+        },
+        {
+          "text": "It relied on volunteers who were unavailable.",
+          "correct": false,
+          "explain": "人員の話はありません。"
+        },
+        {
+          "text": "It was written in only one language.",
+          "correct": false,
+          "explain": "言語の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-62",
+      "part": "passage",
+      "script": "Wild plants domesticated by humans tend to share certain traits: seeds that stay attached to the stalk, uniform ripening, and reduced natural defenses. These features make a plant easy to harvest but helpless without cultivation, which is why abandoned fields of wheat disappear within a few seasons.",
+      "question": "Why does cultivated wheat disappear without farming?",
+      "translation": "人が栽培化した野生植物は、穂から落ちにくい種子、そろった成熟、弱まった自然の防御といった特徴を共有する傾向がある。これらは収穫を容易にする一方で、栽培なしでは生き残れない性質であり、放棄された小麦畑が数季で消えるのはそのためである。",
+      "choices": [
+        {
+          "text": "Domestication removed the traits needed to survive alone.",
+          "correct": true,
+          "explain": "栽培化の特徴が栽培なしでは生き残れない性質だからです。"
+        },
+        {
+          "text": "Wild plants take over the fields immediately.",
+          "correct": false,
+          "explain": "競合の話は出てきません。"
+        },
+        {
+          "text": "The soil becomes exhausted.",
+          "correct": false,
+          "explain": "土壌の話はありません。"
+        },
+        {
+          "text": "Harvesting machinery damages the seeds.",
+          "correct": false,
+          "explain": "機械の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-63",
+      "part": "passage",
+      "script": "Please note that this lecture will be recorded. Students who prefer not to appear in the recording may sit in the two rear rows, which are outside the camera's field of view. Questions asked from anywhere in the room, however, will be captured on the audio track.",
+      "question": "What will still be recorded for students in the rear rows?",
+      "translation": "この講義は録画されます。映像に写りたくない学生は、カメラの画角外にある後方2列にお座りください。ただし、室内のどこからの質問も音声には収録されます。",
+      "choices": [
+        {
+          "text": "Their questions on the audio track.",
+          "correct": true,
+          "explain": "どこからの質問も音声に収録されると述べています。"
+        },
+        {
+          "text": "Their faces on the video.",
+          "correct": false,
+          "explain": "後方2列は画角外です。"
+        },
+        {
+          "text": "Nothing at all.",
+          "correct": false,
+          "explain": "音声は収録されます。"
+        },
+        {
+          "text": "Only their names.",
+          "correct": false,
+          "explain": "氏名の記録は述べられていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-64",
+      "part": "passage",
+      "script": "An architect who designs hospitals argues that the most important decision in any ward is the position of the staff base. Placing it where nurses can see every bed without walking reduces response times more reliably than any increase in staffing, and costs nothing once the building exists.",
+      "question": "What does the architect emphasize?",
+      "translation": "病院を設計するある建築家は、病棟で最も重要な決定はスタッフ拠点の位置だと論じる。歩かずに全ての病床を見渡せる位置に置けば、増員よりも確実に対応時間が短縮され、建物ができてしまえば費用もかからない。",
+      "choices": [
+        {
+          "text": "The position of the staff base matters most.",
+          "correct": true,
+          "explain": "スタッフ拠点の位置が最も重要だと論じています。"
+        },
+        {
+          "text": "Hiring more nurses is the best solution.",
+          "correct": false,
+          "explain": "増員より確実だと述べています。"
+        },
+        {
+          "text": "Wards should have fewer beds.",
+          "correct": false,
+          "explain": "病床数の話は出てきません。"
+        },
+        {
+          "text": "New buildings are always better.",
+          "correct": false,
+          "explain": "新築の是非は述べられていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-65",
+      "part": "passage",
+      "script": "For a century the standard treatment for a certain childhood fever was complete isolation. A review of hospital records from the period showed that the children who recovered fastest were those whose families ignored the rule and visited daily, though nobody at the time drew the connection.",
+      "question": "What did the review of records reveal?",
+      "translation": "ある小児の熱病に対する標準的治療は、1世紀にわたり完全隔離だった。当時の病院記録を精査すると、最も早く回復した子どもは、規則を無視して家族が毎日面会した子どもたちだった。当時は誰もその関連に気づかなかった。",
+      "choices": [
+        {
+          "text": "Children visited daily by families recovered fastest.",
+          "correct": true,
+          "explain": "家族が毎日面会した子どもが最も早く回復したとあります。"
+        },
+        {
+          "text": "Isolation was the most effective treatment.",
+          "correct": false,
+          "explain": "逆の結果が示されています。"
+        },
+        {
+          "text": "The fever was not contagious at all.",
+          "correct": false,
+          "explain": "感染性については述べられていません。"
+        },
+        {
+          "text": "Doctors noticed the pattern immediately.",
+          "correct": false,
+          "explain": "当時は誰も気づきませんでした。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-66",
+      "part": "passage",
+      "script": "Cities that have introduced separated bicycle lanes report an increase in cycling among women and older riders, groups that had previously been largely absent. Painted lanes without physical separation produce almost no such effect, suggesting that perceived safety, not convenience, governs the decision to cycle.",
+      "question": "What determines whether these groups cycle?",
+      "translation": "物理的に分離された自転車レーンを導入した都市では、これまでほとんど見られなかった女性や高齢の利用者の自転車利用が増えたと報告される。分離のない塗装だけのレーンではほとんど効果がなく、利用の判断を左右するのは利便性でなく体感される安全性だと示唆される。",
+      "choices": [
+        {
+          "text": "Perceived safety rather than convenience.",
+          "correct": true,
+          "explain": "体感される安全性が判断を左右すると示唆されています。"
+        },
+        {
+          "text": "The distance to their destination.",
+          "correct": false,
+          "explain": "距離の話は出てきません。"
+        },
+        {
+          "text": "The cost of owning a bicycle.",
+          "correct": false,
+          "explain": "費用の話はありません。"
+        },
+        {
+          "text": "The availability of parking.",
+          "correct": false,
+          "explain": "駐輪の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-67",
+      "part": "passage",
+      "script": "A brewery that had discarded its spent grain for decades now sells it to a bakery, which mills it into flour. The arrangement earns the brewery little money, but it removed the disposal costs that had quietly grown into one of its largest expenses.",
+      "question": "What was the main benefit to the brewery?",
+      "translation": "何十年も使用済み麦芽を捨ててきた醸造所は、今ではそれを製粉する製パン業者に販売している。得られる収入はわずかだが、いつの間にか最大級の支出となっていた廃棄費用がなくなった。",
+      "choices": [
+        {
+          "text": "It eliminated large disposal costs.",
+          "correct": true,
+          "explain": "最大級の支出だった廃棄費用がなくなったとあります。"
+        },
+        {
+          "text": "It earned substantial new revenue.",
+          "correct": false,
+          "explain": "収入はわずかです。"
+        },
+        {
+          "text": "It improved the taste of its beer.",
+          "correct": false,
+          "explain": "味の話は出てきません。"
+        },
+        {
+          "text": "It allowed the brewery to expand.",
+          "correct": false,
+          "explain": "拡張の話はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-68",
+      "part": "passage",
+      "script": "The committee reviewing the school curriculum found that every subject had added material over thirty years and none had removed any. Teachers were covering twice the content in the same hours, which explained complaints about superficial learning far better than any theory about attention spans.",
+      "question": "What explained the superficial learning?",
+      "translation": "学校の教育課程を検証した委員会は、30年の間にどの教科も内容を追加し、どの教科も削減していないことを見いだした。教員は同じ時間で倍の内容を扱っており、これが表面的な学びへの不満を、集中力に関するどんな理論よりよく説明した。",
+      "choices": [
+        {
+          "text": "Content had been added but never removed.",
+          "correct": true,
+          "explain": "追加ばかりで削減がなかったためです。"
+        },
+        {
+          "text": "Students' attention spans have shortened.",
+          "correct": false,
+          "explain": "その理論よりよく説明されると述べています。"
+        },
+        {
+          "text": "Teachers were poorly trained.",
+          "correct": false,
+          "explain": "教員の資質の話は出てきません。"
+        },
+        {
+          "text": "School hours were reduced.",
+          "correct": false,
+          "explain": "時間は同じです。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-69",
+      "part": "passage",
+      "script": "Visitors to the wetland reserve are asked to walk only on the raised boardwalk. The peat below stores carbon accumulated over eight thousand years, and compression by footsteps allows air into the soil, releasing in a single season what took centuries to lock away.",
+      "question": "Why must visitors stay on the boardwalk?",
+      "translation": "湿地保護区の来訪者は、高架の木道のみを歩くよう求められる。下の泥炭は8千年かけて蓄えた炭素を保持しており、踏圧で空気が土中に入ると、数百年かけて閉じ込めたものが一季で放出されるからである。",
+      "choices": [
+        {
+          "text": "Footsteps let air into the peat and release stored carbon.",
+          "correct": true,
+          "explain": "踏圧で空気が入り炭素が放出されるためです。"
+        },
+        {
+          "text": "The ground is dangerous to walk on.",
+          "correct": false,
+          "explain": "危険性の話は出てきません。"
+        },
+        {
+          "text": "Rare birds nest on the paths.",
+          "correct": false,
+          "explain": "営巣の話はありません。"
+        },
+        {
+          "text": "The boardwalk offers the best views.",
+          "correct": false,
+          "explain": "眺望の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-70",
+      "part": "passage",
+      "script": "When a shipping company began publishing the arrival times its vessels actually achieved rather than those it promised, bookings fell for three months and then rose above the previous level. Customers who could plan around honest estimates proved more loyal than those repeatedly disappointed by optimistic ones.",
+      "question": "What was the long-term effect of publishing actual times?",
+      "translation": "ある海運会社が、約束した到着時刻でなく実際に達成した時刻を公表し始めると、予約は3か月落ち込み、その後は従来を上回った。正直な見積もりをもとに計画できる顧客は、楽観的な予定に繰り返し裏切られる顧客より忠実だった。",
+      "choices": [
+        {
+          "text": "Bookings eventually exceeded the previous level.",
+          "correct": true,
+          "explain": "3か月の落ち込みののち従来を上回ったとあります。"
+        },
+        {
+          "text": "Bookings never recovered.",
+          "correct": false,
+          "explain": "回復して上回りました。"
+        },
+        {
+          "text": "Vessels began arriving on time.",
+          "correct": false,
+          "explain": "運航の改善は述べられていません。"
+        },
+        {
+          "text": "The company raised its prices.",
+          "correct": false,
+          "explain": "価格の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-71",
+      "part": "reallife",
+      "situation": "You are at the airport. Your connecting flight leaves in 70 minutes, and you have one checked bag. You hear the following announcement.",
+      "script": "Passengers transferring to international departures: the automated baggage transfer is currently out of service. If your connection is within ninety minutes, please collect your bag at carousel four and re-check it at the transfer desk on level two. Connections beyond ninety minutes will be handled by staff without any action on your part.",
+      "question": "What should you do?",
+      "translation": "（状況）空港にいます。乗り継ぎ便は70分後で、預け入れ荷物が1個あります。（放送）国際線へ乗り継ぐお客様へ。自動手荷物搬送が現在停止しています。乗り継ぎまで90分以内の方は、4番ターンテーブルで荷物をお受け取りのうえ、2階の乗り継ぎカウンターで再度お預けください。90分を超える方は係員が対応しますのでお手続きは不要です。",
+      "choices": [
+        {
+          "text": "Collect your bag at carousel four and re-check it on level two.",
+          "correct": true,
+          "explain": "乗り継ぎまで70分は90分以内なので、自分で受け取って再度預けます。"
+        },
+        {
+          "text": "Wait at the gate; staff will transfer the bag.",
+          "correct": false,
+          "explain": "係員対応は90分を超える場合です。"
+        },
+        {
+          "text": "Go directly to the transfer desk without your bag.",
+          "correct": false,
+          "explain": "まず荷物を受け取る必要があります。"
+        },
+        {
+          "text": "Report the bag as lost at carousel four.",
+          "correct": false,
+          "explain": "紛失の手続きではありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-72",
+      "part": "reallife",
+      "situation": "You want to renew your library membership. You are a resident of the city but your card expired eight months ago. You call the library and hear this message.",
+      "script": "To renew a membership, press one. Cards that expired less than six months ago can be renewed by phone. Cards expired longer than that require a visit to any branch with proof of address, since the record is removed from the active system. Residents may also apply online for a new card, which arrives by post within ten days.",
+      "question": "What can you do?",
+      "translation": "（状況）図書館の会員証を更新したい。市内在住だが、有効期限が8か月前に切れている。（音声）更新は1を押してください。期限切れから6か月未満のカードは電話で更新できます。それ以上経過した場合は記録が有効な登録から外れるため、住所を証明する書類を持って支店へお越しください。市内在住の方はオンラインで新規申請もでき、10日以内に郵送されます。",
+      "choices": [
+        {
+          "text": "Visit a branch with proof of address, or apply online for a new card.",
+          "correct": true,
+          "explain": "8か月経過しているため電話更新はできず、来館か新規オンライン申請になります。"
+        },
+        {
+          "text": "Renew the membership by phone right now.",
+          "correct": false,
+          "explain": "電話更新は6か月未満のみです。"
+        },
+        {
+          "text": "Wait until the record is restored automatically.",
+          "correct": false,
+          "explain": "自動復活の案内はありません。"
+        },
+        {
+          "text": "Ask the library to post a renewal form.",
+          "correct": false,
+          "explain": "用紙の郵送は案内されていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-73",
+      "part": "reallife",
+      "situation": "You are a parent. Your daughter has a mild fever of 37.6 degrees but no other symptoms. You listen to the school's recorded guidance.",
+      "script": "Children with a temperature of 37.5 degrees or higher should remain at home until they have been free of fever for twenty-four hours without medication. If the only symptom is a mild temperature, a doctor's note is not required, but please report the absence through the school application by eight in the morning. Notes are required only after three consecutive days.",
+      "question": "What should you do this morning?",
+      "translation": "（状況）保護者です。娘は37.6度の微熱があるが他の症状はない。（音声）37.5度以上のお子さまは、薬を使わず24時間熱がない状態になるまで自宅で休ませてください。微熱のみの場合、診断書は不要ですが、朝8時までに学校アプリで欠席をご連絡ください。診断書は3日続けて欠席した場合にのみ必要です。",
+      "choices": [
+        {
+          "text": "Keep her home and report the absence through the app by eight.",
+          "correct": true,
+          "explain": "37.5度以上なので休ませ、8時までにアプリで連絡します。"
+        },
+        {
+          "text": "Send her to school since she has no other symptoms.",
+          "correct": false,
+          "explain": "37.5度以上は自宅待機です。"
+        },
+        {
+          "text": "Take her to a doctor for a note before school.",
+          "correct": false,
+          "explain": "微熱のみなら診断書は不要です。"
+        },
+        {
+          "text": "Wait three days before contacting the school.",
+          "correct": false,
+          "explain": "連絡は当日8時までです。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-74",
+      "part": "reallife",
+      "situation": "You are staying at a hotel. You need to leave at five in the morning, before the front desk opens. You hear this explanation from the staff.",
+      "script": "Our desk is staffed from six until midnight. Guests departing earlier may use the express check-out envelope in the room: place the key card inside and drop it in the box by the main door. Guests who require a printed receipt should request one the previous evening, as the machine at the desk cannot be operated without staff.",
+      "question": "What should you do the night before?",
+      "translation": "（状況）ホテル滞在中。フロントが開く前の午前5時に出発する必要がある。（説明）受付は6時から24時までです。それより早くご出発のお客様は、室内のエクスプレスチェックアウト用封筒にカードキーを入れ、正面入口横の箱へお入れください。印刷された領収書が必要なお客様は、機械が職員なしでは操作できないため、前夜にお申し出ください。",
+      "choices": [
+        {
+          "text": "Ask for a printed receipt in the evening.",
+          "correct": true,
+          "explain": "領収書は前夜に依頼する必要があります。"
+        },
+        {
+          "text": "Leave the key card at the front desk at five.",
+          "correct": false,
+          "explain": "5時には受付が開いていません。"
+        },
+        {
+          "text": "Call the desk from your room at five.",
+          "correct": false,
+          "explain": "5時は受付時間外です。"
+        },
+        {
+          "text": "Take the key card home and post it later.",
+          "correct": false,
+          "explain": "箱に入れるよう案内されています。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-75",
+      "part": "reallife",
+      "situation": "You are a student who missed the midterm examination because of illness. You have a doctor's note. You hear the instructor's announcement.",
+      "script": "Students who missed the midterm must complete the make-up form within five working days. Those with medical documentation sit an equivalent paper in the final week. Those without documentation may instead have the midterm weight transferred to the final examination, but that option must be chosen at the time of application and cannot be changed afterwards.",
+      "question": "What applies to you?",
+      "translation": "（状況）病気で中間試験を欠席した学生。診断書がある。（連絡）中間試験を欠席した学生は5営業日以内に追試願を提出してください。医療機関の書類がある場合は最終週に同等の試験を受けます。書類がない場合は中間の配点を期末試験に移す選択もできますが、申請時に選ぶ必要があり、後から変更はできません。",
+      "choices": [
+        {
+          "text": "Submit the form within five working days and sit a make-up paper.",
+          "correct": true,
+          "explain": "診断書があるので、5営業日以内に申請し最終週に追試を受けます。"
+        },
+        {
+          "text": "Have the midterm weight moved to the final examination.",
+          "correct": false,
+          "explain": "それは書類がない場合の選択肢です。"
+        },
+        {
+          "text": "Do nothing, since illness is automatically excused.",
+          "correct": false,
+          "explain": "申請が必要です。"
+        },
+        {
+          "text": "Retake the midterm with the next year's class.",
+          "correct": false,
+          "explain": "そのような案内はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-76",
+      "part": "reallife",
+      "situation": "You are at a train station. You hold a reserved seat ticket for the 14:10 express, which has been cancelled. You hear this announcement.",
+      "script": "The 14:10 express has been cancelled due to equipment failure. Holders of reserved tickets may take any later express without additional charge by presenting their ticket to the conductor. Passengers who prefer a refund must apply at the ticket office before boarding any other train; once you board, the refund option is no longer available.",
+      "question": "What must you decide before boarding?",
+      "translation": "（状況）駅にいます。14時10分発の特急の指定席券を持っているが、運休となった。（放送）14時10分発の特急は機器故障のため運休です。指定席券をお持ちの方は、車掌に券をお見せいただければ追加料金なしで後続の特急にご乗車いただけます。払い戻しをご希望の方は、他の列車にご乗車になる前に窓口へお申し出ください。ご乗車後は払い戻しをお選びいただけません。",
+      "choices": [
+        {
+          "text": "Whether to claim a refund, since boarding ends that option.",
+          "correct": true,
+          "explain": "乗車すると払い戻しができなくなるため、乗る前に決める必要があります。"
+        },
+        {
+          "text": "Which seat number to request from the conductor.",
+          "correct": false,
+          "explain": "座席番号の指定は案内されていません。"
+        },
+        {
+          "text": "Whether to pay an additional charge.",
+          "correct": false,
+          "explain": "追加料金は不要です。"
+        },
+        {
+          "text": "Whether to exchange the ticket for a different date.",
+          "correct": false,
+          "explain": "日付変更の案内はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-77",
+      "part": "reallife",
+      "situation": "You run a small shop. You want to accept a new electronic payment service. You listen to the provider's guidance.",
+      "script": "Businesses with annual sales under thirty million yen qualify for the reduced transaction rate, which requires submitting last year's tax return. Applications without the tax return are processed at the standard rate and cannot be adjusted retroactively. Terminals are shipped within a week of approval, and the first month's fee is waived for applications submitted before the end of March.",
+      "question": "What should you do to get the reduced rate?",
+      "translation": "（状況）小さな店を経営しており、新しい電子決済を導入したい。（案内）年商3千万円未満の事業者は低い手数料率の対象となり、前年の確定申告書の提出が必要です。申告書のない申請は標準料率で処理され、遡って変更はできません。端末は承認から1週間以内に発送され、3月末までの申請は初月の手数料が免除されます。",
+      "choices": [
+        {
+          "text": "Submit last year's tax return with the application.",
+          "correct": true,
+          "explain": "低い手数料率には前年の確定申告書の提出が必要です。"
+        },
+        {
+          "text": "Apply first and send the tax return later.",
+          "correct": false,
+          "explain": "遡っての変更はできません。"
+        },
+        {
+          "text": "Wait until after March to apply.",
+          "correct": false,
+          "explain": "3月末までのほうが有利です。"
+        },
+        {
+          "text": "Request the terminal before applying.",
+          "correct": false,
+          "explain": "端末は承認後に発送されます。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-78",
+      "part": "reallife",
+      "situation": "You are visiting a national park. You plan a day hike and will return before dark. You hear the ranger's briefing.",
+      "script": "All visitors entering beyond the second gate must sign the register at the trailhead. Those staying overnight additionally require a permit obtained at the visitor center. Day visitors do not need a permit, but must sign out on return; the register is checked at seven each evening and unreturned names trigger a search at our own considerable cost.",
+      "question": "What are you required to do?",
+      "translation": "（状況）国立公園を訪れ、日帰りで日没前に戻る予定。（説明）第二ゲートより先に入る方は全員、登山口の記帳簿に記入してください。宿泊する方はさらにビジターセンターで許可証が必要です。日帰りの方に許可証は不要ですが、戻ったら退出の記帳をしてください。記帳簿は毎晩7時に確認され、未記帳の氏名は当方の多大な費用で捜索が開始されます。",
+      "choices": [
+        {
+          "text": "Sign the register on entry and sign out on your return.",
+          "correct": true,
+          "explain": "日帰りでも入退の記帳が必要です。"
+        },
+        {
+          "text": "Obtain a permit at the visitor center.",
+          "correct": false,
+          "explain": "許可証は宿泊者のみです。"
+        },
+        {
+          "text": "Report to the ranger by seven in the evening in person.",
+          "correct": false,
+          "explain": "記帳で足ります。"
+        },
+        {
+          "text": "Nothing, since you are not staying overnight.",
+          "correct": false,
+          "explain": "記帳は必要です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-79",
+      "part": "reallife",
+      "situation": "You have received a package that was damaged in transit. You paid by credit card and kept the box. You listen to the company's guidance.",
+      "script": "For damaged deliveries, photograph the item and the outer packaging before disposing of anything, then submit the claim form within seven days. Claims filed after seven days, or without images of the outer box, are limited to a partial refund. Replacement items ship within three days of a complete claim, and you need not return the damaged goods.",
+      "question": "What will get you a full remedy?",
+      "translation": "（状況）配送中に破損した荷物が届いた。クレジットカードで支払い、箱は保管している。（案内）配送破損の場合は、何も処分する前に商品と外装を撮影し、7日以内に申請書を提出してください。7日を過ぎた申請、または外装の画像がない申請は一部返金に限られます。申請が完備していれば3日以内に代替品を発送し、破損品の返送は不要です。",
+      "choices": [
+        {
+          "text": "Submitting photos of the item and box within seven days.",
+          "correct": true,
+          "explain": "7日以内に商品と外装の画像を添えて申請すれば完全な対応が受けられます。"
+        },
+        {
+          "text": "Returning the damaged goods immediately.",
+          "correct": false,
+          "explain": "返送は不要です。"
+        },
+        {
+          "text": "Disposing of the box and photographing the item only.",
+          "correct": false,
+          "explain": "外装の画像がないと一部返金に限られます。"
+        },
+        {
+          "text": "Contacting your credit card company first.",
+          "correct": false,
+          "explain": "カード会社への連絡は案内されていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-80",
+      "part": "reallife",
+      "situation": "You are an employee. You want to take three consecutive weeks of leave in August. You hear the personnel officer's explanation.",
+      "script": "Leave of up to ten consecutive working days may be approved by your immediate supervisor. Longer periods require approval from the division head, submitted at least two months in advance with a coverage plan naming the colleague who will handle your duties. Requests made with less notice are considered only when an emergency is documented.",
+      "question": "What do you need for your request?",
+      "translation": "（状況）従業員です。8月に3週間続けて休暇を取りたい。（説明）連続10営業日までの休暇は直属の上司が承認できます。それより長い場合は、業務を引き継ぐ同僚を明記した代替計画を添え、2か月以上前に提出して部門長の承認が必要です。それより短い予告での申請は、緊急事態が書面で示された場合にのみ検討されます。",
+      "choices": [
+        {
+          "text": "Division head approval, two months' notice, and a coverage plan.",
+          "correct": true,
+          "explain": "10営業日を超えるため、部門長承認・2か月前提出・代替計画が必要です。"
+        },
+        {
+          "text": "Only your immediate supervisor's approval.",
+          "correct": false,
+          "explain": "それは10営業日までの場合です。"
+        },
+        {
+          "text": "Documentation of an emergency.",
+          "correct": false,
+          "explain": "緊急事態の書面は予告が短い場合です。"
+        },
+        {
+          "text": "A medical certificate from your doctor.",
+          "correct": false,
+          "explain": "診断書の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-81",
+      "part": "reallife",
+      "situation": "You are at a museum with a child aged six. You want to see the special exhibition this afternoon. You hear this announcement.",
+      "script": "The special exhibition requires a timed ticket. Afternoon slots are sold out, but visitors with children under seven may join the family viewing at four o'clock, for which tickets are released at two at the information desk. The permanent galleries need no reservation and remain open until six.",
+      "question": "How can you see the special exhibition today?",
+      "translation": "（状況）6歳の子どもと博物館にいます。今日の午後に特別展を見たい。（放送）特別展は時間指定券が必要です。午後の枠は完売していますが、7歳未満のお子さま連れの方は4時の家族向け観覧にご参加いただけます。その券は2時に案内所で配布します。常設展示は予約不要で、6時まで開いています。",
+      "choices": [
+        {
+          "text": "Get a family viewing ticket released at two.",
+          "correct": true,
+          "explain": "6歳の子ども連れなので、2時配布の4時の家族向け観覧券が使えます。"
+        },
+        {
+          "text": "Buy an afternoon timed ticket at the entrance.",
+          "correct": false,
+          "explain": "午後の枠は完売です。"
+        },
+        {
+          "text": "Visit the permanent galleries instead.",
+          "correct": false,
+          "explain": "特別展を見る方法を尋ねています。"
+        },
+        {
+          "text": "Return before six without a ticket.",
+          "correct": false,
+          "explain": "特別展には時間指定券が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-82",
+      "part": "reallife",
+      "situation": "You are moving out of your rented apartment next month. You have lived there for four years and have a pet. You listen to the agent's explanation.",
+      "script": "Tenants must give thirty days' written notice. The standard cleaning fee is deducted from the deposit, but tenants who kept animals pay an additional charge unless they provide a receipt for professional cleaning carried out within a week of moving out. Wear from ordinary use over three years or more is not charged to the tenant.",
+      "question": "How can you avoid the extra charge?",
+      "translation": "（状況）来月、賃貸住宅を退去します。4年住み、ペットを飼っていた。（説明）入居者は30日前に書面で通知してください。標準の清掃費は敷金から差し引かれますが、動物を飼っていた方は、退去後1週間以内の専門業者による清掃の領収書を提出しない限り追加料金がかかります。3年以上の通常使用による損耗は入居者に請求しません。",
+      "choices": [
+        {
+          "text": "Provide a receipt for professional cleaning done within a week.",
+          "correct": true,
+          "explain": "1週間以内の専門清掃の領収書で追加料金を避けられます。"
+        },
+        {
+          "text": "Give sixty days' written notice.",
+          "correct": false,
+          "explain": "通知は30日前です。"
+        },
+        {
+          "text": "Clean the apartment yourself before leaving.",
+          "correct": false,
+          "explain": "専門業者の領収書が必要です。"
+        },
+        {
+          "text": "Pay the standard cleaning fee in cash.",
+          "correct": false,
+          "explain": "標準清掃費は敷金から差し引かれます。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-83",
+      "part": "reallife",
+      "situation": "You are a graduate student applying for a conference travel grant. Your paper has been accepted but you are not the presenting author. You hear the guidance.",
+      "script": "Travel grants are available to students whose papers have been accepted. Presenting authors receive full funding. Co-authors who are not presenting may apply for partial funding, which covers registration but not accommodation, and must submit a letter from their supervisor explaining the value of attending.",
+      "question": "What can you apply for?",
+      "translation": "（状況）大学院生で、学会の旅費助成に応募したい。論文は採択されたが発表者ではない。（案内）旅費助成は論文が採択された学生が対象です。発表者は全額支給を受けます。発表しない共著者は部分支給に応募でき、参加登録費は対象ですが宿泊費は対象外で、参加の意義を説明する指導教員の書面が必要です。",
+      "choices": [
+        {
+          "text": "Partial funding, with a supervisor's letter.",
+          "correct": true,
+          "explain": "発表者でないため、指導教員の書面を添えて部分支給に応募します。"
+        },
+        {
+          "text": "Full funding, since your paper was accepted.",
+          "correct": false,
+          "explain": "全額支給は発表者のみです。"
+        },
+        {
+          "text": "Accommodation costs only.",
+          "correct": false,
+          "explain": "宿泊費は対象外です。"
+        },
+        {
+          "text": "Nothing, as co-authors are excluded.",
+          "correct": false,
+          "explain": "部分支給に応募できます。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-84",
+      "part": "reallife",
+      "situation": "You are at a clinic for a blood test. You had breakfast two hours ago. You hear the nurse's instructions.",
+      "script": "The cholesterol panel requires fasting for at least nine hours, so patients who have eaten must rebook. The blood sugar and liver tests are unaffected by food and can be done today. If you rebook, please come before ten in the morning, as the laboratory collects samples at eleven and later ones are processed the following day.",
+      "question": "What is the best plan for today?",
+      "translation": "（状況）血液検査で診療所にいます。2時間前に朝食をとった。（説明）コレステロール検査は9時間以上の絶食が必要なので、食事をされた方は予約を取り直してください。血糖と肝機能の検査は食事の影響を受けず、本日実施できます。取り直す場合は午前10時前にお越しください。検査室は11時に検体を回収し、それ以降は翌日の処理になります。",
+      "choices": [
+        {
+          "text": "Have the other tests today and rebook the cholesterol panel before ten.",
+          "correct": true,
+          "explain": "食事の影響を受けない検査は本日可能で、コレステロールは10時前に取り直します。"
+        },
+        {
+          "text": "Have all the tests today as planned.",
+          "correct": false,
+          "explain": "コレステロール検査はできません。"
+        },
+        {
+          "text": "Return after eleven tomorrow.",
+          "correct": false,
+          "explain": "11時以降は翌日処理になります。"
+        },
+        {
+          "text": "Fast for nine hours and return this afternoon.",
+          "correct": false,
+          "explain": "午後は検体回収後です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-85",
+      "part": "reallife",
+      "situation": "You are organizing a community event in the park for 150 people with a small sound system. You call the city office and hear this message.",
+      "script": "Events with fewer than one hundred participants require only online registration. Larger events need a permit application submitted three weeks in advance. Amplified sound of any kind requires a separate noise permit regardless of the number of participants, and both applications must be lodged together or the permit is returned unprocessed.",
+      "question": "What must you submit?",
+      "translation": "（状況）公園で150人規模の地域行事を企画し、小型の音響設備を使う。（音声）参加者100人未満の行事はオンライン登録のみで結構です。それ以上の規模は3週間前までに使用許可の申請が必要です。拡声を伴う場合は人数にかかわらず別途騒音許可が必要で、両方の申請を同時に提出しないと未処理のまま返送されます。",
+      "choices": [
+        {
+          "text": "Both the event permit and the noise permit, submitted together.",
+          "correct": true,
+          "explain": "150人で拡声を使うため、両方を同時に提出する必要があります。"
+        },
+        {
+          "text": "Online registration only.",
+          "correct": false,
+          "explain": "100人未満の場合です。"
+        },
+        {
+          "text": "The noise permit only.",
+          "correct": false,
+          "explain": "使用許可も必要です。"
+        },
+        {
+          "text": "The event permit only, three weeks in advance.",
+          "correct": false,
+          "explain": "騒音許可も同時に必要です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-86",
+      "part": "reallife",
+      "situation": "You have a flight tomorrow morning and need a taxi at 4:30 a.m. You call a company and hear this recorded information.",
+      "script": "Bookings for journeys between midnight and five in the morning must be made by eight the previous evening and require a telephone confirmation on the night before travel. App bookings made after eight for these hours are automatically cancelled. Journeys after five may be booked through the app at any time up to thirty minutes before pickup.",
+      "question": "What do you need to do?",
+      "translation": "（状況）明朝の便に乗るため、午前4時30分にタクシーが必要。（音声）深夜0時から午前5時までのご利用は前日夜8時までにご予約いただき、前夜に電話での確認が必要です。8時以降にアプリで予約されたこの時間帯のご依頼は自動的に取り消されます。5時以降のご利用は、お迎えの30分前までいつでもアプリでご予約いただけます。",
+      "choices": [
+        {
+          "text": "Book by eight tonight and confirm by telephone.",
+          "correct": true,
+          "explain": "4時30分は深夜帯なので、前夜8時までの予約と電話確認が必要です。"
+        },
+        {
+          "text": "Book through the app thirty minutes before pickup.",
+          "correct": false,
+          "explain": "それは5時以降の便のみです。"
+        },
+        {
+          "text": "Book through the app after eight tonight.",
+          "correct": false,
+          "explain": "自動的に取り消されます。"
+        },
+        {
+          "text": "Call the company at four in the morning.",
+          "correct": false,
+          "explain": "当日の手配は案内されていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-87",
+      "part": "reallife",
+      "situation": "You bought a concert ticket from the official resale page. The event has now been postponed to a new date you cannot attend. You hear this announcement.",
+      "script": "Ticket holders unable to attend the new date may request a refund within fourteen days. Tickets purchased directly from the box office are refunded to the original card. Tickets acquired through the official resale platform are refunded through that platform, and buyers must first cancel the listing on their account page; refunds requested outside the platform cannot be processed.",
+      "question": "What must you do first?",
+      "translation": "（状況）公式の再販ページでコンサート券を購入した。公演が延期され、新しい日程には行けない。（案内）新しい日程にお越しになれない方は14日以内に払い戻しを請求できます。窓口で直接ご購入の券は元のカードに返金します。公式再販を通じて取得された券は同じ仕組みで返金され、購入者はまずご自分のアカウント画面で出品の取り消しを行う必要があります。この仕組みの外で請求された払い戻しは処理できません。",
+      "choices": [
+        {
+          "text": "Cancel the listing on your resale account page.",
+          "correct": true,
+          "explain": "再販経由なので、まずアカウント画面で出品を取り消します。"
+        },
+        {
+          "text": "Contact the box office for a card refund.",
+          "correct": false,
+          "explain": "窓口購入の場合の手続きです。"
+        },
+        {
+          "text": "Wait fourteen days before requesting anything.",
+          "correct": false,
+          "explain": "14日以内に請求します。"
+        },
+        {
+          "text": "Sell the ticket again on the platform.",
+          "correct": false,
+          "explain": "再出品は案内されていません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-88",
+      "part": "reallife",
+      "situation": "You are a new resident. You want to dispose of a broken microwave oven this week. You listen to the city's recorded guidance.",
+      "script": "Small appliances under thirty centimeters may be placed in the recycling collection on the first and third Wednesday. Larger items require a collection sticker purchased at a convenience store and a booking made at least four days ahead. Residents who cannot wait may take items directly to the processing center, which is open on Saturdays without a booking.",
+      "question": "How can you dispose of it this week?",
+      "translation": "（状況）転入したばかりで、今週中に壊れた電子レンジを処分したい。（音声）30センチ未満の小型家電は第1・第3水曜の資源回収に出せます。それ以上の大きさのものはコンビニで収集シールを購入し、4日以上前に予約が必要です。お待ちになれない方は処理場へ直接お持ち込みください。土曜は予約なしで開いています。",
+      "choices": [
+        {
+          "text": "Take it to the processing center on Saturday.",
+          "correct": true,
+          "explain": "予約が間に合わない場合、土曜の直接持ち込みが使えます。"
+        },
+        {
+          "text": "Put it out on the first Wednesday collection.",
+          "correct": false,
+          "explain": "30センチ未満の小型家電が対象です。"
+        },
+        {
+          "text": "Buy a sticker and book collection for tomorrow.",
+          "correct": false,
+          "explain": "予約は4日以上前が必要です。"
+        },
+        {
+          "text": "Leave it beside the recycling area.",
+          "correct": false,
+          "explain": "そのような案内はありません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-89",
+      "part": "reallife",
+      "situation": "You are a volunteer who wants to help at the shelter's weekend adoption event. You have never volunteered here before. You hear the coordinator's briefing.",
+      "script": "Returning volunteers may sign up for any shift online. First-time volunteers must attend a one-hour orientation, held on Thursday evenings, before working with the public. Those who cannot attend Thursday may instead work behind the scenes in the supply room, where no orientation is required, and complete the orientation later.",
+      "question": "What are your options this weekend?",
+      "translation": "（状況）保護施設の週末譲渡会を手伝いたいボランティア。ここでの活動は初めて。（説明）経験のある方はオンラインで任意の担当に登録できます。初めての方は、来場者に対応する前に木曜夜の1時間の説明会に参加してください。木曜に参加できない方は、説明会不要の資材室で裏方として活動し、後日説明会を受けることもできます。",
+      "choices": [
+        {
+          "text": "Attend Thursday's orientation, or work in the supply room.",
+          "correct": true,
+          "explain": "初参加なので、説明会に出るか、説明会不要の裏方を選びます。"
+        },
+        {
+          "text": "Sign up online for any shift.",
+          "correct": false,
+          "explain": "それは経験者向けです。"
+        },
+        {
+          "text": "Work with the public without orientation.",
+          "correct": false,
+          "explain": "来場者対応には説明会が必要です。"
+        },
+        {
+          "text": "Wait until next month's event.",
+          "correct": false,
+          "explain": "今週末に参加する方法があります。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-90",
+      "part": "reallife",
+      "situation": "You are a driver whose license expires next month. You are sixty-eight years old. You listen to the licensing center's guidance.",
+      "script": "Drivers under seventy renew by attending a two-hour lecture on the day of application. Those aged seventy and above must first complete a separate driving aptitude course, booked in advance. All applicants need a recent photograph and the renewal notice. Renewals may be made from one month before expiry until one month after.",
+      "question": "Which procedure must you follow?",
+      "translation": "（状況）来月免許が切れる運転者で、68歳。（案内）70歳未満の方は申請当日に2時間の講習を受けて更新します。70歳以上の方は事前予約の運転適性検査を先に受けていただきます。すべての申請者に最近の写真と更新のお知らせが必要です。更新は有効期限の1か月前から1か月後まで可能です。",
+      "choices": [
+        {
+          "text": "A two-hour lecture on the day, with photo and notice.",
+          "correct": true,
+          "explain": "68歳なので70歳未満の手続きが適用されます。"
+        },
+        {
+          "text": "A driving aptitude course booked in advance.",
+          "correct": false,
+          "explain": "70歳以上が対象です。"
+        },
+        {
+          "text": "Renewal only after the license has expired.",
+          "correct": false,
+          "explain": "1か月前から可能です。"
+        },
+        {
+          "text": "No lecture, since the license has not yet expired.",
+          "correct": false,
+          "explain": "講習は必要です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-91",
+      "part": "reallife",
+      "situation": "You are a customer with a two-year-old laptop that has stopped charging. You bought the extended warranty. You hear this explanation.",
+      "script": "The standard warranty covers one year. The extended plan covers hardware faults for three years but excludes batteries, which are treated as consumable after eighteen months. Customers may still use the extended plan's free diagnostic service, and if the fault lies in the charging circuit rather than the battery, repair is covered in full.",
+      "question": "What is worth doing?",
+      "translation": "（状況）2年使ったノートパソコンが充電できなくなった。延長保証に加入している。（説明）標準保証は1年です。延長プランはハードウェアの不具合を3年保証しますが、電池は18か月以降は消耗品として対象外です。延長プランの無料診断はご利用いただけます。不具合が電池でなく充電回路にある場合は、修理は全額保証されます。",
+      "choices": [
+        {
+          "text": "Use the free diagnostic to find whether the circuit is at fault.",
+          "correct": true,
+          "explain": "充電回路の不具合なら全額保証されるため、まず無料診断を使います。"
+        },
+        {
+          "text": "Claim a free battery replacement.",
+          "correct": false,
+          "explain": "電池は18か月以降対象外です。"
+        },
+        {
+          "text": "Claim under the standard one-year warranty.",
+          "correct": false,
+          "explain": "1年を過ぎています。"
+        },
+        {
+          "text": "Buy a new laptop, as nothing is covered.",
+          "correct": false,
+          "explain": "回路の不具合なら保証されます。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-92",
+      "part": "reallife",
+      "situation": "You want to photograph the garden for your paid photography website. You hear the entrance guidance.",
+      "script": "Photography for personal use is free throughout the garden. Images intended for sale or for commercial websites require a permit, applied for at least ten days in advance, with a fee based on the number of images published. Tripods are not permitted at any time on weekends, whatever the purpose.",
+      "question": "What do you need?",
+      "translation": "（状況）有料の写真サイト用に庭園を撮影したい。（案内）個人利用の撮影は園内どこでも無料です。販売や商用サイトに用いる画像には許可が必要で、10日以上前に申請し、公開する画像数に応じた料金がかかります。三脚は目的を問わず週末は一切使用できません。",
+      "choices": [
+        {
+          "text": "A permit applied for at least ten days in advance.",
+          "correct": true,
+          "explain": "商用サイト用なので、10日以上前の許可申請が必要です。"
+        },
+        {
+          "text": "Nothing, as photography is free.",
+          "correct": false,
+          "explain": "無料なのは個人利用です。"
+        },
+        {
+          "text": "Permission to use a tripod on weekends.",
+          "correct": false,
+          "explain": "週末の三脚は一切認められません。"
+        },
+        {
+          "text": "A fee paid on the day of the visit.",
+          "correct": false,
+          "explain": "事前の申請が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-93",
+      "part": "reallife",
+      "situation": "You are a parent whose child will start school in April. You live just outside the usual catchment area for the nearest school. You hear this explanation.",
+      "script": "Children are normally assigned to the school for their address. Families outside a school's area may apply for a transfer if a sibling already attends or if the commute to the assigned school exceeds three kilometers. Applications on other grounds are considered only if places remain after the November allocation.",
+      "question": "When can you apply for a transfer?",
+      "translation": "（状況）4月に就学する子の保護者。最寄り校の通学区域のすぐ外に住んでいる。（説明）児童は原則として住所の学校に割り当てられます。区域外のご家庭は、兄姉が在籍している場合、または指定校までの通学距離が3キロを超える場合に転入を申請できます。それ以外の理由による申請は、11月の割り当て後に空きが残っている場合にのみ検討されます。",
+      "choices": [
+        {
+          "text": "If a sibling attends or the commute exceeds three kilometers.",
+          "correct": true,
+          "explain": "兄姉の在籍か3キロ超の通学が申請の条件です。"
+        },
+        {
+          "text": "At any time before April.",
+          "correct": false,
+          "explain": "条件があります。"
+        },
+        {
+          "text": "Only in November, regardless of reason.",
+          "correct": false,
+          "explain": "11月は他の理由の場合の判断時期です。"
+        },
+        {
+          "text": "Never, since you live outside the area.",
+          "correct": false,
+          "explain": "条件を満たせば申請できます。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-94",
+      "part": "reallife",
+      "situation": "You are attending a wedding abroad in six weeks. Your passport expires in four months. You hear the travel agent's advice.",
+      "script": "Many countries require six months' validity beyond your arrival date. Standard passport renewal takes about four weeks, while the expedited service takes one week for an additional fee. Renewals cannot be started until you have surrendered the current passport, so any visa application must be completed either before renewal begins or after the new passport arrives.",
+      "question": "What should you consider?",
+      "translation": "（状況）6週間後に海外の結婚式に出席する。パスポートの有効期限は4か月後。（助言）多くの国は入国日から6か月の残存有効期間を求めます。通常の更新は約4週間、特急は追加料金で1週間です。現在のパスポートを提出しないと更新を開始できないため、査証の申請は更新前に済ませるか、新しいパスポートが届いてから行う必要があります。",
+      "choices": [
+        {
+          "text": "Renew now, and time any visa application around the renewal.",
+          "correct": true,
+          "explain": "残存期間が不足するため更新が必要で、査証申請の時期も調整する必要があります。"
+        },
+        {
+          "text": "Travel on the current passport, as it has not expired.",
+          "correct": false,
+          "explain": "6か月の残存有効期間が必要です。"
+        },
+        {
+          "text": "Apply for the visa while the passport is being renewed.",
+          "correct": false,
+          "explain": "更新中は申請できません。"
+        },
+        {
+          "text": "Use the standard service only after the wedding.",
+          "correct": false,
+          "explain": "渡航前に更新が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-95",
+      "part": "reallife",
+      "situation": "You are a member of a fitness club. You will be abroad for three months and do not want to pay during that time. You hear the desk staff's explanation.",
+      "script": "Members may suspend their membership for up to six months at a fee of one thousand yen per month, which preserves the original joining conditions. Cancelling instead costs nothing now, but rejoining later requires paying the current enrollment fee, which has doubled since last year. Suspension must be requested before the tenth of the month.",
+      "question": "What is the advantage of suspending?",
+      "translation": "（状況）フィットネスクラブの会員で、3か月海外に出るため、その間は支払いたくない。（説明）会員資格は月1千円で最長6か月休止でき、入会時の条件が維持されます。退会は今は費用がかかりませんが、後日再入会する際は現在の入会金が必要で、昨年から倍額になっています。休止のお申し出は当月10日までにお願いします。",
+      "choices": [
+        {
+          "text": "It preserves your original joining conditions.",
+          "correct": true,
+          "explain": "休止すれば入会時の条件が維持されます。"
+        },
+        {
+          "text": "It costs nothing at all.",
+          "correct": false,
+          "explain": "月1千円かかります。"
+        },
+        {
+          "text": "It allows unlimited use while abroad.",
+          "correct": false,
+          "explain": "利用の話は出てきません。"
+        },
+        {
+          "text": "It can be requested at any time of the month.",
+          "correct": false,
+          "explain": "10日までの申し出が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-96",
+      "part": "reallife",
+      "situation": "You have written a report that quotes several photographs from a magazine. You plan to publish it on your company's public website. You hear the legal officer's advice.",
+      "script": "Quoting short passages of text for commentary is generally permitted. Photographs are different: reproducing them requires permission from the copyright holder, who is often the photographer rather than the magazine. Internal circulation within the company is lower risk, but anything on a public site should be cleared first, and describing an image in words carries no such restriction.",
+      "question": "What is the safest course for the public site?",
+      "translation": "（状況）雑誌の写真を複数引用した報告書を、会社の公開サイトに掲載する予定。（助言）論評のために短い文章を引用することは概ね認められます。写真は異なり、複製には著作権者の許諾が必要で、権利者は雑誌社でなく写真家であることが多いです。社内配布なら危険は低いですが、公開サイトに載せるものは事前に権利処理すべきで、画像を言葉で説明することにはそうした制約はありません。",
+      "choices": [
+        {
+          "text": "Clear permission first, or describe the images in words.",
+          "correct": true,
+          "explain": "公開サイトでは事前の権利処理か、言葉による説明が安全です。"
+        },
+        {
+          "text": "Publish the photographs with a credit line.",
+          "correct": false,
+          "explain": "表示だけでは許諾になりません。"
+        },
+        {
+          "text": "Treat photographs like short text quotations.",
+          "correct": false,
+          "explain": "写真は扱いが異なります。"
+        },
+        {
+          "text": "Ask the magazine rather than the photographer.",
+          "correct": false,
+          "explain": "権利者は写真家であることが多いと述べています。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-97",
+      "part": "reallife",
+      "situation": "You are selling your car privately. A buyer has offered to pay in instalments. You hear this advice from a dealer friend.",
+      "script": "In a private sale, ownership transfers when the registration is changed, not when the money is received. If you transfer registration before full payment, you lose the vehicle and become an ordinary creditor for the balance. Keeping the registration until payment clears protects you but leaves you liable for any accident the buyer causes while driving it.",
+      "question": "What is the risk of transferring registration early?",
+      "translation": "（状況）自家用車を個人売買で売ろうとしており、買い手が分割払いを申し出た。（助言）個人売買では、所有権は入金時でなく登録変更時に移ります。全額受領前に登録を移せば車は手元を離れ、残金については一般の債権者になるだけです。入金が済むまで登録を保持すれば守られますが、買い手が運転中に起こした事故の責任を負います。",
+      "choices": [
+        {
+          "text": "You lose the car and become an ordinary creditor for the balance.",
+          "correct": true,
+          "explain": "登録を先に移すと車を失い、残金は一般債権となります。"
+        },
+        {
+          "text": "You remain liable for the buyer's accidents.",
+          "correct": false,
+          "explain": "それは登録を保持した場合の危険です。"
+        },
+        {
+          "text": "The sale becomes legally invalid.",
+          "correct": false,
+          "explain": "無効になるとは述べていません。"
+        },
+        {
+          "text": "You must pay the buyer's insurance.",
+          "correct": false,
+          "explain": "保険料の話は出てきません。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-98",
+      "part": "reallife",
+      "situation": "You are a researcher who needs to consult a rare book. You will visit the library once, next Tuesday. You hear the recorded guidance.",
+      "script": "Rare materials must be requested at least three working days in advance. Items are delivered to the reading room twice daily, at ten and at two. Readers require a photo identification card issued at the registration desk, which closes at four. Photography of rare items is permitted without flash after signing a declaration form.",
+      "question": "What must you do before Tuesday?",
+      "translation": "（状況）貴重書を閲覧する必要がある研究者。来週火曜に一度だけ訪問する。（音声）貴重資料は3営業日以上前にご請求ください。資料は1日2回、10時と14時に閲覧室へ届きます。閲覧には登録窓口で発行する写真付きの利用証が必要で、窓口は16時に閉まります。貴重資料の撮影は、誓約書に署名のうえフラッシュなしで可能です。",
+      "choices": [
+        {
+          "text": "Request the item at least three working days ahead.",
+          "correct": true,
+          "explain": "貴重資料は3営業日以上前の請求が必要です。"
+        },
+        {
+          "text": "Sign the declaration form in advance.",
+          "correct": false,
+          "explain": "誓約書は撮影時に署名します。"
+        },
+        {
+          "text": "Arrive before four to collect the item.",
+          "correct": false,
+          "explain": "16時は登録窓口の閉鎖時刻です。"
+        },
+        {
+          "text": "Nothing; rare items are available on request.",
+          "correct": false,
+          "explain": "事前請求が必要です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-99",
+      "part": "reallife",
+      "situation": "You are booking a hotel for a business trip. Your plans may change and your company reimburses only documented expenses. You hear this explanation.",
+      "script": "The advance-purchase rate is twenty percent cheaper but is charged immediately and cannot be refunded or changed. The flexible rate may be cancelled until six on the day of arrival and is charged at check-out. Only the flexible rate produces an itemized invoice in the company's name; advance purchases are receipted to the individual card holder.",
+      "question": "Which rate suits your situation?",
+      "translation": "（状況）出張のホテルを予約する。予定が変わる可能性があり、会社は証憑のある費用のみ精算する。（説明）事前購入料金は2割安ですが即時決済で、返金も変更もできません。変動料金は到着日の18時まで取り消しでき、チェックアウト時の決済です。会社名義の明細付き請求書が出るのは変動料金のみで、事前購入はカード名義人宛の領収書になります。",
+      "choices": [
+        {
+          "text": "The flexible rate, for cancellation and a company invoice.",
+          "correct": true,
+          "explain": "予定変更に備えられ、会社名義の請求書も出るためです。"
+        },
+        {
+          "text": "The advance-purchase rate, because it is cheaper.",
+          "correct": false,
+          "explain": "変更できず、会社名義の請求書も出ません。"
+        },
+        {
+          "text": "Either rate, as both can be reimbursed.",
+          "correct": false,
+          "explain": "明細付き請求書は変動料金のみです。"
+        },
+        {
+          "text": "The advance-purchase rate, paid at check-out.",
+          "correct": false,
+          "explain": "事前購入は即時決済です。"
+        }
+      ]
+    },
+    {
+      "id": "lp1-100",
+      "part": "reallife",
+      "situation": "You are a homeowner whose neighbor's tree drops branches into your garden. You want the problem solved without a dispute. You hear this advice from the city's counseling service.",
+      "script": "You are entitled to cut back branches that cross the boundary, but only up to the boundary line and only after giving the owner a reasonable opportunity to act. Cutting first and asking afterwards weakens your position if the matter reaches court. Our service can send a neutral written notice on your behalf, which most owners respond to within a month.",
+      "question": "What should you do first?",
+      "translation": "（状況）隣家の木の枝が庭に落ちてくる家主。争いにせず解決したい。（助言）境界を越えた枝を切る権利はありますが、境界線までに限られ、所有者に対処する相応の機会を与えた後に限られます。先に切って後から伝えると、裁判になった場合に立場が弱まります。当相談窓口から中立的な書面通知をお送りでき、多くの所有者は1か月以内に応じます。",
+      "choices": [
+        {
+          "text": "Give the owner a chance to act, using a neutral written notice.",
+          "correct": true,
+          "explain": "先に切らず、所有者に対処の機会を与えることが勧められています。"
+        },
+        {
+          "text": "Cut the branches back to the boundary immediately.",
+          "correct": false,
+          "explain": "先に切ると立場が弱まります。"
+        },
+        {
+          "text": "Take the matter to court at once.",
+          "correct": false,
+          "explain": "提訴は勧められていません。"
+        },
+        {
+          "text": "Cut the whole tree down with the owner's permission.",
+          "correct": false,
+          "explain": "伐採の話は出てきません。"
+        }
+      ]
     }
   ],
   "dialogue": [
