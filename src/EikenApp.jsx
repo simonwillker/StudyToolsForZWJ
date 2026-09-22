@@ -33,6 +33,7 @@ import {
   getReviewCountByMode,
   clearLevelReview,
 } from "./eikenReview";
+import { downloadBackup, parseBackup, applyBackup, describeBackup } from "./eikenBackup";
 import {
   isSpeechSynthesisSupported,
   isSpeechRecognitionSupported,
@@ -788,6 +789,42 @@ function ProgressDashboard({ onBack }) {
     ? judgeable.reduce((a, b) => (b.pct < a.pct ? b : a))
     : null;
 
+  const fileInputRef = useRef(null);
+  const [backupMsg, setBackupMsg] = useState(null);
+
+  const handleExport = () => {
+    const d = downloadBackup();
+    setBackupMsg({
+      kind: "ok",
+      text: `${d.attempted}問ぶんの記録を書き出しました。ファイルを安全な場所に保存してください。`,
+    });
+  };
+
+  const handleImportFile = async (e) => {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = ""; // 同じファイルを続けて選べるようにする
+    if (!file) return;
+    const result = parseBackup(await file.text());
+    if (!result.ok) {
+      setBackupMsg({ kind: "ng", text: result.error });
+      return;
+    }
+    const d = describeBackup(result.backup);
+    const when = d.exportedAt ? new Date(d.exportedAt).toLocaleDateString() : "日付不明";
+    // 復元は今の記録を置き換える。取り返しがつかないので必ず中身を見せて確認する。
+    const okToApply = window.confirm(
+      `${when} のバックアップです。\n\n` +
+        `・解いた問題　${d.attempted}問（正解 ${d.correct}問）\n` +
+        `・学習した日数　${d.days}日\n` +
+        `・復習リスト　${d.reviewCount}問\n` +
+        `・模擬テスト　${d.tests}回\n\n` +
+        `今この端末にある記録は、これで置き換えられます。よろしいですか？`
+    );
+    if (!okToApply) return;
+    applyBackup(result.backup);
+    window.location.reload();
+  };
+
   const handleReset = () => {
     if (window.confirm("すべての学習記録を削除します。よろしいですか？")) {
       resetProgress();
@@ -901,8 +938,30 @@ function ProgressDashboard({ onBack }) {
           })}
         </div>
 
+        <div className="eiken-sub-head">記録のバックアップ</div>
+        <div className="eiken-backup-row">
+          <button className="eiken-backup-btn" onClick={handleExport}>
+            ⬇ ファイルに書き出す
+          </button>
+          <button className="eiken-backup-btn" onClick={() => fileInputRef.current?.click()}>
+            ⬆ ファイルから戻す
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="application/json,.json"
+            style={{ display: "none" }}
+            onChange={handleImportFile}
+          />
+        </div>
+        {backupMsg && (
+          <div className={`eiken-backup-msg ${backupMsg.kind}`}>{backupMsg.text}</div>
+        )}
+
         <div className="eiken-storage-note">
-          この記録はこの端末のブラウザだけに保存されます。別の端末や、履歴を消したあとには引き継がれません。
+          この記録はこの端末のブラウザだけに保存されます。別の端末に替えたときや、
+          ブラウザの閲覧データを消したときには引き継がれません。
+          ときどき書き出して保存しておくと、そうなっても戻せます。
         </div>
       </div>
 
@@ -1094,6 +1153,21 @@ export default function EikenApp({ onExitApp }) {
           display: inline-block; padding: 1px 6px; border-radius: 4px; white-space: nowrap;
           background: #FEF3C7; color: #92400E; font-size: 10px; font-weight: 700;
         }
+        /* スマホ幅では横並びにすると文字が折り返すため、縦に積んで全幅にする */
+        .eiken-backup-row { display: flex; flex-direction: column; gap: 8px; }
+        .eiken-backup-btn {
+          width: 100%; padding: 11px 12px; border-radius: 8px; white-space: nowrap;
+          border: 1px solid #1F6B45; background: #fff; color: #1F6B45;
+          font-size: 13px; font-weight: 700; cursor: pointer;
+        }
+        .eiken-backup-btn:hover { background: #F2F8F4; }
+        .eiken-backup-msg {
+          margin-top: 8px; padding: 8px 10px; border-radius: 6px;
+          font-size: 12px; line-height: 1.6;
+        }
+        .eiken-backup-msg.ok { background: #F2F8F4; color: #1C4433; }
+        .eiken-backup-msg.ng { background: #FEF2F2; color: #991B1B; }
+
         .eiken-storage-note {
           font-size: 11px; color: #9CA3AF; line-height: 1.6; margin-top: 18px;
           padding-top: 12px; border-top: 1px dashed #E4E2DA;
