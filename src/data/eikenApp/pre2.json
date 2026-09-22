@@ -6621,6 +6621,906 @@
           "explain": "接客業に興味がないという発言は、最初の発言（お客様と接する仕事が好き）と矛盾します。"
         }
       ]
+    },
+    {
+      "id": "dp2-03",
+      "title": "At the University Office",
+      "translation": "A：この講義を履修登録したいのですが。 B：すでに定員に達しています。 A：___ B：はい、5名ほど空き待ちがいます。 A：では登録をお願いします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to register for this seminar."
+        },
+        {
+          "speaker": "B",
+          "text": "I'm afraid it's already full."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, there are about five people on it."
+        },
+        {
+          "speaker": "A",
+          "text": "Then please put me on the list."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Is there a waiting list?",
+          "correct": true,
+          "explain": "次に「5名ほど空き待ちがいる」と答えているので、キャンセル待ちの有無をたずねる文が入ります。"
+        },
+        {
+          "text": "How much is the tuition?",
+          "correct": false,
+          "explain": "授業料をたずねても人数の答えにはつながりません。"
+        },
+        {
+          "text": "Who teaches this seminar?",
+          "correct": false,
+          "explain": "担当教員を聞いても「5名」という答えにはなりません。"
+        },
+        {
+          "text": "Where is the lecture hall?",
+          "correct": false,
+          "explain": "場所の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-04",
+      "title": "Returning a Faulty Product",
+      "translation": "A：先週買ったこのヘッドホンが片方鳴りません。 B：ご不便をおかけしました。___ A：交換をお願いしたいです。 B：かしこまりました。同じ色でご用意します。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "One side of these headphones I bought last week doesn't work."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I'd prefer an exchange."
+        },
+        {
+          "speaker": "B",
+          "text": "Certainly. We'll prepare one in the same color."
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "I'm sorry about that. Would you like a refund or an exchange?",
+          "correct": true,
+          "explain": "次に「交換のほうがよい」と選んでいるので、二つの選択肢を示す文が入ります。"
+        },
+        {
+          "text": "I'm sorry about that. Did you keep the box?",
+          "correct": false,
+          "explain": "箱の有無をたずねても「交換がよい」という返事にはつながりません。"
+        },
+        {
+          "text": "I'm afraid we cannot help you.",
+          "correct": false,
+          "explain": "断っているのに、そのあと交換に応じるのは不自然です。"
+        },
+        {
+          "text": "I'm sorry about that. What color did you buy?",
+          "correct": false,
+          "explain": "色の質問では交換か返金かの答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-05",
+      "title": "Discussing a Group Project",
+      "translation": "A：発表の担当をどう分けようか。 B：私は資料作りがいいな。 A：___ B：じゃあ結論の部分をお願い。 A：わかった、そこをまとめるね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How should we divide the presentation?"
+        },
+        {
+          "speaker": "B",
+          "text": "I'd rather handle the slides."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then could you take the conclusion?"
+        },
+        {
+          "speaker": "A",
+          "text": "Sure, I'll put that part together."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "That works. What should I do, then?",
+          "correct": true,
+          "explain": "次に「結論をお願い」と役割を振っているので、自分の担当をたずねる文が入ります。"
+        },
+        {
+          "text": "That works. When is the deadline?",
+          "correct": false,
+          "explain": "締め切りをたずねても役割の割り振りにはつながりません。"
+        },
+        {
+          "text": "I don't want to present at all.",
+          "correct": false,
+          "explain": "参加を拒む返事では、そのあと担当を引き受ける流れになりません。"
+        },
+        {
+          "text": "That works. How many slides do we need?",
+          "correct": false,
+          "explain": "枚数の質問では次の返事に結びつきません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-06",
+      "title": "At the Bank",
+      "translation": "A：口座を開設したいのですが。 B：身分証明書はお持ちですか。 A：___ B：学生証でも結構です。 A：それなら持っています。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to open an account."
+        },
+        {
+          "speaker": "B",
+          "text": "Do you have a form of identification?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "A student ID card is also acceptable."
+        },
+        {
+          "speaker": "A",
+          "text": "Then I have that with me."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "I left my passport at home. Is anything else acceptable?",
+          "correct": true,
+          "explain": "次に「学生証でも可」と代わりの書類を示しているので、他に使えるものをたずねる文が入ります。"
+        },
+        {
+          "text": "Yes, here is my passport.",
+          "correct": false,
+          "explain": "提出できているなら、代わりの書類を示す流れになりません。"
+        },
+        {
+          "text": "How long does it take to open one?",
+          "correct": false,
+          "explain": "所要時間の質問では身分証の答えにつながりません。"
+        },
+        {
+          "text": "What is the interest rate?",
+          "correct": false,
+          "explain": "金利の話は身分証の確認と関係ありません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-07",
+      "title": "Talking About Career Plans",
+      "translation": "A：卒業後はどうするつもり？ B：まだ迷っているんだ。 A：___ B：大学院に行くか、すぐ就職するかで悩んでる。 A：焦らず決めたらいいよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "What are you going to do after graduation?"
+        },
+        {
+          "speaker": "B",
+          "text": "I'm still not sure."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "I'm torn between graduate school and getting a job right away."
+        },
+        {
+          "speaker": "A",
+          "text": "You don't have to rush the decision."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "What options are you considering?",
+          "correct": true,
+          "explain": "次に二つの選択肢を挙げているので、検討中の選択肢をたずねる文が入ります。"
+        },
+        {
+          "text": "When did you start university?",
+          "correct": false,
+          "explain": "入学時期をたずねても進路の答えにはなりません。"
+        },
+        {
+          "text": "Do you like your part-time job?",
+          "correct": false,
+          "explain": "アルバイトの話は進路の選択肢につながりません。"
+        },
+        {
+          "text": "How many credits do you need?",
+          "correct": false,
+          "explain": "単位数の質問では次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-08",
+      "title": "Reporting a Lost Item",
+      "translation": "A：昨日この館内で財布をなくしました。 B：届いているか確認します。___ A：黒い革の二つ折りで、角が擦れています。 B：少々お待ちください。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I lost my wallet somewhere in this building yesterday."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "It's a black leather one, worn at the corners."
+        },
+        {
+          "speaker": "B",
+          "text": "Just a moment. Let me check the storage room."
+        },
+        {
+          "speaker": "A",
+          "text": "I appreciate it."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Let me check. Could you describe it for me?",
+          "correct": true,
+          "explain": "次に財布の見た目を説明しているので、特徴をたずねる文が入ります。"
+        },
+        {
+          "text": "Let me check. What time did you arrive?",
+          "correct": false,
+          "explain": "到着時刻をたずねても外見の説明にはつながりません。"
+        },
+        {
+          "text": "We do not keep lost items here.",
+          "correct": false,
+          "explain": "預かっていないのなら、保管室を確認する流れになりません。"
+        },
+        {
+          "text": "Let me check. How much was in it?",
+          "correct": false,
+          "explain": "金額の質問では見た目の説明につながりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-09",
+      "title": "Asking a Neighbor for Help",
+      "translation": "A：来週2日ほど留守にするんです。 B：あら、旅行ですか。 A：___ B：もちろん、水やりくらいお安いご用です。 A：助かります。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'll be away for a couple of days next week."
+        },
+        {
+          "speaker": "B",
+          "text": "Oh, are you traveling?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Of course. Watering a few plants is no trouble at all."
+        },
+        {
+          "speaker": "A",
+          "text": "That's a big help."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Yes. Would you mind watering my plants while I'm gone?",
+          "correct": true,
+          "explain": "次に「水やりくらい平気」と答えているので、水やりを頼む文が入ります。"
+        },
+        {
+          "text": "Yes. Do you have any plants at home?",
+          "correct": false,
+          "explain": "相手の植物の話では、引き受ける返事につながりません。"
+        },
+        {
+          "text": "No, I'll be working from home.",
+          "correct": false,
+          "explain": "留守にしないのなら、留守中の世話を頼む流れになりません。"
+        },
+        {
+          "text": "Yes. Which hotel would you recommend?",
+          "correct": false,
+          "explain": "宿の相談では次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-10",
+      "title": "At the Gym Reception",
+      "translation": "A：入会を考えているのですが。 B：ありがとうございます。___ A：週に2、3回、夜に来たいと思っています。 B：でしたら平日夜間プランがお得です。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'm thinking of joining."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Two or three evenings a week, I'd say."
+        },
+        {
+          "speaker": "B",
+          "text": "Then the weekday evening plan would be the best value."
+        },
+        {
+          "speaker": "A",
+          "text": "That sounds reasonable."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Thank you. How often do you plan to come?",
+          "correct": true,
+          "explain": "次に「週2、3回の夜」と頻度を答えているので、利用頻度をたずねる文が入ります。"
+        },
+        {
+          "text": "Thank you. Have you exercised before?",
+          "correct": false,
+          "explain": "経験の有無をたずねても頻度の答えにはなりません。"
+        },
+        {
+          "text": "We are not accepting new members.",
+          "correct": false,
+          "explain": "受け付けていないのにプランを勧めるのは矛盾します。"
+        },
+        {
+          "text": "Thank you. What is your address?",
+          "correct": false,
+          "explain": "住所の質問では次の返事につながりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-11",
+      "title": "Changing a Reservation",
+      "translation": "A：24日の予約を変更したいのですが。 B：かしこまりました。___ A：26日の同じ時間に移せますか。 B：確認します。少々お待ちください。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to change my reservation for the 24th."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Could you move it to the 26th at the same time?"
+        },
+        {
+          "speaker": "B",
+          "text": "Let me check availability. One moment, please."
+        },
+        {
+          "speaker": "A",
+          "text": "Sure, take your time."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Certainly. What date would you like instead?",
+          "correct": true,
+          "explain": "次に「26日に移せますか」と希望日を伝えているので、変更希望日をたずねる文が入ります。"
+        },
+        {
+          "text": "Certainly. How many people are in your party?",
+          "correct": false,
+          "explain": "人数の質問では日付の答えにつながりません。"
+        },
+        {
+          "text": "I'm sorry, reservations cannot be changed.",
+          "correct": false,
+          "explain": "変更不可なら、そのあと空きを確認する流れになりません。"
+        },
+        {
+          "text": "Certainly. Would you like a window seat?",
+          "correct": false,
+          "explain": "席の希望では次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-12",
+      "title": "Volunteering at a Community Center",
+      "translation": "A：ボランティアに申し込みたいのですが。 B：ありがとうございます。___ A：土曜の午前なら空いています。 B：では読み聞かせの時間をお願いできますか。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to sign up as a volunteer."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I'm free on Saturday mornings."
+        },
+        {
+          "speaker": "B",
+          "text": "Then could you help with the story-reading hour?"
+        },
+        {
+          "speaker": "A",
+          "text": "I'd be glad to."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Thank you. When are you available?",
+          "correct": true,
+          "explain": "次に「土曜の午前」と都合を答えているので、空いている時間をたずねる文が入ります。"
+        },
+        {
+          "text": "Thank you. How old are you?",
+          "correct": false,
+          "explain": "年齢の質問では都合の答えにはなりません。"
+        },
+        {
+          "text": "Thank you. Do you have a driver's license?",
+          "correct": false,
+          "explain": "免許の有無では曜日の答えにつながりません。"
+        },
+        {
+          "text": "We have enough volunteers already.",
+          "correct": false,
+          "explain": "足りているのなら仕事を頼む流れになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-13",
+      "title": "Talking About a Book Club",
+      "translation": "A：読書会、今月の本は決まった？ B：まだなんだ。___ A：短めの小説がいいと思う。参加しやすいから。 B：なるほど、その方向で探してみる。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Has the book club chosen this month's title?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Something short, I'd say. It's easier for new members."
+        },
+        {
+          "speaker": "B",
+          "text": "Good point. I'll look for one along those lines."
+        },
+        {
+          "speaker": "A",
+          "text": "Let me know what you find."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Not yet. What kind of book would you recommend?",
+          "correct": true,
+          "explain": "次に「短めの小説がよい」と提案しているので、どんな本がよいかたずねる文が入ります。"
+        },
+        {
+          "text": "Yes, we're reading a long biography.",
+          "correct": false,
+          "explain": "決まっているなら、相手が提案する流れになりません。"
+        },
+        {
+          "text": "Not yet. How many members are there?",
+          "correct": false,
+          "explain": "人数の質問では本の種類の答えにつながりません。"
+        },
+        {
+          "text": "Not yet. Where do you usually meet?",
+          "correct": false,
+          "explain": "場所の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-14",
+      "title": "At the Pharmacy",
+      "translation": "A：この薬は食後に飲むのですか。 B：はい、1日3回です。___ A：3日ほど前からです。 B：それでも改善しなければ受診してください。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Should I take this after meals?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "For about three days now."
+        },
+        {
+          "speaker": "B",
+          "text": "If it doesn't improve, please see a doctor."
+        },
+        {
+          "speaker": "A",
+          "text": "I understand. Thank you."
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Yes, three times a day. How long have you had the symptoms?",
+          "correct": true,
+          "explain": "次に「3日ほど前から」と期間を答えているので、症状の期間をたずねる文が入ります。"
+        },
+        {
+          "text": "Yes, three times a day. Do you have insurance?",
+          "correct": false,
+          "explain": "保険の質問では期間の答えにつながりません。"
+        },
+        {
+          "text": "No, take it before meals only.",
+          "correct": false,
+          "explain": "直前の質問への答えとしては成り立ちますが、次の「3日前から」につながりません。"
+        },
+        {
+          "text": "Yes, three times a day. Where do you live?",
+          "correct": false,
+          "explain": "住所の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-15",
+      "title": "Preparing for a Presentation",
+      "translation": "A：明日の発表、準備はどう？ B：資料はできたけど不安で。 A：___ B：ぜひお願い。10分くらい聞いてくれる？ A：もちろん、今からでいいよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "How's the preparation for tomorrow's presentation?"
+        },
+        {
+          "speaker": "B",
+          "text": "The slides are done, but I'm still nervous."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Please. Could you listen for about ten minutes?"
+        },
+        {
+          "speaker": "A",
+          "text": "Of course. We can start now."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Would you like to practice it on me?",
+          "correct": true,
+          "explain": "次に「10分聞いてくれる？」と頼んでいるので、練習相手を申し出る文が入ります。"
+        },
+        {
+          "text": "Then you should cancel it.",
+          "correct": false,
+          "explain": "中止を勧める返事では練習を頼む流れになりません。"
+        },
+        {
+          "text": "How many slides did you make?",
+          "correct": false,
+          "explain": "枚数の質問では次の返事につながりません。"
+        },
+        {
+          "text": "What time does it start?",
+          "correct": false,
+          "explain": "開始時刻の質問は「10分聞いて」という返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-16",
+      "title": "At the Post Office Counter",
+      "translation": "A：この小包を海外に送りたいのですが。 B：中身は何でしょうか。 A：___ B：でしたら問題ありません。書類にご記入ください。 A：わかりました。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to send this parcel overseas."
+        },
+        {
+          "speaker": "B",
+          "text": "What are the contents?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "That's fine, then. Please fill out this form."
+        },
+        {
+          "speaker": "A",
+          "text": "All right."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Just books and a few postcards.",
+          "correct": true,
+          "explain": "中身をたずねられているので、具体的な品物を答えます。"
+        },
+        {
+          "text": "It weighs about two kilograms.",
+          "correct": false,
+          "explain": "重さは中身の説明になっていません。"
+        },
+        {
+          "text": "I'd like it to arrive by Friday.",
+          "correct": false,
+          "explain": "希望日では中身の答えになりません。"
+        },
+        {
+          "text": "My friend lives in Canada.",
+          "correct": false,
+          "explain": "宛先の話では中身を答えたことになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-17",
+      "title": "Joining a Language Exchange",
+      "translation": "A：言語交換のパートナーを探しています。 B：いいですね。___ A：英語を教えて、日本語を教わりたいです。 B：ちょうど探していたところです。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'm looking for a language exchange partner."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I can offer English and I'd like to learn Japanese."
+        },
+        {
+          "speaker": "B",
+          "text": "That's exactly what I was looking for."
+        },
+        {
+          "speaker": "A",
+          "text": "Shall we meet once a week?"
+        }
+      ],
+      "blankIndex": 1,
+      "choices": [
+        {
+          "text": "Sounds good. Which languages are you offering and learning?",
+          "correct": true,
+          "explain": "次に「英語を教え、日本語を学びたい」と答えているので、その組み合わせをたずねる文が入ります。"
+        },
+        {
+          "text": "Sounds good. How long have you lived here?",
+          "correct": false,
+          "explain": "居住期間の質問では言語の答えにつながりません。"
+        },
+        {
+          "text": "Sorry, I'm not interested in languages.",
+          "correct": false,
+          "explain": "興味がないのなら、そのあと「探していた」とは言いません。"
+        },
+        {
+          "text": "Sounds good. Where did you study?",
+          "correct": false,
+          "explain": "学歴の質問は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-18",
+      "title": "Discussing Weekend Plans with a Host Family",
+      "translation": "A：週末、どこか行きたいところある？ B：古いお寺を見てみたいです。 A：___ B：半日くらいなら大丈夫です。 A：じゃあ朝出発して昼には戻ろう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Is there anywhere you'd like to go this weekend?"
+        },
+        {
+          "speaker": "B",
+          "text": "I'd love to see an old temple."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Half a day would be fine."
+        },
+        {
+          "speaker": "A",
+          "text": "Then let's leave in the morning and come back by noon."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "How much time would you like to spend there?",
+          "correct": true,
+          "explain": "次に「半日くらい」と時間を答えているので、どのくらい時間をかけたいかたずねる文が入ります。"
+        },
+        {
+          "text": "Do you prefer coffee or tea?",
+          "correct": false,
+          "explain": "飲み物の話は寺の見学と関係ありません。"
+        },
+        {
+          "text": "Have you been to this country before?",
+          "correct": false,
+          "explain": "その質問では「半日」という答えにつながりません。"
+        },
+        {
+          "text": "What is your favorite season?",
+          "correct": false,
+          "explain": "季節の話は次の返事と合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-19",
+      "title": "Calling About a Delayed Delivery",
+      "translation": "A：注文した品が1週間届きません。 B：申し訳ありません。追跡番号を伺えますか。 A：___ B：確認しました。倉庫で止まっているようです。 A：では手配をお願いします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "My order hasn't arrived after a week."
+        },
+        {
+          "speaker": "B",
+          "text": "I'm sorry. Could I have your tracking number?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "I see. It seems to be held at the warehouse."
+        },
+        {
+          "speaker": "A",
+          "text": "Please arrange for it to be sent."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "It's JP4821-7730.",
+          "correct": true,
+          "explain": "追跡番号をたずねられているので、番号を答えます。"
+        },
+        {
+          "text": "I ordered it on the tenth.",
+          "correct": false,
+          "explain": "注文日は追跡番号の答えになっていません。"
+        },
+        {
+          "text": "The item was quite expensive.",
+          "correct": false,
+          "explain": "価格の話では番号を答えたことになりません。"
+        },
+        {
+          "text": "I live near the station.",
+          "correct": false,
+          "explain": "住所の説明は追跡番号の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-20",
+      "title": "Talking About a News Story",
+      "translation": "A：市が新しい図書館を建てるらしいね。 B：うん、駅前に建つみたい。 A：___ B：2年後だそうだよ。 A：待ち遠しいね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I hear the city is building a new library."
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, apparently it'll be right by the station."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "In two years, they say."
+        },
+        {
+          "speaker": "A",
+          "text": "I'm looking forward to it."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "When is it supposed to open?",
+          "correct": true,
+          "explain": "次に「2年後」と時期を答えているので、開館時期をたずねる文が入ります。"
+        },
+        {
+          "text": "How many books do you read a month?",
+          "correct": false,
+          "explain": "読書量の話は図書館の建設時期と関係ありません。"
+        },
+        {
+          "text": "Do you have a library card?",
+          "correct": false,
+          "explain": "カードの有無では「2年後」という答えにつながりません。"
+        },
+        {
+          "text": "Which station do you use?",
+          "correct": false,
+          "explain": "利用駅の質問は次の返事と合いません。"
+        }
+      ]
     }
   ]
 }
