@@ -1,0 +1,138 @@
+{
+  "domain": "D7",
+  "items": [
+    {
+      "id": "d7-001",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "A prompt asks for a summary \"under 200 words,\" but the output is consistently 400 words. The prompt also says \"cover every section of the report in detail.\" What is the most likely cause and fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The two instructions conflict; decide which matters more and rewrite so only one constraint governs length.",
+          "correct": true,
+          "explain": "正解。出力が言うことを聞かないときは、まず指示どうしが矛盾していないかを疑う。両立しない条件を渡していれば、どちらかは必ず破られる。"
+        },
+        {
+          "text": "The model cannot count words; there is nothing to do.",
+          "correct": false,
+          "explain": "不適。原因の特定を諦めている。矛盾を解けば長さは制御できる。"
+        },
+        {
+          "text": "Repeat \"under 200 words\" five times in the prompt.",
+          "correct": false,
+          "explain": "不適。矛盾した条件が消えるわけではない。"
+        },
+        {
+          "text": "Switch to a larger model.",
+          "correct": false,
+          "explain": "不適。指示の矛盾はモデルの性能で解決しない。"
+        }
+      ],
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d7-002",
+      "domain": "D7",
+      "type": "mcq",
+      "stem": "The same prompt produces a usable result about half the time and an unusable one the rest. What is the most effective first fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Pin down what \"usable\" means — give an example of a good output and state the required structure explicitly.",
+          "correct": true,
+          "explain": "正解。ばらつきは、良し悪しの基準が指示に入っていないときに出る。例示と構造の明示で振れ幅が縮む。"
+        },
+        {
+          "text": "Run the prompt repeatedly and keep whichever result looks best.",
+          "correct": false,
+          "explain": "不適。毎回人が選別する手間が残り、原因は残ったまま。"
+        },
+        {
+          "text": "Accept the variation as inherent and stop trying.",
+          "correct": false,
+          "explain": "不適。診断を放棄している。"
+        },
+        {
+          "text": "Make the prompt shorter so there is less to go wrong.",
+          "correct": false,
+          "explain": "不適。情報を減らせば基準はさらに不明確になる。"
+        }
+      ],
+      "objective": "Adjust approach based on feedback and results",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d7-003",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "A team says their Claude-assisted workflow \"takes too long.\" What should the associate do first?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Find out where the time actually goes — drafting, checking, or rework — before changing anything.",
+          "correct": true,
+          "explain": "正解。最適化は計測から始める。確認作業に時間が消えているなら、生成を速くしても何も変わらない。"
+        },
+        {
+          "text": "Switch every step to the fastest model.",
+          "correct": false,
+          "explain": "不適。原因を確かめずに手を打っている。品質が落ちて手戻りが増える可能性もある。"
+        },
+        {
+          "text": "Remove the human review step, since it is the slowest part.",
+          "correct": false,
+          "explain": "不適。遅いことは不要であることの理由にならない。"
+        },
+        {
+          "text": "Tell the team the workflow is as fast as it can be.",
+          "correct": false,
+          "explain": "不適。調べていない。"
+        }
+      ],
+      "objective": "Optimize workflows for efficiency and effectiveness",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d7-004",
+      "domain": "D7",
+      "type": "multi",
+      "stem": "An output is generic and could describe any company. Which TWO changes help most? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Supply the specific material — the actual numbers, names, and constraints — instead of describing them in general terms.",
+          "correct": true,
+          "explain": "正解。一般的な出力は、一般的な入力しか渡していないときに出る。"
+        },
+        {
+          "text": "State what the output must not do — the assumptions to avoid and the boilerplate to leave out.",
+          "correct": true,
+          "explain": "正解。避けるべき形を明示すると、既定の書きぶりから外れやすくなる。"
+        },
+        {
+          "text": "Ask for a longer output.",
+          "correct": false,
+          "explain": "不適。一般論が増えるだけ。"
+        },
+        {
+          "text": "Add \"be specific\" without providing specifics.",
+          "correct": false,
+          "explain": "不適。具体性は指示ではなく材料から生まれる。"
+        },
+        {
+          "text": "Change the model's temperature setting from the chat interface.",
+          "correct": false,
+          "explain": "不適。一般的なチャット利用で触る設定ではなく、原因にも当たっていない。"
+        }
+      ],
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-23"
+    }
+  ]
+}

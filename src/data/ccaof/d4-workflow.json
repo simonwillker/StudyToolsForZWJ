@@ -1,0 +1,138 @@
+{
+  "domain": "D4",
+  "items": [
+    {
+      "id": "d4-001",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A manager asks an associate to \"use Claude to automate our weekly reporting.\" What is the most appropriate first step?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Map the current process end to end — inputs, decisions, who checks what — and identify which steps are repetitive enough to hand over and which must keep a human check.",
+          "correct": true,
+          "explain": "正解。既存の手順を把握しないまま自動化すると、人が判断していた工程ごと消える。どこを渡し、どこに人を残すかを先に決める。"
+        },
+        {
+          "text": "Write the most detailed prompt possible and run it on last week's data.",
+          "correct": false,
+          "explain": "不適。手を動かすのは早いが、何を自動化するのかが決まっていない。"
+        },
+        {
+          "text": "Buy the highest tier plan so nothing is blocked later.",
+          "correct": false,
+          "explain": "不適。要件が分からないうちに投資している。"
+        },
+        {
+          "text": "Ask Claude to design the whole workflow and implement whatever it proposes.",
+          "correct": false,
+          "explain": "不適。提案をもらうのはよいが、検証せずに実装するのは責任の放棄。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d4-002",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "An associate presents a Claude-based workflow to stakeholders. Which framing is most appropriate?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Show what it does well with evidence from the pilot, state plainly where it needs a human check, and name what it should not be used for.",
+          "correct": true,
+          "explain": "正解。価値と限界の両方を伝えるのが Associate の役割。限界を言わないと、使ってはいけない場面で使われる。"
+        },
+        {
+          "text": "Emphasize only the successes, to avoid slowing adoption.",
+          "correct": false,
+          "explain": "不適。導入は速くなるが、最初の失敗で信頼ごと失う。"
+        },
+        {
+          "text": "Present it as fully autonomous so people stop questioning it.",
+          "correct": false,
+          "explain": "不適。事実と違ううえ、必要な人の確認を外させてしまう。"
+        },
+        {
+          "text": "Avoid specifics so expectations stay flexible.",
+          "correct": false,
+          "explain": "不適。曖昧なまま導入すると、期待と実態のずれが後で表面化する。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d4-003",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "Midway through designing a workflow, it becomes clear that the remaining work requires calling an internal system's API and handling authentication. The associate has no development experience. What should they do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Document what is needed and escalate that portion to a Claude Developer or Architect, while continuing to own the parts within their scope.",
+          "correct": true,
+          "explain": "正解。限界を認識して適切に引き継ぐことは、この資格が明示的に求めている能力。自分の範囲の仕事は手放さない点も含めて正しい。"
+        },
+        {
+          "text": "Learn the API over the weekend and implement it alone.",
+          "correct": false,
+          "explain": "不適。役割の境界を越えている。急ごしらえの実装は後で引き取る人の負担になる。"
+        },
+        {
+          "text": "Abandon the workflow entirely.",
+          "correct": false,
+          "explain": "不適。範囲内の部分まで捨てている。"
+        },
+        {
+          "text": "Ask Claude to write the integration code and deploy it without review.",
+          "correct": false,
+          "explain": "不適。評価できない成果物を本番に出している。"
+        }
+      ],
+      "objective": "Recognize limitations and escalate more complex or technical implementations",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d4-004",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "A pilot is being designed for a new Claude-assisted workflow. Which TWO elements matter most? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A measure defined before the pilot starts that says what success looks like.",
+          "correct": true,
+          "explain": "正解。基準を先に決めないと、終わったあとに都合よく解釈できてしまう。"
+        },
+        {
+          "text": "A comparison against how the task is done today.",
+          "correct": true,
+          "explain": "正解。改善は現状との差でしか測れない。"
+        },
+        {
+          "text": "The number of prompts written during the pilot.",
+          "correct": false,
+          "explain": "不適。作業量は成果ではない。"
+        },
+        {
+          "text": "Which model was used, recorded for the announcement.",
+          "correct": false,
+          "explain": "不適。記録する価値はあるが、パイロットの成否を決める要素ではない。"
+        },
+        {
+          "text": "The length of the final report about the pilot.",
+          "correct": false,
+          "explain": "不適。分量は成果と無関係。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-23"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "domain": "D5",
+  "items": [
+    {
+      "id": "d5-001",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "Every member of a team keeps typing the same five formatting rules at the start of each chat in a shared Project. What is the better place for those rules?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The Project's custom instructions, so they apply to every conversation in that Project without being retyped.",
+          "correct": true,
+          "explain": "正解。全会話に共通する前提はプロジェクト側の指示に置く。書き漏れが消え、直すときも一か所で済む。"
+        },
+        {
+          "text": "A shared document that each person copies from before every chat.",
+          "correct": false,
+          "explain": "不適。手作業が残るので、貼り忘れと版のずれが起き続ける。"
+        },
+        {
+          "text": "Each person's own notes app.",
+          "correct": false,
+          "explain": "不適。共通のはずの基準が人ごとにずれていく。"
+        },
+        {
+          "text": "Nowhere — good output should not need formatting rules.",
+          "correct": false,
+          "explain": "不適。体裁の要件は実在する。指示しなければ毎回ばらつく。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d5-002",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A Project's knowledge base contains a pricing sheet that was replaced by a new version two months ago. Outputs have started quoting the old prices. What is the correct fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Replace the outdated file with the current version and record when the knowledge was last reviewed.",
+          "correct": true,
+          "explain": "正解。知識ソースは置いたら終わりではなく保守の対象。更新に加えて「いつ確認したか」を残すのが、同じ事故を繰り返さないための手当て。"
+        },
+        {
+          "text": "Add an instruction telling Claude to ignore the old prices.",
+          "correct": false,
+          "explain": "不適。誤った資料を残したまま回避策を重ねている。次に見る人も同じ罠を踏む。"
+        },
+        {
+          "text": "Tell users to double-check every price by hand.",
+          "correct": false,
+          "explain": "不適。原因を直さず負担を人に移している。"
+        },
+        {
+          "text": "Delete the Project and start a new one.",
+          "correct": false,
+          "explain": "不適。履歴と設定を捨てる対価が大きすぎる。直すのはファイル1つ。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d5-003",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO items are the best candidates for a Project's knowledge base? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The team's style guide, which applies to every document produced in that Project.",
+          "correct": true,
+          "explain": "正解。全会話で参照される安定した基準は知識ベース向き。"
+        },
+        {
+          "text": "The current product specification the team writes against.",
+          "correct": true,
+          "explain": "正解。繰り返し参照され、更新されたら一か所直せばよいもの。"
+        },
+        {
+          "text": "A one-off screenshot needed for a single question.",
+          "correct": false,
+          "explain": "不適。その会話に添付すれば足りる。"
+        },
+        {
+          "text": "A spreadsheet of customer names and account numbers, added for convenience.",
+          "correct": false,
+          "explain": "不適。利便性のために規制対象の個人データを常設するのは、データ取り扱いの観点から避ける（D6の論点でもある）。"
+        },
+        {
+          "text": "Every email the team has ever sent.",
+          "correct": false,
+          "explain": "不適。量を入れるほど良くなるわけではない。関連しない資料は判断を濁らせる。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d5-004",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An associate is asked to connect a shared team drive so Claude can reference its files. What should be settled before connecting?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Which files the connection actually exposes, and whether everyone who can use the Project is permitted to see them.",
+          "correct": true,
+          "explain": "正解。接続は権限の境界を動かす。プロジェクトを使える人 = 接続先を読める人になっていないか、つなぐ前に確かめる。"
+        },
+        {
+          "text": "Whether the drive has enough free space.",
+          "correct": false,
+          "explain": "不適。読み取りの接続で保存容量は問題にならない。"
+        },
+        {
+          "text": "Whether the files are in alphabetical order.",
+          "correct": false,
+          "explain": "不適。整理の好みであって、接続の可否を決める条件ではない。"
+        },
+        {
+          "text": "Nothing — connectors are read-only, so there is no risk.",
+          "correct": false,
+          "explain": "不適。読み取りだけでも、見えるべきでない人に見えるという事故は起きる。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-23"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "domain": "D3",
+  "items": [
+    {
+      "id": "d3-001",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A support team needs 400 short reply drafts a day from a fixed template. Replies are straightforward; speed and cost matter more than depth of reasoning. Which choice fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use a faster, lower-cost model, and reserve the most capable model for the small number of escalated cases.",
+          "correct": true,
+          "explain": "正解。モデル選択はタスク要件との整合。定型・大量・浅い推論には速くて安いモデルを当て、難しいものだけ上位に回すのが費用対効果の基本。"
+        },
+        {
+          "text": "Use the most capable model for every reply so quality is never at risk.",
+          "correct": false,
+          "explain": "不適。品質の上振れが不要な仕事にコストと待ち時間を払っている。トレードオフを判断していない。"
+        },
+        {
+          "text": "Turn off product features to reduce cost.",
+          "correct": false,
+          "explain": "不適。機能の無効化はモデル選択の論点と関係がなく、費用の主因でもない。"
+        },
+        {
+          "text": "Handle all 400 manually to avoid model-choice decisions.",
+          "correct": false,
+          "explain": "不適。自動化の目的を放棄している。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d3-002",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "The same three background documents are needed in every conversation about one client. What is the most appropriate setup?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Create a Project for that client and attach the documents as project knowledge, so every conversation in it starts with them available.",
+          "correct": true,
+          "explain": "正解。Projects は専用のチャット履歴と知識ベースを持つ作業空間。繰り返し使う資料は都度貼るのではなくここに置く。"
+        },
+        {
+          "text": "Paste all three documents at the start of every new conversation.",
+          "correct": false,
+          "explain": "不適。動きはするが、毎回手間がかかり、貼り忘れや版ずれが起きる。"
+        },
+        {
+          "text": "Keep one conversation open forever and never start a new one.",
+          "correct": false,
+          "explain": "不適。会話が長くなるほど扱いにくくなり、話題も混ざる。長さの問題を別の形で抱え込む。"
+        },
+        {
+          "text": "Summarize the documents once and rely on the summary from memory.",
+          "correct": false,
+          "explain": "不適。要約は原典の代わりにならない。細部を問われたときに確認できない。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d3-003",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A working conversation has run for several hours. Claude has started to lose track of decisions made early on, and responses are drifting from the agreed format. What is the most appropriate action?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Write a short summary of the decisions and the required format, start a fresh conversation, and carry that summary over.",
+          "correct": true,
+          "explain": "正解。文脈の長さには限りがある。要点を明示的に持ち越して作り直すのが、長い会話の扱い方として正着。"
+        },
+        {
+          "text": "Tell Claude to \"remember everything from earlier\" and continue in the same conversation.",
+          "correct": false,
+          "explain": "不適。指示では文脈の制約は変えられない。"
+        },
+        {
+          "text": "Start a fresh conversation with no context at all and re-explain from scratch each time.",
+          "correct": false,
+          "explain": "不適。作り直しはよいが、持ち越すべき決定事項まで捨てている。"
+        },
+        {
+          "text": "Switch to a different model and continue the same conversation.",
+          "correct": false,
+          "explain": "不適。モデルを変えても会話の長さは変わらない。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d3-004",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "For which TWO tasks is an artifact the more appropriate output format than an inline reply? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A document that the associate will revise over several rounds and then hand to a colleague.",
+          "correct": true,
+          "explain": "正解。作り込んで再利用する成果物は、会話の流れから切り離して持てる形が適している。"
+        },
+        {
+          "text": "A one-page interactive summary the team will open and look at on its own.",
+          "correct": true,
+          "explain": "正解。単体で開いて使うものは成果物として切り出す。"
+        },
+        {
+          "text": "A one-sentence answer to a factual question.",
+          "correct": false,
+          "explain": "不適。会話の中で返すほうが速い。"
+        },
+        {
+          "text": "A clarifying question back to the associate.",
+          "correct": false,
+          "explain": "不適。やり取りそのもの。成果物にする対象ではない。"
+        },
+        {
+          "text": "A short confirmation that a step was completed.",
+          "correct": false,
+          "explain": "不適。会話の一行で足りる。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-23"
+    }
+  ]
+}

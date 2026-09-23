@@ -4,6 +4,7 @@ import React, { useState, Suspense, lazy } from "react";
    きょうのドリルを使う日に英検の問題まで読み込む必要はない。 */
 const DailyDrill = lazy(() => import("./DailyDrill.jsx"));
 const EikenApp = lazy(() => import("./EikenApp.jsx"));
+const CcaofApp = lazy(() => import("./CcaofApp.jsx"));
 
 function AppLoading() {
   return (
@@ -49,6 +50,12 @@ export default function App() {
         <EikenApp onExitApp={backToMenu} />
       </Suspense>
     );
+  if (active === "ccaof")
+    return (
+      <Suspense fallback={<AppLoading />}>
+        <CcaofApp onExitApp={backToMenu} />
+      </Suspense>
+    );
 
   return (
     <div className="app-switcher">
@@ -85,6 +92,10 @@ export default function App() {
           <button className="app-switcher-card" style={{ "--c": "#8A3B2F" }} onClick={() => choose("eiken")}>
             <div className="label">英検マスター</div>
             <div className="desc">英検5級〜1級対応。単語・文法穴うめ・長文読解・リスニング・会話文・発音練習、学習記録つき</div>
+          </button>
+          <button className="app-switcher-card" style={{ "--c": "#C8743D" }} onClick={() => choose("ccaof")}>
+            <div className="label">CCAO-F 対策</div>
+            <div className="desc">Claude Certified Associate – Foundations の練習問題。公式ブループリントの7ドメイン別、ドメイン別正答率つき</div>
           </button>
         </div>
       </div>

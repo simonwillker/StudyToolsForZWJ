@@ -1,0 +1,138 @@
+{
+  "domain": "D6",
+  "items": [
+    {
+      "id": "d6-001",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A project manager wants to upload a spreadsheet of customer names and account numbers so Claude can find trends. Company policy restricts sharing regulated personal data.",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Remove or anonymize the identifiers first, then run the analysis on the de-identified data.",
+          "correct": true,
+          "explain": "正解。多くの分析は識別子を必要としない。方針を守ったうえで目的を達成できる形に直すのが正しい判断。"
+        },
+        {
+          "text": "Upload it as-is, since the analysis is internal.",
+          "correct": false,
+          "explain": "不適。社内利用であることは、規制対象データの取り扱い方針の例外にならない。"
+        },
+        {
+          "text": "Upload it but add an instruction not to retain the data.",
+          "correct": false,
+          "explain": "不適。指示は方針の代わりにならない。渡した事実は消えない。"
+        },
+        {
+          "text": "Cancel the analysis entirely.",
+          "correct": false,
+          "explain": "不適。匿名化すれば実施できる。必要以上に仕事を止めている。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d6-002",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "An associate uses Claude to draft an answer to an employee's question about statutory leave entitlement. What is the appropriate way to use that draft?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Treat it as a starting point and have the responsible expert confirm it before it is sent as the company's answer.",
+          "correct": true,
+          "explain": "正解。法的な帰結を持つ回答は人の確認が要る。下書きとしての価値と、最終回答としての適否は別。"
+        },
+        {
+          "text": "Send it directly, since the answer is well written and cites the law.",
+          "correct": false,
+          "explain": "不適。体裁と引用があることは正しさの証明ではない。しかも誤れば実害が出る領域。"
+        },
+        {
+          "text": "Send it with a note saying it was AI-generated, so responsibility transfers to the reader.",
+          "correct": false,
+          "explain": "不適。表示しても、誤った回答を出した責任は移らない。"
+        },
+        {
+          "text": "Never use Claude for anything touching HR topics.",
+          "correct": false,
+          "explain": "不適。下書き・整理・論点出しには有用。全面禁止は適切な線引きではない。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d6-003",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO situations call for stopping and checking policy before proceeding? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Pasting a signed customer contract into a general-purpose chat to summarize it.",
+          "correct": true,
+          "explain": "正解。第三者の機密情報の取り扱いは、契約と社内方針の両方に関わる。進める前に確認する。"
+        },
+        {
+          "text": "Using Claude to screen job applicants and rank them.",
+          "correct": true,
+          "explain": "正解。人の処遇に直接影響する用途は、公平性と規制の両面で確認が要る。"
+        },
+        {
+          "text": "Asking Claude to shorten a public blog post the company already published.",
+          "correct": false,
+          "explain": "不適。公開済みの自社文章で、判断の対象になる情報を含まない。"
+        },
+        {
+          "text": "Using Claude to brainstorm names for an internal meeting room.",
+          "correct": false,
+          "explain": "不適。影響も機微さもない。"
+        },
+        {
+          "text": "Asking Claude to explain a publicly documented industry standard.",
+          "correct": false,
+          "explain": "不適。公開情報の説明を求めているだけ。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d6-004",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "An associate believes their organization's AI policy is stricter than necessary and slows their work. What is the appropriate course of action?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Follow the policy as written while raising the concern through the channel that can change it.",
+          "correct": true,
+          "explain": "正解。方針は個人の判断で上書きするものではない。守りながら、変える権限のある場に働きかけるのが正しい。"
+        },
+        {
+          "text": "Apply their own judgement on a case-by-case basis, since they understand the tasks best.",
+          "correct": false,
+          "explain": "不適。方針が方針として機能しなくなる。"
+        },
+        {
+          "text": "Follow the policy only when others can see.",
+          "correct": false,
+          "explain": "不適。見られているときだけ守るのは、守っていない。監査や事故のときに最も問題になる振る舞い。"
+        },
+        {
+          "text": "Publicly criticise the policy until it is changed.",
+          "correct": false,
+          "explain": "不適。懸念の提起自体は正しいが、その間も方針は守る必要がある。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-23"
+    }
+  ]
+}

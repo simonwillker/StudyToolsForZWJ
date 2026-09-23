@@ -1,0 +1,138 @@
+{
+  "domain": "D1",
+  "items": [
+    {
+      "id": "d1-001",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate pastes a 40-page quarterly report into Claude with the single instruction \"improve this.\" The draft that comes back is shorter but no closer to what the team needs. What is the most effective next step?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Break the request into steps — state the audience, name the sections to rewrite, and give the criteria for \"improved\" — then run them one at a time.",
+          "correct": true,
+          "explain": "正解。曖昧な一語の指示を、目的・読者・評価基準に分解するのが task decomposition。長い素材ほど「どこを・誰のために・何を基準に」を明示しないと、モデルは改善の方向を推測するしかない。"
+        },
+        {
+          "text": "Paste the same report again and add \"please try harder this time.\"",
+          "correct": false,
+          "explain": "不適。努力を促す言葉は情報を1ビットも足していない。出力が変わるとしても偶然で、再現性がない。"
+        },
+        {
+          "text": "Switch to the most capable model and repeat the same prompt.",
+          "correct": false,
+          "explain": "不適。モデルを上げても指示の曖昧さは解消しない。指示が足りない問題をコストで解こうとしている。"
+        },
+        {
+          "text": "Ask Claude to guess what the team wants and proceed with its guess.",
+          "correct": false,
+          "explain": "不適。推測させた前提が間違っていても気づけない。前提はこちらが与えるもの。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d1-002",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which prompt is most likely to produce a usable first draft of a customer apology email?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Write a 150-word apology email to a customer whose order arrived four days late. Warm but not grovelling, offer the standard 10% credit, sign off as the support team.\"",
+          "correct": true,
+          "explain": "正解。読者・長さ・事実・トーン・含める条件・署名がすべて明示されている。判断の余地を残していないので、出てきたものをそのまま評価できる。"
+        },
+        {
+          "text": "\"Write a good apology email.\"",
+          "correct": false,
+          "explain": "不適。「good」の基準が示されていない。出力を評価する物差しもないので、直しの方向も決まらない。"
+        },
+        {
+          "text": "\"You are the world's greatest copywriter with 30 years of experience. Write an apology email.\"",
+          "correct": false,
+          "explain": "不適。肩書きを盛っても具体的な条件は増えない。役割付与は条件の代わりにならない。"
+        },
+        {
+          "text": "\"Apology email. Make it perfect. Don't make mistakes.\"",
+          "correct": false,
+          "explain": "不適。「完璧に」「間違えるな」は検証可能な条件ではない。何を間違いとみなすかを書いていない。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d1-003",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "A drafting prompt keeps producing text that is technically correct but unusable. Which TWO changes are most likely to fix it? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "State who will read the output and what they will do with it.",
+          "correct": true,
+          "explain": "正解。読者と用途が決まると、語彙・長さ・前提知識の水準がすべて決まる。"
+        },
+        {
+          "text": "Show one or two examples of the output you consider correct.",
+          "correct": true,
+          "explain": "正解。multishot（例示）は、言葉で説明しにくい体裁やトーンを伝える最短の手段。"
+        },
+        {
+          "text": "Add \"be creative\" to the end of the prompt.",
+          "correct": false,
+          "explain": "不適。方向の定まらない自由度を増やすだけで、使えない理由には触れていない。"
+        },
+        {
+          "text": "Repeat the instruction three times in the same prompt.",
+          "correct": false,
+          "explain": "不適。同じ曖昧さを3回渡しても曖昧なまま。強調は不足した情報を補わない。"
+        },
+        {
+          "text": "Ask for the output in a language nobody on the team reads.",
+          "correct": false,
+          "explain": "不適。使えなさが増すだけ。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d1-004",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "An associate needs Claude to help with two different tasks: (1) brainstorm 20 campaign ideas, and (2) analyze last quarter's churn data for the real cause. How should the prompting strategy differ?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Brainstorming rewards breadth and deliberately loose constraints; analysis rewards stated assumptions, a request to show reasoning, and an explicit instruction to say when the data does not support a conclusion.",
+          "correct": true,
+          "explain": "正解。タスクの型によって良い出力の定義が違う。発想では幅、分析では根拠と限界の明示が価値になる。"
+        },
+        {
+          "text": "Both should use the same prompt template so the outputs stay consistent.",
+          "correct": false,
+          "explain": "不適。一貫性は目的ではない。発想に根拠の明示を求めれば幅が死に、分析に幅を求めれば当てずっぽうが増える。"
+        },
+        {
+          "text": "Brainstorming needs stricter constraints than analysis, because creativity must be controlled.",
+          "correct": false,
+          "explain": "不適。逆。制約を強めるほど候補は既知のものに寄る。"
+        },
+        {
+          "text": "Analysis should be done without giving Claude the data, to avoid bias.",
+          "correct": false,
+          "explain": "不適。データを渡さなければ分析ではなく推測になる。扱いに注意が要るのはデータの中身（D6の論点）であって、渡すこと自体ではない。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-23"
+    }
+  ]
+}
