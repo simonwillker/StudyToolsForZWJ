@@ -11,27 +11,33 @@
         {
           "text": "The Project's custom instructions, so they apply to every conversation in that Project without being retyped.",
           "correct": true,
-          "explain": "正解。全会話に共通する前提はプロジェクト側の指示に置く。書き漏れが消え、直すときも一か所で済む。"
+          "explain": "正解。全会話に共通する前提はプロジェクト側の指示に置く。書き漏れが消え、直すときも一か所で済む。",
+          "textZh": "放进该 Project 的自定义指示（custom instructions），这样项目内的每次对话都自动适用，不必重复输入。"
         },
         {
           "text": "A shared document that each person copies from before every chat.",
           "correct": false,
-          "explain": "不適。手作業が残るので、貼り忘れと版のずれが起き続ける。"
+          "explain": "不適。手作業が残るので、貼り忘れと版のずれが起き続ける。",
+          "textZh": "放在一份共享文档里，每个人每次开聊前复制粘贴。"
         },
         {
           "text": "Each person's own notes app.",
           "correct": false,
-          "explain": "不適。共通のはずの基準が人ごとにずれていく。"
+          "explain": "不適。共通のはずの基準が人ごとにずれていく。",
+          "textZh": "各自放在自己的笔记应用里。"
         },
         {
           "text": "Nowhere — good output should not need formatting rules.",
           "correct": false,
-          "explain": "不適。体裁の要件は実在する。指示しなければ毎回ばらつく。"
+          "explain": "不適。体裁の要件は実在する。指示しなければ毎回ばらつく。",
+          "textZh": "哪里都不放——好的产出不应该需要格式规则。"
         }
       ],
       "objective": "Create effective system-level instructions",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "在一个共享的 Project 里，团队每个人每次开聊都要把同样的五条格式规则打一遍。这些规则更应该放在哪里？",
+      "commentaryZh": "考点是「系统级指示」。对所有对话共通的前提应该放在项目一侧，好处有两个：不会漏写，要改的时候只改一处。「放共享文档每次复制」留下了手工操作，漏贴和版本不一致会一直发生；「各自放在自己的笔记里」会让本应统一的标准在每个人手里慢慢跑偏。"
     },
     {
       "id": "d5-002",
@@ -43,27 +49,33 @@
         {
           "text": "Replace the outdated file with the current version and record when the knowledge was last reviewed.",
           "correct": true,
-          "explain": "正解。知識ソースは置いたら終わりではなく保守の対象。更新に加えて「いつ確認したか」を残すのが、同じ事故を繰り返さないための手当て。"
+          "explain": "正解。知識ソースは置いたら終わりではなく保守の対象。更新に加えて「いつ確認したか」を残すのが、同じ事故を繰り返さないための手当て。",
+          "textZh": "把过期的文件换成当前版本，并记录知识最后一次确认的时间。"
         },
         {
           "text": "Add an instruction telling Claude to ignore the old prices.",
           "correct": false,
-          "explain": "不適。誤った資料を残したまま回避策を重ねている。次に見る人も同じ罠を踏む。"
+          "explain": "不適。誤った資料を残したまま回避策を重ねている。次に見る人も同じ罠を踏む。",
+          "textZh": "加一条指示，告诉 Claude 忽略旧价格。"
         },
         {
           "text": "Tell users to double-check every price by hand.",
           "correct": false,
-          "explain": "不適。原因を直さず負担を人に移している。"
+          "explain": "不適。原因を直さず負担を人に移している。",
+          "textZh": "让使用者每次都人工复核所有价格。"
         },
         {
           "text": "Delete the Project and start a new one.",
           "correct": false,
-          "explain": "不適。履歴と設定を捨てる対価が大きすぎる。直すのはファイル1つ。"
+          "explain": "不適。履歴と設定を捨てる対価が大きすぎる。直すのはファイル1つ。",
+          "textZh": "删掉这个 Project，重新建一个。"
         }
       ],
       "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某个 Project 的知识库里有一份两个月前已被新版取代的价目表。最近的产出开始引用旧价格。正确的修法是什么？",
+      "commentaryZh": "考点是「知识源的维护」。知识库不是放上去就完事，而是需要保养的对象。正解里「记录确认时间」这一点很重要——这和本 APP 给每道题都加 reviewedAt 是同一个道理：不记录，同样的事故就会再发生一次。「加一条指示让它忽略旧价格」是留着错误资料再叠一层绕行方案，下一个人还会踩同样的坑。"
     },
     {
       "id": "d5-003",
@@ -75,32 +87,39 @@
         {
           "text": "The team's style guide, which applies to every document produced in that Project.",
           "correct": true,
-          "explain": "正解。全会話で参照される安定した基準は知識ベース向き。"
+          "explain": "正解。全会話で参照される安定した基準は知識ベース向き。",
+          "textZh": "团队的文风指南，该项目产出的所有文档都适用。"
         },
         {
           "text": "The current product specification the team writes against.",
           "correct": true,
-          "explain": "正解。繰り返し参照され、更新されたら一か所直せばよいもの。"
+          "explain": "正解。繰り返し参照され、更新されたら一か所直せばよいもの。",
+          "textZh": "团队当前依据的产品规格书。"
         },
         {
           "text": "A one-off screenshot needed for a single question.",
           "correct": false,
-          "explain": "不適。その会話に添付すれば足りる。"
+          "explain": "不適。その会話に添付すれば足りる。",
+          "textZh": "只为回答一个问题而用到的一张截图。"
         },
         {
           "text": "A spreadsheet of customer names and account numbers, added for convenience.",
           "correct": false,
-          "explain": "不適。利便性のために規制対象の個人データを常設するのは、データ取り扱いの観点から避ける（D6の論点でもある）。"
+          "explain": "不適。利便性のために規制対象の個人データを常設するのは、データ取り扱いの観点から避ける（D6の論点でもある）。",
+          "textZh": "一份客户姓名和账号的表格，为了方便而常驻。"
         },
         {
           "text": "Every email the team has ever sent.",
           "correct": false,
-          "explain": "不適。量を入れるほど良くなるわけではない。関連しない資料は判断を濁らせる。"
+          "explain": "不適。量を入れるほど良くなるわけではない。関連しない資料は判断を濁らせる。",
+          "textZh": "团队历史上发过的所有邮件。"
         }
       ],
       "objective": "Configure Claude Projects with instructions and knowledge sources",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "下面哪两项最适合放进 Project 的知识库？（选2项）",
+      "commentaryZh": "考点是「该放什么进知识库」。标准是「稳定、会被反复引用、改的时候只需改一处」。只用一次的截图挂在那一次对话里就够了；把客户姓名和账号常驻触及数据敏感性（D6 的论点），为了方便这样做是要避免的；「把历史上所有邮件都放进去」是典型的「量多不等于好」——不相关的资料只会稀释判断。"
     },
     {
       "id": "d5-004",
@@ -112,27 +131,33 @@
         {
           "text": "Which files the connection actually exposes, and whether everyone who can use the Project is permitted to see them.",
           "correct": true,
-          "explain": "正解。接続は権限の境界を動かす。プロジェクトを使える人 = 接続先を読める人になっていないか、つなぐ前に確かめる。"
+          "explain": "正解。接続は権限の境界を動かす。プロジェクトを使える人 = 接続先を読める人になっていないか、つなぐ前に確かめる。",
+          "textZh": "这个连接实际会暴露哪些文件，以及所有能使用该 Project 的人是否都有权看到这些文件。"
         },
         {
           "text": "Whether the drive has enough free space.",
           "correct": false,
-          "explain": "不適。読み取りの接続で保存容量は問題にならない。"
+          "explain": "不適。読み取りの接続で保存容量は問題にならない。",
+          "textZh": "云盘是否还有足够的剩余空间。"
         },
         {
           "text": "Whether the files are in alphabetical order.",
           "correct": false,
-          "explain": "不適。整理の好みであって、接続の可否を決める条件ではない。"
+          "explain": "不適。整理の好みであって、接続の可否を決める条件ではない。",
+          "textZh": "文件是否按字母顺序排列。"
         },
         {
           "text": "Nothing — connectors are read-only, so there is no risk.",
           "correct": false,
-          "explain": "不適。読み取りだけでも、見えるべきでない人に見えるという事故は起きる。"
+          "explain": "不適。読み取りだけでも、見えるべきでない人に見えるという事故は起きる。",
+          "textZh": "什么都不用——连接器是只读的，所以没有风险。"
         }
       ],
       "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
       "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某位担当被要求连接团队的共享云盘，让 Claude 能够引用其中的文件。在连接之前应该先弄清楚什么？",
+      "commentaryZh": "考点是「连接器与权限边界」。接上连接器等于移动了权限的边界：能用这个 Project 的人，就等于能读到连接目标。「只读所以安全」是最常见的误解——只读同样会造成「不该看到的人看到了」这种事故。"
     }
   ]
 }

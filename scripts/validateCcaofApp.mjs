@@ -9,6 +9,8 @@
       変われば正解が間違いになる。英検（言語）との決定的な違い。
    2. 180日以上見直していない問題を洗い出す。
       放っておくと、古い仕様のまま正解として教え続けることになる。
+   3. 中国語（設問訳・選択肢訳・解答後の注解）が全問にあるか。
+      ユーザーの指示で、問題は中国語訳つき・解答後に中文注解を出す。
    ============================================================ */
 
 import { readFileSync, readdirSync } from "node:fs";
@@ -59,6 +61,13 @@ for (const file of files) {
 
     if (it.domain !== dom) errors.push(`${at}: domain が ${it.domain}（ファイルは ${dom}）`);
     if (!it.stem || it.stem.length < 20) errors.push(`${at}: stem が無い、または短すぎる`);
+    if (!it.stemZh || it.stemZh.length < 10) errors.push(`${at}: stemZh（設問の中国語訳）が無い`);
+    if (!it.commentaryZh || it.commentaryZh.length < 30)
+      errors.push(`${at}: commentaryZh（解答後の中文注解）が無い、または短すぎる`);
+    /* 選択肢はシャッフルして出すので、注解で「B は」と指すと画面とずれる。
+       内容で指すこと（実際にずれていたので機械で止める）。 */
+    if (it.commentaryZh && /(?<![A-Za-z0-9])[A-E](?![A-Za-z0-9])/.test(it.commentaryZh))
+      errors.push(`${at}: commentaryZh が選択肢を記号（A〜E）で指している。出題時にシャッフルするのでずれる`);
 
     const key = (it.stem || "").trim().toLowerCase();
     if (key) {
@@ -80,6 +89,7 @@ for (const file of files) {
       // 全選択肢に解説を必須にする。なぜ他が不適かを書かないと復習にならない
       if (!c.explain || c.explain.length < 10)
         errors.push(`${at}: choices[${ci}] の explain が無い、または短すぎる`);
+      if (!c.textZh) errors.push(`${at}: choices[${ci}] の textZh（中国語訳）が無い`);
     });
 
     // この資格特有のチェック

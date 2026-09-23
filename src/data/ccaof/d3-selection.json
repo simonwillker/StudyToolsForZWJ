@@ -11,27 +11,33 @@
         {
           "text": "Use a faster, lower-cost model, and reserve the most capable model for the small number of escalated cases.",
           "correct": true,
-          "explain": "正解。モデル選択はタスク要件との整合。定型・大量・浅い推論には速くて安いモデルを当て、難しいものだけ上位に回すのが費用対効果の基本。"
+          "explain": "正解。モデル選択はタスク要件との整合。定型・大量・浅い推論には速くて安いモデルを当て、難しいものだけ上位に回すのが費用対効果の基本。",
+          "textZh": "使用更快、成本更低的模型，把能力最强的模型留给少数需要升级处理的个案。"
         },
         {
           "text": "Use the most capable model for every reply so quality is never at risk.",
           "correct": false,
-          "explain": "不適。品質の上振れが不要な仕事にコストと待ち時間を払っている。トレードオフを判断していない。"
+          "explain": "不適。品質の上振れが不要な仕事にコストと待ち時間を払っている。トレードオフを判断していない。",
+          "textZh": "对每一封回复都使用能力最强的模型，确保质量万无一失。"
         },
         {
           "text": "Turn off product features to reduce cost.",
           "correct": false,
-          "explain": "不適。機能の無効化はモデル選択の論点と関係がなく、費用の主因でもない。"
+          "explain": "不適。機能の無効化はモデル選択の論点と関係がなく、費用の主因でもない。",
+          "textZh": "关闭产品功能以降低成本。"
         },
         {
           "text": "Handle all 400 manually to avoid model-choice decisions.",
           "correct": false,
-          "explain": "不適。自動化の目的を放棄している。"
+          "explain": "不適。自動化の目的を放棄している。",
+          "textZh": "全部400封人工处理，以回避模型选择的判断。"
         }
       ],
       "objective": "Align model selection with task requirements (cost, speed, quality)",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某支持团队每天需要400封基于固定模板的简短回复草稿。内容都很直接，速度和成本比推理深度更重要。哪个选择最合适？",
+      "commentaryZh": "考点是「模型选择与任务要求的匹配」。定型、大量、浅推理的工作用快而便宜的模型，难的才上位模型——这是成本效益的基本盘。「每封都用最强模型」是在不需要质量上限的地方付出成本和延迟，属于没有做权衡判断。"
     },
     {
       "id": "d3-002",
@@ -43,27 +49,33 @@
         {
           "text": "Create a Project for that client and attach the documents as project knowledge, so every conversation in it starts with them available.",
           "correct": true,
-          "explain": "正解。Projects は専用のチャット履歴と知識ベースを持つ作業空間。繰り返し使う資料は都度貼るのではなくここに置く。"
+          "explain": "正解。Projects は専用のチャット履歴と知識ベースを持つ作業空間。繰り返し使う資料は都度貼るのではなくここに置く。",
+          "textZh": "为该客户建立一个 Project，把这三份资料作为项目知识附上，这样该项目内的每次对话一开始就能用到它们。"
         },
         {
           "text": "Paste all three documents at the start of every new conversation.",
           "correct": false,
-          "explain": "不適。動きはするが、毎回手間がかかり、貼り忘れや版ずれが起きる。"
+          "explain": "不適。動きはするが、毎回手間がかかり、貼り忘れや版ずれが起きる。",
+          "textZh": "每开一个新对话，都把三份资料重新粘贴一遍。"
         },
         {
           "text": "Keep one conversation open forever and never start a new one.",
           "correct": false,
-          "explain": "不適。会話が長くなるほど扱いにくくなり、話題も混ざる。長さの問題を別の形で抱え込む。"
+          "explain": "不適。会話が長くなるほど扱いにくくなり、話題も混ざる。長さの問題を別の形で抱え込む。",
+          "textZh": "永远开着同一个对话，绝不新建。"
         },
         {
           "text": "Summarize the documents once and rely on the summary from memory.",
           "correct": false,
-          "explain": "不適。要約は原典の代わりにならない。細部を問われたときに確認できない。"
+          "explain": "不適。要約は原典の代わりにならない。細部を問われたときに確認できない。",
+          "textZh": "把资料总结一次，之后就依赖这份总结。"
         }
       ],
       "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "每次谈到某个客户，都需要同样的三份背景资料。最合适的设置是什么？",
+      "commentaryZh": "考点是「用 Project 管理重复使用的知识」。Projects 是带有独立对话历史和知识库的工作空间，反复要用的资料应该放在这里，而不是每次手动粘贴。「每次重新粘贴」能跑通但会漏贴、会版本不一致；「永远用同一个对话」把「对话过长」的问题换了个形式抱回家；「只依赖一份总结」则无法回答细节追问。"
     },
     {
       "id": "d3-003",
@@ -75,27 +87,33 @@
         {
           "text": "Write a short summary of the decisions and the required format, start a fresh conversation, and carry that summary over.",
           "correct": true,
-          "explain": "正解。文脈の長さには限りがある。要点を明示的に持ち越して作り直すのが、長い会話の扱い方として正着。"
+          "explain": "正解。文脈の長さには限りがある。要点を明示的に持ち越して作り直すのが、長い会話の扱い方として正着。",
+          "textZh": "把已经确定的决定和格式要求写成一段简短的摘要，新开一个对话，把这段摘要带过去。"
         },
         {
           "text": "Tell Claude to \"remember everything from earlier\" and continue in the same conversation.",
           "correct": false,
-          "explain": "不適。指示では文脈の制約は変えられない。"
+          "explain": "不適。指示では文脈の制約は変えられない。",
+          "textZh": "告诉 Claude「请记住前面所有内容」，然后在同一个对话里继续。"
         },
         {
           "text": "Start a fresh conversation with no context at all and re-explain from scratch each time.",
           "correct": false,
-          "explain": "不適。作り直しはよいが、持ち越すべき決定事項まで捨てている。"
+          "explain": "不適。作り直しはよいが、持ち越すべき決定事項まで捨てている。",
+          "textZh": "完全不带任何背景新开对话，每次都从头解释。"
         },
         {
           "text": "Switch to a different model and continue the same conversation.",
           "correct": false,
-          "explain": "不適。モデルを変えても会話の長さは変わらない。"
+          "explain": "不適。モデルを変えても会話の長さは変わらない。",
+          "textZh": "换一个模型，在同一个对话里继续。"
         }
       ],
       "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "一个工作中的对话已经持续了几个小时。Claude 开始记不住早先做过的决定，回复的格式也在偏离约定。最合适的做法是什么？",
+      "commentaryZh": "考点是「上下文长度的限制与管理」。上下文是有上限的，靠一句「请记住」改变不了。正解的关键在「明确地把该带的东西带过去」——「完全不带背景重来」虽然也是重开，却把该保留的决定一起丢了；换模型不会改变对话的长度。"
     },
     {
       "id": "d3-004",
@@ -107,32 +125,39 @@
         {
           "text": "A document that the associate will revise over several rounds and then hand to a colleague.",
           "correct": true,
-          "explain": "正解。作り込んで再利用する成果物は、会話の流れから切り離して持てる形が適している。"
+          "explain": "正解。作り込んで再利用する成果物は、会話の流れから切り離して持てる形が適している。",
+          "textZh": "一份要反复修改几轮、之后交给同事的文档。"
         },
         {
           "text": "A one-page interactive summary the team will open and look at on its own.",
           "correct": true,
-          "explain": "正解。単体で開いて使うものは成果物として切り出す。"
+          "explain": "正解。単体で開いて使うものは成果物として切り出す。",
+          "textZh": "一页团队会单独打开来看的交互式摘要。"
         },
         {
           "text": "A one-sentence answer to a factual question.",
           "correct": false,
-          "explain": "不適。会話の中で返すほうが速い。"
+          "explain": "不適。会話の中で返すほうが速い。",
+          "textZh": "对一个事实性问题的一句话回答。"
         },
         {
           "text": "A clarifying question back to the associate.",
           "correct": false,
-          "explain": "不適。やり取りそのもの。成果物にする対象ではない。"
+          "explain": "不適。やり取りそのもの。成果物にする対象ではない。",
+          "textZh": "反问担当的一句澄清性提问。"
         },
         {
           "text": "A short confirmation that a step was completed.",
           "correct": false,
-          "explain": "不適。会話の一行で足りる。"
+          "explain": "不適。会話の一行で足りる。",
+          "textZh": "某个步骤已完成的简短确认。"
         }
       ],
       "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "下面哪两项任务更适合用 artifact（成果物）而不是在对话中直接回复？（选2项）",
+      "commentaryZh": "考点是「选择合适的产出形态」。要打磨、要复用、要单独打开来用的东西，适合从对话流里切出来成为独立成果物；一句话的回答和来回的问答留在对话里更快。判断标准是「这东西之后还会被单独使用吗」。"
     }
   ]
 }

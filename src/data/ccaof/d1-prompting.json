@@ -11,27 +11,33 @@
         {
           "text": "Break the request into steps — state the audience, name the sections to rewrite, and give the criteria for \"improved\" — then run them one at a time.",
           "correct": true,
-          "explain": "正解。曖昧な一語の指示を、目的・読者・評価基準に分解するのが task decomposition。長い素材ほど「どこを・誰のために・何を基準に」を明示しないと、モデルは改善の方向を推測するしかない。"
+          "explain": "正解。曖昧な一語の指示を、目的・読者・評価基準に分解するのが task decomposition。長い素材ほど「どこを・誰のために・何を基準に」を明示しないと、モデルは改善の方向を推測するしかない。",
+          "textZh": "把请求拆成几步——说明读者是谁、要改写哪些章节、「改进」的判断标准是什么——然后逐步执行。"
         },
         {
           "text": "Paste the same report again and add \"please try harder this time.\"",
           "correct": false,
-          "explain": "不適。努力を促す言葉は情報を1ビットも足していない。出力が変わるとしても偶然で、再現性がない。"
+          "explain": "不適。努力を促す言葉は情報を1ビットも足していない。出力が変わるとしても偶然で、再現性がない。",
+          "textZh": "把同一份报告再贴一次，加上「这次请更努力一点」。"
         },
         {
           "text": "Switch to the most capable model and repeat the same prompt.",
           "correct": false,
-          "explain": "不適。モデルを上げても指示の曖昧さは解消しない。指示が足りない問題をコストで解こうとしている。"
+          "explain": "不適。モデルを上げても指示の曖昧さは解消しない。指示が足りない問題をコストで解こうとしている。",
+          "textZh": "换成能力最强的模型，用同样的提示词再试一次。"
         },
         {
           "text": "Ask Claude to guess what the team wants and proceed with its guess.",
           "correct": false,
-          "explain": "不適。推測させた前提が間違っていても気づけない。前提はこちらが与えるもの。"
+          "explain": "不適。推測させた前提が間違っていても気づけない。前提はこちらが与えるもの。",
+          "textZh": "让 Claude 自己猜团队想要什么，然后按它的猜测继续。"
         }
       ],
       "objective": "Apply task decomposition techniques to structure complex requests",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某位担当把一份40页的季度报告粘贴给 Claude，只写了一句「改进一下」。返回的稿子变短了，但离团队想要的东西并没有更近。下一步最有效的做法是什么？",
+      "commentaryZh": "考点是「任务分解」。指示越模糊，模型越只能靠猜。这里真正缺的不是模型能力，而是「给谁看、改哪里、按什么标准算改好了」这三件事。考试里凡是出现「加一句鼓励的话」「换更贵的模型」「让模型自己猜」，通常都是错误选项。"
     },
     {
       "id": "d1-002",
@@ -43,27 +49,33 @@
         {
           "text": "\"Write a 150-word apology email to a customer whose order arrived four days late. Warm but not grovelling, offer the standard 10% credit, sign off as the support team.\"",
           "correct": true,
-          "explain": "正解。読者・長さ・事実・トーン・含める条件・署名がすべて明示されている。判断の余地を残していないので、出てきたものをそのまま評価できる。"
+          "explain": "正解。読者・長さ・事実・トーン・含める条件・署名がすべて明示されている。判断の余地を残していないので、出てきたものをそのまま評価できる。",
+          "textZh": "「写一封150字的致歉邮件，收件人是订单晚到四天的客户。语气温暖但不卑微，提供标准的10%补偿，落款为客服团队。」"
         },
         {
           "text": "\"Write a good apology email.\"",
           "correct": false,
-          "explain": "不適。「good」の基準が示されていない。出力を評価する物差しもないので、直しの方向も決まらない。"
+          "explain": "不適。「good」の基準が示されていない。出力を評価する物差しもないので、直しの方向も決まらない。",
+          "textZh": "「写一封好的致歉邮件。」"
         },
         {
           "text": "\"You are the world's greatest copywriter with 30 years of experience. Write an apology email.\"",
           "correct": false,
-          "explain": "不適。肩書きを盛っても具体的な条件は増えない。役割付与は条件の代わりにならない。"
+          "explain": "不適。肩書きを盛っても具体的な条件は増えない。役割付与は条件の代わりにならない。",
+          "textZh": "「你是拥有30年经验的世界顶级文案。写一封致歉邮件。」"
         },
         {
           "text": "\"Apology email. Make it perfect. Don't make mistakes.\"",
           "correct": false,
-          "explain": "不適。「完璧に」「間違えるな」は検証可能な条件ではない。何を間違いとみなすかを書いていない。"
+          "explain": "不適。「完璧に」「間違えるな」は検証可能な条件ではない。何を間違いとみなすかを書いていない。",
+          "textZh": "「致歉邮件。写得完美一点。不要出错。」"
         }
       ],
       "objective": "Create effective prompts for business and technical tasks",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "下面哪个提示词最可能产出一封可直接使用的客户致歉邮件初稿？",
+      "commentaryZh": "考点是「清晰直接的提示词」。有效的提示词给出的是可验证的条件：读者、字数、事实、语气、必须包含的内容、落款。角色扮演的头衔和「要完美」「别出错」这类话都不是条件——无法据此判断产出是否合格，也就无法改进。"
     },
     {
       "id": "d1-003",
@@ -75,32 +87,39 @@
         {
           "text": "State who will read the output and what they will do with it.",
           "correct": true,
-          "explain": "正解。読者と用途が決まると、語彙・長さ・前提知識の水準がすべて決まる。"
+          "explain": "正解。読者と用途が決まると、語彙・長さ・前提知識の水準がすべて決まる。",
+          "textZh": "说明谁会读这份产出、读完要拿它做什么。"
         },
         {
           "text": "Show one or two examples of the output you consider correct.",
           "correct": true,
-          "explain": "正解。multishot（例示）は、言葉で説明しにくい体裁やトーンを伝える最短の手段。"
+          "explain": "正解。multishot（例示）は、言葉で説明しにくい体裁やトーンを伝える最短の手段。",
+          "textZh": "给出一两个你认为合格的产出示例。"
         },
         {
           "text": "Add \"be creative\" to the end of the prompt.",
           "correct": false,
-          "explain": "不適。方向の定まらない自由度を増やすだけで、使えない理由には触れていない。"
+          "explain": "不適。方向の定まらない自由度を増やすだけで、使えない理由には触れていない。",
+          "textZh": "在提示词末尾加上「要有创意」。"
         },
         {
           "text": "Repeat the instruction three times in the same prompt.",
           "correct": false,
-          "explain": "不適。同じ曖昧さを3回渡しても曖昧なまま。強調は不足した情報を補わない。"
+          "explain": "不適。同じ曖昧さを3回渡しても曖昧なまま。強調は不足した情報を補わない。",
+          "textZh": "把同一条指示在提示词里重复三遍。"
         },
         {
           "text": "Ask for the output in a language nobody on the team reads.",
           "correct": false,
-          "explain": "不適。使えなさが増すだけ。"
+          "explain": "不適。使えなさが増すだけ。",
+          "textZh": "要求用团队里没人看得懂的语言输出。"
         }
       ],
       "objective": "Iterate prompts to improve output quality",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "一个写作类提示词产出的文字在技术上没错，却没法用。下面哪两项改动最可能解决问题？（选2项）",
+      "commentaryZh": "考点是「迭代改进提示词」。读者和用途决定了用词、长度和背景知识的深度；示例（multishot）则能传达那些用语言难以描述的体裁和语气。重复和加形容词都不会增加任何信息量。"
     },
     {
       "id": "d1-004",
@@ -112,27 +131,33 @@
         {
           "text": "Brainstorming rewards breadth and deliberately loose constraints; analysis rewards stated assumptions, a request to show reasoning, and an explicit instruction to say when the data does not support a conclusion.",
           "correct": true,
-          "explain": "正解。タスクの型によって良い出力の定義が違う。発想では幅、分析では根拠と限界の明示が価値になる。"
+          "explain": "正解。タスクの型によって良い出力の定義が違う。発想では幅、分析では根拠と限界の明示が価値になる。",
+          "textZh": "头脑风暴要的是广度和刻意放松的约束；分析要的是写明前提、要求展示推理过程，并明确指示「当数据不足以支撑结论时要说出来」。"
         },
         {
           "text": "Both should use the same prompt template so the outputs stay consistent.",
           "correct": false,
-          "explain": "不適。一貫性は目的ではない。発想に根拠の明示を求めれば幅が死に、分析に幅を求めれば当てずっぽうが増える。"
+          "explain": "不適。一貫性は目的ではない。発想に根拠の明示を求めれば幅が死に、分析に幅を求めれば当てずっぽうが増える。",
+          "textZh": "两者应使用同一个提示词模板，以保持产出的一致性。"
         },
         {
           "text": "Brainstorming needs stricter constraints than analysis, because creativity must be controlled.",
           "correct": false,
-          "explain": "不適。逆。制約を強めるほど候補は既知のものに寄る。"
+          "explain": "不適。逆。制約を強めるほど候補は既知のものに寄る。",
+          "textZh": "头脑风暴需要比分析更严格的约束，因为创造力必须被控制。"
         },
         {
           "text": "Analysis should be done without giving Claude the data, to avoid bias.",
           "correct": false,
-          "explain": "不適。データを渡さなければ分析ではなく推測になる。扱いに注意が要るのはデータの中身（D6の論点）であって、渡すこと自体ではない。"
+          "explain": "不適。データを渡さなければ分析ではなく推測になる。扱いに注意が要るのはデータの中身（D6の論点）であって、渡すこと自体ではない。",
+          "textZh": "分析时不应把数据交给 Claude，以避免产生偏见。"
         }
       ],
       "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某位担当需要 Claude 帮两件不同的事：(1) 头脑风暴20个营销活动点子；(2) 分析上季度的客户流失数据，找出真正的原因。提示词策略应该有什么不同？",
+      "commentaryZh": "考点是「按任务类型调整策略」。不同任务对「好产出」的定义不同：发想阶段价值在广度，分析阶段价值在证据和边界的明示。注意那个「不把数据交给 Claude 以免产生偏见」的选项：数据的敏感性属于 D6 治理域的问题，不是不给数据的理由——不给数据就不是分析而是猜测了。"
     }
   ]
 }

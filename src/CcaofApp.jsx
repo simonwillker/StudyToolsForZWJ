@@ -70,7 +70,17 @@ function DomainLoading({ label }) {
    出題画面
    ============================================================ */
 
-function Quiz({ domain, questions, onExit }) {
+const ZH_KEY = "ccaofShowZh";
+
+function loadShowZh() {
+  try {
+    return window.localStorage.getItem(ZH_KEY) !== "0";
+  } catch (e) {
+    return true;
+  }
+}
+
+function Quiz({ domain, questions, onExit, showZh, onToggleZh }) {
   const [index, setIndex] = useState(0);
   const [picked, setPicked] = useState([]);
   const [submitted, setSubmitted] = useState(false);
@@ -144,11 +154,19 @@ function Quiz({ domain, questions, onExit }) {
     <div className="ccaof-quiz">
       <div className="ccaof-quiz-head">
         <span>{index + 1} / {total} 問</span>
-        <span className="ccaof-quiz-domain" style={{ "--c": domain.color }}>{domain.label}</span>
+        <span className="ccaof-quiz-head-right">
+          {/* 英語だけで解きたいときのために消せるようにしておく。本番は英語 */}
+          <button className="ccaof-zh-toggle" onClick={onToggleZh}>
+            中文訳 {showZh ? "ON" : "OFF"}
+          </button>
+          <span className="ccaof-quiz-domain" style={{ "--c": domain.color }}>{domain.label}</span>
+        </span>
       </div>
 
       {q.material && <div className="ccaof-material">{q.material}</div>}
+      {q.materialZh && showZh && <div className="ccaof-material zh">{q.materialZh}</div>}
       <div className="ccaof-stem">{q.stem}</div>
+      {q.stemZh && showZh && <div className="ccaof-stem-zh">{q.stemZh}</div>}
       {q.selectCount > 1 && (
         <div className="ccaof-select-hint">{q.selectCount}つ選んでください（{picked.length}/{q.selectCount} 選択中）</div>
       )}
@@ -164,11 +182,19 @@ function Quiz({ domain, questions, onExit }) {
           return (
             <button key={i} className={cls} onClick={() => toggle(i)} disabled={submitted}>
               <div className="ccaof-choice-text">{c.text}</div>
+              {c.textZh && showZh && <div className="ccaof-choice-zh">{c.textZh}</div>}
               {submitted && <div className="ccaof-choice-explain">{c.explain}</div>}
             </button>
           );
         })}
       </div>
+
+      {submitted && q.commentaryZh && (
+        <div className="ccaof-note">
+          <div className="ccaof-note-title">中文注解</div>
+          <div className="ccaof-note-body">{q.commentaryZh}</div>
+        </div>
+      )}
 
       {submitted && (
         <div className="ccaof-source">
@@ -213,6 +239,19 @@ export default function CcaofApp({ onExitApp }) {
   const [loadNonce, setLoadNonce] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [statsNonce, setStatsNonce] = useState(0);
+  const [showZh, setShowZh] = useState(loadShowZh);
+
+  const toggleZh = useCallback(() => {
+    setShowZh((prev) => {
+      const next = !prev;
+      try {
+        window.localStorage.setItem(ZH_KEY, next ? "1" : "0");
+      } catch (e) {
+        // localStorage が使えなくても表示そのものは切り替わる
+      }
+      return next;
+    });
+  }, []);
 
   const domain = domainId ? findDomain(domainId) : null;
   const examCounts = useMemo(() => examBlueprintCounts(), []);
@@ -323,6 +362,14 @@ export default function CcaofApp({ onExitApp }) {
         .ccaof-quiz-head { display: flex; justify-content: space-between; font-size: 12px; color: #9AA093; font-weight: 700; margin-bottom: 10px; }
         .ccaof-quiz-domain { color: var(--c); }
         .ccaof-material { background: #FBFAF6; border-left: 3px solid #D8D5CB; padding: 12px 14px; font-size: 13.5px; line-height: 1.8; margin-bottom: 12px; white-space: pre-wrap; }
+        .ccaof-quiz-head-right { display: flex; align-items: center; gap: 10px; }
+        .ccaof-zh-toggle { border: 1px solid #D8D5CB; background: #fff; border-radius: 6px; padding: 3px 8px; font-size: 10.5px; color: #6B7280; font-weight: 700; cursor: pointer; }
+        .ccaof-material.zh { border-left-color: #C8743D; color: #4B5563; font-size: 13px; margin-top: -6px; }
+        .ccaof-stem-zh { font-size: 14px; line-height: 1.85; color: #5A5F55; margin: -4px 0 10px; padding-left: 10px; border-left: 3px solid #E4D3C4; }
+        .ccaof-choice-zh { font-size: 12.5px; line-height: 1.75; color: #6B7280; margin-top: 5px; }
+        .ccaof-note { background: #FBF6F1; border: 1px solid #E4D3C4; border-radius: 8px; padding: 12px 14px; margin-top: 14px; }
+        .ccaof-note-title { font-size: 11px; font-weight: 800; color: #C8743D; letter-spacing: 1px; margin-bottom: 6px; }
+        .ccaof-note-body { font-size: 13px; line-height: 1.9; color: #4B5563; }
         .ccaof-stem { font-size: 15.5px; line-height: 1.8; font-weight: 600; margin-bottom: 10px; }
         .ccaof-select-hint { font-size: 12px; color: #C8743D; font-weight: 700; margin-bottom: 10px; }
         .ccaof-choices { display: flex; flex-direction: column; gap: 8px; }
@@ -485,7 +532,7 @@ export default function CcaofApp({ onExitApp }) {
       )}
 
       {screen === "quiz" && domain && (
-        <Quiz domain={domain} questions={questions} onExit={exitQuiz} />
+        <Quiz domain={domain} questions={questions} onExit={exitQuiz} showZh={showZh} onToggleZh={toggleZh} />
       )}
 
       {screen === "progress" && (
