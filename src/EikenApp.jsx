@@ -1,19 +1,6 @@
 import React, { useMemo, useState, useCallback, useEffect, useRef } from "react";
-import LEVEL_5 from "./data/eikenApp/5.json";
-import LEVEL_4 from "./data/eikenApp/4.json";
-import LEVEL_3 from "./data/eikenApp/3.json";
-import LEVEL_PRE2 from "./data/eikenApp/pre2.json";
-import LEVEL_2 from "./data/eikenApp/2.json";
-import LEVEL_PRE1 from "./data/eikenApp/pre1.json";
-import LEVEL_1 from "./data/eikenApp/1.json";
 import EikenTest from "./EikenTest.jsx";
-import TEST_5 from "./data/eikenTest/5.json";
-import TEST_4 from "./data/eikenTest/4.json";
-import TEST_3 from "./data/eikenTest/3.json";
-import TEST_PRE2 from "./data/eikenTest/pre2.json";
-import TEST_2 from "./data/eikenTest/2.json";
-import TEST_PRE1 from "./data/eikenTest/pre1.json";
-import TEST_1 from "./data/eikenTest/1.json";
+import { LEVEL_META, findLevelMeta, peekLevel, peekTest, loadLevel, loadTest } from "./eikenLevels";
 import {
   recordAnswer,
   getDailySeries,
@@ -48,10 +35,6 @@ import {
    ユーティリティ
    ============================================================ */
 
-const LEVELS = [LEVEL_1, LEVEL_PRE1, LEVEL_2, LEVEL_PRE2, LEVEL_3, LEVEL_4, LEVEL_5];
-
-const TESTS = [TEST_1, TEST_PRE1, TEST_2, TEST_PRE2, TEST_3, TEST_4, TEST_5];
-
 /* vite.config.js が package.json から流し込む。ここに数字を書かないこと。 */
 const APP_VERSION = __APP_VERSION__;
 const BUILD_DATE = __BUILD_DATE__;
@@ -82,12 +65,6 @@ function shuffle(arr) {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
-}
-function findLevel(id) {
-  return LEVELS.find((l) => l.level === id) || LEVELS[0];
-}
-function findTest(id) {
-  return TESTS.find((t) => t.level === id) || null;
 }
 
 /** 単語は20語ずつの「組」に分けて出題する（CLAUDE.mdの出題範囲の考え方に合わせる） */
@@ -864,7 +841,7 @@ function PronunciationMode({ level, accent }) {
 
 function ProgressDashboard({ onBack }) {
   const [, forceRefresh] = useState(0);
-  const stats = useMemo(() => getAllStats(LEVELS.map((l) => l.level)), []); // eslint-disable-line react-hooks/exhaustive-deps
+  const stats = useMemo(() => getAllStats(LEVEL_META.map((l) => l.level)), []); // eslint-disable-line react-hooks/exhaustive-deps
   const daily = useMemo(() => getDailySeries(14), []); // eslint-disable-line react-hooks/exhaustive-deps
   const streak = useMemo(() => getStreak(), []); // eslint-disable-line react-hooks/exhaustive-deps
   const today = useMemo(() => getTodayStats(), []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -1020,7 +997,7 @@ function ProgressDashboard({ onBack }) {
         <div className="eiken-sub-head">級べつの正答率</div>
         <div className="eiken-level-stats">
           {stats.map((s) => {
-            const level = findLevel(s.level);
+            const level = findLevelMeta(s.level);
             const pct = accuracyPercent(s);
             return (
               <div className="eiken-level-stat-row" key={s.level} style={{ "--c": level.color }}>
@@ -1069,6 +1046,17 @@ function ProgressDashboard({ onBack }) {
   );
 }
 
+/* 級ごとの JSON を import() で読んでいる間に出す表示。
+   分割前は同期で取れていたので、この待ち時間は分割で新しく生まれたもの。 */
+function LevelLoading({ label }) {
+  return (
+    <div className="eiken-loading">
+      <div className="eiken-spinner" />
+      <div className="eiken-loading-text">{label}</div>
+    </div>
+  );
+}
+
 /* ============================================================
    メイン
    ============================================================ */
@@ -1085,8 +1073,67 @@ export default function EikenApp({ onExitApp }) {
   const [readingUnit, setReadingUnit] = useState(0);
   // 復習リストは解答のたびに変わるので、画面を戻るたびに数え直すためのカウンタ
   const [reviewNonce, setReviewNonce] = useState(0);
+  // 読み込みに失敗したときの「もう一度」用。増やすと import() をやり直す
+  const [loadNonce, setLoadNonce] = useState(0);
 
-  const level = levelId ? findLevel(levelId) : null;
+  /* 級の本体は import() で読む。読み込み中は level が null になるので、
+     その間はスピナーを出す（以前は static import で必ず同期に取れていた）。 */
+  const [level, setLevel] = useState(null);
+  const [levelError, setLevelError] = useState(false);
+
+  useEffect(() => {
+    if (!levelId) {
+      setLevel(null);
+      setLevelError(false);
+      return undefined;
+    }
+    const cached = peekLevel(levelId);
+    if (cached) {
+      setLevel(cached);
+      setLevelError(false);
+      return undefined;
+    }
+    let alive = true;
+    setLevel(null);
+    setLevelError(false);
+    loadLevel(levelId)
+      .then((data) => {
+        if (alive) setLevel(data);
+      })
+      .catch(() => {
+        if (alive) setLevelError(true);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [levelId, loadNonce]);
+
+  /* 模擬テストは別ファイル。模試を開いたときだけ読む */
+  const [test, setTest] = useState(null);
+  const [testError, setTestError] = useState(false);
+
+  useEffect(() => {
+    if (screen !== "test" || !levelId) return undefined;
+    const cached = peekTest(levelId);
+    if (cached) {
+      setTest(cached);
+      setTestError(false);
+      return undefined;
+    }
+    let alive = true;
+    setTest(null);
+    setTestError(false);
+    loadTest(levelId)
+      .then((data) => {
+        if (alive) setTest(data);
+      })
+      .catch(() => {
+        if (alive) setTestError(true);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [screen, levelId, loadNonce]);
 
   const reviewCount = useMemo(
     () => (level ? getReviewCount(level.level) : 0),
@@ -1114,6 +1161,7 @@ export default function EikenApp({ onExitApp }) {
 
   const goModeSelect = useCallback((lvId) => {
     stopSpeaking();
+    loadLevel(lvId).catch(() => null); // 先に走らせておく。結果は useEffect が拾う
     setLevelId(lvId);
     setReviewNonce((n) => n + 1);
     setScreen("modeSelect");
@@ -1161,6 +1209,12 @@ export default function EikenApp({ onExitApp }) {
         .eiken-version-badge { font-size: 11px; color: #9AA093; font-weight: 700; letter-spacing: 0.5px; display: flex; flex-direction: column; align-items: flex-end; line-height: 1.3; }
         .eiken-build-date { font-weight: 400; letter-spacing: 0; }
         .eiken-back-link { font-size: 13px; color: #6B7280; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; background: none; border: none; padding: 0; }
+
+        .eiken-loading { max-width: 720px; margin: 40px auto; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+        .eiken-spinner { width: 28px; height: 28px; border: 3px solid #E4E2DA; border-top-color: #C8323D; border-radius: 50%; animation: eiken-spin 0.8s linear infinite; }
+        @keyframes eiken-spin { to { transform: rotate(360deg); } }
+        @media (prefers-reduced-motion: reduce) { .eiken-spinner { animation-duration: 2.4s; } }
+        .eiken-loading-text { font-size: 13px; color: #6B7280; }
 
         .eiken-official-box { max-width: 720px; margin: 24px auto 0; background: #FBFAF6; border: 1px solid #E4E2DA; border-radius: 10px; padding: 16px 18px; }
         .eiken-official-title { font-weight: 800; font-size: 14px; margin-bottom: 6px; }
@@ -1410,7 +1464,7 @@ export default function EikenApp({ onExitApp }) {
             <div className="eiken-under" />
           </div>
           <div className="eiken-level-grid">
-            {LEVELS.map((lv) => {
+            {LEVEL_META.map((lv) => {
               const stats = getLevelStats(lv.level);
               const pct = accuracyPercent(stats);
               return (
@@ -1435,6 +1489,22 @@ export default function EikenApp({ onExitApp }) {
               ))}
             </div>
           </div>
+        </>
+      )}
+
+      {levelId && !level && screen !== "levelSelect" && screen !== "progress" && (
+        <>
+          <button className="eiken-back-link" style={{ marginBottom: 12 }} onClick={backToLevelSelect}>← 級を選び直す</button>
+          {levelError ? (
+            <div className="eiken-empty">
+              この級の問題を読み込めませんでした。通信を確認して、もう一度ためしてください。
+              <div style={{ marginTop: 10 }}>
+                <button className="eiken-btn-ghost" onClick={() => setLoadNonce((n) => n + 1)}>もう一度</button>
+              </div>
+            </div>
+          ) : (
+            <LevelLoading label={`${findLevelMeta(levelId).levelLabel}の問題を読み込んでいます…`} />
+          )}
         </>
       )}
 
@@ -1551,10 +1621,17 @@ export default function EikenApp({ onExitApp }) {
       {screen === "test" && level && (
         <>
           <button className="eiken-back-link" style={{ marginBottom: 12 }} onClick={backToModeSelect}>← モード選択にもどる</button>
-          {findTest(level.level) ? (
-            <EikenTest test={findTest(level.level)} onExit={backToModeSelect} />
+          {test ? (
+            <EikenTest test={test} onExit={backToModeSelect} />
+          ) : testError ? (
+            <div className="eiken-empty">
+              模擬テストの読み込みに失敗しました。通信を確認して、もう一度ためしてください。
+              <div style={{ marginTop: 10 }}>
+                <button className="eiken-btn-ghost" onClick={() => setLoadNonce((n) => n + 1)}>もう一度</button>
+              </div>
+            </div>
           ) : (
-            <div className="eiken-empty">この級の模擬テストはまだ登録されていません。</div>
+            <LevelLoading label="模擬テストを読み込んでいます…" />
           )}
         </>
       )}

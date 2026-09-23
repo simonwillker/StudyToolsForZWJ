@@ -1,0 +1,138 @@
+{
+  "domain": "D2",
+  "items": [
+    {
+      "id": "d2-001",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "Claude produces a summary of a new regulation for the compliance team. It is fluent, confident, and cites \"Section 4(b)(iii)\" as the source of a filing deadline. What should the associate do before sending it?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Check the cited section against the official text of the regulation.",
+          "correct": true,
+          "explain": "正解。具体的に見える固有名詞・条番号・数値はハルシネーションが最も出やすい形。監査対象の読者に渡す前に一次資料で照合するのが必須の手順。"
+        },
+        {
+          "text": "Send it — the level of detail shows the model had the text in front of it.",
+          "correct": false,
+          "explain": "不適。詳しさは正しさの証拠にならない。もっともらしい細部を作れることがこの技術の特徴。"
+        },
+        {
+          "text": "Ask Claude how confident it is, and send it if it says \"very confident.\"",
+          "correct": false,
+          "explain": "不適。自己申告の確信度は精度の指標として信頼できない。"
+        },
+        {
+          "text": "Rewrite it in more formal language and send it.",
+          "correct": false,
+          "explain": "不適。体裁を整えても事実の誤りは残る。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d2-002",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "A brief asked for a vendor comparison covering price, security posture, support SLA, and migration effort. Claude's output is well written and covers price, security, and support — migration is not mentioned.",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The output fails on completeness; check every deliverable in the brief before judging quality.",
+          "correct": true,
+          "explain": "正解。正確さと完全性は別の軸。読みやすい文章は欠落を見えにくくするので、依頼した項目を一つずつ突き合わせる。"
+        },
+        {
+          "text": "The output is acceptable — three of four sections is a passing rate.",
+          "correct": false,
+          "explain": "不適。抜けた1項目が意思決定を左右するかもしれない。割合で判断するものではない。"
+        },
+        {
+          "text": "The omission proves the model is not capable enough; escalate to a more powerful model.",
+          "correct": false,
+          "explain": "不適。モデルの問題と決めつける前に、依頼で移行工数を明示したか、資料を渡したかを確認する。"
+        },
+        {
+          "text": "Delete the migration requirement from the brief so the output matches.",
+          "correct": false,
+          "explain": "不適。評価基準のほうを出力に合わせている。順序が逆。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d2-003",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO of the following most strongly suggest an output needs verification before use? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A precise-looking citation, figure, or case number that does not appear in any source you provided.",
+          "correct": true,
+          "explain": "正解。出所のない具体的な数字・引用はハルシネーションの典型的な兆候。"
+        },
+        {
+          "text": "A confident claim about an event or product change that would have happened after the model's knowledge cutoff.",
+          "correct": true,
+          "explain": "正解。学習データの範囲外の出来事を断定している場合、根拠は存在しない。"
+        },
+        {
+          "text": "The output uses bullet points instead of prose.",
+          "correct": false,
+          "explain": "不適。体裁は正しさと無関係。"
+        },
+        {
+          "text": "The output is longer than you expected.",
+          "correct": false,
+          "explain": "不適。長さは検証の必要性を示さない。冗長さは編集の問題。"
+        },
+        {
+          "text": "The output hedges and says it is uncertain about one figure.",
+          "correct": false,
+          "explain": "不適。不確実性を明示しているのはむしろ扱いやすい。確認すべき箇所を教えてくれている。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-23"
+    },
+    {
+      "id": "d2-004",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A technically accurate 1,200-word analysis needs to go to the executive committee, who will spend two minutes on it. What is the most appropriate action?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Adapt it for the audience: lead with the decision being asked for, keep the numbers that drive it, and move the detail to an appendix.",
+          "correct": true,
+          "explain": "正解。同じ内容でも読者と使われ方が変われば適切な形は変わる。編集・適応は Associate の中心的な仕事のひとつ。"
+        },
+        {
+          "text": "Send the full analysis unchanged — shortening it would remove accuracy.",
+          "correct": false,
+          "explain": "不適。読まれなければ正確さは届かない。要約は精度を捨てることと同義ではない。"
+        },
+        {
+          "text": "Cut it to 200 words by deleting the last two-thirds.",
+          "correct": false,
+          "explain": "不適。末尾を切ると結論や根拠が落ちる。長さだけを合わせて中身を壊している。"
+        },
+        {
+          "text": "Ask the committee to read it in full before the meeting.",
+          "correct": false,
+          "explain": "不適。読者の条件を変えようとしている。制約は与件として扱う。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-23"
+    }
+  ]
+}

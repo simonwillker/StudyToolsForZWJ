@@ -20,7 +20,7 @@
    キャッシュの構造を変えたときはここを上げること。
    ============================================================ */
 
-const CACHE_NAME = "eiken-app-v1";
+const CACHE_NAME = "eiken-app-v2";
 
 /** 最低限これだけあればオフラインでも起動できる、という一式 */
 const APP_SHELL = [
@@ -54,6 +54,26 @@ self.addEventListener("install", (event) => {
         await Promise.all(assets.map((u) => cache.add(u).catch(() => null)));
       } catch (e) {
         // 取れなくても致命的ではない。次回オンラインで開いたときに拾われる。
+      }
+
+      // コード分割した級ごとのチャンクは index.html から参照されない
+      // （その級を開いて初めて読まれる）。上の走査だけでは拾えないので、
+      // ビルド時に書き出した一覧を読んで、まだ開いていない級ぶんも入れておく。
+      // これをしないと「一度も開いていない級だけオフラインで使えない」という
+      // 分かりにくい状態になる。
+      try {
+        const res = await fetch("./asset-manifest.json", { cache: "no-cache" });
+        const manifest = await res.json();
+        const rest = (manifest.files || []).filter((u) => !u.endsWith(".map"));
+        // 全部同時に取りに行くと回線を埋めてしまうので、少しずつ入れる
+        for (let i = 0; i < rest.length; i += 4) {
+          await Promise.all(
+            rest.slice(i, i + 4).map((u) => cache.add(u).catch(() => null))
+          );
+        }
+      } catch (e) {
+        // 一覧が無い古いビルドでも動くようにする。その場合は
+        // 「開いた級だけオフライン可」という以前の挙動に戻るだけ。
       }
       // 新しい Service Worker を待たせない。
       // 待たせると、古い版のまま何日も使い続けてしまうことがある。
