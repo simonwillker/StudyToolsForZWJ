@@ -21,6 +21,7 @@ function warn(f, p, m) { warnings.push(`${f} ${p}: ${m}`); }
 
 const files = readdirSync(DIR).filter((f) => f.endsWith(".json")).sort();
 const summary = [];
+const listeningByPart = [];
 
 for (const file of files) {
   let d;
@@ -120,6 +121,13 @@ for (const file of files) {
     リスニング: (d.listening || []).length,
     会話: (d.dialogue || []).length,
   });
+
+  const byPart = { 級: d.levelLabel };
+  ["response", "dialogue", "passage", "reallife", "interview"].forEach((part) => {
+    const n = (d.listening || []).filter((l) => l.part === part).length;
+    if (n > 0) byPart[part] = n;
+  });
+  listeningByPart.push(byPart);
 }
 
 // 級をまたいだ単語の重複（上位級と下位級で同じ単語を出すのは避ける）
@@ -129,6 +137,10 @@ crossLevel.forEach(([word, lv]) => warn("(全体)", word, `${lv.join(" / ")} に
 console.log(`\n検証したファイル：${files.length}件\n`);
 console.table(summary);
 console.log(`単語の総数：${summary.reduce((s, r) => s + r.単語, 0)}語`);
+
+// リスニングは題型ごとに100問が目標。どこがまだ薄いか一目で分かるようにする。
+console.log("\nリスニングの題型別（目標：各100問）");
+console.table(listeningByPart);
 
 if (warnings.length) {
   console.log(`\n⚠ 警告 ${warnings.length}件`);
