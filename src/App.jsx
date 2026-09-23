@@ -1,6 +1,17 @@
-import React, { useState } from "react";
-import DailyDrill from "./DailyDrill.jsx";
-import EikenApp from "./EikenApp.jsx";
+import React, { useState, Suspense, lazy } from "react";
+
+/* アプリ本体は選んだほうだけ読む。
+   きょうのドリルを使う日に英検の問題まで読み込む必要はない。 */
+const DailyDrill = lazy(() => import("./DailyDrill.jsx"));
+const EikenApp = lazy(() => import("./EikenApp.jsx"));
+
+function AppLoading() {
+  return (
+    <div style={{ minHeight: "100vh", background: "#F7F6F2", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif", color: "#6B7280", fontSize: 14 }}>
+      読み込んでいます…
+    </div>
+  );
+}
 
 const APP_STORAGE_KEY = "studyToolsActiveApp";
 
@@ -26,8 +37,18 @@ export default function App() {
 
   const backToMenu = () => choose("menu");
 
-  if (active === "drill") return <DailyDrill onExitApp={backToMenu} />;
-  if (active === "eiken") return <EikenApp onExitApp={backToMenu} />;
+  if (active === "drill")
+    return (
+      <Suspense fallback={<AppLoading />}>
+        <DailyDrill onExitApp={backToMenu} />
+      </Suspense>
+    );
+  if (active === "eiken")
+    return (
+      <Suspense fallback={<AppLoading />}>
+        <EikenApp onExitApp={backToMenu} />
+      </Suspense>
+    );
 
   return (
     <div className="app-switcher">
