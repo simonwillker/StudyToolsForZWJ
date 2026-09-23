@@ -1,6 +1,9 @@
 # 問題データベース（理科・社会・国語・英語・英検単語）
 
-`rika.json` / `shakai.json` / `kokugo.json` / `eigo.json` / `eiken.json` が、各教科の問題を保存している「データベース」です。
+`rika.json` / `shakai.json` / `kokugo.json` が、各教科の問題を保存している「データベース」です。
+
+英語（`eigo.json`）と英検2級単語（`eiken.json`）は2026-09-23に削除しました。
+英語の学習は「英検マスター」に一本化しています。
 アプリのロジック（`DailyDrill.jsx`）とは分離してあるので、**コードを触らずにこれらのJSONファイルへ問題（単語）を追加していくだけで、出題内容を増やせます。**
 
 なお、**算数だけは対象外**です。算数は固定の問題集ではなく数式から自動生成する仕組み（`DailyDrill.jsx` 内の `MATH_GENERATOR_DEFS` と各 `gen〜` 関数）なので、JSON化はしていません。出題ルールを変えたい場合はコードを直接編集してください。
@@ -54,22 +57,6 @@
 | `q` | ○ | 問題文。 |
 | `accepted` | ○ | 正解として受理する表記のゆれを配列で。1つ目が模範解答としてバッジ表示に使われる。 |
 
-### eigo.json（英語：4択、英検2級レベルの文法・語彙）
-
-`rika.json`/`shakai.json` とほぼ同じ構造だが `grade` は無い（学年別フィルタをしないため）。`example` に例文を1つ添える。
-
-```json
-{
-  "id": "eigo-001",
-  "subject": "英語",
-  "q": "“in spite of” の意味は？",
-  "example": { "en": "In spite of the rain, we went hiking.", "ja": "雨にもかかわらず、私たちはハイキングに行った。" },
-  "choices": [
-    { "text": "～にもかかわらず", "correct": true, "explain": "…" }
-  ]
-}
-```
-
 ### eiken.json（英検2級 単語テスト）
 
 ```json
@@ -101,8 +88,6 @@ node -e "
 const rika = require('./src/data/rika.json');
 const shakai = require('./src/data/shakai.json');
 const kokugo = require('./src/data/kokugo.json');
-const eigo = require('./src/data/eigo.json');
-const eiken = require('./src/data/eiken.json');
 const count = (arr) => arr.reduce((m,x)=>{m[x.grade]=(m[x.grade]||0)+1;return m;},{});
 console.log('理科', count(rika));
 console.log('社会', count(shakai));

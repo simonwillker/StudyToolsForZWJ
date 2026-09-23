@@ -59,7 +59,7 @@ export default function App() {
         <div className="app-switcher-grid">
           <button className="app-switcher-card" style={{ "--c": "#2F5D8A" }} onClick={() => choose("drill")}>
             <div className="label">きょうのドリル</div>
-            <div className="desc">小学生向けの算数・国語・理科・社会・英語ドリル、英検2級単語テスト</div>
+            <div className="desc">小学生向けの算数・国語・理科・社会ドリル、カスタム単語・漢字テスト</div>
           </button>
           <button className="app-switcher-card" style={{ "--c": "#8A3B2F" }} onClick={() => choose("eiken")}>
             <div className="label">英検マスター</div>

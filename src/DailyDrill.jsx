@@ -2,8 +2,6 @@ import React, { useState, useMemo, useCallback, useRef, useEffect } from "react"
 import RIKA_DB from "./data/rika.json";
 import SHAKAI_DB from "./data/shakai.json";
 import KOKUGO_DB from "./data/kokugo.json";
-import EIGO_DB from "./data/eigo.json";
-import EIKEN_DB from "./data/eiken.json";
 
 /* ============================================================
    ユーティリティ
@@ -363,7 +361,6 @@ const RIKA_MC = RIKA_DB;
 
 const SHAKAI_MC = SHAKAI_DB;
 
-const ENGLISH_MC = EIGO_DB;
 
 /* ============================================================
    出題ローテーション（直近のテストで出た問題をなるべく避ける）
@@ -454,55 +451,6 @@ function buildMultipleChoiceSession(subjectId, source, count = SESSION_SIZE, tar
   );
 }
 
-/* ============================================================
-   英検2級 単語テスト（範囲を選んで出題）
-   ============================================================ */
-
-const EIKEN_WORDS = EIKEN_DB;
-
-{
-  const seen = new Set();
-  for (const item of EIKEN_WORDS) {
-    const key = item.word.trim().toLowerCase();
-    if (seen.has(key)) {
-      console.warn(`[eiken.json] 単語が重複しています: "${item.word}"`);
-    }
-    seen.add(key);
-  }
-}
-
-function chunkArray(arr, size) {
-  const out = [];
-  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-  return out;
-}
-
-const EIKEN_GROUP_SIZE = 20;
-const EIKEN_GROUPS = chunkArray(EIKEN_WORDS, EIKEN_GROUP_SIZE);
-const EIKEN_META = { id: "英検2級単語", label: "英検2級 単語テスト", color: "#B0742F", accent: "#F8F1E4" };
-
-function buildEikenSession(groupIndex) {
-  const group = EIKEN_GROUPS[groupIndex];
-  return shuffle(group).map((item, i) => {
-    const distractors = shuffle(EIKEN_WORDS.filter((w) => w.word !== item.word)).slice(0, 3);
-    const options = shuffle([
-      { text: item.meaning, correct: true, explain: `"${item.word}" の意味です。` },
-      ...distractors.map((d) => ({
-        text: d.meaning,
-        correct: false,
-        explain: `これは "${d.word}" の意味です。"${item.word}" の意味ではありません。`,
-      })),
-    ]);
-    return {
-      id: `eiken${groupIndex}-${i}-${Math.random()}`,
-      text: `"${item.word}" の意味は？`,
-      hint: "正しい意味を1つえらんでね",
-      display: item.meaning,
-      options,
-      accept: (raw) => normalizeText(raw) === normalizeText(item.meaning),
-    };
-  });
-}
 
 const STUDY_LINKS = {
   理科: { label: "NHK for School「理科6年」", url: "https://edu.web.nhk/school/rika/rika6/" },
@@ -518,11 +466,9 @@ const SUBJECTS = [
   { id: "国語", label: "国語", sub: "漢字・ことわざ（小1〜6）", color: "#8A3B2F", accent: "#F8EEEA" },
   { id: "理科", label: "理科", sub: "生物・電気・天体（小3〜6）", color: "#2F7A4F", accent: "#EAF6EE" },
   { id: "社会", label: "社会", sub: "地理・歴史・公民（小3〜6）", color: "#8A6D2F", accent: "#F8F1E4" },
-  { id: "英語", label: "英語", sub: "英検2級レベル", color: "#5A3B8A", accent: "#F0EAF8" },
 ];
 
 async function buildSession(subjectId) {
-  if (subjectId === "英語") return buildMultipleChoiceSession("英語", ENGLISH_MC);
   if (subjectId === "理科") return buildMultipleChoiceSession("理科", RIKA_MC);
   if (subjectId === "社会") return buildMultipleChoiceSession("社会", SHAKAI_MC);
   return buildBankSession(subjectId);
@@ -847,9 +793,8 @@ function Stamp({ correct }) {
    ============================================================ */
 
 export default function DailyDrill({ onExitApp } = {}) {
-  const [screen, setScreen] = useState("select"); // select | mathOptions | rsOptions | eikenGroups | customInput | kanjiInput | loading | quiz | result
+  const [screen, setScreen] = useState("select"); // select | mathOptions | rsOptions | customInput | kanjiInput | loading | quiz | result
   const [subject, setSubject] = useState(null);
-  const [eikenGroupIndex, setEikenGroupIndex] = useState(null);
   const [mathGrade, setMathGrade] = useState("3年"); // 3年 | 4年 | 5年 | 6年
   const [mathType, setMathType] = useState("計算"); // 計算 | 文章題・図形
   const [mathCount, setMathCount] = useState(20); // 20 | 35 | 50
@@ -892,17 +837,6 @@ export default function DailyDrill({ onExitApp } = {}) {
     const source = subjectId === "理科" ? RIKA_MC : SHAKAI_MC;
     const qs = await buildMultipleChoiceSession(subjectId, source, count, grade);
     setQuestions(qs);
-    setIndex(0);
-    setInput("");
-    setChecked(false);
-    setLog([]);
-    setScreen("quiz");
-  }, []);
-
-  const startEikenGroup = useCallback((groupIndex) => {
-    setEikenGroupIndex(groupIndex);
-    setSubject("英検2級単語");
-    setQuestions(buildEikenSession(groupIndex));
     setIndex(0);
     setInput("");
     setChecked(false);
@@ -1009,9 +943,7 @@ export default function DailyDrill({ onExitApp } = {}) {
 
   const current = questions[index];
   const meta =
-    subject === "英検2級単語"
-      ? EIKEN_META
-      : subject === "カスタム単語"
+subject === "カスタム単語"
       ? CUSTOM_META
       : subject === "カスタム漢字"
       ? KANJI_META
@@ -1473,15 +1405,6 @@ export default function DailyDrill({ onExitApp } = {}) {
 
             <button
               className="subject-card eiken-card"
-              style={{ "--c": EIKEN_META.color }}
-              onClick={() => setScreen("eikenGroups")}
-            >
-              <div className="label">{EIKEN_META.label}</div>
-              <div className="sub">単語{EIKEN_WORDS.length}語を20語ずつ、好きな範囲でテスト</div>
-            </button>
-
-            <button
-              className="subject-card eiken-card"
               style={{ "--c": CUSTOM_META.color }}
               onClick={() => setScreen("customInput")}
             >
@@ -1614,36 +1537,6 @@ export default function DailyDrill({ onExitApp } = {}) {
               >
                 テストを始める
               </button>
-            </div>
-            <div style={{ textAlign: "center", marginTop: 14 }}>
-              <span className="back-link" onClick={() => setScreen("select")}>教科選択にもどる</span>
-            </div>
-          </>
-        )}
-
-        {screen === "eikenGroups" && (
-          <>
-            <div className="title-block">
-              <div className="eyebrow">{EIKEN_META.label}</div>
-              <h1 className="serif">出題範囲をえらぶ</h1>
-              <div className="under" />
-            </div>
-            <div className="subject-grid">
-              {EIKEN_GROUPS.map((group, i) => {
-                const start = i * EIKEN_GROUP_SIZE + 1;
-                const end = i * EIKEN_GROUP_SIZE + group.length;
-                return (
-                  <button
-                    key={i}
-                    className="subject-card"
-                    style={{ "--c": EIKEN_META.color }}
-                    onClick={() => startEikenGroup(i)}
-                  >
-                    <div className="label">{start}〜{end}</div>
-                    <div className="sub">単語{group.length}問</div>
-                  </button>
-                );
-              })}
             </div>
             <div style={{ textAlign: "center", marginTop: 14 }}>
               <span className="back-link" onClick={() => setScreen("select")}>教科選択にもどる</span>
@@ -1912,16 +1805,7 @@ export default function DailyDrill({ onExitApp } = {}) {
             </div>
 
             <div className="result-actions">
-              {subject === "英検2級単語" ? (
-                <>
-                  <button className="btn" style={{ "--c": meta.color }} onClick={() => startEikenGroup(eikenGroupIndex)}>
-                    もう一度このセット
-                  </button>
-                  <button className="btn-ghost" style={{ "--c": meta.color }} onClick={() => setScreen("eikenGroups")}>
-                    べつのセットをえらぶ
-                  </button>
-                </>
-              ) : subject === "カスタム単語" ? (
+subject === "カスタム単語" ? (
                 <>
                   <button className="btn" style={{ "--c": meta.color }} onClick={startCustomTest}>
                     同じ単語でもう一度
@@ -1991,8 +1875,7 @@ export default function DailyDrill({ onExitApp } = {}) {
             <span
               className="back-link"
               onClick={() => {
-                if (subject === "英検2級単語") setScreen("eikenGroups");
-                else if (subject === "カスタム単語") setScreen("customInput");
+                if (subject === "カスタム単語") setScreen("customInput");
                 else if (subject === "カスタム漢字") setScreen("kanjiInput");
                 else if (subject === "算数") setScreen("mathOptions");
                 else if (subject === "理科" || subject === "社会") {
@@ -2001,9 +1884,7 @@ export default function DailyDrill({ onExitApp } = {}) {
                 } else setScreen("select");
               }}
             >
-              {subject === "英検2級単語"
-                ? "出題範囲選択にもどる"
-                : subject === "カスタム単語"
+              {subject === "カスタム単語"
                 ? "単語入力にもどる"
                 : subject === "カスタム漢字"
                 ? "言葉入力にもどる"
