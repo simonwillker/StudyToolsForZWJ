@@ -52,7 +52,9 @@ const LEVELS = [LEVEL_1, LEVEL_PRE1, LEVEL_2, LEVEL_PRE2, LEVEL_3, LEVEL_4, LEVE
 
 const TESTS = [TEST_1, TEST_PRE1, TEST_2, TEST_PRE2, TEST_3, TEST_4, TEST_5];
 
-const APP_VERSION = "1.1.0";
+/* vite.config.js が package.json から流し込む。ここに数字を書かないこと。 */
+const APP_VERSION = __APP_VERSION__;
+const BUILD_DATE = __BUILD_DATE__;
 
 const OFFICIAL_LINKS = [
   { label: "日本英語検定協会（英検）公式サイト ↗", url: "https://www.eiken.or.jp/eiken/" },
@@ -1156,7 +1158,8 @@ export default function EikenApp({ onExitApp }) {
 
         .eiken-top-nav { display: flex; justify-content: space-between; align-items: center; max-width: 720px; margin: 0 auto 12px; }
         .eiken-top-nav-right { display: flex; align-items: center; gap: 12px; }
-        .eiken-version-badge { font-size: 11px; color: #9AA093; font-weight: 700; letter-spacing: 0.5px; }
+        .eiken-version-badge { font-size: 11px; color: #9AA093; font-weight: 700; letter-spacing: 0.5px; display: flex; flex-direction: column; align-items: flex-end; line-height: 1.3; }
+        .eiken-build-date { font-weight: 400; letter-spacing: 0; }
         .eiken-back-link { font-size: 13px; color: #6B7280; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; background: none; border: none; padding: 0; }
 
         .eiken-official-box { max-width: 720px; margin: 24px auto 0; background: #FBFAF6; border: 1px solid #E4E2DA; border-radius: 10px; padding: 16px 18px; }
@@ -1394,7 +1397,7 @@ export default function EikenApp({ onExitApp }) {
       <div className="eiken-top-nav">
         <button className="eiken-back-link" onClick={() => setScreen("progress")}>📊 学習記録</button>
         <div className="eiken-top-nav-right">
-          <span className="eiken-version-badge">v{APP_VERSION}</span>
+          <span className="eiken-version-badge">v{APP_VERSION}<span className="eiken-build-date">{BUILD_DATE}</span></span>
           {onExitApp && <button className="eiken-back-link" onClick={onExitApp}>他のアプリへ</button>}
         </div>
       </div>
