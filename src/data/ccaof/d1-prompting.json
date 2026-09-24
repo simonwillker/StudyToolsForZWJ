@@ -158,6 +158,2230 @@
       "reviewedAt": "2026-09-23",
       "stemZh": "某位担当需要 Claude 帮两件不同的事：(1) 头脑风暴20个营销活动点子；(2) 分析上季度的客户流失数据，找出真正的原因。提示词策略应该有什么不同？",
       "commentaryZh": "考点是「按任务类型调整策略」。不同任务对「好产出」的定义不同：发想阶段价值在广度，分析阶段价值在证据和边界的明示。注意那个「不把数据交给 Claude 以免产生偏见」的选项：数据的敏感性属于 D6 治理域的问题，不是不给数据的理由——不给数据就不是分析而是猜测了。"
+    },
+    {
+      "id": "d1-005",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which element is most often missing from prompts that produce unusable output?",
+      "stemZh": "产出不可用的提示词里，最常缺少的是哪个要素？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "What the output will be used for, and by whom.",
+          "correct": true,
+          "explain": "正解。用途と読者が決まらないと、語彙も分量も形式も決まらない。",
+          "textZh": "这份产出会被用来做什么，以及被谁使用。"
+        },
+        {
+          "text": "A polite greeting.",
+          "correct": false,
+          "explain": "不適。礼儀は出力の質に影響しない。条件が増えていない。",
+          "textZh": "一句礼貌的问候。"
+        },
+        {
+          "text": "The name of the model being used.",
+          "correct": false,
+          "explain": "不適。モデル名を書いても指示の内容は増えない。",
+          "textZh": "所用模型的名称。"
+        },
+        {
+          "text": "A request to be thorough.",
+          "correct": false,
+          "explain": "不適。「丁寧に」は検証できる条件ではない。",
+          "textZh": "一句「要详尽」的要求。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**最常见的缺失项**。用途和读者决定了几乎所有其他选择：用什么词、写多长、要不要背景、结论放在哪。不写这一条，模型只能按「一般情况」来猜，而一般情况往往不是你的情况。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-006",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A request involves reading 12 documents, extracting a figure from each, and writing a comparison. What structure works best?",
+      "stemZh": "一项请求需要读12份文档、从每份中提取一个数字、然后写一份对比。什么结构最合适？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Extract and confirm the figures first, then write the comparison from the confirmed list.",
+          "correct": true,
+          "explain": "正解。抽出と執筆を分ける。数字を確かめてから書けば、誤りが文章に埋もれない。",
+          "textZh": "先提取并确认这些数字，然后基于确认后的清单写对比。"
+        },
+        {
+          "text": "Ask for the finished comparison in one request.",
+          "correct": false,
+          "explain": "不適。数字が正しいか確かめる機会が無いまま文章になる。",
+          "textZh": "在一个请求里直接要最终的对比。"
+        },
+        {
+          "text": "Write the comparison first and fill in the figures afterwards.",
+          "correct": false,
+          "explain": "不適。結論が先にあると、数字がそれに合わせられる。",
+          "textZh": "先写对比，之后再填入数字。"
+        },
+        {
+          "text": "Process all 12 documents in a single message and accept the result.",
+          "correct": false,
+          "explain": "不適。どの文書で狂ったか分からなくなる。",
+          "textZh": "在一条消息里处理全部12份文档，然后接受结果。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**把提取和写作分开**。数字一旦被写进流畅的文章里，就很难再单独核对了。先做成一张可以逐条对照的清单，确认无误后再写——这样检查的成本低得多，出错也定位得到。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-007",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "A prompt produces output in the right format but the wrong level of detail. Which TWO adjustments help most? (Select 2)",
+      "stemZh": "一个提示词产出的格式正确，但详细程度不对。哪两个调整最有帮助？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Show an example at the detail level you want.",
+          "correct": true,
+          "explain": "正解。粒度は言葉で説明しにくい。例が最も速い。",
+          "textZh": "给出一个处于你想要的详细程度的范例。"
+        },
+        {
+          "text": "State who will read it and what they already know.",
+          "correct": true,
+          "explain": "正解。読者の前提知識が、必要な説明の量を決める。",
+          "textZh": "说明谁会读它，以及他们已经知道什么。"
+        },
+        {
+          "text": "Ask for it to be \"more detailed\" or \"less detailed\".",
+          "correct": false,
+          "explain": "不適。相対的な指示は、基準が無いので再現しない。",
+          "textZh": "要求它「更详细一点」或「更简略一点」。"
+        },
+        {
+          "text": "Increase the maximum length.",
+          "correct": false,
+          "explain": "不適。長さの上限は粒度を決めない。",
+          "textZh": "提高长度上限。"
+        },
+        {
+          "text": "Repeat the request twice in the same message.",
+          "correct": false,
+          "explain": "不適。繰り返しでは情報が増えない。",
+          "textZh": "在同一条消息里把请求重复两遍。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**详细程度怎么控制**。「更详细」是相对的，下一次还是要猜。两个可靠的办法：**给一个样例**（一眼看懂），和**说明读者已经知道什么**（这直接决定要解释到什么层次）。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-008",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate needs Claude to find weaknesses in their own plan. What prompting approach works best?",
+      "stemZh": "某位担当需要 Claude 找出自己计划里的弱点。什么提示方式最有效？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask it to argue against the plan as someone who would be hurt by it, and to name what would have to be true for the plan to fail.",
+          "correct": true,
+          "explain": "正解。反対の立場と失敗条件を明示させる。単に「意見を」では賛同が返ってくる。",
+          "textZh": "让它站在会因此受损的人的立场来反驳，并指出这个计划要失败需要哪些条件成立。"
+        },
+        {
+          "text": "Ask \"what do you think of this plan?\"",
+          "correct": false,
+          "explain": "不適。肯定的な評価が返りやすく、弱点が出てこない。",
+          "textZh": "问「你觉得这个计划怎么样？」"
+        },
+        {
+          "text": "Ask it to rate the plan from 1 to 10.",
+          "correct": false,
+          "explain": "不適。点数は弱点の内容を教えない。",
+          "textZh": "让它给这个计划打1到10分。"
+        },
+        {
+          "text": "Ask it to rewrite the plan more persuasively.",
+          "correct": false,
+          "explain": "不適。説得力を上げると、弱点はさらに見えにくくなる。",
+          "textZh": "让它把计划改写得更有说服力。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**要批评就要明确地要**。开放式地问「你觉得怎么样」，得到的多半是肯定加几句温和的建议。有效的做法是**指定立场**（谁会反对）和**指定形式**（失败需要什么条件成立）——后者尤其能逼出具体的风险。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-009",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which is the best sign that a request should be broken into steps?",
+      "stemZh": "下面哪一项最能说明一个请求应该被拆成几步？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The result cannot be checked without checking several independent things.",
+          "correct": true,
+          "explain": "正解。検査の単位が複数あるなら、工程も複数に分ける。",
+          "textZh": "不检查好几件互相独立的事，就无法判断结果对不对。"
+        },
+        {
+          "text": "The request is written in more than one sentence.",
+          "correct": false,
+          "explain": "不適。文の数は複雑さを示さない。",
+          "textZh": "请求写了不止一句话。"
+        },
+        {
+          "text": "The topic is unfamiliar to the associate.",
+          "correct": false,
+          "explain": "不適。不慣れさは分解の必要性とは別。",
+          "textZh": "这个主题对担当来说不熟悉。"
+        },
+        {
+          "text": "The output will be long.",
+          "correct": false,
+          "explain": "不適。長さと分解の必要性は一致しない。",
+          "textZh": "产出会很长。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**什么时候该拆**。判断依据是**检查的单位**：如果要确认结果是否正确，必须分别核对好几件事，那就说明它本来就是好几个任务。按检查的边界来拆，每一步都能单独验收。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-010",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO belong in a prompt for a task that will be repeated weekly? (Select 2)",
+      "stemZh": "对于一项每周重复的任务，提示词里应该包含哪两样？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The fixed structure the output must follow every time.",
+          "correct": true,
+          "explain": "正解。毎回同じ形にする。下流の処理が壊れない。",
+          "textZh": "产出每次都必须遵循的固定结构。"
+        },
+        {
+          "text": "What to do when the input is missing or incomplete.",
+          "correct": true,
+          "explain": "正解。例外時の振る舞いを決めておく。毎回判断しなくてよくなる。",
+          "textZh": "当输入缺失或不完整时该怎么做。"
+        },
+        {
+          "text": "A different opening phrase each week.",
+          "correct": false,
+          "explain": "不適。変化は反復作業では障害になる。",
+          "textZh": "每周换一句不同的开场白。"
+        },
+        {
+          "text": "The associate's personal writing preferences.",
+          "correct": false,
+          "explain": "不適。個人の好みは反復の仕様にならない。",
+          "textZh": "担当个人的写作偏好。"
+        },
+        {
+          "text": "A note about how busy the week has been.",
+          "correct": false,
+          "explain": "不適。出力に影響しない情報。",
+          "textZh": "一句关于这周有多忙的说明。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**反复使用的提示词要写什么**。两件事让它稳定：**固定的结构**（下游能依赖）和**异常情况的处理**（数据缺了怎么办）。第二条常被漏掉，结果每次遇到缺数据都要临时判断。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-011",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "After three rounds of refinement, the output is worse than the first attempt. What likely happened?",
+      "stemZh": "经过三轮打磨之后，产出反而比第一次更差了。可能发生了什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Instructions accumulated until they started conflicting; go back to the version that worked and change one thing.",
+          "correct": true,
+          "explain": "正解。足し続けると矛盾が生まれる。効いた版に戻って1つずつ変える。",
+          "textZh": "指令不断累加，开始互相冲突了；回到有效的那一版，一次只改一件事。"
+        },
+        {
+          "text": "The model became tired over the conversation.",
+          "correct": false,
+          "explain": "不適。そのような仕組みは無い。",
+          "textZh": "模型在对话过程中变累了。"
+        },
+        {
+          "text": "Three rounds is always too many.",
+          "correct": false,
+          "explain": "不適。回数そのものが問題ではない。",
+          "textZh": "三轮总是太多了。"
+        },
+        {
+          "text": "The first attempt was a coincidence.",
+          "correct": false,
+          "explain": "不適。原因を偶然に帰して、検討をやめている。",
+          "textZh": "第一次只是碰巧。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**反复修改会积累矛盾**。每一轮都加一条要求，加到第三轮，其中几条已经无法同时满足了。解决办法不是继续加，而是**退回到有效的版本，一次只改一处**——这样也能看出每个改动的效果。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-012",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "How should a prompt for a research task differ from one for a drafting task?",
+      "stemZh": "用于调研任务的提示词，和用于起草任务的提示词，应该有什么不同？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Research prompts should ask for sources and for gaps to be stated; drafting prompts should specify audience, format, and length.",
+          "correct": true,
+          "explain": "正解。調査は根拠の所在、起草は完成形の条件。求めるものが違う。",
+          "textZh": "调研类要求给出来源、说明缺口；起草类要指定读者、格式和长度。"
+        },
+        {
+          "text": "They should be identical to keep results consistent.",
+          "correct": false,
+          "explain": "不適。目的が違うのに同じ条件を課すと、どちらも中途半端になる。",
+          "textZh": "两者应该完全一样，以保持结果一致。"
+        },
+        {
+          "text": "Research prompts should be shorter.",
+          "correct": false,
+          "explain": "不適。長さは論点ではない。",
+          "textZh": "调研类的提示词应该更短。"
+        },
+        {
+          "text": "Drafting prompts should avoid specifying a format.",
+          "correct": false,
+          "explain": "不適。形式の指定は起草でこそ効く。",
+          "textZh": "起草类的提示词应该避免指定格式。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**按任务类型调整**。调研的产出是**可追溯的信息**，所以要问来源、要让它说哪里查不到；起草的产出是**成品**，所以要给读者、格式、长度。用同一套要求去套两种任务，两边都得不到该有的东西。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-013",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO make a decomposed task easier to verify? (Select 2)",
+      "stemZh": "下面哪两点能让一个被拆解的任务更容易验证？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Each step produces something that can be judged right or wrong on its own.",
+          "correct": true,
+          "explain": "正解。単独で判定できる単位に分ける。これが分解の目的。",
+          "textZh": "每一步都产出一个可以单独判断对错的东西。"
+        },
+        {
+          "text": "The output of each step is carried forward explicitly, not re-derived.",
+          "correct": true,
+          "explain": "正解。確定したものを明示的に渡す。作り直すと結果が変わる。",
+          "textZh": "每一步的产出被明确地传递下去，而不是重新推导。"
+        },
+        {
+          "text": "Each step uses a different model.",
+          "correct": false,
+          "explain": "不適。モデルを変えても検証しやすくはならない。",
+          "textZh": "每一步使用不同的模型。"
+        },
+        {
+          "text": "The steps are numbered.",
+          "correct": false,
+          "explain": "不適。番号付けは整理であって検証性ではない。",
+          "textZh": "给各个步骤编号。"
+        },
+        {
+          "text": "All steps run in a single message.",
+          "correct": false,
+          "explain": "不適。まとめると、途中で確かめる機会が消える。",
+          "textZh": "所有步骤在一条消息里完成。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**拆解的目的是制造可验证的单元**。两个条件：每一步的产出**能单独判定对错**，以及**确认后的结果被明确传下去**。如果下一步要重新推导上一步，那么你确认过的东西等于白确认。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-014",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate asks for \"a summary of this meeting\" and gets something unusable three times in a row. What should change?",
+      "stemZh": "某位担当连续三次要求「总结一下这次会议」，得到的东西都不能用。应该改变什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Say what the summary is for — decisions made, actions owed, or a record for absentees — since each produces a different document.",
+          "correct": true,
+          "explain": "正解。同じ「要約」でも目的が違えば別物。目的を指定する。",
+          "textZh": "说明这份总结是干什么用的——记录做出的决定、待办的行动，还是给缺席者看的记录——三者产出的是完全不同的文档。"
+        },
+        {
+          "text": "Ask for a longer summary.",
+          "correct": false,
+          "explain": "不適。長さを変えても、必要な中身は決まらない。",
+          "textZh": "要求一份更长的总结。"
+        },
+        {
+          "text": "Paste the transcript again more carefully.",
+          "correct": false,
+          "explain": "不適。入力の貼り方ではなく、目的の不在が原因。",
+          "textZh": "把记录更仔细地再贴一次。"
+        },
+        {
+          "text": "Try a different model.",
+          "correct": false,
+          "explain": "不適。指示の曖昧さはモデルでは解けない。",
+          "textZh": "试试另一个模型。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**「总结」这个词本身没有信息量**。给缺席者看的记录需要背景和讨论过程；行动清单只需要谁在什么时候做什么。三次都不能用，说明每次它猜的都不是你要的那一种。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-015",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "What is the most efficient way to fix output that is close but consistently misses one requirement?",
+      "stemZh": "产出已经接近要求、但始终漏掉其中一项，最高效的修法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Move that requirement out of the paragraph of instructions and state it separately as a must.",
+          "correct": true,
+          "explain": "正解。埋もれている条件を目立たせる。長い指示の中ほどは守られにくい。",
+          "textZh": "把那项要求从指令段落里拿出来，单独作为必须项写明。"
+        },
+        {
+          "text": "Repeat the whole prompt with more emphasis words.",
+          "correct": false,
+          "explain": "不適。強調語は条件を増やさない。",
+          "textZh": "把整个提示词加上更多强调词再写一遍。"
+        },
+        {
+          "text": "Accept it and add the missing part by hand every time.",
+          "correct": false,
+          "explain": "不適。毎回手作業が残る。直せる問題を放置している。",
+          "textZh": "接受它，每次手工补上缺的部分。"
+        },
+        {
+          "text": "Switch to a more capable model.",
+          "correct": false,
+          "explain": "不適。位置の問題で、能力の問題ではない。",
+          "textZh": "换一个能力更强的模型。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**长指令里的条件会被淹没**。当一条要求夹在一大段说明的中间，它被忽略的概率明显更高。把它**单独拎出来、明确标为必须**，往往比任何其他调整都有效。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-016",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO suit a brainstorming task rather than an analysis task? (Select 2)",
+      "stemZh": "下面哪两点适合头脑风暴任务，而不适合分析任务？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Asking for a large number of options, including impractical ones.",
+          "correct": true,
+          "explain": "正解。幅を取りに行く。実行可能性の判断は後工程。",
+          "textZh": "要求大量的选项，包括不切实际的那些。"
+        },
+        {
+          "text": "Deliberately leaving some constraints out at first.",
+          "correct": true,
+          "explain": "正解。制約を緩めると候補が広がる。絞るのは次の段階。",
+          "textZh": "一开始有意不写出某些约束条件。"
+        },
+        {
+          "text": "Requiring every claim to cite a source.",
+          "correct": false,
+          "explain": "不適。分析に必要な条件。発想段階では幅を殺す。",
+          "textZh": "要求每条陈述都给出来源。"
+        },
+        {
+          "text": "Asking it to state when the data is insufficient.",
+          "correct": false,
+          "explain": "不適。データの不足を明示させるのは分析側の要件で、発想の幅を広げる働きはしない。",
+          "textZh": "要求它说明数据何时不足。"
+        },
+        {
+          "text": "Requiring the reasoning to be shown step by step.",
+          "correct": false,
+          "explain": "不適。分析で効く条件。発想では不要。",
+          "textZh": "要求逐步展示推理过程。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**两种任务的要求正好相反**。发想阶段要的是**宽**（数量多、允许不现实、约束先放松）；分析阶段要的是**严**（有来源、有推理、承认数据不足）。把分析的严格标准用在发想上，得到的会是一堆保守而平庸的候选。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-017",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt for a technical task keeps producing explanations aimed at beginners. What is the likely fix?",
+      "stemZh": "一个技术任务的提示词，总是产出面向初学者的解释。可能的修法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "State the reader's expertise explicitly, so the level is set rather than guessed.",
+          "correct": true,
+          "explain": "正解。読者の水準は明示しないと、最も広い層に合わせられる。",
+          "textZh": "明确写出读者的专业水平，让层次由你决定而不是靠猜。"
+        },
+        {
+          "text": "Use more technical words in the prompt itself.",
+          "correct": false,
+          "explain": "不適。プロンプトの語彙は、出力の想定読者を決めない。",
+          "textZh": "在提示词里多用一些技术词汇。"
+        },
+        {
+          "text": "Ask for a shorter answer.",
+          "correct": false,
+          "explain": "不適。短くしても入門者向けのままになる。",
+          "textZh": "要求一个更短的答案。"
+        },
+        {
+          "text": "Ask it not to be condescending.",
+          "correct": false,
+          "explain": "不適。態度の指定であって、水準の指定ではない。",
+          "textZh": "要求它不要居高临下。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**不指定读者水平，就会按最宽的受众来写**。这是默认行为，不是模型「不懂」。写上「读者是有五年经验的数据工程师」这一句，输出的层次立刻就变了。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-018",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "An associate needs a 20-page policy rewritten for three different audiences. What is the best order of work?",
+      "stemZh": "某位担当需要把一份20页的方针改写给三类不同的读者。最好的工作顺序是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Establish the core content once, confirm it, then derive each audience version from it.",
+          "correct": true,
+          "explain": "正解。共通部分を1つ固めてから派生させる。内容のずれが起きない。",
+          "textZh": "先把核心内容确定一次并确认，然后从它派生出每个读者的版本。"
+        },
+        {
+          "text": "Write the three versions independently for freshness.",
+          "correct": false,
+          "explain": "不適。同じ方針の説明が3通りに分かれる事故が起きる。",
+          "textZh": "分别独立写三个版本，以保持新鲜感。"
+        },
+        {
+          "text": "Write the longest version and cut it down twice.",
+          "correct": false,
+          "explain": "不適。削るだけでは、読者ごとに必要な順序と強調が作れない。",
+          "textZh": "写出最长的版本，然后删两次。"
+        },
+        {
+          "text": "Ask all three at once in a single message.",
+          "correct": false,
+          "explain": "不適。どれも中途半端になりやすく、検査もしにくい。",
+          "textZh": "在一条消息里同时要求三个版本。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**先固定内容、再派生形态**。三个版本必须说的是同一件事——如果独立写，很容易出现「对员工说的」和「对客户说的」在实质上不一致，这在方针文件上是严重问题。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-019",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt works well for the associate but produces poor results when a colleague runs it. What is the most likely cause?",
+      "stemZh": "一个提示词对这位担当很好用，但同事运行时结果很差。最可能的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The associate supplies context in follow-up messages without realizing it; the prompt alone is incomplete.",
+          "correct": true,
+          "explain": "正解。やり取りの中で補っている前提が、プロンプト本体に書かれていない。",
+          "textZh": "这位担当在后续消息里不自觉地补充了上下文；单靠这个提示词本身是不完整的。"
+        },
+        {
+          "text": "The colleague's account is configured differently.",
+          "correct": false,
+          "explain": "不適。まず前提の欠落を疑うほうが実際的。",
+          "textZh": "同事的账号配置不同。"
+        },
+        {
+          "text": "Prompts only work for the person who wrote them.",
+          "correct": false,
+          "explain": "不適。そのような性質は無い。",
+          "textZh": "提示词只对写它的人有效。"
+        },
+        {
+          "text": "The colleague needs a more capable model.",
+          "correct": false,
+          "explain": "不適。情報の欠落はモデルでは補えない。",
+          "textZh": "同事需要一个更强的模型。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**提示词里的隐性上下文**。写的人在对话中会自然地补上「不是那个意思」「按上周的格式」这类信息，自己意识不到。检验办法很简单：**把提示词交给别人，一句话也不补充**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-020",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "For a task where the associate cannot judge whether the answer is right, what should the prompt ask for in addition?",
+      "stemZh": "对于一项担当自己无法判断答案对错的任务，提示词里还应该额外要求什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The sources and the reasoning, so someone who can judge is able to check it.",
+          "correct": true,
+          "explain": "正解。自分で判定できないなら、判定できる人が検査できる形で出させる。",
+          "textZh": "来源和推理过程，好让有能力判断的人可以检查。"
+        },
+        {
+          "text": "A confidence score from the model.",
+          "correct": false,
+          "explain": "不適。自己申告は精度の指標にならない。",
+          "textZh": "模型给出的把握程度评分。"
+        },
+        {
+          "text": "A longer answer with more detail.",
+          "correct": false,
+          "explain": "不適。分量が増えても検証可能性は上がらない。",
+          "textZh": "一个更长、更详细的答案。"
+        },
+        {
+          "text": "A simpler answer that is easier to read.",
+          "correct": false,
+          "explain": "不適。読みやすさと検証可能性は別。",
+          "textZh": "一个更简单、更好读的答案。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**自己判断不了的时候，让产出变得可被别人检查**。这比要一个「更好的答案」实际得多：来源和推理过程让有专业能力的人几分钟就能验证，而一个漂亮但无法追溯的答案，谁也没办法确认。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-021",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO tasks should be separated rather than combined in one prompt? (Select 2)",
+      "stemZh": "下面哪两项应该分开、而不是合并在一个提示词里？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Deciding which option is best and writing the announcement of that decision.",
+          "correct": true,
+          "explain": "正解。判断と執筆を分ける。決定を確かめてから書く。",
+          "textZh": "决定哪个选项最好，和撰写这个决定的公告。"
+        },
+        {
+          "text": "Extracting figures from documents and interpreting what they mean.",
+          "correct": true,
+          "explain": "正解。抽出の正しさを確かめてから解釈する。",
+          "textZh": "从文档里提取数字，和解读这些数字意味着什么。"
+        },
+        {
+          "text": "Fixing spelling and fixing punctuation.",
+          "correct": false,
+          "explain": "不適。同じ性質の作業で、分ける利点が無い。",
+          "textZh": "改拼写和改标点。"
+        },
+        {
+          "text": "Translating a document and keeping its formatting.",
+          "correct": false,
+          "explain": "不適。同時に行うほうが自然で、検査も一度で済む。",
+          "textZh": "翻译一份文档，和保持它的格式。"
+        },
+        {
+          "text": "Shortening a text and removing jargon.",
+          "correct": false,
+          "explain": "不適。どちらも読みやすさの調整で、一緒に行える。",
+          "textZh": "缩短一段文字和去掉行话。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**该拆的是「判断」和「基于判断的产出」**。如果决定本身错了，基于它写出的公告再漂亮也是错的，而且错误已经被包装成了成品。提取与解读同理：数字错了，解读一定错。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-022",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate wants output that avoids certain legal phrases. What is the most reliable way to express this?",
+      "stemZh": "某位担当希望产出避免使用某些法律用语。最可靠的表达方式是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "List the specific phrases to avoid and what to use instead.",
+          "correct": true,
+          "explain": "正解。禁止語を列挙し、代替を示す。曖昧さが残らない。",
+          "textZh": "列出具体要避免的措辞，以及应该改用什么。"
+        },
+        {
+          "text": "Say \"avoid legal language\".",
+          "correct": false,
+          "explain": "不適。どこからが法律用語かの線引きが共有されていない。",
+          "textZh": "说「避免法律用语」。"
+        },
+        {
+          "text": "Say \"keep it simple\".",
+          "correct": false,
+          "explain": "不適。簡潔さと、特定の語を避けることは別。",
+          "textZh": "说「保持简单」。"
+        },
+        {
+          "text": "Ask for it to be reviewed by legal afterwards.",
+          "correct": false,
+          "explain": "不適。事後確認は有用だが、出力の指定にはなっていない。",
+          "textZh": "要求事后由法务复核。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**禁止事项要具体到词**。「避免法律用语」这种说法，你和模型划的线很可能不在同一个地方。列出具体的词（「不要写 guarantee、warrant、indemnify」）并给出替代说法，才是可执行、可检查的指令。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-023",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "What is the most useful thing to do with a prompt that finally produced exactly the right output?",
+      "stemZh": "对于一个终于产出了完全正确结果的提示词，最有用的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Save it with the example output, so the result can be reproduced by anyone later.",
+          "correct": true,
+          "explain": "正解。プロンプトと出力例を対で残す。再現の条件がそろう。",
+          "textZh": "把它和那份样例产出一起保存下来，这样以后任何人都能复现这个结果。"
+        },
+        {
+          "text": "Memorize the key phrases for next time.",
+          "correct": false,
+          "explain": "不適。記憶に頼ると再現しない。共有もできない。",
+          "textZh": "记住其中的关键措辞，下次用。"
+        },
+        {
+          "text": "Delete the failed attempts to keep things tidy.",
+          "correct": false,
+          "explain": "不適。何が効かなかったかの情報が失われる。",
+          "textZh": "删掉失败的尝试，保持整洁。"
+        },
+        {
+          "text": "Immediately try to shorten it.",
+          "correct": false,
+          "explain": "不適。効いている条件を落とす危険がある。",
+          "textZh": "立刻试着把它缩短。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**成功的提示词要留下来**。而且要**和样例产出一起**保存——只有提示词的话，下一个人不知道什么才算成功。这两样凑齐，这个成果才从个人技巧变成团队可以复用的资产。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-024",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO help when the task is to explore an unfamiliar problem space? (Select 2)",
+      "stemZh": "当任务是探索一个不熟悉的问题领域时，下面哪两点有帮助？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Asking what questions an expert would ask before giving an opinion.",
+          "correct": true,
+          "explain": "正解。問いの地図を作らせる。自分に判断力が無い段階で最も有用。",
+          "textZh": "问一个专家在给出意见之前会先问哪些问题。"
+        },
+        {
+          "text": "Asking what commonly goes wrong in this area.",
+          "correct": true,
+          "explain": "正解。失敗の類型は、調べるべき点を教えてくれる。",
+          "textZh": "问在这个领域里通常会出什么问题。"
+        },
+        {
+          "text": "Asking for a single definitive recommendation immediately.",
+          "correct": false,
+          "explain": "不適。検証できない段階で結論だけ受け取るのは危険。",
+          "textZh": "立刻要一个确定的建议。"
+        },
+        {
+          "text": "Asking for the answer in as few words as possible.",
+          "correct": false,
+          "explain": "不適。探索段階では情報を削ることに利点が無い。",
+          "textZh": "要求用尽可能少的字给出答案。"
+        },
+        {
+          "text": "Asking it to skip anything uncertain.",
+          "correct": false,
+          "explain": "不適。不確実な部分こそ、調べるべき場所。",
+          "textZh": "要求它跳过所有不确定的内容。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**不熟悉的领域先要「问题」而不是「答案」**。你无法验证答案，但你可以拿着问题清单去找能回答的人或资料。最后一个干扰项尤其要注意：**不确定的地方正是你该去查的地方**，跳过它等于把风险藏起来。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-025",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A long prompt contains background, the request, examples, and constraints all mixed together. What improvement helps most?",
+      "stemZh": "一个很长的提示词把背景、请求、范例和约束条件全混在一起。什么改进最有帮助？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Separate them into clearly labelled sections so each part can be changed independently.",
+          "correct": true,
+          "explain": "正解。役割ごとに区切る。どこを直せばよいかが分かり、条件も埋もれない。",
+          "textZh": "把它们分成有清晰标注的几个部分，这样每一部分都能单独修改。"
+        },
+        {
+          "text": "Make the whole prompt shorter.",
+          "correct": false,
+          "explain": "不適。必要な情報まで落ちる可能性がある。",
+          "textZh": "把整个提示词变短。"
+        },
+        {
+          "text": "Move everything into one long sentence.",
+          "correct": false,
+          "explain": "不適。さらに読み取りにくくなる。",
+          "textZh": "把所有内容合并成一个长句。"
+        },
+        {
+          "text": "Add emphasis to the most important line.",
+          "correct": false,
+          "explain": "不適。構造の問題を強調では解けない。",
+          "textZh": "给最重要的那一行加上强调。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**提示词也需要结构**。分成「背景 / 请求 / 范例 / 约束」几块，有两个好处：条件不会被淹没在段落中间，以及下次要调整时**知道该改哪一块**——这直接决定了迭代的效率。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-026",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which instruction most reliably controls the length of an output?",
+      "stemZh": "哪种指令最可靠地控制产出的长度？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A concrete limit tied to the format, such as \"at most five bullet points, one line each\".",
+          "correct": true,
+          "explain": "正解。形式と数で縛る。判定できる条件になっている。",
+          "textZh": "一个与格式绑定的具体限制，比如「最多五个要点，每个一行」。"
+        },
+        {
+          "text": "\"Keep it brief.\"",
+          "correct": false,
+          "explain": "不適。基準が共有されていない。",
+          "textZh": "「简短一点。」"
+        },
+        {
+          "text": "\"Don't write too much.\"",
+          "correct": false,
+          "explain": "不適。どこからが too much か決まっていない。",
+          "textZh": "「不要写太多。」"
+        },
+        {
+          "text": "\"Summarize.\"",
+          "correct": false,
+          "explain": "不適。要約の粒度が指定されていない。",
+          "textZh": "「总结一下。」"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**把长度绑定到可数的结构上**。「简短」是相对的，但「最多五个要点、每个一行」是可以当场判定的。这类指令的另一个好处是**产出形态也一并确定了**，下游处理更稳定。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-027",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO are signs that a prompt has become too complicated to maintain? (Select 2)",
+      "stemZh": "下面哪两点说明一个提示词已经复杂到难以维护了？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Nobody can say which part of it is responsible for a given behavior.",
+          "correct": true,
+          "explain": "正解。因果が追えない。直すと別のところが壊れる。",
+          "textZh": "没人说得清它的哪一部分导致了某个特定的行为。"
+        },
+        {
+          "text": "Changing one line reliably breaks something unrelated.",
+          "correct": true,
+          "explain": "正解。条件どうしが絡み合っている。分解の合図。",
+          "textZh": "改动一行，总会让某个不相关的地方出问题。"
+        },
+        {
+          "text": "It is longer than one paragraph.",
+          "correct": false,
+          "explain": "不適。長さ自体は問題ではない。",
+          "textZh": "它超过了一段的长度。"
+        },
+        {
+          "text": "It contains examples.",
+          "correct": false,
+          "explain": "不適。例は有効な要素で、複雑さの指標ではない。",
+          "textZh": "它包含了范例。"
+        },
+        {
+          "text": "It specifies an output format.",
+          "correct": false,
+          "explain": "不適。形式の指定は必要な要素。",
+          "textZh": "它指定了产出格式。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**什么时候该把一个提示词拆开**。判断标准不是长度，而是**可维护性**：能不能定位因果，改动会不会有连带破坏。出现这两种现象，说明里面的条件已经互相纠缠，应该拆成几步。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-028",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate must produce a first draft of something they have never written before. How should the prompt be structured?",
+      "stemZh": "某位担当要写一份自己从未写过的东西的初稿。提示词应该怎么组织？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask for the standard structure of this kind of document first, confirm it, then fill it in.",
+          "correct": true,
+          "explain": "正解。型を先に確かめてから中身を入れる。全部まとめて頼むより確実。",
+          "textZh": "先问这类文档的标准结构，确认之后再往里填内容。"
+        },
+        {
+          "text": "Ask for the finished document in one request.",
+          "correct": false,
+          "explain": "不適。型が妥当かを確かめる機会が無い。",
+          "textZh": "在一个请求里直接要完成的文档。"
+        },
+        {
+          "text": "Copy a document of a different type and adapt it.",
+          "correct": false,
+          "explain": "不適。別種の型を当てはめると、必要な要素が抜ける。",
+          "textZh": "照搬另一种类型的文档来改。"
+        },
+        {
+          "text": "Write it manually first and ask for corrections.",
+          "correct": false,
+          "explain": "不適。型を知らないまま書くので、手戻りが大きい。",
+          "textZh": "先手写一份，再让它修改。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**不会写的东西，先要「型」**。这类文档通常有既定的结构（谁先看、必须包含哪几节）。把结构单独确认一遍，既能快速学会这类文档的规矩，也避免了在错误的框架上填满内容后再推倒重来。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-029",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "What is the main benefit of confirming intermediate results before continuing a multi-step task?",
+      "stemZh": "在多步骤任务中，继续之前先确认中间结果，主要的好处是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An error is caught while it is still cheap to fix, instead of propagating into everything downstream.",
+          "correct": true,
+          "explain": "正解。早く見つけるほど直すのが安い。後工程は全部その上に乗る。",
+          "textZh": "错误在还容易修正的时候就被发现，而不是一路传递到下游的所有内容里。"
+        },
+        {
+          "text": "It makes the conversation shorter.",
+          "correct": false,
+          "explain": "不適。むしろ長くなる。利点はそこではない。",
+          "textZh": "这能让对话变短。"
+        },
+        {
+          "text": "It reduces the number of words in the output.",
+          "correct": false,
+          "explain": "不適。分量とは関係が無い。",
+          "textZh": "这能减少产出的字数。"
+        },
+        {
+          "text": "It guarantees the final answer is correct.",
+          "correct": false,
+          "explain": "不適。保証はできない。確率を上げるだけ。",
+          "textZh": "这能保证最终答案是正确的。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**早发现便宜**。第三步用错了一个数字，如果到第十步才发现，前面七步的成果可能都要重做。中间确认的成本是几分钟，省下的是整个后段。注意它**不保证**最终正确，只是大幅降低代价。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-030",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO details most improve a prompt for drafting an external email? (Select 2)",
+      "stemZh": "对于起草一封对外邮件的提示词，哪两个细节最能改善它？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The relationship with the recipient and the history behind the message.",
+          "correct": true,
+          "explain": "正解。関係と経緯が語調と省略できる範囲を決める。",
+          "textZh": "与收件人的关系，以及这封邮件背后的来龙去脉。"
+        },
+        {
+          "text": "What outcome the email should produce.",
+          "correct": true,
+          "explain": "正解。何をしてほしいかが決まれば、構成も決まる。",
+          "textZh": "这封邮件希望达成什么结果。"
+        },
+        {
+          "text": "The time of day it will be sent.",
+          "correct": false,
+          "explain": "不適。内容に影響しない。",
+          "textZh": "它会在一天中的什么时间发送。"
+        },
+        {
+          "text": "The email client being used.",
+          "correct": false,
+          "explain": "不適。作成する文面とは無関係。",
+          "textZh": "使用的是哪个邮件客户端。"
+        },
+        {
+          "text": "The associate's job title.",
+          "correct": false,
+          "explain": "不適。署名には要るが、文面の質は決めない。",
+          "textZh": "担当的职位头衔。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**对外邮件的两个关键输入**。**关系和来龙去脉**决定语气和哪些话可以省略；**期望的结果**决定整封邮件的结构（要对方做什么，就要让那件事最显眼）。少了任何一个，写出来的都是通用模板。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-031",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "The output format is right but the tone is consistently off. Describing the tone in words has not helped. What next?",
+      "stemZh": "产出的格式是对的，但语气一直不对。用文字描述语气没有奏效。下一步该怎么办？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Provide a short sample of text in the tone you want, and ask for that tone to be matched.",
+          "correct": true,
+          "explain": "正解。語調は説明より例のほうが確実に伝わる。",
+          "textZh": "提供一小段你想要的语气的文字，要求向它看齐。"
+        },
+        {
+          "text": "Use stronger adjectives to describe the tone.",
+          "correct": false,
+          "explain": "不適。形容詞を重ねても基準は共有されない。",
+          "textZh": "用更强烈的形容词来描述语气。"
+        },
+        {
+          "text": "Ask for the tone to be \"professional\".",
+          "correct": false,
+          "explain": "不適。professional の解釈は幅が広い。",
+          "textZh": "要求语气「专业」。"
+        },
+        {
+          "text": "Accept the tone and edit it manually each time.",
+          "correct": false,
+          "explain": "不適。毎回の手作業が残る。解ける問題を諦めている。",
+          "textZh": "接受这个语气，每次手工修改。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**语气用例子传达**。这是 multishot 最典型的用武之地：语气是一种难以用词语准确定义的东西（「专业」在不同公司差别极大），但一段样例能一次说清。这也是文风指南该放进 Project 知识库的原因。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-032",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which prompting choice is appropriate for a task where being wrong is worse than being slow?",
+      "stemZh": "对于一项「错了比慢了更糟」的任务，哪种提示选择是恰当的？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask it to state its assumptions and flag anything it is not certain about.",
+          "correct": true,
+          "explain": "正解。不確かな箇所を明示させれば、そこを重点的に確かめられる。",
+          "textZh": "要求它写出自己的假设，并标出任何不确定的地方。"
+        },
+        {
+          "text": "Ask for the shortest possible answer.",
+          "correct": false,
+          "explain": "不適。短さは正確さに寄与しない。前提も見えなくなる。",
+          "textZh": "要求尽可能短的答案。"
+        },
+        {
+          "text": "Ask it to answer without hedging.",
+          "correct": false,
+          "explain": "不適。不確実性を隠させている。最も危険な指定。",
+          "textZh": "要求它回答时不要模棱两可。"
+        },
+        {
+          "text": "Ask for several answers and pick one.",
+          "correct": false,
+          "explain": "不適。選ぶ基準が無ければ、精度は上がらない。",
+          "textZh": "要几个答案然后挑一个。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**高风险任务的提示策略**。核心是**让不确定性显形**：写出假设、标出没把握的地方。第三个干扰项是常见的错误直觉——要求「不要模棱两可」只会让模型把不确定的部分也说得斩钉截铁，风险反而更大。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-033",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "An associate includes a long background section in every prompt. Most of it is never relevant. What is the effect?",
+      "stemZh": "某位担当在每个提示词里都加一大段背景，其中大部分从来用不上。这会有什么影响？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Relevant instructions compete with irrelevant text, making the important conditions easier to miss.",
+          "correct": true,
+          "explain": "正解。必要な条件が埋もれる。情報は多いほど良いわけではない。",
+          "textZh": "相关的指令要和无关的文字竞争注意力，重要的条件更容易被忽略。"
+        },
+        {
+          "text": "No effect, since extra context never hurts.",
+          "correct": false,
+          "explain": "不適。関係の無い情報は判断を濁らせる。",
+          "textZh": "没有影响，因为额外的上下文从不会有害。"
+        },
+        {
+          "text": "The output will automatically become longer.",
+          "correct": false,
+          "explain": "不適。入力の長さが出力の長さを決めるわけではない。",
+          "textZh": "产出会自动变长。"
+        },
+        {
+          "text": "It makes the output more accurate.",
+          "correct": false,
+          "explain": "不適。関係の無い情報は精度を上げない。",
+          "textZh": "这会让产出更准确。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**多余的上下文是有代价的**。这和「信息越多越好」的直觉相反：无关的背景会稀释关键条件，让它们更容易被忽略。判断标准是「这段话会不会改变产出」——不会的就删掉。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-034",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A task requires making a judgment that depends on a policy the associate must first look up. How should this be sequenced?",
+      "stemZh": "一项任务需要做一个判断，而这个判断取决于一条担当必须先查阅的方针。应该怎么安排顺序？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Look up the policy, put its actual text into the prompt, and then ask for the judgment.",
+          "correct": true,
+          "explain": "正解。根拠を与えてから判断させる。与えなければ一般論で埋められる。",
+          "textZh": "先查到方针，把它的原文放进提示词，然后再要求做判断。"
+        },
+        {
+          "text": "Ask for the judgment first and check it against the policy afterwards.",
+          "correct": false,
+          "explain": "不適。一般論に基づく判断が先に出てきて、それに引きずられる。",
+          "textZh": "先要判断，事后再对照方针检查。"
+        },
+        {
+          "text": "Ask the model to recall the policy from memory.",
+          "correct": false,
+          "explain": "不適。社内方針は学習データに無い。",
+          "textZh": "让模型凭记忆回忆这条方针。"
+        },
+        {
+          "text": "Ask for the judgment without mentioning the policy.",
+          "correct": false,
+          "explain": "不適。判断の根拠が欠けたまま結論が出る。",
+          "textZh": "不提方针，直接要判断。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**先给依据再要判断**。顺序很重要：如果先得到一个基于一般常识的答案，之后再去对照方针，人很容易被那个先入为主的结论牵着走。而且内部方针根本不在模型的知识里。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-035",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO make it possible to tell whether a prompt change actually improved things? (Select 2)",
+      "stemZh": "下面哪两点能让人判断出一次提示词修改是否真的带来了改善？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Testing the old and new prompt on the same inputs.",
+          "correct": true,
+          "explain": "正解。入力をそろえないと比較にならない。",
+          "textZh": "用同一组输入测试新旧两个提示词。"
+        },
+        {
+          "text": "Having a stated standard for what counts as better.",
+          "correct": true,
+          "explain": "正解。良し悪しの基準が無ければ、改善したかは決まらない。",
+          "textZh": "对于「什么算更好」有一个明确的标准。"
+        },
+        {
+          "text": "Changing several things at once to save time.",
+          "correct": false,
+          "explain": "不適。何が効いたか切り分けられなくなる。",
+          "textZh": "一次改好几个地方以节省时间。"
+        },
+        {
+          "text": "Judging by whether the new output feels better.",
+          "correct": false,
+          "explain": "不適。印象は再現しない。",
+          "textZh": "凭新产出「感觉更好」来判断。"
+        },
+        {
+          "text": "Running the new prompt more times than the old one.",
+          "correct": false,
+          "explain": "不適。試行回数が違えば比較にならない。",
+          "textZh": "新提示词比旧的多跑几次。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**改进要能被证明**。两个条件和做实验一样：**控制变量**（同样的输入）和**有判定标准**。少了任何一个，「改好了」就只是感觉——而感觉在下一次遇到反例时就会推翻。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-036",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate needs to compare two proposals objectively, but wrote one of them. How should the prompt be set up?",
+      "stemZh": "某位担当需要客观地比较两份提案，但其中一份是他自己写的。提示词应该怎么设置？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Remove the authorship information and ask for the same set of criteria to be applied to both.",
+          "correct": true,
+          "explain": "正解。誰が書いたかを伏せ、同じ基準で評価させる。",
+          "textZh": "去掉作者信息，要求用同一套标准评价两份。"
+        },
+        {
+          "text": "Mention which one the associate wrote so the model can be fair.",
+          "correct": false,
+          "explain": "不適。情報を与えるほど、その方向に寄る可能性がある。",
+          "textZh": "说明哪一份是担当写的，好让模型公平一些。"
+        },
+        {
+          "text": "Ask which proposal is better without stating criteria.",
+          "correct": false,
+          "explain": "不適。基準が無ければ、比較の根拠も示されない。",
+          "textZh": "不给标准，直接问哪份提案更好。"
+        },
+        {
+          "text": "Compare them in two separate conversations.",
+          "correct": false,
+          "explain": "不適。基準がそろわず、比較にならない。",
+          "textZh": "在两段不同的对话里分别评价。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**减少无关信息的影响**。两个动作：**隐去作者**（这个信息对评价内容毫无帮助，却可能影响措辞）和**明确统一的标准**（否则两份提案会被用不同的尺子量）。这和前面 D2 里「按顺序推荐供应商」是同一类问题。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-037",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which is the best way to prevent an output from including information the associate cannot verify?",
+      "stemZh": "要防止产出包含担当无法核实的信息，最好的办法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Limit the source explicitly — \"use only the attached document\" — and require it to say when the document does not answer a point.",
+          "correct": true,
+          "explain": "正解。範囲を限り、答えられないときにそう言わせる。",
+          "textZh": "明确限定来源——「只使用附件文档」——并要求它在文档无法回答某点时明说。"
+        },
+        {
+          "text": "Ask it to be accurate.",
+          "correct": false,
+          "explain": "不適。検証可能な条件が増えていない。",
+          "textZh": "要求它准确。"
+        },
+        {
+          "text": "Ask for a shorter answer.",
+          "correct": false,
+          "explain": "不適。短くても検証できない情報は混ざる。",
+          "textZh": "要求一个更短的答案。"
+        },
+        {
+          "text": "Ask it to avoid guessing.",
+          "correct": false,
+          "explain": "不適。何が推測かの線引きが共有されていない。",
+          "textZh": "要求它不要猜测。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**限定来源 + 允许说「文档里没有」**。这两条必须配套：只限定来源而不给「答不了」的出口，模型会在范围内硬凑一个答案。给了出口，它才会老实说哪里查不到——而那正是你需要知道的。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-038",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO indicate a task was decomposed at the wrong boundaries? (Select 2)",
+      "stemZh": "下面哪两点说明一个任务的拆分边界划错了？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A later step has to redo work the earlier step already did.",
+          "correct": true,
+          "explain": "正解。境界が重なっている。分けた意味が無い。",
+          "textZh": "后面的步骤不得不重做前一步已经做过的工作。"
+        },
+        {
+          "text": "The output of a step cannot be judged without doing the next step.",
+          "correct": true,
+          "explain": "正解。単独で検査できない。分割の目的を満たしていない。",
+          "textZh": "不做下一步就无法判断某一步的产出对不对。"
+        },
+        {
+          "text": "There are more than three steps.",
+          "correct": false,
+          "explain": "不適。段数の多さ自体は問題ではない。",
+          "textZh": "步骤超过了三个。"
+        },
+        {
+          "text": "Each step has a clear input and output.",
+          "correct": false,
+          "explain": "不適。これは良い分解の特徴。",
+          "textZh": "每一步都有清晰的输入和输出。"
+        },
+        {
+          "text": "The steps are performed by the same person.",
+          "correct": false,
+          "explain": "不適。担当者の数は分解の良し悪しと無関係。",
+          "textZh": "这些步骤由同一个人执行。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**拆分边界的检验**。好的边界有两个特征：不重叠（没有重复劳动）和**可单独验收**。如果必须做完下一步才知道这一步对不对，那这两步其实是一个任务，拆开只增加了麻烦。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-039",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt gives good results 8 times out of 10. The 2 failures are always the same type of input. What should change?",
+      "stemZh": "一个提示词10次里有8次结果不错，那2次失败总是同一类输入造成的。应该改什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add an instruction covering that specific case, or an example showing how to handle it.",
+          "correct": true,
+          "explain": "正解。失敗が特定の型に偏っているなら、その型への指示を足す。",
+          "textZh": "针对那种具体情况补一条指令，或者给一个展示如何处理它的范例。"
+        },
+        {
+          "text": "Accept an 80% success rate as normal.",
+          "correct": false,
+          "explain": "不適。原因が分かっているのに直していない。",
+          "textZh": "接受80%的成功率，认为这很正常。"
+        },
+        {
+          "text": "Rewrite the whole prompt from scratch.",
+          "correct": false,
+          "explain": "不適。8割効いている部分まで捨てている。",
+          "textZh": "从头重写整个提示词。"
+        },
+        {
+          "text": "Run it twice and pick the better result.",
+          "correct": false,
+          "explain": "不適。同じ型の入力なら2回とも失敗する。",
+          "textZh": "跑两次，挑更好的那个结果。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**失败有规律就好办**。随机的失败难处理，但**总是同一类输入出问题**是最容易修的情况——补一条针对性的指令或一个范例就行。最后一个干扰项还错在：同类输入重跑两次，多半两次都失败。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-040",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "For a task where many valid answers exist, what should the prompt include?",
+      "stemZh": "对于一项存在许多合理答案的任务，提示词里应该包含什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The criteria that will be used to choose among them.",
+          "correct": true,
+          "explain": "正解。選ぶ基準を先に示す。後で選べない候補が並ぶのを防ぐ。",
+          "textZh": "将被用来在这些答案中做选择的标准。"
+        },
+        {
+          "text": "A request for only one answer.",
+          "correct": false,
+          "explain": "不適。1つに絞らせても、それが基準に合うとは限らない。",
+          "textZh": "要求只给一个答案。"
+        },
+        {
+          "text": "A request for the most common answer.",
+          "correct": false,
+          "explain": "不適。一般的であることは、この状況に合うことを意味しない。",
+          "textZh": "要求给出最常见的那个答案。"
+        },
+        {
+          "text": "A longer description of the problem.",
+          "correct": false,
+          "explain": "不適。説明を増やしても選択基準は伝わらない。",
+          "textZh": "对问题更长的描述。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**答案不唯一时，要先给选择标准**。命名、设计、方案这类任务有无数合理解，如果不说「我们更看重好记还是好搜」，拿到的就是一堆各自合理但没法取舍的候选。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-041",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO make a prompt reusable by other people? (Select 2)",
+      "stemZh": "下面哪两点能让一个提示词被其他人复用？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "All the context it needs is written in it, not supplied in conversation.",
+          "correct": true,
+          "explain": "正解。単体で完結していること。これが再利用の条件。",
+          "textZh": "它需要的全部上下文都写在里面，而不是在对话中补充。"
+        },
+        {
+          "text": "The places that must be changed per use are clearly marked.",
+          "correct": true,
+          "explain": "正解。差し替え箇所が分かる。誤って固定値を残さない。",
+          "textZh": "每次使用时必须替换的地方有清晰的标记。"
+        },
+        {
+          "text": "It uses the associate's personal shorthand.",
+          "correct": false,
+          "explain": "不適。書いた本人以外には読めない。",
+          "textZh": "它使用了担当个人的简写习惯。"
+        },
+        {
+          "text": "It is as short as possible.",
+          "correct": false,
+          "explain": "不適。短さより、必要な条件がそろっていること。",
+          "textZh": "它尽可能地短。"
+        },
+        {
+          "text": "It was tested only once.",
+          "correct": false,
+          "explain": "不適。一度で再現性は確かめられない。",
+          "textZh": "它只被测试过一次。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**可复用的提示词**。两个条件：**自包含**（别人不用补充任何东西）和**标出可变部分**（否则会有人忘了改客户名）。个人简写和过度精简都会让别人用不起来。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-042",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate must write a report that depends on numbers they have not yet collected. What is the right order?",
+      "stemZh": "某位担当要写一份依赖于尚未收集的数字的报告。正确的顺序是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Collect and verify the numbers first; drafting around placeholder figures tends to lock in the wrong conclusions.",
+          "correct": true,
+          "explain": "正解。仮の数字で書くと、結論が先に固まってしまう。",
+          "textZh": "先收集并核实数字；围绕占位数字起草，往往会把错误的结论固定下来。"
+        },
+        {
+          "text": "Draft with placeholder numbers and replace them later.",
+          "correct": false,
+          "explain": "不適。差し替え漏れと、結論の固定化が起きる。",
+          "textZh": "先用占位数字起草，之后再替换。"
+        },
+        {
+          "text": "Ask Claude to estimate the numbers to get started.",
+          "correct": false,
+          "explain": "不適。推定値が本物として残る危険がある。",
+          "textZh": "让 Claude 估算这些数字以便开始。"
+        },
+        {
+          "text": "Write the conclusion first and find numbers that support it.",
+          "correct": false,
+          "explain": "不適。順序が完全に逆で、結論ありきになる。",
+          "textZh": "先写结论，再找支持它的数字。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**占位数字的危险**。它有两个问题：**忘记替换**（很常见），以及更隐蔽的——**围绕假数字写出的论述会固定下来**，等真数字进来时，整段推理其实已经不成立了，但文字读着仍然顺。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-043",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "What should an associate do first when an output is completely unrelated to the request?",
+      "stemZh": "当产出与请求完全无关时，担当首先应该做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Re-read the prompt as written; the request is often clear in the associate's head but not on the page.",
+          "correct": true,
+          "explain": "正解。頭の中の依頼と、書いた文字が違う。まず自分の文を読み返す。",
+          "textZh": "重读自己实际写下的提示词；请求往往在担当脑子里很清楚，在纸面上却不是。"
+        },
+        {
+          "text": "Repeat the same prompt to see if it was a fluke.",
+          "correct": false,
+          "explain": "不適。同じ入力なら同じ性質の結果になりやすい。",
+          "textZh": "把同样的提示词再发一次，看是不是偶然。"
+        },
+        {
+          "text": "Report it as a defect.",
+          "correct": false,
+          "explain": "不適。原因を確かめる前に外部要因と決めている。",
+          "textZh": "把它作为缺陷上报。"
+        },
+        {
+          "text": "Switch to a different model.",
+          "correct": false,
+          "explain": "不適。指示と出力のずれはモデルでは解けない。",
+          "textZh": "换一个不同的模型。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**先怀疑自己写的字**。产出完全跑偏时，最常见的原因不是模型故障，而是**脑子里的请求和写下来的请求不是一回事**——代词指代不清、关键限定词漏了、把两件事混在一句里。重读一遍通常几秒钟就能发现。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-044",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO are appropriate when the goal is to stress-test an argument? (Select 2)",
+      "stemZh": "当目标是压力测试一个论点时，下面哪两点是恰当的？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Asking for the strongest objection a knowledgeable opponent would raise.",
+          "correct": true,
+          "explain": "正解。最強の反論を求める。弱い反論では検証にならない。",
+          "textZh": "要求给出一个内行的反对者会提出的最有力的反驳。"
+        },
+        {
+          "text": "Asking what evidence would change the conclusion.",
+          "correct": true,
+          "explain": "正解。反証条件を明示させる。論の強度が測れる。",
+          "textZh": "问什么样的证据会改变这个结论。"
+        },
+        {
+          "text": "Asking it to make the argument sound more convincing.",
+          "correct": false,
+          "explain": "不適。検証ではなく補強になっている。",
+          "textZh": "要求它把论点说得更有说服力。"
+        },
+        {
+          "text": "Asking for a summary of the argument.",
+          "correct": false,
+          "explain": "不適。要約は検証ではない。",
+          "textZh": "要求对这个论点做个总结。"
+        },
+        {
+          "text": "Asking whether the argument is well written.",
+          "correct": false,
+          "explain": "不適。文章の巧拙は論の妥当性ではない。",
+          "textZh": "问这个论点写得好不好。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**压力测试的两个有效问法**。一是**最强的反驳**（弱反驳挡住了不说明什么），二是**证伪条件**——「什么证据会推翻它」。第二个问题特别有价值：如果答案是「没有任何证据能推翻」，那这个论点其实没有内容。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-045",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt must work for inputs of very different lengths, from one paragraph to fifty pages. What should it specify?",
+      "stemZh": "一个提示词必须适用于长度差异极大的输入，从一段到五十页。它应该指定什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "How the output should scale — what stays fixed and what grows with the input.",
+          "correct": true,
+          "explain": "正解。何が固定で何が可変かを決める。入力の長さに振り回されない。",
+          "textZh": "产出应该如何伸缩——什么保持固定，什么随输入增长。"
+        },
+        {
+          "text": "A single fixed output length for all inputs.",
+          "correct": false,
+          "explain": "不適。50ページを1段落と同じ長さで扱うのは無理がある。",
+          "textZh": "为所有输入设定一个统一的固定长度。"
+        },
+        {
+          "text": "That longer inputs deserve longer outputs.",
+          "correct": false,
+          "explain": "不適。比例させるだけでは、必要な情報量に合わない。",
+          "textZh": "更长的输入应当有更长的产出。"
+        },
+        {
+          "text": "Nothing; the model will adapt automatically.",
+          "correct": false,
+          "explain": "不適。自動で望む形になる保証は無い。",
+          "textZh": "什么都不用指定，模型会自动适应。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**为可变输入设计产出结构**。有效的写法是区分两部分：**固定的骨架**（永远有「结论」「风险」「建议」三节）和**可变的部分**（要点的条数随内容增减）。这样无论输入多长，产出都是可预期、可比较的。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-046",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which task is best kept as a single request rather than decomposed?",
+      "stemZh": "下面哪项任务最好作为单个请求来处理，而不要拆解？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Rewriting one paragraph to be clearer.",
+          "correct": true,
+          "explain": "正解。単一の判断で、分けても検査の単位が増えない。",
+          "textZh": "把一个段落改写得更清楚。"
+        },
+        {
+          "text": "Analyzing five contracts and recommending which to renew.",
+          "correct": false,
+          "explain": "不適。抽出・比較・推薦の3段階。分けて確かめる価値がある。",
+          "textZh": "分析五份合同并建议续签哪一份。"
+        },
+        {
+          "text": "Researching a market and writing a strategy from the findings.",
+          "correct": false,
+          "explain": "不適。調査結果を確かめてから戦略に進むべき。",
+          "textZh": "调研一个市场并据此撰写战略。"
+        },
+        {
+          "text": "Extracting data from ten files and computing a total.",
+          "correct": false,
+          "explain": "不適。抽出の正しさを確かめてから計算する。",
+          "textZh": "从十个文件里提取数据并计算总和。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**不是所有任务都该拆**。判断标准还是「**检查的单位有几个**」。改写一个段落只有一个判断，拆开没有任何好处，只会增加往返。而后三项都包含「先得到中间结果、再基于它做下一步」的结构。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-047",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate wants Claude to follow a checklist exactly. What structure works best?",
+      "stemZh": "某位担当希望 Claude 严格按一份清单执行。什么结构最有效？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Give the checklist as a numbered list and ask for the output to address each item in order, marking any that do not apply.",
+          "correct": true,
+          "explain": "正解。項目ごとに答えさせ、該当なしも明示させる。抜けが見つかる。",
+          "textZh": "把清单作为编号列表给出，要求产出按顺序逐项回应，不适用的也要标明。"
+        },
+        {
+          "text": "Describe the checklist in a paragraph.",
+          "correct": false,
+          "explain": "不適。段落に溶けると、項目が抜けても気づけない。",
+          "textZh": "用一个段落描述这份清单。"
+        },
+        {
+          "text": "Give the checklist and ask for a summary of the findings.",
+          "correct": false,
+          "explain": "不適。要約されると、どの項目を見たか分からなくなる。",
+          "textZh": "给出清单，要求总结一下发现。"
+        },
+        {
+          "text": "Give the most important three items only.",
+          "correct": false,
+          "explain": "不適。チェックリストの目的である網羅性を捨てている。",
+          "textZh": "只给出最重要的三项。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**清单的价值在于可核对**。要点在正确选项的最后半句：**不适用的项目也要标出来**。如果产出只提到了七项，你无法分辨另外三项是「不适用」还是「忘了」——而这正是清单要防止的事。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-048",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "What is the most common mistake when iterating on a prompt?",
+      "stemZh": "在迭代提示词时，最常见的错误是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Adding instructions without removing the ones that are no longer needed.",
+          "correct": true,
+          "explain": "正解。足すだけで引かないと、矛盾が積み上がる。",
+          "textZh": "只增加指令，却不删掉那些已经不再需要的。"
+        },
+        {
+          "text": "Testing on too many inputs.",
+          "correct": false,
+          "explain": "不適。多くの入力で試すのは良い習慣。",
+          "textZh": "在太多输入上测试。"
+        },
+        {
+          "text": "Keeping earlier versions.",
+          "correct": false,
+          "explain": "不適。戻れるようにするのは有益。",
+          "textZh": "保留早期的版本。"
+        },
+        {
+          "text": "Writing the prompt in sections.",
+          "correct": false,
+          "explain": "不適。構造化は維持しやすさを高める。",
+          "textZh": "把提示词分成几个部分来写。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**只加不减**。每次遇到问题就加一条，几轮之后提示词里堆满了为特定情况写的规则，其中一些已经互相冲突。好的迭代包含删除：**这条还需要吗？它和那条矛盾吗？**",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-049",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO fit a task where the associate needs to understand something, not produce a document? (Select 2)",
+      "stemZh": "当担当的目标是理解某件事、而不是产出一份文档时，下面哪两点合适？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Asking for an explanation at a stated level, then asking follow-up questions on the unclear parts.",
+          "correct": true,
+          "explain": "正解。理解は往復で深まる。一度で完結させる必要が無い。",
+          "textZh": "要求在指定的层次上做解释，然后针对不清楚的地方追问。"
+        },
+        {
+          "text": "Asking it to explain the same thing a second way.",
+          "correct": true,
+          "explain": "正解。別の説明の仕方を得ると、理解の穴が見つかる。",
+          "textZh": "让它用另一种方式再解释一遍同样的内容。"
+        },
+        {
+          "text": "Asking for a polished document.",
+          "correct": false,
+          "explain": "不適。成果物を作る作業で、理解とは目的が違う。",
+          "textZh": "要求一份精致的文档。"
+        },
+        {
+          "text": "Asking for the shortest possible explanation.",
+          "correct": false,
+          "explain": "不適。短すぎる説明は理解の助けにならない。",
+          "textZh": "要求尽可能短的解释。"
+        },
+        {
+          "text": "Asking it to avoid analogies.",
+          "correct": false,
+          "explain": "不適。例えは理解を助けることが多い。",
+          "textZh": "要求它不要使用类比。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**理解和产出是两种不同的目标**。为理解而用时，价值在**往返**：先要一个合适层次的解释，再针对听不懂的地方追问，或者要求换个角度重讲一遍——换一种说法常常正好补上第一次的缺口。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-050",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A task produces good results but takes six exchanges every time. How could it be improved?",
+      "stemZh": "一项任务结果不错，但每次都要六个来回。该如何改进？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Look at what is supplied in each exchange and move the stable parts into the initial prompt.",
+          "correct": true,
+          "explain": "正解。毎回同じことを言っているなら、最初から書いておく。",
+          "textZh": "看看每个来回里补充了什么，把其中固定不变的部分挪进最初的提示词。"
+        },
+        {
+          "text": "Accept it, since the result is good.",
+          "correct": false,
+          "explain": "不適。毎回の手間が残る。再利用もできない。",
+          "textZh": "接受现状，反正结果不错。"
+        },
+        {
+          "text": "Ask for everything in one message without changing the content.",
+          "correct": false,
+          "explain": "不適。補っていた情報が欠けたまま一発勝負になる。",
+          "textZh": "把所有内容放进一条消息，但不改变内容。"
+        },
+        {
+          "text": "Use a faster model to reduce waiting time.",
+          "correct": false,
+          "explain": "不適。往復回数は減らない。",
+          "textZh": "用更快的模型来缩短等待时间。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**把重复的往返固化下来**。六个来回里，通常有四五个是每次都在说的同样的话。把它们写进最初的提示词，既省时间，也让这个提示词**变得可以交给别人用**——这正是前面讲过的「自包含」。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-051",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which is the most effective way to specify what must NOT appear in an output?",
+      "stemZh": "要指定产出中「绝对不能出现」什么，最有效的方式是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Name the specific things to exclude and, where possible, what to do instead.",
+          "correct": true,
+          "explain": "正解。何を避けるかと、代わりに何をするかを対で示す。",
+          "textZh": "点名具体要排除的东西，并尽可能说明应该改为怎样。"
+        },
+        {
+          "text": "Say \"don't include anything inappropriate\".",
+          "correct": false,
+          "explain": "不適。何が不適切かの基準が共有されていない。",
+          "textZh": "说「不要包含任何不恰当的内容」。"
+        },
+        {
+          "text": "List everything that is allowed instead.",
+          "correct": false,
+          "explain": "不適。許可リストは現実的に書ききれないことが多い。",
+          "textZh": "反过来列出所有被允许的内容。"
+        },
+        {
+          "text": "Say \"be careful\".",
+          "correct": false,
+          "explain": "不適。指示として何も決めていない。",
+          "textZh": "说「小心一点」。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**否定指令要具体、并给替代**。只说「不要 X」时，模型仍然需要决定该写什么，结果往往绕回相似的表达。配上「改用 Y」之后，指令才是完整可执行的。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-052",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO make examples in a prompt more effective? (Select 2)",
+      "stemZh": "下面哪两点能让提示词里的范例更有效？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Choosing examples that show the hard cases, not just the easy ones.",
+          "correct": true,
+          "explain": "正解。簡単な例だけでは、迷う場面の判断が伝わらない。",
+          "textZh": "选择能展示困难情况的范例，而不只是容易的。"
+        },
+        {
+          "text": "Making the examples match the format the output must take.",
+          "correct": true,
+          "explain": "正解。形式そのものを見せる。説明より確実。",
+          "textZh": "让范例符合产出必须采用的格式。"
+        },
+        {
+          "text": "Using as many examples as possible.",
+          "correct": false,
+          "explain": "不適。多ければよいわけではない。矛盾する例が混ざる危険もある。",
+          "textZh": "使用尽可能多的范例。"
+        },
+        {
+          "text": "Using examples from an unrelated domain.",
+          "correct": false,
+          "explain": "不適。別領域の例は誤った一般化を招く。",
+          "textZh": "使用来自不相关领域的范例。"
+        },
+        {
+          "text": "Keeping the examples vague so they generalize.",
+          "correct": false,
+          "explain": "不適。曖昧な例は何も伝えない。",
+          "textZh": "让范例保持模糊，以便泛化。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**好范例的两个特征**。一是**覆盖难点**（容易的情况本来就不会出错，难的才需要示范），二是**格式即示范**。数量不是重点——两三个精选的例子好过十个随手挑的，后者还容易互相矛盾。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-053",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate must summarize a debate where both sides have merit. What should the prompt require?",
+      "stemZh": "某位担当要总结一场双方都有道理的辩论。提示词应该要求什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "That each side be presented with its strongest reasoning, and that points of genuine disagreement be separated from misunderstandings.",
+          "correct": true,
+          "explain": "正解。両論を最強の形で示し、対立点と誤解を区別させる。",
+          "textZh": "把每一方都以其最有力的论据呈现，并把真正的分歧点与误解区分开。"
+        },
+        {
+          "text": "That the summary conclude which side is right.",
+          "correct": false,
+          "explain": "不適。まとめる段階で結論を出させると、片方が弱く書かれる。",
+          "textZh": "要求这份总结得出哪一方是对的。"
+        },
+        {
+          "text": "That both sides be given exactly equal length.",
+          "correct": false,
+          "explain": "不適。分量をそろえても中身の公平さにはならない。",
+          "textZh": "要求给双方完全相同的篇幅。"
+        },
+        {
+          "text": "That emotional language be preserved for accuracy.",
+          "correct": false,
+          "explain": "不適。語調を残すと、論点が感情に埋もれる。",
+          "textZh": "要求保留情绪化的措辞以保证准确。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**呈现分歧的方式**。两个要求：**每一方都用最强的版本**（否则就成了稻草人），以及**把真正的分歧和误解分开**——后者常常占一半，一旦点明，争论的范围立刻就小了。等长和下结论都不等于公平。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-054",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "A decomposed workflow has a step whose output nobody ever looks at. What does this suggest?",
+      "stemZh": "一个被拆解的流程里，有一步的产出从来没人看。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Either the step is unnecessary, or a check that was supposed to happen is being skipped.",
+          "correct": true,
+          "explain": "正解。どちらかを確かめる。放置すると、必要な検査が抜けたまま回り続ける。",
+          "textZh": "要么这一步是多余的，要么某个本该发生的检查被跳过了。"
+        },
+        {
+          "text": "The workflow is efficient.",
+          "correct": false,
+          "explain": "不適。見られていない工程は、効率の証拠にならない。",
+          "textZh": "这道流程很高效。"
+        },
+        {
+          "text": "The step should be automated further.",
+          "correct": false,
+          "explain": "不適。必要性を確かめる前に自動化を進めている。",
+          "textZh": "这一步应该被进一步自动化。"
+        },
+        {
+          "text": "The output format should be improved.",
+          "correct": false,
+          "explain": "不適。形式の問題ではない。",
+          "textZh": "它的产出格式应该改进。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**没人看的中间产出是个信号**。它只有两种可能，而两种的处理完全相反：**多余**（删掉，简化流程）或**该看没看**（这道检查形同虚设，风险一直存在）。必须搞清楚是哪一种。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-055",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO details are usually worth including when asking for analysis of a dataset? (Select 2)",
+      "stemZh": "在要求对一个数据集做分析时，通常值得包含哪两个细节？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What decision the analysis will inform.",
+          "correct": true,
+          "explain": "正解。用途が分析の切り口を決める。",
+          "textZh": "这份分析将为什么决定提供依据。"
+        },
+        {
+          "text": "Known caveats about how the data was collected.",
+          "correct": true,
+          "explain": "正解。データの限界を伝えないと、無い精度を前提に語られる。",
+          "textZh": "关于这些数据是如何收集的、已知的注意事项。"
+        },
+        {
+          "text": "The file size.",
+          "correct": false,
+          "explain": "不適。分析の内容に影響しない。",
+          "textZh": "文件大小。"
+        },
+        {
+          "text": "When the file was downloaded.",
+          "correct": false,
+          "explain": "不適。データの取得日は多くの場合分析に影響しない。",
+          "textZh": "文件是什么时候下载的。"
+        },
+        {
+          "text": "The software used to open it.",
+          "correct": false,
+          "explain": "不適。分析の切り口とは無関係。",
+          "textZh": "用什么软件打开它。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**分析请求的两个关键输入**。**用途**决定从哪个角度切（为定价做的分析和为库存做的分析完全不同），**数据的局限**决定结论能说到多强——不说明「这份数据只覆盖了三个大区」，得到的结论就会被当作全局结论。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-056",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "Two associates get different quality from the same task. One writes long prompts, the other short ones. What explains this best?",
+      "stemZh": "两位担当做同样的任务，得到的质量不同。一位写长提示词，一位写短的。最好的解释是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Length is not the factor; what matters is whether the necessary conditions are stated.",
+          "correct": true,
+          "explain": "正解。長さではなく、必要な条件がそろっているか。短くても十分なことがある。",
+          "textZh": "长度不是关键；关键在于必要的条件有没有写出来。"
+        },
+        {
+          "text": "Longer prompts always produce better results.",
+          "correct": false,
+          "explain": "不適。不要な情報は逆効果になりうる。",
+          "textZh": "更长的提示词总是产出更好的结果。"
+        },
+        {
+          "text": "Shorter prompts always produce better results.",
+          "correct": false,
+          "explain": "不適。必要な条件が欠ければ質は落ちる。",
+          "textZh": "更短的提示词总是产出更好的结果。"
+        },
+        {
+          "text": "The difference is random.",
+          "correct": false,
+          "explain": "不適。原因を探ることを放棄している。",
+          "textZh": "这种差异是随机的。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**长度是个假指标**。一个三行但写清了读者、格式和约束的提示词，胜过一段五百字但没说用途的背景铺陈。要比较的不是长短，而是**必要条件的覆盖程度**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-057",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which approach fits a task where the associate wants options, not a recommendation?",
+      "stemZh": "当担当想要的是若干选项、而不是一个建议时，哪种做法合适？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask for a set of genuinely different approaches, each with what it costs and what it assumes.",
+          "correct": true,
+          "explain": "正解。本当に違う案を、対価と前提つきで出させる。比較できる形になる。",
+          "textZh": "要求一组真正不同的方案，每个都说明它的代价和它的前提。"
+        },
+        {
+          "text": "Ask for the best option and two weaker ones.",
+          "correct": false,
+          "explain": "不適。比較にならない。選択肢を装った推薦。",
+          "textZh": "要求给出最好的一个和两个较弱的。"
+        },
+        {
+          "text": "Ask for as many options as possible.",
+          "correct": false,
+          "explain": "不適。数を増やすと似た案が並ぶ。違いが薄れる。",
+          "textZh": "要求尽可能多的选项。"
+        },
+        {
+          "text": "Ask for options without any explanation.",
+          "correct": false,
+          "explain": "不適。前提と対価が無ければ選べない。",
+          "textZh": "要求给出选项，不要任何说明。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**要选项就要能比较的选项**。三个要素：**真正不同**（不是一个好方案配两个陪衬）、**各自的代价**、**各自的前提**。少了后两样，摆在面前的只是几个名字，无从选择。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-058",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO are good reasons to keep a multi-step task in one conversation rather than separate ones? (Select 2)",
+      "stemZh": "下面哪两个是「把多步骤任务放在同一段对话里、而不是分开」的好理由？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Later steps need the confirmed results of earlier ones.",
+          "correct": true,
+          "explain": "正解。確定した内容を持ち越せる。",
+          "textZh": "后面的步骤需要前面已确认的结果。"
+        },
+        {
+          "text": "The constraints established at the start apply throughout.",
+          "correct": true,
+          "explain": "正解。前提を毎回書き直さずに済む。",
+          "textZh": "一开始确立的约束条件贯穿始终。"
+        },
+        {
+          "text": "It keeps the number of conversations low.",
+          "correct": false,
+          "explain": "不適。数を減らすこと自体に価値は無い。",
+          "textZh": "这能减少对话的数量。"
+        },
+        {
+          "text": "Long conversations produce better output.",
+          "correct": false,
+          "explain": "不適。長くなるほど扱いにくくなる面もある。",
+          "textZh": "长对话能产出更好的结果。"
+        },
+        {
+          "text": "It makes the work look more thorough.",
+          "correct": false,
+          "explain": "不適。見た目の問題で、実質とは関係が無い。",
+          "textZh": "这让工作看起来更周全。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**什么时候该保持在同一段对话**。理由必须是**内容上的连续性**：需要带着前一步的结果，或者共享同一组约束。如果各步骤互相独立，分开反而更清晰——第二个干扰项也提醒，对话拉长本身是有代价的。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-059",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate needs the same analysis repeated for twelve regions with local differences. How should the prompt handle the differences?",
+      "stemZh": "某位担当需要对十二个地区重复同样的分析，而各地区存在本地差异。提示词应该如何处理这些差异？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep the analysis structure fixed and pass the local facts in as data for each run.",
+          "correct": true,
+          "explain": "正解。構造は共通、地域固有の事実だけを差し替える。比較可能になる。",
+          "textZh": "保持分析结构固定，每次运行时把本地事实作为数据传入。"
+        },
+        {
+          "text": "Write twelve separate prompts from scratch.",
+          "correct": false,
+          "explain": "不適。比較できなくなり、保守もできない。",
+          "textZh": "从头写十二个独立的提示词。"
+        },
+        {
+          "text": "Ignore the local differences for consistency.",
+          "correct": false,
+          "explain": "不適。一貫性のために事実を捨てている。",
+          "textZh": "为了一致性而忽略本地差异。"
+        },
+        {
+          "text": "Let the model infer each region's characteristics.",
+          "correct": false,
+          "explain": "不適。推測で埋められた前提が結論に混ざる。",
+          "textZh": "让模型自己推断每个地区的特征。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**固定结构 + 可变数据**。这样十二份分析才**能互相比较**（同样的小节、同样的口径）。最后一个干扰项特别危险：让模型自己「推断」各地区情况，等于把编造的前提混进了十二份报告。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-060",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "When should an associate stop iterating on a prompt and accept the current output?",
+      "stemZh": "什么时候担当应该停止迭代提示词，接受当前的产出？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When the remaining gap costs less to fix by hand than to keep refining.",
+          "correct": true,
+          "explain": "正解。改善の費用対効果で判断する。完璧を目指す必要は無い。",
+          "textZh": "当剩下的差距用手工修补的成本低于继续打磨的成本时。"
+        },
+        {
+          "text": "When the output is perfect.",
+          "correct": false,
+          "explain": "不適。完璧を条件にすると、いつまでも終わらない。",
+          "textZh": "当产出完美时。"
+        },
+        {
+          "text": "After a fixed number of attempts.",
+          "correct": false,
+          "explain": "不適。回数で区切る根拠が無い。",
+          "textZh": "在固定次数的尝试之后。"
+        },
+        {
+          "text": "When the associate runs out of ideas.",
+          "correct": false,
+          "explain": "不適。行き詰まりは終了の基準ではない。",
+          "textZh": "当担当想不出别的办法时。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**什么时候收手**。判断依据是成本比较：如果再花二十分钟调提示词只为省下两分钟的手工修改，那就该停了。反过来，如果这个提示词要用一百次，多花一小时打磨就很划算——**看它会被用多少次**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
     }
   ]
 }
