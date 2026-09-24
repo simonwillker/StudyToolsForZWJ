@@ -9,6 +9,20 @@ import {
   examBlueprintCounts,
 } from "./ccaofDomains";
 import {
+  buildExam,
+  gradeExam,
+  isCorrect,
+  passRatio,
+  loadResults,
+  saveResult,
+  clearResults,
+  saveInProgress,
+  loadInProgress,
+  clearInProgress,
+  remainingMs,
+  formatClock,
+} from "./ccaofExam";
+import {
   recordAnswer,
   recordReviewResult,
   getDomainStats,
@@ -228,6 +242,208 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh }) {
 }
 
 /* ============================================================
+   模擬試験
+
+   本番と同じ 60問 / 120分。途中で解答を確認できないのも本番どおり。
+   採点は提出後にまとめて行い、ドメイン別の正答率も出す
+   （本番の score report と同じ形）。
+   ============================================================ */
+
+function ExamRunner({ questions, answers, onPick, startedAt, onSubmit, onAbandon, showZh }) {
+  const [index, setIndex] = useState(0);
+  const [left, setLeft] = useState(() => remainingMs(startedAt));
+  const [confirming, setConfirming] = useState(false);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      const ms = remainingMs(startedAt);
+      setLeft(ms);
+      // 時間切れは自動提出。本番も終了時刻で締め切られる
+      if (ms <= 0) onSubmit(true);
+    }, 1000);
+    return () => clearInterval(id);
+  }, [startedAt, onSubmit]);
+
+  const q = questions[index];
+  const answered = answers.filter((a) => a && a.length > 0).length;
+  const picked = answers[index] || [];
+  const low = left <= 10 * 60 * 1000;
+
+  const toggle = (i) => {
+    const next = picked.includes(i)
+      ? picked.filter((x) => x !== i)
+      : picked.length >= q.selectCount
+        ? [...picked.slice(1), i]
+        : [...picked, i];
+    onPick(index, next);
+  };
+
+  return (
+    <div className="ccaof-exam">
+      <div className="ccaof-exam-bar">
+        <span className={"ccaof-clock" + (low ? " low" : "")}>⏱ {formatClock(left)}</span>
+        <span className="ccaof-exam-count">{index + 1} / {questions.length}（解答済み {answered}）</span>
+      </div>
+
+      <div className="ccaof-exam-grid">
+        {questions.map((_, i) => (
+          <button
+            key={i}
+            className={
+              "ccaof-exam-dot" +
+              (i === index ? " current" : "") +
+              (answers[i] && answers[i].length > 0 ? " done" : "")
+            }
+            onClick={() => setIndex(i)}
+          >
+            {i + 1}
+          </button>
+        ))}
+      </div>
+
+      {q.material && <div className="ccaof-material">{q.material}</div>}
+      <div className="ccaof-stem">{q.stem}</div>
+      {q.stemZh && showZh && <div className="ccaof-stem-zh">{q.stemZh}</div>}
+      {q.selectCount > 1 && (
+        <div className="ccaof-select-hint">{q.selectCount}つ選んでください（{picked.length}/{q.selectCount} 選択中）</div>
+      )}
+
+      <div className="ccaof-choices">
+        {q.choices.map((c, i) => (
+          <button
+            key={i}
+            className={"ccaof-choice" + (picked.includes(i) ? " picked" : "")}
+            onClick={() => toggle(i)}
+          >
+            <div className="ccaof-choice-text">{c.text}</div>
+            {c.textZh && showZh && <div className="ccaof-choice-zh">{c.textZh}</div>}
+          </button>
+        ))}
+      </div>
+
+      <div className="ccaof-quiz-foot">
+        <button className="ccaof-btn-ghost" onClick={() => setIndex(Math.max(0, index - 1))} disabled={index === 0}>← 前の問題</button>
+        {index + 1 < questions.length ? (
+          <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => setIndex(index + 1)}>次の問題 →</button>
+        ) : (
+          <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => setConfirming(true)}>提出する</button>
+        )}
+      </div>
+
+      <div className="ccaof-exam-foot">
+        <button className="ccaof-back-link" onClick={() => setConfirming(true)}>提出して採点する</button>
+        <button className="ccaof-back-link" onClick={onAbandon}>試験をやめる</button>
+      </div>
+
+      {confirming && (
+        <div className="ccaof-confirm">
+          <div className="ccaof-confirm-box">
+            <div className="ccaof-confirm-title">提出しますか？</div>
+            <div className="ccaof-confirm-body">
+              {answered < questions.length
+                ? `未解答が ${questions.length - answered} 問あります。提出すると不正解になります。`
+                : "全問に解答済みです。"}
+            </div>
+            <div className="ccaof-delete-actions">
+              <button className="ccaof-btn-ghost" onClick={() => setConfirming(false)}>まだ見直す</button>
+              <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => onSubmit(false)}>提出する</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ExamResult({ result, questions, onReview, onBack }) {
+  const need = Math.ceil(passRatio() * result.total);
+  return (
+    <div className="ccaof-result">
+      <div className={"ccaof-verdict " + (result.passed ? "pass" : "fail")}>
+        {result.passed ? "合格ライン到達" : "合格ラインに届かず"}
+      </div>
+      <div className="ccaof-result-pct" style={{ "--c": result.passed ? "#1F6B45" : "#C8323D" }}>
+        {result.correct} / {result.total}
+      </div>
+      <div className="ccaof-result-sub">
+        目安スコア {result.scaled}（合格 {EXAM_FORMAT.passScaled}）／ 合格には {need} 問以上
+      </div>
+      <div className="ccaof-result-note">
+        本番のスケールドスコアの換算方法は公表されていません。ここの点数は
+        正答率を 100〜1000 に置き換えた<strong>目安</strong>で、本番の得点の予測ではありません。
+        確かなのは「何問正解したか」と、下のドメイン別の正答率です。
+      </div>
+
+      <div className="ccaof-sub-head">ドメイン別（本番の score report と同じ形）</div>
+      <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "left" }}>
+        {DOMAINS.map((d) => {
+          const st = result.perDomain[d.id] || { attempted: 0, correct: 0 };
+          const pct = st.attempted ? Math.round((st.correct / st.attempted) * 100) : null;
+          return (
+            <div className="ccaof-stat-row" key={d.id} style={{ "--c": d.color }}>
+              <div className="ccaof-stat-name">{d.label}</div>
+              <div className="ccaof-stat-track"><div className="ccaof-stat-fill" style={{ width: `${pct ?? 0}%` }} /></div>
+              <div className="ccaof-stat-num">{pct === null ? "—" : `${pct}%（${st.correct}/${st.attempted}）`}</div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="ccaof-quiz-foot" style={{ maxWidth: 720, margin: "20px auto 0" }}>
+        <button className="ccaof-btn-ghost" onClick={onBack}>もどる</button>
+        <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={onReview}>間違えた問題を見る</button>
+      </div>
+    </div>
+  );
+}
+
+function ExamReview({ result, questions, showZh, onBack }) {
+  const wrong = result.details
+    .map((d, i) => ({ ...d, q: questions[i], no: i + 1 }))
+    .filter((d) => !d.correct);
+
+  return (
+    <div className="ccaof-inner">
+      <div className="ccaof-sub-head">まちがえた問題（{wrong.length}問）</div>
+      {wrong.length === 0 && <div className="ccaof-empty">全問正解です。</div>}
+      {wrong.map((w) => (
+        <div className="ccaof-review-item" key={w.id}>
+          <div className="ccaof-review-no">第 {w.no} 問 · {findDomain(w.q.domain).label}</div>
+          <div className="ccaof-stem">{w.q.stem}</div>
+          {w.q.stemZh && showZh && <div className="ccaof-stem-zh">{w.q.stemZh}</div>}
+          <div className="ccaof-choices">
+            {w.q.choices.map((c, i) => {
+              let cls = "ccaof-choice";
+              if (c.correct) cls += " correct";
+              else if (w.picked.includes(i)) cls += " wrong";
+              return (
+                <div key={i} className={cls}>
+                  <div className="ccaof-choice-text">{c.text}</div>
+                  {c.textZh && showZh && <div className="ccaof-choice-zh">{c.textZh}</div>}
+                  <div className="ccaof-choice-explain">{c.explain}</div>
+                </div>
+              );
+            })}
+          </div>
+          {w.q.commentaryZh && (
+            <div className="ccaof-note">
+              <div className="ccaof-note-title">中文注解</div>
+              <div className="ccaof-note-body">{w.q.commentaryZh}</div>
+            </div>
+          )}
+          <div className="ccaof-source">
+            出典：<a href={w.q.reference} target="_blank" rel="noopener noreferrer">{w.q.reference}</a>
+          </div>
+        </div>
+      ))}
+      <div style={{ textAlign: "center", marginTop: 20 }}>
+        <button className="ccaof-btn-ghost" onClick={onBack}>結果にもどる</button>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
    メイン
    ============================================================ */
 
@@ -241,6 +457,12 @@ export default function CcaofApp({ onExitApp }) {
   const [statsNonce, setStatsNonce] = useState(0);
   const [showZh, setShowZh] = useState(loadShowZh);
 
+  /* 模擬試験。questions とは別に持つ（ドリルと状態が混ざらないように） */
+  const [exam, setExam] = useState(null);          // { questions, answers, startedAt }
+  const [examResult, setExamResult] = useState(null);
+  const [examBusy, setExamBusy] = useState(false);
+  const [resumable, setResumable] = useState(() => loadInProgress());
+
   const toggleZh = useCallback(() => {
     setShowZh((prev) => {
       const next = !prev;
@@ -251,6 +473,62 @@ export default function CcaofApp({ onExitApp }) {
       }
       return next;
     });
+  }, []);
+
+  const startExam = useCallback(async (resume) => {
+    setExamBusy(true);
+    try {
+      const state = resume || {
+        questions: await buildExam(),
+        answers: [],
+        startedAt: Date.now(),
+      };
+      saveInProgress(state);
+      setExam(state);
+      setExamResult(null);
+      setResumable(null);
+      setScreen("exam");
+    } finally {
+      setExamBusy(false);
+    }
+  }, []);
+
+  const pickExamAnswer = useCallback((index, next) => {
+    setExam((prev) => {
+      if (!prev) return prev;
+      const answers = [...prev.answers];
+      answers[index] = next;
+      const updated = { ...prev, answers };
+      saveInProgress(updated);
+      return updated;
+    });
+  }, []);
+
+  const submitExam = useCallback((timedOut) => {
+    setExam((prev) => {
+      if (!prev) return prev;
+      const result = gradeExam(prev.questions, prev.answers);
+      result.timedOut = !!timedOut;
+      saveResult(result);
+      clearInProgress();
+      // 模試の結果はドメイン別の学習記録にも反映する
+      prev.questions.forEach((q, i) => {
+        const ok = isCorrect(q, prev.answers[i]);
+        recordAnswer(q.domain, q.id, ok);
+        recordReviewResult(q.domain, q.id, ok);
+      });
+      setExamResult(result);
+      setScreen("examResult");
+      return prev;
+    });
+  }, []);
+
+  const abandonExam = useCallback(() => {
+    if (!window.confirm("試験をやめますか？ ここまでの解答は採点されずに消えます。")) return;
+    clearInProgress();
+    setExam(null);
+    setExamResult(null);
+    setScreen("domainSelect");
   }, []);
 
   const domain = domainId ? findDomain(domainId) : null;
@@ -312,6 +590,8 @@ export default function CcaofApp({ onExitApp }) {
      解いた分が学習記録の画面に出ないまま残る（実際にそうなっていた）。
      7ドメインぶんの読み出しなので、描画のたびに読んでも十分に軽い。 */
   const domainStats = screen === "progress" ? getAllDomainStats(DOMAINS.map((d) => d.id)) : [];
+  /* 受験履歴も localStorage から毎回読む（useMemo にすると採点直後に古い値が残る） */
+  const pastResults = screen === "domainSelect" ? loadResults() : [];
 
   return (
     <div className="ccaof-app">
@@ -393,6 +673,38 @@ export default function CcaofApp({ onExitApp }) {
         .ccaof-result-sub { font-size: 14px; color: #6B7280; margin-top: 4px; }
         .ccaof-result-note { font-size: 12.5px; color: #9AA093; line-height: 1.8; margin: 16px 0 24px; }
 
+        /* ---- 模擬試験 ---- */
+        .ccaof-exam-card { max-width: 720px; margin: 0 auto; background: #fff; border: 2px solid #C8743D; border-radius: 10px; padding: 16px 18px; }
+        .ccaof-exam-card-title { font-size: 15px; font-weight: 800; color: #C8743D; }
+        .ccaof-exam-card-desc { font-size: 12.5px; color: #6B7280; line-height: 1.7; margin: 6px 0 12px; }
+        .ccaof-exam-history { margin-top: 14px; border-top: 1px dashed #E4D3C4; padding-top: 10px; }
+        .ccaof-exam-history-title { font-size: 11px; font-weight: 800; color: #9AA093; margin-bottom: 6px; }
+        .ccaof-exam-history-row { display: flex; justify-content: space-between; font-size: 12px; color: #6B7280; padding: 3px 0; }
+        .ccaof-exam-history-row .pass { color: #1F6B45; font-weight: 700; }
+        .ccaof-exam-history-row .fail { color: #C8323D; font-weight: 700; }
+
+        .ccaof-exam { max-width: 720px; margin: 0 auto; }
+        .ccaof-exam-bar { display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: #F7F6F2; padding: 8px 0; z-index: 2; border-bottom: 1px solid #E4E2DA; }
+        .ccaof-clock { font-size: 18px; font-weight: 800; color: #2A2E27; font-variant-numeric: tabular-nums; }
+        .ccaof-clock.low { color: #C8323D; }
+        .ccaof-exam-count { font-size: 12px; color: #6B7280; }
+        .ccaof-exam-grid { display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0 16px; }
+        .ccaof-exam-dot { width: 28px; height: 28px; border: 1px solid #D8D5CB; background: #fff; border-radius: 6px; font-size: 11px; color: #9AA093; cursor: pointer; padding: 0; }
+        .ccaof-exam-dot.done { background: #EDE4DA; color: #2A2E27; border-color: #C8A98A; }
+        .ccaof-exam-dot.current { border: 2px solid #C8743D; color: #C8743D; font-weight: 800; }
+        .ccaof-exam-foot { display: flex; justify-content: space-between; margin-top: 18px; }
+
+        .ccaof-confirm { position: fixed; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 10; }
+        .ccaof-confirm-box { background: #fff; border-radius: 12px; padding: 22px; max-width: 360px; width: 100%; }
+        .ccaof-confirm-title { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+        .ccaof-confirm-body { font-size: 13px; color: #6B7280; line-height: 1.7; margin-bottom: 16px; }
+
+        .ccaof-verdict { font-size: 13px; font-weight: 800; letter-spacing: 1px; }
+        .ccaof-verdict.pass { color: #1F6B45; }
+        .ccaof-verdict.fail { color: #C8323D; }
+        .ccaof-review-item { max-width: 720px; margin: 0 auto 28px; padding-bottom: 20px; border-bottom: 1px solid #E4E2DA; }
+        .ccaof-review-no { font-size: 11px; font-weight: 800; color: #9AA093; margin-bottom: 8px; }
+
         .ccaof-loading { max-width: 720px; margin: 40px auto; display: flex; flex-direction: column; align-items: center; gap: 14px; }
         .ccaof-spinner { width: 28px; height: 28px; border: 3px solid #E4E2DA; border-top-color: #C8743D; border-radius: 50%; animation: ccaof-spin 0.8s linear infinite; }
         @keyframes ccaof-spin { to { transform: rotate(360deg); } }
@@ -439,6 +751,39 @@ export default function CcaofApp({ onExitApp }) {
             <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.minutes}</div><div className="ccaof-fact-label">分</div></div>
             <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.passScaled}</div><div className="ccaof-fact-label">合格点（{EXAM_FORMAT.scaleMax}点満点）</div></div>
             <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.validityMonths}</div><div className="ccaof-fact-label">か月有効</div></div>
+          </div>
+
+          <div className="ccaof-sub-head">模擬試験</div>
+          <div className="ccaof-exam-card">
+            <div className="ccaof-exam-card-title">本番と同じ {EXAM_FORMAT.items}問 / {EXAM_FORMAT.minutes}分</div>
+            <div className="ccaof-exam-card-desc">
+              配点比率どおりに全ドメインから出題します（D2 から {examCounts.D2}問、D4 から {examCounts.D4}問…）。
+              解答は提出するまで採点されません。途中で閉じても、制限時間内なら続きから再開できます。
+            </div>
+            {resumable ? (
+              <div className="ccaof-delete-actions" style={{ justifyContent: "flex-start" }}>
+                <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => startExam(resumable)}>
+                  続きから再開（残り {formatClock(remainingMs(resumable.startedAt))}）
+                </button>
+                <button className="ccaof-btn-ghost" onClick={() => { clearInProgress(); setResumable(null); }}>破棄する</button>
+              </div>
+            ) : (
+              <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => startExam(null)} disabled={examBusy}>
+                {examBusy ? "問題を準備しています…" : "模擬試験をはじめる"}
+              </button>
+            )}
+            {pastResults.length > 0 && (
+              <div className="ccaof-exam-history">
+                <div className="ccaof-exam-history-title">これまでの結果</div>
+                {pastResults.slice(0, 5).map((r) => (
+                  <div className="ccaof-exam-history-row" key={r.finishedAt}>
+                    <span>{new Date(r.finishedAt).toLocaleDateString()}</span>
+                    <span>{r.correct} / {r.total}</span>
+                    <span className={r.passed ? "pass" : "fail"}>目安 {r.scaled}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="ccaof-sub-head">ドメインを選ぶ（数字は本番の配点比率）</div>
@@ -529,6 +874,36 @@ export default function CcaofApp({ onExitApp }) {
             </>
           )}
         </>
+      )}
+
+      {screen === "exam" && exam && (
+        <ExamRunner
+          questions={exam.questions}
+          answers={exam.answers}
+          startedAt={exam.startedAt}
+          onPick={pickExamAnswer}
+          onSubmit={submitExam}
+          onAbandon={abandonExam}
+          showZh={showZh}
+        />
+      )}
+
+      {screen === "examResult" && examResult && exam && (
+        <ExamResult
+          result={examResult}
+          questions={exam.questions}
+          onReview={() => setScreen("examReview")}
+          onBack={() => { setStatsNonce((n) => n + 1); setScreen("domainSelect"); }}
+        />
+      )}
+
+      {screen === "examReview" && examResult && exam && (
+        <ExamReview
+          result={examResult}
+          questions={exam.questions}
+          showZh={showZh}
+          onBack={() => setScreen("examResult")}
+        />
       )}
 
       {screen === "quiz" && domain && (
