@@ -87,8 +87,10 @@ for (const file of files) {
     choices.forEach((c, ci) => {
       if (!c.text) errors.push(`${at}: choices[${ci}] に text が無い`);
       // 全選択肢に解説を必須にする。なぜ他が不適かを書かないと復習にならない
-      if (!c.explain || c.explain.length < 10)
-        errors.push(`${at}: choices[${ci}] の explain が無い、または短すぎる`);
+      /* 「不適。事実に反する。」程度（10文字）では、なぜ不適なのかが伝わらない。
+         日本語は短くても意味が通るので上限は設けず、中身が無いものだけを弾く。 */
+      if (!c.explain || c.explain.length < 12)
+        errors.push(`${at}: choices[${ci}] の explain が無い、または短すぎる（12文字以上）`);
       if (!c.textZh) errors.push(`${at}: choices[${ci}] の textZh（中国語訳）が無い`);
     });
 
