@@ -158,6 +158,2230 @@
       "reviewedAt": "2026-09-23",
       "stemZh": "正在为一个新的 Claude 辅助工作流设计试点。下面哪两项最重要？（选2项）",
       "commentaryZh": "考点是「用 Claude 做流程优化时的验证设计」。标准必须事先定，否则结束后怎么解释都行；改善只能通过与现状的差值来衡量。「写了多少条提示词」「报告有多长」是把工作量当成果，这是常见的陷阱选项。"
+    },
+    {
+      "id": "d4-005",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A team wants to add Claude to a process where one person currently reviews every item before it goes out. What is the safest way to introduce it?",
+      "stemZh": "一个团队想把 Claude 加进一道流程，目前这道流程里每件产出都由一个人复核后才发出。引入它最稳妥的方式是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Have Claude produce the draft and keep the existing review step, then measure whether review time drops.",
+          "correct": true,
+          "explain": "正解。人の確認を残したまま前工程を速くする。効果は計測で確かめる。",
+          "textZh": "让 Claude 出草稿，保留现有的复核步骤，然后衡量复核时间是否下降。"
+        },
+        {
+          "text": "Replace the reviewer with Claude and keep the same throughput target.",
+          "correct": false,
+          "explain": "不適。確認の役割を、確認される側に置き換えている。",
+          "textZh": "用 Claude 取代复核者，保持同样的产量目标。"
+        },
+        {
+          "text": "Add Claude and remove the review step to realize the full time saving.",
+          "correct": false,
+          "explain": "不適。節約したのは確認の時間。誤りは止まらなくなる。",
+          "textZh": "加入 Claude 并去掉复核步骤，以实现全部的时间节省。"
+        },
+        {
+          "text": "Run Claude only on items the reviewer has already approved.",
+          "correct": false,
+          "explain": "不適。順序が逆で、何も速くならない。",
+          "textZh": "只对复核者已经批准过的项目使用 Claude。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**先增强、再考虑替换**。安全的引入方式是把模型放在**人的检查之前**，让它做草稿；检查这一环先不动。等到有了实际数据（复核时间降了多少、拦下了什么），再讨论要不要调整流程。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-006",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "Before proposing Claude for a task, which question most reliably reveals whether it is a good fit?",
+      "stemZh": "在提议用 Claude 做某件事之前，哪个问题最可靠地揭示它是否合适？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "What does a good result look like, and how would we know if the output were wrong?",
+          "correct": true,
+          "explain": "正解。良し悪しを判定できない仕事は、自動化しても検査できない。適合性の核心。",
+          "textZh": "什么算好结果？如果产出错了，我们怎么知道？"
+        },
+        {
+          "text": "How many hours does this task currently take?",
+          "correct": false,
+          "explain": "不適。時間は効果の見積もりに使えるが、向き不向きは決まらない。",
+          "textZh": "这件事现在要花多少小时？"
+        },
+        {
+          "text": "Which model is the most capable right now?",
+          "correct": false,
+          "explain": "不適。モデルの話は適合性の後。",
+          "textZh": "现在哪个模型能力最强？"
+        },
+        {
+          "text": "Has another company automated this?",
+          "correct": false,
+          "explain": "不適。他社の事情は自社の判定基準にならない。",
+          "textZh": "有别的公司把这件事自动化了吗？"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**判断任务是否适合**。最关键的一条是「**我们能不能判定产出对不对**」。如果连什么算好都说不清，那么用不用模型都无法验收——这类任务要先把标准定下来，而不是先上工具。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-007",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "A process takes 6 hours a week. Which TWO facts must be known before claiming Claude can cut it in half? (Select 2)",
+      "stemZh": "某道流程每周花6小时。在断言 Claude 能把它减半之前，必须先知道哪两件事？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "How those 6 hours are distributed across the steps.",
+          "correct": true,
+          "explain": "正解。どこに時間があるか分からなければ、削れる上限も分からない。",
+          "textZh": "这6小时在各个步骤之间是怎么分布的。"
+        },
+        {
+          "text": "Which of those steps Claude can actually take over.",
+          "correct": true,
+          "explain": "正解。代替できない工程に時間があるなら、半減は成り立たない。",
+          "textZh": "其中哪些步骤 Claude 真的能接手。"
+        },
+        {
+          "text": "Which model the team prefers.",
+          "correct": false,
+          "explain": "不適。好みは所要時間を決めない。",
+          "textZh": "团队更喜欢哪个模型。"
+        },
+        {
+          "text": "How many people have used Claude before.",
+          "correct": false,
+          "explain": "不適。習熟は関係するが、半減の根拠にはならない。",
+          "textZh": "有多少人以前用过 Claude。"
+        },
+        {
+          "text": "What the industry average for this process is.",
+          "correct": false,
+          "explain": "不適。他社の平均は自社の工程の内訳を教えない。",
+          "textZh": "这道流程的行业平均值是多少。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**改善的估算要落到工序**。「减半」这种说法必须能拆开：时间在哪几步、哪几步能交出去。如果6小时里有4小时花在只有人能做的审批和沟通上，那么无论模型多强，减半都不成立。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-008",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "During a redesign, the team realizes the new workflow needs data pulled automatically from a database every night. The associate has no engineering background. What should they do?",
+      "stemZh": "在重新设计流程的过程中，团队发现新流程需要每晚自动从数据库拉取数据。这位担当没有工程背景。应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Document the requirement precisely and hand that part to an engineer, while continuing to own the workflow design.",
+          "correct": true,
+          "explain": "正解。要件を明確に書けることが Associate の価値。実装は範囲外として渡す。",
+          "textZh": "把需求精确地写下来，把这一部分交给工程师，同时继续负责流程设计本身。"
+        },
+        {
+          "text": "Learn enough SQL to build it over the next few weeks.",
+          "correct": false,
+          "explain": "不適。役割の境界を越え、納期も読めなくなる。",
+          "textZh": "用几周时间学够 SQL 自己搭。"
+        },
+        {
+          "text": "Redesign the workflow to avoid automation entirely.",
+          "correct": false,
+          "explain": "不適。設計を自分の技能に合わせて歪めている。",
+          "textZh": "重新设计流程以完全避开自动化。"
+        },
+        {
+          "text": "Have Claude generate the code and ask a colleague to run it.",
+          "correct": false,
+          "explain": "不適。誰も内容を評価できないまま本番に入る。",
+          "textZh": "让 Claude 生成代码，请同事跑一下。"
+        }
+      ],
+      "objective": "Recognize limitations and escalate more complex or technical implementations",
+      "commentaryZh": "考点是**认清边界并移交**。这里的关键不是「我不会所以放弃」，而是**把需求写清楚**——这恰恰是 Associate 最有价值的产出之一。注意第三个干扰项：为了迁就自己的技能而改变设计，是让工具限制目标。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-009",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "A stakeholder asks whether the new Claude-assisted process will \"always be accurate.\" What is the best answer?",
+      "stemZh": "一位相关方问，新的 Claude 辅助流程是否「永远准确」。最好的回答是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "No — describe where it is reliable, where a human check remains, and what the measured error rate has been.",
+          "correct": true,
+          "explain": "正解。できること・人が見る箇所・実測値の3点を出す。これが信頼の作り方。",
+          "textZh": "不会——说明它在哪些地方可靠、哪里仍保留人工检查、实测的错误率是多少。"
+        },
+        {
+          "text": "Yes, as long as the prompts are written well.",
+          "correct": false,
+          "explain": "不適。事実に反し、後で期待を裏切る。",
+          "textZh": "会的，只要提示词写得好。"
+        },
+        {
+          "text": "No, so the process should not be adopted.",
+          "correct": false,
+          "explain": "不適。完璧でないことは、採用しない理由にならない。人の作業も完璧ではない。",
+          "textZh": "不会，所以这个流程不该采用。"
+        },
+        {
+          "text": "It is too technical to explain.",
+          "correct": false,
+          "explain": "不適。説明を放棄している。非開発者に伝えるのが役割。",
+          "textZh": "这太技术了，没法解释。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**如何传达限制**。有效的回答有三个部分：**哪里可靠、哪里留人、实测数字**。只说「不完美」会让对方否掉方案，只说「很准」会在第一次出错时失去全部信任。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-010",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO signs suggest a workflow is a good candidate for Claude? (Select 2)",
+      "stemZh": "下面哪两个迹象说明某道流程适合引入 Claude？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The same kind of document is produced repeatedly from similar inputs.",
+          "correct": true,
+          "explain": "正解。反復と定型は効果が出やすい。",
+          "textZh": "同一类文档在反复地、从相似的输入里产出。"
+        },
+        {
+          "text": "A clear standard exists for what a correct output looks like.",
+          "correct": true,
+          "explain": "正解。判定できることが前提。検査できなければ運用できない。",
+          "textZh": "对于「什么算正确的产出」存在清晰的标准。"
+        },
+        {
+          "text": "The process is rarely performed and always different.",
+          "correct": false,
+          "explain": "不適。毎回違うものは、型が作れず効果も測れない。",
+          "textZh": "这道流程很少执行，而且每次都不一样。"
+        },
+        {
+          "text": "Nobody currently understands how the process works.",
+          "correct": false,
+          "explain": "不適。分かっていない工程は自動化できない。まず把握が要る。",
+          "textZh": "目前没人搞得清这道流程是怎么运转的。"
+        },
+        {
+          "text": "The output is never checked by anyone.",
+          "correct": false,
+          "explain": "不適。検査が無い工程に自動生成を入れると、誤りがそのまま流れる。",
+          "textZh": "产出从来没有人检查。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**挑选合适的流程**。两个条件：**重复**（值得投入）和**可判定**（能验收）。最后一个干扰项要特别注意——没有人检查的流程不是「省事」，而是**最不该**先自动化的地方，因为错误会一路畅通地流出去。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-011",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A solution design keeps failing review because it solves a different problem than the one stated. How should the associate use Claude differently?",
+      "stemZh": "一份方案设计屡次通不过评审，因为它解决的问题和陈述的问题不是同一个。这位担当应该如何改变使用 Claude 的方式？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Have Claude restate the problem and the constraints first, confirm that restatement with the reviewers, then design against it.",
+          "correct": true,
+          "explain": "正解。問題の定義でずれているなら、設計を直しても直らない。合意を先に取る。",
+          "textZh": "先让 Claude 复述问题和约束条件，与评审者确认这个复述，然后再针对它做设计。"
+        },
+        {
+          "text": "Ask Claude for more design options in one go.",
+          "correct": false,
+          "explain": "不適。ずれた問題に対する案が増えるだけ。",
+          "textZh": "一次性让 Claude 多给几个设计方案。"
+        },
+        {
+          "text": "Add more detail to each design so reviewers see the effort.",
+          "correct": false,
+          "explain": "不適。量では解決しない。",
+          "textZh": "给每个设计加更多细节，让评审者看到投入。"
+        },
+        {
+          "text": "Switch to a more capable model.",
+          "correct": false,
+          "explain": "不適。問題の取り違えはモデルの能力で直らない。",
+          "textZh": "换一个能力更强的模型。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**先对齐问题，再做方案**。反复被打回通常不是方案质量的问题，而是**双方理解的问题不同**。让模型先复述一遍问题和约束，拿去和评审者确认——这一步花几分钟，能省掉几轮返工。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-012",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "A pilot shows the new process is 30% faster but produces 3 errors in 100 items, where the old process produced none. How should this be reported?",
+      "stemZh": "试点显示新流程快了30%，但每100件里出现3个错误，而旧流程一个都没有。该如何报告？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Report both numbers together and propose what would have to change for the error rate to be acceptable.",
+          "correct": true,
+          "explain": "正解。速度だけを出すのは誤報。両方出したうえで、次の一手を示すのが実務。",
+          "textZh": "把两个数字一起报告，并提出要让错误率可接受需要改变什么。"
+        },
+        {
+          "text": "Report the 30% improvement; the errors were caught in the pilot anyway.",
+          "correct": false,
+          "explain": "不適。捕まえたのはパイロットだから。本番では流れる。",
+          "textZh": "报告30%的提升；反正错误在试点里被发现了。"
+        },
+        {
+          "text": "Report only the errors and recommend abandoning it.",
+          "correct": false,
+          "explain": "不適。改善の余地を検討せずに捨てている。",
+          "textZh": "只报告错误并建议放弃。"
+        },
+        {
+          "text": "Repeat the pilot until a run with no errors appears.",
+          "correct": false,
+          "explain": "不適。都合の良い結果が出るまで繰り返している。",
+          "textZh": "反复做试点，直到出现一次零错误的结果。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**如实报告试点结果**。速度和质量是一对取舍，只报一边就是误导。真正有价值的报告还要加上第三部分：**要让错误率降到可接受，需要改什么**——这才让相关方有得选，而不是简单的「上」或「不上」。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-013",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "The team lists ten possible Claude use cases. Which TWO criteria best decide which to try first? (Select 2)",
+      "stemZh": "团队列出了十个可能的 Claude 使用场景。哪两个标准最适合决定先试哪一个？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "How much time the task consumes today.",
+          "correct": true,
+          "explain": "正解。効果の大きさ。時間が無いところを自動化しても意味が薄い。",
+          "textZh": "这件事现在占用了多少时间。"
+        },
+        {
+          "text": "How easily a wrong output would be caught.",
+          "correct": true,
+          "explain": "正解。失敗の安全性。捕まえやすい工程から始めるのが定石。",
+          "textZh": "错误的产出有多容易被发现。"
+        },
+        {
+          "text": "How impressive the use case sounds to leadership.",
+          "correct": false,
+          "explain": "不適。見栄えは効果でも安全性でもない。",
+          "textZh": "这个场景对高层来说听起来有多亮眼。"
+        },
+        {
+          "text": "How new the technology involved is.",
+          "correct": false,
+          "explain": "不適。新しさは選定基準にならない。",
+          "textZh": "涉及的技术有多新。"
+        },
+        {
+          "text": "How many tools the team would have to learn.",
+          "correct": false,
+          "explain": "不適。考慮事項ではあるが、優先順位の第一基準ではない。",
+          "textZh": "团队要学多少个新工具。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**从哪里开始**。两条轴：**省多少**（今天花的时间）和**错了能不能兜住**（是否容易被发现）。先做「省得多 + 兜得住」的那些，既能拿到成果，又不会在还没摸清的时候造成实际损失。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-014",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "After Claude is added, a step that used to take 2 hours now takes 20 minutes, but the next step's queue has doubled. What does this indicate?",
+      "stemZh": "引入 Claude 之后，原本要2小时的一个步骤现在只要20分钟，但下一个步骤的待办量翻倍了。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The bottleneck moved downstream; the workflow must be looked at as a whole, not step by step.",
+          "correct": true,
+          "explain": "正解。1工程だけ速くしても、全体の所要時間は次の詰まりで決まる。",
+          "textZh": "瓶颈转移到了下游；必须把流程当作整体来看，而不是逐个步骤地看。"
+        },
+        {
+          "text": "The improvement is a success; the next step is a separate problem.",
+          "correct": false,
+          "explain": "不適。全体で速くなっていなければ、利用者には改善に見えない。",
+          "textZh": "改善是成功的；下一个步骤是另一个问题。"
+        },
+        {
+          "text": "Claude should also be applied to the next step immediately.",
+          "correct": false,
+          "explain": "不適。次工程の詰まりの原因を確かめていない。人の判断なら速くならない。",
+          "textZh": "应该立刻把 Claude 也用到下一个步骤上。"
+        },
+        {
+          "text": "The measurement must be wrong.",
+          "correct": false,
+          "explain": "不適。観測を疑う前に、起きていることの説明がつく。",
+          "textZh": "这个测量一定有问题。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**瓶颈会移动**。局部提速常常只是把积压推到下一环。所以效果要用**端到端的时间**来衡量，而不是被优化的那个步骤。下一步该做什么，取决于新瓶颈的成因——如果那里卡的是人的审批，再加模型也没用。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-015",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "How should an associate describe Claude's role to a team that fears being replaced?",
+      "stemZh": "面对一个担心被取代的团队，这位担当应该如何描述 Claude 的角色？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Be concrete: name which parts it takes over, which judgment stays with the team, and what changes in their day.",
+          "correct": true,
+          "explain": "正解。抽象的な安心は効かない。具体的な線引きが不安を減らす。",
+          "textZh": "讲具体：它接手哪些部分、哪些判断仍然归团队、他们每天的工作会有什么变化。"
+        },
+        {
+          "text": "Reassure them that nothing will change.",
+          "correct": false,
+          "explain": "不適。事実に反する。変わるからこそ導入している。",
+          "textZh": "安慰他们说什么都不会变。"
+        },
+        {
+          "text": "Tell them the decision has been made and move on.",
+          "correct": false,
+          "explain": "不適。懸念に答えていない。運用に協力が得られない。",
+          "textZh": "告诉他们决定已经做了，继续往下走。"
+        },
+        {
+          "text": "Avoid the topic until after the rollout.",
+          "correct": false,
+          "explain": "不適。先送りは不信を増やす。",
+          "textZh": "在推行完成之前回避这个话题。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**向使用者传达变化**。空泛的保证（「不会变」）一旦被现实推翻，信任就没了。有效的说法永远是具体的：**哪些交出去、哪些留下来、明天开始有什么不同**——人对不确定的恐惧，往往大于对变化本身的恐惧。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-016",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO practices make an iterative design process with Claude more productive? (Select 2)",
+      "stemZh": "下面哪两种做法能让与 Claude 协作的迭代设计过程更有成效？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Keeping the requirements and constraints in one place that every round starts from.",
+          "correct": true,
+          "explain": "正解。毎回の出発点を揃える。要件が会話に散ると、回を重ねるほどずれる。",
+          "textZh": "把需求和约束放在一个地方，每一轮都从它开始。"
+        },
+        {
+          "text": "Changing one thing per round so the effect of each change is visible.",
+          "correct": true,
+          "explain": "正解。一度に複数変えると、何が効いたか分からない。",
+          "textZh": "每轮只改一件事，这样每个改动的效果才看得见。"
+        },
+        {
+          "text": "Starting a new conversation for each round with no carried context.",
+          "correct": false,
+          "explain": "不適。積み上がらない。毎回同じ説明を繰り返すことになる。",
+          "textZh": "每轮都新开一个不带任何上下文的对话。"
+        },
+        {
+          "text": "Accepting the first output of each round to keep momentum.",
+          "correct": false,
+          "explain": "不適。反復の意味が無くなる。",
+          "textZh": "为了保持进度，每轮都接受第一个产出。"
+        },
+        {
+          "text": "Asking for as many changes as possible in one message.",
+          "correct": false,
+          "explain": "不適。効果の切り分けができなくなる。",
+          "textZh": "在一条消息里要求尽可能多的改动。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**迭代要能看出因果**。两条：**固定的出发点**（需求不能散落在对话里，否则第五轮时已经和第一轮不是一回事了）和**一次只改一件事**（否则不知道是哪个改动起了作用）。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-017",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A proposed workflow would require connecting Claude to a system that holds customer payment data. What is the associate's correct move?",
+      "stemZh": "一个提议中的流程需要把 Claude 连接到一个存有客户支付数据的系统。这位担当正确的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Stop and involve the people responsible for that data and for security before any connection is made.",
+          "correct": true,
+          "explain": "正解。決裁権のある人を巻き込む。技術的に可能かどうかより前の話。",
+          "textZh": "停下来，在做任何连接之前，让负责这些数据和安全的人参与进来。"
+        },
+        {
+          "text": "Connect it in a test environment first to see if it works technically.",
+          "correct": false,
+          "explain": "不適。テストでも実データに触れる可能性がある。可否の判断が先。",
+          "textZh": "先在测试环境连一下，看看技术上行不行。"
+        },
+        {
+          "text": "Proceed if the connection is read-only.",
+          "correct": false,
+          "explain": "不適。読み取りでも、見えるべきでない人に見える。",
+          "textZh": "如果是只读连接就可以继续。"
+        },
+        {
+          "text": "Ask Claude whether the connection would be compliant.",
+          "correct": false,
+          "explain": "不適。社内規程と契約はモデルの知るところではない。",
+          "textZh": "问 Claude 这样的连接是否合规。"
+        }
+      ],
+      "objective": "Recognize limitations and escalate more complex or technical implementations",
+      "commentaryZh": "考点是**碰到受监管数据就停下**。判断顺序是「**该不该**」在「**能不能**」之前。三个干扰项都是在跳过这个顺序：先试技术、用只读当免死金牌、问模型要许可——而模型根本不知道你们的规程和合同。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-018",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "What is the most useful thing to record during the first month of a new Claude-assisted workflow?",
+      "stemZh": "在一道新的 Claude 辅助流程运行的第一个月里，记录什么最有用？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The cases where the output had to be corrected, and why.",
+          "correct": true,
+          "explain": "正解。失敗の記録が、次の改善点とリスクの両方を教えてくれる。",
+          "textZh": "那些产出不得不被修正的案例，以及原因。"
+        },
+        {
+          "text": "The total number of outputs generated.",
+          "correct": false,
+          "explain": "不適。量は成果でも品質でもない。",
+          "textZh": "总共生成了多少份产出。"
+        },
+        {
+          "text": "The prompts that worked on the first try.",
+          "correct": false,
+          "explain": "不適。有用だが、改善の材料としては弱い。",
+          "textZh": "一次就成功的提示词。"
+        },
+        {
+          "text": "How many people used it.",
+          "correct": false,
+          "explain": "不適。利用率は定着の指標で、品質の指標ではない。",
+          "textZh": "有多少人用过它。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**记录什么才有价值**。成功的案例告诉你现状，**失败的案例告诉你下一步**。被修正的产出同时给出两样东西：改进的方向，以及这道流程真实的风险画像——这是后面调整人工检查位置的依据。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-019",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A stakeholder asks for \"a tool that handles customer emails.\" What should the associate do before designing anything?",
+      "stemZh": "一位相关方要求做「一个处理客户邮件的工具」。在动手设计之前，这位担当应该做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Break the request into the actual steps — classify, draft, approve, send — and find out which of them is the real pain.",
+          "correct": true,
+          "explain": "正解。漠然とした要望は工程に分解する。痛みのある工程が分かって初めて設計できる。",
+          "textZh": "把请求拆成实际的步骤——分类、起草、审批、发送——弄清哪一步才是真正的痛点。"
+        },
+        {
+          "text": "Start building the most complete version to cover every case.",
+          "correct": false,
+          "explain": "不適。要件が定まらないうちに作り込むと、作り直しになる。",
+          "textZh": "直接做一个覆盖所有情况的最完整版本。"
+        },
+        {
+          "text": "Ask which model they want to use.",
+          "correct": false,
+          "explain": "不適。技術の選択は要件の後。",
+          "textZh": "问他们想用哪个模型。"
+        },
+        {
+          "text": "Estimate the cost first.",
+          "correct": false,
+          "explain": "不適。範囲が決まっていないものは見積もれない。",
+          "textZh": "先估算成本。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**把模糊的要求拆成工序**。「处理邮件」包含好几个完全不同的动作，其中通常只有一两个是真正耗时的。不拆开就动手，很容易做出一个功能齐全但没解决痛点的东西。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-020",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "Which change to an existing workflow is most likely to be adopted by the people who use it?",
+      "stemZh": "对一道现有流程做的哪种改动，最可能被实际使用它的人接受？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "One that removes a step they already dislike, without adding new tools to learn.",
+          "correct": true,
+          "explain": "正解。定着するのは、負担が減って学習コストが増えない変更。",
+          "textZh": "去掉一个他们本来就讨厌的步骤，而且不增加要学的新工具。"
+        },
+        {
+          "text": "One that adds a new approval stage for safety.",
+          "correct": false,
+          "explain": "不適。安全は増すかもしれないが、負担が増える変更は避けられやすい。",
+          "textZh": "为了安全增加一个新的审批环节。"
+        },
+        {
+          "text": "One that requires everyone to change how they name files.",
+          "correct": false,
+          "explain": "不適。全員に新しい規律を課す変更は定着しにくい。",
+          "textZh": "要求所有人改变文件命名方式。"
+        },
+        {
+          "text": "One that is technically elegant but changes the order of every step.",
+          "correct": false,
+          "explain": "不適。全面的な変更は抵抗が大きい。",
+          "textZh": "技术上很优雅、但改变了每一个步骤的顺序。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**改动能不能落地**。技术上最优的方案常常推不动。实际会被接受的改动有两个特征：**减少了他们已经在抱怨的负担**，以及**不要求他们学新东西**。这不是妥协，而是让改善真正发生的条件。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-021",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO things should be included when presenting a Claude workflow to leadership? (Select 2)",
+      "stemZh": "在向管理层介绍一个 Claude 流程时，应该包含下面哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What it cannot be used for, stated explicitly.",
+          "correct": true,
+          "explain": "正解。使ってはいけない範囲を先に言う。後から事故で知られるより、はるかに安い。",
+          "textZh": "明确说明它不能用在哪些地方。"
+        },
+        {
+          "text": "Evidence from the pilot, with the numbers behind it.",
+          "correct": true,
+          "explain": "正解。主張は実測で裏づける。",
+          "textZh": "来自试点的证据，以及背后的数字。"
+        },
+        {
+          "text": "A comparison of every AI vendor on the market.",
+          "correct": false,
+          "explain": "不適。導入の意思決定に必要な範囲を超えている。",
+          "textZh": "市场上所有 AI 厂商的对比。"
+        },
+        {
+          "text": "The full text of the prompts used.",
+          "correct": false,
+          "explain": "不適。経営判断の材料ではない。",
+          "textZh": "所用提示词的全文。"
+        },
+        {
+          "text": "A prediction of how the technology will evolve.",
+          "correct": false,
+          "explain": "不適。予測は根拠にならない。",
+          "textZh": "关于这项技术将如何演进的预测。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**向管理层汇报的内容**。两条：**实测证据**和**明确的禁区**。第二条常被跳过，但它保护的是你自己——不事先划出「不能用在这里」，出事时人们会认为你推荐的是「什么都能干」。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-022",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A drafting workflow produces output that is correct but never matches the company's house style. What is the most effective fix?",
+      "stemZh": "一道起草流程产出的内容是正确的，但从来不符合公司的文风规范。最有效的修法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Supply two or three approved examples as part of the workflow, so every run has the style to match.",
+          "correct": true,
+          "explain": "正解。文体は言葉で説明するより例で示すほうが速く正確。工程に組み込む。",
+          "textZh": "把两三份已获批准的范例作为流程的一部分提供进去，让每次运行都有可对照的文风。"
+        },
+        {
+          "text": "Write a longer description of the house style each time.",
+          "correct": false,
+          "explain": "不適。説明が長くなるほど守られにくい。例のほうが確実。",
+          "textZh": "每次都写一段更长的文风说明。"
+        },
+        {
+          "text": "Have an editor rewrite every output by hand.",
+          "correct": false,
+          "explain": "不適。自動化の効果を人の手で打ち消している。",
+          "textZh": "让编辑把每份产出手工重写一遍。"
+        },
+        {
+          "text": "Accept the style difference as unavoidable.",
+          "correct": false,
+          "explain": "不適。解ける問題を諦めている。",
+          "textZh": "接受这种文风差异，认为无法避免。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**用例子传达难以描述的要求**。文风、语气、版式这类东西，用文字描述既冗长又容易被忽略，而两三个范例能一次说清。关键是把范例**固定在流程里**，而不是每次靠人想起来贴。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-023",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "Which of these is clearly beyond the Associate's scope and should be escalated?",
+      "stemZh": "下面哪一项明显超出 Associate 的职责范围，应该向上移交？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Designing how a customer-facing system will call Claude and handle failures.",
+          "correct": true,
+          "explain": "正解。システム設計と障害処理は Developer / Architect の領域。",
+          "textZh": "设计一个面向客户的系统如何调用 Claude 以及如何处理故障。"
+        },
+        {
+          "text": "Deciding which steps of a document workflow a human should still check.",
+          "correct": false,
+          "explain": "不適。業務の判断。Associate の中心的な仕事。",
+          "textZh": "决定文档流程中哪些步骤仍需人工检查。"
+        },
+        {
+          "text": "Writing the instructions for a shared Project.",
+          "correct": false,
+          "explain": "不適。設定は Associate の範囲。",
+          "textZh": "为一个共享 Project 编写指示。"
+        },
+        {
+          "text": "Comparing two models for a drafting task.",
+          "correct": false,
+          "explain": "不適。用途に合わせたモデル選択は範囲内。",
+          "textZh": "为一个起草任务比较两个模型。"
+        }
+      ],
+      "objective": "Recognize limitations and escalate more complex or technical implementations",
+      "commentaryZh": "考点是**职责边界在哪里**。分界线不是「难不难」，而是**是否进入系统实现**：API 调用、错误处理、部署、认证 —— 这些属于 Developer / Architect。流程判断、配置、模型选型则是 Associate 自己的工作。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-024",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "A process redesign is being evaluated. Which TWO measurements actually show whether it worked? (Select 2)",
+      "stemZh": "正在评估一次流程重新设计。哪两项测量真正说明它是否奏效？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "End-to-end time from request to delivered result.",
+          "correct": true,
+          "explain": "正解。利用者が体感するのはこれ。工程単位の改善では測れない。",
+          "textZh": "从请求到交付结果的端到端时间。"
+        },
+        {
+          "text": "The rate of outputs that needed rework.",
+          "correct": true,
+          "explain": "正解。速くても手戻りが増えれば意味が無い。",
+          "textZh": "需要返工的产出所占的比例。"
+        },
+        {
+          "text": "The number of prompts written per week.",
+          "correct": false,
+          "explain": "不適。作業量は成果ではない。",
+          "textZh": "每周写了多少条提示词。"
+        },
+        {
+          "text": "How many steps the new diagram has.",
+          "correct": false,
+          "explain": "不適。図の見た目は結果を示さない。",
+          "textZh": "新流程图里有多少个步骤。"
+        },
+        {
+          "text": "How quickly the team adopted the new tool.",
+          "correct": false,
+          "explain": "不適。定着の速さは効果とは別。",
+          "textZh": "团队多快接受了新工具。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**用什么衡量改善**。一对指标必须同时看：**端到端时间**（局部提速可能只是把积压推给下游）和**返工率**（快而错等于没快）。只看其中一个，都能做出「看起来成功」的假象。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-025",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "Half the team uses the new Claude-assisted process and half still uses the old one. What is the main risk?",
+      "stemZh": "团队里一半人用新的 Claude 辅助流程，另一半仍在用旧流程。主要风险是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Two different standards of output coexist, and nobody can tell which path a given result came from.",
+          "correct": true,
+          "explain": "正解。品質が二通りになり、問題が起きたときに原因をたどれない。",
+          "textZh": "两套不同的产出标准同时存在，而且没人分得清某个结果是走哪条路出来的。"
+        },
+        {
+          "text": "The old process will become slower over time.",
+          "correct": false,
+          "explain": "不適。使い続けても遅くはならない。",
+          "textZh": "旧流程会随着时间变慢。"
+        },
+        {
+          "text": "The team will need more training budget.",
+          "correct": false,
+          "explain": "不適。費用は論点だが、主要なリスクではない。",
+          "textZh": "团队会需要更多培训预算。"
+        },
+        {
+          "text": "Claude will produce inconsistent output between users.",
+          "correct": false,
+          "explain": "不適。問題は工程が2つあること。出力のばらつきは別の話。",
+          "textZh": "Claude 在不同用户之间会产出不一致的内容。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**过渡期的并行风险**。两套流程并行本身不是错（往往是必要的），但必须能**区分产出来自哪条路**。否则质量出问题时，既查不出原因，也无法判断新流程到底有没有效。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-026",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "A use case sounds promising but nobody can describe what a wrong output would look like. What does this mean?",
+      "stemZh": "一个使用场景听起来很有前景，但没人能描述错误的产出会是什么样子。这意味着什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The use case is not ready: without a definition of wrong, the output cannot be checked or improved.",
+          "correct": true,
+          "explain": "正解。誤りを定義できなければ、検査も改善もできない。要件定義に戻る。",
+          "textZh": "这个场景还不成熟：没有「错」的定义，产出既无法检查也无法改进。"
+        },
+        {
+          "text": "It means the task is low-risk and can be adopted immediately.",
+          "correct": false,
+          "explain": "不適。誤りが見えないことと、誤りが無いことは違う。",
+          "textZh": "说明这件事风险很低，可以立刻采用。"
+        },
+        {
+          "text": "It means a more capable model is needed.",
+          "correct": false,
+          "explain": "不適。モデルの問題ではない。",
+          "textZh": "说明需要更强的模型。"
+        },
+        {
+          "text": "It means the output should be reviewed by everyone.",
+          "correct": false,
+          "explain": "不適。基準が無ければ、全員で見ても判定できない。",
+          "textZh": "说明产出应该由所有人来复核。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**说不出「什么算错」就等于还没想清楚**。这是第二个干扰项最危险的地方：看不见错误常常被误读成低风险，实际上是**根本没有能力发现错误**。正确的下一步是回到需求，把验收标准定出来。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-027",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO make a complex multi-part task more reliable when using Claude? (Select 2)",
+      "stemZh": "在用 Claude 处理一个复杂的多部分任务时，哪两种做法能提高可靠性？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Splitting it into steps whose output can be checked before the next step runs.",
+          "correct": true,
+          "explain": "正解。途中で確かめられる形にする。誤りが後工程に伝播しない。",
+          "textZh": "把它拆成若干步骤，每一步的产出在下一步开始前可以被检查。"
+        },
+        {
+          "text": "Carrying forward only the confirmed results between steps.",
+          "correct": true,
+          "explain": "正解。確定したものだけを渡す。途中の仮説を引きずらない。",
+          "textZh": "步骤之间只传递已经确认的结果。"
+        },
+        {
+          "text": "Asking for the whole thing in a single long message.",
+          "correct": false,
+          "explain": "不適。どこで狂ったか分からなくなる。",
+          "textZh": "在一条很长的消息里要求完成全部内容。"
+        },
+        {
+          "text": "Letting each step re-derive the previous step's work.",
+          "correct": false,
+          "explain": "不適。やり直すたびに結果が変わる。",
+          "textZh": "让每一步重新推导上一步的工作。"
+        },
+        {
+          "text": "Keeping all intermediate drafts in the final document.",
+          "correct": false,
+          "explain": "不適。捨てた案が生きているように読まれる。",
+          "textZh": "把所有中间草稿都保留在最终文档里。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**任务分解为什么有效**。不只是「把大问题变小」，更重要的是**制造检查点**：每一步的产出在进入下一步之前能被确认。这样错误在哪一环出现是可定位的，也不会一路传到最后。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-028",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "Six months after rollout, leadership asks whether the Claude workflow was worth it. What should the associate provide?",
+      "stemZh": "推行六个月后，管理层问这套 Claude 流程是否值得。这位担当应该提供什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The before-and-after numbers that were defined at the start, plus what turned out differently than expected.",
+          "correct": true,
+          "explain": "正解。最初に決めた基準で比べる。想定と違った点も出すのが誠実な報告。",
+          "textZh": "当初就定义好的前后对比数字，再加上哪些地方与预期不同。"
+        },
+        {
+          "text": "A summary of positive feedback from users.",
+          "correct": false,
+          "explain": "不適。感想は測定ではない。",
+          "textZh": "用户正面反馈的汇总。"
+        },
+        {
+          "text": "A new estimate of future savings.",
+          "correct": false,
+          "explain": "不適。問われているのは実績。",
+          "textZh": "对未来节省的新估算。"
+        },
+        {
+          "text": "A comparison with what competitors are doing.",
+          "correct": false,
+          "explain": "不適。他社の動向は自社の成果を示さない。",
+          "textZh": "与竞争对手做法的对比。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**事后评价要用事前定好的尺子**。如果一开始没定标准，六个月后怎么解释都行。而「与预期不同的地方」同样要报告——这部分往往比成功数字更有价值，因为它决定下一次该怎么做。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-029",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "A workflow currently has a human check at the end. Claude is added at the start. Where should the check now sit?",
+      "stemZh": "一道流程目前在最后有一道人工检查。现在在开头加入了 Claude。这道检查现在应该放在哪里？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Where it catches the errors that now matter most — which may no longer be the end.",
+          "correct": true,
+          "explain": "正解。誤りの種類が変われば、見るべき場所も変わる。位置を見直す。",
+          "textZh": "放在能拦住「现在最要紧的那类错误」的位置——那可能已经不是最后了。"
+        },
+        {
+          "text": "Keep it at the end; the process order should not change.",
+          "correct": false,
+          "explain": "不適。工程が変わったのに検査だけ据え置く理由が無い。",
+          "textZh": "保持在最后；流程顺序不该变。"
+        },
+        {
+          "text": "Remove it, since Claude's output is the new starting point.",
+          "correct": false,
+          "explain": "不適。検査を外す理由になっていない。",
+          "textZh": "去掉它，因为 Claude 的产出是新的起点。"
+        },
+        {
+          "text": "Duplicate it at both ends.",
+          "correct": false,
+          "explain": "不適。二重化は負担だけ増やす。まず必要な位置を決める。",
+          "textZh": "在开头和结尾各放一道。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**检查点也要跟着流程移动**。引入模型之后，出错的类型变了（从「人的疏忽」变成「自信的编造」），所以最有效的检查位置也会变。照搬旧流程的检查位置，是最常见的失误。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-030",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO situations mean the associate should bring in a Developer or Architect? (Select 2)",
+      "stemZh": "下面哪两种情况说明这位担当应该请 Developer 或 Architect 介入？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The workflow needs to run automatically without a person triggering it.",
+          "correct": true,
+          "explain": "正解。自動実行は実装の領域。",
+          "textZh": "这个流程需要在没有人触发的情况下自动运行。"
+        },
+        {
+          "text": "The design requires handling failures and retries programmatically.",
+          "correct": true,
+          "explain": "正解。障害処理は設計・実装の問題。",
+          "textZh": "设计需要以编程方式处理故障和重试。"
+        },
+        {
+          "text": "The prompt needs examples added to it.",
+          "correct": false,
+          "explain": "不適。プロンプトの改善は範囲内。",
+          "textZh": "提示词需要加入范例。"
+        },
+        {
+          "text": "The team disagrees about which model to use.",
+          "correct": false,
+          "explain": "不適。用途に応じた選択は Associate の仕事。",
+          "textZh": "团队对用哪个模型有分歧。"
+        },
+        {
+          "text": "The output format should change from prose to a table.",
+          "correct": false,
+          "explain": "不適。出力形式の選択は範囲内。",
+          "textZh": "产出格式要从散文改成表格。"
+        }
+      ],
+      "objective": "Recognize limitations and escalate more complex or technical implementations",
+      "commentaryZh": "考点是**什么时候该叫人**。分界线是**有没有代码在无人看管的情况下运行**：自动触发、失败重试、系统集成。提示词、模型选择、输出格式，这些都还在 Associate 自己的范围内。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-031",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "The team wants to know which of three drafting approaches is best. How should this be settled?",
+      "stemZh": "团队想知道三种起草方法里哪一种最好。应该怎么定？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run all three on the same set of real inputs and compare the results against the same standard.",
+          "correct": true,
+          "explain": "正解。同じ入力・同じ基準で比べる。これ以外に決めようがない。",
+          "textZh": "用同一组真实输入把三种都跑一遍，按同一个标准比较结果。"
+        },
+        {
+          "text": "Pick the one that produces the longest output.",
+          "correct": false,
+          "explain": "不適。長さは質ではない。",
+          "textZh": "选产出最长的那一种。"
+        },
+        {
+          "text": "Ask Claude which approach is best.",
+          "correct": false,
+          "explain": "不適。自社の基準を知らない相手に選ばせている。",
+          "textZh": "问 Claude 哪种方法最好。"
+        },
+        {
+          "text": "Let each person use whichever they prefer.",
+          "correct": false,
+          "explain": "不適。比較にならず、品質も揃わない。",
+          "textZh": "让每个人用自己喜欢的那种。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**怎么做比较**。三个要素缺一不可：**同一组输入、真实数据、同一个判定标准**。少了任何一个，比较结果都不可信——尤其是用不同的例子去试不同的方法，几乎必然得出错误结论。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-032",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "An associate is asked to \"make the reporting process better.\" What is the most useful first output?",
+      "stemZh": "某位担当被要求「把报告流程做得更好」。最有用的第一份产出是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A description of the current process as it actually runs, including the parts people work around.",
+          "correct": true,
+          "explain": "正解。現状が分からなければ改善は測れない。特に「回避策」に本当の問題が隠れている。",
+          "textZh": "一份关于流程实际如何运转的描述，包括人们绕开规定的那些做法。"
+        },
+        {
+          "text": "A proposal for a new process.",
+          "correct": false,
+          "explain": "不適。現状を把握する前の提案は当て推量。",
+          "textZh": "一份新流程的方案。"
+        },
+        {
+          "text": "A list of tools that could be introduced.",
+          "correct": false,
+          "explain": "不適。道具の話は課題の後。",
+          "textZh": "一份可以引入的工具清单。"
+        },
+        {
+          "text": "A budget estimate.",
+          "correct": false,
+          "explain": "不適。範囲が決まっていない。",
+          "textZh": "一份预算估算。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**先画出现状**。要点在正确选项的后半句：**人们私下绕开的做法**往往就是真正的问题所在。只看规定的流程图，会把最痛的那一环看漏。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-033",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "An associate is asked to research a market they know nothing about, with two days available. How should Claude be used?",
+      "stemZh": "某位担当被要求在两天内调研一个自己完全不了解的市场。应该如何使用 Claude？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use it to map the questions worth asking and the terms of the field, then verify the substantive claims from real sources.",
+          "correct": true,
+          "explain": "正解。地図を描かせるのは得意。中身の裏づけは外で取る。",
+          "textZh": "用它来梳理值得问的问题和这个领域的术语，然后从真实来源核实实质性的结论。"
+        },
+        {
+          "text": "Ask it for the market size and use the number it gives.",
+          "correct": false,
+          "explain": "不適。具体的な数値ほど確認が要る。",
+          "textZh": "问它市场规模，用它给的数字。"
+        },
+        {
+          "text": "Ask it to write the final report directly.",
+          "correct": false,
+          "explain": "不適。検証していない内容がそのまま成果物になる。",
+          "textZh": "让它直接写出最终报告。"
+        },
+        {
+          "text": "Avoid using it, since the associate cannot judge the answers.",
+          "correct": false,
+          "explain": "不適。判断できないからこそ、問いの整理に使う価値がある。",
+          "textZh": "不要用它，因为担当无法判断答案对不对。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**不熟悉的领域怎么用**。模型最可靠的贡献是**帮你知道该问什么**——领域的术语、常见的分析角度、容易忽略的因素。而具体数字和结论，恰恰是你最没有能力判断、因此最必须外部核实的部分。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-034",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "A stakeholder says \"just tell me if it works.\" What is the most responsible reply?",
+      "stemZh": "一位相关方说「你就告诉我它行不行」。最负责任的回答是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It works for these specific cases, with this error rate, and here is where it does not.",
+          "correct": true,
+          "explain": "正解。条件付きの答えを、条件ごと示す。これ以上単純にできない。",
+          "textZh": "它在这些具体情况下可行，错误率是这个数，而这些地方不行。"
+        },
+        {
+          "text": "Yes.",
+          "correct": false,
+          "explain": "不適。条件を落とした答えは、後で必ず裏切る。",
+          "textZh": "行。"
+        },
+        {
+          "text": "It depends.",
+          "correct": false,
+          "explain": "不適。事実ではあるが、相手が判断できる情報が無い。",
+          "textZh": "看情况。"
+        },
+        {
+          "text": "Let me send you the full report.",
+          "correct": false,
+          "explain": "不適。問いに答えず先送りしている。",
+          "textZh": "我把完整报告发给你。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**不能简化成「行/不行」的时候**。正确的做法不是拒绝回答，也不是给一个会被打脸的「行」，而是**把条件和答案一起给出去**：在什么范围内可行、错误率多少、哪里不行。这已经是最简洁的诚实回答了。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-035",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO risks come specifically from making a workflow faster with Claude? (Select 2)",
+      "stemZh": "用 Claude 让流程变快，会带来下面哪两种特有的风险？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "More output reaches reviewers than they can actually check.",
+          "correct": true,
+          "explain": "正解。生成側だけ速くすると、検査が追いつかず形だけになる。",
+          "textZh": "到达复核者手里的产出超过了他们实际能检查的量。"
+        },
+        {
+          "text": "Errors that used to be rare now appear in volume.",
+          "correct": true,
+          "explain": "正解。件数が増えれば、同じ誤り率でも絶対数は増える。",
+          "textZh": "原本罕见的错误现在成批出现。"
+        },
+        {
+          "text": "The team will forget how the old process worked.",
+          "correct": false,
+          "explain": "不適。起こりうるが、速さに特有のリスクではない。",
+          "textZh": "团队会忘记旧流程是怎么运转的。"
+        },
+        {
+          "text": "Electricity costs will rise noticeably.",
+          "correct": false,
+          "explain": "不適。論点として現実的でない。",
+          "textZh": "电费会明显上升。"
+        },
+        {
+          "text": "Documents will become longer.",
+          "correct": false,
+          "explain": "不適。長さは速度の帰結ではない。",
+          "textZh": "文档会变得更长。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**「变快」本身带来的风险**。两条都指向同一处：**下游没有同步扩容**。生成端提速10倍，复核端还是那一个人——结果要么积压，要么复核变成走过场。提速方案必须一起回答「谁来检查这些」。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-036",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A workflow works well for the person who designed it but fails for everyone else. What is the most likely cause?",
+      "stemZh": "一道流程对设计它的人很好用，但对其他所有人都不管用。最可能的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The design relies on knowledge the designer has but never wrote down.",
+          "correct": true,
+          "explain": "正解。暗黙の前提が工程に埋め込まれている。書き出さないと再現しない。",
+          "textZh": "这个设计依赖了设计者拥有、却从未写下来的知识。"
+        },
+        {
+          "text": "The other users are not trying hard enough.",
+          "correct": false,
+          "explain": "不適。原因を人のせいにしている。",
+          "textZh": "其他用户不够努力。"
+        },
+        {
+          "text": "The model behaves differently for different accounts.",
+          "correct": false,
+          "explain": "不適。まず前提を疑うほうが実際的。",
+          "textZh": "模型对不同账号的表现不一样。"
+        },
+        {
+          "text": "The workflow needs a more capable model.",
+          "correct": false,
+          "explain": "不適。共有できていないのは知識であってモデルの能力ではない。",
+          "textZh": "这个流程需要更强的模型。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**隐性知识**。设计者在用的时候会不自觉地补上判断——哪个输入要先清洗、哪句话不能照抄、什么情况要停下来。这些没写进流程的部分，正是别人用不起来的原因。解决办法是把它们**显式写出来**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-037",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "Which approach to planning a rollout is most likely to surface problems early?",
+      "stemZh": "哪种推行计划最可能在早期暴露问题？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Start with one team and one clearly-scoped task, with a date to review what broke.",
+          "correct": true,
+          "explain": "正解。狭く始めて、壊れた箇所を見る日を決めておく。",
+          "textZh": "从一个团队、一个范围清晰的任务开始，并定好一个日子复盘哪里出了问题。"
+        },
+        {
+          "text": "Roll out to everyone at once so feedback arrives quickly.",
+          "correct": false,
+          "explain": "不適。問題も一斉に広がる。戻すのが難しい。",
+          "textZh": "一次性推给所有人，这样反馈来得快。"
+        },
+        {
+          "text": "Roll out silently and see if anyone notices.",
+          "correct": false,
+          "explain": "不適。問題が起きても報告されない。",
+          "textZh": "悄悄推行，看看有没有人注意到。"
+        },
+        {
+          "text": "Wait until the workflow is perfect before rolling out.",
+          "correct": false,
+          "explain": "不適。実運用でしか分からない問題がある。",
+          "textZh": "等流程完美了再推行。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**推行的节奏**。要点在正确选项的最后半句：**事先定好复盘的日期**。没有这个日期，「小范围试点」很容易变成无限期的默认状态，既不扩大也不总结。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-038",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO questions best clarify a vague request like \"help us with reporting\"? (Select 2)",
+      "stemZh": "对于「帮我们改善报告」这种模糊的请求，哪两个问题最能把它问清楚？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Who reads the report, and what do they do after reading it?",
+          "correct": true,
+          "explain": "正解。読者と用途が決まれば、必要な形も分量も決まる。",
+          "textZh": "谁读这份报告，读完之后他们做什么？"
+        },
+        {
+          "text": "Which part of producing it takes the longest today?",
+          "correct": true,
+          "explain": "正解。痛点の所在。改善の対象が定まる。",
+          "textZh": "今天做这份报告，哪一部分最花时间？"
+        },
+        {
+          "text": "What is the budget for tooling?",
+          "correct": false,
+          "explain": "不適。要件が固まる前の話。",
+          "textZh": "工具的预算是多少？"
+        },
+        {
+          "text": "Would you prefer a table or prose?",
+          "correct": false,
+          "explain": "不適。細部の好みで、要件ではない。",
+          "textZh": "你更喜欢表格还是散文？"
+        },
+        {
+          "text": "How long has this report existed?",
+          "correct": false,
+          "explain": "不適。経緯は参考情報にとどまる。",
+          "textZh": "这份报告存在多久了？"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**问对问题**。两个方向：**往前问用途**（谁读、读完干什么 → 决定形态）和**往后问成本**（哪一步最花时间 → 决定改哪里）。格式偏好和预算都是后面的事。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-039",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "The team wants Claude to post results directly into their ticketing system. How should the associate handle this request?",
+      "stemZh": "团队希望 Claude 把结果直接发布到他们的工单系统里。这位担当应该如何处理这个请求？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Define what should be posted and when, then hand the integration itself to someone who can build and maintain it.",
+          "correct": true,
+          "explain": "正解。何をいつ書き込むかは業務の判断。つなぎ込みは実装の仕事。",
+          "textZh": "定义应该发布什么、什么时候发布，然后把集成本身交给能建造和维护它的人。"
+        },
+        {
+          "text": "Set it up using whatever connector is available and see if it works.",
+          "correct": false,
+          "explain": "不適。書き込み系の連携を検証なしに入れている。",
+          "textZh": "用手头有的连接器搭起来，看看行不行。"
+        },
+        {
+          "text": "Tell the team it is impossible.",
+          "correct": false,
+          "explain": "不適。可能なことを不可能と答えている。",
+          "textZh": "告诉团队这做不到。"
+        },
+        {
+          "text": "Post the results manually forever to avoid the question.",
+          "correct": false,
+          "explain": "不適。要望に向き合っていない。",
+          "textZh": "永远手工发布结果，以回避这个问题。"
+        }
+      ],
+      "objective": "Recognize limitations and escalate more complex or technical implementations",
+      "commentaryZh": "考点是**写入外部系统属于实现**。读取和写入的风险不对称：写错了会污染别人的数据。Associate 在这里的产出是**清晰的规格**（写什么、何时写、出错怎么办），实现和长期维护交给工程侧。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-040",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "After a successful pilot, what is the most common reason a Claude workflow fails to scale to the whole team?",
+      "stemZh": "在试点成功之后，一套 Claude 流程未能推广到整个团队，最常见的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The pilot depended on one person's judgment that was never written into the process.",
+          "correct": true,
+          "explain": "正解。試験段階では属人的な補正が効いている。それが抜けると成立しない。",
+          "textZh": "试点依赖了某一个人的判断，而这种判断从未写进流程。"
+        },
+        {
+          "text": "The model changed between the pilot and the rollout.",
+          "correct": false,
+          "explain": "不適。起こりうるが主因ではない。",
+          "textZh": "从试点到推广期间模型变了。"
+        },
+        {
+          "text": "The team lost interest.",
+          "correct": false,
+          "explain": "不適。関心の問題より、再現できない設計のほうが多い。",
+          "textZh": "团队失去了兴趣。"
+        },
+        {
+          "text": "The pilot used too much budget.",
+          "correct": false,
+          "explain": "不適。費用が主因になることは少ない。",
+          "textZh": "试点花掉了太多预算。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**试点为什么推广不了**。试点通常由最懂行的人做，他会随手补上所有缺口。这些补正没有被写下来，所以换个人做就散架。推广前必须问：**这道流程里，有多少事是只有那个人才知道要做的**。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-041",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO make a Claude-assisted design process easier for others to pick up later? (Select 2)",
+      "stemZh": "下面哪两点能让别人以后更容易接手一个 Claude 辅助的设计过程？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Recording the decisions made and the reason for each.",
+          "correct": true,
+          "explain": "正解。結論だけ残すと、前提が変わったときに判断し直せない。",
+          "textZh": "记录下做过的决定以及每个决定的理由。"
+        },
+        {
+          "text": "Keeping the inputs and constraints in one place with the design.",
+          "correct": true,
+          "explain": "正解。設計と要件が離れると、後から整合を確かめられない。",
+          "textZh": "把输入和约束条件与设计放在同一个地方。"
+        },
+        {
+          "text": "Deleting the earlier versions to avoid confusion.",
+          "correct": false,
+          "explain": "不適。なぜ今の形になったかが失われる。",
+          "textZh": "删掉早期版本以免混淆。"
+        },
+        {
+          "text": "Keeping the whole chat history as the record.",
+          "correct": false,
+          "explain": "不適。捨てた案が混ざる。整理が要る。",
+          "textZh": "把整段对话历史当作记录保留。"
+        },
+        {
+          "text": "Using longer prompts so the process is self-explanatory.",
+          "correct": false,
+          "explain": "不適。プロンプトの長さは引き継ぎやすさと無関係。",
+          "textZh": "用更长的提示词，让过程不言自明。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**为接手的人留什么**。结论本身不够——**理由**才是真正有价值的部分，因为前提变了的时候，只有知道理由的人才判断得出该不该改。约束条件要和设计放在一起，否则以后没人能验证它们是否还被满足。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-042",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A team member reports that Claude \"got something wrong\" and wants to stop using it entirely. How should the associate respond?",
+      "stemZh": "一位团队成员报告 Claude「搞错了一件事」，并希望彻底停用它。这位担当应该如何回应？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Look at the specific case, determine whether the check that should have caught it exists, and fix that — rather than deciding on the tool as a whole.",
+          "correct": true,
+          "explain": "正解。1件の事故から道具全体を判断しない。捕まえるはずだった検査を見る。",
+          "textZh": "看这个具体案例，判断本该拦住它的那道检查是否存在，然后修好它——而不是对工具整体下判断。"
+        },
+        {
+          "text": "Stop using it, since trust has been lost.",
+          "correct": false,
+          "explain": "不適。1件で全体を止めるのは、人の作業にも適用しない基準。",
+          "textZh": "停用它，因为信任已经失去。"
+        },
+        {
+          "text": "Tell them errors are expected and continue as before.",
+          "correct": false,
+          "explain": "不適。起きた事故を検討していない。",
+          "textZh": "告诉他们出错是正常的，照旧继续。"
+        },
+        {
+          "text": "Switch models and continue.",
+          "correct": false,
+          "explain": "不適。原因を確かめずに変えている。",
+          "textZh": "换个模型继续用。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**单次失败的正确处理**。关键问题不是「模型好不好」，而是**「本该拦住这个错误的那道检查在哪里」**。要么它不存在（那就加上），要么它存在但被跳过了（那就问为什么）。两种情况的处理完全不同。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-043",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "Which is the strongest evidence that a Claude-assisted workflow has actually improved things?",
+      "stemZh": "下面哪一项最有力地证明一道 Claude 辅助流程确实带来了改善？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The same work now takes less total time without a rise in rework.",
+          "correct": true,
+          "explain": "正解。速さと品質の両方を見ている。片方だけでは改善とは言えない。",
+          "textZh": "同样的工作现在总耗时更少，且返工没有增加。"
+        },
+        {
+          "text": "The team says it feels faster.",
+          "correct": false,
+          "explain": "不適。体感は出発点にはなるが、証拠ではない。",
+          "textZh": "团队说感觉快了。"
+        },
+        {
+          "text": "More documents are produced per week.",
+          "correct": false,
+          "explain": "不適。産出量は必要量を超えても意味が無い。",
+          "textZh": "每周产出的文档更多了。"
+        },
+        {
+          "text": "Fewer people are involved in the process.",
+          "correct": false,
+          "explain": "不適。人が減ったことは改善とは限らない。",
+          "textZh": "参与流程的人变少了。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**改善必须同时满足两个条件**。时间下降 **且** 返工没上升。只看时间，可以通过降低质量来「达成」；只看质量，可以通过放慢速度来「达成」。两个一起看，才排除了这两种假象。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-044",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO belong in the documentation of a newly redesigned workflow? (Select 2)",
+      "stemZh": "一道新重新设计的流程，其文档里应该包含下面哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Where a human must still check, and what they are checking for.",
+          "correct": true,
+          "explain": "正解。検査の位置と目的。これが無いと形だけの確認になる。",
+          "textZh": "哪里仍然必须由人检查，以及他们要检查什么。"
+        },
+        {
+          "text": "What to do when the output is wrong.",
+          "correct": true,
+          "explain": "正解。異常時の手順。無いと、人によって対応が変わる。",
+          "textZh": "当产出出错时该怎么做。"
+        },
+        {
+          "text": "The version history of the prompts.",
+          "correct": false,
+          "explain": "不適。有用だが、運用文書の必須項目ではない。",
+          "textZh": "提示词的版本历史。"
+        },
+        {
+          "text": "A list of everyone who was consulted.",
+          "correct": false,
+          "explain": "不適。経緯であって手順ではない。",
+          "textZh": "所有被咨询过的人的名单。"
+        },
+        {
+          "text": "The vendor's marketing description of the model.",
+          "correct": false,
+          "explain": "不適。運用に使わない情報。",
+          "textZh": "厂商对模型的营销描述。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**运维文档写什么**。两件事决定这道流程能不能被别人可靠地执行：**检查点**（在哪看、看什么）和**异常处理**（错了怎么办）。第二条最常被漏掉，结果是每个人遇到问题时各做各的。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-045",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "Two departments describe the same workflow differently, and each believes their version is the official one. What should the associate do first?",
+      "stemZh": "两个部门对同一道流程的描述不一致，各自都认为自己的版本才是正式的。这位担当首先应该做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Get both descriptions side by side and identify exactly where they diverge before proposing anything.",
+          "correct": true,
+          "explain": "正解。食い違いの場所を特定するのが先。どちらが正しいかの議論はその後。",
+          "textZh": "把两份描述并排放在一起，在提出任何方案之前先精确找出它们分歧在哪。"
+        },
+        {
+          "text": "Adopt the version from the department that owns the budget.",
+          "correct": false,
+          "explain": "不適。権限で決めると、実態と合わない手順が残る。",
+          "textZh": "采用掌握预算的那个部门的版本。"
+        },
+        {
+          "text": "Design a new workflow that ignores both.",
+          "correct": false,
+          "explain": "不適。既存の知見を捨てている。",
+          "textZh": "设计一个无视两者的新流程。"
+        },
+        {
+          "text": "Ask Claude which version is correct.",
+          "correct": false,
+          "explain": "不適。どちらが実態かは社内にしか分からない。",
+          "textZh": "问 Claude 哪个版本是对的。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**分歧本身是信息**。两个部门描述不同，通常说明**流程在不同环节确实是不同的**，或者某一段无人负责。先把差异点精确定位出来，问题往往就自己显形了——比急着裁决谁对谁错有用得多。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-046",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "An associate has designed a workflow that works. What is the appropriate way to hand it to engineering for automation?",
+      "stemZh": "某位担当设计出了一道可行的流程。把它交给工程团队做自动化时，恰当的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Provide the inputs, the expected outputs, the checks, and the cases where a human must intervene.",
+          "correct": true,
+          "explain": "正解。実装者が必要とするのは仕様。プロンプトの中身より、境界条件が重要。",
+          "textZh": "提供输入、期望的产出、检查点，以及必须由人介入的情况。"
+        },
+        {
+          "text": "Provide the prompts and let engineering work out the rest.",
+          "correct": false,
+          "explain": "不適。前提と例外が伝わらない。",
+          "textZh": "把提示词给他们，其余让工程团队自己琢磨。"
+        },
+        {
+          "text": "Provide a demo and answer questions later.",
+          "correct": false,
+          "explain": "不適。実演は仕様の代わりにならない。",
+          "textZh": "做个演示，问题以后再回答。"
+        },
+        {
+          "text": "Provide the full chat history of the design process.",
+          "correct": false,
+          "explain": "不適。捨てた案も混ざり、仕様として読めない。",
+          "textZh": "提供设计过程的完整对话记录。"
+        }
+      ],
+      "objective": "Recognize limitations and escalate more complex or technical implementations",
+      "commentaryZh": "考点是**移交时该给什么**。工程侧需要的不是提示词本身，而是**规格**：什么进去、什么出来、在哪检查、**什么情况必须停下来叫人**。最后一项尤其关键——它决定了自动化的边界在哪。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-047",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A monthly process has one step that requires judgment nobody can articulate. What should the redesign do with that step?",
+      "stemZh": "一道每月执行的流程里，有一个步骤需要一种谁也说不清楚的判断。重新设计时该如何处理这一步？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Leave it with a person and automate around it, rather than forcing it into the automated path.",
+          "correct": true,
+          "explain": "正解。言語化できない判断は仕様にできない。人に残し、前後を速くする。",
+          "textZh": "把它留给人，在它前后做自动化，而不是硬塞进自动流程里。"
+        },
+        {
+          "text": "Automate it anyway and review the results afterward.",
+          "correct": false,
+          "explain": "不適。仕様が無いものは、結果を評価する基準も無い。",
+          "textZh": "照样自动化，事后再复核结果。"
+        },
+        {
+          "text": "Remove the step, since it cannot be described.",
+          "correct": false,
+          "explain": "不適。説明できないことと、不要であることは違う。",
+          "textZh": "既然说不清，就把这一步去掉。"
+        },
+        {
+          "text": "Delay the whole redesign until someone can describe it.",
+          "correct": false,
+          "explain": "不適。他の工程の改善まで止めている。",
+          "textZh": "等到有人能说清它为止，整个重新设计都往后推。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**说不清的判断怎么办**。这类步骤常常正是这道流程真正的价值所在。正确的做法是**围着它做自动化**：把前后的准备和整理交出去，让人专心做那个只有人能做的判断。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-048",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "Which statement about Claude is both accurate and useful to a non-technical stakeholder?",
+      "stemZh": "关于 Claude，下面哪句话对非技术的相关方来说既准确又有用？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It drafts quickly and consistently, but cannot confirm that what it wrote is true — that part stays with us.",
+          "correct": true,
+          "explain": "正解。できることと、できないことを1文で伝えている。行動につながる。",
+          "textZh": "它能快速且稳定地起草，但无法确认自己写的是不是真的——这部分仍然由我们负责。"
+        },
+        {
+          "text": "It understands our business deeply.",
+          "correct": false,
+          "explain": "不適。事実と異なり、過剰な期待を生む。",
+          "textZh": "它深刻理解我们的业务。"
+        },
+        {
+          "text": "It is a search engine for company data.",
+          "correct": false,
+          "explain": "不適。仕組みの説明として誤り。",
+          "textZh": "它是一个针对公司数据的搜索引擎。"
+        },
+        {
+          "text": "It is experimental and should not be relied on.",
+          "correct": false,
+          "explain": "不適。過小評価で、導入の判断材料にならない。",
+          "textZh": "它还在试验阶段，不应该依赖。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**一句话说清能力与边界**。好的说法同时包含两半：**它擅长什么**（快速、稳定地起草）和**责任留在哪里**（真伪由我们确认）。过度吹捧和过度贬低都会导致错误的使用决策。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-049",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO should be in place before a workflow relies on Claude for a recurring deliverable? (Select 2)",
+      "stemZh": "在让一道流程依赖 Claude 产出某个周期性交付物之前，必须先具备哪两样？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A defined check that the output must pass before it is used.",
+          "correct": true,
+          "explain": "正解。検査が無ければ、誤りは検出されずに繰り返される。",
+          "textZh": "一个产出在被使用前必须通过的、明确定义的检查。"
+        },
+        {
+          "text": "A known fallback for when the output is unusable.",
+          "correct": true,
+          "explain": "正解。使えなかった日に止まらないための手当て。",
+          "textZh": "当产出不可用时的备用方案。"
+        },
+        {
+          "text": "A dedicated budget line for AI spending.",
+          "correct": false,
+          "explain": "不適。管理上は必要でも、運用の前提条件ではない。",
+          "textZh": "一条专门的 AI 支出预算科目。"
+        },
+        {
+          "text": "A name for the workflow.",
+          "correct": false,
+          "explain": "不適。運用の成否に関係しない。",
+          "textZh": "给这道流程起个名字。"
+        },
+        {
+          "text": "Approval from every department.",
+          "correct": false,
+          "explain": "不適。関係する範囲の承認で足りる。",
+          "textZh": "所有部门的批准。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**依赖之前要准备什么**。两件事：**检查**（否则错误会周期性地重复发生）和**备用方案**（否则某天产出不能用时，整条流程就停了）。这两点是「试着用用看」和「真的依赖它」之间的分界线。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-050",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "An associate must produce 30 similar documents that differ only in a few fields. What is the most reliable design?",
+      "stemZh": "某位担当要产出30份相似的文档，它们之间只有几个字段不同。最可靠的设计是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Fix the structure once, supply the varying fields as data, and check a sample plus every document's key fields.",
+          "correct": true,
+          "explain": "正解。構造を固定し、変わる部分だけを渡す。検査は要所に絞る。",
+          "textZh": "把结构固定下来，把变化的字段作为数据传入，检查一个样本外加每份文档的关键字段。"
+        },
+        {
+          "text": "Write each one as a separate free-form request.",
+          "correct": false,
+          "explain": "不適。30通りの揺れが生まれ、検査もできない。",
+          "textZh": "每一份都作为单独的自由格式请求来写。"
+        },
+        {
+          "text": "Generate all 30 in one message and check only the first.",
+          "correct": false,
+          "explain": "不適。後半ほど崩れやすく、そこを見ていない。",
+          "textZh": "在一条消息里生成全部30份，只检查第一份。"
+        },
+        {
+          "text": "Generate one and copy it manually 29 times.",
+          "correct": false,
+          "explain": "不適。差し替え漏れが起きる典型的な事故。",
+          "textZh": "生成一份，手工复制29次。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**批量产出的设计**。要点有三：**结构固定**（否则30份各不相同）、**变化部分作为数据**（而不是每次重写指令）、**检查策略分两层**（抽样看整体质量 + 逐份核对关键字段）。最后一个干扰项是真实事故的高发区：手工复制必然会有一份漏改。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-051",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "A requested feature would help one person but complicate the workflow for twelve others. How should the associate handle it?",
+      "stemZh": "一个被提出的功能会帮到一个人，却让另外十二个人的流程变复杂。这位担当应该如何处理？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Surface the trade-off explicitly to the people who decide, with the cost to both sides.",
+          "correct": true,
+          "explain": "正解。判断材料を出すのが役割。どちらを取るかは決裁者が決める。",
+          "textZh": "把这个取舍连同双方的代价，明确地呈给有决定权的人。"
+        },
+        {
+          "text": "Implement it, since it was requested.",
+          "correct": false,
+          "explain": "不適。要望と妥当性は別。",
+          "textZh": "照做，因为有人要求了。"
+        },
+        {
+          "text": "Refuse it on behalf of the majority.",
+          "correct": false,
+          "explain": "不適。権限の無い判断を代わりに下している。",
+          "textZh": "代表多数人拒绝它。"
+        },
+        {
+          "text": "Implement a partial version so both sides are equally unhappy.",
+          "correct": false,
+          "explain": "不適。妥協のための妥協で、誰の課題も解いていない。",
+          "textZh": "做一个折中版本，让双方都同样不满。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**取舍不是你一个人的决定**。Associate 的价值在于**把代价算清楚并说出来**——一个人受益多少、十二个人付出多少。做决定的是有权衡权限的人；替他们决定（无论方向）都是越界。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-052",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO parts of a workflow design can the associate legitimately own without escalation? (Select 2)",
+      "stemZh": "在不需要向上移交的前提下，这位担当可以正当地负责流程设计中的哪两部分？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Deciding what the output must contain and how it will be checked.",
+          "correct": true,
+          "explain": "正解。業務要件と検査基準は Associate の中心的な仕事。",
+          "textZh": "决定产出必须包含什么，以及它将如何被检查。"
+        },
+        {
+          "text": "Choosing which product features and model fit the task.",
+          "correct": true,
+          "explain": "正解。用途に応じた選択は範囲内。",
+          "textZh": "选择哪些产品功能和模型适合这个任务。"
+        },
+        {
+          "text": "Writing the code that runs the workflow unattended.",
+          "correct": false,
+          "explain": "不適。実装は範囲外。",
+          "textZh": "编写让流程无人值守运行的代码。"
+        },
+        {
+          "text": "Granting access to a production database.",
+          "correct": false,
+          "explain": "不適。権限付与は管理者の判断。",
+          "textZh": "授予对生产数据库的访问权限。"
+        },
+        {
+          "text": "Deciding the company's data retention policy.",
+          "correct": false,
+          "explain": "不適。全社方針は Associate が決めるものではない。",
+          "textZh": "决定公司的数据保留政策。"
+        }
+      ],
+      "objective": "Recognize limitations and escalate more complex or technical implementations",
+      "commentaryZh": "考点是**职责范围的正面清单**。能自己负责的是**业务侧的判断**：要什么产出、怎么验收、用哪个功能和模型。越过这条线的是**实现、权限和全公司政策**——这三样都需要别的角色来定。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-053",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A plan built with Claude looks thorough but assumes a step will take one day, which the team knows takes a week. What does this reveal?",
+      "stemZh": "一份用 Claude 做出的计划看起来很周全，但它假定某个步骤只要一天，而团队知道那需要一周。这暴露了什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The plan inherits generic assumptions; every duration must be replaced with the team's actual experience.",
+          "correct": true,
+          "explain": "正解。一般的な想定が入り込んでいる。1か所違うなら他も疑う。",
+          "textZh": "这份计划继承了一般性的假设；每一个工期都必须换成团队的实际经验。"
+        },
+        {
+          "text": "Only that one estimate needs fixing.",
+          "correct": false,
+          "explain": "不適。同じ由来の想定が他にもある可能性が高い。",
+          "textZh": "只有那一个估算需要修正。"
+        },
+        {
+          "text": "The team is slower than the industry standard.",
+          "correct": false,
+          "explain": "不適。モデルの想定を基準にしている。",
+          "textZh": "这个团队比行业标准慢。"
+        },
+        {
+          "text": "The plan should be discarded entirely.",
+          "correct": false,
+          "explain": "不適。構成は使える。数値を入れ替えればよい。",
+          "textZh": "这份计划应该整个作废。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**计划里的工期是编的**。模型没有你们团队的历史数据，所以它给的每一个「一天」「两周」都是一般性的猜测。发现一处不符，说明**所有工期都来自同一个不可靠的来源**——要整批替换，而不是只改那一个。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-054",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "What is the best way to decide whether a manual step should stay manual after Claude is introduced?",
+      "stemZh": "在引入 Claude 之后，如何判断某个手工步骤是否应该继续保持手工？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask what would go wrong if it were automated, and whether that failure would be caught.",
+          "correct": true,
+          "explain": "正解。自動化の可否は、失敗の影響と検出可能性で決める。",
+          "textZh": "问：如果自动化了会出什么问题，以及那种失败会不会被发现。"
+        },
+        {
+          "text": "Automate everything that can technically be automated.",
+          "correct": false,
+          "explain": "不適。技術的可能性は判断基準ではない。",
+          "textZh": "凡是技术上能自动化的都自动化。"
+        },
+        {
+          "text": "Keep manual anything that a person enjoys doing.",
+          "correct": false,
+          "explain": "不適。好みは基準にならない。",
+          "textZh": "凡是有人喜欢做的就保持手工。"
+        },
+        {
+          "text": "Keep manual anything that takes less than an hour.",
+          "correct": false,
+          "explain": "不適。時間の長短と重要度は無関係。",
+          "textZh": "凡是不到一小时的就保持手工。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**该不该自动化的判断标准**。不是「能不能」，而是**「错了会怎样、能不能发现」**。一个五分钟的步骤如果错了会发错账单又没人检查，它就该留给人；一个两小时的机械整理如果错了一眼就能看出来，那就交出去。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-055",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO make stakeholder communication about an AI workflow more credible? (Select 2)",
+      "stemZh": "在向相关方沟通一个 AI 流程时，哪两点能让沟通更可信？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Naming the cases where it did not work during the pilot.",
+          "correct": true,
+          "explain": "正解。失敗を自分から出すと、成功の数字も信じられる。",
+          "textZh": "主动说出试点期间它没起作用的那些情况。"
+        },
+        {
+          "text": "Giving numbers that can be checked by someone else.",
+          "correct": true,
+          "explain": "正解。検証可能な数字だけが根拠になる。",
+          "textZh": "给出别人可以核对的数字。"
+        },
+        {
+          "text": "Using technical terminology to establish authority.",
+          "correct": false,
+          "explain": "不適。非開発者向けには逆効果。",
+          "textZh": "使用技术术语以建立权威。"
+        },
+        {
+          "text": "Presenting only the best-performing example.",
+          "correct": false,
+          "explain": "不適。一度でも反例が出ると信頼を失う。",
+          "textZh": "只展示表现最好的那个例子。"
+        },
+        {
+          "text": "Promising further improvements in future versions.",
+          "correct": false,
+          "explain": "不適。将来の約束は現在の根拠にならない。",
+          "textZh": "承诺未来版本会有进一步改进。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**可信度从哪里来**。两个来源：**可核对的数字**和**主动暴露的失败**。第二点反直觉但非常有效——一个只说好消息的汇报，听众会自动打折；而先说出哪里不行的人，他说「这里行」时才有人信。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-056",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A design keeps growing as each review adds requirements. What technique keeps it manageable?",
+      "stemZh": "一份设计随着每次评审不断加需求而膨胀。什么方法能让它保持可控？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep an explicit list of what is in scope and what was deliberately excluded, and revisit it at each review.",
+          "correct": true,
+          "explain": "正解。除外したものを書き残す。これが無いと同じ要望が何度も戻ってくる。",
+          "textZh": "明确维护一份清单：什么在范围内、什么是有意排除的，每次评审时都回顾它。"
+        },
+        {
+          "text": "Accept every requirement and extend the timeline.",
+          "correct": false,
+          "explain": "不適。際限が無くなる。",
+          "textZh": "接受每一条需求，延长工期。"
+        },
+        {
+          "text": "Reject requirements raised after the first review.",
+          "correct": false,
+          "explain": "不適。妥当な要望まで一律に切っている。",
+          "textZh": "拒绝第一次评审之后提出的所有需求。"
+        },
+        {
+          "text": "Split the design into more documents.",
+          "correct": false,
+          "explain": "不適。分量は減らず、全体像が見えなくなる。",
+          "textZh": "把设计拆成更多份文档。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**控制范围蔓延**。关键不只是记录「做什么」，更是记录**「有意不做什么，以及为什么」**。没有这份排除清单，同一个被否决过的需求会在第三次评审时重新出现，而且没人记得上次为什么否掉它。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-057",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "Which finding from a pilot would most justify expanding a Claude workflow to more teams?",
+      "stemZh": "试点中的哪一项发现，最能支持把一套 Claude 流程推广到更多团队？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Time dropped and the error rate stayed within the level the checks can absorb.",
+          "correct": true,
+          "explain": "正解。速度と、検査体制が追いつく範囲の誤り率。拡大の条件はこの2つ。",
+          "textZh": "耗时下降了，而错误率保持在现有检查能吸收的水平之内。"
+        },
+        {
+          "text": "Users reported that the tool was enjoyable to use.",
+          "correct": false,
+          "explain": "不適。満足度は拡大の根拠としては弱い。",
+          "textZh": "用户反馈说这个工具用起来很愉快。"
+        },
+        {
+          "text": "The workflow produced more output than before.",
+          "correct": false,
+          "explain": "不適。量は成果ではない。",
+          "textZh": "这道流程产出的量比以前多。"
+        },
+        {
+          "text": "No errors occurred in a sample of five items.",
+          "correct": false,
+          "explain": "不適。5件では誤り率を語れない。",
+          "textZh": "五个样本里没有出现错误。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**扩大推广的依据**。两个条件缺一不可：**省了时间**，并且**错误率在检查体系能兜住的范围内**。注意最后一个干扰项：五个样本的零错误没有统计意义，它只说明你没测够。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-058",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO indicate that a \"requirement\" is actually a solution in disguise? (Select 2)",
+      "stemZh": "下面哪两点说明某条「需求」其实是伪装成需求的解决方案？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "It names a specific tool or feature rather than an outcome.",
+          "correct": true,
+          "explain": "正解。手段が指定されている。目的に戻して考え直す余地がある。",
+          "textZh": "它指名了某个具体的工具或功能，而不是某个结果。"
+        },
+        {
+          "text": "Nobody can say what problem it solves.",
+          "correct": true,
+          "explain": "正解。解こうとしている問題が言えないなら、要件ではない。",
+          "textZh": "没人说得出它要解决什么问题。"
+        },
+        {
+          "text": "It was raised by a senior stakeholder.",
+          "correct": false,
+          "explain": "不適。誰が言ったかは性質を変えない。",
+          "textZh": "它是由一位资深相关方提出的。"
+        },
+        {
+          "text": "It is written in one sentence.",
+          "correct": false,
+          "explain": "不適。長さは関係ない。",
+          "textZh": "它只用一句话写成。"
+        },
+        {
+          "text": "It would take a long time to build.",
+          "correct": false,
+          "explain": "不適。工数は要件かどうかの判別基準ではない。",
+          "textZh": "实现它需要很长时间。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**区分需求和方案**。真正的需求描述**结果**（「审批要在一天内完成」），伪装的需求描述**手段**（「要有一个自动发邮件的功能」）。识别出来之后，要往回问一层：这是想解决什么问题？往往会发现更简单的做法。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-059",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "An associate is asked to build a workflow that will handle personal data for customers in several countries. What is the right first step?",
+      "stemZh": "某位担当被要求搭建一道会处理多个国家客户个人数据的流程。正确的第一步是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Bring in the people responsible for privacy and compliance before designing, since the rules differ by country and shape the design.",
+          "correct": true,
+          "explain": "正解。規制が設計を決める。後から当てはめると作り直しになる。",
+          "textZh": "在设计之前就让负责隐私与合规的人参与进来——各国规则不同，而且会决定设计本身。"
+        },
+        {
+          "text": "Design it first and check compliance at the end.",
+          "correct": false,
+          "explain": "不適。最も高くつく順序。",
+          "textZh": "先设计，最后再检查合规。"
+        },
+        {
+          "text": "Use only anonymized data so no rules apply.",
+          "correct": false,
+          "explain": "不適。匿名化の水準によっては規制が及ぶ。独断で決められない。",
+          "textZh": "只用匿名化的数据，这样就不受任何规则约束。"
+        },
+        {
+          "text": "Ask Claude to summarize the relevant regulations and proceed.",
+          "correct": false,
+          "explain": "不適。要約を根拠に法的判断をしている。",
+          "textZh": "让 Claude 总结相关法规然后继续。"
+        }
+      ],
+      "objective": "Recognize limitations and escalate more complex or technical implementations",
+      "commentaryZh": "考点是**合规要在设计之前介入**。跨境个人数据的规则会直接决定架构（数据存在哪、能不能出境、保留多久）。把合规当成最后一道检查，通常意味着整个方案推倒重来——这是最贵的顺序。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-060",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "Six months in, the team has stopped using one part of the redesigned workflow. What should the associate conclude first?",
+      "stemZh": "推行六个月后，团队不再使用重新设计的流程里的某一部分。这位担当首先应该得出什么结论？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Find out what they do instead; the workaround usually shows what the design got wrong.",
+          "correct": true,
+          "explain": "正解。使われていない工程より、代わりに何をしているかに情報がある。",
+          "textZh": "去弄清他们改用了什么做法；那个变通办法通常正好指出设计错在哪。"
+        },
+        {
+          "text": "The team needs more training on that part.",
+          "correct": false,
+          "explain": "不適。原因を確かめずに教育に帰着させている。",
+          "textZh": "团队在那一部分上需要更多培训。"
+        },
+        {
+          "text": "That part should be enforced more strictly.",
+          "correct": false,
+          "explain": "不適。理由を見ずに強制すると、別の回避策が生まれる。",
+          "textZh": "那一部分应该被更严格地执行。"
+        },
+        {
+          "text": "The workflow should be rolled back entirely.",
+          "correct": false,
+          "explain": "不適。使われている部分まで捨てている。",
+          "textZh": "整套流程应该全部回滚。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**没被使用的环节要看「替代做法」**。人们绕开一个步骤时，一定在做别的事来达到同样的目的。那个变通办法里包含了设计者没考虑到的现实约束——它比任何调研都更直接地告诉你问题在哪。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
     }
   ]
 }
