@@ -158,6 +158,2230 @@
       "reviewedAt": "2026-09-23",
       "stemZh": "某位担当被要求连接团队的共享云盘，让 Claude 能够引用其中的文件。在连接之前应该先弄清楚什么？",
       "commentaryZh": "考点是「连接器与权限边界」。接上连接器等于移动了权限的边界：能用这个 Project 的人，就等于能读到连接目标。「只读所以安全」是最常见的误解——只读同样会造成「不该看到的人看到了」这种事故。"
+    },
+    {
+      "id": "d5-005",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "Which belongs in Project instructions rather than in an individual prompt?",
+      "stemZh": "下面哪一项应该写进 Project 的指示，而不是写在单次的提示词里？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A rule that applies to every piece of work produced in that Project.",
+          "correct": true,
+          "explain": "正解。全会話に共通する前提は設定側に置く。",
+          "textZh": "一条适用于该 Project 中每一份产出的规则。"
+        },
+        {
+          "text": "The specific question being asked today.",
+          "correct": false,
+          "explain": "不適。その時だけの依頼はプロンプト側。",
+          "textZh": "今天要问的那个具体问题。"
+        },
+        {
+          "text": "A one-off request to shorten a paragraph.",
+          "correct": false,
+          "explain": "不適。その場限りの作業指示で、他の会話には適用されない。プロンプト側に書く。",
+          "textZh": "一次性的、把某段缩短的要求。"
+        },
+        {
+          "text": "The name of a document being discussed this week.",
+          "correct": false,
+          "explain": "不適。今週限りの情報で、恒久的な前提ではない。",
+          "textZh": "本周正在讨论的某份文档的名字。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**设置和提示词的分工**。判断标准是一句话：**它适用于这里的每一次对话吗**。是 → 写进 Project 指示；只适用于这一次 → 留在提示词里。把临时的东西写进设置，会在以后莫名其妙地影响别的工作。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-006",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A knowledge file was updated by its owner in the source system, but the Project still holds the old copy. What is the risk?",
+      "stemZh": "一份知识文件的负责人在源系统里更新了它，但 Project 里仍然是旧副本。风险是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Outputs will confidently use outdated facts, and nobody will notice because the answers look normal.",
+          "correct": true,
+          "explain": "正解。古い事実が自然な文章で出てくる。気づく手がかりが無い。",
+          "textZh": "产出会笃定地使用过时的事实，而且没人会发现，因为答案看起来很正常。"
+        },
+        {
+          "text": "The Project will show an error message.",
+          "correct": false,
+          "explain": "不適。自動で知らせてくれる前提は置けない。",
+          "textZh": "这个 Project 会显示一条错误提示。"
+        },
+        {
+          "text": "The output will be slower.",
+          "correct": false,
+          "explain": "不適。速度の問題ではない。",
+          "textZh": "产出会变慢。"
+        },
+        {
+          "text": "Only the file's author will be affected.",
+          "correct": false,
+          "explain": "不適。そのプロジェクトを使う全員に影響する。",
+          "textZh": "只有文件的作者会受影响。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**知识库的副本会悄悄过期**。最危险的地方在于**没有任何征兆**——产出依然流畅、依然自信，只是事实是旧的。所以知识库需要主动维护：谁负责更新、多久检查一次。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-007",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO make Project instructions more reliable? (Select 2)",
+      "stemZh": "下面哪两点能让 Project 的指示更可靠？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Stating what to do when information is missing.",
+          "correct": true,
+          "explain": "正解。例外時の振る舞いを決めておく。毎回の判断が要らなくなる。",
+          "textZh": "说明当信息缺失时该怎么做。"
+        },
+        {
+          "text": "Being specific enough that two people would apply them the same way.",
+          "correct": true,
+          "explain": "正解。解釈の幅を狭める。ばらつきの原因を潰す。",
+          "textZh": "足够具体，以至于两个人会用同样的方式来执行它们。"
+        },
+        {
+          "text": "Being written in as few words as possible.",
+          "correct": false,
+          "explain": "不適。短さより、条件がそろっていること。",
+          "textZh": "用尽可能少的字写成。"
+        },
+        {
+          "text": "Including the history of why each rule was added.",
+          "correct": false,
+          "explain": "不適。経緯は別に残す。指示本文が読みにくくなる。",
+          "textZh": "包含每条规则是为什么加进来的历史。"
+        },
+        {
+          "text": "Using emphatic language.",
+          "correct": false,
+          "explain": "不適。強調しても条件は増えない。",
+          "textZh": "使用强调性的措辞。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**可靠的指示有两个特征**：**覆盖异常情况**和**解释余地小**。第二条有个好用的检验法：把指示给两个人看，问他们会怎么执行——如果答案不一样，那模型也会摇摆。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-008",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A connector is set up to a folder that later has new subfolders added by another team. What should be checked?",
+      "stemZh": "一个连接器接到了某个文件夹，后来另一个团队在里面新增了子文件夹。应该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the new content is now exposed through the connector, and whether that is acceptable.",
+          "correct": true,
+          "explain": "正解。接続範囲は後から広がりうる。定期的に確かめる。",
+          "textZh": "新增的内容现在是否也通过这个连接器暴露了，以及这是否可以接受。"
+        },
+        {
+          "text": "Whether the folder still has the same name.",
+          "correct": false,
+          "explain": "不適。名称は露出範囲を決めない。",
+          "textZh": "这个文件夹是不是还叫原来的名字。"
+        },
+        {
+          "text": "Whether the connector runs faster now.",
+          "correct": false,
+          "explain": "不適。速度は統制上の論点ではない。",
+          "textZh": "这个连接器现在是不是更快了。"
+        },
+        {
+          "text": "Nothing; connectors only see what existed when they were set up.",
+          "correct": false,
+          "explain": "不適。そのような前提は置けない。",
+          "textZh": "不用检查；连接器只能看到建立时就存在的内容。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**连接的范围会自己变大**。当初接的是一个空间不大的文件夹，半年后别人往里放了什么，你并不知道。所以连接器不是「设好就不用管」的东西，它需要和知识库一样**定期盘点**。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-009",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "What should accompany every document placed in a Project's knowledge base?",
+      "stemZh": "放进 Project 知识库的每一份文档，都应该附带什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Who owns it and when it was last confirmed to be current.",
+          "correct": true,
+          "explain": "正解。所有者と最終確認日。これが無いと保守できない。",
+          "textZh": "它的负责人是谁，以及它最后一次被确认为最新是什么时候。"
+        },
+        {
+          "text": "A summary of its contents.",
+          "correct": false,
+          "explain": "不適。あると便利だが、保守には直結しない。",
+          "textZh": "一份内容摘要。"
+        },
+        {
+          "text": "The name of the person who uploaded it.",
+          "correct": false,
+          "explain": "不適。アップロード者と所有者は別。保守の責任者が要る。",
+          "textZh": "上传者的名字。"
+        },
+        {
+          "text": "The file size.",
+          "correct": false,
+          "explain": "不適。保守に使わない情報。",
+          "textZh": "文件大小。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**知识库文件的两条元信息**：**谁负责**和**什么时候确认过**。缺了这两样，知识库就无法维护——没人知道该找谁更新，也没人知道哪些文件已经该复查了。这正是 CCAO-F 题库自己用 reviewedAt 的原因。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-010",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO problems do good system-level instructions prevent? (Select 2)",
+      "stemZh": "好的系统级指示能预防下面哪两个问题？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Each person getting a differently formatted result for the same request.",
+          "correct": true,
+          "explain": "正解。共通の指示で形をそろえる。",
+          "textZh": "同样的请求，每个人得到的格式都不一样。"
+        },
+        {
+          "text": "Having to restate the same constraints in every conversation.",
+          "correct": true,
+          "explain": "正解。毎回書く手間と書き漏れを消す。",
+          "textZh": "每次对话都要重述同样的约束条件。"
+        },
+        {
+          "text": "The model producing factually wrong content.",
+          "correct": false,
+          "explain": "不適。指示では事実の正しさは保証できない。検査が別に要る。",
+          "textZh": "模型产出事实错误的内容。"
+        },
+        {
+          "text": "Documents becoming outdated.",
+          "correct": false,
+          "explain": "不適。知識の鮮度は指示では解けない。更新の運用が要る。",
+          "textZh": "文档变得过时。"
+        },
+        {
+          "text": "Connectors exposing too much data.",
+          "correct": false,
+          "explain": "不適。権限の設計の問題で、指示では制御できない。",
+          "textZh": "连接器暴露了过多数据。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**指示能解决什么、不能解决什么**。它解决的是**一致性和重复劳动**。三个干扰项分别属于检查、维护和权限设计的范畴——把这些期望寄托在写指示上，是配置工作里常见的误区。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-011",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A Project is used by both new and experienced team members, who need different levels of explanation. How should this be handled?",
+      "stemZh": "一个 Project 同时被新人和资深成员使用，他们需要的解释详细程度不同。应该如何处理？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep the shared rules in the instructions and let each person state their needed level in their own request.",
+          "correct": true,
+          "explain": "正解。共通部分は設定、個別の調整はプロンプト。切り分けが明確。",
+          "textZh": "把共通的规则放在指示里，让每个人在自己的请求里说明需要的详细程度。"
+        },
+        {
+          "text": "Write the instructions for beginners so nobody is lost.",
+          "correct": false,
+          "explain": "不適。経験者には冗長になり、毎回削る手間が生じる。",
+          "textZh": "按新人的水平写指示，这样没人会跟不上。"
+        },
+        {
+          "text": "Write the instructions for experienced users to keep them concise.",
+          "correct": false,
+          "explain": "不適。新人が使えなくなる。",
+          "textZh": "按资深成员的水平写指示，以保持简洁。"
+        },
+        {
+          "text": "Create two Projects with duplicated knowledge.",
+          "correct": false,
+          "explain": "不適。知識が二重になり、更新漏れが起きる。",
+          "textZh": "建两个 Project，知识库内容重复。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**共通的放设置、可变的放请求**。这道题的价值在于最后一个干扰项：为了处理差异而复制一份知识库，会立刻产生「两份资料哪份是最新的」这个更麻烦的问题。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-012",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "Before enabling a connector for a team, what is the most important thing to establish?",
+      "stemZh": "在为一个团队启用连接器之前，最重要的是确认什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "That everyone who can use it is already permitted to see everything it reaches.",
+          "correct": true,
+          "explain": "正解。接続は権限の境界を動かす。ここを確かめてから有効にする。",
+          "textZh": "所有能使用它的人，是否本来就有权查看它所能触及的全部内容。"
+        },
+        {
+          "text": "That the connector supports the file formats in use.",
+          "correct": false,
+          "explain": "不適。技術的な確認事項ではあるが、優先度は下。",
+          "textZh": "这个连接器是否支持正在使用的文件格式。"
+        },
+        {
+          "text": "That the team has been trained on the tool.",
+          "correct": false,
+          "explain": "不適。教育は有用だが、権限の確認が先。",
+          "textZh": "团队是否受过这个工具的培训。"
+        },
+        {
+          "text": "That the connector was recently updated.",
+          "correct": false,
+          "explain": "不適。更新時期は権限の論点と無関係。",
+          "textZh": "这个连接器最近是否更新过。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**连接器的第一问题永远是权限**。启用连接器等于把「能使用这个 Project 的人」和「能读到连接目标的人」画上等号。这个等式必须在启用之前就被确认，而不是出事之后。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-013",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO indicate that a knowledge base needs a review? (Select 2)",
+      "stemZh": "下面哪两点说明一个知识库需要复查了？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Outputs have started citing details that contradict the current source.",
+          "correct": true,
+          "explain": "正解。古い版が使われている兆候。",
+          "textZh": "产出开始引用与当前源文件相矛盾的细节。"
+        },
+        {
+          "text": "Files exist that nobody on the team recognizes.",
+          "correct": true,
+          "explain": "正解。所有者も鮮度も分からない。棚卸しが必要。",
+          "textZh": "里面存在团队里没人认得的文件。"
+        },
+        {
+          "text": "The knowledge base contains more than ten files.",
+          "correct": false,
+          "explain": "不適。件数そのものは問題ではない。",
+          "textZh": "知识库里有超过十个文件。"
+        },
+        {
+          "text": "The Project has been in use for a year.",
+          "correct": false,
+          "explain": "不適。期間だけでは判断できない。",
+          "textZh": "这个 Project 已经用了一年。"
+        },
+        {
+          "text": "Several people use the Project.",
+          "correct": false,
+          "explain": "不適。利用者数は鮮度の指標ではない。",
+          "textZh": "有好几个人在用这个 Project。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**该复查的两个信号**：**产出与现行源文件冲突**（说明里面有旧版本）和**无人认得的文件**（说明既没有负责人也没人知道它是否还该在那里）。数量和时长本身都不是信号。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-014",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "Project instructions say \"use formal language\" but outputs vary widely in formality. What is the likely cause?",
+      "stemZh": "Project 的指示写着「使用正式语言」，但产出的正式程度差异很大。可能的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Formal\" is interpreted differently each time; the instruction needs examples or specific rules.",
+          "correct": true,
+          "explain": "正解。解釈の幅が広すぎる。例か具体的な規則で狭める。",
+          "textZh": "「正式」每次被理解成不同的东西；这条指示需要范例或具体规则。"
+        },
+        {
+          "text": "The instruction is being ignored entirely.",
+          "correct": false,
+          "explain": "不適。ばらつくのは、従おうとして解釈が揺れている状態。",
+          "textZh": "这条指示被完全忽略了。"
+        },
+        {
+          "text": "Instructions only work for the first message.",
+          "correct": false,
+          "explain": "不適。そのような制限は無い。",
+          "textZh": "指示只对第一条消息有效。"
+        },
+        {
+          "text": "A different model is being used each time.",
+          "correct": false,
+          "explain": "不適。まず指示の曖昧さを疑うほうが実際的。",
+          "textZh": "每次使用的模型不同。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**抽象的形容词无法产生一致的结果**。「正式」「专业」「简洁」这类词，每个人的理解都不同。解决办法和 D1 里的语气问题一样：**给例子，或者给可判定的具体规则**（比如「不使用缩写、不使用第二人称」）。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-015",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "What is the best way to introduce a change to shared Project instructions?",
+      "stemZh": "对共享 Project 的指示做出改动，最好的方式是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tell the people who use it what changed and why, since their outputs will change too.",
+          "correct": true,
+          "explain": "正解。設定の変更は全員の出力に及ぶ。黙って変えない。",
+          "textZh": "告诉使用它的人改了什么、为什么改——因为他们的产出也会随之改变。"
+        },
+        {
+          "text": "Make the change quietly to avoid disruption.",
+          "correct": false,
+          "explain": "不適。突然出力が変わり、原因が分からなくなる。",
+          "textZh": "悄悄改掉以避免干扰。"
+        },
+        {
+          "text": "Ask everyone to vote on the wording.",
+          "correct": false,
+          "explain": "不適。合意形成の手続きとしては重すぎる。",
+          "textZh": "让所有人投票决定措辞。"
+        },
+        {
+          "text": "Add the new rule without removing the conflicting old one.",
+          "correct": false,
+          "explain": "不適。古い規則を残したまま新しい規則を足すと、矛盾を抱えたまま運用することになる。",
+          "textZh": "加上新规则，但不删掉与之冲突的旧规则。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**设置的改动是集体性的**。一个人改了 Project 指示，所有人的产出都会变——如果不说，别人只会发现「今天的结果怪怪的」却找不到原因。改动本身没问题，**不告知才是问题**。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-016",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO should be reviewed periodically for a connector that has been in place for a year? (Select 2)",
+      "stemZh": "对于一个已经用了一年的连接器，应该定期复查哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Whether its scope still matches what the work actually needs.",
+          "correct": true,
+          "explain": "正解。業務が変われば必要な範囲も変わる。広すぎないか見る。",
+          "textZh": "它的覆盖范围是否仍然与工作实际需要的相符。"
+        },
+        {
+          "text": "Whether the people who can use it are still the right people.",
+          "correct": true,
+          "explain": "正解。異動や退職で顔ぶれが変わる。",
+          "textZh": "能使用它的人是否仍然是应该有权限的那些人。"
+        },
+        {
+          "text": "Whether it has a descriptive name.",
+          "correct": false,
+          "explain": "不適。名称は統制に影響しない。",
+          "textZh": "它是否有一个描述性的名字。"
+        },
+        {
+          "text": "How many times it has been used.",
+          "correct": false,
+          "explain": "不適。利用回数は権限や範囲の妥当性を示さない。",
+          "textZh": "它被使用过多少次。"
+        },
+        {
+          "text": "Whether it was set up by a senior employee.",
+          "correct": false,
+          "explain": "不適。設定者の役職は妥当性の根拠にならない。",
+          "textZh": "它是不是由资深员工建立的。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**连接器的定期复查项**：**范围**和**人**。这两样都会随时间漂移——业务变了但范围没缩，人员调动了但权限没收。一年不看，实际的暴露面往往比当初批准的大得多。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-017",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A team wants to add a document to the knowledge base but it contains a section that is confidential to a subset of them. What should be done?",
+      "stemZh": "一个团队想把一份文档加进知识库，但其中有一节只对他们当中的一部分人保密。应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add only the portion everyone may see, or keep that work in a separate Project with the right membership.",
+          "correct": true,
+          "explain": "正解。見せられる範囲だけ置くか、別のプロジェクトに分ける。",
+          "textZh": "只放进所有人都可以看到的部分，或者把这部分工作放到成员范围合适的另一个 Project 里。"
+        },
+        {
+          "text": "Add the whole document and ask people not to read that section.",
+          "correct": false,
+          "explain": "不適。依頼では見える事実は変わらない。",
+          "textZh": "把整份文档加进去，请大家不要读那一节。"
+        },
+        {
+          "text": "Add the whole document since they are all on the same team.",
+          "correct": false,
+          "explain": "不適。同じチームでも見える範囲が違うことはある。",
+          "textZh": "整份加进去，反正他们都是同一个团队的。"
+        },
+        {
+          "text": "Add it and rename the section so it is less obvious.",
+          "correct": false,
+          "explain": "不適。見える事実は変わらず、発見も遅れる。",
+          "textZh": "加进去，把那一节改个名字让它不那么显眼。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**知识库没有部分可见**。放进去 = 所有能用这个 Project 的人都能看到。所以只有两条路：**只放能共享的部分**，或者**按可见范围分 Project**。靠约定、靠改名都不改变技术上的可见性。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-018",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "Which is the most common weakness in system-level instructions written by beginners?",
+      "stemZh": "新手写的系统级指示，最常见的弱点是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "They describe preferences instead of stating checkable requirements.",
+          "correct": true,
+          "explain": "正解。好みの表明にとどまり、守られたか判定できない。",
+          "textZh": "它们描述的是偏好，而不是可检验的要求。"
+        },
+        {
+          "text": "They are too short.",
+          "correct": false,
+          "explain": "不適。短くても条件が明確なら機能する。",
+          "textZh": "它们太短了。"
+        },
+        {
+          "text": "They use bullet points.",
+          "correct": false,
+          "explain": "不適。箇条書きはむしろ読みやすい。",
+          "textZh": "它们使用了项目符号。"
+        },
+        {
+          "text": "They are updated too often.",
+          "correct": false,
+          "explain": "不適。更新は保守の一部で、弱点ではない。",
+          "textZh": "它们更新得太频繁。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**「希望」和「要求」的区别**。「希望写得专业一点」无法判定是否满足；「不使用缩写、每段不超过四行、结论放在开头」可以。写完之后自问一句：**别人能不能据此判断产出合不合格**。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-019",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A Project's knowledge contains both the current contract and its two previous versions. What is the likely consequence?",
+      "stemZh": "一个 Project 的知识库里同时有当前合同和它此前的两个版本。可能的后果是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Answers may draw on a superseded version without indicating which one was used.",
+          "correct": true,
+          "explain": "正解。どの版を使ったか示されない。旧版の条件が答えに混ざる。",
+          "textZh": "答案可能会引用一个已被取代的版本，而且不会说明用的是哪一个。"
+        },
+        {
+          "text": "The Project will always pick the newest file.",
+          "correct": false,
+          "explain": "不適。そのように動く前提は置けない。",
+          "textZh": "这个 Project 总会选最新的那个文件。"
+        },
+        {
+          "text": "Having history improves accuracy.",
+          "correct": false,
+          "explain": "不適。判別できない履歴は、混乱のもとになる。",
+          "textZh": "保留历史能提高准确率。"
+        },
+        {
+          "text": "Old versions are ignored automatically.",
+          "correct": false,
+          "explain": "不適。自動で無視される保証は無い。",
+          "textZh": "旧版本会被自动忽略。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**知识库里不该放历史版本**。人看得懂文件名上的 v1、v2，但答案里不会告诉你它引用的是哪一份。历史版本该留在版本管理的地方，**知识库里只放当前有效的那一份**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-020",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "A Project has instructions but no knowledge files. Is this a problem?",
+      "stemZh": "一个 Project 有指示但没有知识文件。这是问题吗？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "No — instructions alone are a valid configuration when the work needs shared rules but not shared documents.",
+          "correct": true,
+          "explain": "正解。共有すべき資料が無ければ、指示だけで十分。",
+          "textZh": "不是——当工作需要共享规则但不需要共享文档时，只有指示也是一种有效的配置。"
+        },
+        {
+          "text": "Yes, a Project is only useful with knowledge files.",
+          "correct": false,
+          "explain": "不適。指示の共有だけでも価値がある。",
+          "textZh": "是，Project 只有配上知识文件才有用。"
+        },
+        {
+          "text": "Yes, instructions do not work without documents.",
+          "correct": false,
+          "explain": "不適。そのような依存関係は無い。",
+          "textZh": "是，指示在没有文档的情况下不起作用。"
+        },
+        {
+          "text": "It depends on how many people use it.",
+          "correct": false,
+          "explain": "不適。人数は構成の妥当性を決めない。",
+          "textZh": "这取决于有多少人在用它。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**Project 的两种用途可以独立成立**。有些工作需要共享资料，有些只需要共享规则（比如统一的文风和格式）。只配指示是完全正常的，不必为了「填满」而放一堆无关文档。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-021",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO are appropriate uses of a connector? (Select 2)",
+      "stemZh": "下面哪两项是连接器的恰当用法？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Reading a set of reference documents the whole Project team may see.",
+          "correct": true,
+          "explain": "正解。範囲と権限が一致している。",
+          "textZh": "读取整个 Project 团队都可以看到的一组参考文档。"
+        },
+        {
+          "text": "Pulling in a regularly updated file so the latest version is always used.",
+          "correct": true,
+          "explain": "正解。手動コピーの陳腐化を避ける正しい使い方。",
+          "textZh": "接入一份定期更新的文件，确保总是用到最新版本。"
+        },
+        {
+          "text": "Reaching a folder that includes other teams' private material.",
+          "correct": false,
+          "explain": "不適。権限の境界を越える。",
+          "textZh": "触及包含其他团队私有材料的文件夹。"
+        },
+        {
+          "text": "Accessing personal email to find a single address.",
+          "correct": false,
+          "explain": "不適。目的に対して範囲が広すぎる。",
+          "textZh": "访问个人邮箱以查找一个地址。"
+        },
+        {
+          "text": "Connecting a payroll system for convenience.",
+          "correct": false,
+          "explain": "不適。機微情報に対し、利便性を理由に接続している。",
+          "textZh": "为了方便而连接工资系统。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**连接器的正当用法**有两个特征：**范围与权限一致**，以及**解决的是「副本会过期」这个真问题**。三个干扰项分别越界、范围过宽、以及拿便利当理由接入敏感系统。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-022",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "Instructions include a rule that was added for a client who is no longer active. What should happen?",
+      "stemZh": "指示里有一条规则是为一个已经不再合作的客户加的。应该怎么处理？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Remove it, since rules that no longer apply still shape every output.",
+          "correct": true,
+          "explain": "正解。使わない規則も出力に効き続ける。定期的に外す。",
+          "textZh": "删掉它——不再适用的规则仍然在影响每一次产出。"
+        },
+        {
+          "text": "Leave it in case the client returns.",
+          "correct": false,
+          "explain": "不適。今の全出力に影響し続ける代償が大きい。",
+          "textZh": "留着，万一那个客户回来呢。"
+        },
+        {
+          "text": "Move it to the bottom of the instructions.",
+          "correct": false,
+          "explain": "不適。位置を変えても効いていることに変わりは無い。",
+          "textZh": "把它挪到指示的最下面。"
+        },
+        {
+          "text": "Add a note saying it is obsolete.",
+          "correct": false,
+          "explain": "不適。注記を足しても、規則自体は残って働く。",
+          "textZh": "加一句注明它已过时。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**过期的规则不是中性的**。它不会安静地待着，而是继续参与每一次产出。这和 D1 里「提示词只加不减」是同一个毛病，只是后果更大——因为 Project 指示影响的是所有人的所有工作。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-023",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "How often should a Project's configuration be reviewed?",
+      "stemZh": "一个 Project 的配置应该多久复查一次？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "On a set schedule and whenever the underlying work changes materially.",
+          "correct": true,
+          "explain": "正解。定期＋変化時。どちらか一方では取りこぼす。",
+          "textZh": "按固定周期复查，并且在底层工作发生实质变化时复查。"
+        },
+        {
+          "text": "Only when something goes wrong.",
+          "correct": false,
+          "explain": "不適。古い知識による誤りは、問題として表面化しにくい。",
+          "textZh": "只在出问题的时候。"
+        },
+        {
+          "text": "Never, once it is working.",
+          "correct": false,
+          "explain": "不適。業務も資料も変わっていく。",
+          "textZh": "一旦能用就永远不用复查。"
+        },
+        {
+          "text": "Every day, regardless of changes.",
+          "correct": false,
+          "explain": "不適。負担が大きく、続かない。",
+          "textZh": "每天都查，不管有没有变化。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**两个触发条件缺一不可**。只按周期查，中间的重大变化会被漏掉；只在变化时查，没人注意到的缓慢腐坏（文件过期、人员调动）就会一直积累。而「出问题才查」的问题在于——**这类错误通常不会表现为明显的故障**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-024",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO questions help decide whether to create a new Project or use an existing one? (Select 2)",
+      "stemZh": "下面哪两个问题有助于判断该新建一个 Project 还是用现有的？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Do the same people need access?",
+          "correct": true,
+          "explain": "正解。見える範囲が違うなら分ける。",
+          "textZh": "是不是同一批人需要访问权限？"
+        },
+        {
+          "text": "Should the same instructions apply to both kinds of work?",
+          "correct": true,
+          "explain": "正解。指示が衝突するなら分ける。",
+          "textZh": "同一套指示应该同时适用于这两类工作吗？"
+        },
+        {
+          "text": "Is there room for more files?",
+          "correct": false,
+          "explain": "不適。容量は判断基準ではない。",
+          "textZh": "还有空间放更多文件吗？"
+        },
+        {
+          "text": "Would a new Project look tidier?",
+          "correct": false,
+          "explain": "不適。見た目の整理は、権限や指示の衝突という分割の本来の判断基準とは関係が無い。",
+          "textZh": "新建一个看起来会不会更整齐？"
+        },
+        {
+          "text": "Has the existing Project been used recently?",
+          "correct": false,
+          "explain": "不適。利用頻度は分割の理由にならない。",
+          "textZh": "现有的 Project 最近有没有被使用？"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**分 Project 的两条判断线**：**权限**和**指示**。这两样任何一个不一致，就该分开。容量和整洁度都不是理由——不必要的分割反而会制造知识重复和更新遗漏。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-025",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An associate uploads a spreadsheet to a Project and later realizes it contains a hidden tab with salary data. What should they do?",
+      "stemZh": "某位担当把一份电子表格上传到 Project，后来发现里面有一个隐藏的工作表含有薪资数据。应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Remove the file immediately, report it, and re-upload a version with the sensitive tab removed.",
+          "correct": true,
+          "explain": "正解。削除・報告・差し替えの3つ。報告を省かない。",
+          "textZh": "立刻删除该文件，上报，然后重新上传一个去掉敏感工作表的版本。"
+        },
+        {
+          "text": "Leave it, since the tab is hidden and unlikely to be seen.",
+          "correct": false,
+          "explain": "不適。隠しタブでも内容は扱われる。",
+          "textZh": "保持原样，反正那个工作表是隐藏的，不太可能被看到。"
+        },
+        {
+          "text": "Add an instruction telling Claude not to use that tab.",
+          "correct": false,
+          "explain": "不適。指示は、機微情報を置いた事実を変えない。",
+          "textZh": "加一条指示，让 Claude 不要使用那个工作表。"
+        },
+        {
+          "text": "Remove it quietly without telling anyone.",
+          "correct": false,
+          "explain": "不適。期間中に誰が見たかの把握ができない。",
+          "textZh": "悄悄删掉，不告诉任何人。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**上传前没发现的敏感内容**。三个动作缺一不可，而**上报**最容易被省略——但只有上报了，才能确认这段时间里有没有人看到、需不需要进一步处理。「隐藏的工作表」在数据处理上和普通工作表没有区别。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-026",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "Which instruction is most likely to produce consistent results across different users?",
+      "stemZh": "哪条指示最可能在不同用户之间产出一致的结果？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Every output must begin with a one-sentence summary of the recommendation.\"",
+          "correct": true,
+          "explain": "正解。守れたか一目で判定できる。解釈の余地が無い。",
+          "textZh": "「每份产出都必须以一句话的建议摘要开头。」"
+        },
+        {
+          "text": "\"Make the output easy to read.\"",
+          "correct": false,
+          "explain": "不適。読みやすさの基準は人によって違う。",
+          "textZh": "「让产出易于阅读。」"
+        },
+        {
+          "text": "\"Write in a way the team will like.\"",
+          "correct": false,
+          "explain": "不適。判定できる条件になっていない。",
+          "textZh": "「用团队会喜欢的方式来写。」"
+        },
+        {
+          "text": "\"Be helpful and thorough.\"",
+          "correct": false,
+          "explain": "不適。何をすればよいかが決まっていない。",
+          "textZh": "「要有帮助、要详尽。」"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**可判定的指示才能产生一致性**。检验方法很简单：**看一眼就能说出「做到了/没做到」的，才是有效的指示**。「易读」「团队喜欢」「详尽」都做不到这一点。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-027",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO should be done when a knowledge document is replaced with a new version? (Select 2)",
+      "stemZh": "当知识库里的一份文档被新版本替换时，应该做哪两件事？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Remove the old version rather than leaving both.",
+          "correct": true,
+          "explain": "正解。両方残すと、どちらが使われたか分からない。",
+          "textZh": "删掉旧版本，而不是两个都留着。"
+        },
+        {
+          "text": "Record the date of the replacement.",
+          "correct": true,
+          "explain": "正解。次の見直し時期の判断材料になる。",
+          "textZh": "记录下替换的日期。"
+        },
+        {
+          "text": "Notify everyone in the company.",
+          "correct": false,
+          "explain": "不適。範囲が広すぎる。関係者に知らせれば足りる。",
+          "textZh": "通知公司里的所有人。"
+        },
+        {
+          "text": "Rename the Project.",
+          "correct": false,
+          "explain": "不適。資料の更新と名称は無関係。",
+          "textZh": "给这个 Project 改名。"
+        },
+        {
+          "text": "Archive the conversation history.",
+          "correct": false,
+          "explain": "不適。過去の会話を消す必要は無い。",
+          "textZh": "归档对话历史。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**替换文件的两个动作**：**删旧**（否则新旧并存，无法分辨答案用了哪份）和**记日期**（下次复查时才知道这份资料多久没确认过了）。两件小事，但正是知识库能不能长期维持的关键。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-028",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A Project was set up for a three-month initiative that has now ended. What should happen to it?",
+      "stemZh": "一个 Project 是为一项已经结束的三个月计划建立的。它该怎么处理？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Decide explicitly whether to close it or repurpose it, rather than leaving it to be found and reused accidentally.",
+          "correct": true,
+          "explain": "正解。放置すると、古い前提のまま誰かに使われる。明示的に決める。",
+          "textZh": "明确决定是关闭它还是改作他用，而不是放着不管、等着被人偶然发现并重新使用。"
+        },
+        {
+          "text": "Leave it as is; unused Projects do no harm.",
+          "correct": false,
+          "explain": "不適。古い指示と知識が生きたまま残る。",
+          "textZh": "保持原样；没人用的 Project 没有害处。"
+        },
+        {
+          "text": "Delete all conversations but keep the configuration.",
+          "correct": false,
+          "explain": "不適。会話を消しても、古い設定が残る点は同じ。",
+          "textZh": "删掉所有对话但保留配置。"
+        },
+        {
+          "text": "Rename it to indicate the project ended.",
+          "correct": false,
+          "explain": "不適。名称だけでは使われるのを防げない。",
+          "textZh": "改个名字表明项目已结束。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**用完的配置要明确处置**。放着不管的危险在于：几个月后有人发现它「正好合适」，于是在**过期的指示和知识**上开始工作，而且不知道这些内容已经不再适用。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-029",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "What is the main advantage of a connector over uploading a copy of a file?",
+      "stemZh": "连接器相对于上传文件副本，主要优势是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The work always references the current version, so copies cannot silently go stale.",
+          "correct": true,
+          "explain": "正解。陳腐化の問題を構造的に解決する。",
+          "textZh": "工作总是引用当前版本，副本不会悄悄过期。"
+        },
+        {
+          "text": "Connectors are always faster.",
+          "correct": false,
+          "explain": "不適。速度が主要な利点ではない。",
+          "textZh": "连接器总是更快。"
+        },
+        {
+          "text": "Connectors require no permissions.",
+          "correct": false,
+          "explain": "不適。むしろ権限の確認が重要になる。",
+          "textZh": "连接器不需要任何权限。"
+        },
+        {
+          "text": "Connectors can read files nobody has access to.",
+          "correct": false,
+          "explain": "不適。事実に反し、そうあってはならない。",
+          "textZh": "连接器能读取没有人有权访问的文件。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**连接器解决的核心问题是「过期」**。上传副本的那一刻，它就和源文件分岔了。连接器把这个问题从「需要有人记得去更新」变成「结构上不会发生」——代价是要认真处理权限。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-030",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO make instructions easier to maintain over time? (Select 2)",
+      "stemZh": "下面哪两点能让指示更容易长期维护？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Grouping related rules so a change touches one place.",
+          "correct": true,
+          "explain": "正解。変更の影響範囲が分かる。",
+          "textZh": "把相关的规则归在一起，这样一次改动只触及一个地方。"
+        },
+        {
+          "text": "Keeping the number of rules to what is actually needed.",
+          "correct": true,
+          "explain": "正解。少ないほど矛盾も起きにくい。",
+          "textZh": "把规则的数量控制在真正需要的范围内。"
+        },
+        {
+          "text": "Adding a rule for every problem ever encountered.",
+          "correct": false,
+          "explain": "不適。積み上がって矛盾する。典型的な失敗。",
+          "textZh": "为遇到过的每一个问题都加一条规则。"
+        },
+        {
+          "text": "Writing the rules in a single long paragraph.",
+          "correct": false,
+          "explain": "不適。どこを直せばよいか分からなくなる。",
+          "textZh": "把所有规则写成一个长段落。"
+        },
+        {
+          "text": "Using different wording for similar rules to avoid repetition.",
+          "correct": false,
+          "explain": "不適。似た規則が別物に見え、矛盾に気づきにくい。",
+          "textZh": "对相似的规则用不同的措辞以避免重复。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**指示的可维护性**。两条：**分组**（改的时候知道动哪里）和**克制**（规则越少越不容易互相冲突）。第三个干扰项是最常见的演化路径——每次出问题就加一条，最后没人敢动它。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-031",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "Six months after setup, outputs from a Project have gradually drifted from what the team wants. Nobody changed anything. What is the likely explanation?",
+      "stemZh": "建立六个月后，一个 Project 的产出逐渐偏离了团队想要的样子，而且没有人改过任何设置。可能的解释是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The work changed while the configuration stayed the same, so the rules now fit the old situation.",
+          "correct": true,
+          "explain": "正解。設定は変わっていなくても、業務が変わればずれる。",
+          "textZh": "工作变了而配置没变，所以这些规则现在匹配的是旧的情况。"
+        },
+        {
+          "text": "Configurations degrade over time on their own.",
+          "correct": false,
+          "explain": "不適。そのような劣化の仕組みは無い。",
+          "textZh": "配置会自行随时间劣化。"
+        },
+        {
+          "text": "Someone must have changed it secretly.",
+          "correct": false,
+          "explain": "不適。まず業務側の変化を疑うほうが実際的。",
+          "textZh": "一定有人偷偷改过。"
+        },
+        {
+          "text": "Six months is the maximum lifetime of a Project.",
+          "correct": false,
+          "explain": "不適。そのような制限は無い。",
+          "textZh": "六个月是一个 Project 的最长寿命。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**配置不动，世界在动**。团队的工作内容、客户、产品都在变，而六个月前写的规则还在按当时的情况执行。这就是为什么配置需要**定期复查**——不是因为它坏了，而是因为它周围的东西变了。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-032",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "An associate is asked to document a Project's configuration for handover. What matters most?",
+      "stemZh": "某位担当被要求为交接而记录一个 Project 的配置。最重要的是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Why each rule and knowledge file is there, so the successor can judge what to keep.",
+          "correct": true,
+          "explain": "正解。理由が分かれば、後任が取捨選択できる。",
+          "textZh": "每条规则和每份知识文件为什么在那里，好让接手的人判断哪些该保留。"
+        },
+        {
+          "text": "A screenshot of the settings screen.",
+          "correct": false,
+          "explain": "不適。現状は見れば分かる。理由が伝わらない。",
+          "textZh": "一张设置界面的截图。"
+        },
+        {
+          "text": "The number of files and rules.",
+          "correct": false,
+          "explain": "不適。件数は引き継ぎに役立たない。",
+          "textZh": "文件和规则的数量。"
+        },
+        {
+          "text": "The date the Project was created.",
+          "correct": false,
+          "explain": "不適。作成日だけでは判断材料にならない。",
+          "textZh": "这个 Project 的创建日期。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**交接要交的是「为什么」**。现在的设置是什么，接手的人自己能看到；他看不到的是**每条规则当初是为了解决什么问题**——而这恰恰决定了哪些该留、哪些已经可以删了。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-033",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A Project's instructions tell Claude to always ask a clarifying question before starting. Users find this slows simple tasks. What is the fix?",
+      "stemZh": "一个 Project 的指示要求 Claude 在开始前总是先问一个澄清性问题。用户觉得这让简单任务变慢了。怎么修？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Make the rule conditional — ask only when a named piece of information is missing.",
+          "correct": true,
+          "explain": "正解。無条件の規則を条件つきに直す。必要な場面だけ働く。",
+          "textZh": "把这条规则改成有条件的——只在某项指定的信息缺失时才问。"
+        },
+        {
+          "text": "Remove the rule entirely.",
+          "correct": false,
+          "explain": "不適。情報不足のまま進む事故が戻ってくる。",
+          "textZh": "完全删掉这条规则。"
+        },
+        {
+          "text": "Tell users to ignore the question.",
+          "correct": false,
+          "explain": "不適。規則が形骸化し、必要なときも無視される。",
+          "textZh": "让用户忽略那个问题。"
+        },
+        {
+          "text": "Create a second Project without the rule.",
+          "correct": false,
+          "explain": "不適。知識と指示が二重になり、保守が増える。",
+          "textZh": "另建一个没有这条规则的 Project。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**把无条件的规则改成有条件的**。「总是问」和「从不问」都不对，正确的形式是**指明触发条件**。第三个干扰项尤其危险：一旦教用户忽略某条规则，它在真正需要的时候也会被忽略。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-034",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "A connector stops returning results. What should be checked first?",
+      "stemZh": "一个连接器不再返回结果了。首先该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the access it relies on still exists — permissions and sharing change without notice.",
+          "correct": true,
+          "explain": "正解。権限の変更は通知なしに起きる。まずそこを見る。",
+          "textZh": "它所依赖的访问权是否还存在——权限和共享设置会在无通知的情况下改变。"
+        },
+        {
+          "text": "Whether the Project has too many files.",
+          "correct": false,
+          "explain": "不適。件数は接続の可否と関係が無い。",
+          "textZh": "这个 Project 是不是文件太多了。"
+        },
+        {
+          "text": "Whether the instructions are too long.",
+          "correct": false,
+          "explain": "不適。指示の長さは接続の動作とは別。",
+          "textZh": "指示是不是太长了。"
+        },
+        {
+          "text": "Whether a different model should be used.",
+          "correct": false,
+          "explain": "不適。モデルは接続の成否に関係しない。",
+          "textZh": "是不是该换个模型。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**连接器最常见的故障原因是权限变了**。有人调整了文件夹的共享设置、某个账号被停用、部门重组——这些都不会通知你，但会让连接安静地失效。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-035",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO belong in a routine check of a Project? (Select 2)",
+      "stemZh": "在对一个 Project 的例行检查里，应该包含哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Whether each knowledge file is still the current version.",
+          "correct": true,
+          "explain": "正解。鮮度の確認。最も事故につながりやすい。",
+          "textZh": "每份知识文件是否仍然是当前版本。"
+        },
+        {
+          "text": "Whether each instruction still reflects how the work is done.",
+          "correct": true,
+          "explain": "正解。業務の変化に追随しているか。",
+          "textZh": "每条指示是否仍然符合现在的工作方式。"
+        },
+        {
+          "text": "How many conversations took place.",
+          "correct": false,
+          "explain": "不適。利用状況は設定の妥当性を示さない。",
+          "textZh": "发生了多少段对话。"
+        },
+        {
+          "text": "Whether the Project icon is appropriate.",
+          "correct": false,
+          "explain": "不適。アイコンの見た目は、知識の鮮度にも指示の妥当性にも関係しない。",
+          "textZh": "这个 Project 的图标是否合适。"
+        },
+        {
+          "text": "Which model was used most.",
+          "correct": false,
+          "explain": "不適。集計としては有用でも、設定の点検項目ではない。",
+          "textZh": "哪个模型用得最多。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**例行检查的两项核心**：**知识的鲜度**和**指示与现实的吻合度**。这两样是会随时间腐坏的东西，而且腐坏时没有任何提示——其余的统计数据都不承担这个功能。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-036",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An associate wants to test a change to Project instructions without affecting the team's work. How?",
+      "stemZh": "某位担当想测试一处 Project 指示的改动，又不想影响团队的工作。怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Try the change as part of individual prompts first, and move it into the instructions once it works.",
+          "correct": true,
+          "explain": "正解。個別のプロンプトで検証してから設定に上げる。影響範囲を制御できる。",
+          "textZh": "先把这个改动作为单次提示词的一部分来试，确认有效之后再挪进指示。"
+        },
+        {
+          "text": "Change the instructions and watch for complaints.",
+          "correct": false,
+          "explain": "不適。全員の出力が変わる。影響が読めない。",
+          "textZh": "改掉指示，然后看有没有人抱怨。"
+        },
+        {
+          "text": "Ask everyone to stop working during the test.",
+          "correct": false,
+          "explain": "不適。負担が大きく、現実的でない。",
+          "textZh": "让所有人在测试期间停止工作。"
+        },
+        {
+          "text": "Make the change at night when nobody is working.",
+          "correct": false,
+          "explain": "不適。時間帯を変えても、翌朝から全員に効く。",
+          "textZh": "在晚上没人工作的时候改。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**先在小范围验证，再推到设置**。提示词的影响只限于这一次对话，设置的影响是所有人。这个顺序和软件里「先在分支上试」是同一个道理。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-037",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "Which is the better way to express a formatting requirement in instructions?",
+      "stemZh": "在指示里表达格式要求，哪种写法更好？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Show the exact structure expected, with a short example.",
+          "correct": true,
+          "explain": "正解。形式は例示が最も確実。解釈の幅が消える。",
+          "textZh": "展示期望的确切结构，附一个简短的例子。"
+        },
+        {
+          "text": "Describe the structure in prose.",
+          "correct": false,
+          "explain": "不適。文章による説明は解釈の幅が残る。",
+          "textZh": "用散文描述这个结构。"
+        },
+        {
+          "text": "Say \"use good formatting\".",
+          "correct": false,
+          "explain": "不適。判定できる条件になっていない。",
+          "textZh": "说「使用好的排版」。"
+        },
+        {
+          "text": "List formats to avoid without saying what to use.",
+          "correct": false,
+          "explain": "不適。避けるものだけでは、何を出せばよいか決まらない。",
+          "textZh": "列出要避免的格式，但不说该用什么。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**格式用示范，不用描述**。这条在 D1（语气用例子）里出现过，在配置层面同样适用：一段三行的样例，胜过一段描述结构的文字，而且不会有理解偏差。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-038",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO reduce the risk of sensitive data ending up in a knowledge base? (Select 2)",
+      "stemZh": "下面哪两点能降低敏感数据进入知识库的风险？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Checking each file's full contents before uploading, including hidden sheets and comments.",
+          "correct": true,
+          "explain": "正解。見えていない部分にこそ機微情報が残る。",
+          "textZh": "上传前检查每份文件的完整内容，包括隐藏的工作表和批注。"
+        },
+        {
+          "text": "Agreeing in advance which categories of document may be added.",
+          "correct": true,
+          "explain": "正解。判断を事前に決めておく。個別の迷いを減らす。",
+          "textZh": "事先约定哪几类文档可以被加入。"
+        },
+        {
+          "text": "Uploading files only on weekdays.",
+          "correct": false,
+          "explain": "不適。曜日は取り扱いの可否と無関係。",
+          "textZh": "只在工作日上传文件。"
+        },
+        {
+          "text": "Keeping the number of files low.",
+          "correct": false,
+          "explain": "不適。件数を減らしても、混入は起こりうる。",
+          "textZh": "控制文件数量。"
+        },
+        {
+          "text": "Renaming files before uploading.",
+          "correct": false,
+          "explain": "不適。名称を変えても中身は変わらない。",
+          "textZh": "上传前给文件改名。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**防止敏感数据混入的两道关**：**逐件检查完整内容**（隐藏工作表、批注、修订记录是重灾区）和**事先定好类别**（把每次的个案判断变成一次性的规则）。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-039",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A shared Project works well but only one person knows how it is configured. What is the risk?",
+      "stemZh": "一个共享 Project 运转良好，但只有一个人知道它是怎么配置的。风险是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "If that person is unavailable, nobody can safely change or fix it, and the team's work depends on it.",
+          "correct": true,
+          "explain": "正解。単一障害点。業務が止まるか、誰かが分からないまま触る。",
+          "textZh": "如果那个人不在，没人能安全地修改或修复它，而团队的工作依赖于它。"
+        },
+        {
+          "text": "The configuration will expire.",
+          "correct": false,
+          "explain": "不適。そのような仕組みは無い。",
+          "textZh": "这个配置会过期。"
+        },
+        {
+          "text": "Other people cannot use the Project.",
+          "correct": false,
+          "explain": "不適。使うことはできる。問題は保守できないこと。",
+          "textZh": "其他人无法使用这个 Project。"
+        },
+        {
+          "text": "The Project will become slower.",
+          "correct": false,
+          "explain": "不適。速度の問題ではない。",
+          "textZh": "这个 Project 会变慢。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**配置的单点依赖**。能用和能维护是两回事——团队每天在用，但没人知道为什么这样配、改哪里安全。这就是前面那道「记录为什么」的题目要解决的问题。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-040",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "What is the most useful first step when setting up a new Project?",
+      "stemZh": "建立一个新 Project 时，最有用的第一步是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Decide who will use it and what work it covers, since both determine the instructions and the knowledge.",
+          "correct": true,
+          "explain": "正解。利用者と対象業務が決まれば、指示も知識も決まる。",
+          "textZh": "确定谁会使用它、它覆盖什么工作——这两点决定了指示和知识。"
+        },
+        {
+          "text": "Upload as many relevant documents as possible.",
+          "correct": false,
+          "explain": "不適。範囲が決まる前に資料を集めている。",
+          "textZh": "上传尽可能多的相关文档。"
+        },
+        {
+          "text": "Write detailed instructions covering every case.",
+          "correct": false,
+          "explain": "不適。使う場面が定まる前の網羅は、後で矛盾を生む。",
+          "textZh": "写详尽的指示覆盖所有情况。"
+        },
+        {
+          "text": "Choose which model it will use.",
+          "correct": false,
+          "explain": "不適。モデルの選択は用途が決まってから。",
+          "textZh": "选择它将使用哪个模型。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**先定范围**。使用者决定权限边界（因此决定什么资料能放），覆盖的工作决定指示的内容。这两件事没定就先堆文档、先写规则，做出来的东西后面多半要推倒。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-041",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO are signs that instructions are doing their job? (Select 2)",
+      "stemZh": "下面哪两点说明指示正在发挥作用？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Different people get comparably structured results from similar requests.",
+          "correct": true,
+          "explain": "正解。一貫性が出ている。共通の指示の効果。",
+          "textZh": "不同的人对相似的请求得到结构可比的结果。"
+        },
+        {
+          "text": "People no longer restate the same constraints in every prompt.",
+          "correct": true,
+          "explain": "正解。重複が消えた。設定に移せた証拠。",
+          "textZh": "人们不再在每个提示词里重述同样的约束条件。"
+        },
+        {
+          "text": "Outputs have become longer.",
+          "correct": false,
+          "explain": "不適。長さは指示の効果の指標ではない。",
+          "textZh": "产出变长了。"
+        },
+        {
+          "text": "The Project has more files than before.",
+          "correct": false,
+          "explain": "不適。資料の増加は指示の働きとは無関係。",
+          "textZh": "这个 Project 的文件比以前多了。"
+        },
+        {
+          "text": "Fewer people use the Project.",
+          "correct": false,
+          "explain": "不適。利用者が減ることは成果ではない。",
+          "textZh": "用这个 Project 的人变少了。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**怎么知道指示起作用了**。两个可观察的现象：**结果趋于一致**，和**人们不再重复写同样的条件**。第二条特别实用——如果大家还在每次手打同样的要求，说明该进设置的东西还没进去。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-042",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A team member asks to connect their personal cloud storage to a shared Project. How should the associate respond?",
+      "stemZh": "一位团队成员要求把自己的个人云存储连接到共享 Project。这位担当应该如何回应？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Decline — a shared Project would expose personal content to everyone with access, and personal storage sits outside company control.",
+          "correct": true,
+          "explain": "正解。共有範囲と管理の両面で不適切。理由を示して断る。",
+          "textZh": "拒绝——共享的 Project 会把个人内容暴露给所有有权限的人，而且个人存储不在公司的管理范围内。"
+        },
+        {
+          "text": "Allow it if the person says the content is work-related.",
+          "correct": false,
+          "explain": "不適。本人の申告では共有範囲も管理もカバーできない。",
+          "textZh": "如果本人说内容都与工作相关就允许。"
+        },
+        {
+          "text": "Allow it but ask them to remove personal files first.",
+          "correct": false,
+          "explain": "不適。後から追加される分を止められない。",
+          "textZh": "允许，但请他们先删掉个人文件。"
+        },
+        {
+          "text": "Allow it temporarily for a trial.",
+          "correct": false,
+          "explain": "不適。試用でも同じ露出が起きる。",
+          "textZh": "先临时允许试用一下。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**个人存储不该接入共享空间**。两个独立的理由：**共享范围**（个人内容对全体可见）和**管理边界**（不在公司的保管和留存规则之内）。第三个干扰项漏掉的是——今天清干净了，明天新增的文件照样会进来。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-043",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "What is the most practical way to keep a knowledge base current without a large maintenance burden?",
+      "stemZh": "在不增加太多维护负担的前提下，让知识库保持最新，最实际的办法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep only documents that genuinely need to be there, and assign each one an owner.",
+          "correct": true,
+          "explain": "正解。対象を絞り、責任者を決める。少数なら維持できる。",
+          "textZh": "只保留真正需要在那里的文档，并为每一份指定一个负责人。"
+        },
+        {
+          "text": "Upload everything and review it once a year.",
+          "correct": false,
+          "explain": "不適。量が多いほど年1回では追いつかない。",
+          "textZh": "把所有东西都上传，一年复查一次。"
+        },
+        {
+          "text": "Let anyone update anything at any time.",
+          "correct": false,
+          "explain": "不適。誰も責任を持たない状態になる。",
+          "textZh": "让任何人随时可以更新任何内容。"
+        },
+        {
+          "text": "Avoid using knowledge files at all.",
+          "correct": false,
+          "explain": "不適。機能を使わないのは解決ではない。",
+          "textZh": "干脆完全不用知识文件。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**维护负担取决于规模**。想让维护可持续，就要在**放进去的时候克制**——每多一份文件，就多一份需要有人定期确认的东西。配上明确的负责人，这件事才不会变成没人做的杂活。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-044",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO belong in the instructions of a Project used for customer-facing writing? (Select 2)",
+      "stemZh": "在一个用于撰写对外内容的 Project 里，指示中应该包含哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What the company may and may not commit to in writing.",
+          "correct": true,
+          "explain": "正解。約束の境界。対外文書で最も事故が起きやすい点。",
+          "textZh": "公司在书面上可以承诺什么、不可以承诺什么。"
+        },
+        {
+          "text": "The approved terminology for products and features.",
+          "correct": true,
+          "explain": "正解。呼称の統一。対外では特に重要。",
+          "textZh": "产品和功能的规范称呼。"
+        },
+        {
+          "text": "The associate's personal preferences on sentence length.",
+          "correct": false,
+          "explain": "不適。個人の好みは共有の指示にそぐわない。",
+          "textZh": "担当个人对句子长度的偏好。"
+        },
+        {
+          "text": "A list of competitors to criticize.",
+          "correct": false,
+          "explain": "不適。対外文書で他社を貶めるのは不適切。",
+          "textZh": "一份要批评的竞争对手名单。"
+        },
+        {
+          "text": "The names of everyone on the team.",
+          "correct": false,
+          "explain": "不適。出力の品質に関係しない。",
+          "textZh": "团队所有人的名字。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**对外写作的两条底线**：**承诺的边界**（写出去就是承诺，这是最容易出事的地方）和**规范称呼**（对外表述不一致会直接损害可信度）。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-045",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "Instructions require citing the source for every factual claim, but the work often involves internal knowledge with no formal source. What should change?",
+      "stemZh": "指示要求每条事实性陈述都注明来源，但这项工作常常涉及没有正式出处的内部知识。应该改什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Adjust the rule to fit reality — require a source where one exists and require the claim to be marked as internal knowledge otherwise.",
+          "correct": true,
+          "explain": "正解。守れない規則は守られなくなる。実態に合う形に直す。",
+          "textZh": "把规则调整到符合现实——有来源的要求注明，没有的则要求标注为内部知识。"
+        },
+        {
+          "text": "Keep the rule and accept that it is often broken.",
+          "correct": false,
+          "explain": "不適。破られる規則は、必要な場面でも守られなくなる。",
+          "textZh": "保留这条规则，接受它经常被违反。"
+        },
+        {
+          "text": "Remove the requirement entirely.",
+          "correct": false,
+          "explain": "不適。出典が取れる場面の担保まで失う。",
+          "textZh": "完全删掉这条要求。"
+        },
+        {
+          "text": "Require every claim to have an external source, even if invented.",
+          "correct": false,
+          "explain": "不適。捏造を促す最悪の指示。",
+          "textZh": "要求每条陈述都有外部来源，哪怕是编的。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**做不到的规则会连带毁掉能做到的部分**。当一条规则经常必须被违反，人们就学会了忽略它——包括在它本该生效的场合。正确的做法是**把规则改成现实中可执行的形式**。最后一个干扰项则是直接制造幻觉。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-046",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "An associate notices a connector can reach a folder that was recently shared more widely. What is the right action?",
+      "stemZh": "某位担当注意到一个连接器能触及一个最近被更大范围共享的文件夹。正确的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Raise it, since the Project's exposure just grew without anyone deciding it should.",
+          "correct": true,
+          "explain": "正解。誰も判断していないのに露出が広がっている。放置しない。",
+          "textZh": "提出来——这个 Project 的暴露面刚刚扩大了，而没有任何人做过这个决定。"
+        },
+        {
+          "text": "Do nothing, since the sharing change was made by someone else.",
+          "correct": false,
+          "explain": "不適。他人の変更でも、影響はこちらに及ぶ。",
+          "textZh": "什么都不做，因为共享设置是别人改的。"
+        },
+        {
+          "text": "Remove the connector without telling anyone.",
+          "correct": false,
+          "explain": "不適。業務が止まり、原因も共有されない。",
+          "textZh": "不告诉任何人就删掉这个连接器。"
+        },
+        {
+          "text": "Wait to see if anyone complains.",
+          "correct": false,
+          "explain": "不適。露出の拡大は苦情として現れない。",
+          "textZh": "等等看有没有人抱怨。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**权限的变化是从外部传进来的**。别人改了共享设置，你的 Project 暴露面就跟着变大了，而这个变化没有经过任何审批。最后一个干扰项点出了关键：**这类问题不会以抱怨的形式浮现**。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-047",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An associate sets up a Project and immediately uploads 60 documents \"so everything is available.\" What is the likely result?",
+      "stemZh": "某位担当建好 Project 后立刻上传了60份文档，「这样什么都有了」。可能的结果是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Relevant material competes with irrelevant material, and nobody can keep 60 files current.",
+          "correct": true,
+          "explain": "正解。精度と保守の両面で悪化する。必要な資料に絞る。",
+          "textZh": "相关材料要和无关材料竞争，而且没人能让60份文件都保持最新。"
+        },
+        {
+          "text": "Accuracy improves with more reference material.",
+          "correct": false,
+          "explain": "不適。関係の無い資料は判断を濁らせる。",
+          "textZh": "参考资料越多，准确率越高。"
+        },
+        {
+          "text": "The Project becomes easier to hand over.",
+          "correct": false,
+          "explain": "不適。理由の分からない資料が増え、引き継ぎは難しくなる。",
+          "textZh": "这个 Project 变得更容易交接。"
+        },
+        {
+          "text": "Only the most recent files will be used.",
+          "correct": false,
+          "explain": "不適。そのように動く保証は無い。",
+          "textZh": "只有最新的那些文件会被使用。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**知识库不是越多越好**。两个代价同时发生：**精度**（无关材料稀释相关材料，和「全部贴进去」同理）和**维护**（60份文件没人能定期确认，很快就会有一半过期）。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-048",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "Which change to a Project most warrants telling its users?",
+      "stemZh": "对一个 Project 的哪种改动最值得告知它的使用者？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Anything that changes what the outputs will look like or contain.",
+          "correct": true,
+          "explain": "正解。出力が変われば、利用者の作業も変わる。",
+          "textZh": "任何会改变产出外观或内容的改动。"
+        },
+        {
+          "text": "Renaming the Project.",
+          "correct": false,
+          "explain": "不適。呼称の変更は出力に影響しない。",
+          "textZh": "给 Project 改名。"
+        },
+        {
+          "text": "Changing the Project's icon.",
+          "correct": false,
+          "explain": "不適。アイコンの変更は見た目だけで、出力の内容も形式も変わらない。",
+          "textZh": "更改 Project 的图标。"
+        },
+        {
+          "text": "Reordering the knowledge files.",
+          "correct": false,
+          "explain": "不適。並び順は出力の内容を変えない。",
+          "textZh": "重新排列知识文件的顺序。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**告知的判断标准是「产出会不会变」**。使用者关心的不是配置本身，而是他们明天拿到的东西会不会不一样。名称、图标、排序都不影响这一点。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-049",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO should instructions avoid? (Select 2)",
+      "stemZh": "指示里应该避免哪两样？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Rules that contradict each other.",
+          "correct": true,
+          "explain": "正解。どちらかが必ず破られ、結果が読めなくなる。",
+          "textZh": "互相矛盾的规则。"
+        },
+        {
+          "text": "Requirements that nobody can verify were met.",
+          "correct": true,
+          "explain": "正解。守られたか判定できない条件は、機能しない。",
+          "textZh": "无法验证是否被满足的要求。"
+        },
+        {
+          "text": "Concrete examples of the desired output.",
+          "correct": false,
+          "explain": "不適。例示は最も有効な要素の一つ。",
+          "textZh": "期望产出的具体范例。"
+        },
+        {
+          "text": "Statements of what to do when information is missing.",
+          "correct": false,
+          "explain": "不適。例外時の指示は必要。",
+          "textZh": "关于信息缺失时该怎么做的说明。"
+        },
+        {
+          "text": "A specified output structure.",
+          "correct": false,
+          "explain": "不適。構造の指定は有効。",
+          "textZh": "指定的产出结构。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**指示里的两种失效内容**：**互相矛盾的规则**（必有一条被破坏，而且你不知道是哪条）和**无法验证的要求**（写了等于没写）。这道题把 D5 的几条原则反过来问了一遍。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-050",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A knowledge document is itself generated by Claude and was never verified. It is now being used as a source. What is the concern?",
+      "stemZh": "知识库里的一份文档本身是 Claude 生成的、而且从未被核实过，现在它正被当作来源使用。问题是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Unverified content is now being treated as a reference, so any error in it will be repeated as established fact.",
+          "correct": true,
+          "explain": "正解。未検証の生成物が根拠になっている。誤りが定着して増幅する。",
+          "textZh": "未经核实的内容现在被当作参考资料，其中任何错误都会被当作既定事实反复重现。"
+        },
+        {
+          "text": "No concern, since it was produced from the same sources.",
+          "correct": false,
+          "explain": "不適。検証していない以上、同じとは言えない。",
+          "textZh": "没问题，反正它是从同样的来源生成的。"
+        },
+        {
+          "text": "No concern as long as it is clearly written.",
+          "correct": false,
+          "explain": "不適。読みやすさは正しさとは無関係。",
+          "textZh": "只要写得清楚就没问题。"
+        },
+        {
+          "text": "Only a concern if it is long.",
+          "correct": false,
+          "explain": "不適。長さは検証の要否とは無関係。",
+          "textZh": "只有当它很长的时候才是问题。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**未经核实的生成物不能当资料**。一旦它进了知识库，它的错误就从「这一次的产出」变成了「每一次产出的依据」——而且后续所有答案都会互相印证，看起来更可信。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-051",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "Two Projects have accumulated nearly identical instructions. What does this suggest?",
+      "stemZh": "两个 Project 积累了几乎完全相同的指示。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "They may be one Project, or the shared rules should be maintained in one place and kept in sync deliberately.",
+          "correct": true,
+          "explain": "正解。重複は保守の負担。統合するか、同期の責任を決める。",
+          "textZh": "它们可能本该是一个 Project；或者共享的规则应该在一个地方维护并有意识地保持同步。"
+        },
+        {
+          "text": "Nothing; duplication is harmless.",
+          "correct": false,
+          "explain": "不適。片方だけ更新され、ずれていく。",
+          "textZh": "没什么；重复是无害的。"
+        },
+        {
+          "text": "One of them should be deleted immediately.",
+          "correct": false,
+          "explain": "不適。分かれている理由を確かめる前に消している。",
+          "textZh": "应该立刻删掉其中一个。"
+        },
+        {
+          "text": "The instructions must be too general.",
+          "correct": false,
+          "explain": "不適。一般的かどうかとは別の問題。",
+          "textZh": "这些指示一定太笼统了。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**重复的配置一定会分叉**。今天一样，下个月有人只改了其中一个，两边就不一致了——而且没人会发现。要么合并，要么明确**谁负责让它们保持同步**。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-052",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO make a configuration change safer to roll back? (Select 2)",
+      "stemZh": "下面哪两点能让一次配置改动更容易回滚？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Recording what the setting was before the change.",
+          "correct": true,
+          "explain": "正解。戻す先が分からなければ戻せない。",
+          "textZh": "记录下改动之前这项设置是什么。"
+        },
+        {
+          "text": "Changing one thing at a time.",
+          "correct": true,
+          "explain": "正解。原因の切り分けと復旧が容易になる。",
+          "textZh": "一次只改一件事。"
+        },
+        {
+          "text": "Making changes late in the day.",
+          "correct": false,
+          "explain": "不適。時間帯は復旧のしやすさに影響しない。",
+          "textZh": "在一天快结束时做改动。"
+        },
+        {
+          "text": "Changing several settings together to save time.",
+          "correct": false,
+          "explain": "不適。どれが原因か分からなくなる。",
+          "textZh": "为了省时间一起改好几项设置。"
+        },
+        {
+          "text": "Deleting the old instructions immediately.",
+          "correct": false,
+          "explain": "不適。戻す手段を自分で消している。",
+          "textZh": "立刻删掉旧的指示。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**可回滚的两个条件**：**知道原来是什么**和**一次只改一处**。这两条在提示词迭代（D1）里也出现过，本质相同——**能不能把因果对应上，决定了出问题时能不能收拾**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-053",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An associate wants instructions that work for both quick questions and long documents. What approach fits?",
+      "stemZh": "某位担当希望指示既适用于快速提问，也适用于长文档。什么做法合适？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Write the rules that always apply, and make length-dependent rules explicitly conditional on the type of request.",
+          "correct": true,
+          "explain": "正解。常に効く部分と、条件つきの部分を分ける。",
+          "textZh": "写出永远适用的规则，并把与长度相关的规则明确地设为依请求类型而定。"
+        },
+        {
+          "text": "Write separate instructions for each and switch manually.",
+          "correct": false,
+          "explain": "不適。切り替え忘れが起きる。",
+          "textZh": "分别写两套指示，手工切换。"
+        },
+        {
+          "text": "Write rules for long documents only, since they are harder.",
+          "correct": false,
+          "explain": "不適。短い依頼で過剰な体裁が付く。",
+          "textZh": "只为长文档写规则，因为它们更难。"
+        },
+        {
+          "text": "Leave the instructions empty and specify everything per request.",
+          "correct": false,
+          "explain": "不適。共通部分まで毎回書くことになる。",
+          "textZh": "把指示留空，每次请求时全部指定。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**用条件把不同场景装进同一套指示**。写法是「若请求是 X，则…；若是 Y，则…」。这样既保留了共通规则的好处，又不会让简单的问题背上为长文档准备的格式包袱。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-054",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "What should be documented when a connector is set up?",
+      "stemZh": "在建立一个连接器时，应该记录什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "What it reaches, who approved it, and why that scope is needed.",
+          "correct": true,
+          "explain": "正解。範囲・承認者・理由。後から妥当性を検証できる。",
+          "textZh": "它能触及什么、谁批准的、为什么需要这个范围。"
+        },
+        {
+          "text": "How long the setup took.",
+          "correct": false,
+          "explain": "不適。作業時間は後の判断に使わない。",
+          "textZh": "设置花了多长时间。"
+        },
+        {
+          "text": "Which browser was used.",
+          "correct": false,
+          "explain": "不適。統制上の記録として意味が無い。",
+          "textZh": "使用的是哪个浏览器。"
+        },
+        {
+          "text": "How many files it can see.",
+          "correct": false,
+          "explain": "不適。件数だけでは範囲の妥当性は判断できない。",
+          "textZh": "它能看到多少个文件。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**连接器的记录三要素**：**范围、批准人、理由**。一年后复查时，这三样决定了你能不能判断「这个连接现在还该存在吗」——尤其是理由，它让继任者知道当初是为了解决什么。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-055",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO belong in a Project for recurring client reporting? (Select 2)",
+      "stemZh": "在一个用于定期客户报告的 Project 里，应该包含哪两样？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The agreed report structure the client expects.",
+          "correct": true,
+          "explain": "正解。毎回同じ形で出す必要がある。",
+          "textZh": "客户期望的、已经商定的报告结构。"
+        },
+        {
+          "text": "The current definitions of the metrics being reported.",
+          "correct": true,
+          "explain": "正解。指標の定義がぶれると、比較できなくなる。",
+          "textZh": "所报告指标的当前定义。"
+        },
+        {
+          "text": "Last quarter's finished report as the template to copy.",
+          "correct": false,
+          "explain": "不適。前回の数値ごと引きずる事故が起きる。",
+          "textZh": "上个季度做完的报告，作为复制用的模板。"
+        },
+        {
+          "text": "The client's payment history.",
+          "correct": false,
+          "explain": "不適。報告作成に不要な情報で、機微でもある。",
+          "textZh": "客户的付款记录。"
+        },
+        {
+          "text": "Notes about the client relationship.",
+          "correct": false,
+          "explain": "不適。報告の作成には使わない。機微な記述も混ざる。",
+          "textZh": "关于客户关系的笔记。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**定期报告需要的两样**：**结构**（每次一致才可比）和**指标定义**（定义变了，趋势就失真了）。第三个干扰项是常见的陷阱——拿上一份成品当模板，很容易把上期的数字留在里面。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-056",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A team member reports that a Project gives answers that contradict the official policy. What should be checked first?",
+      "stemZh": "一位团队成员报告说某个 Project 给出的答案与正式方针相矛盾。首先该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the policy document in the knowledge base matches the official current version.",
+          "correct": true,
+          "explain": "正解。知識の版ずれが最も多い原因。まずそこを見る。",
+          "textZh": "知识库里的方针文档是否与正式的当前版本一致。"
+        },
+        {
+          "text": "Whether the person asked the question correctly.",
+          "correct": false,
+          "explain": "不適。まず設定側を確かめるほうが早い。",
+          "textZh": "那个人的提问方式对不对。"
+        },
+        {
+          "text": "Whether a different model would answer differently.",
+          "correct": false,
+          "explain": "不適。資料が古ければどのモデルでも同じ。",
+          "textZh": "换个模型会不会回答得不一样。"
+        },
+        {
+          "text": "Whether the Project has too many users.",
+          "correct": false,
+          "explain": "不適。利用者数は内容の正しさと無関係。",
+          "textZh": "这个 Project 的用户是不是太多了。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**答案与方针冲突时，先查知识库的版本**。这是最常见也最容易修的原因。第三个干扰项点出了为什么：**如果依据的资料是旧的，换任何模型都会给出同样过时的答案**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-057",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "Which instruction best handles the case where a request falls outside the Project's intended scope?",
+      "stemZh": "对于「请求超出了这个 Project 预期范围」的情况，哪条指示处理得最好？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"If the request is not covered by this Project's purpose, say so and do not attempt it.\"",
+          "correct": true,
+          "explain": "正解。範囲外だと明示させる。黙って一般論で答えられるより安全。",
+          "textZh": "「如果这个请求不在本 Project 的用途范围内，请明说，不要尝试处理。」"
+        },
+        {
+          "text": "\"Always try to be helpful, whatever is asked.\"",
+          "correct": false,
+          "explain": "不適。範囲外の依頼にも一般論で答えてしまう。",
+          "textZh": "「无论问什么，都要尽力提供帮助。」"
+        },
+        {
+          "text": "\"Refuse anything unfamiliar.\"",
+          "correct": false,
+          "explain": "不適。広すぎて、正当な依頼まで止まる。",
+          "textZh": "「拒绝任何不熟悉的内容。」"
+        },
+        {
+          "text": "Say nothing about scope.",
+          "correct": false,
+          "explain": "不適。範囲外でも答えてしまい、利用者は気づかない。",
+          "textZh": "完全不提范围的事。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**让「范围外」显形**。如果不写这条，超出范围的请求也会得到一个像模像样的答案，而使用者**不会意识到这份答案没有依据**。明说范围外，成本很低，价值很高。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-058",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO are good reasons to remove a file from a knowledge base? (Select 2)",
+      "stemZh": "下面哪两个是「把某份文件从知识库移除」的好理由？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "It has been superseded and the current version is already there.",
+          "correct": true,
+          "explain": "正解。旧版が残ると、どちらが使われたか分からない。",
+          "textZh": "它已被取代，而当前版本已经在里面了。"
+        },
+        {
+          "text": "Nobody can say why it is there or whether it is still accurate.",
+          "correct": true,
+          "explain": "正解。所有者も鮮度も不明な資料は残さない。",
+          "textZh": "没人说得清它为什么在那里，或者它是否仍然准确。"
+        },
+        {
+          "text": "It has not been opened by a person recently.",
+          "correct": false,
+          "explain": "不適。人が開かなくても参照はされている。",
+          "textZh": "最近没有人打开过它。"
+        },
+        {
+          "text": "It is long.",
+          "correct": false,
+          "explain": "不適。分量は削除の理由にならない。",
+          "textZh": "它很长。"
+        },
+        {
+          "text": "It was uploaded by someone who left the company.",
+          "correct": false,
+          "explain": "不適。所有者を付け替えればよい。退職＝不要ではない。",
+          "textZh": "它是由一位已离职的员工上传的。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**该删的两类文件**：**被取代的旧版本**和**来历不明的孤儿文件**。注意最后一个干扰项：上传者离职不等于文件该删，正确的处理是**给它指定新的负责人**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-059",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An associate finds their Project's outputs are excellent but slow to produce because the instructions ask for a long self-review each time. What should they consider?",
+      "stemZh": "某位担当发现自己 Project 的产出质量很好，但因为指示要求每次都做一段长长的自我检查而变慢了。该考虑什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the self-review is needed for every request, or only for the kinds where errors are costly.",
+          "correct": true,
+          "explain": "正解。一律ではなく、必要な場面に絞る。",
+          "textZh": "这段自我检查是不是每个请求都需要，还是只在错误代价高的那类请求上才需要。"
+        },
+        {
+          "text": "Removing the self-review entirely to save time.",
+          "correct": false,
+          "explain": "不適。質が落ちる場面まで一律に外している。",
+          "textZh": "完全删掉自我检查以节省时间。"
+        },
+        {
+          "text": "Accepting the slowness as the price of quality.",
+          "correct": false,
+          "explain": "不適。単純な依頼にまで払う必要は無い。",
+          "textZh": "接受这种慢，把它当作质量的代价。"
+        },
+        {
+          "text": "Switching to a faster model to compensate.",
+          "correct": false,
+          "explain": "不適。原因は指示にあり、モデルではない。",
+          "textZh": "换一个更快的模型来补偿。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**质量措施也应该按需要分配**。这和 D3 的模型选择、D2 的检查强度是同一套逻辑：**按错误的代价来决定投入多少**。全部一律，要么浪费，要么不够。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-060",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "What single practice does most to keep a Project trustworthy over years?",
+      "stemZh": "要让一个 Project 在数年之后仍然可信，哪一项做法作用最大？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Having a named owner responsible for reviewing the instructions and knowledge on a schedule.",
+          "correct": true,
+          "explain": "正解。責任者と周期。これが無いと、他のどの工夫も続かない。",
+          "textZh": "有一位具名的负责人，按固定周期复查指示和知识。"
+        },
+        {
+          "text": "Writing very detailed instructions at the start.",
+          "correct": false,
+          "explain": "不適。最初の作り込みは、変化には追随しない。",
+          "textZh": "一开始就写非常详尽的指示。"
+        },
+        {
+          "text": "Uploading comprehensive documentation.",
+          "correct": false,
+          "explain": "不適。量が増えるほど保守が難しくなる。",
+          "textZh": "上传全面的文档。"
+        },
+        {
+          "text": "Restricting access to a few people.",
+          "correct": false,
+          "explain": "不適。利用者を減らしても、資料は古くなる。",
+          "textZh": "把访问权限制在少数人。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**所有维护机制的前提是「有人负责」**。文档写得再全、规则定得再细，如果没有一个具名的人在固定的时间去看一眼，几年之后它必然会和现实脱节。这也是整个 D5 的落脚点。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
     }
   ]
 }
