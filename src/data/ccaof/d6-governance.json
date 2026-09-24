@@ -158,6 +158,2230 @@
       "reviewedAt": "2026-09-23",
       "stemZh": "某位担当认为公司的 AI 方针过于严格、拖慢了工作。合适的做法是什么？",
       "commentaryZh": "考点是「遵守组织的 AI 方针」。提出异议本身是对的，但在方针被改变之前必须遵守——否则方针就不再是方针了。「逐案用自己的判断」是把个人判断置于组织规则之上；「只在别人看得到时遵守」在审计或事故发生时问题最大。"
+    },
+    {
+      "id": "d6-005",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An associate wants to paste a colleague's performance review into Claude to help rewrite it more clearly. What is the concern?",
+      "stemZh": "某位担当想把同事的绩效评估贴进 Claude，让它帮忙改写得更清楚。问题在哪？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It contains another person's sensitive employment information; check policy and consider removing identifying details first.",
+          "correct": true,
+          "explain": "正解。本人以外の人事情報は機微情報。方針の確認と、識別情報の除去が先。",
+          "textZh": "它包含另一个人的敏感雇佣信息；应先查方针，并考虑去掉可识别的细节。"
+        },
+        {
+          "text": "No concern, since the associate already has access to it.",
+          "correct": false,
+          "explain": "不適。アクセス権があることと、外部に渡してよいことは別。",
+          "textZh": "没问题，反正担当本来就有权限看它。"
+        },
+        {
+          "text": "No concern as long as the rewrite is not shared.",
+          "correct": false,
+          "explain": "不適。渡した時点の話であって、共有するかは別問題。",
+          "textZh": "只要不把改写后的版本分享出去就没问题。"
+        },
+        {
+          "text": "Only a concern if the colleague is in another country.",
+          "correct": false,
+          "explain": "不適。所在地に関係なく人事情報は機微。",
+          "textZh": "只有当那位同事在另一个国家时才是问题。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**「我有权限看」不等于「我可以拿出去」**。绩效评估里有第三方的敏感信息，而且当事人并不知道它被送去了哪里。正确的顺序是：先看方针，再考虑能不能去掉姓名和可识别细节。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-006",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Which of these is the clearest example of an inappropriate use in a workplace?",
+      "stemZh": "下面哪一项是职场中最明显的不当使用？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Generating a customer's likely medical condition from support ticket text.",
+          "correct": true,
+          "explain": "正解。推測で機微なカテゴリーを作り出している。根拠も同意も無い。",
+          "textZh": "从客服工单的文字里推测客户可能患有什么疾病。"
+        },
+        {
+          "text": "Drafting a reply to a support ticket.",
+          "correct": false,
+          "explain": "不適。問い合わせへの返信の下書きは、判断を委ねてもいない通常の業務利用。",
+          "textZh": "为一张客服工单起草回复。"
+        },
+        {
+          "text": "Summarizing a public product manual.",
+          "correct": false,
+          "explain": "不適。すでに公開されている資料を整理するだけで、機微な情報も個人の判断も含まない。",
+          "textZh": "总结一份公开的产品手册。"
+        },
+        {
+          "text": "Translating an internal announcement.",
+          "correct": false,
+          "explain": "不適。社内文書の翻訳は通常の用途。",
+          "textZh": "翻译一则内部公告。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**推测敏感属性**。健康、宗教、政治倾向、性取向这类信息，即使是从看似无害的文本里「推断」出来的，也属于制造敏感数据——既没有依据，也没有当事人的同意。这和处理已有的敏感数据是同等甚至更严重的问题。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-007",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "An organization has no written AI policy yet. Which TWO are the right things to do? (Select 2)",
+      "stemZh": "某个组织还没有成文的 AI 方针。下面哪两件事是正确的做法？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Apply the existing rules for handling confidential data, which do not stop applying.",
+          "correct": true,
+          "explain": "正解。AI 方針が無くても、機密情報の扱いの規程は生きている。",
+          "textZh": "沿用现有的机密数据处理规则——它们并没有因此失效。"
+        },
+        {
+          "text": "Ask whoever owns information security how they want this handled.",
+          "correct": true,
+          "explain": "正解。決める権限のある人に聞く。独断で線を引かない。",
+          "textZh": "去问负责信息安全的人，他们希望这件事怎么处理。"
+        },
+        {
+          "text": "Assume anything is allowed until a policy exists.",
+          "correct": false,
+          "explain": "不適。方針が無いことは許可ではない。",
+          "textZh": "在方针出台之前，假定什么都可以做。"
+        },
+        {
+          "text": "Write and publish a policy yourself.",
+          "correct": false,
+          "explain": "不適。全社方針を決める立場ではない。",
+          "textZh": "自己写一份方针并发布。"
+        },
+        {
+          "text": "Avoid all use of AI until a policy is written.",
+          "correct": false,
+          "explain": "不適。既存の規程の範囲で使える用途まで止めている。",
+          "textZh": "在方针写出来之前，完全不使用 AI。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**没有 AI 方针的时候依据什么**。答案是：**原有的保密规程仍然有效**。AI 不是法外之地，也不是必须全面停用的理由。同时，该问的人要去问——决定边界不是 Associate 的权限。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-008",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A manager asks for a Claude-generated ranking of team members' productivity from their chat activity. What should the associate say?",
+      "stemZh": "一位经理要求用 Claude 根据团队成员的聊天活跃度生成一份生产力排名。这位担当应该怎么说？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Raise that chat activity is a poor proxy for productivity and that ranking people on it can cause real harm; propose measuring actual outcomes instead.",
+          "correct": true,
+          "explain": "正解。指標が目的と合っていないうえ、人の評価に使えば実害が出る。代案を出すのが実務。",
+          "textZh": "指出聊天活跃度并不能代表生产力，据此给人排名会造成实际伤害；并提议改为衡量实际成果。"
+        },
+        {
+          "text": "Produce the ranking, noting it is approximate.",
+          "correct": false,
+          "explain": "不適。注記を付けても順位は使われる。",
+          "textZh": "做出排名，注明它只是近似的。"
+        },
+        {
+          "text": "Produce it but keep it confidential.",
+          "correct": false,
+          "explain": "不適。使われ方の問題は秘匿では解けない。",
+          "textZh": "做出来但保密。"
+        },
+        {
+          "text": "Refuse without explanation.",
+          "correct": false,
+          "explain": "不適。懸念の中身を伝えないと、別の人が同じことをする。",
+          "textZh": "不做解释地拒绝。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**影响个人处遇的用途**。两层问题叠在一起：**指标本身是错的**（聊天多 ≠ 产出多），以及**用它给人排名会造成实际后果**。正确的回应不是沉默拒绝，而是说清理由并给出替代方案。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-009",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Which practice best reduces risk when a task genuinely requires working with customer records?",
+      "stemZh": "当一项工作确实需要处理客户记录时，哪种做法最能降低风险？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use the smallest set of fields the task actually needs, with identifiers removed where possible.",
+          "correct": true,
+          "explain": "正解。最小限の項目に絞る。必要のないデータは渡さない。",
+          "textZh": "只使用这项工作真正需要的最少字段，尽可能去掉标识信息。"
+        },
+        {
+          "text": "Upload the full dataset so context is complete.",
+          "correct": false,
+          "explain": "不適。必要のない情報まで渡している。",
+          "textZh": "上传完整数据集，让上下文完整。"
+        },
+        {
+          "text": "Upload it but add an instruction not to store it.",
+          "correct": false,
+          "explain": "不適。指示は方針や契約の代わりにならない。",
+          "textZh": "上传它，但加一条不要存储的指示。"
+        },
+        {
+          "text": "Split the dataset across several conversations.",
+          "correct": false,
+          "explain": "不適。渡した総量は変わらない。",
+          "textZh": "把数据集分散到几段对话里。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**数据最小化**。这是隐私实务里最通用也最有效的一条：**只给完成任务所必需的那部分**。后两个干扰项是常见的自我安慰——一条指示改变不了数据已经被传出去这个事实，拆分也不减少总量。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-010",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO uses require extra care because the output affects someone's opportunities? (Select 2)",
+      "stemZh": "下面哪两种用途因为产出会影响某人的机会而需要格外谨慎？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Screening applications for a role.",
+          "correct": true,
+          "explain": "正解。採否に影響する。公平性と規制の両面で慎重さが要る。",
+          "textZh": "筛选某个职位的申请。"
+        },
+        {
+          "text": "Drafting a recommendation about whether to renew a contractor.",
+          "correct": true,
+          "explain": "正解。人の継続に関わる判断。",
+          "textZh": "起草一份关于是否续用某位外包人员的建议。"
+        },
+        {
+          "text": "Summarizing last quarter's sales figures.",
+          "correct": false,
+          "explain": "不適。人の処遇に影響しない。",
+          "textZh": "总结上季度的销售数字。"
+        },
+        {
+          "text": "Writing release notes for a product update.",
+          "correct": false,
+          "explain": "不適。影響の対象が人ではない。",
+          "textZh": "为产品更新撰写发布说明。"
+        },
+        {
+          "text": "Translating a public FAQ.",
+          "correct": false,
+          "explain": "不適。公開されている FAQ の翻訳で、特定の人の処遇に影響しない。",
+          "textZh": "翻译一份公开的 FAQ。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**影响个人机会的用途**。招聘、续约、晋升、信贷、保险——这类场景的共同点是**产出会改变某个具体的人的处境**。它们不一定被禁止，但需要额外的审查、记录和人工判断。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-011",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An associate discovers a colleague has been pasting client contracts into a personal AI account. What is the appropriate action?",
+      "stemZh": "某位担当发现一位同事一直在把客户合同贴进个人的 AI 账号。恰当的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Report it through the channel the organization has for information-security issues.",
+          "correct": true,
+          "explain": "正解。契約上の守秘義務に関わる。個人で処理せず、所管に上げる。",
+          "textZh": "通过组织内负责信息安全问题的渠道上报。"
+        },
+        {
+          "text": "Say nothing, since the colleague meant no harm.",
+          "correct": false,
+          "explain": "不適。意図は結果を変えない。契約違反は残る。",
+          "textZh": "什么都不说，反正同事没有恶意。"
+        },
+        {
+          "text": "Ask the colleague to delete the conversations and consider it resolved.",
+          "correct": false,
+          "explain": "不適。削除で渡した事実は消えない。記録も残らない。",
+          "textZh": "让同事删掉那些对话，然后就算解决了。"
+        },
+        {
+          "text": "Do the same, since it is apparently accepted practice.",
+          "correct": false,
+          "explain": "不適。前例は許可ではない。",
+          "textZh": "照做，既然这看起来是被接受的做法。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**发现违规时怎么办**。客户合同通常带有合同性的保密义务，泄露的后果由公司承担。三个干扰项分别是：**为动机开脱**、**用删除掩盖**、**把先例当许可**——都不改变义务已经被违反这个事实。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-012",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Why does it matter whether people know that a message they received was AI-drafted?",
+      "stemZh": "收到消息的人是否知道这条消息是 AI 起草的，为什么重要？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Because it affects how they weigh it — and in some contexts disclosure is required by policy or law.",
+          "correct": true,
+          "explain": "正解。受け取り方が変わるうえ、開示が義務の場面もある。",
+          "textZh": "因为这会影响他们如何看待这条消息——而且在某些场合，披露是方针或法律的要求。"
+        },
+        {
+          "text": "It does not matter as long as the content is correct.",
+          "correct": false,
+          "explain": "不適。正確さと、開示の要否は別の論点。",
+          "textZh": "只要内容正确就无所谓。"
+        },
+        {
+          "text": "It only matters for external communication.",
+          "correct": false,
+          "explain": "不適。社内でも求められる場面がある。",
+          "textZh": "只有对外沟通时才重要。"
+        },
+        {
+          "text": "It matters only if the recipient asks.",
+          "correct": false,
+          "explain": "不適。聞かれなければよい、という基準ではない。",
+          "textZh": "只有对方问起时才重要。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**透明度**。两层理由：**实际层面**（人会根据来源调整信任度）和**规则层面**（某些行业和场合有强制披露要求）。注意这和前面学过的一条不冲突：披露不转移责任，但不披露可能本身就是违规。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-013",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO outputs need verification specifically because of who will rely on them? (Select 2)",
+      "stemZh": "下面哪两种产出，**因为依赖它的人是谁**而特别需要核实？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Guidance that frontline staff will follow without further checking.",
+          "correct": true,
+          "explain": "正解。現場はそのまま従う。誤りが実務に直結する。",
+          "textZh": "一线员工会不再核对就直接遵循的指引。"
+        },
+        {
+          "text": "Figures a regulator will treat as the company's official position.",
+          "correct": true,
+          "explain": "正解。当局に対する申告は訂正が重い。",
+          "textZh": "监管机构会视为公司正式立场的数字。"
+        },
+        {
+          "text": "A draft shared with a colleague for comment.",
+          "correct": false,
+          "explain": "不適。まさに直すために共有している。",
+          "textZh": "为征求意见而分享给同事的草稿。"
+        },
+        {
+          "text": "Notes the associate wrote for themselves.",
+          "correct": false,
+          "explain": "不適。自分用のメモは他人が依拠しない。検証の強度を上げる理由が無い。",
+          "textZh": "担当写给自己的笔记。"
+        },
+        {
+          "text": "A brainstorm list nobody has committed to.",
+          "correct": false,
+          "explain": "不適。まだ判断の対象ではない。",
+          "textZh": "一份还没人承诺要采用的头脑风暴清单。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**依赖者决定核实强度**。同样一份文档，给同事看和给一线照做，要求完全不同。判断的问题是：**收到的人会不会再检查一次**。如果不会，那么你就是最后一道关口。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-014",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A team wants to use real customer conversations to test a new prompt. What is the appropriate approach?",
+      "stemZh": "一个团队想用真实的客户对话来测试一个新的提示词。恰当的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use de-identified or synthetic examples that preserve the shape of the problem without exposing real people.",
+          "correct": true,
+          "explain": "正解。テストに必要なのは形であって、実在の個人ではない。",
+          "textZh": "使用去标识化或合成的例子，保留问题的形态而不暴露真实的人。"
+        },
+        {
+          "text": "Use the real conversations, since testing needs realism.",
+          "correct": false,
+          "explain": "不適。現実味のために個人情報を使う必要は無い。",
+          "textZh": "用真实对话，因为测试需要真实感。"
+        },
+        {
+          "text": "Use the real conversations but only internally.",
+          "correct": false,
+          "explain": "不適。社内であっても取り扱いの規程は及ぶ。",
+          "textZh": "用真实对话，但只在内部使用。"
+        },
+        {
+          "text": "Skip testing and deploy directly.",
+          "correct": false,
+          "explain": "不適。検証を飛ばすほうがはるかに危険。",
+          "textZh": "跳过测试直接上线。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**测试不需要真人数据**。提示词测试需要的是**问题的形态**（长度、结构、常见的歧义），而这些用去标识化或合成的例子完全可以复现。最后一个干扰项提醒：解决办法不是不测试，那样风险更大。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-015",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "An organizational policy says outputs must be reviewed before external use. A deadline makes this impossible. What is correct?",
+      "stemZh": "组织方针规定产出在对外使用前必须经过复核。截止时间让这变得不可能。正确的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Miss the deadline or reduce the scope of what is sent; the policy does not have an exception for being in a hurry.",
+          "correct": true,
+          "explain": "正解。方針に締切の例外は無い。出す範囲を絞るのが現実的な折衷。",
+          "textZh": "要么误期，要么缩小发出的范围；方针里没有「赶时间」这条例外。"
+        },
+        {
+          "text": "Send it unreviewed and review it afterwards.",
+          "correct": false,
+          "explain": "不適。対外に出た後の確認は、確認ではない。",
+          "textZh": "先不复核发出去，事后再复核。"
+        },
+        {
+          "text": "Send it with a disclaimer that it was not reviewed.",
+          "correct": false,
+          "explain": "不適。注記は方針を満たさない。",
+          "textZh": "发出去并附注「未经复核」。"
+        },
+        {
+          "text": "Ask Claude to review it in place of a person.",
+          "correct": false,
+          "explain": "不適。方針が求めているのは人の確認。",
+          "textZh": "让 Claude 代替人来复核。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**方针没有「赶时间」这条例外**。三个干扰项都是在想办法绕过复核。实务上可行的折中是**缩小范围**——把能复核完的那部分先发出去，而不是把全部内容未经复核地送出去。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-016",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO are genuine ethical concerns when a workflow makes decisions about people at scale? (Select 2)",
+      "stemZh": "当一道流程大规模地对人做出判断时，下面哪两项是真正的伦理关切？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "An error repeats identically across everyone affected, instead of varying as human errors do.",
+          "correct": true,
+          "explain": "正解。同じ誤りが全員に一様に及ぶ。人の判断のばらつきと違い、偏りが系統的になる。",
+          "textZh": "一个错误会以完全相同的方式重复作用在每一个受影响的人身上，而不像人的错误那样各不相同。"
+        },
+        {
+          "text": "The people affected may have no way to know why the decision was made.",
+          "correct": true,
+          "explain": "正解。説明できない判断は、異議を申し立てる手段も奪う。",
+          "textZh": "受影响的人可能无从知道这个判断是基于什么做出的。"
+        },
+        {
+          "text": "The workflow runs faster than a human could.",
+          "correct": false,
+          "explain": "不適。速さ自体は倫理的な問題ではない。",
+          "textZh": "这道流程比人运行得更快。"
+        },
+        {
+          "text": "The output format may be inconsistent.",
+          "correct": false,
+          "explain": "不適。体裁の揺れは運用上の不便であって、倫理的な問題ではない。",
+          "textZh": "产出的格式可能不一致。"
+        },
+        {
+          "text": "The team may need to learn a new tool.",
+          "correct": false,
+          "explain": "不適。学習コストは倫理の論点ではない。",
+          "textZh": "团队可能需要学一个新工具。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**规模化判断的伦理特征**。两个核心：**系统性**（人的偏见是散的，自动化的偏见是整齐划一地施加给所有人）和**不可解释**（当事人无从申诉）。速度本身不是问题，问题是速度让前两者的影响面变大。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-017",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A marketing team asks Claude to write testimonials \"in the voice of\" satisfied customers who have not said these things. What is the issue?",
+      "stemZh": "市场团队让 Claude 用「满意客户的口吻」写推荐语，而这些客户并没有说过这些话。问题在哪？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "They would be presented as real customer statements when they are not; that is fabrication regardless of how accurate the sentiment is.",
+          "correct": true,
+          "explain": "正解。実在の発言として提示される。感想が的外れでなくても、作った事実であることは変わらない。",
+          "textZh": "它们会被当作真实的客户陈述来呈现，而实际上不是；无论其中的感受多贴切，这都是捏造。"
+        },
+        {
+          "text": "No issue if the sentiments match real feedback.",
+          "correct": false,
+          "explain": "不適。似ているかどうかではなく、言っていないことを言ったことにしている点が問題。",
+          "textZh": "如果这些感受与真实反馈一致就没问题。"
+        },
+        {
+          "text": "No issue if the customer names are changed.",
+          "correct": false,
+          "explain": "不適。匿名でも「顧客の声」として提示される。",
+          "textZh": "只要改掉客户名字就没问题。"
+        },
+        {
+          "text": "It is acceptable for internal presentations only.",
+          "correct": false,
+          "explain": "不適。内部資料でも、判断の材料として誤らせる。",
+          "textZh": "只在内部演示中使用就可以接受。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**捏造第三方的陈述**。判断标准不是「说得像不像」，而是**它是否会被当作真实发生过的事来理解**。这类内容即使在内部使用也有害——它会把虚构的证据带进真实的决策。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-018",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "What is the main reason to avoid pasting information into an AI tool that has not been approved by the organization?",
+      "stemZh": "为什么要避免把信息贴进组织尚未批准的 AI 工具里？主要原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Where the data goes and how it is retained is unknown and outside any agreement the organization has.",
+          "correct": true,
+          "explain": "正解。契約の外にあるため、保存も利用も管理できない。",
+          "textZh": "数据去了哪里、如何被保留都是未知的，而且不在组织已有的任何协议范围内。"
+        },
+        {
+          "text": "Unapproved tools always produce lower-quality output.",
+          "correct": false,
+          "explain": "不適。品質の問題ではない。",
+          "textZh": "未获批准的工具产出质量总是更差。"
+        },
+        {
+          "text": "It uses more of the organization's budget.",
+          "correct": false,
+          "explain": "不適。個人利用なら費用は論点ですらない。",
+          "textZh": "它会占用组织更多预算。"
+        },
+        {
+          "text": "The output cannot be copied out of them.",
+          "correct": false,
+          "explain": "不適。未承認の道具から出力を取り出せないという事実は無い。問題は品質ではなくデータの行き先。",
+          "textZh": "没法把产出从里面复制出来。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**为什么要用获批的工具**。核心不是质量或费用，而是**契约与数据去向**：获批的工具背后有协议规定数据怎么存、能不能用于训练、出事谁负责。未获批的工具这些全部未知。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-019",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An associate needs to analyze support tickets that contain customer names and email addresses. The analysis is about topic frequency. What should they do?",
+      "stemZh": "某位担当需要分析包含客户姓名和邮箱的客服工单，分析的是主题出现的频率。应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Strip the names and addresses first — topic frequency does not need them.",
+          "correct": true,
+          "explain": "正解。用途に不要な項目は渡さない。最小化の典型例。",
+          "textZh": "先去掉姓名和邮箱——统计主题频率并不需要它们。"
+        },
+        {
+          "text": "Keep them in case they turn out to be useful later.",
+          "correct": false,
+          "explain": "不適。「念のため」は最小化の逆。",
+          "textZh": "留着它们，说不定以后有用。"
+        },
+        {
+          "text": "Keep them but ask Claude to ignore them.",
+          "correct": false,
+          "explain": "不適。指示は取り扱いの事実を変えない。",
+          "textZh": "留着，但让 Claude 忽略它们。"
+        },
+        {
+          "text": "Keep only the email domains, which identify the customer anyway.",
+          "correct": false,
+          "explain": "不適。ドメインでも企業顧客は特定できる。",
+          "textZh": "只保留邮箱域名，反正也能识别客户。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**最小化的具体应用**。做法很简单：**问这项分析需要哪些字段**。主题频率只需要正文。最后一个干扰项值得注意——在 B2B 场景里，邮箱域名本身就足以识别客户公司。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-020",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Which factor most increases the level of verification an output needs?",
+      "stemZh": "哪个因素最能提高一份产出所需要的核实强度？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "How hard the consequences would be to reverse.",
+          "correct": true,
+          "explain": "正解。取り返しのつかなさが検査の強度を決める。",
+          "textZh": "一旦出错，后果有多难挽回。"
+        },
+        {
+          "text": "How long the output is.",
+          "correct": false,
+          "explain": "不適。長さは重要度を示さない。",
+          "textZh": "产出有多长。"
+        },
+        {
+          "text": "How much time the associate spent on it.",
+          "correct": false,
+          "explain": "不適。投入時間と正しさは無関係。",
+          "textZh": "担当在上面花了多少时间。"
+        },
+        {
+          "text": "How many people will read it.",
+          "correct": false,
+          "explain": "不適。読者数より、読者が何をするかが効く。",
+          "textZh": "有多少人会读它。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**用「可逆性」决定检查强度**。改一份内部草稿的代价接近零；撤回一封已发的对外声明、收回一笔已付的款项，代价高得多。读者数量有关系，但关键不是多少人读，而是**他们读完会做什么**。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-021",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO belong in a team's working rules for using Claude? (Select 2)",
+      "stemZh": "下面哪两条应该写进团队使用 Claude 的工作规则里？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Which categories of information must never be pasted in.",
+          "correct": true,
+          "explain": "正解。境界を具体的に示す。判断を各自に委ねない。",
+          "textZh": "哪几类信息绝对不能贴进去。"
+        },
+        {
+          "text": "Which outputs require a named person's approval before use.",
+          "correct": true,
+          "explain": "正解。誰が承認するかまで決めておく。",
+          "textZh": "哪些产出在使用前需要某个具名的人批准。"
+        },
+        {
+          "text": "A target number of prompts per person per week.",
+          "correct": false,
+          "explain": "不適。利用量の目標は品質にも安全にも寄与しない。",
+          "textZh": "每人每周的提示词数量目标。"
+        },
+        {
+          "text": "A preference for a particular writing style.",
+          "correct": false,
+          "explain": "不適。有用だが、統制のルールではない。",
+          "textZh": "对某种写作风格的偏好。"
+        },
+        {
+          "text": "A ban on discussing AI outside the team.",
+          "correct": false,
+          "explain": "不適。統制の目的と関係が無い。",
+          "textZh": "禁止在团队之外讨论 AI。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**可执行的规则长什么样**。两条支柱：**什么不能进去**（信息的边界）和**什么要人批准才能出来**（产出的关口）。注意第二条要写明**由谁批准**——只写「需要批准」的规则，实际执行时会变成没人批准。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-022",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A team wants Claude to generate fake user reviews to seed a new product page. What should the associate do?",
+      "stemZh": "一个团队想让 Claude 生成假的用户评论，用来填充一个新产品页面。这位担当应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Decline and explain that presenting generated reviews as real is deceptive to customers and likely violates platform and consumer rules.",
+          "correct": true,
+          "explain": "正解。生成物を実在の評価として出すのは欺瞞。理由を示して断る。",
+          "textZh": "拒绝，并说明把生成的评论当作真实评价呈现是对客户的欺骗，而且很可能违反平台和消费者保护规则。"
+        },
+        {
+          "text": "Generate them but label them as examples in small print.",
+          "correct": false,
+          "explain": "不適。表示が小さければ、実質は誤認させている。",
+          "textZh": "生成它们，但用小字标注为「示例」。"
+        },
+        {
+          "text": "Generate them for internal design mockups only.",
+          "correct": false,
+          "explain": "不適。モックアップ用途なら本来の問題は起きないが、この依頼は公開ページへの掲載。",
+          "textZh": "只用于内部设计稿。"
+        },
+        {
+          "text": "Generate them and let the legal team decide.",
+          "correct": false,
+          "explain": "不適。判断を丸投げしつつ、実物は作ってしまっている。",
+          "textZh": "生成出来，让法务团队去判断。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**捏造的社会证明**。这条线很清楚：**生成的内容不能被呈现为真人的评价**。第三个干扰项的表述容易让人犹豫——用于内部设计稿本身没问题，但这个请求明确是为了放上公开页面，不能借设计稿之名绕过。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-023",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Why is it a problem if only some staff know which documents were AI-drafted?",
+      "stemZh": "如果只有一部分员工知道哪些文档是 AI 起草的，为什么这是个问题？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Others will apply a level of trust that does not match how the document was produced and checked.",
+          "correct": true,
+          "explain": "正解。信頼の度合いが実態と合わなくなる。検査の前提も共有されない。",
+          "textZh": "其他人会给予与这份文档的产生和检查方式不相符的信任。"
+        },
+        {
+          "text": "It creates an unfair advantage for those who know.",
+          "correct": false,
+          "explain": "不適。論点は公平さではなく、信頼の誤り。",
+          "textZh": "这会让知情的人获得不公平的优势。"
+        },
+        {
+          "text": "AI-drafted documents are always worse.",
+          "correct": false,
+          "explain": "不適。AI が下書きした文書が常に劣るという事実は無い。問題は品質ではなく前提の共有。",
+          "textZh": "AI 起草的文档总是更差。"
+        },
+        {
+          "text": "It makes the documents harder to search.",
+          "correct": false,
+          "explain": "不適。検索性と、どの文書がどう作られたかを共有することは関係が無い。",
+          "textZh": "这会让文档更难搜索。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**信息不对称造成的误信**。问题不在于 AI 起草不好，而在于**读者据以判断的前提是错的**：不知情的人会按「有人逐字写过」的标准来信任它，从而跳过本该做的核对。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-024",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO count as sensitive data that needs special handling in most organizations? (Select 2)",
+      "stemZh": "在多数组织里，下面哪两类属于需要特别处理的敏感数据？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Health information about an identifiable person.",
+          "correct": true,
+          "explain": "正解。多くの法域で特別な保護対象。",
+          "textZh": "关于某个可识别个人的健康信息。"
+        },
+        {
+          "text": "Payment card or bank account numbers.",
+          "correct": true,
+          "explain": "正解。金融情報は特別な取り扱いが要る。",
+          "textZh": "支付卡或银行账号。"
+        },
+        {
+          "text": "The company's published annual report.",
+          "correct": false,
+          "explain": "不適。すでに公表された会社情報で、個人に紐づかない。特別な取り扱いは要らない。",
+          "textZh": "公司已经公布的年度报告。"
+        },
+        {
+          "text": "A public product roadmap.",
+          "correct": false,
+          "explain": "不適。公開済みの資料であり、機微な属性を含まない。",
+          "textZh": "一份公开的产品路线图。"
+        },
+        {
+          "text": "The office's opening hours.",
+          "correct": false,
+          "explain": "不適。誰にも紐づかない一般情報で、漏れても害が生じない。",
+          "textZh": "办公室的营业时间。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**哪些数据属于敏感类别**。共同点是：**与可识别的个人绑定，且泄露会造成具体伤害**。健康和金融信息在多数法域都有专门的保护规定。已经公开的公司信息不属于此列——判断依据是数据的性质，不是它属于谁。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-025",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A policy requires logging which outputs were AI-assisted. An associate finds this tedious. What is the right stance?",
+      "stemZh": "某项方针要求记录哪些产出是 AI 辅助完成的。一位担当觉得这很麻烦。正确的态度是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Comply, and if the logging is genuinely burdensome, propose a lighter method through the proper channel.",
+          "correct": true,
+          "explain": "正解。守りながら、改善は権限のある場に持ち込む。",
+          "textZh": "遵守；如果记录确实很繁重，就通过正当渠道提议一个更轻便的方法。"
+        },
+        {
+          "text": "Log only the important ones.",
+          "correct": false,
+          "explain": "不適。どれが重要かは事後に分かる。自己判断で範囲を狭めている。",
+          "textZh": "只记录重要的那些。"
+        },
+        {
+          "text": "Log them in bulk at the end of each month from memory.",
+          "correct": false,
+          "explain": "不適。記録の正確さが失われ、目的を果たさない。",
+          "textZh": "每月月底凭记忆一次性补记。"
+        },
+        {
+          "text": "Stop using Claude to avoid the logging requirement.",
+          "correct": false,
+          "explain": "不適。手段の放棄で、目的も達成しない。",
+          "textZh": "干脆不用 Claude，以回避记录要求。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**觉得规则麻烦时怎么办**。和之前那道「方针过严」的题同一个原理：**先遵守，再通过有权限的渠道改**。自己缩小范围或事后补记，都让记录失去它存在的意义（追溯时不可靠）。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-026",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Which is an appropriate use of Claude in a hiring process?",
+      "stemZh": "在招聘流程中，下面哪一项是对 Claude 的恰当使用？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Drafting a clearer job description before any candidate applies.",
+          "correct": true,
+          "explain": "正解。個人の評価に関わらない段階の作業。",
+          "textZh": "在任何候选人投递之前，起草一份更清晰的职位描述。"
+        },
+        {
+          "text": "Scoring candidates against each other automatically.",
+          "correct": false,
+          "explain": "不適。人の処遇を直接決める用途。追加の統制と人の判断が要る。",
+          "textZh": "自动给候选人互相打分排序。"
+        },
+        {
+          "text": "Inferring a candidate's age from their education dates.",
+          "correct": false,
+          "explain": "不適。保護される属性の推測。",
+          "textZh": "从教育经历的年份推断候选人的年龄。"
+        },
+        {
+          "text": "Deciding who to reject without human involvement.",
+          "correct": false,
+          "explain": "不適。人の関与なしに不採用を決めている。",
+          "textZh": "在没有人参与的情况下决定拒绝谁。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**同一个流程里，不同环节的性质完全不同**。写职位描述与任何具体的人无关，是安全的；而一旦进入**评价、排序、淘汰**具体的人，就同时触及公平性、可解释性和监管要求，需要完全不同的把关。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-027",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO make human review less effective even when it formally happens? (Select 2)",
+      "stemZh": "即使人工复核在形式上发生了，下面哪两种情况会让它失去效果？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The reviewer receives more items than they can genuinely examine.",
+          "correct": true,
+          "explain": "正解。件数が処理能力を超えれば、確認は形式になる。",
+          "textZh": "复核者收到的数量超出了他真正能审查的范围。"
+        },
+        {
+          "text": "The reviewer lacks the knowledge to judge the content.",
+          "correct": true,
+          "explain": "正解。判断できない人が見ても検査にならない。",
+          "textZh": "复核者不具备判断这些内容所需的知识。"
+        },
+        {
+          "text": "The reviewer works in a different building.",
+          "correct": false,
+          "explain": "不適。場所は関係がない。",
+          "textZh": "复核者在另一栋楼办公。"
+        },
+        {
+          "text": "The output arrives as a document rather than a message.",
+          "correct": false,
+          "explain": "不適。形式は効果を左右しない。",
+          "textZh": "产出是以文档而不是消息的形式送达的。"
+        },
+        {
+          "text": "The reviewer uses a checklist.",
+          "correct": false,
+          "explain": "不適。チェックリストは有効性を高める。",
+          "textZh": "复核者使用了一份检查清单。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**形式上的复核**。加了一道人工关口不等于真的有把关。两种常见的失效：**量太大**（一天两百份，只能扫一眼）和**不懂**（让不懂合规的人复核合规文本）。设计流程时要同时回答这两个问题。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-028",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An output consistently describes engineers as \"he\" and assistants as \"she\" although no gender was specified. What should the associate do?",
+      "stemZh": "一份产出始终把工程师称为「他」、把助理称为「她」，尽管原文并未指明性别。这位担当应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Correct it and check whether the same assumption shaped other parts of the content, not just the pronouns.",
+          "correct": true,
+          "explain": "正解。代名詞は見えやすい兆候。同じ前提が内容にも及んでいないかを見る。",
+          "textZh": "改掉它，并检查同样的假设是否也影响了内容的其他部分，而不只是代词。"
+        },
+        {
+          "text": "Correct the pronouns and consider it resolved.",
+          "correct": false,
+          "explain": "不適。表層だけ直して、前提はそのまま。",
+          "textZh": "改掉代词就算解决了。"
+        },
+        {
+          "text": "Leave it, since it reflects common usage.",
+          "correct": false,
+          "explain": "不適。よくあることは、適切であることを意味しない。",
+          "textZh": "保持原样，因为这符合通常的用法。"
+        },
+        {
+          "text": "Remove all pronouns from the document.",
+          "correct": false,
+          "explain": "不適。読みにくくなるうえ、根本の前提は残る。",
+          "textZh": "把文档里所有代词都删掉。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**代词只是露出水面的部分**。同一个刻板印象很可能也影响了别的地方——谁被描述为做决定的人、谁被描述为执行的人。只改代词是把症状抹掉，**要往下看内容本身**。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-029",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "What should an associate do when a policy is ambiguous about whether a particular use is allowed?",
+      "stemZh": "当方针对某个具体用途是否被允许写得含糊时，担当应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask the policy owner and wait for an answer before proceeding.",
+          "correct": true,
+          "explain": "正解。曖昧さは自分で解消しない。決める権限のある人に確かめる。",
+          "textZh": "去问方针的负责人，得到答复之后再继续。"
+        },
+        {
+          "text": "Assume it is allowed, since it is not explicitly forbidden.",
+          "correct": false,
+          "explain": "不適。明示の禁止が無いことは許可ではない。",
+          "textZh": "假定它被允许，因为没有明确禁止。"
+        },
+        {
+          "text": "Assume it is forbidden and drop the task.",
+          "correct": false,
+          "explain": "不適。確認すれば進められるかもしれない仕事を止めている。",
+          "textZh": "假定它被禁止，放弃这件事。"
+        },
+        {
+          "text": "Ask Claude to interpret the policy.",
+          "correct": false,
+          "explain": "不適。社内方針の解釈権はモデルに無い。",
+          "textZh": "让 Claude 解释这条方针。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**含糊的时候该问人**。两个方向的自作主张都不对：擅自认为可以（「没禁止就是允许」）和擅自放弃（可能本来是可以做的）。方针的解释权属于它的负责人，不属于使用者，更不属于模型。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-030",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO uses are generally appropriate without special approval? (Select 2)",
+      "stemZh": "下面哪两种用途通常不需要特别批准？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Rewriting the associate's own draft to be clearer.",
+          "correct": true,
+          "explain": "正解。自分の文章の推敲。第三者の情報も判断も含まない。",
+          "textZh": "把担当自己写的草稿改写得更清楚。"
+        },
+        {
+          "text": "Summarizing a document the company has already published.",
+          "correct": true,
+          "explain": "正解。すでに公開されている資料の整理で、第三者の機微情報も人への判断も含まない。",
+          "textZh": "总结一份公司已经公开发布的文档。"
+        },
+        {
+          "text": "Analyzing a spreadsheet of employee salaries.",
+          "correct": false,
+          "explain": "不適。給与は人事の機微情報で、通常は特別な取り扱いと承認が要る。",
+          "textZh": "分析一份员工薪资表。"
+        },
+        {
+          "text": "Drafting a legal opinion for a client.",
+          "correct": false,
+          "explain": "不適。専門職の判断が要る領域。",
+          "textZh": "为客户起草一份法律意见。"
+        },
+        {
+          "text": "Deciding which supplier contract to terminate.",
+          "correct": false,
+          "explain": "不適。契約上の判断を委ねている。",
+          "textZh": "决定终止哪一份供应商合同。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**日常安全用途的特征**。两个共同点：**不涉及第三方的敏感信息**，且**不代替人做出有后果的判断**。三个干扰项分别越过了这两条线中的一条或两条。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-031",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An associate is offered access to a connector that would let Claude read the whole company shared drive. What should they consider?",
+      "stemZh": "有人提议给这位担当开通一个连接器，让 Claude 能读取整个公司共享云盘。他应该考虑什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "That the connection's reach should match the task; broad access creates exposure that no single task requires.",
+          "correct": true,
+          "explain": "正解。必要な範囲に絞る。全体を読めるようにする理由が無い。",
+          "textZh": "连接的覆盖范围应当与任务匹配；宽泛的访问权造成的暴露面，没有哪一项具体任务需要。"
+        },
+        {
+          "text": "That broader access is better because it saves setup time later.",
+          "correct": false,
+          "explain": "不適。利便性のために露出を広げている。",
+          "textZh": "覆盖面越宽越好，能省下以后配置的时间。"
+        },
+        {
+          "text": "That read-only access carries no risk.",
+          "correct": false,
+          "explain": "不適。読み取りでも、見えるべきでない人に見える。",
+          "textZh": "只读访问没有风险。"
+        },
+        {
+          "text": "That the drive's size is the main consideration.",
+          "correct": false,
+          "explain": "不適。容量は論点ではない。",
+          "textZh": "云盘的容量是主要的考虑因素。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**最小权限**。这是数据最小化在连接器上的对应物：**接多大范围，取决于任务需要多大范围**。「以后可能用得上」和「反正是只读」是两个最常见的、让权限悄悄变大的理由。",
+      "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-032",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "What is the most useful question to ask before automating a decision that affects customers?",
+      "stemZh": "在把一个影响客户的判断自动化之前，最该问的问题是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "If this goes wrong for someone, how would they find out and what could they do about it?",
+          "correct": true,
+          "explain": "正解。当事者の救済経路があるか。自動化の可否を分ける核心の問い。",
+          "textZh": "如果这件事对某个人出了错，他怎么会知道，又能做什么？"
+        },
+        {
+          "text": "How much time will this save us?",
+          "correct": false,
+          "explain": "不適。効率は判断の一部だが、この問いの代わりにならない。",
+          "textZh": "这能给我们省多少时间？"
+        },
+        {
+          "text": "Which model should we use?",
+          "correct": false,
+          "explain": "不適。どのモデルを使うかは、その判断を自動化してよいかが決まった後の話。",
+          "textZh": "我们该用哪个模型？"
+        },
+        {
+          "text": "How soon can we launch?",
+          "correct": false,
+          "explain": "不適。速度を先に置いている。",
+          "textZh": "我们多快能上线？"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**自动化判断前的核心问题**。效率和技术都排在后面。真正决定该不该自动化的是：**出错时当事人能不能发现、能不能申诉、能不能被纠正**。如果这三条都没有，那么这个决定还不该交给自动流程。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-033",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A vendor asks the team to share the prompts and sample outputs from an internal workflow for a case study. What should be checked first?",
+      "stemZh": "一家供应商请求团队分享某个内部流程的提示词和样例产出，用于案例研究。首先应该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the samples contain internal or customer information that cannot leave the company.",
+          "correct": true,
+          "explain": "正解。プロンプトと出力には社内の前提や実データが混ざっていることが多い。",
+          "textZh": "样例里是否包含不能离开公司的内部信息或客户信息。"
+        },
+        {
+          "text": "Whether the vendor will credit the team properly.",
+          "correct": false,
+          "explain": "不適。クレジットの話は、出してよいかが決まった後。",
+          "textZh": "供应商是否会恰当地署名致谢。"
+        },
+        {
+          "text": "Whether the case study will be well written.",
+          "correct": false,
+          "explain": "不適。体裁の問題で、情報の取り扱いとは無関係。",
+          "textZh": "这份案例研究会不会写得好。"
+        },
+        {
+          "text": "Whether competitors have done similar case studies.",
+          "correct": false,
+          "explain": "不適。他社の動向は自社の情報の取り扱いを決めない。",
+          "textZh": "竞争对手有没有做过类似的案例研究。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**提示词本身也是信息资产**。它们里面常常写着内部的判断标准、客户名、价格逻辑。样例产出更是直接可能含有真实数据。对外分享之前，这两样都要按信息分级来审。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-034",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Which situation most clearly requires a second person to check, rather than just more care from the associate?",
+      "stemZh": "下面哪种情况最明显地需要第二个人来检查，而不只是担当自己更仔细？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The associate is the one who proposed the conclusion the output supports.",
+          "correct": true,
+          "explain": "正解。自分の提案を自分で検証しても、都合の良い誤りは見つけにくい。",
+          "textZh": "这份产出支持的结论正是担当自己提出的。"
+        },
+        {
+          "text": "The output is longer than usual.",
+          "correct": false,
+          "explain": "不適。長さは自己検証の限界とは関係が無い。",
+          "textZh": "产出比平时更长。"
+        },
+        {
+          "text": "The associate is new to the team.",
+          "correct": false,
+          "explain": "不適。経験が浅いことは、第三者が必須である理由にはならない。指導で足りる。",
+          "textZh": "担当是团队的新人。"
+        },
+        {
+          "text": "The deadline is tomorrow.",
+          "correct": false,
+          "explain": "不適。締切は第三者確認の要否を決めない。",
+          "textZh": "截止时间是明天。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**自己检查的盲区**。仔细程度解决不了立场问题：当产出支持的正是你自己的主张时，你会不自觉地放过支持它的错误。这类情况需要的不是更努力，而是**换一双没有利害关系的眼睛**。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-035",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO records help most if a decision made with Claude is questioned later? (Select 2)",
+      "stemZh": "如果一个借助 Claude 做出的决定日后被质疑，下面哪两项记录最有帮助？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What information was provided and what the output said at the time.",
+          "correct": true,
+          "explain": "正解。当時の入力と出力。判断の前提を再現できる。",
+          "textZh": "当时提供了什么信息，产出说了什么。"
+        },
+        {
+          "text": "Who reviewed it and what they checked.",
+          "correct": true,
+          "explain": "正解。誰がどこを確認したかが、責任と手順の証跡になる。",
+          "textZh": "谁复核了它，检查了哪些内容。"
+        },
+        {
+          "text": "How long the conversation took.",
+          "correct": false,
+          "explain": "不適。所要時間は判断の妥当性を示さない。",
+          "textZh": "那段对话花了多长时间。"
+        },
+        {
+          "text": "Which model version was fastest.",
+          "correct": false,
+          "explain": "不適。速度は判断の根拠とは無関係。",
+          "textZh": "哪个模型版本最快。"
+        },
+        {
+          "text": "How many people were in the room.",
+          "correct": false,
+          "explain": "不適。人数は判断の中身を説明しない。",
+          "textZh": "当时房间里有多少人。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**留什么痕迹**。事后被追问时，需要重建两件事：**当时掌握的信息**（不能用今天的信息去评判昨天的判断）和**谁做了什么检查**（责任链条）。其余都是无关的元数据。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-036",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A colleague suggests using Claude to write responses to negative online reviews, posted under the names of different employees. What is the problem?",
+      "stemZh": "一位同事建议用 Claude 撰写针对负面网评的回复，并以不同员工的名义发布。问题在哪？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Posting under names of people who did not write or approve the text misrepresents who is speaking.",
+          "correct": true,
+          "explain": "正解。書いていない人の名前で発信している。社内の人であっても偽装。",
+          "textZh": "以没有撰写也没有批准这些文字的人的名义发布，等于伪装了发言者。"
+        },
+        {
+          "text": "No problem, since the employees work for the company.",
+          "correct": false,
+          "explain": "不適。在籍していることは、その人の名前で発信してよい根拠にならない。",
+          "textZh": "没问题，反正这些员工是为公司工作的。"
+        },
+        {
+          "text": "No problem as long as the responses are polite.",
+          "correct": false,
+          "explain": "不適。丁寧さは名義の問題を解決しない。",
+          "textZh": "只要回复礼貌就没问题。"
+        },
+        {
+          "text": "Only a problem if a review is negative.",
+          "correct": false,
+          "explain": "不適。名義の偽装は、元の評価が好意的でも同じ。",
+          "textZh": "只有当评价是负面的时候才是问题。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**以他人名义发言**。这看起来比伪造客户评论轻，但性质相同：**读者会认为那个署名的人说了这些话**。而且当事员工对以自己名义发出的内容没有控制权，一旦出问题，承担后果的是他们。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-037",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "What is the main ethical risk of using Claude to produce content that imitates a specific living person's style and views?",
+      "stemZh": "用 Claude 生成模仿某个在世真人的风格和观点的内容，主要的伦理风险是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Readers may attribute the views to that person, who has neither said nor endorsed them.",
+          "correct": true,
+          "explain": "正解。本人が言っていない意見が本人のものとして流通する。",
+          "textZh": "读者可能会把这些观点归于那个人，而他既没说过也没认可过。"
+        },
+        {
+          "text": "The imitation may not be accurate enough to be convincing.",
+          "correct": false,
+          "explain": "不適。似ていないことは倫理上の主要な問題ではない。むしろ似ているほど危険。",
+          "textZh": "模仿可能不够像、不够有说服力。"
+        },
+        {
+          "text": "It requires a more capable model.",
+          "correct": false,
+          "explain": "不適。技術の話で、倫理的な問題ではない。",
+          "textZh": "这需要更强的模型。"
+        },
+        {
+          "text": "It takes longer than writing it directly.",
+          "correct": false,
+          "explain": "不適。所要時間は論点ではない。",
+          "textZh": "这比直接写更花时间。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**冒名的观点**。注意第二个干扰项的反向逻辑：**越像越危险**，而不是越不像越有问题。核心在于真实存在的人被安上了他没有表达过的立场，而他无法控制也难以澄清。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-038",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO questions determine whether data can be used with an approved AI tool? (Select 2)",
+      "stemZh": "下面哪两个问题决定了某份数据能否用于已获批准的 AI 工具？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What category the data falls into under the organization's classification.",
+          "correct": true,
+          "explain": "正解。社内の分類が取り扱いを決める。まずここを確かめる。",
+          "textZh": "按组织的分级标准，这份数据属于哪一类。"
+        },
+        {
+          "text": "Whether any agreement with a third party restricts how it may be processed.",
+          "correct": true,
+          "explain": "正解。顧客や取引先との契約が制限していることがある。",
+          "textZh": "是否有与第三方的协议限制了它的处理方式。"
+        },
+        {
+          "text": "Whether the file is large enough to be worth analyzing.",
+          "correct": false,
+          "explain": "不適。分量は取り扱いの可否と関係が無い。",
+          "textZh": "这个文件是否大到值得分析。"
+        },
+        {
+          "text": "Whether the associate finds the data interesting.",
+          "correct": false,
+          "explain": "不適。関心の有無は基準にならない。",
+          "textZh": "担当是否对这份数据感兴趣。"
+        },
+        {
+          "text": "Whether the data is stored in a spreadsheet or a database.",
+          "correct": false,
+          "explain": "不適。保存形式は取り扱い区分を変えない。",
+          "textZh": "数据是存在电子表格里还是数据库里。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**两个来源的约束**。一是**内部分级**（公开/内部/机密/受限），二是**外部合同**——客户或合作方的协议里常常有「不得用于自动化处理」「不得传输至第三方」这类条款，这一条最容易被忽略。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-039",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "After a policy update, an associate realizes a workflow they built six months ago no longer complies. What should they do?",
+      "stemZh": "在方针更新之后，某位担当意识到自己六个月前搭建的流程已经不再合规。应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Pause the non-compliant part, report it, and propose how to bring it in line.",
+          "correct": true,
+          "explain": "正解。止める・報告する・直し方を出す。3つそろって初めて対応になる。",
+          "textZh": "暂停不合规的那部分，上报，并提出如何使其合规。"
+        },
+        {
+          "text": "Keep it running, since it was compliant when it was built.",
+          "correct": false,
+          "explain": "不適。方針は現時点のものが適用される。",
+          "textZh": "继续运行，因为它建成时是合规的。"
+        },
+        {
+          "text": "Quietly rebuild it and say nothing.",
+          "correct": false,
+          "explain": "不適。その間に出た成果物の扱いが未処理のまま残る。",
+          "textZh": "悄悄重建它，什么都不说。"
+        },
+        {
+          "text": "Wait to see whether anyone notices.",
+          "correct": false,
+          "explain": "不適。対応を放棄している。",
+          "textZh": "等等看有没有人发现。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**规则变了，旧流程也要跟着变**。「当时是合规的」不构成继续运行的理由。正确的应对是三件事一起做：**停、报、提方案**——特别是「报」，因为期间已经产出的东西可能也需要处理。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-040",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Which use of Claude in customer support is appropriate without additional controls?",
+      "stemZh": "在客服场景中，下面哪种 Claude 的用法不需要额外的管控措施？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Drafting a reply that an agent reviews and sends.",
+          "correct": true,
+          "explain": "正解。人の確認が残っており、判断も人が持っている。",
+          "textZh": "起草一份由客服人员复核后发出的回复。"
+        },
+        {
+          "text": "Automatically closing tickets it judges to be resolved.",
+          "correct": false,
+          "explain": "不適。顧客の問題が未解決のまま閉じられうる。人の確認が要る。",
+          "textZh": "自动关闭它判断为已解决的工单。"
+        },
+        {
+          "text": "Deciding which customers receive a refund.",
+          "correct": false,
+          "explain": "不適。金銭に関わる判断を委ねている。",
+          "textZh": "决定哪些客户可以获得退款。"
+        },
+        {
+          "text": "Inferring which customers are likely to churn and deprioritizing them.",
+          "correct": false,
+          "explain": "不適。推測に基づいて顧客の扱いに差をつけている。",
+          "textZh": "推测哪些客户可能流失，并降低对他们的优先级。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**起草 vs 决定**。安全的用法把模型放在**人的判断之前**（起草），风险的用法把它放在**人的判断之后或之外**（自动关单、自动退款、自动降级）。后三项都是模型的输出直接落到客户身上。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-041",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO steps reduce the chance that an automated process treats a group of people unfairly? (Select 2)",
+      "stemZh": "下面哪两个步骤能降低自动化流程不公平对待某一群人的可能性？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Checking the outcomes across groups, not just the average outcome.",
+          "correct": true,
+          "explain": "正解。平均では見えない偏りがある。分けて見る。",
+          "textZh": "按群体分别检查结果，而不只看平均值。"
+        },
+        {
+          "text": "Keeping a way for an affected person to have the decision looked at again.",
+          "correct": true,
+          "explain": "正解。救済の経路。誤りが個人に固定されるのを防ぐ。",
+          "textZh": "保留一条途径，让受影响的人可以要求重新审视这个决定。"
+        },
+        {
+          "text": "Processing more cases so the sample is larger.",
+          "correct": false,
+          "explain": "不適。件数が増えても偏りは減らない。むしろ影響が広がる。",
+          "textZh": "处理更多案例，让样本更大。"
+        },
+        {
+          "text": "Using a faster model to reduce waiting times.",
+          "correct": false,
+          "explain": "不適。速度は公平性に影響しない。",
+          "textZh": "用更快的模型来缩短等待时间。"
+        },
+        {
+          "text": "Hiding the criteria so they cannot be gamed.",
+          "correct": false,
+          "explain": "不適。不透明さは不公平の是正をさらに難しくする。",
+          "textZh": "隐藏判断标准，防止被人钻空子。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**公平性怎么落地**。两个可操作的动作：**分组看结果**（整体准确率90%可能掩盖某个群体只有60%）和**保留申诉通道**。最后一个干扰项是常见的误区——不透明确实能防钻空子，但同时也让不公平无法被发现和纠正。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-042",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A Project's knowledge base has accumulated files over a year, some of which nobody remembers adding. What is the governance concern?",
+      "stemZh": "一个 Project 的知识库积累了一年的文件，其中有些已经没人记得是谁加的。治理上的关切是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Nobody knows whether those files should still be accessible to everyone who can use the Project.",
+          "correct": true,
+          "explain": "正解。誰が見られるかが管理されていない状態。定期的な棚卸しが要る。",
+          "textZh": "没人知道这些文件是否仍然应该被所有能使用这个 Project 的人看到。"
+        },
+        {
+          "text": "The knowledge base may be using too much storage.",
+          "correct": false,
+          "explain": "不適。容量は統制上の主要な関心ではない。",
+          "textZh": "知识库可能占用了太多存储空间。"
+        },
+        {
+          "text": "Old files make the output slower.",
+          "correct": false,
+          "explain": "不適。速度の話で、統制の問題ではない。",
+          "textZh": "旧文件会让产出变慢。"
+        },
+        {
+          "text": "The files may be in outdated formats.",
+          "correct": false,
+          "explain": "不適。形式の問題であって、アクセス権の問題ではない。",
+          "textZh": "这些文件可能是过时的格式。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**知识库的权限会慢慢失控**。一年下来，谁加了什么、这些内容该给谁看，逐渐没人说得清。而能使用这个 Project 的人 = 能看到全部内容的人。所以知识库需要**定期盘点**，和文件柜一样。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-043",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "An output will be used to answer a regulator's formal question. Who should verify it?",
+      "stemZh": "一份产出将被用来回答监管机构的正式问询。应该由谁来核实？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The person accountable for the company's response to that regulator.",
+          "correct": true,
+          "explain": "正解。当局への回答は会社としての表明。責任を負う人が確認する。",
+          "textZh": "对该监管机构的答复负有责任的那个人。"
+        },
+        {
+          "text": "Anyone on the team with spare time.",
+          "correct": false,
+          "explain": "不適。責任の所在と切り離された確認は意味が薄い。",
+          "textZh": "团队里任何有空的人。"
+        },
+        {
+          "text": "The associate who generated it.",
+          "correct": false,
+          "explain": "不適。作った本人だけでは、立場上の確認にならない。",
+          "textZh": "生成它的那位担当。"
+        },
+        {
+          "text": "Nobody, if the facts are simple.",
+          "correct": false,
+          "explain": "不適。単純さは確認を省く理由にならない。",
+          "textZh": "如果事实很简单，就不需要任何人核实。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**谁来核实取决于谁负责**。对监管机构的答复是**公司的正式表态**，所以核实的人必须是那个要为这个表态负责的人——不是最懂内容的人，也不是最有空的人。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-044",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO characteristics make a use case higher-risk from a governance perspective? (Select 2)",
+      "stemZh": "从治理角度看，下面哪两个特征会让一个使用场景风险更高？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The output reaches the affected person without anyone reviewing it.",
+          "correct": true,
+          "explain": "正解。人の関与が無いまま当事者に届く。誤りが止まらない。",
+          "textZh": "产出在没有任何人复核的情况下直接到达受影响的人。"
+        },
+        {
+          "text": "The decision is hard to reverse once made.",
+          "correct": true,
+          "explain": "正解。取り返しがつかないほど、事前の統制が要る。",
+          "textZh": "这个决定一旦做出就很难撤销。"
+        },
+        {
+          "text": "The task is performed frequently.",
+          "correct": false,
+          "explain": "不適。頻度は影響を広げるが、それ自体が高リスクの特徴ではない。",
+          "textZh": "这项任务执行得很频繁。"
+        },
+        {
+          "text": "The output is written in more than one language.",
+          "correct": false,
+          "explain": "不適。言語数は統制上のリスクを決めない。",
+          "textZh": "产出用了不止一种语言。"
+        },
+        {
+          "text": "The task was previously done by a contractor.",
+          "correct": false,
+          "explain": "不適。以前の担い手はリスクの性質を変えない。",
+          "textZh": "这项任务以前是由外包人员做的。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**风险的两个维度**。一是**有没有人在中间**（无人复核 = 错误直达当事人），二是**能不能撤回**。频率会放大影响，但它本身不改变单次事件的严重程度——两个高风险特征都指向「出错时会怎样」。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-045",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An associate is asked by a manager to bypass the review policy \"just this once\" for a rush job. What is the appropriate response?",
+      "stemZh": "一位经理因为工作紧急，要求这位担当「就这一次」绕过复核方针。恰当的回应是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Decline the bypass, offer to reduce the scope so the review fits, and escalate if the manager insists.",
+          "correct": true,
+          "explain": "正解。代案を出しつつ守る。押し切られたら上に上げる。",
+          "textZh": "拒绝绕过，提议缩小范围以便复核能完成，如果经理坚持就向上反映。"
+        },
+        {
+          "text": "Comply, since the manager has authority over the work.",
+          "correct": false,
+          "explain": "不適。業務上の上司でも、方針を免除する権限があるとは限らない。",
+          "textZh": "照做，因为经理对这项工作有权限。"
+        },
+        {
+          "text": "Comply but document that it was requested.",
+          "correct": false,
+          "explain": "不適。記録は違反を免除しない。",
+          "textZh": "照做，但记录下这是被要求的。"
+        },
+        {
+          "text": "Refuse and take no further action.",
+          "correct": false,
+          "explain": "不適。締切の問題が残ったまま。代案が無い。",
+          "textZh": "拒绝，然后不做任何其他事。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**被要求违反方针时**。正确的回应有三段：**拒绝绕过 + 给出能解决对方困境的替代方案 + 对方坚持就上报**。只拒绝不给方案，会让人觉得你在妨碍工作；只记录不拒绝，则是把违规做完了再留个自保的痕迹。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-046",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Why can an automated process be unfair even when the same rule is applied to everyone?",
+      "stemZh": "即使对所有人都适用同一条规则，自动化流程为什么仍然可能是不公平的？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A uniform rule can still produce very different outcomes for groups whose circumstances differ.",
+          "correct": true,
+          "explain": "正解。同じ扱いが同じ結果を意味しない。結果を分けて見ないと分からない。",
+          "textZh": "一条统一的规则，对处境不同的群体仍然可能产生非常不同的结果。"
+        },
+        {
+          "text": "Automated processes always contain bugs.",
+          "correct": false,
+          "explain": "不適。不具合の有無とは別の論点。",
+          "textZh": "自动化流程里总是有缺陷。"
+        },
+        {
+          "text": "Consistency is not a goal in fair processes.",
+          "correct": false,
+          "explain": "不適。一貫性は必要条件の一つ。問題はそれだけでは足りないこと。",
+          "textZh": "一致性在公平的流程里本来就不是目标。"
+        },
+        {
+          "text": "Rules applied by machines are legally different.",
+          "correct": false,
+          "explain": "不適。法的区分の話ではない。",
+          "textZh": "机器执行的规则在法律上性质不同。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**同等对待 ≠ 公平结果**。一条「必须有三年连续工作经历」的规则对所有人一样，但对有育儿中断的人影响完全不同。这就是为什么公平性要**看结果的分布**，而不是看规则的措辞。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-047",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A colleague in another country asks for a dataset the associate uses daily, to run the same analysis there. What should be checked?",
+      "stemZh": "另一个国家的同事请求获取这位担当每天使用的数据集，以便在当地做同样的分析。应该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the data may cross that border at all, since transfer rules can differ from use rules.",
+          "correct": true,
+          "explain": "正解。国内で使えることと、国外に出せることは別の規制。",
+          "textZh": "这份数据是否可以跨境传输——传输规则和使用规则往往是两回事。"
+        },
+        {
+          "text": "Whether the colleague's analysis method is the same.",
+          "correct": false,
+          "explain": "不適。手法の一致は、移転の可否とは無関係。",
+          "textZh": "那位同事的分析方法是否相同。"
+        },
+        {
+          "text": "Whether the file will fit in an email attachment.",
+          "correct": false,
+          "explain": "不適。送り方の話で、送ってよいかの判断ではない。",
+          "textZh": "文件是否能作为邮件附件发送。"
+        },
+        {
+          "text": "Whether the colleague has been with the company long enough.",
+          "correct": false,
+          "explain": "不適。在籍年数は越境移転の可否を決めない。",
+          "textZh": "那位同事在公司待的时间是否够长。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**跨境传输是独立的一道关**。在本国可以合法使用的数据，未必可以传到另一个国家——这取决于两地的规定和公司的传输机制。「我每天都在用」不构成可以送出去的理由。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-048",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "Which is the clearest signal that a proposed use should be reconsidered?",
+      "stemZh": "下面哪一项最清楚地说明一个被提议的用途应该被重新考虑？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The team would be uncomfortable if the affected people knew exactly how it worked.",
+          "correct": true,
+          "explain": "正解。当事者に説明できない用途は、たいてい問題を含んでいる。",
+          "textZh": "如果受影响的人完全了解它是怎么运作的，团队会感到不安。"
+        },
+        {
+          "text": "The use case is new and has no precedent.",
+          "correct": false,
+          "explain": "不適。前例が無いことは不適切であることを意味しない。",
+          "textZh": "这个用途是新的，没有先例。"
+        },
+        {
+          "text": "It would require learning a new feature.",
+          "correct": false,
+          "explain": "不適。学習コストは適否の判断基準ではない。",
+          "textZh": "它需要学习一个新功能。"
+        },
+        {
+          "text": "It would take several weeks to set up.",
+          "correct": false,
+          "explain": "不適。所要期間は倫理的な妥当性と無関係。",
+          "textZh": "它需要几周时间来搭建。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**一个很实用的自检问题**：「如果当事人完全知道我们在做什么，我们会不会不好意思？」这个问题不能代替方针和法律，但它非常可靠地识别出那些技术上没问题、却经不起公开的用途。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-049",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO should happen when an organization approves a new AI tool? (Select 2)",
+      "stemZh": "当一个组织批准一个新的 AI 工具时，应该做哪两件事？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "State which categories of information may be used with it.",
+          "correct": true,
+          "explain": "正解。承認と同時に境界を示さないと、各自の判断に委ねられる。",
+          "textZh": "说明哪些类别的信息可以在其中使用。"
+        },
+        {
+          "text": "Say who to ask when a situation is unclear.",
+          "correct": true,
+          "explain": "正解。迷ったときの相談先。これが無いと、判断が現場任せになる。",
+          "textZh": "说明遇到不清楚的情况时该问谁。"
+        },
+        {
+          "text": "Set a target for how often staff should use it.",
+          "correct": false,
+          "explain": "不適。利用回数の目標は統制の目的と関係が無い。",
+          "textZh": "设定员工应该多频繁使用它的目标。"
+        },
+        {
+          "text": "Require staff to share their prompts publicly.",
+          "correct": false,
+          "explain": "不適。公開は統制の要件ではなく、別の問題を生む。",
+          "textZh": "要求员工公开分享自己的提示词。"
+        },
+        {
+          "text": "Announce it without further guidance.",
+          "correct": false,
+          "explain": "不適。承認だけでは、使ってよい範囲が伝わらない。",
+          "textZh": "只宣布批准，不给进一步的指引。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**批准工具的同时要给边界**。光说「这个工具可以用了」，实际上等于把「什么信息能放进去」的判断留给了每个人自己。两件必须配套的事：**信息的边界**和**遇到疑问问谁**。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-050",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An associate must decide whether a Claude-drafted summary of a customer complaint can go straight into the case file. What matters most?",
+      "stemZh": "某位担当要决定一份由 Claude 起草的客户投诉摘要能否直接进入案卷。最重要的是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the case file will later be treated as the record of what the customer said.",
+          "correct": true,
+          "explain": "正解。記録として扱われるなら、要約の誤りが事実として固定される。",
+          "textZh": "这份案卷日后是否会被当作客户原话的记录。"
+        },
+        {
+          "text": "Whether the summary is shorter than the original complaint.",
+          "correct": false,
+          "explain": "不適。長さは記録としての適否を決めない。",
+          "textZh": "摘要是否比原始投诉更短。"
+        },
+        {
+          "text": "Whether the customer is an important account.",
+          "correct": false,
+          "explain": "不適。顧客の重要度で記録の正確さの基準を変えない。",
+          "textZh": "这位客户是否是重要客户。"
+        },
+        {
+          "text": "Whether the associate has time to read the original.",
+          "correct": false,
+          "explain": "不適。時間の都合で基準を下げている。",
+          "textZh": "担当是否有时间读原文。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**摘要会变成「事实」**。一旦进入案卷，日后引用的就是摘要而不是原话。如果客户说的和摘要写的有出入，那个出入会被当作事实固定下来。所以关键问题是**这份文档将来扮演什么角色**。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-051",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "What does \"meaningful human oversight\" require beyond simply having a person in the process?",
+      "stemZh": "「有实质意义的人工监督」除了流程里有个人之外，还要求什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "That the person has the time, the information, and the authority to actually change the outcome.",
+          "correct": true,
+          "explain": "正解。時間・情報・権限の3つ。どれか欠けると形だけになる。",
+          "textZh": "那个人有时间、有信息、而且有权限真正改变结果。"
+        },
+        {
+          "text": "That the person is senior enough.",
+          "correct": false,
+          "explain": "不適。役職だけでは、時間も情報も保証されない。",
+          "textZh": "那个人的职级足够高。"
+        },
+        {
+          "text": "That the person signs off in writing.",
+          "correct": false,
+          "explain": "不適。署名は証跡であって、実質的な監督ではない。",
+          "textZh": "那个人书面签字确认。"
+        },
+        {
+          "text": "That the person is different each time.",
+          "correct": false,
+          "explain": "不適。交代制は実質性を保証しない。",
+          "textZh": "每次都换一个不同的人。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**「有人参与」和「有实质监督」的区别**。三个条件缺一不可：**时间**（不是一天两百份）、**信息**（看得到判断依据）、**权限**（能推翻结果）。只有签字权而没有推翻权，那是背书，不是监督。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-052",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO are legitimate reasons to avoid putting a document into any AI tool? (Select 2)",
+      "stemZh": "下面哪两个是「不要把某份文档放进任何 AI 工具」的正当理由？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A contract with a client restricts how their material may be processed.",
+          "correct": true,
+          "explain": "正解。契約上の制限。会社が負う義務。",
+          "textZh": "与客户的合同限制了其资料的处理方式。"
+        },
+        {
+          "text": "The document is classified at a level the tool is not approved for.",
+          "correct": true,
+          "explain": "正解。分類と承認範囲が合っていない。",
+          "textZh": "这份文档的密级超出了该工具获批的范围。"
+        },
+        {
+          "text": "The document is long.",
+          "correct": false,
+          "explain": "不適。分量は取り扱いの可否と無関係。",
+          "textZh": "这份文档很长。"
+        },
+        {
+          "text": "The associate prefers to write it themselves.",
+          "correct": false,
+          "explain": "不適。好みは制限の理由にならない。",
+          "textZh": "担当更愿意自己写。"
+        },
+        {
+          "text": "The document is written in a foreign language.",
+          "correct": false,
+          "explain": "不適。言語は機密性の区分を変えない。",
+          "textZh": "这份文档是用外语写的。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**真正的禁止理由**。都来自**外部约束**：合同义务和密级。个人偏好、长度、语言都不是。这道题的价值在于把「我觉得不太好」和「规定不允许」分开——只有后者是拒绝的依据。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-053",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A team proposes using Claude to pre-screen safety incident reports and forward only the ones it judges serious. What is the risk?",
+      "stemZh": "一个团队提议用 Claude 预先筛选安全事故报告，只转发它判断为严重的那些。风险是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A serious incident that the filter misjudges never reaches a person at all.",
+          "correct": true,
+          "explain": "正解。取りこぼしが誰の目にも触れない。安全に関わる領域では致命的。",
+          "textZh": "一起被筛选器误判的严重事故将完全不会到达任何人手里。"
+        },
+        {
+          "text": "The team will receive too many reports to read.",
+          "correct": false,
+          "explain": "不適。提案はむしろ件数を減らすもの。懸念の向きが逆。",
+          "textZh": "团队会收到太多报告读不完。"
+        },
+        {
+          "text": "Reports will take longer to process.",
+          "correct": false,
+          "explain": "不適。処理は速くなる。問題は速度ではない。",
+          "textZh": "报告的处理会变慢。"
+        },
+        {
+          "text": "The reports will be written in an inconsistent style.",
+          "correct": false,
+          "explain": "不適。体裁の問題で、安全上のリスクではない。",
+          "textZh": "报告的文风会不一致。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**过滤器的漏报无人知晓**。这是所有「只转发重要的」类设计的共同缺陷：**被过滤掉的东西没有人看见**，所以错误也不会被发现。在安全、合规、投诉这类领域，通常的做法是全部保留、只做优先级排序。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-054",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "An associate finds that the approved policy conflicts with what their team actually does daily. What is the right first step?",
+      "stemZh": "某位担当发现已获批准的方针与自己团队每天实际的做法相冲突。正确的第一步是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Report the gap to whoever owns the policy, since either the practice or the policy needs to change.",
+          "correct": true,
+          "explain": "正解。放置すると、方針が形骸化し、事故時に守りが無い。",
+          "textZh": "把这个落差报告给方针的负责人——要么实践改，要么方针改。"
+        },
+        {
+          "text": "Follow the practice, since it is what everyone does.",
+          "correct": false,
+          "explain": "不適。慣行は方針に優先しない。",
+          "textZh": "照实践做，因为大家都这么做。"
+        },
+        {
+          "text": "Follow the policy silently and let others continue as they are.",
+          "correct": false,
+          "explain": "不適。自分だけ守っても、組織のリスクは残る。",
+          "textZh": "自己默默遵守方针，别人照旧。"
+        },
+        {
+          "text": "Assume the policy is out of date and ignore it.",
+          "correct": false,
+          "explain": "不適。古いかどうかを判断する立場にない。",
+          "textZh": "假定方针已经过时，无视它。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**发现落差要上报**。方针和实践长期不一致，最危险的结果是**方针变成一纸空文**——真出事的时候，公司既没有实际的防护，也无法证明自己尽到了责任。改哪一边不是你决定的，但让它被看见是你的责任。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-055",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO make it acceptable to reduce the depth of review for a category of outputs? (Select 2)",
+      "stemZh": "下面哪两个条件成立时，可以降低某一类产出的复核深度？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Measured error rates over a meaningful period are consistently low.",
+          "correct": true,
+          "explain": "正解。実測に基づく。印象ではなく記録で判断する。",
+          "textZh": "在足够长的时间里实测的错误率始终很低。"
+        },
+        {
+          "text": "Any error that does slip through would be caught downstream.",
+          "correct": true,
+          "explain": "正解。後段に検出の仕組みがある。一段階に依存していない。",
+          "textZh": "即使有错误漏过去，下游也会拦住。"
+        },
+        {
+          "text": "The team is busy this quarter.",
+          "correct": false,
+          "explain": "不適。繁忙は基準を下げる理由にならない。",
+          "textZh": "团队这个季度很忙。"
+        },
+        {
+          "text": "The outputs look consistent.",
+          "correct": false,
+          "explain": "不適。見た目の安定は正しさの根拠にならない。",
+          "textZh": "这些产出看起来很一致。"
+        },
+        {
+          "text": "The model was recently upgraded.",
+          "correct": false,
+          "explain": "不適。更新は品質の保証ではない。むしろ再確認の契機。",
+          "textZh": "模型最近升级了。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**什么时候可以放松检查**。两个条件：**有数据支撑**（不是感觉上还行）和**有后备网**（漏了还有人能拦）。最后一个干扰项要特别注意——模型升级不是放松的理由，反而是**重新验证**的时机。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-056",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An associate notices that a workflow they built is being used for a purpose it was never designed or checked for. What should they do?",
+      "stemZh": "某位担当发现自己搭建的流程正被用于一个它从未被设计、也从未被检验过的用途。应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Flag it to the users and the owner, since the checks in place were designed for the original purpose only.",
+          "correct": true,
+          "explain": "正解。検査は元の用途に合わせて設計されている。別用途では機能しない可能性が高い。",
+          "textZh": "向使用者和负责人提出，因为现有的检查只是针对原本的用途设计的。"
+        },
+        {
+          "text": "Do nothing, since people found it useful.",
+          "correct": false,
+          "explain": "不適。有用であることは、検証されていることを意味しない。",
+          "textZh": "什么都不做，因为大家觉得好用。"
+        },
+        {
+          "text": "Quietly add more checks to cover the new use.",
+          "correct": false,
+          "explain": "不適。新しい用途が妥当かの判断を飛ばしている。",
+          "textZh": "悄悄加一些检查来覆盖新用途。"
+        },
+        {
+          "text": "Shut the workflow down immediately.",
+          "correct": false,
+          "explain": "不適。本来の用途まで止めている。まず知らせるのが先。",
+          "textZh": "立刻关停这道流程。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**用途蔓延**。流程被挪作他用是常见现象，问题在于**原有的检查是按原用途设计的**——新用途下它可能完全拦不住该拦的东西。正确的动作是让相关的人知道，而不是自己偷偷补丁或直接关停。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-057",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "What is the safest assumption about information pasted into an AI tool?",
+      "stemZh": "对于贴进 AI 工具里的信息，最安全的假设是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Treat it as having left the associate's direct control, and act accordingly before pasting.",
+          "correct": true,
+          "explain": "正解。貼る前に判断する。貼った後にできることは限られる。",
+          "textZh": "把它当作已经脱离了担当的直接掌控，因此要在贴进去之前就做好判断。"
+        },
+        {
+          "text": "It can always be deleted later if needed.",
+          "correct": false,
+          "explain": "不適。削除できる場合でも、渡した事実は消えない。",
+          "textZh": "需要的话以后总能删掉。"
+        },
+        {
+          "text": "It is safe if the conversation is not shared.",
+          "correct": false,
+          "explain": "不適。共有の有無は、どこに渡ったかを変えない。",
+          "textZh": "只要不分享这段对话就是安全的。"
+        },
+        {
+          "text": "It is safe if it is deleted within a day.",
+          "correct": false,
+          "explain": "不適。時間の長短は取り扱いの可否を変えない。",
+          "textZh": "只要一天之内删掉就是安全的。"
+        }
+      ],
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "commentaryZh": "考点是**判断必须发生在粘贴之前**。三个干扰项的共同点是把希望寄托在事后的补救（删除、不分享、时间短）。实际有效的只有一条：**在按下粘贴之前就决定这份信息该不该出去**。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-058",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO indicate that a use case needs a formal review before it starts? (Select 2)",
+      "stemZh": "下面哪两点说明一个使用场景在启动之前需要正式审查？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "It processes information about identifiable individuals.",
+          "correct": true,
+          "explain": "正解。個人に紐づく情報は、事前の確認が要る典型。",
+          "textZh": "它处理涉及可识别个人的信息。"
+        },
+        {
+          "text": "Its output influences a decision about a person's access, pay, or employment.",
+          "correct": true,
+          "explain": "正解。処遇に直接影響する。最も慎重さが要る領域。",
+          "textZh": "它的产出会影响关于某人的权限、薪酬或雇佣的决定。"
+        },
+        {
+          "text": "It involves a large volume of text.",
+          "correct": false,
+          "explain": "不適。分量は審査の要否を決めない。",
+          "textZh": "它涉及大量文本。"
+        },
+        {
+          "text": "It uses a newly released feature.",
+          "correct": false,
+          "explain": "不適。機能の新しさは審査の基準ではない。",
+          "textZh": "它使用了一个新发布的功能。"
+        },
+        {
+          "text": "It will run during business hours.",
+          "correct": false,
+          "explain": "不適。実行時間帯は無関係。",
+          "textZh": "它会在工作时间运行。"
+        }
+      ],
+      "objective": "Identify appropriate and inappropriate use cases",
+      "commentaryZh": "考点是**需要正式审查的两个触发条件**：**涉及可识别的个人**，或**影响某个人的处遇**。这两条覆盖了绝大多数高风险场景。技术上的新颖性和数据量都不是触发条件。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-059",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "Two departments interpret the same AI policy differently, and both are acting on their interpretation. What should the associate do?",
+      "stemZh": "两个部门对同一条 AI 方针的理解不同，而且都在按自己的理解行事。这位担当应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Raise it so the policy owner can clarify, since two interpretations mean at least one team is out of compliance.",
+          "correct": true,
+          "explain": "正解。解釈が割れている時点で統制が効いていない。所管に判断してもらう。",
+          "textZh": "把它提出来让方针的负责人澄清——两种理解并存，意味着至少有一个团队是不合规的。"
+        },
+        {
+          "text": "Adopt the stricter interpretation and say nothing.",
+          "correct": false,
+          "explain": "不適。自分だけ厳しくしても、緩い側のリスクが残る。",
+          "textZh": "采用更严格的那种理解，什么都不说。"
+        },
+        {
+          "text": "Adopt whichever interpretation is more convenient.",
+          "correct": false,
+          "explain": "不適。都合で解釈を選んでいる。",
+          "textZh": "采用更方便的那种理解。"
+        },
+        {
+          "text": "Let each department continue as it sees fit.",
+          "correct": false,
+          "explain": "不適。方針が統制として機能していない状態を放置している。",
+          "textZh": "让每个部门按自己认为合适的方式继续。"
+        }
+      ],
+      "objective": "Follow organizational AI policies and governance standards",
+      "commentaryZh": "考点是**解释分歧也是治理问题**。一条方针如果能被合理地读出两种意思，那它就没有在发挥统一约束的作用。自己选一种（无论宽严）都不解决问题——**需要有权解释的人来定**。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d6-060",
+      "domain": "D6",
+      "type": "mcq",
+      "stem": "What is the most important thing to tell someone whose case was handled with AI assistance?",
+      "stemZh": "对于一个案件是在 AI 辅助下被处理的人，最重要的是告诉他什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "How the decision was reached and how they can have it looked at again.",
+          "correct": true,
+          "explain": "正解。根拠と、異議を申し立てる道筋。この2つが当事者の権利を支える。",
+          "textZh": "这个决定是如何做出的，以及他可以如何要求重新审视。"
+        },
+        {
+          "text": "Which model version was used.",
+          "correct": false,
+          "explain": "不適。技術的な詳細は当事者の役に立たない。",
+          "textZh": "使用的是哪个模型版本。"
+        },
+        {
+          "text": "How much time the AI saved the company.",
+          "correct": false,
+          "explain": "不適。当事者に関係の無い情報。",
+          "textZh": "AI 为公司节省了多少时间。"
+        },
+        {
+          "text": "That AI is generally accurate.",
+          "correct": false,
+          "explain": "不適。一般論は個別の判断を説明しない。",
+          "textZh": "AI 总体上是准确的。"
+        }
+      ],
+      "objective": "Understand the ethical implications of AI usage",
+      "commentaryZh": "考点是**当事人真正需要的信息**。技术细节和效率数据对他毫无意义。他需要的是两件事：**为什么是这个结果**，和**如果我不同意该找谁**。这两点构成了自动化决策里最基本的权利保障。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
     }
   ]
 }
