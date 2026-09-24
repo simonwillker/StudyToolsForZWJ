@@ -11,27 +11,33 @@
         {
           "text": "The two instructions conflict; decide which matters more and rewrite so only one constraint governs length.",
           "correct": true,
-          "explain": "正解。出力が言うことを聞かないときは、まず指示どうしが矛盾していないかを疑う。両立しない条件を渡していれば、どちらかは必ず破られる。"
+          "explain": "正解。出力が言うことを聞かないときは、まず指示どうしが矛盾していないかを疑う。両立しない条件を渡していれば、どちらかは必ず破られる。",
+          "textZh": "两条指示互相冲突；决定哪一条更重要，改写成只由一个约束来决定长度。"
         },
         {
           "text": "The model cannot count words; there is nothing to do.",
           "correct": false,
-          "explain": "不適。原因の特定を諦めている。矛盾を解けば長さは制御できる。"
+          "explain": "不適。原因の特定を諦めている。矛盾を解けば長さは制御できる。",
+          "textZh": "模型不会数字数，没有办法可想。"
         },
         {
           "text": "Repeat \"under 200 words\" five times in the prompt.",
           "correct": false,
-          "explain": "不適。矛盾した条件が消えるわけではない。"
+          "explain": "不適。矛盾した条件が消えるわけではない。",
+          "textZh": "把「200字以内」在提示词里重复五遍。"
         },
         {
           "text": "Switch to a larger model.",
           "correct": false,
-          "explain": "不適。指示の矛盾はモデルの性能で解決しない。"
+          "explain": "不適。指示の矛盾はモデルの性能で解決しない。",
+          "textZh": "换一个更大的模型。"
         }
       ],
       "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "一个提示词要求「200字以内的摘要」，但产出稳定在400字。同一个提示词里还写着「详细覆盖报告的每一个章节」。最可能的原因和修法是什么？",
+      "commentaryZh": "考点是「诊断表现不佳的提示词」。产出不听话时，第一个该怀疑的是指示之间有没有矛盾——给了无法同时成立的条件，必定有一条会被破坏。这类题的解法是「回去读自己的提示词」，而不是加力度或换模型。"
     },
     {
       "id": "d7-002",
@@ -43,27 +49,33 @@
         {
           "text": "Pin down what \"usable\" means — give an example of a good output and state the required structure explicitly.",
           "correct": true,
-          "explain": "正解。ばらつきは、良し悪しの基準が指示に入っていないときに出る。例示と構造の明示で振れ幅が縮む。"
+          "explain": "正解。ばらつきは、良し悪しの基準が指示に入っていないときに出る。例示と構造の明示で振れ幅が縮む。",
+          "textZh": "把「可用」的定义钉死——给出一个合格产出的示例，并明确说明要求的结构。"
         },
         {
           "text": "Run the prompt repeatedly and keep whichever result looks best.",
           "correct": false,
-          "explain": "不適。毎回人が選別する手間が残り、原因は残ったまま。"
+          "explain": "不適。毎回人が選別する手間が残り、原因は残ったまま。",
+          "textZh": "反复运行提示词，留下看起来最好的那次结果。"
         },
         {
           "text": "Accept the variation as inherent and stop trying.",
           "correct": false,
-          "explain": "不適。診断を放棄している。"
+          "explain": "不適。診断を放棄している。",
+          "textZh": "接受这种波动是固有的，不再尝试。"
         },
         {
           "text": "Make the prompt shorter so there is less to go wrong.",
           "correct": false,
-          "explain": "不適。情報を減らせば基準はさらに不明確になる。"
+          "explain": "不適。情報を減らせば基準はさらに不明確になる。",
+          "textZh": "把提示词写得更短，这样出错的余地更小。"
         }
       ],
       "objective": "Adjust approach based on feedback and results",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "同一个提示词有一半的时候产出可用的结果，另一半不可用。最有效的第一步修正是什么？",
+      "commentaryZh": "考点是「根据结果调整做法」。波动往往来自「好坏的标准没有写进指示里」，用示例和结构说明就能把振幅压下来。「多跑几次挑最好的」让人工筛选的成本永远留着，原因一点没动；「把提示词写短」减少信息只会让标准更模糊。"
     },
     {
       "id": "d7-003",
@@ -75,27 +87,33 @@
         {
           "text": "Find out where the time actually goes — drafting, checking, or rework — before changing anything.",
           "correct": true,
-          "explain": "正解。最適化は計測から始める。確認作業に時間が消えているなら、生成を速くしても何も変わらない。"
+          "explain": "正解。最適化は計測から始める。確認作業に時間が消えているなら、生成を速くしても何も変わらない。",
+          "textZh": "先弄清楚时间实际花在哪里——起草、检查，还是返工——再做任何改动。"
         },
         {
           "text": "Switch every step to the fastest model.",
           "correct": false,
-          "explain": "不適。原因を確かめずに手を打っている。品質が落ちて手戻りが増える可能性もある。"
+          "explain": "不適。原因を確かめずに手を打っている。品質が落ちて手戻りが増える可能性もある。",
+          "textZh": "把每个步骤都换成最快的模型。"
         },
         {
           "text": "Remove the human review step, since it is the slowest part.",
           "correct": false,
-          "explain": "不適。遅いことは不要であることの理由にならない。"
+          "explain": "不適。遅いことは不要であることの理由にならない。",
+          "textZh": "去掉人工复核这一步，因为它最慢。"
         },
         {
           "text": "Tell the team the workflow is as fast as it can be.",
           "correct": false,
-          "explain": "不適。調べていない。"
+          "explain": "不適。調べていない。",
+          "textZh": "告诉团队这个工作流已经是最快的了。"
         }
       ],
       "objective": "Optimize workflows for efficiency and effectiveness",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某团队反映他们的 Claude 辅助工作流「太花时间了」。这位担当首先应该做什么？",
+      "commentaryZh": "考点是「工作流的优化从测量开始」。如果时间实际消耗在复核上，把生成变快什么也改变不了。「每步都换最快的模型」没有确认原因就出手，还可能因为质量下降而增加返工；「去掉人工复核」把「慢」当成了「不必要」的理由，这两者没有关系。"
     },
     {
       "id": "d7-004",
@@ -107,32 +125,39 @@
         {
           "text": "Supply the specific material — the actual numbers, names, and constraints — instead of describing them in general terms.",
           "correct": true,
-          "explain": "正解。一般的な出力は、一般的な入力しか渡していないときに出る。"
+          "explain": "正解。一般的な出力は、一般的な入力しか渡していないときに出る。",
+          "textZh": "提供具体的材料——真实的数字、名称和约束条件——而不是用一般性的措辞去描述它们。"
         },
         {
           "text": "State what the output must not do — the assumptions to avoid and the boilerplate to leave out.",
           "correct": true,
-          "explain": "正解。避けるべき形を明示すると、既定の書きぶりから外れやすくなる。"
+          "explain": "正解。避けるべき形を明示すると、既定の書きぶりから外れやすくなる。",
+          "textZh": "说明产出不该做什么——要避免的假设、要去掉的套话。"
         },
         {
           "text": "Ask for a longer output.",
           "correct": false,
-          "explain": "不適。一般論が増えるだけ。"
+          "explain": "不適。一般論が増えるだけ。",
+          "textZh": "要求产出更长一些。"
         },
         {
           "text": "Add \"be specific\" without providing specifics.",
           "correct": false,
-          "explain": "不適。具体性は指示ではなく材料から生まれる。"
+          "explain": "不適。具体性は指示ではなく材料から生まれる。",
+          "textZh": "加上「要具体」，但不提供任何具体信息。"
         },
         {
           "text": "Change the model's temperature setting from the chat interface.",
           "correct": false,
-          "explain": "不適。一般的なチャット利用で触る設定ではなく、原因にも当たっていない。"
+          "explain": "不適。一般的なチャット利用で触る設定ではなく、原因にも当たっていない。",
+          "textZh": "从聊天界面修改模型的 temperature 设置。"
         }
       ],
       "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "一份产出很笼统，套在哪家公司身上都说得通。下面哪两项改动最有帮助？（选2项）",
+      "commentaryZh": "考点是「笼统的产出来自笼统的输入」。具体性来自材料，不来自形容词——「只加一句『要具体』却不给具体信息」正是这个陷阱。「说明不该做什么」也很有效：明确排除掉默认的写法，产出才会偏离套路。改 temperature 在一般的聊天使用中并不是会去动的设置，也没有对准原因。"
     }
   ]
 }

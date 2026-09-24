@@ -11,27 +11,33 @@
         {
           "text": "Remove or anonymize the identifiers first, then run the analysis on the de-identified data.",
           "correct": true,
-          "explain": "正解。多くの分析は識別子を必要としない。方針を守ったうえで目的を達成できる形に直すのが正しい判断。"
+          "explain": "正解。多くの分析は識別子を必要としない。方針を守ったうえで目的を達成できる形に直すのが正しい判断。",
+          "textZh": "先去除或匿名化标识信息，然后对去标识化后的数据做分析。"
         },
         {
           "text": "Upload it as-is, since the analysis is internal.",
           "correct": false,
-          "explain": "不適。社内利用であることは、規制対象データの取り扱い方針の例外にならない。"
+          "explain": "不適。社内利用であることは、規制対象データの取り扱い方針の例外にならない。",
+          "textZh": "原样上传——反正这是内部分析。"
         },
         {
           "text": "Upload it but add an instruction not to retain the data.",
           "correct": false,
-          "explain": "不適。指示は方針の代わりにならない。渡した事実は消えない。"
+          "explain": "不適。指示は方針の代わりにならない。渡した事実は消えない。",
+          "textZh": "上传，但附加一条指示要求 Claude 不要保留这些数据。"
         },
         {
           "text": "Cancel the analysis entirely.",
           "correct": false,
-          "explain": "不適。匿名化すれば実施できる。必要以上に仕事を止めている。"
+          "explain": "不適。匿名化すれば実施できる。必要以上に仕事を止めている。",
+          "textZh": "彻底取消这项分析。"
         }
       ],
       "objective": "Apply data sensitivity, regulatory, and privacy considerations",
       "reference": "https://www.anthropic.com/legal/aup",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某位项目经理想上传一份含有客户姓名和账号的表格，让 Claude 找出趋势。公司方针限制共享受监管的个人数据。",
+      "commentaryZh": "这是占15%的 D6 最典型的考法。大多数分析并不需要标识信息，所以正解是「改成既守方针又能达成目的的形式」。「反正是内部分析」不构成例外；「附一条指示要求不要保留」代替不了方针——数据已经交出去这个事实不会消失；「彻底取消分析」则是在明明可以做的情况下过度停止工作。"
     },
     {
       "id": "d6-002",
@@ -43,27 +49,33 @@
         {
           "text": "Treat it as a starting point and have the responsible expert confirm it before it is sent as the company's answer.",
           "correct": true,
-          "explain": "正解。法的な帰結を持つ回答は人の確認が要る。下書きとしての価値と、最終回答としての適否は別。"
+          "explain": "正解。法的な帰結を持つ回答は人の確認が要る。下書きとしての価値と、最終回答としての適否は別。",
+          "textZh": "当作起点，在以公司名义发出之前，由负责的专业人员确认内容。"
         },
         {
           "text": "Send it directly, since the answer is well written and cites the law.",
           "correct": false,
-          "explain": "不適。体裁と引用があることは正しさの証明ではない。しかも誤れば実害が出る領域。"
+          "explain": "不適。体裁と引用があることは正しさの証明ではない。しかも誤れば実害が出る領域。",
+          "textZh": "直接发送，因为文字写得好而且引用了法条。"
         },
         {
           "text": "Send it with a note saying it was AI-generated, so responsibility transfers to the reader.",
           "correct": false,
-          "explain": "不適。表示しても、誤った回答を出した責任は移らない。"
+          "explain": "不適。表示しても、誤った回答を出した責任は移らない。",
+          "textZh": "附注「本内容由 AI 生成」后发送，责任就转移给读者了。"
         },
         {
           "text": "Never use Claude for anything touching HR topics.",
           "correct": false,
-          "explain": "不適。下書き・整理・論点出しには有用。全面禁止は適切な線引きではない。"
+          "explain": "不適。下書き・整理・論点出しには有用。全面禁止は適切な線引きではない。",
+          "textZh": "凡是涉及人事话题的，一律不要使用 Claude。"
         }
       ],
       "objective": "Identify appropriate and inappropriate use cases",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某位担当用 Claude 起草了一份关于员工法定休假权利的回复。这份草稿应该怎么用？",
+      "commentaryZh": "考点是「何时需要人工复核」。有法律后果的回答必须经过人确认——「作为草稿的价值」和「作为最终答复是否合格」是两回事。「附注是 AI 生成的」很有迷惑性：标注来源并不会转移出错的责任。「人事话题一律不用」则是过度禁止，起草、整理、列论点这些用途是有价值的。"
     },
     {
       "id": "d6-003",
@@ -75,32 +87,39 @@
         {
           "text": "Pasting a signed customer contract into a general-purpose chat to summarize it.",
           "correct": true,
-          "explain": "正解。第三者の機密情報の取り扱いは、契約と社内方針の両方に関わる。進める前に確認する。"
+          "explain": "正解。第三者の機密情報の取り扱いは、契約と社内方針の両方に関わる。進める前に確認する。",
+          "textZh": "把一份已签署的客户合同粘贴到通用对话里做摘要。"
         },
         {
           "text": "Using Claude to screen job applicants and rank them.",
           "correct": true,
-          "explain": "正解。人の処遇に直接影響する用途は、公平性と規制の両面で確認が要る。"
+          "explain": "正解。人の処遇に直接影響する用途は、公平性と規制の両面で確認が要る。",
+          "textZh": "用 Claude 筛选求职者并给他们排名。"
         },
         {
           "text": "Asking Claude to shorten a public blog post the company already published.",
           "correct": false,
-          "explain": "不適。公開済みの自社文章で、判断の対象になる情報を含まない。"
+          "explain": "不適。公開済みの自社文章で、判断の対象になる情報を含まない。",
+          "textZh": "让 Claude 把公司已经公开发布的博客文章缩短。"
         },
         {
           "text": "Using Claude to brainstorm names for an internal meeting room.",
           "correct": false,
-          "explain": "不適。影響も機微さもない。"
+          "explain": "不適。影響も機微さもない。",
+          "textZh": "用 Claude 给内部会议室想名字。"
         },
         {
           "text": "Asking Claude to explain a publicly documented industry standard.",
           "correct": false,
-          "explain": "不適。公開情報の説明を求めているだけ。"
+          "explain": "不適。公開情報の説明を求めているだけ。",
+          "textZh": "让 Claude 解释一个公开的行业标准。"
         }
       ],
       "objective": "Identify appropriate and inappropriate use cases",
       "reference": "https://www.anthropic.com/legal/aup",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "下面哪两种情况应该先停下来确认方针再继续？（选2项）",
+      "commentaryZh": "考点是「适当与不适当的使用场景」。两条线索：一是第三方的机密信息（已签署的合同），涉及合同义务和公司方针；二是直接影响个人处遇的用途（筛选求职者），涉及公平性和监管。其余三项都是公开信息或没有影响的场景。"
     },
     {
       "id": "d6-004",
@@ -112,27 +131,33 @@
         {
           "text": "Follow the policy as written while raising the concern through the channel that can change it.",
           "correct": true,
-          "explain": "正解。方針は個人の判断で上書きするものではない。守りながら、変える権限のある場に働きかけるのが正しい。"
+          "explain": "正解。方針は個人の判断で上書きするものではない。守りながら、変える権限のある場に働きかけるのが正しい。",
+          "textZh": "按照方针的字面执行，同时通过有权修改方针的渠道提出这个问题。"
         },
         {
           "text": "Apply their own judgement on a case-by-case basis, since they understand the tasks best.",
           "correct": false,
-          "explain": "不適。方針が方針として機能しなくなる。"
+          "explain": "不適。方針が方針として機能しなくなる。",
+          "textZh": "逐案使用自己的判断，因为自己最了解这些任务。"
         },
         {
           "text": "Follow the policy only when others can see.",
           "correct": false,
-          "explain": "不適。見られているときだけ守るのは、守っていない。監査や事故のときに最も問題になる振る舞い。"
+          "explain": "不適。見られているときだけ守るのは、守っていない。監査や事故のときに最も問題になる振る舞い。",
+          "textZh": "只在别人看得到的时候遵守方针。"
         },
         {
           "text": "Publicly criticise the policy until it is changed.",
           "correct": false,
-          "explain": "不適。懸念の提起自体は正しいが、その間も方針は守る必要がある。"
+          "explain": "不適。懸念の提起自体は正しいが、その間も方針は守る必要がある。",
+          "textZh": "公开批评这项方针，直到它被修改为止。"
         }
       ],
       "objective": "Follow organizational AI policies and governance standards",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某位担当认为公司的 AI 方针过于严格、拖慢了工作。合适的做法是什么？",
+      "commentaryZh": "考点是「遵守组织的 AI 方针」。提出异议本身是对的，但在方针被改变之前必须遵守——否则方针就不再是方针了。「逐案用自己的判断」是把个人判断置于组织规则之上；「只在别人看得到时遵守」在审计或事故发生时问题最大。"
     }
   ]
 }

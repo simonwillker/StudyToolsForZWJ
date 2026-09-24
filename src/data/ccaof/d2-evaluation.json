@@ -11,27 +11,33 @@
         {
           "text": "Check the cited section against the official text of the regulation.",
           "correct": true,
-          "explain": "正解。具体的に見える固有名詞・条番号・数値はハルシネーションが最も出やすい形。監査対象の読者に渡す前に一次資料で照合するのが必須の手順。"
+          "explain": "正解。具体的に見える固有名詞・条番号・数値はハルシネーションが最も出やすい形。監査対象の読者に渡す前に一次資料で照合するのが必須の手順。",
+          "textZh": "对照法规原文核实被引用的条款。"
         },
         {
           "text": "Send it — the level of detail shows the model had the text in front of it.",
           "correct": false,
-          "explain": "不適。詳しさは正しさの証拠にならない。もっともらしい細部を作れることがこの技術の特徴。"
+          "explain": "不適。詳しさは正しさの証拠にならない。もっともらしい細部を作れることがこの技術の特徴。",
+          "textZh": "直接发送——这种细节程度说明模型确实看过原文。"
         },
         {
           "text": "Ask Claude how confident it is, and send it if it says \"very confident.\"",
           "correct": false,
-          "explain": "不適。自己申告の確信度は精度の指標として信頼できない。"
+          "explain": "不適。自己申告の確信度は精度の指標として信頼できない。",
+          "textZh": "问 Claude 有多大把握，如果它说「非常有把握」就发出去。"
         },
         {
           "text": "Rewrite it in more formal language and send it.",
           "correct": false,
-          "explain": "不適。体裁を整えても事実の誤りは残る。"
+          "explain": "不適。体裁を整えても事実の誤りは残る。",
+          "textZh": "把措辞改得更正式一些，然后发送。"
         }
       ],
       "objective": "Apply fact-checking and validation techniques",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "Claude 为合规团队生成了一份新法规的摘要。文字流畅、语气笃定，并引用了「第4(b)(iii)条」作为申报期限的依据。发送之前，这位担当应该做什么？",
+      "commentaryZh": "这是 D2（占21%，最大的一域）最典型的考法。越是具体的条号、数字、引文，越是幻觉高发区——「看起来像真的」恰恰是这项技术的特点。模型自报的置信度不是精度指标。凡是要送到合规、法务、审计这类读者手里的内容，必须回到一次资料核对。"
     },
     {
       "id": "d2-002",
@@ -43,27 +49,33 @@
         {
           "text": "The output fails on completeness; check every deliverable in the brief before judging quality.",
           "correct": true,
-          "explain": "正解。正確さと完全性は別の軸。読みやすい文章は欠落を見えにくくするので、依頼した項目を一つずつ突き合わせる。"
+          "explain": "正解。正確さと完全性は別の軸。読みやすい文章は欠落を見えにくくするので、依頼した項目を一つずつ突き合わせる。",
+          "textZh": "这份产出在「完整性」上不合格；在评价质量之前，先逐条核对需求书里的每一项交付内容。"
         },
         {
           "text": "The output is acceptable — three of four sections is a passing rate.",
           "correct": false,
-          "explain": "不適。抜けた1項目が意思決定を左右するかもしれない。割合で判断するものではない。"
+          "explain": "不適。抜けた1項目が意思決定を左右するかもしれない。割合で判断するものではない。",
+          "textZh": "可以接受——四项里有三项已经达标。"
         },
         {
           "text": "The omission proves the model is not capable enough; escalate to a more powerful model.",
           "correct": false,
-          "explain": "不適。モデルの問題と決めつける前に、依頼で移行工数を明示したか、資料を渡したかを確認する。"
+          "explain": "不適。モデルの問題と決めつける前に、依頼で移行工数を明示したか、資料を渡したかを確認する。",
+          "textZh": "这个遗漏说明模型能力不够，应该换更强的模型。"
         },
         {
           "text": "Delete the migration requirement from the brief so the output matches.",
           "correct": false,
-          "explain": "不適。評価基準のほうを出力に合わせている。順序が逆。"
+          "explain": "不適。評価基準のほうを出力に合わせている。順序が逆。",
+          "textZh": "把迁移这一项从需求书里删掉，让产出与需求一致。"
         }
       ],
       "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "需求书要求做一份供应商对比，涵盖价格、安全状况、支持 SLA 和迁移工作量。Claude 的产出文笔很好，覆盖了价格、安全和支持——但完全没提迁移。",
+      "commentaryZh": "考点是「准确性」和「完整性」是两个不同的轴。读起来顺畅的文章会掩盖遗漏，所以要拿需求书逐项打勾，而不是凭印象判断。「四项里有三项已达标」是陷阱：漏掉的那一项可能正是决策的关键。而「把迁移从需求书里删掉」是让评价标准去迁就产出，方向反了。"
     },
     {
       "id": "d2-003",
@@ -75,32 +87,39 @@
         {
           "text": "A precise-looking citation, figure, or case number that does not appear in any source you provided.",
           "correct": true,
-          "explain": "正解。出所のない具体的な数字・引用はハルシネーションの典型的な兆候。"
+          "explain": "正解。出所のない具体的な数字・引用はハルシネーションの典型的な兆候。",
+          "textZh": "出现了看起来很精确的引用、数字或案件编号，但它并不存在于你提供的任何资料中。"
         },
         {
           "text": "A confident claim about an event or product change that would have happened after the model's knowledge cutoff.",
           "correct": true,
-          "explain": "正解。学習データの範囲外の出来事を断定している場合、根拠は存在しない。"
+          "explain": "正解。学習データの範囲外の出来事を断定している場合、根拠は存在しない。",
+          "textZh": "对某个事件或产品变更做出了笃定的陈述，而该事件发生在模型知识截止之后。"
         },
         {
           "text": "The output uses bullet points instead of prose.",
           "correct": false,
-          "explain": "不適。体裁は正しさと無関係。"
+          "explain": "不適。体裁は正しさと無関係。",
+          "textZh": "产出使用了项目符号而不是连续的段落。"
         },
         {
           "text": "The output is longer than you expected.",
           "correct": false,
-          "explain": "不適。長さは検証の必要性を示さない。冗長さは編集の問題。"
+          "explain": "不適。長さは検証の必要性を示さない。冗長さは編集の問題。",
+          "textZh": "产出比你预期的要长。"
         },
         {
           "text": "The output hedges and says it is uncertain about one figure.",
           "correct": false,
-          "explain": "不適。不確実性を明示しているのはむしろ扱いやすい。確認すべき箇所を教えてくれている。"
+          "explain": "不適。不確実性を明示しているのはむしろ扱いやすい。確認すべき箇所を教えてくれている。",
+          "textZh": "产出对其中一个数字表示了不确定。"
         }
       ],
       "objective": "Identify hallucinations, inconsistencies, and biases in responses",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "下面哪两项最能说明一份产出在使用前需要先行核实？（选2项）",
+      "commentaryZh": "考点是识别幻觉的征兆，线索有两条：来源和时间——没有出处的具体数字、知识截止之后的断言。而「产出自己说对某个数字不确定」恰恰相反：模型明确说出不确定的地方，等于帮你指出了该核实的位置，是好事不是风险。体裁和长度与正确性无关。"
     },
     {
       "id": "d2-004",
@@ -112,27 +131,33 @@
         {
           "text": "Adapt it for the audience: lead with the decision being asked for, keep the numbers that drive it, and move the detail to an appendix.",
           "correct": true,
-          "explain": "正解。同じ内容でも読者と使われ方が変われば適切な形は変わる。編集・適応は Associate の中心的な仕事のひとつ。"
+          "explain": "正解。同じ内容でも読者と使われ方が変われば適切な形は変わる。編集・適応は Associate の中心的な仕事のひとつ。",
+          "textZh": "按读者改写：开头直接写清要请他们做的决定，保留支撑该决定的数字，把细节移到附录。"
         },
         {
           "text": "Send the full analysis unchanged — shortening it would remove accuracy.",
           "correct": false,
-          "explain": "不適。読まれなければ正確さは届かない。要約は精度を捨てることと同義ではない。"
+          "explain": "不適。読まれなければ正確さは届かない。要約は精度を捨てることと同義ではない。",
+          "textZh": "原样发送完整分析——删减会损害准确性。"
         },
         {
           "text": "Cut it to 200 words by deleting the last two-thirds.",
           "correct": false,
-          "explain": "不適。末尾を切ると結論や根拠が落ちる。長さだけを合わせて中身を壊している。"
+          "explain": "不適。末尾を切ると結論や根拠が落ちる。長さだけを合わせて中身を壊している。",
+          "textZh": "删掉后三分之二，把篇幅压到200字。"
         },
         {
           "text": "Ask the committee to read it in full before the meeting.",
           "correct": false,
-          "explain": "不適。読者の条件を変えようとしている。制約は与件として扱う。"
+          "explain": "不適。読者の条件を変えようとしている。制約は与件として扱う。",
+          "textZh": "请委员会在会前完整阅读。"
         }
       ],
       "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "一份技术上准确的1200字分析要送交执行委员会，而他们只会花两分钟看。最合适的做法是什么？",
+      "commentaryZh": "考点是「面向目标读者的改写」。同样的内容，读者和使用方式变了，合适的形态就变了——这是 Associate 的核心工作之一。注意「原样发送」和「只删掉后三分之二」的区别：摘要不等于牺牲准确性，但从末尾硬切会把结论和依据一起丢掉，那才是真的破坏内容。而「请委员会会前读完」是想改变读者的条件，读者的条件是给定的前提。"
     }
   ]
 }

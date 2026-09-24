@@ -11,27 +11,33 @@
         {
           "text": "Map the current process end to end — inputs, decisions, who checks what — and identify which steps are repetitive enough to hand over and which must keep a human check.",
           "correct": true,
-          "explain": "正解。既存の手順を把握しないまま自動化すると、人が判断していた工程ごと消える。どこを渡し、どこに人を残すかを先に決める。"
+          "explain": "正解。既存の手順を把握しないまま自動化すると、人が判断していた工程ごと消える。どこを渡し、どこに人を残すかを先に決める。",
+          "textZh": "端到端梳理现有流程——输入、判断、谁在检查什么——找出哪些步骤重复到可以交出去，哪些必须保留人工检查。"
         },
         {
           "text": "Write the most detailed prompt possible and run it on last week's data.",
           "correct": false,
-          "explain": "不適。手を動かすのは早いが、何を自動化するのかが決まっていない。"
+          "explain": "不適。手を動かすのは早いが、何を自動化するのかが決まっていない。",
+          "textZh": "写一个尽可能详细的提示词，拿上周的数据跑一遍。"
         },
         {
           "text": "Buy the highest tier plan so nothing is blocked later.",
           "correct": false,
-          "explain": "不適。要件が分からないうちに投資している。"
+          "explain": "不適。要件が分からないうちに投資している。",
+          "textZh": "购买最高级别的套餐，以免之后被限制。"
         },
         {
           "text": "Ask Claude to design the whole workflow and implement whatever it proposes.",
           "correct": false,
-          "explain": "不適。提案をもらうのはよいが、検証せずに実装するのは責任の放棄。"
+          "explain": "不適。提案をもらうのはよいが、検証せずに実装するのは責任の放棄。",
+          "textZh": "让 Claude 设计整个工作流，并原样实施它的提案。"
         }
       ],
       "objective": "Apply Claude to analyze requirements and use cases",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "主管要求某位担当「用 Claude 把我们的周报自动化」。最合适的第一步是什么？",
+      "commentaryZh": "考点是「先分析现状再动手」。不了解现有流程就自动化，会把人原本在做的判断一起抹掉。「先写个详细提示词跑一遍」动手很快，但「要自动化什么」还没定；让 Claude 设计并原样实施，则是拿到提案却不验证，等于放弃责任。"
     },
     {
       "id": "d4-002",
@@ -43,27 +49,33 @@
         {
           "text": "Show what it does well with evidence from the pilot, state plainly where it needs a human check, and name what it should not be used for.",
           "correct": true,
-          "explain": "正解。価値と限界の両方を伝えるのが Associate の役割。限界を言わないと、使ってはいけない場面で使われる。"
+          "explain": "正解。価値と限界の両方を伝えるのが Associate の役割。限界を言わないと、使ってはいけない場面で使われる。",
+          "textZh": "用试点中的证据说明它擅长什么，坦率说明哪里需要人工检查，并指出哪些场景不应该使用它。"
         },
         {
           "text": "Emphasize only the successes, to avoid slowing adoption.",
           "correct": false,
-          "explain": "不適。導入は速くなるが、最初の失敗で信頼ごと失う。"
+          "explain": "不適。導入は速くなるが、最初の失敗で信頼ごと失う。",
+          "textZh": "只强调成功之处，以免拖慢推广。"
         },
         {
           "text": "Present it as fully autonomous so people stop questioning it.",
           "correct": false,
-          "explain": "不適。事実と違ううえ、必要な人の確認を外させてしまう。"
+          "explain": "不適。事実と違ううえ、必要な人の確認を外させてしまう。",
+          "textZh": "说成是完全自主的，好让大家不再质疑。"
         },
         {
           "text": "Avoid specifics so expectations stay flexible.",
           "correct": false,
-          "explain": "不適。曖昧なまま導入すると、期待と実態のずれが後で表面化する。"
+          "explain": "不適。曖昧なまま導入すると、期待と実態のずれが後で表面化する。",
+          "textZh": "避免说具体数字，让期待保持弹性。"
         }
       ],
       "objective": "Communicate Claude's value and limitations to stakeholders",
       "reference": "https://claude.com/product/overview",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "某位担当向相关方介绍一个基于 Claude 的工作流。哪种说法最合适？",
+      "commentaryZh": "考点是「向相关方同时传达价值和限制」。这是 Associate 明确被要求具备的能力。不说限制，就会在不该用的场景被用上；而推广速度换来的信任，在第一次失败时会连本带利地失去。"
     },
     {
       "id": "d4-003",
@@ -75,27 +87,33 @@
         {
           "text": "Document what is needed and escalate that portion to a Claude Developer or Architect, while continuing to own the parts within their scope.",
           "correct": true,
-          "explain": "正解。限界を認識して適切に引き継ぐことは、この資格が明示的に求めている能力。自分の範囲の仕事は手放さない点も含めて正しい。"
+          "explain": "正解。限界を認識して適切に引き継ぐことは、この資格が明示的に求めている能力。自分の範囲の仕事は手放さない点も含めて正しい。",
+          "textZh": "把需要的东西记录下来，将这一部分升级（escalate）给 Claude Developer 或 Architect，同时继续负责自己范围内的部分。"
         },
         {
           "text": "Learn the API over the weekend and implement it alone.",
           "correct": false,
-          "explain": "不適。役割の境界を越えている。急ごしらえの実装は後で引き取る人の負担になる。"
+          "explain": "不適。役割の境界を越えている。急ごしらえの実装は後で引き取る人の負担になる。",
+          "textZh": "用周末学会这个 API，独自把它实现出来。"
         },
         {
           "text": "Abandon the workflow entirely.",
           "correct": false,
-          "explain": "不適。範囲内の部分まで捨てている。"
+          "explain": "不適。範囲内の部分まで捨てている。",
+          "textZh": "彻底放弃这个工作流。"
         },
         {
           "text": "Ask Claude to write the integration code and deploy it without review.",
           "correct": false,
-          "explain": "不適。評価できない成果物を本番に出している。"
+          "explain": "不適。評価できない成果物を本番に出している。",
+          "textZh": "让 Claude 写出集成代码，不经审查直接部署。"
         }
       ],
       "objective": "Recognize limitations and escalate more complex or technical implementations",
       "reference": "https://claude.com/product/overview",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "在设计工作流的中途，发现剩下的工作需要调用内部系统的 API 并处理认证。这位担当没有开发经验。应该怎么做？",
+      "commentaryZh": "考点是「认识自身能力边界并适当升级」，这是 CCAO-F 写进资格定义里的能力。注意正解后半句「同时继续负责自己范围内的部分」——升级不等于把整件事丢出去，「自学后独自实现」和「彻底放弃」正是两个极端。让 Claude 写代码后不审查就部署，则是把自己无法评价的产物推到生产环境。"
     },
     {
       "id": "d4-004",
@@ -107,32 +125,39 @@
         {
           "text": "A measure defined before the pilot starts that says what success looks like.",
           "correct": true,
-          "explain": "正解。基準を先に決めないと、終わったあとに都合よく解釈できてしまう。"
+          "explain": "正解。基準を先に決めないと、終わったあとに都合よく解釈できてしまう。",
+          "textZh": "在试点开始之前就定义好、说明什么算成功的衡量标准。"
         },
         {
           "text": "A comparison against how the task is done today.",
           "correct": true,
-          "explain": "正解。改善は現状との差でしか測れない。"
+          "explain": "正解。改善は現状との差でしか測れない。",
+          "textZh": "与今天的做法进行对比。"
         },
         {
           "text": "The number of prompts written during the pilot.",
           "correct": false,
-          "explain": "不適。作業量は成果ではない。"
+          "explain": "不適。作業量は成果ではない。",
+          "textZh": "试点期间写了多少条提示词。"
         },
         {
           "text": "Which model was used, recorded for the announcement.",
           "correct": false,
-          "explain": "不適。記録する価値はあるが、パイロットの成否を決める要素ではない。"
+          "explain": "不適。記録する価値はあるが、パイロットの成否を決める要素ではない。",
+          "textZh": "使用了哪个模型，记录下来用于对外公布。"
         },
         {
           "text": "The length of the final report about the pilot.",
           "correct": false,
-          "explain": "不適。分量は成果と無関係。"
+          "explain": "不適。分量は成果と無関係。",
+          "textZh": "关于试点的最终报告有多长。"
         }
       ],
       "objective": "Leverage Claude for research, planning, and process optimization",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
-      "reviewedAt": "2026-09-23"
+      "reviewedAt": "2026-09-23",
+      "stemZh": "正在为一个新的 Claude 辅助工作流设计试点。下面哪两项最重要？（选2项）",
+      "commentaryZh": "考点是「用 Claude 做流程优化时的验证设计」。标准必须事先定，否则结束后怎么解释都行；改善只能通过与现状的差值来衡量。「写了多少条提示词」「报告有多长」是把工作量当成果，这是常见的陷阱选项。"
     }
   ]
 }
