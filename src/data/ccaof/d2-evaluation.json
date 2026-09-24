@@ -158,6 +158,2200 @@
       "reviewedAt": "2026-09-23",
       "stemZh": "一份技术上准确的1200字分析要送交执行委员会，而他们只会花两分钟看。最合适的做法是什么？",
       "commentaryZh": "考点是「面向目标读者的改写」。同样的内容，读者和使用方式变了，合适的形态就变了——这是 Associate 的核心工作之一。注意「原样发送」和「只删掉后三分之二」的区别：摘要不等于牺牲准确性，但从末尾硬切会把结论和依据一起丢掉，那才是真的破坏内容。而「请委员会会前读完」是想改变读者的条件，读者的条件是给定的前提。"
+    },
+    {
+      "id": "d2-005",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "Claude summarizes three uploaded contracts and reports a renewal date that appears in none of them. Everything else in the summary matches the documents. What does this most likely indicate?",
+      "stemZh": "Claude 为三份上传的合同做了摘要，报告了一个在任何一份合同里都找不到的续约日期。摘要的其他部分都与文件相符。这最可能说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A detail was fabricated; check every date and figure against the source documents before relying on any of them.",
+          "correct": true,
+          "explain": "正解。周りが正しいことは、その一点が正しい根拠にならない。1か所作られていたなら、同じ性質の細部（日付・金額・当事者名）はすべて疑う。",
+          "textZh": "有一处细节是编造的；在依赖这份摘要之前，要把每一个日期和数字都对照原文核实。"
+        },
+        {
+          "text": "The documents must contain the date somewhere; search harder.",
+          "correct": false,
+          "explain": "不適。前提を自分で作っている。無いものを探しても見つからない。",
+          "textZh": "文件里一定写了这个日期，再仔细找找。"
+        },
+        {
+          "text": "The rest being correct means the summary can be trusted overall.",
+          "correct": false,
+          "explain": "不適。正しさは平均で測るものではない。契約の日付は1つ間違えば実害が出る。",
+          "textZh": "其他部分正确，说明整份摘要总体可信。"
+        },
+        {
+          "text": "Re-uploading the files in a different order will fix it.",
+          "correct": false,
+          "explain": "不適。順番と幻覚は関係がない。",
+          "textZh": "把文件换个顺序重新上传就能解决。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是幻觉的识别。**周围内容正确并不能保证某一处正确**——模型是逐段生成的，一处编造不会在别处留下痕迹。正确做法是把「同类细节」（日期、金额、人名、条号）整类拉出来核对，而不是只改被发现的那一处。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-006",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Which question best tests whether an output is complete, as opposed to merely accurate?",
+      "stemZh": "下面哪个问题最适合用来检验一份产出是否「完整」，而不只是「准确」？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Does it cover every item the request asked for?",
+          "correct": true,
+          "explain": "正解。完全性は依頼との突き合わせでしか測れない。",
+          "textZh": "它是否覆盖了请求中要求的每一项？"
+        },
+        {
+          "text": "Does every sentence sound confident?",
+          "correct": false,
+          "explain": "不適。語調は正確さとも完全性とも無関係。",
+          "textZh": "它的每一句话听起来是否都很笃定？"
+        },
+        {
+          "text": "Is it longer than the previous version?",
+          "correct": false,
+          "explain": "不適。長さは網羅性を意味しない。",
+          "textZh": "它是否比上一版更长？"
+        },
+        {
+          "text": "Does it use the same vocabulary as the source?",
+          "correct": false,
+          "explain": "不適。語彙の一致は引き写しを示すだけ。",
+          "textZh": "它用的词是否和原文一样？"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**准确性和完整性是两个不同的轴**。准确 = 说出来的都对；完整 = 该说的都说了。检验完整性只有一个办法：拿原始请求逐条打勾。一份全部正确但漏了一项的产出，仍然是不合格的。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-007",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO outputs should go to a qualified human for review before being acted on? (Select 2)",
+      "stemZh": "下面哪两种产出，在据以行动之前应该交给有资质的人复核？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A dosage calculation for a patient-facing medication guide.",
+          "correct": true,
+          "explain": "正解。誤れば健康被害に直結する。専門職の確認が要る。",
+          "textZh": "面向患者的用药指南里的剂量计算。"
+        },
+        {
+          "text": "A clause added to a contract that will be signed this week.",
+          "correct": true,
+          "explain": "正解。法的効力を持つ文面は、署名前に責任者の確認が要る。",
+          "textZh": "要在本周签署的合同里新增的一个条款。"
+        },
+        {
+          "text": "A first draft of the agenda for an internal team meeting.",
+          "correct": false,
+          "explain": "不適。誤っても会議中に直せる。影響が小さい。",
+          "textZh": "内部团队会议议程的初稿。"
+        },
+        {
+          "text": "A list of brainstormed names for a new internal channel.",
+          "correct": false,
+          "explain": "不適。判断の対象にならない。",
+          "textZh": "为一个新的内部频道头脑风暴出的名字清单。"
+        },
+        {
+          "text": "A reformatted version of a document you already approved.",
+          "correct": false,
+          "explain": "不適。中身は既に確認済み。体裁だけの変更。",
+          "textZh": "你已经批准过的文档的重新排版版本。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**何时必须有人复核**。判断标准不是「内容难不难」，而是**出错的后果有多大、能不能挽回**。健康、法律、金钱、对外承诺这四类，错了都不容易收回；内部草稿和排版改动错了当场就能改。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-008",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "The same analysis must go to the engineering team and to the board on the same day. What is the most appropriate approach?",
+      "stemZh": "同一份分析要在同一天送交工程团队和董事会。最合适的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Produce two versions from the same findings: one keeping the technical detail, one leading with the decision and its consequences.",
+          "correct": true,
+          "explain": "正解。事実は1つでも、読者が違えば必要な形は違う。出所を1つにしておけば、数字の食い違いも起きない。",
+          "textZh": "基于同一组结论做两个版本：一个保留技术细节，一个以「要做的决定和后果」开头。"
+        },
+        {
+          "text": "Send the same document to both, since the facts are identical.",
+          "correct": false,
+          "explain": "不適。事実が同じでも、判断に必要な情報の粒度が違う。どちらかが読めない。",
+          "textZh": "给两边发同一份文档，反正事实是一样的。"
+        },
+        {
+          "text": "Send the technical version to both, since it contains more information.",
+          "correct": false,
+          "explain": "不適。情報量が多いほど良いわけではない。読まれなければ0。",
+          "textZh": "给两边都发技术版，因为它信息更多。"
+        },
+        {
+          "text": "Let each team ask Claude to rewrite it themselves.",
+          "correct": false,
+          "explain": "不適。版が分かれて数字がずれる。適応は書いた側の仕事。",
+          "textZh": "让每个团队自己去让 Claude 改写。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**面向不同读者的改写**。要点有两个：一是同一组结论派生出两个版本（而不是两次独立生成），这样数字不会打架；二是董事会版本要**以决定开头**——他们要的是「批不批」，不是推导过程。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-009",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "An output describing a competitor's product uses noticeably warmer language for one vendor and dismissive language for another, though the underlying facts are similar. What is the right read?",
+      "stemZh": "一份描述竞品的产出，对其中一家厂商明显用了更热情的措辞，对另一家则用了轻蔑的措辞，尽管两者的基本事实差不多。应该怎么看？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Treat the tone gap as a bias to correct; align the language so the facts carry the comparison.",
+          "correct": true,
+          "explain": "正解。事実が同等なのに語調が違えば、読者は語調のほうを根拠にしてしまう。比較の公平さは語調にも宿る。",
+          "textZh": "把这种语气差异当作需要纠正的偏见；统一措辞，让事实本身来承担比较。"
+        },
+        {
+          "text": "Keep it — the model has correctly detected which vendor is better.",
+          "correct": false,
+          "explain": "不適。語調は評価の根拠ではない。データに基づく差なら、その差を書けばよい。",
+          "textZh": "保留它——模型正确地判断出了哪家更好。"
+        },
+        {
+          "text": "Ignore tone; only factual errors matter in a comparison.",
+          "correct": false,
+          "explain": "不適。比較文書では語調そのものが結論を運ぶ。",
+          "textZh": "忽略语气；比较里只有事实错误才重要。"
+        },
+        {
+          "text": "Ask the model to be harsher on both to even it out.",
+          "correct": false,
+          "explain": "不適。偏りを別の偏りで打ち消そうとしている。",
+          "textZh": "让模型对两家都更刻薄一点，这样就扯平了。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**识别偏见**。偏见不一定表现为错误的事实，更多时候表现为**同样的事实用不同的措辞包装**。在竞品对比、候选人评价这类文档里，语气本身就在下结论，所以它属于要检查的内容，而不是「文风问题」。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-010",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "An associate wants to reduce the chance of fabricated details when summarizing a long report. Which instruction helps most?",
+      "stemZh": "某位担当希望在给一份长报告做摘要时降低编造细节的可能。哪条指示最有帮助？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Use only what is in the document, quote the passage you relied on, and say so explicitly when the document does not answer a point.\"",
+          "correct": true,
+          "explain": "正解。出所を明示させ、「書いていない」と言える逃げ道を用意するのが効く。断定を迫るほど埋めにくる。",
+          "textZh": "「只使用文档里的内容，引用你依据的原文段落，文档没有回答的地方要明确说出来。」"
+        },
+        {
+          "text": "\"Be accurate.\"",
+          "correct": false,
+          "explain": "不適。検証可能な条件が何も増えていない。",
+          "textZh": "「要准确。」"
+        },
+        {
+          "text": "\"Never make mistakes.\"",
+          "correct": false,
+          "explain": "不適。守れているか確かめようがない。",
+          "textZh": "「绝不能出错。」"
+        },
+        {
+          "text": "\"Write with confidence so the summary reads well.\"",
+          "correct": false,
+          "explain": "不適。逆効果。断定を促せば、分からない箇所も埋めてくる。",
+          "textZh": "「写得笃定一些，这样摘要读起来更好。」"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**减少幻觉的实操办法**。有效的指示有三个共同点：限定来源、要求给出处、**允许说「不知道」**。最后一点最容易被忽略——如果指示逼着模型给出答案，它就会把空白填满。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-011",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "A recurring weekly report will be pasted into a spreadsheet by a colleague. Which TWO choices make the output most usable? (Select 2)",
+      "stemZh": "一份每周重复的报告，同事会把它粘贴进电子表格。下面哪两个选择能让产出最好用？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Ask for a consistent structured format (fixed columns, one row per item) rather than prose.",
+          "correct": true,
+          "explain": "正解。受け取り側の使い方が決まっているなら、その形で出させる。変換の手間が消える。",
+          "textZh": "要求一个固定的结构化格式（固定列、每项一行），而不是散文。"
+        },
+        {
+          "text": "Keep the column order and headers identical every week.",
+          "correct": true,
+          "explain": "正解。毎週同じ形なら、貼り付け先の数式やマクロが壊れない。",
+          "textZh": "让列的顺序和表头每周都保持一致。"
+        },
+        {
+          "text": "Vary the wording each week so the report feels fresh.",
+          "correct": false,
+          "explain": "不適。機械的に処理する相手には、変化は障害でしかない。",
+          "textZh": "每周换一下措辞，让报告显得新鲜。"
+        },
+        {
+          "text": "Add a long narrative introduction before the data.",
+          "correct": false,
+          "explain": "不適。貼り付け時に取り除く手間が増える。",
+          "textZh": "在数据前面加一段长长的叙述性引言。"
+        },
+        {
+          "text": "Include the raw chat transcript for transparency.",
+          "correct": false,
+          "explain": "不適。透明性は別の手段で担保する。表に貼るものではない。",
+          "textZh": "附上完整的对话记录以保证透明。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**选择合适的产出格式**。判断依据是「下一步谁会怎么用它」：人读 → 散文；机器或表格接收 → 结构化且**每次都一样**。一致性在这里比表达力更重要，因为下游可能有公式、宏或脚本依赖列的位置。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-012",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Two runs of the same research prompt give different totals for the same metric. What should the associate do first?",
+      "stemZh": "同一个调研提示词跑了两次，同一个指标给出了不同的总数。这位担当首先应该做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Go to the underlying source and establish the real number; do not pick whichever output looks better.",
+          "correct": true,
+          "explain": "正解。食い違いは「どちらかが誤り」の合図。出力どうしを見比べても真偽は決まらない。",
+          "textZh": "回到原始数据源确定真实数字；不要在两个产出里挑看起来顺眼的那个。"
+        },
+        {
+          "text": "Average the two numbers.",
+          "correct": false,
+          "explain": "不適。誤りと正解を平均しても誤り。",
+          "textZh": "把两个数字取平均。"
+        },
+        {
+          "text": "Run it a third time and take the majority.",
+          "correct": false,
+          "explain": "不適。多数決は正しさの根拠にならない。同じ誤りが2回出ることもある。",
+          "textZh": "再跑第三次，按多数决定。"
+        },
+        {
+          "text": "Use the larger number to be safe.",
+          "correct": false,
+          "explain": "不適。「安全側」の意味が定義されていない。単なる当てずっぽう。",
+          "textZh": "保险起见用大的那个数字。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**发现不一致之后怎么办**。不一致本身是有价值的信号——它告诉你至少有一次是错的。但**产出之间互相比较无法定真伪**，必须回到外部依据。取平均、投票、挑大的，都是在回避核实。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-013",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "A 900-word explanation must be cut to 300 words for a customer-facing FAQ. Which approach preserves usefulness best?",
+      "stemZh": "一段900字的说明要压缩到300字，用于面向客户的 FAQ。哪种做法最能保住它的用处？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Decide which question the reader actually has, answer it first, and drop the material that does not serve that question.",
+          "correct": true,
+          "explain": "正解。削る基準は「読者の問いに答えているか」。基準があれば、何を捨ててよいかが決まる。",
+          "textZh": "先确定读者真正想问的是什么，把答案放在最前面，然后删掉不为这个问题服务的内容。"
+        },
+        {
+          "text": "Delete every third paragraph until the count is right.",
+          "correct": false,
+          "explain": "不適。基準が長さしかない。結論が消えることもある。",
+          "textZh": "每隔两段删一段，直到字数合适。"
+        },
+        {
+          "text": "Shorten every sentence proportionally.",
+          "correct": false,
+          "explain": "不適。全体が薄まるだけで、要点が立たない。",
+          "textZh": "把每一句都按比例缩短。"
+        },
+        {
+          "text": "Move the detail into footnotes and keep all 900 words on the page.",
+          "correct": false,
+          "explain": "不適。実質の長さは変わっていない。要件を満たしていない。",
+          "textZh": "把细节挪到脚注，900字全部留在页面上。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**有目的的删减**。压缩不是均匀地把内容变淡，而是**先确定一个取舍标准**（读者的问题），再据此丢弃。没有标准的删减（按段落、按比例）会随机破坏结构，常常把结论一起删掉。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-014",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "Claude cites a study by name and year to support a recommendation. The associate cannot find that study anywhere. What is the appropriate conclusion?",
+      "stemZh": "Claude 引用了一项研究的名称和年份来支持某个建议。这位担当在任何地方都找不到这项研究。恰当的结论是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Treat the citation as unverified and remove it; if the recommendation needs support, find a real source.",
+          "correct": true,
+          "explain": "正解。確認できない引用は、無いのと同じ。付けたままにすると、読者に「裏付けがある」と誤解させる。",
+          "textZh": "把这个引用当作未经证实的内容删掉；如果这个建议需要支撑，就去找一个真实的来源。"
+        },
+        {
+          "text": "Keep the citation — the recommendation itself still sounds reasonable.",
+          "correct": false,
+          "explain": "不適。提案の妥当性と、存在しない出典を載せることは別問題。",
+          "textZh": "保留这个引用——建议本身听起来还是合理的。"
+        },
+        {
+          "text": "Ask Claude to provide a link, and trust the link if one is returned.",
+          "correct": false,
+          "explain": "不適。リンクも同じように作られうる。開いて中身を確かめない限り意味がない。",
+          "textZh": "让 Claude 给个链接，如果给了就相信它。"
+        },
+        {
+          "text": "Cite it as \"unpublished research\" instead.",
+          "correct": false,
+          "explain": "不適。存在しないものに別の肩書きを付けているだけ。",
+          "textZh": "改成引用为「未发表的研究」。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**引用的核实**。找不到 ≠ 藏得深。要点在最后两个干扰项：**链接同样会被编造**，不打开看就不算核实；而给不存在的东西换个说法（「未发表」「内部资料」），是把问题伪装起来，比直接删掉更糟。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-015",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Before sending a Claude-drafted external announcement, which TWO checks matter most? (Select 2)",
+      "stemZh": "在发出一份由 Claude 起草的对外公告之前，下面哪两项检查最重要？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Verify every factual claim that the company would be held to — dates, numbers, commitments.",
+          "correct": true,
+          "explain": "正解。対外文書は約束になる。事実誤りは訂正では取り返せない。",
+          "textZh": "核实每一条公司会被追究的事实性陈述——日期、数字、承诺。"
+        },
+        {
+          "text": "Confirm it says nothing the company has not actually decided.",
+          "correct": true,
+          "explain": "正解。決まっていないことを書いてしまう事故は、生成物で特に起きやすい。",
+          "textZh": "确认里面没有写任何公司其实还没决定的事情。"
+        },
+        {
+          "text": "Check that it uses varied sentence lengths.",
+          "correct": false,
+          "explain": "不適。文章の巧拙は、この段階の検査項目ではない。",
+          "textZh": "检查它是否使用了长短不一的句子。"
+        },
+        {
+          "text": "Make sure it is longer than the previous announcement.",
+          "correct": false,
+          "explain": "不適。長さに意味は無い。",
+          "textZh": "确保它比上一次的公告更长。"
+        },
+        {
+          "text": "Verify that no competitor is mentioned.",
+          "correct": false,
+          "explain": "不適。言及の可否は内容次第。一律の禁止事項ではない。",
+          "textZh": "确认没有提到任何竞争对手。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**对外产出的把关**。两条线索：一是**会被追究的事实**（写出去就成了承诺），二是**尚未决定的事**——模型会把话说圆、把草案写成定论，这是对外公告里最常见也最难收回的事故。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-016",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Which statement best describes the associate's responsibility for a Claude-generated document they send?",
+      "stemZh": "关于自己发出的、由 Claude 生成的文档，下面哪句话最准确地描述了这位担当的责任？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The sender owns the content: the tool used to draft it does not change who is accountable for what it says.",
+          "correct": true,
+          "explain": "正解。道具が何であれ、出した人の文書になる。これがこの資格の中心的な前提。",
+          "textZh": "发送者对内容负责：起草时用了什么工具，不改变谁为内容负责。"
+        },
+        {
+          "text": "Responsibility is shared with the model provider once the output is used as-is.",
+          "correct": false,
+          "explain": "不適。そのような取り決めは存在しない。",
+          "textZh": "一旦原样使用产出，责任就与模型提供方共同承担。"
+        },
+        {
+          "text": "Adding a disclaimer transfers responsibility to the reader.",
+          "correct": false,
+          "explain": "不適。注記は責任を移さない。読者は依然としてその文書を信じて動く。",
+          "textZh": "加一句免责声明，责任就转移给读者了。"
+        },
+        {
+          "text": "There is no responsibility for drafts, only for final documents.",
+          "correct": false,
+          "explain": "不適。送った時点で下書きではない。",
+          "textZh": "草稿没有责任，只有最终文档才有。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**责任归属**。这是整个资格的底层前提：**工具不承担责任，使用工具的人承担**。三个干扰项分别对应三种常见的自我开脱——推给厂商、推给免责声明、推给「这只是草稿」。都不成立。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-017",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A comparison of five vendors keeps getting rewritten as the team debates. What output format serves this best?",
+      "stemZh": "一份五家厂商的对比，随着团队讨论在不断被改写。什么样的产出形态最适合？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A single artifact the team edits in place across rounds, so there is always one current version.",
+          "correct": true,
+          "explain": "正解。何度も直すものは、会話の流れから切り離す。版が1つに保たれる。",
+          "textZh": "做成一个成果物，团队在上面反复修改，这样始终只有一个当前版本。"
+        },
+        {
+          "text": "A fresh full rewrite pasted into the chat after each round of debate.",
+          "correct": false,
+          "explain": "不適。どれが最新か分からなくなる。古い版を読む人が出る。",
+          "textZh": "每轮讨论后重新完整写一遍，贴进对话里。"
+        },
+        {
+          "text": "An email to everyone after each change.",
+          "correct": false,
+          "explain": "不適。受信箱に版が積み上がる。最新が埋もれる。",
+          "textZh": "每次改动后给所有人发一封邮件。"
+        },
+        {
+          "text": "Separate documents, one per vendor.",
+          "correct": false,
+          "explain": "不適。比較が目的なのに、比較できない形にしている。",
+          "textZh": "拆成五份文档，每家厂商一份。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**反复修改的产出该放在哪里**。判断标准是「会不会有多个版本同时存在」。要改很多轮、多人参与的东西，必须有一个**唯一的当前版本**，否则一定会有人拿着旧版做决定。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-018",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "What is the most reliable way to check whether a summary of an uploaded document is faithful to it?",
+      "stemZh": "要检查一份针对上传文档的摘要是否忠实于原文，最可靠的办法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Pick the claims that carry the most weight and trace each one back to the passage it came from.",
+          "correct": true,
+          "explain": "正解。全文を読み直すより速く、確実。重い主張から順に出所を当たる。",
+          "textZh": "挑出分量最重的那几条结论，逐条回到原文中它的出处。"
+        },
+        {
+          "text": "Ask Claude whether its own summary is faithful.",
+          "correct": false,
+          "explain": "不適。同じ前提で作られた自己申告。検証にならない。",
+          "textZh": "问 Claude 它自己的摘要是否忠实。"
+        },
+        {
+          "text": "Compare the summary's length to the document's length.",
+          "correct": false,
+          "explain": "不適。比率と忠実さは無関係。",
+          "textZh": "比较摘要和原文的长度比例。"
+        },
+        {
+          "text": "Generate a second summary and compare the two.",
+          "correct": false,
+          "explain": "不適。両方同じ誤りを含むことがある。原文に当たっていない。",
+          "textZh": "再生成一份摘要，两份互相比较。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**核实的方法**。关键在两点：**回到原文**（而不是让产出自证，也不是产出之间互比），以及**按分量排序**——时间有限时，先核实那些一旦错了后果最大的陈述，而不是从头平均地读一遍。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-019",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A draft reply to a customer complaint includes an offer of a refund that exceeds the associate's approval limit. What should happen before it is sent?",
+      "stemZh": "一封回复客户投诉的草稿里，提出的退款金额超出了这位担当的审批权限。发送之前应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Route it to whoever can actually approve that amount, and send only what has been approved.",
+          "correct": true,
+          "explain": "正解。権限の外にある約束は、本人が承認できない。出した時点で会社の約束になる。",
+          "textZh": "把它转给真正有权批准这个金额的人，只发送已经获批的内容。"
+        },
+        {
+          "text": "Send it — Claude proposed the amount, so it is a reasonable figure.",
+          "correct": false,
+          "explain": "不適。金額の妥当性と、それを約束する権限があるかは別問題。",
+          "textZh": "发出去——金额是 Claude 提的，应该是合理的。"
+        },
+        {
+          "text": "Send it with a note that the amount is \"subject to approval\".",
+          "correct": false,
+          "explain": "不適。客はすでに提示された金額を期待する。撤回は関係を損なう。",
+          "textZh": "发出去，但注明金额「待批准」。"
+        },
+        {
+          "text": "Lower the amount to fit the limit without telling anyone.",
+          "correct": false,
+          "explain": "不適。判断の根拠が「自分の権限」にすり替わっている。妥当な額なら承認を取ればよい。",
+          "textZh": "把金额降到权限以内，不告诉任何人。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**超出权限的产出**。模型不知道你的审批权限，所以它提出的方案可能是合理的、却是你无权承诺的。要点在第三个干扰项：**对客户说出口的数字就已经形成了预期**，事后加「待批准」也收不回来。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-020",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Which of these is the clearest sign that an output was shaped by an assumption the associate never supplied?",
+      "stemZh": "下面哪一项最明显地说明，一份产出是被某个担当从未提供过的假设塑造出来的？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It states specifics about the company's size, industry, or customers that were never mentioned.",
+          "correct": true,
+          "explain": "正解。与えていない前提が答えに入り込んでいる。結論全体がその前提の上に立っている可能性がある。",
+          "textZh": "它陈述了从未被提及的、关于公司规模、行业或客户的具体情况。"
+        },
+        {
+          "text": "It is formatted with headings the associate did not ask for.",
+          "correct": false,
+          "explain": "不適。体裁は前提ではない。",
+          "textZh": "它用了担当没有要求的小标题格式。"
+        },
+        {
+          "text": "It is written in a more formal register than expected.",
+          "correct": false,
+          "explain": "不適。文体の硬さは、与えられていない前提が混入した証拠にはならない。",
+          "textZh": "它的文体比预期的更正式。"
+        },
+        {
+          "text": "It includes a short summary at the end.",
+          "correct": false,
+          "explain": "不適。構成上の工夫にすぎない。",
+          "textZh": "它在结尾加了一小段总结。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**发现被植入的前提**。模型在信息不足时会补上一个「典型情况」，然后在这个前提上继续推理。危险在于**结论看起来很具体、很自信**，而整栋楼盖在一个你没给过的地基上。发现后不是改那一句，而是补上真实前提重跑。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-021",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "An output contains 20 statements. Time allows checking only a few. Which TWO should be checked first? (Select 2)",
+      "stemZh": "一份产出里有20条陈述，时间只够核实其中几条。应该优先核实哪两类？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The ones the reader will act on directly.",
+          "correct": true,
+          "explain": "正解。行動につながる記述が誤っていれば、そのまま実害になる。",
+          "textZh": "读者会直接据以行动的那些。"
+        },
+        {
+          "text": "The ones that would be most costly to get wrong.",
+          "correct": true,
+          "explain": "正解。検査の順序は被害の大きさで決める。",
+          "textZh": "一旦弄错代价最大的那些。"
+        },
+        {
+          "text": "The ones that appear first in the document.",
+          "correct": false,
+          "explain": "不適。位置と重要度は無関係。",
+          "textZh": "出现在文档最前面的那些。"
+        },
+        {
+          "text": "The ones written in the longest sentences.",
+          "correct": false,
+          "explain": "不適。文の長さは根拠の弱さを示さない。",
+          "textZh": "用最长的句子写的那些。"
+        },
+        {
+          "text": "The ones the associate already believes to be true.",
+          "correct": false,
+          "explain": "不適。確かめる必要が最も低い上に、思い込みを補強するだけ。",
+          "textZh": "担当自己本来就相信是真的那些。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**核实的优先级**。时间总是不够，所以要按「会不会被拿去行动」和「错了有多贵」排序。最后一个干扰项值得注意：**只核实自己相信的部分**，是最常见也最隐蔽的自我欺骗。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-022",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "A market overview reads smoothly but every section ends with a similar hedging sentence and no section cites a figure. What does this suggest?",
+      "stemZh": "一份市场概览读起来很流畅，但每一节结尾都有一句类似的模棱两可的话，而且没有任何一节给出数字。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It is probably general knowledge dressed as analysis; it needs actual data before it can support a decision.",
+          "correct": true,
+          "explain": "正解。具体が無く、逃げ口上が定型化しているのは、材料を渡していないときの典型的な出力。",
+          "textZh": "它很可能是把常识包装成了分析；在能支撑决策之前，需要真实数据。"
+        },
+        {
+          "text": "It is well-balanced and therefore trustworthy.",
+          "correct": false,
+          "explain": "不適。どちらとも取れる書き方は、balanced ではなく空白。",
+          "textZh": "它很平衡，所以是可信的。"
+        },
+        {
+          "text": "The hedging shows appropriate caution about uncertainty.",
+          "correct": false,
+          "explain": "不適。定型の hedging は不確実性の表明ではなく、材料不足の症状。",
+          "textZh": "这种模棱两可体现了对不确定性的恰当谨慎。"
+        },
+        {
+          "text": "The absence of figures means the market has no reliable data.",
+          "correct": false,
+          "explain": "不適。出力に数字が無いことは、世の中に数字が無いことを意味しない。",
+          "textZh": "没有数字说明这个市场本来就没有可靠数据。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**识别「空心的产出」**。特征有三：处处流畅、结论都能两头说、没有任何具体数字。这通常不是模型能力问题，而是**你没给它材料**。补救办法是喂进真实数据重做，而不是让它「写得更确定一点」。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-023",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "A technical memo will be read by people who do not share the author's vocabulary. What is the most effective adaptation?",
+      "stemZh": "一份技术备忘录的读者并不熟悉作者使用的术语。最有效的调整是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Replace or define the terms that carry meaning, and cut the ones that add nothing for this reader.",
+          "correct": true,
+          "explain": "正解。用語は2種類ある。意味を担うものは説明し、担わないものは消す。",
+          "textZh": "把承载意义的术语替换掉或给出定义，把对这些读者毫无作用的术语删掉。"
+        },
+        {
+          "text": "Keep all terminology and add a glossary at the end.",
+          "correct": false,
+          "explain": "不適。読みながら往復させることになる。用語が多いほど負担が増える。",
+          "textZh": "保留所有术语，在最后加一个词汇表。"
+        },
+        {
+          "text": "Replace every technical term with a simpler word.",
+          "correct": false,
+          "explain": "不適。意味を担う用語まで置き換えると、正確さが落ちる。",
+          "textZh": "把每一个技术术语都换成更简单的词。"
+        },
+        {
+          "text": "Ask the readers to learn the terminology first.",
+          "correct": false,
+          "explain": "不適。読者の条件は与件。",
+          "textZh": "请读者先去学会这些术语。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**为读者改写**。关键是区分两类术语：**有些术语是内容本身**（换掉会失真，要解释），**有些只是行话**（对这个读者毫无作用，直接删）。一刀切地全部保留或全部简化，都会出问题。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-024",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Asked to list risks of a plan, Claude returns eight risks, all of which are downside-only and none of which mention the risk of not acting. How should the associate read this?",
+      "stemZh": "被要求列出一个方案的风险时，Claude 返回了八条，全部是负面的，没有一条提到「不行动的风险」。这位担当应该怎么看？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The framing of the question shaped the answer; ask explicitly about the cost of doing nothing to get a balanced picture.",
+          "correct": true,
+          "explain": "正解。問いの立て方が答えの範囲を決めている。モデルは聞かれていない側を出してこない。",
+          "textZh": "是提问的框架决定了答案的范围；要明确追问「不行动的代价」，才能得到平衡的图景。"
+        },
+        {
+          "text": "The plan is genuinely bad, since every listed risk is negative.",
+          "correct": false,
+          "explain": "不適。「リスクを挙げよ」と言えば負の面が並ぶのは当然。",
+          "textZh": "这个方案确实不好，因为列出的风险全是负面的。"
+        },
+        {
+          "text": "The model is biased against change and should be distrusted.",
+          "correct": false,
+          "explain": "不適。偏りは問いの側にある。",
+          "textZh": "模型对变革有偏见，不该信任它。"
+        },
+        {
+          "text": "Eight risks is enough; no further framing is needed.",
+          "correct": false,
+          "explain": "不適。件数は網羅性の証拠ではない。",
+          "textZh": "八条已经够多了，不需要再调整提问。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**提问方式造成的偏差**。这不是模型的偏见，而是**你只问了一边**。「列出风险」必然只得到风险。要做决策，必须同时问「不做的代价是什么」——否则任何方案在这种提问下都显得不该做。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-025",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO situations call for the output to be inline in the conversation rather than a separate artifact? (Select 2)",
+      "stemZh": "下面哪两种情况，产出更适合直接放在对话里，而不是做成单独的成果物？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A quick check of whether an approach is sound before any writing starts.",
+          "correct": true,
+          "explain": "正解。判断の途中経過。残すものではない。",
+          "textZh": "在开始写之前，快速确认某个思路是否成立。"
+        },
+        {
+          "text": "A clarifying question the associate needs to answer before work continues.",
+          "correct": true,
+          "explain": "正解。やり取りそのもの。成果物ではない。",
+          "textZh": "在继续之前，需要担当回答的一个澄清性问题。"
+        },
+        {
+          "text": "A policy document the whole team will reference for months.",
+          "correct": false,
+          "explain": "不適。長く参照されるものは切り出す。",
+          "textZh": "整个团队要参考好几个月的方针文件。"
+        },
+        {
+          "text": "A template colleagues will copy and fill in.",
+          "correct": false,
+          "explain": "不適。再利用されるものは切り出す。",
+          "textZh": "同事会复制去填写的模板。"
+        },
+        {
+          "text": "A report that will be revised over several rounds.",
+          "correct": false,
+          "explain": "不適。版の管理が要る。",
+          "textZh": "要经过好几轮修改的报告。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**对话 vs 成果物**。判断标准只有一个：**它之后还会被单独打开使用吗**。会的 → 切出来；只是推进当下讨论的过程 → 留在对话里。把过程也做成成果物，只会制造一堆没人再看的文件。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-026",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Claude produces a confident answer to a question about an internal company policy it was never given. What does this call for?",
+      "stemZh": "对于一个从未提供给它的公司内部政策问题，Claude 给出了一个笃定的答案。这说明需要做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Check it against the actual policy document; the model has no access to internal rules it was not shown.",
+          "correct": true,
+          "explain": "正解。社内規程は学習データに無い。出てきた答えは一般論の当てはめ。",
+          "textZh": "拿真正的政策文件核对；模型看不到没给过它的内部规则。"
+        },
+        {
+          "text": "Accept it, since the answer matches common industry practice.",
+          "correct": false,
+          "explain": "不適。業界の通例と自社の規程は違う。",
+          "textZh": "接受它，因为答案符合行业通行做法。"
+        },
+        {
+          "text": "Add the answer to the policy document so they match.",
+          "correct": false,
+          "explain": "不適。規程を出力に合わせている。順序が逆。",
+          "textZh": "把这个答案加进政策文件，让两者一致。"
+        },
+        {
+          "text": "Ask the model to double-check its own answer.",
+          "correct": false,
+          "explain": "不適。持っていない情報は2回聞いても出てこない。",
+          "textZh": "让模型再检查一遍自己的答案。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**模型不知道你们公司的规矩**。内部政策、审批流程、命名规范这类信息不在训练数据里，模型会用行业通例来填补，而且说得很笃定。凡是问「我们公司应该怎么做」，答案必须回到内部文件核对。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-027",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A checklist generated for a compliance review has 12 items. The associate knows from experience that one required step is missing. What is the right next move?",
+      "stemZh": "为一次合规审查生成的清单有12项。这位担当凭经验知道少了一个必需的步骤。下一步该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add the missing step and then check the rest against the authoritative requirement list, since one gap suggests the source was incomplete.",
+          "correct": true,
+          "explain": "正解。1つ抜けていたなら、抜けの原因は残りにも及んでいる。1か所直して終わりにしない。",
+          "textZh": "补上缺的那一步，然后拿权威的要求清单核对其余各项——漏了一项说明来源本身就不完整。"
+        },
+        {
+          "text": "Add the missing step and use the checklist as-is.",
+          "correct": false,
+          "explain": "不適。見つかった1件だけを直すのは、最も起きやすい取りこぼし。",
+          "textZh": "补上那一步，然后照单使用。"
+        },
+        {
+          "text": "Discard the checklist and write all 13 items by hand.",
+          "correct": false,
+          "explain": "不適。使える11項目まで捨てている。",
+          "textZh": "把清单丢掉，13项全部手写。"
+        },
+        {
+          "text": "Ask Claude if anything is missing.",
+          "correct": false,
+          "explain": "不適。抜けを作った側に抜けを聞いている。権威ある一覧と突き合わせるべき。",
+          "textZh": "问 Claude 还缺什么。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**一处缺失意味着什么**。最常见的错误是「补上发现的那个就完事」。但漏掉一项说明生成时依据的信息本身不全，**同样的原因会在你没注意的地方再漏一次**。所以要拿权威清单把全部项目过一遍。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-028",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Which practice most reduces the risk of passing on an error from a Claude-drafted document?",
+      "stemZh": "下面哪种做法最能降低把 Claude 起草文档里的错误传递出去的风险？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Checking claims against the source before the document leaves the associate's hands.",
+          "correct": true,
+          "explain": "正解。手を離れる前が最後の関門。出た後の訂正は、届いた人全員には届かない。",
+          "textZh": "在文档离开担当之手以前，对照来源核实其中的陈述。"
+        },
+        {
+          "text": "Sending it quickly so mistakes are found by more readers.",
+          "correct": false,
+          "explain": "不適。誤りを他人の時間で拾わせている。訂正も全員には届かない。",
+          "textZh": "尽快发出去，让更多读者帮忙发现错误。"
+        },
+        {
+          "text": "Keeping a copy of the original prompt.",
+          "correct": false,
+          "explain": "不適。記録は有用だが、誤りは止まらない。",
+          "textZh": "保存好原始提示词。"
+        },
+        {
+          "text": "Using a more capable model next time.",
+          "correct": false,
+          "explain": "不適。今回の文書は直らない。",
+          "textZh": "下次用能力更强的模型。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**把关的位置**。错误一旦发出，**订正永远追不上原件**——看过的人不会都看到更正。所以检查必须发生在发送之前，这是唯一有效的关口。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-029",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "A summary for a busy executive opens with three paragraphs of background before reaching the recommendation. What is the main problem?",
+      "stemZh": "一份给忙碌高管的摘要，用三段背景铺垫之后才讲到建议。主要问题是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The reader may stop before reaching the part they need; the recommendation should come first.",
+          "correct": true,
+          "explain": "正解。読者の使い方に合っていない。最後まで読まれる前提が崩れている。",
+          "textZh": "读者可能在读到需要的部分之前就停下了；建议应该放在最前面。"
+        },
+        {
+          "text": "The background is inaccurate.",
+          "correct": false,
+          "explain": "不適。正確さの問題は提示されていない。",
+          "textZh": "背景部分不准确。"
+        },
+        {
+          "text": "Three paragraphs is too few for proper context.",
+          "correct": false,
+          "explain": "不適。分量ではなく順序の問題。",
+          "textZh": "三段背景太少，不足以说清上下文。"
+        },
+        {
+          "text": "Executives should read the whole document anyway.",
+          "correct": false,
+          "explain": "不適。読者の条件を変えようとしている。",
+          "textZh": "高管反正应该把整份文档读完。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**信息的顺序**。同样的内容，顺序不同，效果完全不同。给时间有限的读者写东西，**结论必须在最前面**——背景是支撑，不是入口。这不是「写得好不好」的问题，是「会不会被读到」的问题。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-030",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO habits make it harder to notice an error in a Claude-generated document? (Select 2)",
+      "stemZh": "下面哪两种习惯会让人更难发现 Claude 生成文档中的错误？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Reading for whether it sounds right rather than whether it is right.",
+          "correct": true,
+          "explain": "正解。流暢さは誤りを覆い隠す。生成物で最も危険な読み方。",
+          "textZh": "读的时候看「听起来对不对」，而不是「是不是对的」。"
+        },
+        {
+          "text": "Checking only the parts that look unusual.",
+          "correct": true,
+          "explain": "正解。もっともらしく書かれた誤りは目立たない。目立たないものほど危ない。",
+          "textZh": "只检查那些看起来反常的部分。"
+        },
+        {
+          "text": "Comparing key claims against the source document.",
+          "correct": false,
+          "explain": "不適。これは有効な検査。",
+          "textZh": "把关键陈述与原始文档对照。"
+        },
+        {
+          "text": "Asking a colleague who knows the subject to read it.",
+          "correct": false,
+          "explain": "不適。第三者の目を入れるのは有効な検査で、見落としを減らす方向に働く。",
+          "textZh": "请一位懂这个主题的同事读一遍。"
+        },
+        {
+          "text": "Listing the claims that would be expensive to get wrong.",
+          "correct": false,
+          "explain": "不適。優先順位づけとして正しい。",
+          "textZh": "把一旦弄错代价高昂的陈述列出来。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**为什么生成物的错误特别难发现**。两个原因：一是文字流畅，「读着顺」被误当成「说得对」；二是**错误被写得和正确内容一样自然**，所以「只看反常的地方」正好会跳过它们。对抗办法是按内容清单核对，而不是靠语感。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-031",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "A set of findings will be revisited monthly by different people. Which output choice best supports that?",
+      "stemZh": "一组结论会由不同的人每月重新查看一次。哪种产出选择最能支撑这件事？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A single document with a stated date and source for each finding, kept in one place.",
+          "correct": true,
+          "explain": "正解。時間が経つほど「いつの・どこからの情報か」が効いてくる。",
+          "textZh": "一份放在固定位置的文档，每条结论都注明日期和来源。"
+        },
+        {
+          "text": "A chat conversation each person can scroll back through.",
+          "correct": false,
+          "explain": "不適。人ごとに別の会話になり、共有されない。",
+          "textZh": "一段每个人都能往回翻的对话。"
+        },
+        {
+          "text": "A new summary generated fresh each month.",
+          "correct": false,
+          "explain": "不適。毎回別物になり、何が変わったか分からない。",
+          "textZh": "每个月重新生成一份新摘要。"
+        },
+        {
+          "text": "An email thread with the findings in the body.",
+          "correct": false,
+          "explain": "不適。版が分岐し、最新が埋もれる。",
+          "textZh": "一条把结论写在正文里的邮件线索。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**会被长期复用的产出**。时间跨度一拉长，两件事变得关键：**唯一的存放位置**（否则版本分叉）和**每条结论的日期与来源**（否则半年后没人知道它还成不成立）。这和 CCAO-F 本身要求 reviewedAt 是同一个道理。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-032",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An associate is asked to certify that a Claude-generated financial figure is correct, but cannot access the underlying system. What is the appropriate response?",
+      "stemZh": "某位担当被要求确认一个由 Claude 生成的财务数字是正确的，但他无法访问底层系统。恰当的回应是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Say plainly that it cannot be verified from what is available, and name who can verify it.",
+          "correct": true,
+          "explain": "正解。確認できないことを確認できたと言わない。誰なら確認できるかまで示すのが実務。",
+          "textZh": "明说以现有条件无法核实，并指出谁能核实。"
+        },
+        {
+          "text": "Certify it, noting that Claude is generally accurate.",
+          "correct": false,
+          "explain": "不適。一般論で個別の数字を保証している。",
+          "textZh": "确认它，并注明 Claude 通常是准确的。"
+        },
+        {
+          "text": "Decline to respond at all.",
+          "correct": false,
+          "explain": "不適。次の一手を示さず止めている。",
+          "textZh": "干脆不回应。"
+        },
+        {
+          "text": "Ask Claude to confirm the figure and certify based on that.",
+          "correct": false,
+          "explain": "不適。同じ出力を根拠に同じ出力を保証している。",
+          "textZh": "让 Claude 确认一下这个数字，然后据此签字。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**不能核实的时候怎么办**。正解的两个组成部分缺一不可：**明说核实不了**，以及**指出谁能核实**。只说「不知道」是把事情停住；而用「模型一般很准」来担保具体数字，是把一般概率当成个案保证。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-033",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "A request asked for \"the three strongest objections and how to answer each.\" The output lists three objections with no answers. How should this be judged?",
+      "stemZh": "一个请求要求给出「三个最有力的反对意见，以及每一条该如何回应」。产出只列了三条反对意见，没有回应。应该如何判断？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Incomplete: half of what was asked for is missing, regardless of how good the three objections are.",
+          "correct": true,
+          "explain": "正解。依頼の半分が欠けている。挙がった3件の質は、欠落を埋め合わせない。",
+          "textZh": "不完整：无论那三条反对意见多好，请求的一半内容缺失了。"
+        },
+        {
+          "text": "Acceptable, because the objections are the harder half.",
+          "correct": false,
+          "explain": "不適。難易度は要件を減らす理由にならない。",
+          "textZh": "可以接受，因为反对意见是更难的那一半。"
+        },
+        {
+          "text": "Acceptable, because the answers are obvious once the objections are known.",
+          "correct": false,
+          "explain": "不適。自明だと思えるかは読者による。書く側の判断で省いてよい理由にならない。",
+          "textZh": "可以接受，因为知道了反对意见，回应就是显而易见的。"
+        },
+        {
+          "text": "Incomplete only if the reader complains.",
+          "correct": false,
+          "explain": "不適。検査の基準を相手の反応に委ねている。",
+          "textZh": "只有读者抱怨了才算不完整。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**照着请求逐条打勾**。这是完整性检查最简单也最容易被跳过的一步：把请求拆成几个要求，一项一项对。产出的质量再高，也不能替代缺失的那一半。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-034",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Claude states that a regulation \"took effect last year.\" The associate needs the exact date. What is the most reliable way to get it?",
+      "stemZh": "Claude 说某项法规「去年生效」。这位担当需要确切日期。最可靠的获取方式是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Look it up in the official text or register; relative time references are especially unreliable in generated text.",
+          "correct": true,
+          "explain": "正解。「去年」はモデルが今を何年と見なしているかに依存する。相対的な時間表現は根拠にならない。",
+          "textZh": "去官方文本或公报里查；相对时间的说法在生成文本里尤其不可靠。"
+        },
+        {
+          "text": "Ask Claude for the exact date and use what it returns.",
+          "correct": false,
+          "explain": "不適。同じ不確かな前提から、より具体的な数字が出てくるだけ。危険は増す。",
+          "textZh": "问 Claude 要确切日期，用它给的。"
+        },
+        {
+          "text": "Assume it means the previous calendar year and proceed.",
+          "correct": false,
+          "explain": "不適。推測を確定情報として扱っている。",
+          "textZh": "假定指的是上一个日历年，然后继续。"
+        },
+        {
+          "text": "Search the company's internal wiki for the date.",
+          "correct": false,
+          "explain": "不適。二次情報。法令の施行日は一次資料で確かめる。",
+          "textZh": "在公司内部 wiki 里搜这个日期。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**相对时间表达的陷阱**。「去年」「最近」「不久前」依赖模型认为的当前时间，而这一点并不可靠。更危险的是第二个干扰项：**追问会得到一个更具体的日期**，具体反而让人放松警惕。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-035",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO changes best adapt an internal analysis for a customer-facing document? (Select 2)",
+      "stemZh": "下面哪两个改动最适合把一份内部分析转成面向客户的文档？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Remove internal reasoning that reveals things the customer should not see.",
+          "correct": true,
+          "explain": "正解。社内向けの検討過程には、出せない前提や交渉材料が混ざっている。",
+          "textZh": "删掉那些会暴露客户不该看到的内容的内部推理。"
+        },
+        {
+          "text": "State only what the company is prepared to stand behind.",
+          "correct": true,
+          "explain": "正解。対外文書は約束になる。検討段階の見込みを断定で書かない。",
+          "textZh": "只写公司准备为之负责的内容。"
+        },
+        {
+          "text": "Add more internal jargon to sound authoritative.",
+          "correct": false,
+          "explain": "不適。読めなくなるうえ、権威は用語では作れない。",
+          "textZh": "加入更多内部行话以显得权威。"
+        },
+        {
+          "text": "Keep all hedging language exactly as written internally.",
+          "correct": false,
+          "explain": "不適。社内の留保は社内向けの表現。そのままでは伝わらない。",
+          "textZh": "把内部写的所有模棱两可的措辞原样保留。"
+        },
+        {
+          "text": "Increase the length so it looks thorough.",
+          "correct": false,
+          "explain": "不適。分量で信頼を作ろうとしている。",
+          "textZh": "加长篇幅，让它看起来更周全。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**内部文档转对外文档**。两个方向：**往外拿掉**（内部推理、谈判筹码、还没定的选项）和**往内收紧**（只写敢负责的内容）。对外文档的每一句都可能被当作承诺，这和内部讨论的宽容度完全不同。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-036",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "An output about a niche technical topic is noticeably vaguer than the rest of the document. What is the most useful interpretation?",
+      "stemZh": "一份文档里，关于某个冷门技术主题的部分明显比其他部分含糊。最有用的解读是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Vagueness often marks where the model has little to draw on; treat that section as the one most needing a source.",
+          "correct": true,
+          "explain": "正解。曖昧さは弱点の在りかを教えてくれる。検査の入口として使える。",
+          "textZh": "含糊往往标记着模型可依据的信息很少；把这一节当作最需要找来源的部分。"
+        },
+        {
+          "text": "Vagueness means the section is safely non-committal and needs no check.",
+          "correct": false,
+          "explain": "不適。断定していないだけで、内容は使われる。",
+          "textZh": "含糊意味着这一节很安全、不用查。"
+        },
+        {
+          "text": "The topic must be inherently unknowable.",
+          "correct": false,
+          "explain": "不適。出力の曖昧さは、世の中の情報量を測っていない。",
+          "textZh": "这个主题本来就无法弄清楚。"
+        },
+        {
+          "text": "Rewrite it more assertively to match the rest.",
+          "correct": false,
+          "explain": "不適。最も危険な対処。根拠のない断定を作ってしまう。",
+          "textZh": "把它改写得更肯定一些，跟其他部分保持一致。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**含糊是有信息量的**。它常常准确地指出「这里资料不足」。正确的用法是把它当作检查的入口；最危险的做法是最后一项——**把含糊改写成肯定**，等于亲手制造了一个没有根据的断言。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-037",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A Claude-drafted email to a regulator is factually correct but commits the company to a timeline nobody has confirmed internally. What is the problem and the fix?",
+      "stemZh": "一封给监管机构的、由 Claude 起草的邮件事实上没有错，但它承诺了一个内部从未确认过的时间表。问题在哪，怎么修？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Accuracy is not the only test: remove or confirm the commitment before sending, since regulators will hold the company to it.",
+          "correct": true,
+          "explain": "正解。事実として誤りが無くても、約束してよいかは別の判断。特に相手が規制当局なら重い。",
+          "textZh": "准确不是唯一的检验标准：发送前要么删掉这个承诺，要么先在内部确认——监管机构会据此要求公司履行。"
+        },
+        {
+          "text": "No problem: the email contains no factual errors.",
+          "correct": false,
+          "explain": "不適。正確さと約束可能性を混同している。",
+          "textZh": "没问题：邮件里没有事实性错误。"
+        },
+        {
+          "text": "Add \"approximately\" before the dates and send.",
+          "correct": false,
+          "explain": "不適。語を足しても約束したことは変わらない。",
+          "textZh": "在日期前加上「大约」然后发出去。"
+        },
+        {
+          "text": "Send it and correct the timeline later if needed.",
+          "correct": false,
+          "explain": "不適。規制当局への訂正は、通常の訂正よりはるかに重い。",
+          "textZh": "先发，需要的话以后再更正时间表。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**正确 ≠ 可以发**。生成的文本很擅长把事情说圆、把不确定写成确定，尤其是时间表和数量。对外、尤其对监管机构的文件，要多检查一层：**这句话我们有没有权、有没有能力兑现**。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-038",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Which output format best fits a decision the team must make in a meeting tomorrow?",
+      "stemZh": "对于团队明天开会要做的一个决定，哪种产出形态最合适？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A one-page comparison of the options with the trade-off of each stated plainly.",
+          "correct": true,
+          "explain": "正解。会議で必要なのは選択肢と対価の一覧。読み上げずに見比べられる形。",
+          "textZh": "一页纸的选项对比，把每个选项的取舍直白地写出来。"
+        },
+        {
+          "text": "A full research report to be read aloud in the meeting.",
+          "correct": false,
+          "explain": "不適。会議時間を読み上げに使ってしまう。",
+          "textZh": "一份在会上朗读的完整研究报告。"
+        },
+        {
+          "text": "A chat log of how the analysis was produced.",
+          "correct": false,
+          "explain": "不適。過程は判断の材料ではない。",
+          "textZh": "一份分析过程的对话记录。"
+        },
+        {
+          "text": "A recommendation with no alternatives shown.",
+          "correct": false,
+          "explain": "不適。選択肢が無ければ、会議で決める意味が無い。",
+          "textZh": "一个不展示其他备选方案的建议。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**产出要服务于下一步动作**。下一步是「开会做决定」，所以需要的是**能并排比较的选项和它们的代价**。研究报告、过程记录、单一建议，都不能支撑「当场做选择」这个动作。",
+      "reference": "https://claude.com/product/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-039",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "A list of action items generated from a meeting has owners for six of eight items. What should be done before circulating it?",
+      "stemZh": "一份从会议纪要生成的行动项清单，八项里有六项写了负责人。分发之前该做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Fill in the two missing owners by asking, since an item with no owner will not get done.",
+          "correct": true,
+          "explain": "正解。担当のいない項目は実行されない。空欄のまま配ると、二度手間になる。",
+          "textZh": "去问清楚补上缺的两个负责人——没有负责人的事项不会被完成。"
+        },
+        {
+          "text": "Circulate it as-is; the team will sort out the remaining two.",
+          "correct": false,
+          "explain": "不適。全員のものは誰のものでもない。",
+          "textZh": "照原样分发，剩下两项团队自己会安排。"
+        },
+        {
+          "text": "Remove the two items without owners.",
+          "correct": false,
+          "explain": "不適。決まった作業を消している。",
+          "textZh": "把没有负责人的两项删掉。"
+        },
+        {
+          "text": "Assign both to yourself to be safe.",
+          "correct": false,
+          "explain": "不適。実態と合わない割り当ては、後で破綻する。",
+          "textZh": "保险起见都分给自己。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**完整性检查要落到「能不能用」**。行动项清单的用途是推动执行，缺负责人的条目在这个用途上是失效的。删掉它（丢掉决议）和随手分给自己（与实际不符），都是在回避那个真正该做的动作：去问。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-040",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO are genuine verification steps, as opposed to things that only feel like verification? (Select 2)",
+      "stemZh": "下面哪两项是真正的核实动作，而不只是「感觉像在核实」？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Opening the cited source and finding the statement in it.",
+          "correct": true,
+          "explain": "正解。一次資料に当たる。これだけが検証。",
+          "textZh": "打开被引用的来源，在里面找到那句话。"
+        },
+        {
+          "text": "Having someone with subject knowledge read the claim.",
+          "correct": true,
+          "explain": "正解。知識のある人の目は、出所と並ぶ有効な検査。",
+          "textZh": "请一位懂这个主题的人读一下这条陈述。"
+        },
+        {
+          "text": "Re-reading the output carefully.",
+          "correct": false,
+          "explain": "不適。同じ文章を丁寧に読んでも、外の事実とは突き合わせていない。",
+          "textZh": "把产出再仔细读一遍。"
+        },
+        {
+          "text": "Asking the model to rate its own confidence.",
+          "correct": false,
+          "explain": "不適。自己申告は精度の指標にならない。",
+          "textZh": "让模型给自己的把握程度打分。"
+        },
+        {
+          "text": "Generating the answer again and seeing if it matches.",
+          "correct": false,
+          "explain": "不適。同じ誤りが再現するだけのことがある。",
+          "textZh": "再生成一次答案，看看是否一致。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**什么才算核实**。核实必须**引入产出之外的信息**：原始来源，或者懂行的人。重读、自评、重跑，全都在产出内部打转——感觉上做了功课，实际上一点外部证据都没有增加。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-041",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "The same findings must be delivered as a two-minute verbal update and as a written record. How should the associate handle this?",
+      "stemZh": "同一组结论既要做成两分钟的口头汇报，也要留成书面记录。应该怎么处理？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Write the record in full, then derive the spoken version by selecting from it — so both come from one source.",
+          "correct": true,
+          "explain": "正解。1つの記録から派生させる。逆にすると、口頭で言ったことが記録に残らない。",
+          "textZh": "先写完整的书面记录，再从中挑选出口头版本——两者出自同一来源。"
+        },
+        {
+          "text": "Prepare the two independently so each is optimal.",
+          "correct": false,
+          "explain": "不適。内容がずれる。後から「言ったはずのこと」が記録に無い事故が起きる。",
+          "textZh": "分别独立准备两份，各自做到最好。"
+        },
+        {
+          "text": "Read the written record aloud within two minutes.",
+          "correct": false,
+          "explain": "不適。書き言葉は読み上げに向かない。時間にも収まらない。",
+          "textZh": "把书面记录在两分钟内念完。"
+        },
+        {
+          "text": "Skip the written record since the update was delivered.",
+          "correct": false,
+          "explain": "不適。口頭の内容は残らない。",
+          "textZh": "既然已经口头汇报了，就不用书面记录了。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**同一内容的多种形态**。要点是**单一来源**：先做信息最全的那一份，其余从它派生。独立准备两份看似更贴合各自场景，代价是内容会漂移，事后对不上账。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-042",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Which is the best description of why a fluent, well-organized output can still be wrong?",
+      "stemZh": "下面哪一句最好地解释了「流畅、条理清晰的产出为什么仍然可能是错的」？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Fluency comes from how the text is produced, not from whether the underlying facts were checked.",
+          "correct": true,
+          "explain": "正解。読みやすさは生成の性質であって、正しさの保証ではない。ここを取り違えると検査そのものを省く。",
+          "textZh": "流畅来自文本的生成方式，而不是来自底层事实被核实过。"
+        },
+        {
+          "text": "Well-organized text is usually written in a hurry.",
+          "correct": false,
+          "explain": "不適。構成の良さと拙速は関係がない。",
+          "textZh": "条理清晰的文字通常是匆忙写出来的。"
+        },
+        {
+          "text": "Errors only appear in long documents.",
+          "correct": false,
+          "explain": "不適。長さと誤りの有無は無関係。",
+          "textZh": "错误只会出现在长文档里。"
+        },
+        {
+          "text": "Organization is a sign the model did not understand the topic.",
+          "correct": false,
+          "explain": "不適。構成の良し悪しから理解度は測れない。",
+          "textZh": "条理清晰说明模型没理解这个主题。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是这项技术最根本的一条：**「说得好」和「说得对」是两回事**。人类写作里，条理和把握通常同时到来，所以我们习惯用流畅度当可信度的代理指标。在生成文本上，这个代理指标失效了。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-043",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "When is it appropriate to send a Claude-generated document without any human checking?",
+      "stemZh": "什么时候可以不经任何人工检查就发出一份 Claude 生成的文档？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When nothing in it will be relied on and an error would cost nothing to correct.",
+          "correct": true,
+          "explain": "正解。検査を省いてよい条件は「誤っても取り返しがつく」こと。それ以外は省けない。",
+          "textZh": "当其中没有任何内容会被依赖，而且出错的更正成本为零时。"
+        },
+        {
+          "text": "When the topic is one the model handles well.",
+          "correct": false,
+          "explain": "不適。得意不得意は個別の出力の正しさを保証しない。",
+          "textZh": "当这个主题是模型擅长的时。"
+        },
+        {
+          "text": "When the deadline is too tight to check.",
+          "correct": false,
+          "explain": "不適。締切は検査を不要にしない。間に合わないなら範囲を削る。",
+          "textZh": "当截止时间太紧来不及检查时。"
+        },
+        {
+          "text": "When the associate has checked similar outputs before.",
+          "correct": false,
+          "explain": "不適。過去の出力が正しかったことは、今回の保証にならない。",
+          "textZh": "当担当以前检查过类似的产出时。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**省略检查的唯一合法条件**。不是「这次应该没问题」，而是**「错了也没有代价」**。三个干扰项对应三种常见的自我说服：主题熟悉、时间不够、以前都对。都不改变这次出错的后果。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-044",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Findings scattered across a long conversation need to be handed to a colleague who was not part of it. What should the associate produce?",
+      "stemZh": "散落在一段长对话里的各项结论，要交给一位没参与过这段对话的同事。应该产出什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A curated document containing the findings that survived, with the abandoned lines of thinking left out.",
+          "correct": true,
+          "explain": "正解。会話には捨てた案も残っている。そのまま渡すと、捨てた案が生きているように読まれる。",
+          "textZh": "一份经过整理的文档，只包含最终成立的结论，舍弃的思路不要放进去。"
+        },
+        {
+          "text": "The full conversation, so nothing is lost.",
+          "correct": false,
+          "explain": "不適。途中で否定した案も含まれる。読む側に判別できない。",
+          "textZh": "整段对话，这样什么都不会丢。"
+        },
+        {
+          "text": "A list of the prompts that were used.",
+          "correct": false,
+          "explain": "不適。問いは結論ではない。",
+          "textZh": "一份用过的提示词清单。"
+        },
+        {
+          "text": "A summary generated from the conversation without review.",
+          "correct": false,
+          "explain": "不適。捨てた案が混ざる危険がそのまま残る。",
+          "textZh": "从对话直接生成一份摘要，不做检查。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**整理与取舍**（curate）。长对话里既有成立的结论，也有中途被推翻的想法，而**接手的人分不出来**。把原始记录整个丢过去，等于把判断的责任转嫁给没有上下文的人。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-045",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "An output answers the question that was asked but ignores a constraint stated in the same message. How should this be treated?",
+      "stemZh": "一份产出回答了被问到的问题，却忽略了同一条消息里写明的一个约束条件。应该怎么处理？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "As a failure to meet the request: the constraint was part of what was asked.",
+          "correct": true,
+          "explain": "正解。制約は依頼の一部。満たしていなければ、答えとしては使えない。",
+          "textZh": "当作没有满足请求：约束条件本来就是请求的一部分。"
+        },
+        {
+          "text": "As acceptable, since the main question was answered.",
+          "correct": false,
+          "explain": "不適。制約を付けた理由が消えていない。",
+          "textZh": "可以接受，因为主要问题已经回答了。"
+        },
+        {
+          "text": "As a sign the constraint was unreasonable.",
+          "correct": false,
+          "explain": "不適。守られなかったことは、妥当でなかった証拠にならない。",
+          "textZh": "说明这个约束不合理。"
+        },
+        {
+          "text": "As a formatting issue to fix later.",
+          "correct": false,
+          "explain": "不適。制約は体裁ではない。",
+          "textZh": "当作以后再修的排版问题。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**约束条件属于请求本身**。预算上限、字数、不能提到某件事、必须覆盖某一项——这些不是加分项，而是及格线。产出违反其中任何一条，就是没完成任务，哪怕主体内容写得很好。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-046",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "An associate notices that two paragraphs of an output contradict each other. Which TWO responses are appropriate? (Select 2)",
+      "stemZh": "某位担当发现一份产出的两个段落互相矛盾。下面哪两种应对是恰当的？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Determine which one is right from the source, rather than picking the more convincing paragraph.",
+          "correct": true,
+          "explain": "正解。説得力は根拠ではない。矛盾は外の事実で解く。",
+          "textZh": "从原始来源确定哪一个是对的，而不是挑更有说服力的那段。"
+        },
+        {
+          "text": "Check whether the same contradiction affects conclusions drawn later in the document.",
+          "correct": true,
+          "explain": "正解。矛盾はそこで終わらない。後続の結論がどちらに乗っているかを確かめる。",
+          "textZh": "检查后面的结论是否也受到同一矛盾的影响。"
+        },
+        {
+          "text": "Delete the paragraph that is less well written.",
+          "correct": false,
+          "explain": "不適。文章の巧拙で正誤を決めている。",
+          "textZh": "把写得差一些的那段删掉。"
+        },
+        {
+          "text": "Keep both and let the reader decide.",
+          "correct": false,
+          "explain": "不適。矛盾したまま渡すのは、判断を丸投げしている。",
+          "textZh": "两段都保留，让读者自己判断。"
+        },
+        {
+          "text": "Assume the later paragraph supersedes the earlier one.",
+          "correct": false,
+          "explain": "不適。順序は正しさを示さない。",
+          "textZh": "假定后面那段取代了前面那段。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**内部矛盾的处理**。矛盾是一个明确的信号：至少有一处错了。两件事要做：回到外部依据判定哪个对；以及**往后看**——后续段落的结论是建立在哪一个上面的。只修那两段，往往漏掉真正受影响的部分。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-047",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An associate must summarize a 200-page report by tomorrow and cannot read all of it. What approach keeps the summary trustworthy?",
+      "stemZh": "某位担当必须在明天之前完成一份200页报告的摘要，而他读不完全文。什么做法能让摘要保持可信？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Verify the claims the summary makes by locating each in the report, and state plainly which sections were not covered.",
+          "correct": true,
+          "explain": "正解。全文を読まなくても、書いた主張の出所は確かめられる。触れていない範囲を明示すれば、読者が扱いを判断できる。",
+          "textZh": "把摘要里的每条陈述都在报告中定位核实，并明确写出哪些章节没有覆盖。"
+        },
+        {
+          "text": "Trust the summary because the model read the whole document.",
+          "correct": false,
+          "explain": "不適。全文が入力されたことは、要約が正しいことを意味しない。",
+          "textZh": "相信这份摘要，因为模型读完了整份文档。"
+        },
+        {
+          "text": "Summarize the summary again to make it shorter and safer.",
+          "correct": false,
+          "explain": "不適。圧縮を重ねるほど、誤りは残って根拠が消える。",
+          "textZh": "把摘要再摘要一次，让它更短更安全。"
+        },
+        {
+          "text": "Add a disclaimer that it was AI-generated and send it.",
+          "correct": false,
+          "explain": "不適。注記は検証の代わりにならない。",
+          "textZh": "加一句「本文由AI生成」的声明然后发出去。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**时间不够时怎么保证可信**。答案不是「少检查」，而是**改变检查的对象**：不去读完全文，而是把摘要里已经写出来的每条陈述倒推回原文。再加上一句「哪些部分没覆盖」，读者就能自己决定要不要补。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-048",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Which is the best test of whether an output has been successfully adapted for its audience?",
+      "stemZh": "要检验一份产出是否成功地为其读者做了调整，下面哪个检验最好？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Can that reader act on it without asking a follow-up question?",
+          "correct": true,
+          "explain": "正解。読者の行動で測る。追加の質問が出るなら、まだ届いていない。",
+          "textZh": "那位读者能否不再追问就据此行动？"
+        },
+        {
+          "text": "Is it shorter than the original?",
+          "correct": false,
+          "explain": "不適。長さは適応の指標ではない。",
+          "textZh": "它是否比原文更短？"
+        },
+        {
+          "text": "Does it avoid all technical words?",
+          "correct": false,
+          "explain": "不適。読者によっては専門用語のほうが正確に伝わる。",
+          "textZh": "它是否避免了所有技术词汇？"
+        },
+        {
+          "text": "Does it sound more polished?",
+          "correct": false,
+          "explain": "不適。仕上がりの良さと伝わり方は別。",
+          "textZh": "它读起来是否更精致？"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**用结果来检验改写**。评判标准不是长度、词汇或文采，而是**读者能不能直接用**。如果对方读完还要回来问一句，说明适配没完成——而这正是最容易被「读起来很顺」掩盖过去的失败。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-049",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "Asked to evaluate three candidate suppliers, the output recommends the one whose name appeared first in the prompt. The reasoning cites no distinguishing evidence. What is the concern?",
+      "stemZh": "在被要求评估三家候选供应商时，产出推荐了提示词里名字排第一的那家，而理由中没有引用任何能区分三者的证据。问题在哪？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The recommendation may reflect the order of presentation rather than the merits; require evidence tied to each supplier before accepting it.",
+          "correct": true,
+          "explain": "正解。根拠が示されていない推薦は、提示順など無関係な要因を拾っている可能性がある。",
+          "textZh": "这个推荐可能反映的是呈现顺序而不是优劣；在接受之前要求给出与每家供应商挂钩的证据。"
+        },
+        {
+          "text": "Order does not matter to a model, so the recommendation is safe.",
+          "correct": false,
+          "explain": "不適。順序の影響が無いとは言い切れないうえ、根拠が無いこと自体が問題。",
+          "textZh": "顺序对模型没有影响，所以这个推荐是安全的。"
+        },
+        {
+          "text": "The lack of evidence shows the suppliers are equivalent.",
+          "correct": false,
+          "explain": "不適。根拠が書かれていないことは、差が無いことを意味しない。",
+          "textZh": "没有证据说明三家是等价的。"
+        },
+        {
+          "text": "Re-run it with the names in reverse order and take that answer instead.",
+          "correct": false,
+          "explain": "不適。検査としては有用でも、結果を鵜呑みにする点は変わっていない。",
+          "textZh": "把名字顺序倒过来重跑一次，改用那个答案。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**没有证据的推荐**。判断题的正确做法是要求「每个选项各自对应哪条依据」。注意最后一个干扰项：换顺序重跑是个**有用的探针**（能暴露顺序效应），但把新结果直接当答案，等于把同一个毛病换了个方向。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-050",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "A checklist will be used by several people on different days. Which output choice matters most?",
+      "stemZh": "一份清单会由几个人在不同的日子使用。哪个产出选择最重要？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "That every user opens the same current version rather than their own copy.",
+          "correct": true,
+          "explain": "正解。複製が配られた時点で、更新は届かなくなる。",
+          "textZh": "确保每个人打开的都是同一个当前版本，而不是各自的副本。"
+        },
+        {
+          "text": "That it uses an attractive layout.",
+          "correct": false,
+          "explain": "不適。見た目は運用の正確さに影響しない。",
+          "textZh": "它有一个美观的排版。"
+        },
+        {
+          "text": "That it was generated by the most capable model.",
+          "correct": false,
+          "explain": "不適。生成元は運用上の問題を解かない。",
+          "textZh": "它是用能力最强的模型生成的。"
+        },
+        {
+          "text": "That it includes the date it was created.",
+          "correct": false,
+          "explain": "不適。有用だが、版が分かれる問題は解決しない。",
+          "textZh": "它包含创建日期。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**多人多次使用的产出**。核心风险是版本分叉：一旦每人手里有各自的副本，之后的修正就传不到他们手上。日期有帮助，但解决不了这个问题——**唯一的当前版本**才解决。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-051",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO factors most strongly indicate that an output needs review by someone other than the associate? (Select 2)",
+      "stemZh": "下面哪两个因素最强烈地说明，一份产出需要由担当以外的人来复核？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The subject requires expertise the associate does not have.",
+          "correct": true,
+          "explain": "正解。自分に判断力が無い領域は、自分が読んでも検査にならない。",
+          "textZh": "这个主题需要担当本人不具备的专业知识。"
+        },
+        {
+          "text": "The associate has a stake in the outcome being a particular way.",
+          "correct": true,
+          "explain": "正解。利害があると、望む結論を支える誤りは見つけにくい。",
+          "textZh": "担当本人对结论朝某个方向有利害关系。"
+        },
+        {
+          "text": "The output is longer than a page.",
+          "correct": false,
+          "explain": "不適。長さは判断の難しさを意味しない。",
+          "textZh": "产出超过了一页。"
+        },
+        {
+          "text": "The output uses bullet points.",
+          "correct": false,
+          "explain": "不適。体裁は無関係。",
+          "textZh": "产出使用了项目符号。"
+        },
+        {
+          "text": "The associate produced it late in the day.",
+          "correct": false,
+          "explain": "不適。時間帯は基準にならない。",
+          "textZh": "产出是担当在一天快结束时做出来的。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**为什么要找别人看**。两种情况自己检查不管用：**看不懂**（缺乏该领域判断力）和**不想看出来**（对结论有利害关系）。后者更隐蔽——人会不自觉地放过支持自己期望的错误。",
+      "reference": "https://www.anthropic.com/legal/commercial-terms",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-052",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A cost estimate produced by Claude is internally consistent and well formatted, but the associate has no idea where the unit prices came from. What should happen next?",
+      "stemZh": "Claude 做出的一份成本估算内部自洽、排版良好，但这位担当完全不知道其中的单价是从哪里来的。下一步该怎么办？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Establish where each unit price comes from; arithmetic being correct says nothing about whether the inputs are right.",
+          "correct": true,
+          "explain": "正解。計算が合っていることと、入力値が正しいことは別。根拠の無い単価の上に正確な合計が乗っているだけ。",
+          "textZh": "查清每个单价的来源；算术正确完全不说明输入值是对的。"
+        },
+        {
+          "text": "Accept it, since the totals add up correctly.",
+          "correct": false,
+          "explain": "不適。合計の正しさは入力の正しさを保証しない。",
+          "textZh": "接受它，因为总数加起来是对的。"
+        },
+        {
+          "text": "Add a contingency percentage to cover any errors.",
+          "correct": false,
+          "explain": "不適。誤差の大きさが分からないのに、余裕幅だけ足している。",
+          "textZh": "加一个百分比的余量来覆盖可能的误差。"
+        },
+        {
+          "text": "Ask Claude to recalculate to confirm.",
+          "correct": false,
+          "explain": "不適。同じ単価で計算し直しても、単価は確かめられない。",
+          "textZh": "让 Claude 重算一遍确认。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**自洽不等于正确**。生成的表格通常算术无误——这恰恰让人放松警惕。真正要问的是**输入值从哪来**：单价、汇率、人天数。地基是编的，楼盖得再整齐也没用。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-053",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "What does it mean when an output cites a source that exists but does not contain the claim attributed to it?",
+      "stemZh": "如果一份产出引用了一个**确实存在**、但并不包含所归属说法的来源，这意味着什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Existence of the source is not verification; the claim itself must be found in it.",
+          "correct": true,
+          "explain": "正解。出典が実在することと、その主張がそこに書かれていることは別。ここを確かめないと検証にならない。",
+          "textZh": "来源存在不等于核实完成；必须在其中找到这条陈述本身。"
+        },
+        {
+          "text": "Close enough — the source is at least real.",
+          "correct": false,
+          "explain": "不適。実在する出典を付けた誤った主張は、より信じられやすい。",
+          "textZh": "差不多了——至少来源是真的。"
+        },
+        {
+          "text": "The claim must be in a different edition of the source.",
+          "correct": false,
+          "explain": "不適。根拠の無い救済を仮定している。",
+          "textZh": "这条说法一定在这个来源的另一个版本里。"
+        },
+        {
+          "text": "Citing a real source means no further check is needed.",
+          "correct": false,
+          "explain": "不適。最も危険な思い込み。",
+          "textZh": "引用了真实来源就不需要再检查了。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**核实要走到最后一步**。这类错误比彻底编造的引用更危险：来源真实存在，链接也打得开，于是没人再往下翻。**必须在来源里找到那句话本身**，否则等于没查。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-054",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An associate must explain a delay to a customer. The draft explains the internal cause in detail. What is the most appropriate revision?",
+      "stemZh": "某位担当要向客户解释一次延期。草稿详细说明了内部原因。最恰当的修改是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Lead with what it means for the customer and what happens next; keep only as much cause as they need.",
+          "correct": true,
+          "explain": "正解。読者が知りたいのは自分への影響と次の一手。原因は必要な分だけ。",
+          "textZh": "开头先讲这对客户意味着什么、接下来会怎样；原因只保留他们需要知道的部分。"
+        },
+        {
+          "text": "Keep the full internal explanation to demonstrate transparency.",
+          "correct": false,
+          "explain": "不適。透明性と、相手に必要のない社内事情を渡すことは別。",
+          "textZh": "保留完整的内部说明以展示透明。"
+        },
+        {
+          "text": "Remove the cause entirely and give only the new date.",
+          "correct": false,
+          "explain": "不適。理由が全く無いと、信頼の回復に使えない。",
+          "textZh": "完全删掉原因，只给新日期。"
+        },
+        {
+          "text": "Apologize at length and avoid mentioning the new date.",
+          "correct": false,
+          "explain": "不適。相手が最も必要とする情報を省いている。",
+          "textZh": "长篇道歉，避免提到新日期。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**站在读者的位置组织信息**。客户关心的顺序是：影响我什么 → 接下来怎么办 → 为什么。内部原因的详细程度要按「他们需要多少」来定，既不是全给（暴露无关内情），也不是不给（无法重建信任）。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-055",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Which is the most useful working assumption when reviewing a Claude-generated document?",
+      "stemZh": "在复核一份 Claude 生成的文档时，下面哪个是最有用的工作假设？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Assume it is a capable draft that may contain confident errors, and check what matters.",
+          "correct": true,
+          "explain": "正解。使える前提と、確かめる前提を両立させる。これが実務上いちばん機能する構え。",
+          "textZh": "假定它是一份有能力的草稿，其中可能包含说得很笃定的错误，然后去检查重要的部分。"
+        },
+        {
+          "text": "Assume it is correct unless something looks odd.",
+          "correct": false,
+          "explain": "不適。もっともらしく書かれた誤りは、odd に見えない。",
+          "textZh": "假定它是对的，除非有地方看起来不对劲。"
+        },
+        {
+          "text": "Assume it is wrong and rewrite everything by hand.",
+          "correct": false,
+          "explain": "不適。使う意味が消える。時間も足りなくなる。",
+          "textZh": "假定它是错的，全部手写重来。"
+        },
+        {
+          "text": "Assume correctness depends on how well the prompt was written.",
+          "correct": false,
+          "explain": "不適。良い指示は誤りを減らすが、無くしはしない。",
+          "textZh": "假定正确与否取决于提示词写得好不好。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**该抱什么心态**。两个极端都不可行：全信等于不检查，全不信等于白用。可用的姿态是「**有能力的草稿 + 会自信地出错**」，然后把有限的检查力气花在后果最重的地方。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-056",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO practices keep a growing set of research findings usable over time? (Select 2)",
+      "stemZh": "下面哪两种做法能让一组不断增加的调研结论长期保持可用？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Recording the date and source alongside each finding.",
+          "correct": true,
+          "explain": "正解。時間が経つほど、いつの情報かが効いてくる。",
+          "textZh": "在每条结论旁边记录日期和来源。"
+        },
+        {
+          "text": "Keeping everything in one place rather than across conversations.",
+          "correct": true,
+          "explain": "正解。散らばると、そもそも探せない。",
+          "textZh": "把所有内容放在一个地方，而不是散落在各段对话里。"
+        },
+        {
+          "text": "Re-generating the whole set whenever it is needed.",
+          "correct": false,
+          "explain": "不適。毎回別物になり、積み上がらない。",
+          "textZh": "每次需要时重新生成整组内容。"
+        },
+        {
+          "text": "Keeping only the most recent finding on each topic.",
+          "correct": false,
+          "explain": "不適。変化の経緯が消え、いつ変わったか分からなくなる。",
+          "textZh": "每个主题只保留最新的一条结论。"
+        },
+        {
+          "text": "Storing the prompts instead of the findings.",
+          "correct": false,
+          "explain": "不適。問いは結論ではない。",
+          "textZh": "保存提示词而不是结论。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**让结论能被长期使用**。两条：**日期与来源**（半年后判断它还成不成立）和**单一存放位置**（否则找不到）。这两点正是 CCAO-F 这门考试本身的特点在学习材料上的体现——产品会变，结论会过期。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-057",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A Claude-drafted policy summary will be posted on the company intranet as official guidance. What review is required?",
+      "stemZh": "一份由 Claude 起草的政策摘要将作为正式指引发布在公司内网上。需要什么样的复核？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The owner of the policy must confirm it, since staff will follow it as if it were the policy itself.",
+          "correct": true,
+          "explain": "正解。正式な指針として掲示されれば、社員はそれに従う。原本の管理者の確認が要る。",
+          "textZh": "必须由该政策的负责人确认，因为员工会把它当作政策本身来遵守。"
+        },
+        {
+          "text": "A spelling and formatting check is enough for an internal page.",
+          "correct": false,
+          "explain": "不適。社内であっても、従われる文書は内容の確認が要る。",
+          "textZh": "内网页面做个拼写和排版检查就够了。"
+        },
+        {
+          "text": "No review, since the original policy is linked at the bottom.",
+          "correct": false,
+          "explain": "不適。ほとんどの読者は要約だけを読む。",
+          "textZh": "不用复核，因为底部链接了原始政策。"
+        },
+        {
+          "text": "Review by any colleague who reads it carefully.",
+          "correct": false,
+          "explain": "不適。丁寧に読んでも、原本との差は権限のある人しか判定できない。",
+          "textZh": "请任何一位仔细读过的同事复核即可。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**摘要会代替原文被遵守**。人们不会去点那个链接。所以一份被当作正式指引发布的摘要，实际效力等同于政策本身，必须由**有权解释这份政策的人**确认，而不是随便找个人读一遍。",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-058",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "A request asked for analysis \"based only on the attached data.\" The output includes a market trend not present in the attachment. How should this be judged?",
+      "stemZh": "一个请求要求「仅基于附件数据」做分析。产出里包含了一个附件中并不存在的市场趋势。应该如何判断？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It violated the stated scope; the extra claim must be removed or separately sourced.",
+          "correct": true,
+          "explain": "正解。範囲の指定は依頼の一部。外から持ち込んだ主張は、別の根拠が要る。",
+          "textZh": "它违反了规定的范围；多出来的那条陈述必须删掉，或者单独给出来源。"
+        },
+        {
+          "text": "Extra context is a bonus and should be kept.",
+          "correct": false,
+          "explain": "不適。範囲を限った理由（検証可能性）が失われる。",
+          "textZh": "额外的背景是加分项，应该保留。"
+        },
+        {
+          "text": "It is acceptable if the trend is widely known.",
+          "correct": false,
+          "explain": "不適。周知かどうかは、指定した範囲を変えない。",
+          "textZh": "如果这个趋势众所周知，就可以接受。"
+        },
+        {
+          "text": "The scope instruction only applies to numbers.",
+          "correct": false,
+          "explain": "不適。範囲は主張全体にかかる。",
+          "textZh": "范围限定只适用于数字。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**范围限定的意义**。说「只用附件数据」通常是为了**让结论可被追溯和复现**。混进外部信息后，读者无法分辨哪条来自数据、哪条来自模型的一般知识——这恰恰摧毁了限定范围想换来的东西。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-059",
+      "domain": "D2",
+      "type": "evaluate",
+      "stem": "An output presents a figure as \"approximately 40%\" where the source document says 38.6%. Is this a problem?",
+      "stemZh": "一份产出把某个数字表述为「约40%」，而原始文档写的是38.6%。这算问题吗？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It depends on use: acceptable in a narrative summary, not acceptable where the exact figure drives a calculation or a commitment.",
+          "correct": true,
+          "explain": "正解。丸めの可否は用途で決まる。読み物なら可、計算や約束の根拠なら不可。",
+          "textZh": "取决于用途：在叙述性摘要里可以接受，但在这个数字要用于计算或构成承诺的地方不行。"
+        },
+        {
+          "text": "Always a problem: any change to a figure is an error.",
+          "correct": false,
+          "explain": "不適。要約では丸めが普通。一律に誤りとするのは実務的でない。",
+          "textZh": "永远是问题：任何对数字的改动都是错误。"
+        },
+        {
+          "text": "Never a problem: 40% and 38.6% are close enough.",
+          "correct": false,
+          "explain": "不適。契約や計算では1.4ポイントが効く。",
+          "textZh": "从来不是问题：40% 和 38.6% 足够接近。"
+        },
+        {
+          "text": "Only a problem if the reader asks for the exact figure.",
+          "correct": false,
+          "explain": "不適。読者が聞かなくても、その数字で判断される。",
+          "textZh": "只有读者主动要确切数字时才是问题。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**四舍五入什么时候可以**。这道题没有一刀切的答案，**用途决定标准**：讲故事用「约40%」更好读；但一旦这个数字要进公式、进合同、进对外承诺，1.4个百分点就是实打实的差额。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-060",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Two versions of the same message exist: one written by the associate, one by Claude. How should the associate choose between them?",
+      "stemZh": "同一条消息有两个版本：一个是担当自己写的，一个是 Claude 写的。应该如何取舍？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Compare them against what the reader needs, and take the better parts of each rather than choosing wholesale.",
+          "correct": true,
+          "explain": "正解。どちらかを丸ごと選ぶ必要はない。基準は読者の必要。",
+          "textZh": "拿读者的需要去比较两者，取各自更好的部分，而不是整份二选一。"
+        },
+        {
+          "text": "Always use the human-written one, since a person is accountable.",
+          "correct": false,
+          "explain": "不適。責任は出した人にある。どちらを使っても変わらない。",
+          "textZh": "永远用人写的那份，因为人要负责。"
+        },
+        {
+          "text": "Always use the Claude version, since it reads better.",
+          "correct": false,
+          "explain": "不適。読みやすさだけで選んでいる。",
+          "textZh": "永远用 Claude 那份，因为它读起来更好。"
+        },
+        {
+          "text": "Send both and let the reader pick.",
+          "correct": false,
+          "explain": "不適。判断を相手に押し付けている。",
+          "textZh": "两份都发，让读者自己挑。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**比较与合并**。把两个版本当成「二选一」是没必要的自我限制：常见的情况是人写的结构更贴合实际、模型写的措辞更清楚。判断依据始终是读者需要什么，而不是「谁写的」。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
     }
   ]
 }
