@@ -158,6 +158,2230 @@
       "reviewedAt": "2026-09-23",
       "stemZh": "下面哪两项任务更适合用 artifact（成果物）而不是在对话中直接回复？（选2项）",
       "commentaryZh": "考点是「选择合适的产出形态」。要打磨、要复用、要单独打开来用的东西，适合从对话流里切出来成为独立成果物；一句话的回答和来回的问答留在对话里更快。判断标准是「这东西之后还会被单独使用吗」。"
+    },
+    {
+      "id": "d3-005",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "What is the most accurate way to describe the difference between Claude's model tiers to a non-technical colleague?",
+      "stemZh": "向一位非技术同事描述 Claude 各个模型层级的差异，最准确的说法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "They trade off depth of reasoning against speed and cost; the right one depends on what the task needs.",
+          "correct": true,
+          "explain": "正解。上下ではなく、要件に対する適合。これが選択の考え方。",
+          "textZh": "它们在推理深度与速度、成本之间做权衡；选哪个取决于任务需要什么。"
+        },
+        {
+          "text": "The newer one is always better and should always be used.",
+          "correct": false,
+          "explain": "不適。常に上位を使うのは、要件を考えていないのと同じ。",
+          "textZh": "更新的那个总是更好，应该永远用它。"
+        },
+        {
+          "text": "They differ only in how fast they type the answer.",
+          "correct": false,
+          "explain": "不適。応答速度だけの違いではない。",
+          "textZh": "它们只是输出答案的速度不同。"
+        },
+        {
+          "text": "They are trained on different company data.",
+          "correct": false,
+          "explain": "不適。仕組みの説明として誤り。",
+          "textZh": "它们是用不同公司的数据训练的。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**模型层级是权衡，不是好坏排序**。把它理解成「越贵越好、所以永远用最贵的」，会在大量简单任务上付出不必要的成本和等待时间。正确的问法始终是「**这项任务需要什么**」。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-006",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate pastes a 300-page document and asks a question about page 2. The answer is wrong. What is the first thing to try?",
+      "stemZh": "某位担当粘贴了一份300页的文档，然后问了一个关于第2页的问题，答案是错的。首先该尝试什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Supply just the relevant section instead of the whole document.",
+          "correct": true,
+          "explain": "正解。必要な範囲に絞る。大量の無関係な文脈は精度を下げうる。",
+          "textZh": "只提供相关的那一节，而不是整份文档。"
+        },
+        {
+          "text": "Paste the document twice to reinforce it.",
+          "correct": false,
+          "explain": "不適。同じ情報を重ねても改善しない。",
+          "textZh": "把文档贴两遍以加强它。"
+        },
+        {
+          "text": "Ask the same question more loudly with emphasis.",
+          "correct": false,
+          "explain": "不適。強調は情報を増やさない。",
+          "textZh": "把同样的问题加上强调再问一遍。"
+        },
+        {
+          "text": "Assume the document is unreadable and give up.",
+          "correct": false,
+          "explain": "不適。範囲を絞れば答えられる可能性が高い。",
+          "textZh": "认定这份文档无法读取，放弃。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**给太多反而更差**。300页里有299页与问题无关，它们会稀释真正相关的内容。和 D1 里「多余的背景有代价」是同一条原理：**相关性比数量重要**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-007",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO situations call for a Project rather than a normal chat? (Select 2)",
+      "stemZh": "下面哪两种情况适合用 Project 而不是普通对话？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The same reference documents are needed across many conversations.",
+          "correct": true,
+          "explain": "正解。知識ベースに置ける。毎回貼らずに済む。",
+          "textZh": "同样的参考文档需要在很多次对话中使用。"
+        },
+        {
+          "text": "A team needs the same instructions applied to everyone's work.",
+          "correct": true,
+          "explain": "正解。プロジェクトの指示で統一できる。",
+          "textZh": "团队需要让同一套指示适用于每个人的工作。"
+        },
+        {
+          "text": "A one-off question about a public fact.",
+          "correct": false,
+          "explain": "不適。通常のチャットで足りる。",
+          "textZh": "一个关于公开事实的一次性问题。"
+        },
+        {
+          "text": "A quick translation of one sentence.",
+          "correct": false,
+          "explain": "不適。設定する手間のほうが大きい。",
+          "textZh": "一句话的快速翻译。"
+        },
+        {
+          "text": "Testing whether a phrase sounds natural.",
+          "correct": false,
+          "explain": "不適。言い回しの確認は使い捨ての作業で、知識も指示も共有する必要が無い。",
+          "textZh": "测试某个说法听起来是否自然。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**Project 的两个典型用途**：**共享的知识**和**共享的指示**。判断标准是「这些东西要被反复用到吗」。一次性的问题用普通对话就够了，为它建 Project 的配置成本反而更高。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-008",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A task involves reasoning through a complex contract with many interacting clauses. What is the appropriate model choice?",
+      "stemZh": "一项任务需要推敲一份条款之间互相牵连的复杂合同。恰当的模型选择是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A more capable model, since the value here is in the depth of reasoning, not in speed.",
+          "correct": true,
+          "explain": "正解。要件が推論の深さにあるなら、そこに費用をかける。",
+          "textZh": "选能力更强的模型——这里的价值在于推理的深度，而不是速度。"
+        },
+        {
+          "text": "The fastest model, to get through the document quickly.",
+          "correct": false,
+          "explain": "不適。速さを優先する場面ではない。",
+          "textZh": "选最快的模型，好快点看完文档。"
+        },
+        {
+          "text": "Whichever model is cheapest, since it is one document.",
+          "correct": false,
+          "explain": "不適。件数が少ないからこそ、上位モデルの費用は問題にならない。",
+          "textZh": "选最便宜的，反正只有一份文档。"
+        },
+        {
+          "text": "Any model, since the difference only shows on long tasks.",
+          "correct": false,
+          "explain": "不適。複雑な推論では差が出る。",
+          "textZh": "随便哪个都行，差异只在长任务上才显现。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**把成本花在刀刃上**。条款互相牵连的合同正是推理深度能带来实际差异的场景，而且**只有一份**——用最强模型的额外成本微不足道。这和「每天400封简短回复」的判断正好相反。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-009",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "What is the most reliable way to carry a decision from one conversation into the next?",
+      "stemZh": "把一个决定从一段对话带到下一段，最可靠的方式是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Write the decision down explicitly and include it in the new conversation.",
+          "correct": true,
+          "explain": "正解。明示的に持ち越す。記憶や暗黙の継続に頼らない。",
+          "textZh": "把这个决定明确写下来，放进新的对话里。"
+        },
+        {
+          "text": "Assume it will be remembered automatically.",
+          "correct": false,
+          "explain": "不適。前提としてはならない。",
+          "textZh": "假定它会被自动记住。"
+        },
+        {
+          "text": "Reference the previous conversation by name.",
+          "correct": false,
+          "explain": "不適。名前で呼んでも内容は伝わらない。",
+          "textZh": "用名字引用前一段对话。"
+        },
+        {
+          "text": "Start the new conversation with the same opening phrase.",
+          "correct": false,
+          "explain": "不適。言い回しは内容を運ばない。",
+          "textZh": "用同样的开场白开始新对话。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**要持续的东西必须显式写下来**。这条原则在前面反复出现过（长对话重开、跨轮迭代、团队交接），本质相同：**不要依赖隐式的延续**，把确定下来的内容变成可以携带的文字。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-010",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO tasks are well suited to an artifact rather than a chat reply? (Select 2)",
+      "stemZh": "下面哪两项任务适合做成成果物而不是对话回复？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A structured document the associate will hand to a client.",
+          "correct": true,
+          "explain": "正解。外に出る成果物。切り出して仕上げる。",
+          "textZh": "一份担当要交给客户的结构化文档。"
+        },
+        {
+          "text": "A reference table the team will consult repeatedly.",
+          "correct": true,
+          "explain": "正解。繰り返し参照される。単独で開ける形が要る。",
+          "textZh": "一张团队会反复查阅的参考表。"
+        },
+        {
+          "text": "A yes-or-no answer to a factual question.",
+          "correct": false,
+          "explain": "不適。会話で返すほうが速い。",
+          "textZh": "对一个事实性问题的是或否的回答。"
+        },
+        {
+          "text": "A request for clarification.",
+          "correct": false,
+          "explain": "不適。やり取りそのもの。",
+          "textZh": "一个请求澄清的问题。"
+        },
+        {
+          "text": "A note that a step was completed.",
+          "correct": false,
+          "explain": "不適。完了の報告は会話の一行で足り、あとから単独で開く必要が無い。",
+          "textZh": "一句某步骤已完成的说明。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**成果物的判断标准**：**会不会被单独打开使用**。交给客户的文档和反复查阅的表格都符合；对话中的问答、确认、澄清则不符合。把过程也做成成果物，只会堆积没人再看的文件。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-011",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A workflow runs 5,000 times a day doing simple classification. Cost matters. What is the reasonable approach?",
+      "stemZh": "一道流程每天运行5000次做简单分类，成本很重要。合理的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use a fast, low-cost model and measure whether its accuracy is sufficient for this task.",
+          "correct": true,
+          "explain": "正解。安いほうから試して、精度が足りるか測る。足りれば上位は不要。",
+          "textZh": "用快速、低成本的模型，并衡量它的准确率对这项任务是否足够。"
+        },
+        {
+          "text": "Use the most capable model to guarantee accuracy.",
+          "correct": false,
+          "explain": "不適。5000件×毎日では費用が跳ね上がる。単純な分類には過剰。",
+          "textZh": "用最强的模型以保证准确率。"
+        },
+        {
+          "text": "Alternate between models to balance cost.",
+          "correct": false,
+          "explain": "不適。品質が揺れ、検証もできなくなる。",
+          "textZh": "在不同模型之间轮换以平衡成本。"
+        },
+        {
+          "text": "Reduce the number of items processed.",
+          "correct": false,
+          "explain": "不適。業務量を減らしている。課題の解決になっていない。",
+          "textZh": "减少处理的条目数量。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**从便宜的开始，用数据决定**。「简单分类 + 大量」是低成本模型的典型场景。正确的做法不是凭感觉选，而是**先试便宜的、测准确率**——够用就不必往上走。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-012",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "Why can a very long conversation produce worse results even on a simple question?",
+      "stemZh": "为什么一段很长的对话，即使面对简单问题也可能产出更差的结果？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Earlier material competes with the current question, and some of it may no longer be relevant or even correct.",
+          "correct": true,
+          "explain": "正解。過去のやり取りが現在の問いと競合する。捨てた案も残っている。",
+          "textZh": "早先的内容会和当前的问题竞争，其中一些可能已经不相关，甚至已经不正确了。"
+        },
+        {
+          "text": "The model gets tired.",
+          "correct": false,
+          "explain": "不適。そのような仕組みは無い。",
+          "textZh": "模型累了。"
+        },
+        {
+          "text": "Long conversations use a weaker model.",
+          "correct": false,
+          "explain": "不適。会話の長さでモデルは変わらない。",
+          "textZh": "长对话会使用较弱的模型。"
+        },
+        {
+          "text": "The answer is always correct but displayed poorly.",
+          "correct": false,
+          "explain": "不適。表示の問題ではない。",
+          "textZh": "答案总是对的，只是显示得不好。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**长对话里的旧内容是负担**。其中包含被推翻的假设、改过的数字、放弃的方向——这些仍然在上下文里，会影响当前的回答。这就是为什么长对话要**带着整理好的摘要重开**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-013",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO statements about choosing between model tiers are accurate? (Select 2)",
+      "stemZh": "关于在模型层级之间做选择，下面哪两句是准确的？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The same task may justify different tiers depending on volume.",
+          "correct": true,
+          "explain": "正解。1件なら上位、5000件なら下位、という判断があり得る。",
+          "textZh": "同样的任务，根据数量不同，可能需要不同的层级。"
+        },
+        {
+          "text": "A cheaper model that is accurate enough is the better choice for that task.",
+          "correct": true,
+          "explain": "正解。十分なら、それ以上は無駄。",
+          "textZh": "对某项任务而言，一个足够准确的便宜模型就是更好的选择。"
+        },
+        {
+          "text": "The most capable model is the correct default for everything.",
+          "correct": false,
+          "explain": "不適。要件を見ずに選んでいる。",
+          "textZh": "最强的模型是所有场景的正确默认选项。"
+        },
+        {
+          "text": "Model choice does not affect cost meaningfully.",
+          "correct": false,
+          "explain": "不適。大量処理では費用差が大きい。",
+          "textZh": "模型选择对成本没有实质影响。"
+        },
+        {
+          "text": "Cheaper models cannot be used for business work.",
+          "correct": false,
+          "explain": "不適。用途次第で十分に使える。",
+          "textZh": "便宜的模型不能用于业务工作。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**模型选择是任务级的，不是组织级的**。同一个团队在不同场景应该用不同的层级，而**数量**是最重要的变量之一：一份合同和五千条工单，答案完全不同。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-014",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A team keeps three separate Projects for the same client because each person set one up. What is the problem?",
+      "stemZh": "一个团队为同一个客户维护着三个独立的 Project，因为每个人都建了一个。问题在哪？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The knowledge and instructions drift apart, so the same question gets different answers depending on who asks.",
+          "correct": true,
+          "explain": "正解。知識と指示が分かれ、答えがばらつく。統一の目的が失われる。",
+          "textZh": "知识和指示会逐渐分叉，同一个问题会因为是谁问而得到不同的答案。"
+        },
+        {
+          "text": "Three Projects cost three times as much.",
+          "correct": false,
+          "explain": "不適。費用が主要な問題ではない。",
+          "textZh": "三个 Project 要花三倍的钱。"
+        },
+        {
+          "text": "Projects are limited in number.",
+          "correct": false,
+          "explain": "不適。数の制限が論点ではない。",
+          "textZh": "Project 的数量是有限制的。"
+        },
+        {
+          "text": "It makes the client list harder to read.",
+          "correct": false,
+          "explain": "不適。表示上の不便で、実害ではない。",
+          "textZh": "这让客户列表更难阅读。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**分叉的知识库**。这和前面「每个人各持一份副本」是同一个问题：三份知识各自更新，很快就不一致了。而使用者感受到的是「**同一个问题，换个人问就得到不同的答案**」，信任就是这样丢掉的。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-015",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "A task is currently done with a capable model and works well. How should the team decide whether to move to a cheaper one?",
+      "stemZh": "一项任务目前用一个能力强的模型做得很好。团队该如何决定是否换成更便宜的？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run both on the same real inputs and compare against the same standard before switching.",
+          "correct": true,
+          "explain": "正解。同じ入力・同じ基準で比較してから決める。",
+          "textZh": "在切换之前，用同一组真实输入运行两者，按同一个标准比较。"
+        },
+        {
+          "text": "Switch and see if anyone complains.",
+          "correct": false,
+          "explain": "不適。品質低下が本番で起きる。気づかれないこともある。",
+          "textZh": "换过去，看有没有人抱怨。"
+        },
+        {
+          "text": "Never switch once something works.",
+          "correct": false,
+          "explain": "不適。費用の見直しを放棄している。",
+          "textZh": "一旦能用就永远不要换。"
+        },
+        {
+          "text": "Switch only if the cheaper model is newer.",
+          "correct": false,
+          "explain": "不適。新しさは十分性の根拠にならない。",
+          "textZh": "只有当便宜的那个更新时才换。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**换模型要先做对照测试**。这和 D4 里比较三种起草方法是同一套方法：**同样的输入、同样的判定标准**。最危险的是第二个干扰项——质量下降往往不会有人抱怨，只是悄悄地变差。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-016",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO are good moments to start a fresh conversation? (Select 2)",
+      "stemZh": "下面哪两个是开启新对话的好时机？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "When the topic changes substantially from what came before.",
+          "correct": true,
+          "explain": "正解。前の話題が今の問いの邪魔になる。",
+          "textZh": "当话题与之前的内容有实质性的改变时。"
+        },
+        {
+          "text": "When earlier assumptions have been replaced and would confuse the current work.",
+          "correct": true,
+          "explain": "正解。捨てた前提が残っていると引きずられる。",
+          "textZh": "当早先的假设已被取代、留着会干扰当前工作时。"
+        },
+        {
+          "text": "Every morning as a routine.",
+          "correct": false,
+          "explain": "不適。時間で区切る理由が無い。",
+          "textZh": "每天早上作为例行公事。"
+        },
+        {
+          "text": "Whenever the output is slightly too long.",
+          "correct": false,
+          "explain": "不適。長さは会話を分ける理由ではない。",
+          "textZh": "每当产出稍微有点长时。"
+        },
+        {
+          "text": "After every single question.",
+          "correct": false,
+          "explain": "不適。積み上げが必要な作業まで分断する。",
+          "textZh": "每问完一个问题就换。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**什么时候重开**。判断依据是**旧内容会不会妨碍新工作**：话题变了，或者前提被推翻了。按时间或按次数机械地切换，反而会打断本来需要连续性的工作。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-017",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate uses one Project for everything they do. What problem is likely?",
+      "stemZh": "某位担当把自己所有的工作都放在一个 Project 里。可能出现什么问题？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Instructions and knowledge meant for one kind of work start affecting unrelated work.",
+          "correct": true,
+          "explain": "正解。用途の違う指示と知識が混ざる。意図しない影響が出る。",
+          "textZh": "为某一类工作准备的指示和知识开始影响到不相关的工作。"
+        },
+        {
+          "text": "The Project will run out of space.",
+          "correct": false,
+          "explain": "不適。容量が主要な問題ではない。",
+          "textZh": "这个 Project 会用完空间。"
+        },
+        {
+          "text": "Output will become slower over time.",
+          "correct": false,
+          "explain": "不適。速度の問題ではない。",
+          "textZh": "产出会随时间变慢。"
+        },
+        {
+          "text": "The Project cannot be renamed later.",
+          "correct": false,
+          "explain": "不適。運用上の論点ではない。",
+          "textZh": "这个 Project 以后不能改名。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**Project 的边界应该对应工作的边界**。把给客户写邮件的文风规则和内部技术文档的规则放在同一个 Project 里，两者会互相干扰。分开的判断依据是「**这些指示应该同时生效吗**」。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-018",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "A colleague says \"we should always use the best model, quality is everything.\" What is the most useful response?",
+      "stemZh": "一位同事说「我们应该永远用最好的模型，质量就是一切」。最有用的回应是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Agree that quality matters, and show where a cheaper model already meets the standard so the budget goes where it counts.",
+          "correct": true,
+          "explain": "正解。質を否定せず、十分な場所を示す。費用を効く場所に回せる。",
+          "textZh": "同意质量很重要，并指出哪些地方便宜的模型已经达标，好把预算用在真正要紧的地方。"
+        },
+        {
+          "text": "Agree and use the most capable model everywhere.",
+          "correct": false,
+          "explain": "不適。要件を見ていない。単純作業にも上位を当てている。",
+          "textZh": "同意，所有地方都用最强的模型。"
+        },
+        {
+          "text": "Disagree and use the cheapest model everywhere.",
+          "correct": false,
+          "explain": "不適。逆方向の一律適用で、同じ誤り。",
+          "textZh": "不同意，所有地方都用最便宜的。"
+        },
+        {
+          "text": "Avoid the discussion and let each person choose.",
+          "correct": false,
+          "explain": "不適。基準が無いまま分散し、品質も費用も管理できない。",
+          "textZh": "回避这个讨论，让每个人自己选。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**如何回应「永远用最好的」**。不是反驳质量的重要性，而是**把它精确化**：哪些环节质量差异真的看得出来，哪些环节已经足够好了。省下来的预算正好用在前者上——这是对「质量就是一切」最忠实的执行。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-019",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate wants Claude to remember a preference across every future conversation. What is the appropriate mechanism?",
+      "stemZh": "某位担当希望 Claude 在以后的每一次对话里都记住某个偏好。恰当的机制是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Put it in the instructions of the Project where that work happens, so it applies without being restated.",
+          "correct": true,
+          "explain": "正解。恒久的な前提は設定側に置く。会話ごとに言い直さなくて済む。",
+          "textZh": "把它写进相关工作所在 Project 的指示里，这样不必重述就会生效。"
+        },
+        {
+          "text": "Mention it once and expect it to carry over.",
+          "correct": false,
+          "explain": "不適。会話をまたいで自動的に引き継がれる前提は置けない。",
+          "textZh": "提一次，然后指望它会延续下去。"
+        },
+        {
+          "text": "Write it at the end of every message.",
+          "correct": false,
+          "explain": "不適。動くが、毎回の手間と書き漏れが残る。",
+          "textZh": "在每条消息末尾都写一遍。"
+        },
+        {
+          "text": "Keep one conversation open forever.",
+          "correct": false,
+          "explain": "不適。会話が長くなるほど扱いにくくなる。",
+          "textZh": "永远开着同一段对话。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**持久的偏好放在设置里**。这是 Project 指示最直接的用途。第三个干扰项确实能工作，但把负担留给了人——而且总有一天会忘记写。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-020",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "Which factor should NOT influence model selection?",
+      "stemZh": "哪个因素**不应该**影响模型选择？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Which model the team used last time out of habit.",
+          "correct": true,
+          "explain": "正解。習慣は要件ではない。毎回タスクに照らして選ぶ。",
+          "textZh": "团队上次出于习惯用了哪个模型。"
+        },
+        {
+          "text": "How complex the reasoning required is.",
+          "correct": false,
+          "explain": "不適。これは中心的な判断材料。",
+          "textZh": "所需推理的复杂程度。"
+        },
+        {
+          "text": "How many times the task will run.",
+          "correct": false,
+          "explain": "不適。件数は費用に直結する。",
+          "textZh": "这项任务会运行多少次。"
+        },
+        {
+          "text": "How quickly the result is needed.",
+          "correct": false,
+          "explain": "不適。速度要件は正当な判断材料。",
+          "textZh": "结果需要多快拿到。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**习惯不是理由**。推理复杂度、运行次数、时间要求都是正当的判断依据；「上次用的就是它」不是。这道题的价值在于提醒：模型选择应该是**每项任务重新判断一次**的事。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-021",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO are appropriate reasons to move work out of a chat and into a document artifact? (Select 2)",
+      "stemZh": "下面哪两个是「把工作从对话移到文档成果物里」的正当理由？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Several people need to see the current state of the work.",
+          "correct": true,
+          "explain": "正解。唯一の最新版が要る。会話では共有できない。",
+          "textZh": "几个人需要看到这项工作的当前状态。"
+        },
+        {
+          "text": "The content will be revised many times before it is final.",
+          "correct": true,
+          "explain": "正解。版の管理が要る。会話に流すと最新が埋もれる。",
+          "textZh": "内容在定稿前会被修改很多次。"
+        },
+        {
+          "text": "The answer took a long time to produce.",
+          "correct": false,
+          "explain": "不適。生成にかかった時間は形態を決めない。",
+          "textZh": "这个答案花了很长时间才产出。"
+        },
+        {
+          "text": "The conversation has many messages.",
+          "correct": false,
+          "explain": "不適。会話の長さは成果物にする理由にならない。",
+          "textZh": "这段对话有很多条消息。"
+        },
+        {
+          "text": "The associate wants to keep a copy for themselves.",
+          "correct": false,
+          "explain": "不適。個人の控えなら会話のままでも足りる。",
+          "textZh": "担当想给自己留个副本。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**切出成果物的两个理由**：**多人共享**和**多轮修改**。两者的共同点是需要一个**明确的当前版本**。而生成耗时、对话长度、个人留档，都不构成这个需求。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-022",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A task needs both speed and careful judgment: triaging incoming issues, where a few are genuinely serious. How should models be used?",
+      "stemZh": "一项任务既要快又要判断准确：对进来的问题做分流，其中少数是真正严重的。应该如何使用模型？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use a fast model for the first pass and route the uncertain or flagged ones to a more capable model or a person.",
+          "correct": true,
+          "explain": "正解。段階を分ける。大半は安く速く、難しいものだけ上位へ。",
+          "textZh": "第一轮用快速模型，把不确定或被标记的那些转给更强的模型或人。"
+        },
+        {
+          "text": "Use the most capable model for everything to be safe.",
+          "correct": false,
+          "explain": "不適。大半は単純。費用と時間を浪費する。",
+          "textZh": "保险起见全部用最强的模型。"
+        },
+        {
+          "text": "Use the fastest model for everything to keep up.",
+          "correct": false,
+          "explain": "不適。深刻な案件を取りこぼす。",
+          "textZh": "为了跟上进度，全部用最快的模型。"
+        },
+        {
+          "text": "Process them in batches once a week.",
+          "correct": false,
+          "explain": "不適。深刻な案件の対応が遅れる。",
+          "textZh": "每周批量处理一次。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**分级处理**。这是同时满足速度和质量的标准做法：**便宜的模型做初筛，难的往上送**。关键在于初筛的目标不是「判断对错」，而是「**判断这件事需不需要更强的判断**」——这个要求低得多，也更可靠。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-023",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "What should an associate do with the conclusions reached in a long conversation before starting a new one?",
+      "stemZh": "在开启新对话之前，应该如何处理长对话中得到的结论？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Write them out as a short, self-contained summary that someone with no context could act on.",
+          "correct": true,
+          "explain": "正解。文脈なしで読める形にまとめる。持ち越しにも引き継ぎにも使える。",
+          "textZh": "把它们写成一份简短、自成一体的摘要，一个没有上下文的人也能据此行动。"
+        },
+        {
+          "text": "Leave them in the old conversation and link to it.",
+          "correct": false,
+          "explain": "不適。リンクでは内容は運ばれない。",
+          "textZh": "把它们留在旧对话里，做个链接。"
+        },
+        {
+          "text": "Copy the entire conversation into the new one.",
+          "correct": false,
+          "explain": "不適。捨てた案も一緒に運んでしまう。",
+          "textZh": "把整段对话复制到新对话里。"
+        },
+        {
+          "text": "Rely on remembering the key points.",
+          "correct": false,
+          "explain": "不適。記憶は共有も再現もできない。",
+          "textZh": "靠记住关键点。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**摘要要自成一体**。检验标准很明确：**一个完全没参与过的人能不能据此继续工作**。第三个干扰项特别值得注意——整段复制会把被推翻的想法一起带过去，问题原封不动。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-024",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO questions help decide whether a cheaper model is sufficient? (Select 2)",
+      "stemZh": "下面哪两个问题有助于判断更便宜的模型是否够用？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Does the task require combining several pieces of information to reach a conclusion?",
+          "correct": true,
+          "explain": "正解。推論の深さを要するかどうか。上位が効く典型。",
+          "textZh": "这项任务是否需要把好几条信息组合起来才能得出结论？"
+        },
+        {
+          "text": "Would a small error in this output be caught before it matters?",
+          "correct": true,
+          "explain": "正解。検出できるなら、安いモデルの誤りは許容しやすい。",
+          "textZh": "这份产出里的小错误会在造成影响之前被发现吗？"
+        },
+        {
+          "text": "Is the output in the associate's native language?",
+          "correct": false,
+          "explain": "不適。言語は層の選択基準ではない。",
+          "textZh": "产出是不是担当的母语？"
+        },
+        {
+          "text": "Was the cheaper model released more recently?",
+          "correct": false,
+          "explain": "不適。発表時期は十分性の根拠にならない。",
+          "textZh": "更便宜的那个是不是发布得更晚？"
+        },
+        {
+          "text": "Does the team like the cheaper model's name?",
+          "correct": false,
+          "explain": "不適。判断基準にならない。",
+          "textZh": "团队喜不喜欢便宜那个模型的名字？"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**判断「够用」的两个角度**：**任务本身需不需要深推理**，以及**错了能不能兜住**。后者常被忽略——同样的准确率，在有复核的流程里可以接受，在直接发给客户的流程里就不行。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-025",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A Project's instructions have grown to two pages and now contradict each other in places. What should be done?",
+      "stemZh": "一个 Project 的指示已经长到两页，而且有些地方互相矛盾了。该怎么办？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Rewrite them from what the work actually needs now, removing rules added for situations that no longer occur.",
+          "correct": true,
+          "explain": "正解。今の業務に必要な条件だけに整理し直す。足し続けた結果を放置しない。",
+          "textZh": "按照现在工作真正需要的东西重写，删掉那些为已不再发生的情况添加的规则。"
+        },
+        {
+          "text": "Add a rule saying which of the conflicting rules wins.",
+          "correct": false,
+          "explain": "不適。矛盾の上にさらに層を重ねている。",
+          "textZh": "加一条规则，说明冲突时哪条优先。"
+        },
+        {
+          "text": "Split them across several Projects.",
+          "correct": false,
+          "explain": "不適。矛盾は解消されず、分散するだけ。",
+          "textZh": "把它们拆到几个 Project 里。"
+        },
+        {
+          "text": "Leave them, since removing rules is risky.",
+          "correct": false,
+          "explain": "不適。矛盾を抱えたまま運用するほうが危険。",
+          "textZh": "保持原样，因为删规则有风险。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**设置也需要定期整理**。和 D1 里「提示词只加不减」是同一个毛病，只是发生在 Project 层面。正确的做法是**回到当前的实际需要重写**，而不是在矛盾之上再加一层裁决规则。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-026",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "What is the best way to find out whether a given model is sufficient for a specific task?",
+      "stemZh": "要弄清某个模型对某项具体任务是否够用，最好的办法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Try it on real examples of that task and check the results against the standard.",
+          "correct": true,
+          "explain": "正解。実際の入力で試し、基準で判定する。一般論では決まらない。",
+          "textZh": "用这项任务的真实例子试一下，按标准检查结果。"
+        },
+        {
+          "text": "Read the model's description.",
+          "correct": false,
+          "explain": "不適。説明は一般的な特徴で、この業務での十分性を示さない。",
+          "textZh": "读模型的说明。"
+        },
+        {
+          "text": "Ask the model whether it can do the task.",
+          "correct": false,
+          "explain": "不適。自己申告は根拠にならない。",
+          "textZh": "问模型自己能不能做这项任务。"
+        },
+        {
+          "text": "Ask colleagues in other companies.",
+          "correct": false,
+          "explain": "不適。他社の業務と基準は違う。",
+          "textZh": "问问其他公司的同行。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**用实测回答「够不够用」**。模型说明给的是一般性的能力描述，无法回答「**对我们这份合同、按我们的标准**够不够」。这和 D4 里比较方法、D3 里换模型的判断是同一套方法论。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-027",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO practices keep long-running work manageable? (Select 2)",
+      "stemZh": "下面哪两种做法能让长期进行的工作保持可控？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Periodically writing out the current state as a standalone summary.",
+          "correct": true,
+          "explain": "正解。いつでも持ち越せる状態にしておく。",
+          "textZh": "定期把当前状态写成一份独立的摘要。"
+        },
+        {
+          "text": "Keeping the stable requirements in a Project rather than in the conversation.",
+          "correct": true,
+          "explain": "正解。恒久的な前提は設定側に置く。会話が長くなっても失われない。",
+          "textZh": "把稳定的需求放在 Project 里，而不是放在对话里。"
+        },
+        {
+          "text": "Never starting a new conversation.",
+          "correct": false,
+          "explain": "不適。長くなるほど扱いにくくなる。",
+          "textZh": "永远不开新对话。"
+        },
+        {
+          "text": "Asking the model to summarize everything at the very end only.",
+          "correct": false,
+          "explain": "不適。途中で失われた前提は取り戻せない。",
+          "textZh": "只在最后才让模型总结所有内容。"
+        },
+        {
+          "text": "Deleting earlier messages to save space.",
+          "correct": false,
+          "explain": "不適。判断の経緯が失われる。",
+          "textZh": "删掉早先的消息以节省空间。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**长期工作的两条支柱**：**定期固化状态**（随时可以重开或交接）和**把稳定的前提放在设置里**（不随对话丢失）。两者配合，工作就不再依赖某一段对话的存续。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-028",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "Leadership asks why the AI budget went up threefold this quarter with no change in workload. What is the most likely explanation to check first?",
+      "stemZh": "管理层问：这个季度工作量没变，AI 预算为什么涨了三倍。最该先核查的解释是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tasks that do not need it are being run on the most capable model.",
+          "correct": true,
+          "explain": "正解。要件に合わないモデル選択が積み重なっている。まずここを見る。",
+          "textZh": "那些并不需要它的任务正在用最强的模型运行。"
+        },
+        {
+          "text": "The models became more expensive.",
+          "correct": false,
+          "explain": "不適。まず自社の使い方を確かめる。",
+          "textZh": "模型变贵了。"
+        },
+        {
+          "text": "The team is working harder.",
+          "correct": false,
+          "explain": "不適。作業量は変わっていないという前提と矛盾する。",
+          "textZh": "团队更努力了。"
+        },
+        {
+          "text": "More people joined the company.",
+          "correct": false,
+          "explain": "不適。業務量が変わらないという前提と合わない。",
+          "textZh": "公司来了更多人。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**成本失控最常见的原因**。工作量没变而费用翻几倍，通常是因为**默认选了最强的模型**，而其中大部分任务用便宜的就够了。查的方向应该先向内，而不是先怪外部涨价。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-029",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "What distinguishes Project instructions from a prompt typed in a conversation?",
+      "stemZh": "Project 的指示和在对话里输入的提示词，区别是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Project instructions apply to every conversation in that Project without being repeated.",
+          "correct": true,
+          "explain": "正解。設定は恒久、プロンプトは都度。使い分けの基準はここ。",
+          "textZh": "Project 的指示适用于该 Project 内的每一次对话，不需要重复输入。"
+        },
+        {
+          "text": "Project instructions are processed more accurately.",
+          "correct": false,
+          "explain": "不適。置き場所の違いであって、精度の違いではない。",
+          "textZh": "Project 的指示会被更准确地处理。"
+        },
+        {
+          "text": "Prompts cannot contain formatting requirements.",
+          "correct": false,
+          "explain": "不適。プロンプトにも形式の指定は書ける。",
+          "textZh": "提示词里不能包含格式要求。"
+        },
+        {
+          "text": "Project instructions cannot be changed once set.",
+          "correct": false,
+          "explain": "不適。プロジェクトの指示はいつでも変更できる。設定した後に直せないという制限は無い。",
+          "textZh": "Project 的指示一旦设定就不能更改。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**「每次都要说」和「一次说好」的区别**。判断哪些内容该放到 Project 指示里，标准就是：**它是否适用于这里的每一次对话**。是 → 放设置；不是 → 留在具体的提示词里。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-030",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO situations justify paying for the most capable model? (Select 2)",
+      "stemZh": "下面哪两种情况值得为最强的模型付费？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A decision with large consequences rests on the quality of the reasoning.",
+          "correct": true,
+          "explain": "正解。影響が大きく、推論の質が結果を左右する。",
+          "textZh": "一个后果重大的决定，取决于推理的质量。"
+        },
+        {
+          "text": "The task requires holding many interdependent details together.",
+          "correct": true,
+          "explain": "正解。相互に絡む条件の処理は上位の差が出る領域。",
+          "textZh": "这项任务需要同时把握许多互相依赖的细节。"
+        },
+        {
+          "text": "The associate wants the answer to sound more authoritative.",
+          "correct": false,
+          "explain": "不適。語調は層の選択理由にならない。",
+          "textZh": "担当希望答案听起来更权威。"
+        },
+        {
+          "text": "The task is repeated thousands of times a day.",
+          "correct": false,
+          "explain": "不適。大量処理はむしろ下位モデルの検討対象。",
+          "textZh": "这项任务每天重复几千次。"
+        },
+        {
+          "text": "The output will be read by senior management.",
+          "correct": false,
+          "explain": "不適。読者の役職は必要な推論の深さを決めない。",
+          "textZh": "产出会被高层管理者阅读。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**什么时候值得用最贵的**。两个条件都关于**推理本身**：后果大、或者要素互相牵连。而读者的职级、想要的语气都不是理由——高层看的一页纸，未必需要比工程文档更深的推理。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-031",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate returns to a conversation after two weeks and continues from where they left off. The results are inconsistent with before. What is the likely reason?",
+      "stemZh": "某位担当隔了两周回到一段对话继续工作，结果和之前不一致。可能的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "They no longer remember which of the earlier assumptions were later revised, and neither does the conversation make that clear.",
+          "correct": true,
+          "explain": "正解。どれが生きている前提かが分からなくなっている。要約して整理し直す。",
+          "textZh": "他已经不记得早先的哪些假设后来被修正过，而对话本身也没有把这一点说清楚。"
+        },
+        {
+          "text": "Conversations expire after two weeks.",
+          "correct": false,
+          "explain": "不適。そのような仕組みを前提にはできない。",
+          "textZh": "对话在两周后会过期。"
+        },
+        {
+          "text": "The model was retrained in the meantime.",
+          "correct": false,
+          "explain": "不適。まず自分の前提の整理を疑う。",
+          "textZh": "期间模型被重新训练了。"
+        },
+        {
+          "text": "Two weeks is too long for any task.",
+          "correct": false,
+          "explain": "不適。期間そのものが問題ではない。",
+          "textZh": "两周对任何任务来说都太长了。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**长间隔之后回来的风险**。对话里既有成立的结论，也有被推翻的假设，而且两者混在一起。隔了两周，连自己都分不清了。正确的做法是**先整理出一份「当前有效的结论」**，再继续。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-032",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "Which is the best summary of how to choose between Claude models for business work?",
+      "stemZh": "关于如何为业务工作在 Claude 各模型之间做选择，下面哪句总结最好？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Start from what the task requires, test whether the cheaper option meets it, and move up only where it does not.",
+          "correct": true,
+          "explain": "正解。要件から出発し、実測で判断し、必要な場所だけ上げる。",
+          "textZh": "从任务的要求出发，测试更便宜的选项是否满足，只在不满足的地方往上走。"
+        },
+        {
+          "text": "Always start with the most capable and never change.",
+          "correct": false,
+          "explain": "不適。要件を見ずに費用を払い続ける。",
+          "textZh": "永远从最强的开始，而且不要改。"
+        },
+        {
+          "text": "Always start with the cheapest and never change.",
+          "correct": false,
+          "explain": "不適。足りない場面で品質を落とし続ける。",
+          "textZh": "永远从最便宜的开始，而且不要改。"
+        },
+        {
+          "text": "Choose based on what other companies use.",
+          "correct": false,
+          "explain": "不適。他社の要件は自社の要件ではない。",
+          "textZh": "按其他公司用什么来选。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**模型选择的完整方法**，三步：**从要求出发 → 实测便宜的够不够 → 只在不够的地方升级**。两个「永远」的选项都错在同一点：用一条固定规则代替了针对每项任务的判断。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-033",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate needs to answer questions about a 40-page policy roughly ten times a week. What setup is best?",
+      "stemZh": "某位担当每周大约有十次需要回答关于一份40页方针的问题。什么设置最合适？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Put the policy in a Project's knowledge so every question starts from the same current text.",
+          "correct": true,
+          "explain": "正解。同じ資料を繰り返し参照する。版の一致も保てる。",
+          "textZh": "把这份方针放进某个 Project 的知识库，这样每个问题都从同一份当前文本出发。"
+        },
+        {
+          "text": "Paste the relevant pages each time the question comes up.",
+          "correct": false,
+          "explain": "不適。毎回の手間と、貼る範囲の判断ミスが起きる。",
+          "textZh": "每次有问题时都粘贴相关页面。"
+        },
+        {
+          "text": "Memorize the policy and answer without the document.",
+          "correct": false,
+          "explain": "不適。条文の細部は記憶では扱えない。",
+          "textZh": "背下这份方针，不看文档直接回答。"
+        },
+        {
+          "text": "Keep one conversation open and ask all questions there.",
+          "correct": false,
+          "explain": "不適。会話が長くなり、話題も混ざる。",
+          "textZh": "开着一段对话，所有问题都在里面问。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**同一份资料被反复查阅**，这是 Project 知识库的标准场景。第二个干扰项还有一个隐患：**每次贴哪几页是人在判断**，贴错范围就答错，而且没人会发现。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-034",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "Why is \"just paste everything\" a poor default when providing context?",
+      "stemZh": "在提供上下文时，「全部贴进去」为什么不是一个好的默认做法？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Irrelevant material competes with what matters and can make the answer worse, not just slower.",
+          "correct": true,
+          "explain": "正解。無関係な情報は精度を下げうる。量は質ではない。",
+          "textZh": "无关的内容会和要紧的内容竞争，可能让答案更差，而不只是更慢。"
+        },
+        {
+          "text": "It always exceeds the limit.",
+          "correct": false,
+          "explain": "不適。上限に達するとは限らない。問題はそこではない。",
+          "textZh": "它总是会超出上限。"
+        },
+        {
+          "text": "It makes the conversation harder to scroll.",
+          "correct": false,
+          "explain": "不適。表示上の不便で、結果の質とは別。",
+          "textZh": "这让对话更难往回翻。"
+        },
+        {
+          "text": "Pasted text is processed differently from typed text.",
+          "correct": false,
+          "explain": "不適。そのような違いは無い。",
+          "textZh": "粘贴的文字和打字输入的文字处理方式不同。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**上下文的相关性**。这一条在 D1（多余的背景）和 D3（300页文档）里都出现过，值得记牢：**多给不等于给得好**。判断标准是「这段内容会不会改变答案」。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-035",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "A team wants to reduce AI cost without hurting quality. Which TWO steps come first? (Select 2)",
+      "stemZh": "一个团队想在不损害质量的前提下降低 AI 成本。哪两步应该先做？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Find out which tasks account for most of the spend.",
+          "correct": true,
+          "explain": "正解。費用の内訳を知らなければ、削る場所が決まらない。",
+          "textZh": "弄清哪些任务占了大部分支出。"
+        },
+        {
+          "text": "Check whether those tasks actually need the model they are using.",
+          "correct": true,
+          "explain": "正解。要件と選択のずれを見る。効果が大きい。",
+          "textZh": "检查那些任务是否真的需要它们正在用的那个模型。"
+        },
+        {
+          "text": "Reduce how many people have access.",
+          "correct": false,
+          "explain": "不適。業務を減らしているだけで、効率は改善しない。",
+          "textZh": "减少有权限使用的人数。"
+        },
+        {
+          "text": "Ask everyone to write shorter prompts.",
+          "correct": false,
+          "explain": "不適。効果が小さく、必要な条件まで落ちる。",
+          "textZh": "要求所有人写更短的提示词。"
+        },
+        {
+          "text": "Switch everything to the cheapest model at once.",
+          "correct": false,
+          "explain": "不適。品質を落とす場所を見極めていない。",
+          "textZh": "一次性把所有东西都换成最便宜的模型。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**降成本的正确顺序**：**先测量，再针对性调整**。和 D4 里「工作流太慢先查时间花在哪」完全同构。不做测量就全面降级或限制使用，通常是砍掉了产出而不是砍掉了浪费。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-036",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A simple task gives an obviously wrong answer with a fast model. What should the associate check before blaming the model tier?",
+      "stemZh": "一项简单任务用快速模型给出了明显错误的答案。在归咎于模型层级之前，担当应该先检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the prompt was clear and complete, since a vague request fails on any tier.",
+          "correct": true,
+          "explain": "正解。指示の不備はモデルを上げても直らない。まずここを見る。",
+          "textZh": "提示词是否清晰完整——模糊的请求在任何层级上都会失败。"
+        },
+        {
+          "text": "Whether the model was released recently.",
+          "correct": false,
+          "explain": "不適。発表時期は今回の誤りの原因ではない。",
+          "textZh": "这个模型是不是最近发布的。"
+        },
+        {
+          "text": "Whether other teams had the same problem.",
+          "correct": false,
+          "explain": "不適。まず自分の指示を確かめるほうが速い。",
+          "textZh": "其他团队有没有遇到同样的问题。"
+        },
+        {
+          "text": "Whether the task was run in the morning.",
+          "correct": false,
+          "explain": "不適。時間帯は結果に関係が無い。",
+          "textZh": "这项任务是不是在早上运行的。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**先排除自己这一侧的问题**。升级模型是最贵的调试手段，而且**指示不清在任何层级上都会失败**。顺序应该是：先重读提示词，确认条件齐全，再考虑是不是层级不够。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-037",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "An associate needs a quick sanity check on an idea before investing time in it. What is the appropriate use?",
+      "stemZh": "某位担当想在投入时间之前，快速验证一下某个想法是否站得住。恰当的用法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A short conversation, discarded afterwards — nothing needs to persist.",
+          "correct": true,
+          "explain": "正解。使い捨ての確認。設定も成果物も要らない。",
+          "textZh": "一段简短的对话，事后丢弃——没有什么需要保留。"
+        },
+        {
+          "text": "A new Project set up for the idea.",
+          "correct": false,
+          "explain": "不適。設定の手間が、得られるものに見合わない。",
+          "textZh": "为这个想法专门建一个 Project。"
+        },
+        {
+          "text": "An artifact documenting the check.",
+          "correct": false,
+          "explain": "不適。単独で開く必要が無い。",
+          "textZh": "做一个成果物来记录这次验证。"
+        },
+        {
+          "text": "A formal report to the team.",
+          "correct": false,
+          "explain": "不適。まだ判断の対象になる段階ではない。",
+          "textZh": "给团队写一份正式报告。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**不是所有工作都需要基础设施**。一次性的确认用普通对话就够了。为它建 Project、做成果物、写报告，配置成本远超收益——这种过度结构化在实务里很常见，也很浪费。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-038",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO belong in a summary written to carry work into a new conversation? (Select 2)",
+      "stemZh": "在一份用于把工作带入新对话的摘要里，应该包含哪两样？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The conclusions that are still considered valid.",
+          "correct": true,
+          "explain": "正解。生きている結論だけを運ぶ。",
+          "textZh": "目前仍然被认为成立的结论。"
+        },
+        {
+          "text": "The constraints that must continue to apply.",
+          "correct": true,
+          "explain": "正解。前提を持ち越さないと、同じ制約を再発見することになる。",
+          "textZh": "必须继续适用的约束条件。"
+        },
+        {
+          "text": "Every question that was asked along the way.",
+          "correct": false,
+          "explain": "不適。経過は次の作業には要らない。",
+          "textZh": "过程中问过的每一个问题。"
+        },
+        {
+          "text": "The approaches that were tried and rejected, without saying they were rejected.",
+          "correct": false,
+          "explain": "不適。生きている案と混ざり、誤って復活する。",
+          "textZh": "试过并被否决的方案，但不说明它们已被否决。"
+        },
+        {
+          "text": "The timestamps of each message.",
+          "correct": false,
+          "explain": "不適。作業の継続に使わない情報。",
+          "textZh": "每条消息的时间戳。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**摘要里放什么**。两样：**成立的结论**和**仍然有效的约束**。第四个干扰项描述的正是最危险的情况——被否决的方案混在里面而没有标明，下一轮很可能被当作可行方案重新捡起来。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-039",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A pilot shows a cheaper model matches the expensive one on 95% of cases. The other 5% are the hardest ones. What is a reasonable design?",
+      "stemZh": "试点显示便宜的模型在95%的案例上与贵的那个表现相当，另外5%是最难的那些。合理的设计是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use the cheaper model by default and define a rule that routes the hard cases to the capable one.",
+          "correct": true,
+          "explain": "正解。大半を安く処理し、難しいものだけ上げる。振り分けの条件を決めるのが要。",
+          "textZh": "默认用便宜的模型，并定义一条规则把难的案例转给强的那个。"
+        },
+        {
+          "text": "Use the expensive model for everything because of the 5%.",
+          "correct": false,
+          "explain": "不適。95%に余計な費用を払っている。",
+          "textZh": "因为那5%，所有情况都用贵的模型。"
+        },
+        {
+          "text": "Use the cheaper model for everything and accept the 5%.",
+          "correct": false,
+          "explain": "不適。最も難しい案件を落としている。そこが重要なことが多い。",
+          "textZh": "所有情况都用便宜的模型，接受那5%的损失。"
+        },
+        {
+          "text": "Alternate between them at random.",
+          "correct": false,
+          "explain": "不適。難しい案件が安いモデルに当たる。",
+          "textZh": "在两者之间随机轮换。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**分流设计的关键是「怎么识别那5%」**。正解不只是「分开处理」，而是**要定义出可执行的路由规则**。如果无法事先识别哪些是难案例，这个设计就落不了地——那才是真正要解决的问题。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-040",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "Which statement about model capability is most accurate?",
+      "stemZh": "关于模型能力，下面哪句话最准确？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A more capable model reduces certain kinds of errors but does not eliminate the need to check.",
+          "correct": true,
+          "explain": "正解。減らすが無くならない。検査を省く根拠にはならない。",
+          "textZh": "更强的模型能减少某些类型的错误，但不会消除检查的必要。"
+        },
+        {
+          "text": "A more capable model does not make mistakes.",
+          "correct": false,
+          "explain": "不適。どの層のモデルでも誤りは起こりうる。誤らないモデルは存在しない。",
+          "textZh": "更强的模型不会出错。"
+        },
+        {
+          "text": "Model capability has no effect on error rates.",
+          "correct": false,
+          "explain": "不適。層によって誤りの出やすさは変わる。影響が無いという説明は事実と異なる。",
+          "textZh": "模型能力对错误率没有影响。"
+        },
+        {
+          "text": "Errors only occur with the cheapest models.",
+          "correct": false,
+          "explain": "不適。どの層でも起こりうる。",
+          "textZh": "只有最便宜的模型才会出错。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**升级不能替代检查**。这是把 D3 和 D2 连起来的一条：模型选得对能减少错误，但**检查这一环的必要性不因层级而改变**。用了最强的模型就跳过复核，是很常见也很危险的推论。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-041",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO product choices support a team working on the same material over months? (Select 2)",
+      "stemZh": "对于一个团队要在同一批材料上工作好几个月，下面哪两个产品选择合适？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A shared Project holding the reference material and the common instructions.",
+          "correct": true,
+          "explain": "正解。知識と指示を1か所に集約する。",
+          "textZh": "一个共享的 Project，存放参考材料和共同的指示。"
+        },
+        {
+          "text": "Artifacts for the deliverables that get revised over time.",
+          "correct": true,
+          "explain": "正解。版を管理する必要がある成果物を切り出す。",
+          "textZh": "为那些会随时间被反复修改的交付物建立成果物。"
+        },
+        {
+          "text": "A separate chat per person, each with their own copy of the material.",
+          "correct": false,
+          "explain": "不適。版が分かれ、指示もばらつく。",
+          "textZh": "每人一段独立的对话，各自持有材料的副本。"
+        },
+        {
+          "text": "Emailing outputs to each other after each change.",
+          "correct": false,
+          "explain": "不適。最新がどれか分からなくなる。",
+          "textZh": "每次改动后互相发邮件传送产出。"
+        },
+        {
+          "text": "Recreating the context from scratch at each session.",
+          "correct": false,
+          "explain": "不適。毎回の手間と、前提のずれが生じる。",
+          "textZh": "每次开始工作时都从头重建上下文。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**长期协作的两件基础设施**：**Project**（共享的输入：材料和规则）和**成果物**（共享的输出：需要版本管理的交付物）。三个干扰项都会导致同一个后果——**分叉**。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-042",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "Partway through a long task, the associate realizes an early assumption was wrong. What is the best recovery?",
+      "stemZh": "在一项长任务进行到一半时，担当意识到早先的一个假设是错的。最好的补救方式是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "State the correction explicitly, identify which conclusions depended on it, and redo those.",
+          "correct": true,
+          "explain": "正解。訂正を明示し、影響範囲を特定して、そこだけやり直す。",
+          "textZh": "明确说出更正，找出哪些结论依赖于它，然后重做那些。"
+        },
+        {
+          "text": "Correct it and continue without revisiting earlier conclusions.",
+          "correct": false,
+          "explain": "不適。誤った前提の上に立つ結論が残る。",
+          "textZh": "更正它，继续往下做，不回头看早先的结论。"
+        },
+        {
+          "text": "Start the entire task over from the beginning.",
+          "correct": false,
+          "explain": "不適。影響を受けていない部分まで捨てている。",
+          "textZh": "从头把整个任务重做一遍。"
+        },
+        {
+          "text": "Note the correction at the end of the final document.",
+          "correct": false,
+          "explain": "不適。本文の結論は誤ったまま残る。",
+          "textZh": "在最终文档的末尾注明这个更正。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**错误前提的影响范围**。既不能只改那一句（后面建立在它上面的结论还是错的），也不必全部推倒（有些部分和它无关）。正确的动作是**追踪依赖关系**——哪些结论用到了这个假设。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-043",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "What is the most common cost mistake teams make with AI tools?",
+      "stemZh": "团队在使用 AI 工具时，最常见的成本错误是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Defaulting to the most capable model for tasks that do not need it.",
+          "correct": true,
+          "explain": "正解。要件を見ない既定値。最も多く、最も直しやすい。",
+          "textZh": "对并不需要的任务默认使用最强的模型。"
+        },
+        {
+          "text": "Using too many different tools.",
+          "correct": false,
+          "explain": "不適。起こりうるが、費用の主因にはなりにくい。",
+          "textZh": "使用了太多不同的工具。"
+        },
+        {
+          "text": "Writing prompts that are too short.",
+          "correct": false,
+          "explain": "不適。短さが費用を押し上げるわけではない。",
+          "textZh": "写的提示词太短。"
+        },
+        {
+          "text": "Running tasks outside business hours.",
+          "correct": false,
+          "explain": "不適。時間帯で費用は変わらない。",
+          "textZh": "在工作时间之外运行任务。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**最常见也最容易修的浪费**：**默认用最强的**。它不需要任何人做错事，只要没人做出选择，成本就会默默地跑上去。对策也很简单——把模型选择变成流程设计时必须回答的一个问题。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-044",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO should be kept out of a shared Project's knowledge base? (Select 2)",
+      "stemZh": "下面哪两样不应该放进一个共享 Project 的知识库？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Material that only some members of the Project are cleared to see.",
+          "correct": true,
+          "explain": "正解。プロジェクトを使える全員に見える。権限の境界を越える。",
+          "textZh": "只有部分成员有权查看的材料。"
+        },
+        {
+          "text": "A file that changes daily and is always fetched fresh elsewhere.",
+          "correct": true,
+          "explain": "正解。古い版が残り、そちらが参照される。",
+          "textZh": "一份每天都在变、而且总是在别处获取最新版的文件。"
+        },
+        {
+          "text": "The team's style guide.",
+          "correct": false,
+          "explain": "不適。全員に適用される安定した基準で、知識ベース向き。",
+          "textZh": "团队的文风指南。"
+        },
+        {
+          "text": "The current product specification.",
+          "correct": false,
+          "explain": "不適。繰り返し参照される安定した資料。",
+          "textZh": "当前的产品规格书。"
+        },
+        {
+          "text": "A glossary of internal terms.",
+          "correct": false,
+          "explain": "不適。共通して使われる参照情報。",
+          "textZh": "一份内部术语表。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**不该放进知识库的两类**：**权限不一致的材料**（放进去等于对全体开放）和**变化太快的数据**（知识库里的那份会变成过时的副本，而且有人会用它）。两者的共同点是——放进去会制造出一个你不希望存在的状态。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-045",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate must process 200 documents by tomorrow. The capable model would take too long; the fast model makes occasional errors. What is the best plan?",
+      "stemZh": "某位担当必须在明天之前处理200份文档。强模型太慢来不及；快模型偶尔会出错。最好的计划是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use the fast model for all 200, then spend the remaining time checking the ones where an error would matter most.",
+          "correct": true,
+          "explain": "正解。速さで全体を通し、検査を重要度順に配分する。",
+          "textZh": "全部200份用快模型处理，然后把剩下的时间用来检查那些「出错影响最大」的部分。"
+        },
+        {
+          "text": "Use the capable model and deliver only what fits in the time.",
+          "correct": false,
+          "explain": "不適。納品範囲を勝手に削っている。",
+          "textZh": "用强模型，时间内做完多少交多少。"
+        },
+        {
+          "text": "Use the fast model and skip checking to save time.",
+          "correct": false,
+          "explain": "不適。誤りが分かっているのに確かめていない。",
+          "textZh": "用快模型，为了省时间不做检查。"
+        },
+        {
+          "text": "Ask for the deadline to be moved without proposing an alternative.",
+          "correct": false,
+          "explain": "不適。代案を出さずに問題を相手に返している。",
+          "textZh": "要求延期，但不提出任何替代方案。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**时间不够时的资源分配**。要点在于把有限的检查力气**按后果排序**，而不是平均分配或者干脆不查。这和 D2 里「200页读不完怎么办」用的是同一个思路：改变检查的对象和顺序，而不是放弃检查。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-046",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "What is the practical meaning of a context limit for a non-technical associate?",
+      "stemZh": "对于非技术的担当来说，上下文上限在实务上意味着什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "There is a ceiling on how much material can be considered at once, so what you include should be chosen, not dumped.",
+          "correct": true,
+          "explain": "正解。一度に扱える量に限りがある。だから選んで渡す。",
+          "textZh": "一次能被纳入考虑的材料是有上限的，所以放进去的内容应该是挑选过的，而不是倾倒进去的。"
+        },
+        {
+          "text": "Conversations are deleted after a certain length.",
+          "correct": false,
+          "explain": "不適。削除の仕組みの話ではない。",
+          "textZh": "对话超过一定长度就会被删除。"
+        },
+        {
+          "text": "Only short documents can be used.",
+          "correct": false,
+          "explain": "不適。長い資料も範囲を絞れば扱える。",
+          "textZh": "只有短文档才能使用。"
+        },
+        {
+          "text": "The limit only applies to images.",
+          "correct": false,
+          "explain": "不適。テキストにも当てはまる。",
+          "textZh": "这个上限只适用于图片。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**上下文上限的实务含义**。对非开发者来说，它不是一个技术参数，而是一条工作习惯：**挑着给，别倒着给**。这也正好解释了为什么「全部贴进去」不是好做法。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-047",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "Two teams need the same reference documents but must not see each other's working notes. How should this be set up?",
+      "stemZh": "两个团队需要用同样的参考文档，但不能看到对方的工作笔记。应该如何设置？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Separate Projects for each team, each holding its own notes, with the shared reference material added to both.",
+          "correct": true,
+          "explain": "正解。見える範囲が違うなら分ける。共通資料は両方に置く。",
+          "textZh": "为每个团队建立独立的 Project，各自存放自己的笔记，共享的参考材料两边都放。"
+        },
+        {
+          "text": "One Project for both teams, with a rule not to read each other's notes.",
+          "correct": false,
+          "explain": "不適。ルールでは見えてしまう事実は変わらない。",
+          "textZh": "两个团队共用一个 Project，定一条规则不要看对方的笔记。"
+        },
+        {
+          "text": "No Projects; each person pastes the documents each time.",
+          "correct": false,
+          "explain": "不適。版がずれ、手間も残る。",
+          "textZh": "不用 Project，每人每次自己粘贴文档。"
+        },
+        {
+          "text": "One Project, with the notes stored outside it.",
+          "correct": false,
+          "explain": "不適。メモが参照されず、作業の意味が薄れる。",
+          "textZh": "共用一个 Project，把笔记存在外面。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**Project 的边界要对应权限的边界**。「能使用这个 Project 的人 = 能看到里面全部内容的人」，所以只要可见范围不同，就必须分开。共享的材料重复放两份是可以接受的代价。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-048",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "A workflow's cost is acceptable but its latency frustrates users. What should be examined first?",
+      "stemZh": "一道流程的成本可以接受，但它的延迟让用户很烦躁。应该先检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the task genuinely needs the depth of the model currently used.",
+          "correct": true,
+          "explain": "正解。待ち時間の主因が上位モデルなら、要件を見直す価値がある。",
+          "textZh": "这项任务是否真的需要当前所用模型的推理深度。"
+        },
+        {
+          "text": "Whether users are being impatient.",
+          "correct": false,
+          "explain": "不適。利用者の感じ方を問題にしている。",
+          "textZh": "用户是不是太没耐心了。"
+        },
+        {
+          "text": "Whether the office network is slow.",
+          "correct": false,
+          "explain": "不適。確認する価値はあるが、最初に見る場所ではない。",
+          "textZh": "办公室网络是不是慢。"
+        },
+        {
+          "text": "Whether the output is too long to read.",
+          "correct": false,
+          "explain": "不適。読む時間の話で、応答までの待ち時間ではない。",
+          "textZh": "产出是不是太长了读不完。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**延迟也是模型选择的一个维度**。成本没问题不代表选对了——如果这项任务其实不需要那么深的推理，换成更快的层级能同时改善等待时间和成本。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-049",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO symptoms suggest a conversation has accumulated too much? (Select 2)",
+      "stemZh": "下面哪两个症状说明一段对话已经积累了太多内容？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Instructions given early are no longer being followed.",
+          "correct": true,
+          "explain": "正解。初期の条件が効かなくなっている。整理して作り直す合図。",
+          "textZh": "早先给出的指令不再被遵守。"
+        },
+        {
+          "text": "Answers start reflecting assumptions that were replaced earlier.",
+          "correct": true,
+          "explain": "正解。捨てた前提が復活している。",
+          "textZh": "答案开始反映那些早先已被取代的假设。"
+        },
+        {
+          "text": "The conversation contains images as well as text.",
+          "correct": false,
+          "explain": "不適。内容の種類は蓄積の症状ではない。",
+          "textZh": "这段对话里既有文字也有图片。"
+        },
+        {
+          "text": "The associate has been working for several hours.",
+          "correct": false,
+          "explain": "不適。作業時間そのものは症状ではない。",
+          "textZh": "担当已经工作了好几个小时。"
+        },
+        {
+          "text": "The output uses headings.",
+          "correct": false,
+          "explain": "不適。体裁は蓄積とは無関係。",
+          "textZh": "产出使用了小标题。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**该重开的两个信号**：**早先的约束失效**和**被推翻的假设复活**。两者都说明当前的上下文里混杂了太多互相冲突的内容。看到这两个症状，就该整理摘要、重新开始。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-050",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate is asked which Claude model the team should standardize on. What is the best answer?",
+      "stemZh": "有人问这位担当，团队应该统一使用哪个 Claude 模型。最好的回答是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Standardizing on one model is the wrong unit; standardize instead on how to choose per task.",
+          "correct": true,
+          "explain": "正解。統一すべきは選び方であって、モデルそのものではない。",
+          "textZh": "统一到某一个模型上是选错了单位；应该统一的是「每项任务如何选择」的方法。"
+        },
+        {
+          "text": "The most capable one, for consistency.",
+          "correct": false,
+          "explain": "不適。単純作業にも費用と待ち時間を払い続ける。",
+          "textZh": "统一用最强的那个，以保持一致。"
+        },
+        {
+          "text": "The cheapest one, for cost control.",
+          "correct": false,
+          "explain": "不適。深い推論が要る場面で品質を落とす。",
+          "textZh": "统一用最便宜的那个，以控制成本。"
+        },
+        {
+          "text": "Whichever most other companies use.",
+          "correct": false,
+          "explain": "不適。他社の要件は自社の要件ではない。",
+          "textZh": "统一用其他公司用得最多的那个。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**统一的对象是方法，不是模型**。这道题把整个 D3 的思路总结了一遍：既然选择取决于任务的要求，那么团队该统一的就是**判断的标准**（什么时候升级、怎么测试够不够用），而不是锁定某一个型号。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-051",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "Which feature choice best fits producing a deliverable that will be handed over and then maintained by someone else?",
+      "stemZh": "要产出一份将被移交、并由别人后续维护的交付物，哪种功能选择最合适？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An artifact, so the document exists independently of the conversation that produced it.",
+          "correct": true,
+          "explain": "正解。会話から切り離す。引き継いだ人は会話を読む必要が無い。",
+          "textZh": "做成成果物，让这份文档独立于产生它的那段对话而存在。"
+        },
+        {
+          "text": "A chat reply the successor can scroll back to find.",
+          "correct": false,
+          "explain": "不適。前後の文脈まで読ませることになる。捨てた案も混ざる。",
+          "textZh": "一条对话回复，接手的人可以往回翻找。"
+        },
+        {
+          "text": "A Project, since it stores things permanently.",
+          "correct": false,
+          "explain": "不適。プロジェクトは入力側の置き場。成果物そのものではない。",
+          "textZh": "一个 Project，因为它能永久保存内容。"
+        },
+        {
+          "text": "An email to the successor.",
+          "correct": false,
+          "explain": "不適。更新のたびに版が分かれる。",
+          "textZh": "一封给接手者的邮件。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**交付物要能脱离产生它的过程**。接手的人不应该被迫去读一段长对话才能找到当前版本，更不应该在里面遇到已经被否决的方案。第三个干扰项的混淆点值得注意：**Project 管的是输入，成果物才是输出**。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-052",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO are valid reasons to move a task to a more capable model? (Select 2)",
+      "stemZh": "下面哪两个是「把任务换到更强模型」的正当理由？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Measured errors on this task are above what the checks can absorb.",
+          "correct": true,
+          "explain": "正解。実測に基づく。上げる根拠として妥当。",
+          "textZh": "这项任务实测的错误率超出了检查能吸收的范围。"
+        },
+        {
+          "text": "The task requires weighing several conflicting considerations at once.",
+          "correct": true,
+          "explain": "正解。相反する条件の比較検討は上位の差が出る領域。",
+          "textZh": "这项任务需要同时权衡好几个互相冲突的考虑因素。"
+        },
+        {
+          "text": "The current model's answers are shorter than expected.",
+          "correct": false,
+          "explain": "不適。長さは能力の指標ではない。指示で調整できる。",
+          "textZh": "当前模型的答案比预期短。"
+        },
+        {
+          "text": "A vendor announced a new version.",
+          "correct": false,
+          "explain": "不適。発表は自社の要件を変えない。",
+          "textZh": "厂商发布了一个新版本。"
+        },
+        {
+          "text": "The team has unused budget this quarter.",
+          "correct": false,
+          "explain": "不適。予算の余りは要件ではない。",
+          "textZh": "团队这个季度有没花完的预算。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**升级的两个正当理由**：**实测不达标**和**任务本身需要权衡冲突**。而「答案太短」其实是指示问题、「有新版本」和「预算没花完」则完全与任务要求无关——后者尤其常见。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-053",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate wants to work on the same topic over several weeks without one giant conversation. What approach works?",
+      "stemZh": "某位担当想在好几周里持续处理同一个主题，又不想用一段巨大的对话。什么做法可行？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep the stable material and rules in a Project, and start a fresh conversation per work session carrying a short state summary.",
+          "correct": true,
+          "explain": "正解。恒久的な前提は設定に、都度の状態は要約で運ぶ。",
+          "textZh": "把稳定的材料和规则放在 Project 里，每次工作开新对话，带上一份简短的状态摘要。"
+        },
+        {
+          "text": "Keep one conversation and scroll back when needed.",
+          "correct": false,
+          "explain": "不適。積み上がるほど扱いにくくなる。",
+          "textZh": "保持一段对话，需要时往回翻。"
+        },
+        {
+          "text": "Start fresh each time with no carried context.",
+          "correct": false,
+          "explain": "不適。毎回説明し直すうえ、決定が失われる。",
+          "textZh": "每次都从零开始，不带任何上下文。"
+        },
+        {
+          "text": "Keep several conversations running in parallel.",
+          "correct": false,
+          "explain": "不適。どこに何があるか分からなくなる。",
+          "textZh": "同时并行保持好几段对话。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**把「恒久」和「当下」分开存放**。稳定的东西（材料、规则）放 Project，流动的东西（当前进展）用摘要携带。这样既不会有一段越滚越大的对话，也不会每次从零开始。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-054",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "What is the most useful way to think about model choice for someone who is not technical?",
+      "stemZh": "对于非技术人员来说，思考模型选择最有用的方式是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Like choosing a mode of transport: match it to the distance, the load, and how soon it must arrive.",
+          "correct": true,
+          "explain": "正解。要件に合わせる発想。上下ではなく適合で考える。",
+          "textZh": "像选择交通方式：按路程、载重和到达时间来匹配。"
+        },
+        {
+          "text": "Like buying a phone: always get the newest one.",
+          "correct": false,
+          "explain": "不適。常に最新を選ぶ発想は、要件を見ていない。",
+          "textZh": "像买手机：永远买最新的那个。"
+        },
+        {
+          "text": "Like picking a colour: it is a matter of taste.",
+          "correct": false,
+          "explain": "不適。好みの問題ではなく、要件の問題。",
+          "textZh": "像挑颜色：这是个人喜好问题。"
+        },
+        {
+          "text": "Like choosing a font: it does not affect the result.",
+          "correct": false,
+          "explain": "不適。フォント選びと違い、モデルの選択は結果の質にも費用にも影響する。",
+          "textZh": "像选字体：不影响结果。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**一个好用的类比**。交通工具的比喻之所以准确，是因为它自带了「**没有最好，只有合适**」的直觉：没人会为了买菜开长途卡车，也没人会用自行车运家具。模型选择是同一类判断。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-055",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO indicate that work should be moved into a Project? (Select 2)",
+      "stemZh": "下面哪两点说明某项工作应该移进 Project？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The same background has been pasted more than a few times.",
+          "correct": true,
+          "explain": "正解。繰り返しの手作業が発生している。設定に移す合図。",
+          "textZh": "同样的背景材料已经被粘贴过好几次。"
+        },
+        {
+          "text": "Several people need the work to follow the same rules.",
+          "correct": true,
+          "explain": "正解。共通の指示を一か所に置く必要がある。",
+          "textZh": "好几个人的工作需要遵循同一套规则。"
+        },
+        {
+          "text": "The conversation has lasted more than an hour.",
+          "correct": false,
+          "explain": "不適。時間はプロジェクト化の理由にならない。",
+          "textZh": "这段对话已经持续了一个多小时。"
+        },
+        {
+          "text": "The output needs to be longer.",
+          "correct": false,
+          "explain": "不適。分量と設定の置き場は無関係。",
+          "textZh": "产出需要更长。"
+        },
+        {
+          "text": "The associate prefers a tidy interface.",
+          "correct": false,
+          "explain": "不適。見た目の好みは判断基準ではない。",
+          "textZh": "担当喜欢界面整洁。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**该建 Project 的两个信号**：**同样的东西贴了好几遍**（重复劳动）和**多人需要同一套规则**（一致性）。两者都指向同一件事——有些内容不该每次重新提供。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-056",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A task's quality requirement is high but it only runs twice a month. How should cost factor into the decision?",
+      "stemZh": "一项任务对质量要求很高，但每月只运行两次。成本应该如何影响这个决定？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Barely at all — at that volume the difference between tiers is negligible, so choose on quality.",
+          "correct": true,
+          "explain": "正解。件数が少なければ費用差は小さい。質で選んでよい。",
+          "textZh": "几乎不必考虑——在这个数量下，层级之间的费用差微不足道，按质量选就行。"
+        },
+        {
+          "text": "It should dominate, since cost control is always the priority.",
+          "correct": false,
+          "explain": "不適。月2回の費用差は無視できる。優先順位の判断を誤っている。",
+          "textZh": "它应该是主导因素，因为控制成本永远是第一位的。"
+        },
+        {
+          "text": "Cost is irrelevant to model choice.",
+          "correct": false,
+          "explain": "不適。大量処理では決定的に効く。一般化はできない。",
+          "textZh": "成本与模型选择无关。"
+        },
+        {
+          "text": "Use the cheapest model and check more carefully.",
+          "correct": false,
+          "explain": "不適。人の検査時間のほうが高くつく。",
+          "textZh": "用最便宜的模型，然后更仔细地检查。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**数量改变了成本的权重**。同样一项任务，每天5000次和每月2次，答案完全不同。最后一个干扰项还有一个常被忽略的点：**为了省模型的钱而增加人工检查，通常是更贵的**。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-057",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "An associate summarizes a conversation to continue elsewhere, but the new conversation asks questions already settled. What went wrong?",
+      "stemZh": "某位担当做了摘要以便在别处继续，但新对话又问起了已经确定的问题。哪里出了错？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The summary recorded the conclusions but not the reasoning or constraints behind them.",
+          "correct": true,
+          "explain": "正解。結論だけでは、なぜそう決めたかが分からず、再検討になる。",
+          "textZh": "摘要记录了结论，却没有记录它们背后的推理和约束条件。"
+        },
+        {
+          "text": "Summaries never work for this purpose.",
+          "correct": false,
+          "explain": "不適。適切に書けば機能する。",
+          "textZh": "摘要从来就不适合用于这个目的。"
+        },
+        {
+          "text": "The new conversation should have been longer.",
+          "correct": false,
+          "explain": "不適。長さの問題ではない。",
+          "textZh": "新对话本该更长一些。"
+        },
+        {
+          "text": "The conclusions must have been wrong.",
+          "correct": false,
+          "explain": "不適。正しくても、根拠が無ければ再検討される。",
+          "textZh": "那些结论一定是错的。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**摘要要带上「为什么」**。只写结论，接手的人（包括几周后的自己）会自然地重新审视它们——因为不知道这些结论是在什么约束下、基于什么理由做出的。这和 D4 里「给接手的人留理由」完全一致。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-058",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO are reasonable ways to compare two models for a specific task? (Select 2)",
+      "stemZh": "对于一项具体任务，下面哪两种是合理的模型比较方式？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Run both on the same set of real inputs and score them against the same rubric.",
+          "correct": true,
+          "explain": "正解。入力と基準をそろえる。比較の基本条件。",
+          "textZh": "用同一组真实输入运行两者，按同一套评分标准打分。"
+        },
+        {
+          "text": "Include the hard cases in the comparison set, not just typical ones.",
+          "correct": true,
+          "explain": "正解。差が出るのは難しい案件。そこを外すと違いが見えない。",
+          "textZh": "在比较用的样本里包含困难案例，而不只是典型案例。"
+        },
+        {
+          "text": "Compare how each describes its own abilities.",
+          "correct": false,
+          "explain": "不適。自己申告は根拠にならない。",
+          "textZh": "比较两者如何描述自己的能力。"
+        },
+        {
+          "text": "Use different inputs for each to broaden coverage.",
+          "correct": false,
+          "explain": "不適。入力が違えば条件がそろわず、二つのモデルを比べたことにならない。",
+          "textZh": "给两者用不同的输入以扩大覆盖面。"
+        },
+        {
+          "text": "Judge by which output is longer.",
+          "correct": false,
+          "explain": "不適。長さは質の指標ではない。",
+          "textZh": "按哪个产出更长来判断。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**比较的设计**。除了老生常谈的「同输入、同标准」之外，第二条同样关键：**必须包含难的案例**。如果比较样本全是典型情况，两个层级看起来会差不多——而它们的差异恰恰只在难处显现。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-059",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate inherits a Project from a colleague who left. What should they check first?",
+      "stemZh": "某位担当接手了一位已离职同事的 Project。首先应该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "What the instructions actually say and whether the knowledge files are still current.",
+          "correct": true,
+          "explain": "正解。指示と知識の中身。古い資料が生きていると誤った出力になる。",
+          "textZh": "指示里究竟写了什么，以及知识库里的文件是否仍然是最新的。"
+        },
+        {
+          "text": "How many conversations it contains.",
+          "correct": false,
+          "explain": "不適。件数は引き継ぎの判断材料にならない。",
+          "textZh": "它里面有多少段对话。"
+        },
+        {
+          "text": "Whether the Project name is appropriate.",
+          "correct": false,
+          "explain": "不適。名称は運用の正しさに影響しない。",
+          "textZh": "这个 Project 的名字是否合适。"
+        },
+        {
+          "text": "Which model the colleague used most often.",
+          "correct": false,
+          "explain": "不適。確認する価値はあるが、最初に見る場所ではない。",
+          "textZh": "那位同事最常用哪个模型。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**接手设置时先看「输入」**。Project 的行为由两样东西决定：**指示**和**知识文件**。离职者留下的知识库里很可能有过期的资料（价目表、规格书），而它们会安静地继续影响每一次产出。",
+      "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-060",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "Which principle best captures the relationship between model choice and output quality?",
+      "stemZh": "关于模型选择与产出质量的关系，哪条原则概括得最好？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Model choice sets a ceiling on quality for hard tasks, but clear instructions and checking determine the result in practice.",
+          "correct": true,
+          "explain": "正解。上限はモデル、実際の結果は指示と検査。両方が要る。",
+          "textZh": "模型选择为困难任务设定了质量上限，但实际结果取决于清晰的指示和检查。"
+        },
+        {
+          "text": "Model choice determines quality entirely.",
+          "correct": false,
+          "explain": "不適。指示が悪ければどの層でも結果は悪い。",
+          "textZh": "模型选择完全决定质量。"
+        },
+        {
+          "text": "Model choice has no bearing on quality.",
+          "correct": false,
+          "explain": "不適。難しい課題では差が出る。",
+          "textZh": "模型选择与质量无关。"
+        },
+        {
+          "text": "Quality depends only on how long the output is.",
+          "correct": false,
+          "explain": "不適。長さは質ではない。",
+          "textZh": "质量只取决于产出有多长。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**这门考试对模型选择的整体立场**。它既不是「换个模型解决一切」，也不是「模型无所谓」。准确的说法是：**模型决定天花板，指示和检查决定你实际拿到什么**——这也正好解释了为什么 D1（提示）和 D2（评估）的分值远高于 D3。",
+      "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-09-24"
     }
   ]
 }
