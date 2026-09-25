@@ -2382,6 +2382,766 @@
       "commentaryZh": "考点是**这门考试对模型选择的整体立场**。它既不是「换个模型解决一切」，也不是「模型无所谓」。准确的说法是：**模型决定天花板，指示和检查决定你实际拿到什么**——这也正好解释了为什么 D1（提示）和 D2（评估）的分值远高于 D3。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d3-061",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A conversation has become slow and the earlier instructions seem to be losing effect. What is the first thing to try?",
+      "stemZh": "一段对话变慢了，而且早先的指示似乎不再起作用。首先应该试什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Summarise the current state and start a fresh conversation with it.",
+          "correct": true,
+          "explain": "正解。前提を作り直せば、指示が効く状態に戻る。",
+          "textZh": "把当前的状态整理成摘要，用它开一段新对话。"
+        },
+        {
+          "text": "Repeat the original instructions at the end.",
+          "correct": false,
+          "explain": "不適。長さの問題は解消せず、矛盾が増えうる。",
+          "textZh": "在末尾把最初的指示再说一遍。"
+        },
+        {
+          "text": "Switch to a faster model in the same conversation.",
+          "correct": false,
+          "explain": "不適。文脈の長さ自体は変わらない。",
+          "textZh": "在同一段对话里换成更快的模型。"
+        },
+        {
+          "text": "Delete the earliest messages one by one.",
+          "correct": false,
+          "explain": "不適。会話の履歴はそのように扱えない。",
+          "textZh": "把最早的消息一条条删掉。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**长对话里，早先的指示会被后面的内容淹没**。把当前的前提整理出来、开一段新对话带过去，比继续在旧对话里加指示有效。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-062",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A task runs 500 times a day, each run is simple, and an occasional imperfect result is acceptable. Which consideration should dominate?",
+      "stemZh": "一个任务每天运行500次，每次都很简单，偶尔结果不够完美也可以接受。哪一项考虑应当占主导？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Cost and speed, since both are multiplied by the volume.",
+          "correct": true,
+          "explain": "正解。回数が多いほど、1回あたりの差が効いてくる。",
+          "textZh": "成本和速度，因为两者都会被次数放大。"
+        },
+        {
+          "text": "Maximum quality regardless of volume.",
+          "correct": false,
+          "explain": "不適。許容される誤差が示されている。",
+          "textZh": "不管次数，一律追求最高质量。"
+        },
+        {
+          "text": "The length of the output.",
+          "correct": false,
+          "explain": "不適。長さは判断の軸として示されていない。",
+          "textZh": "输出的长度。"
+        },
+        {
+          "text": "Whether the task can be done in a Project.",
+          "correct": false,
+          "explain": "不適。機能の所在は選択の主軸ではない。",
+          "textZh": "这个任务能不能放在 Project 里做。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**高频简单任务里，单次成本和速度会被放大500倍**。这时优先考虑成本与速度是合理的；而一次性的重要判断则相反。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-063",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO situations call for a Project rather than a single conversation? (Select 2)",
+      "stemZh": "哪两种情况适合用 Project 而不是单次对话？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The same reference documents are needed every week.",
+          "correct": true,
+          "explain": "正解。同じ前提を毎回積み直さずに済む。",
+          "textZh": "每周都需要用到同一批参考文档。"
+        },
+        {
+          "text": "Several people must work from identical instructions.",
+          "correct": true,
+          "explain": "正解。指示を1か所に置けば、ばらつきが減る。",
+          "textZh": "多个人必须依据完全相同的指示来工作。"
+        },
+        {
+          "text": "A single question needs answering once.",
+          "correct": false,
+          "explain": "不適。設定の手間だけが増える。",
+          "textZh": "只需要回答一次的单个问题。"
+        },
+        {
+          "text": "The answer must be produced as quickly as possible.",
+          "correct": false,
+          "explain": "不適。速度のための仕組みではない。",
+          "textZh": "答案必须尽可能快地产出。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**Project 的价值在于反复复用同一套前提**。一次性的问题放进 Project 只是多一步设置。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-064",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate assumes the most capable model is always the right choice. What does this overlook?",
+      "stemZh": "某位同事认为能力最强的模型永远是正确选择。这忽略了什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Capability beyond what the task needs buys cost and waiting, not better results.",
+          "correct": true,
+          "explain": "正解。課題が要求しない能力は成果に変わらない。",
+          "textZh": "超出任务所需的能力换来的是成本和等待，而不是更好的结果。"
+        },
+        {
+          "text": "The most capable model is often unavailable.",
+          "correct": false,
+          "explain": "不適。可用性の話は示されていない。",
+          "textZh": "能力最强的模型经常无法使用。"
+        },
+        {
+          "text": "Capable models produce longer outputs.",
+          "correct": false,
+          "explain": "不適。長さは能力と直結しない。",
+          "textZh": "能力强的模型输出更长。"
+        },
+        {
+          "text": "Simple tasks cannot be done by capable models.",
+          "correct": false,
+          "explain": "不適。できないわけではない。",
+          "textZh": "能力强的模型做不了简单任务。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**能力过剩也是一种浪费**。任务本身不需要那么深的推理时，多出来的能力换不成结果，只换成了成本和等待。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-065",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO should be carried over when restarting a long conversation? (Select 2)",
+      "stemZh": "重开一段长对话时，应该把哪两项带过去？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The decisions that have already been settled.",
+          "correct": true,
+          "explain": "正解。やり直しを防ぐ前提である。",
+          "textZh": "已经定下来的决定。"
+        },
+        {
+          "text": "The constraints that still apply.",
+          "correct": true,
+          "explain": "正解。守るべき線が消えると判断がずれる。",
+          "textZh": "仍然有效的约束条件。"
+        },
+        {
+          "text": "Every intermediate draft that was rejected.",
+          "correct": false,
+          "explain": "不適。捨てた案を持ち込むと雑音になる。",
+          "textZh": "每一版被否掉的中间草稿。"
+        },
+        {
+          "text": "The full text of the original conversation.",
+          "correct": false,
+          "explain": "不適。長さの問題を持ち越すことになる。",
+          "textZh": "原对话的完整文本。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**带走结论和约束，不带走过程**。已经定下来的事和必须遵守的限制是后续判断的前提；中途被否掉的尝试带过去只会重新引入噪音。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-066",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "When does research mode add the most value over an ordinary chat request?",
+      "stemZh": "在什么情况下，research 模式比普通的对话请求更有价值？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When the answer must be assembled from several sources with citations.",
+          "correct": true,
+          "explain": "正解。出所の追跡が要る課題で価値が出る。",
+          "textZh": "当答案必须从多个来源拼起来并附上出处时。"
+        },
+        {
+          "text": "When the task is to reword text the associate already has.",
+          "correct": false,
+          "explain": "不適。調べる必要が無い。",
+          "textZh": "当任务只是改写使用者手上已有的文字时。"
+        },
+        {
+          "text": "When the answer is needed within seconds.",
+          "correct": false,
+          "explain": "不適。調査には時間がかかる。",
+          "textZh": "当需要在几秒内得到答案时。"
+        },
+        {
+          "text": "When the output must be a spreadsheet.",
+          "correct": false,
+          "explain": "不適。出力形式とは別の話。",
+          "textZh": "当输出必须是电子表格时。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**需要跨多个来源查证并留下出处时**，研究模式的优势才体现出来。已经知道答案、只要改写文字的任务用不上它。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-067",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A draft will be heavily edited by a person afterwards. How should this affect the choice?",
+      "stemZh": "一份草稿之后会由人大幅修改。这对选择有什么影响？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A faster, cheaper option is reasonable, since polish comes from the editing.",
+          "correct": true,
+          "explain": "正解。人が直す前提なら、初稿に最高品質は要らない。",
+          "textZh": "选更快更省的选项是合理的，因为精修由后续编辑完成。"
+        },
+        {
+          "text": "The most capable option is required to minimise editing.",
+          "correct": false,
+          "explain": "不適。大幅に直す前提と噛み合わない。",
+          "textZh": "必须用能力最强的选项，以减少编辑量。"
+        },
+        {
+          "text": "The choice makes no difference to a draft.",
+          "correct": false,
+          "explain": "不適。速度と費用には差が出る。",
+          "textZh": "对草稿来说选什么都一样。"
+        },
+        {
+          "text": "Editing should be avoided by requesting a final version.",
+          "correct": false,
+          "explain": "不適。前提が「人が大きく直す」である。",
+          "textZh": "应该直接要成稿，避免编辑。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**后面有人改，就不必在第一稿上买最高质量**。草稿的作用是提供起点，精修由人完成，成本花在这里回报有限。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-068",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO are genuine signs that a conversation should be restarted rather than continued? (Select 2)",
+      "stemZh": "哪两项是「应该重开对话而不是继续」的真实信号？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The topic has moved far from what the early context describes.",
+          "correct": true,
+          "explain": "正解。前提と現状が合っていない。",
+          "textZh": "话题已经远离了早先上下文所描述的内容。"
+        },
+        {
+          "text": "An early mistake keeps being carried forward.",
+          "correct": true,
+          "explain": "正解。放置すると後の判断が全部その上に乗る。",
+          "textZh": "早先的一个错误一直被沿用下来。"
+        },
+        {
+          "text": "The conversation has lasted more than an hour.",
+          "correct": false,
+          "explain": "不適。時間そのものは理由にならない。",
+          "textZh": "对话已经持续了一个多小时。"
+        },
+        {
+          "text": "The conversation contains many messages.",
+          "correct": false,
+          "explain": "不適。件数ではなく内容の適合が問題。",
+          "textZh": "对话里消息条数很多。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**重开的理由是前提变脏了**。话题已经偏离、或者早先的错误一直被沿用，这时继续只会累积。单纯「聊得久」或者「消息多」不是理由。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-069",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A task requires holding many interdependent constraints in mind at once. What does this imply?",
+      "stemZh": "一个任务需要同时兼顾许多互相牵连的约束。这意味着什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Reasoning depth matters more here than speed or cost.",
+          "correct": true,
+          "explain": "正解。制約が絡み合うほど、浅い処理では取りこぼす。",
+          "textZh": "在这里推理的深度比速度和成本更重要。"
+        },
+        {
+          "text": "The task should be split until each part is trivial.",
+          "correct": false,
+          "explain": "不適。相互依存があるので分けきれない。",
+          "textZh": "应该把任务拆到每一部分都很简单为止。"
+        },
+        {
+          "text": "Speed should be prioritised to allow more attempts.",
+          "correct": false,
+          "explain": "不適。試行回数では整合は取れない。",
+          "textZh": "应该优先速度，以便多试几次。"
+        },
+        {
+          "text": "The constraints should be reduced to three.",
+          "correct": false,
+          "explain": "不適。勝手に減らせば課題が変わる。",
+          "textZh": "应该把约束减到三条。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**约束互相牵连时，推理的深度才是瓶颈**。这类任务适合把能力放在优先位置，因为顾此失彼的代价很高。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-070",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate keeps pasting the same 30-page manual into each new conversation. What does this indicate?",
+      "stemZh": "某位同事每开一段新对话都要把同一份30页手册粘贴进去。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The manual should be held as a knowledge source instead of re-pasted.",
+          "correct": true,
+          "explain": "正解。版のずれも手間も同時に解消する。",
+          "textZh": "这份手册应该作为知识源存放，而不是反复粘贴。"
+        },
+        {
+          "text": "The manual is too long to be useful.",
+          "correct": false,
+          "explain": "不適。長さが問題だとは述べられていない。",
+          "textZh": "这份手册太长了，没有用。"
+        },
+        {
+          "text": "A faster model would remove the need.",
+          "correct": false,
+          "explain": "不適。速度と資料の所在は別。",
+          "textZh": "换个更快的模型就不需要粘贴了。"
+        },
+        {
+          "text": "The conversations should be merged into one.",
+          "correct": false,
+          "explain": "不適。長い会話の問題を抱えることになる。",
+          "textZh": "应该把这些对话合并成一段。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**反复粘贴同一份资料是配置缺失的信号**。把它作为知识源放好，既省事又保证每次用的是同一版本。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-071",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO questions should be asked before changing which model a team uses? (Select 2)",
+      "stemZh": "在改变团队所用模型之前，应该先问哪两个问题？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What specifically is unsatisfactory about the current results.",
+          "correct": true,
+          "explain": "正解。不満の中身が分からなければ、当たるかどうか分からない。",
+          "textZh": "当前的结果具体哪里不令人满意。"
+        },
+        {
+          "text": "How the team will tell whether the change helped.",
+          "correct": true,
+          "explain": "正解。判断の方法が無ければ印象論になる。",
+          "textZh": "团队要怎么判断这次更换是否真的有帮助。"
+        },
+        {
+          "text": "Which model other teams have chosen.",
+          "correct": false,
+          "explain": "不適。課題が違えば適切な選択も違う。",
+          "textZh": "其他团队选了哪个模型。"
+        },
+        {
+          "text": "How long the current model has been in use.",
+          "correct": false,
+          "explain": "不適。使用期間は適否の根拠にならない。",
+          "textZh": "当前模型已经用了多久。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**换之前要知道现在哪里不够、换了怎么判断有没有变好**。没有这两条，换完只能靠印象说「好像好些了」。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-072",
+      "domain": "D3",
+      "type": "mcq",
+      "stem": "What is the main risk of relying on a long conversation to remember a decision made an hour ago?",
+      "stemZh": "依靠一段长对话来记住一小时前做出的决定，主要风险是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Nobody can confirm what was decided or whether it was later changed.",
+          "correct": true,
+          "explain": "正解。会話は記録の代わりにならない。",
+          "textZh": "没有人能确认当时定了什么，也不知道后来有没有被改。"
+        },
+        {
+          "text": "Conversations are automatically deleted after an hour.",
+          "correct": false,
+          "explain": "不適。そのような仕組みは述べられていない。",
+          "textZh": "对话会在一小时后自动删除。"
+        },
+        {
+          "text": "Decisions cannot be made in a conversation.",
+          "correct": false,
+          "explain": "不適。決めること自体は問題ない。",
+          "textZh": "决定不能在对话里做出。"
+        },
+        {
+          "text": "Long conversations always produce wrong answers.",
+          "correct": false,
+          "explain": "不適。長い会話が常に誤るわけではなく、言い過ぎである。",
+          "textZh": "长对话总是产出错误的答案。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**会话不是记录**。决定留在对话里，没有人能确认它当时是怎么定的、有没有被后来的内容改写。要紧的决定应当单独记下来。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-073",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "Content must be handed to a colleague who will keep editing it. Which choice fits best?",
+      "stemZh": "一份内容要交给同事，由对方继续编辑。哪种选择最合适？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An artifact, which can be opened and revised directly.",
+          "correct": true,
+          "explain": "正解。受け取った側がそのまま編集に入れる。",
+          "textZh": "artifact，可以直接打开并修改。"
+        },
+        {
+          "text": "A long inline answer the colleague can copy.",
+          "correct": false,
+          "explain": "不適。組み直す手間が相手に回る。",
+          "textZh": "一段很长的对话内回答，同事自己复制。"
+        },
+        {
+          "text": "A series of short messages.",
+          "correct": false,
+          "explain": "不適。まとまりが無く編集しにくい。",
+          "textZh": "一连串的短消息。"
+        },
+        {
+          "text": "A summary with the details omitted.",
+          "correct": false,
+          "explain": "不適。編集に必要な中身が無い。",
+          "textZh": "一份省略了细节的摘要。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**要被继续编辑的成品适合放在 artifact 里**。散落在对话里的内容，同事要先自己拼起来才能动手。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-074",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "Two models produce answers of similar quality for a task, but one takes noticeably longer. What follows?",
+      "stemZh": "两个模型在某个任务上产出的质量相近，但其中一个明显更慢。由此可得出什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "There is no reason to accept the extra waiting for this task.",
+          "correct": true,
+          "explain": "正解。品質が同等なら、他の条件で選べばよい。",
+          "textZh": "对这个任务来说，没有理由接受额外的等待。"
+        },
+        {
+          "text": "The slower one must be more thorough.",
+          "correct": false,
+          "explain": "不適。品質は同等だと示されている。",
+          "textZh": "更慢的那个一定更周全。"
+        },
+        {
+          "text": "The faster one must be lower quality.",
+          "correct": false,
+          "explain": "不適。品質は同等だと示されており、前提と矛盾する。",
+          "textZh": "更快的那个一定质量更差。"
+        },
+        {
+          "text": "Both should be run every time and compared.",
+          "correct": false,
+          "explain": "不適。同等と分かっている以上、無駄が増える。",
+          "textZh": "每次都两个都跑一遍再比较。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**质量相当时，其余条件才成为选择依据**。既然结果差不多，没有理由付出额外的等待。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-075",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A one-off analysis will inform a decision worth a large sum. How should the choice be made?",
+      "stemZh": "一次性的分析将用于一项金额很大的决定。应该如何选择？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Favour quality, since the cost difference is negligible against the decision.",
+          "correct": true,
+          "explain": "正解。1回の費用差は判断の重みに比べて小さい。",
+          "textZh": "优先质量，因为相对于这个决定，成本差别微不足道。"
+        },
+        {
+          "text": "Favour the cheapest option to control spend.",
+          "correct": false,
+          "explain": "不適。判断の重みに見合わない節約である。",
+          "textZh": "优先最便宜的选项以控制支出。"
+        },
+        {
+          "text": "Favour the fastest option to decide sooner.",
+          "correct": false,
+          "explain": "不適。急いで誤る代償が大きい。",
+          "textZh": "优先最快的选项以便尽早决定。"
+        },
+        {
+          "text": "The choice does not matter for a one-off task.",
+          "correct": false,
+          "explain": "不適。重大な判断ほど差が効く。",
+          "textZh": "一次性任务选什么都无所谓。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**一次性的重大判断里，单次成本可以忽略**。决定的金额远大于任何一次调用的差价，这时质量应当优先。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-076",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO belong in a Project's instructions rather than in each individual request? (Select 2)",
+      "stemZh": "哪两项应该写在 Project 的指示里，而不是每次请求里？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Terminology the organisation always uses.",
+          "correct": true,
+          "explain": "正解。毎回同じなら1か所に置く。",
+          "textZh": "本机构一贯使用的术语口径。"
+        },
+        {
+          "text": "Rules that apply to every output from this Project.",
+          "correct": true,
+          "explain": "正解。書き漏らしを防げる。",
+          "textZh": "适用于这个 Project 所有输出的规则。"
+        },
+        {
+          "text": "The specific document to analyse today.",
+          "correct": false,
+          "explain": "不適。その回だけの内容である。",
+          "textZh": "今天要分析的那份具体文档。"
+        },
+        {
+          "text": "The deadline for this particular request.",
+          "correct": false,
+          "explain": "不適。毎回変わる情報である。",
+          "textZh": "这一次请求的截止时间。"
+        }
+      ],
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "commentaryZh": "考点是**不变的东西放在一处**。每次都一样的规则和口径放进 Project 的指示，既省事又不会写漏；只对某一次有效的内容留在那一次的请求里。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-077",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate wants a set of preferences to apply across many future conversations. What is the right place for them?",
+      "stemZh": "使用者希望一组偏好在今后很多段对话里都生效。应该把它们放在哪里？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In a configuration that persists, not in one conversation.",
+          "correct": true,
+          "explain": "正解。会話に書いた指示はその会話限りである。",
+          "textZh": "放在会持续生效的配置里，而不是某一段对话里。"
+        },
+        {
+          "text": "At the start of every new conversation.",
+          "correct": false,
+          "explain": "不適。動くが、書き漏らしが必ず起きる。",
+          "textZh": "在每段新对话的开头都写一遍。"
+        },
+        {
+          "text": "In a note kept outside the tool.",
+          "correct": false,
+          "explain": "不適。手で持ち込む手間が残る。",
+          "textZh": "记在工具之外的笔记里。"
+        },
+        {
+          "text": "In the first request of the longest conversation.",
+          "correct": false,
+          "explain": "不適。他の会話には及ばない。",
+          "textZh": "写在最长那段对话的第一条请求里。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**跨对话生效的东西要存在配置里**。写在某一次对话里，只在那一次有效；下次还要重新说一遍。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-078",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A team measures only cost when comparing options. What are they likely to miss?",
+      "stemZh": "某个团队在比较选项时只看成本。他们可能会漏掉什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The human time spent correcting weaker output.",
+          "correct": true,
+          "explain": "正解。安い選択の代償は、別の欄に計上される。",
+          "textZh": "用于修正较差输出所花的人力时间。"
+        },
+        {
+          "text": "The number of options available.",
+          "correct": false,
+          "explain": "不適。選択肢の数は費用比較と別。",
+          "textZh": "可选项的数量。"
+        },
+        {
+          "text": "The names of the models.",
+          "correct": false,
+          "explain": "不適。名称は判断材料ではない。",
+          "textZh": "模型的名称。"
+        },
+        {
+          "text": "How long each option has existed.",
+          "correct": false,
+          "explain": "不適。歴史の長さは関係が無い。",
+          "textZh": "每个选项存在了多久。"
+        }
+      ],
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "commentaryZh": "考点是**返工的代价不在这张账单上**。便宜的选项如果需要人多改几轮，省下的钱会从人的时间里加倍还回去。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-079",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO task properties suggest a lighter option is sufficient? (Select 2)",
+      "stemZh": "哪两项任务特征说明用更轻量的选项就够了？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The correct answer is easy to recognise when seen.",
+          "correct": true,
+          "explain": "正解。誤りがすぐ分かるなら、被害が広がらない。",
+          "textZh": "正确答案一看就能认出来。"
+        },
+        {
+          "text": "There is little judgement involved.",
+          "correct": true,
+          "explain": "正解。判断の余地が小さいほど差が出にくい。",
+          "textZh": "其中几乎不涉及判断。"
+        },
+        {
+          "text": "The output will be sent to a regulator.",
+          "correct": false,
+          "explain": "不適。むしろ慎重さが要る場面である。",
+          "textZh": "输出将发送给监管机构。"
+        },
+        {
+          "text": "The task depends on many interacting rules.",
+          "correct": false,
+          "explain": "不適。深い処理が必要な条件である。",
+          "textZh": "这个任务依赖许多互相作用的规则。"
+        }
+      ],
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "commentaryZh": "考点是**判断空间小、且错了容易发现**，这两条同时成立时，轻量选项的风险就很低。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d3-080",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An associate summarises a conversation before restarting, but the summary omits a constraint. What happens next?",
+      "stemZh": "使用者在重开对话前做了摘要，但摘要漏掉了一条约束。接下来会发生什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The new conversation will produce work that breaks the constraint without signalling it.",
+          "correct": true,
+          "explain": "正解。引き継がなかった条件は、無かったことになる。",
+          "textZh": "新对话会产出违反该约束的结果，而且不会有任何提示。"
+        },
+        {
+          "text": "The constraint will be recovered from the earlier conversation.",
+          "correct": false,
+          "explain": "不適。新しい会話には引き継がれない。",
+          "textZh": "那条约束会从之前的对话里被找回来。"
+        },
+        {
+          "text": "The summary will be rejected as incomplete.",
+          "correct": false,
+          "explain": "不適。欠落は自動では検出されない。",
+          "textZh": "摘要会因为不完整而被拒绝。"
+        },
+        {
+          "text": "Nothing changes, since summaries are optional.",
+          "correct": false,
+          "explain": "不適。欠落の影響は実際に出る。",
+          "textZh": "什么都不会变，因为摘要本来就是可选的。"
+        }
+      ],
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "commentaryZh": "考点是**摘要里没有的东西，在新对话里就不存在**。新对话不会知道被漏掉的约束，于是会产出违反它的结果，而且看起来很自然。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
     }
   ]
 }

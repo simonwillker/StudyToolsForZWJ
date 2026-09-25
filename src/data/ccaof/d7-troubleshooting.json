@@ -2382,6 +2382,766 @@
       "commentaryZh": "考点是**整个 D7 的总结**：**先诊断，后改动**。三个可能的缺口——请求写得不够、材料没给全、连什么算对都没定义——各自对应完全不同的修法。跳过诊断直接动手，就是这道题三个干扰项描述的常见失败。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-061",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "An output is wrong in a way the associate cannot describe, only sense. What is the useful next step?",
+      "stemZh": "使用者说不清一份输出哪里不对，只是感觉不对。有用的下一步是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Write down one concrete property a correct output would have.",
+          "correct": true,
+          "explain": "正解。照合できる条件が無ければ、直しようが無い。",
+          "textZh": "写下正确输出应当具备的一条具体性质。"
+        },
+        {
+          "text": "Try a different model and compare.",
+          "correct": false,
+          "explain": "不適。何を比べるかが決まっていない。",
+          "textZh": "换一个模型再对比。"
+        },
+        {
+          "text": "Ask for the output to be rewritten.",
+          "correct": false,
+          "explain": "不適。同じ違和感が再現するだけのことが多い。",
+          "textZh": "要求重写一遍输出。"
+        },
+        {
+          "text": "Shorten the prompt and try again.",
+          "correct": false,
+          "explain": "不適。当てずっぽうの変更である。",
+          "textZh": "把提示词缩短再试一次。"
+        }
+      ],
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "commentaryZh": "考点是**先把感觉变成可检查的条件**。写出一个具体的「什么样才算对」，才有东西可以对照；否则每次修改都在猜。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-062",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "A workflow was optimised and now takes half the time, but the review step was shortened to achieve this. What should be checked?",
+      "stemZh": "一个流程优化后耗时减半，但这是通过缩短审阅环节实现的。应该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether errors that used to be caught are now getting through.",
+          "correct": true,
+          "explain": "正解。検査を削った節約は、危険の先送りにすぎない。",
+          "textZh": "以前能被拦下的错误现在是不是通过了。"
+        },
+        {
+          "text": "Whether the workflow can be made faster still.",
+          "correct": false,
+          "explain": "不適。まず削ったものの影響を見る。",
+          "textZh": "这个流程能不能再快一些。"
+        },
+        {
+          "text": "Whether the team prefers the new version.",
+          "correct": false,
+          "explain": "不適。好みは有効性の証拠にならない。",
+          "textZh": "团队是不是更喜欢新版本。"
+        },
+        {
+          "text": "Whether the old version can be deleted.",
+          "correct": false,
+          "explain": "不適。検証前に捨てるのは早い。",
+          "textZh": "旧版本能不能删掉。"
+        }
+      ],
+      "objective": "Optimize workflows for efficiency and effectiveness",
+      "commentaryZh": "考点是**省下的时间是不是从检查里挪走的**。这种节省并没有提高效率，只是把风险转移到了后面。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-063",
+      "domain": "D7",
+      "type": "multi",
+      "stem": "Which TWO make feedback about an output actionable? (Select 2)",
+      "stemZh": "哪两项能让关于某份输出的反馈变得可执行？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "It points at the specific part that is wrong.",
+          "correct": true,
+          "explain": "正解。位置が分からなければ直せない。",
+          "textZh": "它指出了具体哪一部分不对。"
+        },
+        {
+          "text": "It states what the correct version would say instead.",
+          "correct": true,
+          "explain": "正解。期待が分かって初めて直す方向が決まる。",
+          "textZh": "它说明正确的版本应该是怎样的。"
+        },
+        {
+          "text": "It rates the output out of ten.",
+          "correct": false,
+          "explain": "不適。点数からは何を直すか分からない。",
+          "textZh": "它给输出打一个十分制的分数。"
+        },
+        {
+          "text": "It compares the output to an unrelated task.",
+          "correct": false,
+          "explain": "不適。比較の対象が適切でない。",
+          "textZh": "它把这份输出和一个不相关的任务作比较。"
+        }
+      ],
+      "objective": "Adjust approach based on feedback and results",
+      "commentaryZh": "考点是**反馈要指出具体位置和期望**。说「不太好」无法据以修改；指出哪一段、以及本来该是什么样，才能动手。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-064",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "The same prompt gives a good answer in one conversation and a poor one in another. What should be examined first?",
+      "stemZh": "同一条提示词在一段对话里给出好答案，在另一段里给出差答案。首先应该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "What else was in each conversation before the prompt was sent.",
+          "correct": true,
+          "explain": "正解。プロンプトが同じなら、違いは文脈にある。",
+          "textZh": "在发出这条提示词之前，两段对话里各自还有什么内容。"
+        },
+        {
+          "text": "Whether the prompt has a typographical error.",
+          "correct": false,
+          "explain": "不適。同じ文面なら両方に等しく存在する。",
+          "textZh": "提示词里有没有拼写错误。"
+        },
+        {
+          "text": "Whether the output was read carefully.",
+          "correct": false,
+          "explain": "不適。読み方の問題だとする根拠が無い。",
+          "textZh": "输出有没有被仔细阅读。"
+        },
+        {
+          "text": "Whether a different model was better suited.",
+          "correct": false,
+          "explain": "不適。まず差の出どころを特定する。",
+          "textZh": "是不是应该用别的模型。"
+        }
+      ],
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "commentaryZh": "考点是**提示词相同，那差别在别处**。两段对话此前累积的内容不一样，前提就不一样。先比较上下文，而不是改提示词。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-065",
+      "domain": "D7",
+      "type": "multi",
+      "stem": "Which TWO are genuine efficiency gains rather than moved effort? (Select 2)",
+      "stemZh": "哪两项是真正的效率提升，而不是把工作挪到别处？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A reformatting step nobody has to do any more.",
+          "correct": true,
+          "explain": "正解。誰の手にも戻っていないなら、実際に減っている。",
+          "textZh": "一个再也不需要任何人做的格式转换步骤。"
+        },
+        {
+          "text": "Shared setup done once instead of by each person.",
+          "correct": true,
+          "explain": "正解。重複が消えるので総量が減る。",
+          "textZh": "共用的准备工作做一次，而不是每个人各做一遍。"
+        },
+        {
+          "text": "Output that the next team must clean up.",
+          "correct": false,
+          "explain": "不適。手間が下流に移っただけである。",
+          "textZh": "下一个团队必须去整理的输出。"
+        },
+        {
+          "text": "A step removed by skipping its check.",
+          "correct": false,
+          "explain": "不適。危険と引き換えにしただけである。",
+          "textZh": "通过跳过检查而去掉的一个步骤。"
+        }
+      ],
+      "objective": "Optimize workflows for efficiency and effectiveness",
+      "commentaryZh": "考点是**真正的提升是总量减少**。把格式转换从人手里拿掉、把重复的准备一次性做完，这些是减少；而把工作推给下游只是搬运。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-066",
+      "domain": "D7",
+      "type": "mcq",
+      "stem": "After changing an approach, results improved for two weeks and then returned to the previous level. What is the most useful interpretation?",
+      "stemZh": "改变做法之后，结果好转了两周，然后回到了原来的水平。最有用的解释是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The improvement may have come from attention, not from the change itself.",
+          "correct": true,
+          "explain": "正解。関心が薄れると元に戻るのは、その兆候である。",
+          "textZh": "好转可能来自大家的注意力，而不是这项改动本身。"
+        },
+        {
+          "text": "The change should be reversed immediately.",
+          "correct": false,
+          "explain": "不適。原因が分からないまま戻すことになる。",
+          "textZh": "应该立刻把改动撤回。"
+        },
+        {
+          "text": "Two weeks is too short to measure anything.",
+          "correct": false,
+          "explain": "不適。変化は実際に観測されている。",
+          "textZh": "两周太短，什么都测不出来。"
+        },
+        {
+          "text": "The change worked and should be applied more widely.",
+          "correct": false,
+          "explain": "不適。効果が続いていない。",
+          "textZh": "这项改动奏效了，应该推广。"
+        }
+      ],
+      "objective": "Adjust approach based on feedback and results",
+      "commentaryZh": "考点是**短暂的好转常常来自注意力而非做法**。刚改的时候大家更留心，注意力退去后就回到原样。要看做法本身有没有真正改变行为。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-067",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "A prompt produces good output for short inputs and poor output for long ones. What does this suggest?",
+      "stemZh": "一条提示词在短输入上产出好、在长输入上产出差。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The prompt does not say what to prioritise when everything cannot be covered.",
+          "correct": true,
+          "explain": "正解。取捨の基準が無いので、長いときに崩れる。",
+          "textZh": "提示词没有说明在无法全部覆盖时该优先保留什么。"
+        },
+        {
+          "text": "Long inputs cannot be handled at all.",
+          "correct": false,
+          "explain": "不適。優先順位を示せば扱える。",
+          "textZh": "长输入根本无法处理。"
+        },
+        {
+          "text": "The prompt is too short.",
+          "correct": false,
+          "explain": "不適。長さではなく取捨の指定が欠けている。",
+          "textZh": "这条提示词太短了。"
+        },
+        {
+          "text": "The inputs should always be shortened first.",
+          "correct": false,
+          "explain": "不適。情報を捨てる判断を無条件に前倒しすることになる。",
+          "textZh": "输入应该总是先缩短。"
+        }
+      ],
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "commentaryZh": "考点是**指示没有说明如何取舍**。输入短时全部都能覆盖，输入长了就必须选择留什么，而提示词没有给出优先级。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-068",
+      "domain": "D7",
+      "type": "multi",
+      "stem": "Which TWO signs suggest a workflow has been over-optimised? (Select 2)",
+      "stemZh": "哪两个迹象说明一个流程被过度优化了？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Slightly unusual inputs require manual intervention.",
+          "correct": true,
+          "explain": "正解。例外が多ければ、節約は帳消しになる。",
+          "textZh": "稍微异常的输入就需要人工介入。"
+        },
+        {
+          "text": "Only the person who built it can change it.",
+          "correct": true,
+          "explain": "正解。維持できない仕組みは長くは持たない。",
+          "textZh": "只有建造它的人才能改动它。"
+        },
+        {
+          "text": "It uses fewer steps than before.",
+          "correct": false,
+          "explain": "不適。步数の減少は本来の目的である。",
+          "textZh": "它比以前用的步骤更少。"
+        },
+        {
+          "text": "It produces output faster than before.",
+          "correct": false,
+          "explain": "不適。速くなること自体は問題ではない。",
+          "textZh": "它比以前产出得更快。"
+        }
+      ],
+      "objective": "Optimize workflows for efficiency and effectiveness",
+      "commentaryZh": "考点是**优化过头会失去弹性**。稍微不一样的输入就要人工介入、只有原作者能改，这时省下来的时间会在例外上全部还回去。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-069",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "An associate has tried four fixes and none worked. What should they do before trying a fifth?",
+      "stemZh": "使用者已经试了四种修法，都没有用。在试第五种之前应该做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Re-examine what the problem actually is.",
+          "correct": true,
+          "explain": "正解。4回外れたのは、診断が違っている兆候である。",
+          "textZh": "回头确认问题究竟是什么。"
+        },
+        {
+          "text": "Try the fifth fix and see.",
+          "correct": false,
+          "explain": "不適。当てずっぽうを続けることになる。",
+          "textZh": "试第五种看看。"
+        },
+        {
+          "text": "Revert to the original version and stop.",
+          "correct": false,
+          "explain": "不適。問題は解決していない。",
+          "textZh": "退回原始版本，就此打住。"
+        },
+        {
+          "text": "Ask a colleague to try the same four fixes.",
+          "correct": false,
+          "explain": "不適。同じ結果になるだけである。",
+          "textZh": "请同事把同样的四种修法再试一遍。"
+        }
+      ],
+      "objective": "Adjust approach based on feedback and results",
+      "commentaryZh": "考点是**连续失败说明对问题的理解不对**。继续换办法只是碰运气，应当先回头确认到底哪里出了问题。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-070",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "Output quality dropped after a colleague edited the shared instructions. What is the fastest way to confirm the cause?",
+      "stemZh": "同事编辑了共享指示之后，输出质量下降了。确认原因最快的办法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Compare the instructions before and after the edit.",
+          "correct": true,
+          "explain": "正解。差分を見るのが最短で確実である。",
+          "textZh": "对照编辑前后的指示。"
+        },
+        {
+          "text": "Run the same prompt twenty times.",
+          "correct": false,
+          "explain": "不適。原因の特定にはつながらない。",
+          "textZh": "把同一条提示词跑二十遍。"
+        },
+        {
+          "text": "Ask the colleague what they intended.",
+          "correct": false,
+          "explain": "不適。意図と実際の差分は別である。",
+          "textZh": "问同事他本来想做什么。"
+        },
+        {
+          "text": "Switch to a different model temporarily.",
+          "correct": false,
+          "explain": "不適。原因を隠したまま先へ進むことになる。",
+          "textZh": "暂时换成别的模型。"
+        }
+      ],
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "commentaryZh": "考点是**用差分来定位**。把改动前后的指示对照起来看，比从输出反推快得多，也更确定。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-071",
+      "domain": "D7",
+      "type": "mcq",
+      "stem": "Where should effort be spent first when optimising a workflow with one slow step and five fast ones?",
+      "stemZh": "一个流程里有一个慢步骤和五个快步骤，优化时应该先把力气花在哪里？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "On the slow step, since it determines the total.",
+          "correct": true,
+          "explain": "正解。速い所をいくら削っても全体は変わらない。",
+          "textZh": "花在慢的那一步，因为它决定总时长。"
+        },
+        {
+          "text": "On the five fast steps, since there are more of them.",
+          "correct": false,
+          "explain": "不適。合計への寄与が小さい。",
+          "textZh": "花在五个快步骤上，因为它们数量更多。"
+        },
+        {
+          "text": "On whichever step is easiest to change.",
+          "correct": false,
+          "explain": "不適。効果ではなく手軽さで選んでいる。",
+          "textZh": "花在最容易改的那一步上。"
+        },
+        {
+          "text": "Evenly across all six steps.",
+          "correct": false,
+          "explain": "不適。効果の薄い所に力を割くことになる。",
+          "textZh": "六个步骤平均分配。"
+        }
+      ],
+      "objective": "Optimize workflows for efficiency and effectiveness",
+      "commentaryZh": "考点是**先动瓶颈**。快步骤再快，总时间也几乎不变；慢的那一步才决定整体。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-072",
+      "domain": "D7",
+      "type": "multi",
+      "stem": "Which TWO should change when a workflow's inputs have shifted over time? (Select 2)",
+      "stemZh": "当一个流程的输入随时间发生了变化时，哪两项应当随之调整？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The assumptions the workflow was built on.",
+          "correct": true,
+          "explain": "正解。前提が現状と合っているか確かめる必要がある。",
+          "textZh": "这个流程当初所依据的假设。"
+        },
+        {
+          "text": "The checks, since they may target risks that no longer apply.",
+          "correct": true,
+          "explain": "正解。ずれた検査は手間だけ残して役に立たない。",
+          "textZh": "检查环节，因为它们针对的风险可能已经不存在了。"
+        },
+        {
+          "text": "The name of the workflow.",
+          "correct": false,
+          "explain": "不適。名称は動作に影響しない。",
+          "textZh": "这个流程的名称。"
+        },
+        {
+          "text": "The order in which the team was told about it.",
+          "correct": false,
+          "explain": "不適。運用の適合とは無関係である。",
+          "textZh": "团队被告知这件事的先后顺序。"
+        }
+      ],
+      "objective": "Adjust approach based on feedback and results",
+      "commentaryZh": "考点是**输入变了，假设和检查都要跟着变**。原来的前提可能不再成立，原来的检查也可能不再针对现在的风险。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-073",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "A prompt fails only on the last item of every list it processes. What does this pattern point to?",
+      "stemZh": "一条提示词只在它处理的每份列表的最后一项上出错。这个规律指向什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A boundary condition in how the list is processed.",
+          "correct": true,
+          "explain": "正解。位置に依存するなら、内容ではなく構造の問題である。",
+          "textZh": "列表处理方式中的某个边界条件。"
+        },
+        {
+          "text": "The last items happen to be harder.",
+          "correct": false,
+          "explain": "不適。毎回そうなる説明にならない。",
+          "textZh": "最后那些项目碰巧更难。"
+        },
+        {
+          "text": "The lists are too long.",
+          "correct": false,
+          "explain": "不適。長さが原因なら、最後だけに限らない。",
+          "textZh": "这些列表太长了。"
+        },
+        {
+          "text": "The model is unsuitable for lists.",
+          "correct": false,
+          "explain": "不適。他の項目は正しく処理できている。",
+          "textZh": "这个模型不适合处理列表。"
+        }
+      ],
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "commentaryZh": "考点是**规律性的失败指向结构而非内容**。总是最后一项，说明处理的边界条件有问题，而不是那些内容本身特殊。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-074",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "A team reports a workflow saves ten hours a week. What is the most important thing to verify?",
+      "stemZh": "某团队报告一个流程每周节省十小时。最重要的是核实什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether those hours disappeared or moved somewhere else.",
+          "correct": true,
+          "explain": "正解。移動しただけなら節約になっていない。",
+          "textZh": "那十小时是真的消失了，还是转移到了别处。"
+        },
+        {
+          "text": "Whether ten hours is more than other teams save.",
+          "correct": false,
+          "explain": "不適。比較しても実在は確かめられない。",
+          "textZh": "十小时是不是比其他团队省得多。"
+        },
+        {
+          "text": "Whether the figure was measured or estimated.",
+          "correct": false,
+          "explain": "不適。有用だが、移動の有無ほど本質的ではない。",
+          "textZh": "这个数字是实测的还是估算的。"
+        },
+        {
+          "text": "Whether the team wants to keep using it.",
+          "correct": false,
+          "explain": "不適。意向は実績の証明にならない。",
+          "textZh": "团队是否愿意继续使用它。"
+        }
+      ],
+      "objective": "Optimize workflows for efficiency and effectiveness",
+      "commentaryZh": "考点是**要核实这十小时是否真的消失了**。如果只是从一个团队挪到另一个，或者变成了返工，就不是节省。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-075",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "An associate receives conflicting feedback from two reviewers. What is the right response?",
+      "stemZh": "使用者收到两位审阅者互相冲突的反馈。正确的应对是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Get the two reviewers to state the standard each is applying.",
+          "correct": true,
+          "explain": "正解。期待が揃わないまま直すと、行き来するだけになる。",
+          "textZh": "让两位审阅者各自说明所依据的标准。"
+        },
+        {
+          "text": "Follow whichever feedback arrived first.",
+          "correct": false,
+          "explain": "不適。順序は正しさと無関係である。",
+          "textZh": "按先到的那份反馈来。"
+        },
+        {
+          "text": "Apply both and let them cancel out.",
+          "correct": false,
+          "explain": "不適。一貫しない成果物が出来る。",
+          "textZh": "两份都照做，让它们互相抵消。"
+        },
+        {
+          "text": "Ignore both until they agree.",
+          "correct": false,
+          "explain": "不適。前に進まず、対立も解けない。",
+          "textZh": "在他们达成一致之前两份都不理。"
+        }
+      ],
+      "objective": "Adjust approach based on feedback and results",
+      "commentaryZh": "考点是**冲突的反馈说明期待没有对齐**。分别照做会来回摇摆，应当先让两边把各自的标准讲清楚。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-076",
+      "domain": "D7",
+      "type": "multi",
+      "stem": "Which TWO should be ruled out before concluding that a model change caused a drop in quality? (Select 2)",
+      "stemZh": "在断定质量下降是由模型更换造成之前，应该先排除哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Whether the instructions changed at the same time.",
+          "correct": true,
+          "explain": "正解。同時期の変更は原因を取り違えさせる。",
+          "textZh": "指示是不是同时也变了。"
+        },
+        {
+          "text": "Whether the inputs have changed in character.",
+          "correct": true,
+          "explain": "正解。入力が変われば出力も変わる。",
+          "textZh": "输入的性质是不是发生了变化。"
+        },
+        {
+          "text": "Whether the output is longer than before.",
+          "correct": false,
+          "explain": "不適。長さは品質低下の原因ではない。",
+          "textZh": "输出是不是比以前更长了。"
+        },
+        {
+          "text": "Whether more people are using the workflow.",
+          "correct": false,
+          "explain": "不適。利用者数は品質の原因にならない。",
+          "textZh": "是不是有更多人在用这个流程。"
+        }
+      ],
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "commentaryZh": "考点是**同一时期往往有多处改动**。指示和输入是否也变了，要先排除，否则会把原因安错地方。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-077",
+      "domain": "D7",
+      "type": "mcq",
+      "stem": "What is the right first measurement when a workflow is suspected to be inefficient?",
+      "stemZh": "当怀疑一个流程效率不高时，第一项应该测量什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "How the total time is distributed across the steps.",
+          "correct": true,
+          "explain": "正解。印象は最も煩わしい所を指し、最も長い所を指さない。",
+          "textZh": "总时间在各个步骤之间是怎么分布的。"
+        },
+        {
+          "text": "How many people are involved.",
+          "correct": false,
+          "explain": "不適。人数は時間の配分を示さない。",
+          "textZh": "有多少人参与。"
+        },
+        {
+          "text": "How long the whole workflow takes in total.",
+          "correct": false,
+          "explain": "不適。合計だけでは手の付け所が分からない。",
+          "textZh": "整个流程总共耗时多久。"
+        },
+        {
+          "text": "How often the workflow is run.",
+          "correct": false,
+          "explain": "不適。頻度は改善の優先度には効くが、最初の測定ではない。",
+          "textZh": "这个流程运行得有多频繁。"
+        }
+      ],
+      "objective": "Optimize workflows for efficiency and effectiveness",
+      "commentaryZh": "考点是**先测现状的分布**。哪一步占了多少时间，不测就只能凭印象；印象往往指向最烦人的一步，而不是最耗时的一步。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-078",
+      "domain": "D7",
+      "type": "mcq",
+      "stem": "A change was made and the metric improved, but the metric was chosen after the change. What is the problem?",
+      "stemZh": "做了一项改动后，某项指标改善了，但这项指标是在改动之后才选定的。问题在哪里？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Choosing the metric afterwards means selecting one that already improved.",
+          "correct": true,
+          "explain": "正解。測る対象を先に決めないと、成果は作れてしまう。",
+          "textZh": "事后选指标，等于挑了一个本来就变好的。"
+        },
+        {
+          "text": "Metrics should never be used to judge changes.",
+          "correct": false,
+          "explain": "不適。言い過ぎで、指標自体は有用である。",
+          "textZh": "永远不该用指标来评判改动。"
+        },
+        {
+          "text": "The change was probably too small to matter.",
+          "correct": false,
+          "explain": "不適。規模の話は示されていない。",
+          "textZh": "这项改动大概太小，无关紧要。"
+        },
+        {
+          "text": "The metric should be measured more often.",
+          "correct": false,
+          "explain": "不適。頻度では選択の偏りは解消しない。",
+          "textZh": "这项指标应该测得更频繁一些。"
+        }
+      ],
+      "objective": "Adjust approach based on feedback and results",
+      "commentaryZh": "考点是**事后选指标等于挑一个已经变好的来汇报**。改动之前就该定好衡量的东西，否则「改善」只是选择的结果。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-079",
+      "domain": "D7",
+      "type": "multi",
+      "stem": "Which TWO are worth recording when a problem is finally resolved? (Select 2)",
+      "stemZh": "当一个问题最终被解决时，哪两项值得记录下来？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What the cause turned out to be.",
+          "correct": true,
+          "explain": "正解。同じ症状が出たときの出発点になる。",
+          "textZh": "最终查明的原因是什么。"
+        },
+        {
+          "text": "Which explanations were ruled out and why.",
+          "correct": true,
+          "explain": "正解。同じ道を二度たどらずに済む。",
+          "textZh": "排除了哪些可能、为什么排除。"
+        },
+        {
+          "text": "How frustrated the associate felt.",
+          "correct": false,
+          "explain": "不適。次の診断には使えない。",
+          "textZh": "使用者当时有多沮丧。"
+        },
+        {
+          "text": "How many days the problem lasted.",
+          "correct": false,
+          "explain": "不適。期間は原因の特定に役立たない。",
+          "textZh": "问题持续了多少天。"
+        }
+      ],
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "commentaryZh": "考点是**记录要让下一次更快**。真正的原因和排除掉的可能，这两样能让后来遇到同样症状的人少走弯路。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-080",
+      "domain": "D7",
+      "type": "scenario",
+      "stem": "A workflow is efficient but nobody trusts its output enough to use it without checking everything. What does this mean for the efficiency claim?",
+      "stemZh": "一个流程很高效，但没有人足够信任它的输出，用之前都要全面检查。这对「高效」这个说法意味着什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The saving is cancelled by the checking, so it is not efficient in practice.",
+          "correct": true,
+          "explain": "正解。使える状態になるまでを数えなければ意味が無い。",
+          "textZh": "节省被检查抵消了，所以实际上并不高效。"
+        },
+        {
+          "text": "Efficiency and trust are unrelated concerns.",
+          "correct": false,
+          "explain": "不適。検査の手間は効率に直接効く。",
+          "textZh": "效率和信任是两个不相关的问题。"
+        },
+        {
+          "text": "The checking should simply be stopped.",
+          "correct": false,
+          "explain": "不適。信頼できない出力をそのまま使うことになる。",
+          "textZh": "干脆停止检查就行了。"
+        },
+        {
+          "text": "The workflow should be run twice for confidence.",
+          "correct": false,
+          "explain": "不適。手間が倍になり、信頼は増えない。",
+          "textZh": "为了有信心，把流程跑两遍。"
+        }
+      ],
+      "objective": "Optimize workflows for efficiency and effectiveness",
+      "commentaryZh": "考点是**必须全面复查就抵消了节省**。效率要算到可用为止，只算产出那一段是不完整的。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
     }
   ]
 }

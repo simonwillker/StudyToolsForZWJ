@@ -2382,6 +2382,766 @@
       "commentaryZh": "考点是**所有维护机制的前提是「有人负责」**。文档写得再全、规则定得再细，如果没有一个具名的人在固定的时间去看一眼，几年之后它必然会和现实脱节。这也是整个 D5 的落脚点。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d5-061",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A Project's knowledge contains two documents that contradict each other. What is the effect?",
+      "stemZh": "某个 Project 的知识源里有两份互相矛盾的文档。会有什么后果？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Answers become unstable, depending on which document is drawn on.",
+          "correct": true,
+          "explain": "正解。同じ問いでも、聞き方によって答えが変わりうる。",
+          "textZh": "答案会变得不稳定，取决于用到了哪一份文档。"
+        },
+        {
+          "text": "Both documents will be ignored automatically.",
+          "correct": false,
+          "explain": "不適。そのような仕組みは無い。",
+          "textZh": "两份文档都会被自动忽略。"
+        },
+        {
+          "text": "The newer document always takes precedence.",
+          "correct": false,
+          "explain": "不適。日付で自動的に決まるわけではない。",
+          "textZh": "较新的那份总是优先。"
+        },
+        {
+          "text": "The Project will refuse to answer.",
+          "correct": false,
+          "explain": "不適。矛盾があっても回答自体は返ってくる。",
+          "textZh": "这个 Project 会拒绝回答。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**矛盾的知识源会产生不稳定的答案**。两份都在里面，取哪一份取决于问法，同一个问题换个说法就可能得到相反的答案。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-062",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO make a system-level instruction hold up over time? (Select 2)",
+      "stemZh": "哪两项能让系统级指示经得起时间考验？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "It states rules in terms that can be checked against the output.",
+          "correct": true,
+          "explain": "正解。判定できない指示は守られたか分からない。",
+          "textZh": "它用可以对照输出来检验的方式陈述规则。"
+        },
+        {
+          "text": "It avoids depending on facts that change without notice.",
+          "correct": true,
+          "explain": "正解。変わるものに紐づけると、黙って壊れる。",
+          "textZh": "它避免依赖会在无通知的情况下变化的事实。"
+        },
+        {
+          "text": "It is written as a single long sentence.",
+          "correct": false,
+          "explain": "不適。読みにくくなるだけである。",
+          "textZh": "它写成一个长句。"
+        },
+        {
+          "text": "It repeats the most important rule three times.",
+          "correct": false,
+          "explain": "不適。繰り返しても守られやすくはならない。",
+          "textZh": "把最重要的规则重复三遍。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**指示要写得可判断、并且不依赖会变的东西**。写「按公司口径」会随口径改变而失效，写清楚具体规则才稳定。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-063",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An associate connects a mailbox so Claude can reference past correspondence. What should be considered first?",
+      "stemZh": "使用者接入了一个邮箱，好让 Claude 能参考过往往来邮件。首先应该考虑什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the mailbox contains other people's information that may not be used this way.",
+          "correct": true,
+          "explain": "正解。自分宛の受信物でも、中身は相手のものである。",
+          "textZh": "邮箱里是否含有他人的信息，而这些信息可能不允许被这样使用。"
+        },
+        {
+          "text": "Whether the mailbox has more than 1000 messages.",
+          "correct": false,
+          "explain": "不適。件数は判断の軸ではない。",
+          "textZh": "邮箱里是否超过1000封邮件。"
+        },
+        {
+          "text": "Whether the messages are sorted by date.",
+          "correct": false,
+          "explain": "不適。並び順は関係が無い。",
+          "textZh": "邮件是否按日期排序。"
+        },
+        {
+          "text": "Whether the mailbox uses a custom domain.",
+          "correct": false,
+          "explain": "不適。ドメインの種類は関係が無い。",
+          "textZh": "邮箱是否使用自定义域名。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**邮箱里的内容不全是自己的**。里面有第三方发来的信息，接入之前要确认这些内容能否被这样使用。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-064",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A Project serves two teams whose rules differ on one point. What is the cleanest arrangement?",
+      "stemZh": "一个 Project 服务两个团队，两边的规则在某一点上不同。最干净的安排是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Separate Projects, since one set of instructions cannot hold both rules.",
+          "correct": true,
+          "explain": "正解。矛盾する規則を1つの指示には入れられない。",
+          "textZh": "分成两个 Project，因为一套指示无法同时容纳两条规则。"
+        },
+        {
+          "text": "One Project with both rules listed.",
+          "correct": false,
+          "explain": "不適。どちらが適用されるか定まらない。",
+          "textZh": "一个 Project，把两条规则都列出来。"
+        },
+        {
+          "text": "One Project using whichever rule is stricter.",
+          "correct": false,
+          "explain": "不適。片方の team にとっては誤った運用になる。",
+          "textZh": "一个 Project，采用更严格的那条规则。"
+        },
+        {
+          "text": "One Project with the rule omitted entirely.",
+          "correct": false,
+          "explain": "不適。両方とも守られなくなる。",
+          "textZh": "一个 Project，把这条规则完全略去。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**一个 Project 只能有一套指示**。把冲突的那一点塞进同一套指示，结果会随机偏向一边。规则真正不同就该分开。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-065",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO should trigger a review of a Project's instructions? (Select 2)",
+      "stemZh": "哪两种情况应该触发对 Project 指示的复查？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A policy the instructions rely on has changed.",
+          "correct": true,
+          "explain": "正解。前提が変われば指示も合わなくなる。",
+          "textZh": "指示所依据的某项政策发生了变化。"
+        },
+        {
+          "text": "Users keep adding the same correction in every conversation.",
+          "correct": true,
+          "explain": "正解。毎回補うなら、指示に入れるべき内容である。",
+          "textZh": "使用者每次对话都要补同一句更正。"
+        },
+        {
+          "text": "The Project has existed for six months.",
+          "correct": false,
+          "explain": "不適。期間だけでは見直しの理由にならない。",
+          "textZh": "这个 Project 已经存在六个月了。"
+        },
+        {
+          "text": "The Project has more than ten documents.",
+          "correct": false,
+          "explain": "不適。件数は指示の適否と別。",
+          "textZh": "这个 Project 里有超过十份文档。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**指示的前提变了就要复查**。所依据的政策改了、或者使用者反复需要在对话里补同一句话，都说明现有指示已经不够。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-066",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A knowledge document is replaced by a newer version. What must also be done?",
+      "stemZh": "某份知识文档被替换成了新版本。还必须做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Remove the old version, or answers may still draw on it.",
+          "correct": true,
+          "explain": "正解。両方あると、どちらが使われるか分からない。",
+          "textZh": "移除旧版本，否则回答仍可能引用它。"
+        },
+        {
+          "text": "Rename the new version to match the old one.",
+          "correct": false,
+          "explain": "不適。名前をそろえても中身は2つある。",
+          "textZh": "把新版本改名，和旧的保持一致。"
+        },
+        {
+          "text": "Re-upload the new version twice for reliability.",
+          "correct": false,
+          "explain": "不適。重複が増えるだけである。",
+          "textZh": "为了可靠，把新版本上传两遍。"
+        },
+        {
+          "text": "Nothing else is required.",
+          "correct": false,
+          "explain": "不適。旧版が残れば更新にならない。",
+          "textZh": "不需要做别的。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**旧版本留在里面等于没有更新**。两个版本同时存在时，回答可能引用旧的那一份。要把旧版移除。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-067",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An instruction says \"follow company policy\". Why is this weak?",
+      "stemZh": "一条指示写着「遵守公司政策」。为什么这样写很弱？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It points at a document that is not available, so nothing can act on it.",
+          "correct": true,
+          "explain": "正解。中身が無ければ、従いようも確かめようも無い。",
+          "textZh": "它指向一份并不在手边的文档，因此无从执行。"
+        },
+        {
+          "text": "Company policies change too often to reference.",
+          "correct": false,
+          "explain": "不適。頻度ではなく、参照先が無いことが問題。",
+          "textZh": "公司政策变化太频繁，不适合引用。"
+        },
+        {
+          "text": "The instruction is too short to be effective.",
+          "correct": false,
+          "explain": "不適。長さではなく、参照先が無いことが問題である。",
+          "textZh": "这条指示太短了，起不到作用。"
+        },
+        {
+          "text": "Policies should never be mentioned in instructions.",
+          "correct": false,
+          "explain": "不適。内容を添えれば有効である。",
+          "textZh": "指示里永远不该提到政策。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**指向一份没有放进来的文件等于没写**。政策的内容不在可用的范围里，这条指示就无法被执行，也无法被检验。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-068",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO make a Project usable by someone who joins the team later? (Select 2)",
+      "stemZh": "哪两项能让后来加入团队的人也用得上这个 Project？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A statement of what the Project is for and is not for.",
+          "correct": true,
+          "explain": "正解。範囲が分かれば誤用を防げる。",
+          "textZh": "写明这个 Project 用来做什么、不用来做什么。"
+        },
+        {
+          "text": "A note on why each knowledge source is included.",
+          "correct": true,
+          "explain": "正解。理由が分かれば、勝手に外されない。",
+          "textZh": "说明每份知识源为什么被收进来。"
+        },
+        {
+          "text": "The name of the person who created it.",
+          "correct": false,
+          "explain": "不適。運用の判断には使えない。",
+          "textZh": "创建者的姓名。"
+        },
+        {
+          "text": "The date the Project was created.",
+          "correct": false,
+          "explain": "不適。使い方の理解につながらない。",
+          "textZh": "Project 的创建日期。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**新人需要知道范围和依据**。这个 Project 是干什么的、知识源为什么是这几份，写清楚了才不会被误用或被随意改动。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-069",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A connector stops returning results and nothing in the Project has changed. What is the most likely cause?",
+      "stemZh": "某个连接器不再返回结果，而 Project 里什么都没改。最可能的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Access on the other side changed without notice.",
+          "correct": true,
+          "explain": "正解。権限は外側で動き、こちらには知らされない。",
+          "textZh": "另一侧的访问权限在无通知的情况下变了。"
+        },
+        {
+          "text": "The Project's instructions became too long.",
+          "correct": false,
+          "explain": "不適。指示の長さは接続に関係しない。",
+          "textZh": "Project 的指示变得太长了。"
+        },
+        {
+          "text": "Too many documents were uploaded.",
+          "correct": false,
+          "explain": "不適。文書の件数は接続できるかどうかとは別である。",
+          "textZh": "上传的文档太多了。"
+        },
+        {
+          "text": "The connector needs to be renamed.",
+          "correct": false,
+          "explain": "不適。名称を変えても接続の動作は変わらない。",
+          "textZh": "连接器需要改名。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**权限会在外部被改动**。共享设置、账号状态、组织结构的变化都会在无通知的情况下切断访问，这些都不在 Project 内部。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-070",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO should be recorded alongside a knowledge source? (Select 2)",
+      "stemZh": "在知识源旁边应该记录哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Where it came from.",
+          "correct": true,
+          "explain": "正解。出所が分からなければ更新もできない。",
+          "textZh": "它来自哪里。"
+        },
+        {
+          "text": "When it was last confirmed to be current.",
+          "correct": true,
+          "explain": "正解。鮮度が分かって初めて信頼度を判断できる。",
+          "textZh": "最后一次确认它仍然有效是什么时候。"
+        },
+        {
+          "text": "How many pages it has.",
+          "correct": false,
+          "explain": "不適。分量は鮮度や信頼性を示さない。",
+          "textZh": "它有多少页。"
+        },
+        {
+          "text": "Which file format it uses.",
+          "correct": false,
+          "explain": "不適。形式は判断に影響しない。",
+          "textZh": "它使用的文件格式。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**知识源也会过期**。记下它来自哪里、以及最后确认还有效的日期，后来的人才知道该不该继续信任它。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-071",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "Two instructions in the same configuration conflict. Which outcome should be expected?",
+      "stemZh": "同一份配置里有两条互相冲突的指示。应该预期什么结果？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Behaviour becomes unpredictable without any error being raised.",
+          "correct": true,
+          "explain": "正解。黙って片方が効くので、原因が分かりにくい。",
+          "textZh": "行为会变得难以预测，而且不会有任何报错。"
+        },
+        {
+          "text": "The configuration will be rejected as invalid.",
+          "correct": false,
+          "explain": "不適。そのような検査は行われない。",
+          "textZh": "这份配置会因为无效而被拒绝。"
+        },
+        {
+          "text": "The first instruction always wins.",
+          "correct": false,
+          "explain": "不適。順序で決まるとは限らない。",
+          "textZh": "第一条指示总是胜出。"
+        },
+        {
+          "text": "Both instructions will be ignored.",
+          "correct": false,
+          "explain": "不適。両方が無視されるわけではなく、片方が効く。",
+          "textZh": "两条指示都会被忽略。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**冲突不会被报错，会被悄悄解决**。输出看起来正常，但哪条生效取决于具体情况，结果难以预测也难以定位。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-072",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An associate wants a Project to produce output in a fixed structure every time. Where should the structure be defined?",
+      "stemZh": "使用者希望某个 Project 每次都产出固定结构的输出。这个结构应该定义在哪里？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In the Project's instructions, so every request inherits it.",
+          "correct": true,
+          "explain": "正解。1か所に置けば、書き漏らしが起きない。",
+          "textZh": "写在 Project 的指示里，让每次请求都继承它。"
+        },
+        {
+          "text": "In each individual request.",
+          "correct": false,
+          "explain": "不適。いつか書き漏らす。",
+          "textZh": "写在每一次请求里。"
+        },
+        {
+          "text": "In one of the knowledge documents.",
+          "correct": false,
+          "explain": "不適。知識は参照であって指示ではない。",
+          "textZh": "写在某一份知识文档里。"
+        },
+        {
+          "text": "In the Project's title.",
+          "correct": false,
+          "explain": "不適。標題は指示としては働かず、構造を強制しない。",
+          "textZh": "写在 Project 的标题里。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**每次都一样的东西放进 Project 的指示里**。写在每次的请求里，迟早有一次会漏掉或写得不一样。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-073",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO risks come from leaving obsolete documents in a Project's knowledge? (Select 2)",
+      "stemZh": "在 Project 的知识源里留下过时文档会带来哪两项风险？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Outdated content may be cited as if it were current.",
+          "correct": true,
+          "explain": "正解。古いことは文面からは分からない。",
+          "textZh": "过时的内容可能被当作现行依据引用。"
+        },
+        {
+          "text": "Answers may vary depending on which document is used.",
+          "correct": true,
+          "explain": "正解。並存すると回答が揺れる。",
+          "textZh": "答案可能因为用到哪一份文档而不同。"
+        },
+        {
+          "text": "The Project will become slower to open.",
+          "correct": false,
+          "explain": "不適。速度は主な危険ではない。",
+          "textZh": "Project 打开会变慢。"
+        },
+        {
+          "text": "Uploads will eventually be blocked.",
+          "correct": false,
+          "explain": "不適。そのような制限は述べられていない。",
+          "textZh": "上传最终会被阻止。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**过时的内容看不出过时**。它会被当作现行依据引用，而且和新文件并存时，答案会在两者之间摇摆。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-074",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "How should an instruction handle a case the author cannot anticipate?",
+      "stemZh": "对于作者无法预料的情况，指示应该如何处理？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tell it to stop and say so when the case falls outside what is covered.",
+          "correct": true,
+          "explain": "正解。想定外を黙って処理されるほうが危ない。",
+          "textZh": "指示它在情况超出覆盖范围时停下来并说明。"
+        },
+        {
+          "text": "Add a rule for every case that might arise.",
+          "correct": false,
+          "explain": "不適。予見できない前提と矛盾する。",
+          "textZh": "为每一种可能出现的情况都加一条规则。"
+        },
+        {
+          "text": "Leave the instruction silent on the matter.",
+          "correct": false,
+          "explain": "不適。勝手な扱いを許すことになる。",
+          "textZh": "对这类情况不作任何说明。"
+        },
+        {
+          "text": "Instruct it to choose the most common option.",
+          "correct": false,
+          "explain": "不適。未知の場面で当てはまる保証が無い。",
+          "textZh": "指示它选择最常见的那个选项。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**写明遇到未知该怎么办**。既不能假装所有情况都已经覆盖，也不能什么都不说；应当指示在超出范围时停下来并说明。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-075",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A configuration has not been changed in a year and nobody has complained. What does this establish?",
+      "stemZh": "一份配置一年没改过，也没有人抱怨。这能说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Nothing on its own; users may be working around it silently.",
+          "correct": true,
+          "explain": "正解。苦情の不在は適合の証拠にならない。",
+          "textZh": "单凭这一点什么也说明不了，使用者可能在默默绕开它。"
+        },
+        {
+          "text": "That the configuration is still correct.",
+          "correct": false,
+          "explain": "不適。確かめずに結論できない。",
+          "textZh": "说明这份配置仍然是正确的。"
+        },
+        {
+          "text": "That no review is needed for another year.",
+          "correct": false,
+          "explain": "不適。根拠の無い先送りである。",
+          "textZh": "说明再过一年也不需要复查。"
+        },
+        {
+          "text": "That the configuration is no longer used.",
+          "correct": false,
+          "explain": "不適。使用状況は示されていない。",
+          "textZh": "说明这份配置已经没人用了。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**没有抱怨不等于还合用**。可能是使用者已经习惯了在对话里绕开它，也可能是没人注意到偏差。要主动确认，不能以沉默为证。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-076",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO belong in a Project's knowledge rather than in its instructions? (Select 2)",
+      "stemZh": "哪两项应该放进 Project 的知识源，而不是指示里？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A reference table the answers need to look values up in.",
+          "correct": true,
+          "explain": "正解。参照する材料は知識側に置く。",
+          "textZh": "回答时需要查阅数值的参考表。"
+        },
+        {
+          "text": "A long standards document that must be quoted from.",
+          "correct": true,
+          "explain": "正解。引用が要る資料は知識側が適切。",
+          "textZh": "需要从中引用内容的长篇标准文件。"
+        },
+        {
+          "text": "A rule that outputs must never exceed one page.",
+          "correct": false,
+          "explain": "不適。短い行動の制約は指示に書く。",
+          "textZh": "输出不得超过一页的规则。"
+        },
+        {
+          "text": "A requirement to always use formal language.",
+          "correct": false,
+          "explain": "不適。これも指示に属する。",
+          "textZh": "始终使用正式语体的要求。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**指示写规则，知识放要查的材料**。篇幅长、需要引用具体内容的资料属于知识源；简短的行为约束属于指示。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-077",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "An associate reports that a Project \"stopped following its instructions\". What should be checked first?",
+      "stemZh": "使用者报告某个 Project「不再遵守它的指示了」。首先应该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the instructions are still present and unchanged.",
+          "correct": true,
+          "explain": "正解。記憶と実際の設定は食い違うことがある。",
+          "textZh": "指示是否仍然存在、有没有被改动。"
+        },
+        {
+          "text": "Whether the model has been updated recently.",
+          "correct": false,
+          "explain": "不適。まず設定の実在を確かめる。",
+          "textZh": "模型最近有没有更新。"
+        },
+        {
+          "text": "Whether the associate is using the right browser.",
+          "correct": false,
+          "explain": "不適。設定の内容と関係が無い。",
+          "textZh": "使用者用的浏览器对不对。"
+        },
+        {
+          "text": "Whether other Projects have the same issue.",
+          "correct": false,
+          "explain": "不適。まず当該の設定を見る。",
+          "textZh": "其他 Project 有没有同样的问题。"
+        }
+      ],
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "commentaryZh": "考点是**先确认指示本身是否还在、是否被改过**。人会记得自己写过，但实际可能被别人改掉或者一开始就没保存。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-078",
+      "domain": "D5",
+      "type": "mcq",
+      "stem": "What is the safest way to change an instruction that many people depend on?",
+      "stemZh": "要修改一条很多人都依赖的指示，最稳妥的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Record the original wording and the reason, so it can be restored exactly.",
+          "correct": true,
+          "explain": "正解。記憶で書き戻すと、元とは違うものになる。",
+          "textZh": "记下原始措辞和修改原因，以便能够准确恢复。"
+        },
+        {
+          "text": "Change it and tell people afterwards.",
+          "correct": false,
+          "explain": "不適。戻せる備えが無い。",
+          "textZh": "改完之后再通知大家。"
+        },
+        {
+          "text": "Change it on a Friday so there is time to observe.",
+          "correct": false,
+          "explain": "不適。曜日は備えの代わりにならない。",
+          "textZh": "挑周五改，好有时间观察。"
+        },
+        {
+          "text": "Ask each person to confirm before changing.",
+          "correct": false,
+          "explain": "不適。丁寧だが、復元の備えにはならない。",
+          "textZh": "改之前让每个人都确认一遍。"
+        }
+      ],
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "commentaryZh": "考点是**改之前留下可以回退的依据**。记下原文和修改的理由，万一影响不如预期，可以准确地恢复，而不是凭记忆重写。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-079",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "Which TWO signs suggest an instruction set has grown too large to work? (Select 2)",
+      "stemZh": "哪两个迹象说明一套指示已经大到不起作用了？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "No one can state what all of it requires.",
+          "correct": true,
+          "explain": "正解。把握できない規則は守られたか確かめられない。",
+          "textZh": "没有人能说清它全部要求了什么。"
+        },
+        {
+          "text": "Adding a rule changes behaviour in unrelated areas.",
+          "correct": true,
+          "explain": "正解。干渉が起きている証拠である。",
+          "textZh": "新增一条规则会改变不相关部分的行为。"
+        },
+        {
+          "text": "It covers more than one type of task.",
+          "correct": false,
+          "explain": "不適。複数の課題を扱うこと自体は問題ない。",
+          "textZh": "它涵盖了不止一类任务。"
+        },
+        {
+          "text": "It was written by more than one person.",
+          "correct": false,
+          "explain": "不適。人数は規模の問題と別。",
+          "textZh": "它是由不止一个人写的。"
+        }
+      ],
+      "objective": "Create effective system-level instructions",
+      "commentaryZh": "考点是**指示过大时，冲突和失效都会出现但不报错**。没人能说清全部内容、以及新加的规则改变了不相关的行为，都是这个征兆。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d5-080",
+      "domain": "D5",
+      "type": "scenario",
+      "stem": "A knowledge source contains information that only some team members are allowed to see. What follows?",
+      "stemZh": "某份知识源里含有只有部分团队成员才有权查看的信息。由此可得出什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It must not be added to a configuration shared with everyone on the team.",
+          "correct": true,
+          "explain": "正解。元の権限は自動では引き継がれない。",
+          "textZh": "它不能被加进团队所有人共用的配置里。"
+        },
+        {
+          "text": "It can be added if the sensitive parts are near the end.",
+          "correct": false,
+          "explain": "不適。記述の位置を変えても閲覧できる範囲は変わらない。",
+          "textZh": "如果敏感部分靠后，就可以加进去。"
+        },
+        {
+          "text": "It can be added as long as nobody asks about it.",
+          "correct": false,
+          "explain": "不適。偶然に依存する運用である。",
+          "textZh": "只要没有人问起就可以加进去。"
+        },
+        {
+          "text": "It can be added if the file is renamed.",
+          "correct": false,
+          "explain": "不適。名称は中身の機微性を変えない。",
+          "textZh": "只要文件改个名就可以加进去。"
+        }
+      ],
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "commentaryZh": "考点是**放进共享配置就等于对所有使用者开放**。访问范围不会因为原文件的权限而自动继承，必须在放进去之前处理。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
     }
   ]
 }

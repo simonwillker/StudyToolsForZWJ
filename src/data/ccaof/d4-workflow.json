@@ -2382,6 +2382,766 @@
       "commentaryZh": "考点是**没被使用的环节要看「替代做法」**。人们绕开一个步骤时，一定在做别的事来达到同样的目的。那个变通办法里包含了设计者没考虑到的现实约束——它比任何调研都更直接地告诉你问题在哪。",
       "reference": "https://claude.com/product/overview",
       "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d4-061",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A manual step is removed from a workflow and replaced by Claude. What must be added in its place?",
+      "stemZh": "流程里的一个人工步骤被移除，改由 Claude 完成。必须补上什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An explicit check, since the manual step was also catching errors.",
+          "correct": true,
+          "explain": "正解。人が見ていた分の検査が、黙って消えている。",
+          "textZh": "一个明确的检查环节，因为那个人工步骤同时也在拦截错误。"
+        },
+        {
+          "text": "A record of how long the old step took.",
+          "correct": false,
+          "explain": "不適。所要時間の記録は検査の代わりにならない。",
+          "textZh": "记录旧步骤花了多长时间。"
+        },
+        {
+          "text": "A second Claude request to confirm the first.",
+          "correct": false,
+          "explain": "不適。同じ出力源では独立した検査にならない。",
+          "textZh": "再发一次请求来确认第一次的结果。"
+        },
+        {
+          "text": "Nothing, since the step is no longer needed.",
+          "correct": false,
+          "explain": "不適。作業は不要でも検査は必要である。",
+          "textZh": "什么都不用补，因为那一步已经不需要了。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**人工步骤同时在做检查**。把它拿掉时，原本顺带完成的核对也消失了，必须显式地补一个检查点回去。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-062",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO belong in an honest description of a workflow's limitations to stakeholders? (Select 2)",
+      "stemZh": "向相关方如实说明某个流程的局限时，应该包含哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The conditions under which the workflow should not be used.",
+          "correct": true,
+          "explain": "正解。使ってはいけない場面が分かれば、判断できる。",
+          "textZh": "在什么条件下不应该使用这个流程。"
+        },
+        {
+          "text": "How errors would be noticed if they occurred.",
+          "correct": true,
+          "explain": "正解。発見の手立てが分かって初めて任せられる。",
+          "textZh": "如果出错，要怎么才能发现。"
+        },
+        {
+          "text": "A statement that no system is perfect.",
+          "correct": false,
+          "explain": "不適。情報量が無く、判断の助けにならない。",
+          "textZh": "一句「没有系统是完美的」。"
+        },
+        {
+          "text": "The number of requests the workflow makes.",
+          "correct": false,
+          "explain": "不適。内部の実装は相手の判断に関係しない。",
+          "textZh": "这个流程发出多少次请求。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**局限要说得可操作**。要讲清楚在什么情况下不该用它、以及出错时怎么发现，这样对方才知道该怎么用。只说「不完美」没有信息量。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-063",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "Stakeholders describe what they want in terms of a solution they have already chosen. What should be done first?",
+      "stemZh": "相关方是用他们已经选定的方案来描述需求的。首先应该做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Work back to the outcome they are trying to achieve.",
+          "correct": true,
+          "explain": "正解。手段のまま作ると、別の問題を解いてしまう。",
+          "textZh": "倒推出他们真正想达成的结果。"
+        },
+        {
+          "text": "Implement the solution they described.",
+          "correct": false,
+          "explain": "不適。要件の確認を飛ばしている。",
+          "textZh": "照他们描述的方案去实现。"
+        },
+        {
+          "text": "Propose a different solution immediately.",
+          "correct": false,
+          "explain": "不適。何を達成したいかがまだ分からない。",
+          "textZh": "立刻提出一个不同的方案。"
+        },
+        {
+          "text": "Ask for the budget before anything else.",
+          "correct": false,
+          "explain": "不適。要件の把握が先である。",
+          "textZh": "先问预算。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**先把需求从方案里拆出来**。直接照着实现，可能做出一个解决了错误问题的东西。要问清楚他们想达成什么。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-064",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A new workflow works well in a pilot with three people but fails when rolled out to sixty. What is the most likely cause?",
+      "stemZh": "一个新流程在三个人的试点里运作良好，推广到六十人时失败了。最可能的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The pilot group supplied knowledge that was never written into the workflow.",
+          "correct": true,
+          "explain": "正解。暗黙の補いが、規模が広がると効かなくなる。",
+          "textZh": "试点的人补上了从未写进流程的知识。"
+        },
+        {
+          "text": "Sixty people is simply too many for any workflow.",
+          "correct": false,
+          "explain": "不適。人数そのものが原因とは限らない。",
+          "textZh": "六十个人对任何流程来说都太多了。"
+        },
+        {
+          "text": "The pilot ran for too short a time.",
+          "correct": false,
+          "explain": "不適。期間の話は示されていない。",
+          "textZh": "试点运行的时间太短了。"
+        },
+        {
+          "text": "A different model should have been used.",
+          "correct": false,
+          "explain": "不適。模型の選択が原因だと示す材料が無い。",
+          "textZh": "应该用另一个模型。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**试点的人补了没写下来的东西**。三个人知道怎么处理例外，六十个人不知道。差别不在人数本身，而在于隐性知识没有被写进流程。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-065",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO should be decided before building a workflow rather than after? (Select 2)",
+      "stemZh": "哪两项应该在搭建流程之前就定下来，而不是之后？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What a good result looks like.",
+          "correct": true,
+          "explain": "正解。後から決めると、出来たものに合わせた基準になる。",
+          "textZh": "什么样算是好的结果。"
+        },
+        {
+          "text": "What happens when the workflow produces something wrong.",
+          "correct": true,
+          "explain": "正解。起きてから考えると、その場しのぎになる。",
+          "textZh": "当流程产出错误结果时怎么处理。"
+        },
+        {
+          "text": "Which colour scheme the output uses.",
+          "correct": false,
+          "explain": "不適。体裁は後から決められる。",
+          "textZh": "输出使用什么配色。"
+        },
+        {
+          "text": "How the workflow will be named.",
+          "correct": false,
+          "explain": "不適。名称は判断に影響しない。",
+          "textZh": "这个流程叫什么名字。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**成功的定义和失败的处置要先定**。事后再定，会变成按已经做出来的东西反推标准，失去了判断的意义。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-066",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A stakeholder asks whether the workflow will \"always\" be accurate. What is the right answer?",
+      "stemZh": "一位相关方问这个流程是不是「总是」准确。正确的回答是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Describe the range where it is reliable and how errors surface.",
+          "correct": true,
+          "explain": "正解。範囲と検知の仕方を示すのが誠実で、しかも使える答えになる。",
+          "textZh": "说明它在什么范围内可靠，以及错误会怎样暴露出来。"
+        },
+        {
+          "text": "Yes, provided the prompts are written well.",
+          "correct": false,
+          "explain": "不適。条件付きでも絶対の約束は守れない。",
+          "textZh": "会的，只要提示词写得好。"
+        },
+        {
+          "text": "No, so it should not be relied on at all.",
+          "correct": false,
+          "explain": "不適。使える範囲まで否定している。",
+          "textZh": "不会，所以完全不该依赖它。"
+        },
+        {
+          "text": "It depends on the model, so the question cannot be answered.",
+          "correct": false,
+          "explain": "不適。答えを避けているだけである。",
+          "textZh": "这取决于模型，所以无法回答。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**不要用绝对的承诺换取信任**。要说明在什么范围内可靠、错了怎么被发现，这样的回答既诚实又可用。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-067",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "An associate must optimise a process that nobody has documented. What is the necessary first step?",
+      "stemZh": "使用者要优化一个从来没有人记录过的流程。必须先做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Write down how the process actually runs today.",
+          "correct": true,
+          "explain": "正解。現状が無ければ、改善か改悪かを判断できない。",
+          "textZh": "先把这个流程目前实际是怎么跑的写下来。"
+        },
+        {
+          "text": "Design the ideal process from scratch.",
+          "correct": false,
+          "explain": "不適。今の制約を知らずに作ることになる。",
+          "textZh": "从零设计一个理想流程。"
+        },
+        {
+          "text": "Measure how long the process takes.",
+          "correct": false,
+          "explain": "不適。何を測っているかが定まっていない。",
+          "textZh": "测量这个流程耗时多久。"
+        },
+        {
+          "text": "Ask stakeholders what they dislike about it.",
+          "correct": false,
+          "explain": "不適。有用だが、現状の把握が先である。",
+          "textZh": "问相关方他们不喜欢它哪里。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**先写下现在实际是怎么做的**。没有现状，任何改动都无法判断是改善还是破坏，也无法回退。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-068",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO indicate that a workflow was integrated badly, even though its outputs are correct? (Select 2)",
+      "stemZh": "哪两项说明某个流程集成得不好，即使它的产出是正确的？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "People must reformat the output before the next step accepts it.",
+          "correct": true,
+          "explain": "正解。手作業が残っているなら、つながっていない。",
+          "textZh": "人必须先转换格式，下一步才肯接受输出。"
+        },
+        {
+          "text": "Nobody knows who to contact when it produces something odd.",
+          "correct": true,
+          "explain": "正解。責任の所在が無い仕組みは運用できない。",
+          "textZh": "出了奇怪的结果时，没有人知道该找谁。"
+        },
+        {
+          "text": "The workflow uses more than one request.",
+          "correct": false,
+          "explain": "不適。回数は統合の良し悪しと別。",
+          "textZh": "这个流程用了不止一次请求。"
+        },
+        {
+          "text": "The output is longer than the old manual version.",
+          "correct": false,
+          "explain": "不適。長さは統合の質を示さない。",
+          "textZh": "输出比旧的人工版本更长。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**产出正确不代表接得好**。如果使用者还要自己转格式、或者没人知道出问题时找谁，那这个流程只是被塞进来，并没有真正接上。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-069",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A design has been iterated five times and each version fixes the previous version's problem while creating a new one. What does this suggest?",
+      "stemZh": "一个设计迭代了五次，每一版都修好了上一版的问题，同时又制造了一个新问题。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Two requirements conflict and the trade-off has not been decided.",
+          "correct": true,
+          "explain": "正解。決めていない対立が、設計の上で揺れ続けている。",
+          "textZh": "有两条要求互相冲突，而取舍还没有定下来。"
+        },
+        {
+          "text": "The design should be iterated more times.",
+          "correct": false,
+          "explain": "不適。同じ揺れが続くだけである。",
+          "textZh": "应该再多迭代几次。"
+        },
+        {
+          "text": "The requirements were all met successfully.",
+          "correct": false,
+          "explain": "不適。毎回新しい問題が出ている。",
+          "textZh": "所有要求都已经成功满足。"
+        },
+        {
+          "text": "A different person should do the next iteration.",
+          "correct": false,
+          "explain": "不適。担当者の問題だと示す材料が無い。",
+          "textZh": "下一轮应该换个人来做。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**互相冲突的要求没有被摆上台面**。在同一个设计里来回摆动，通常意味着有两条要求无法同时满足，必须先取舍。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-070",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO make a use case unsuitable for automation even if Claude handles it well? (Select 2)",
+      "stemZh": "哪两项使得某个用例不适合自动化，即使 Claude 处理得很好？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A rule requires a named person to be accountable for each decision.",
+          "correct": true,
+          "explain": "正解。責任の所在を自動化で満たすことはできない。",
+          "textZh": "规定要求每个决定都有具体的人负责。"
+        },
+        {
+          "text": "Almost every case is an exception needing judgement.",
+          "correct": true,
+          "explain": "正解。例外だらけなら、自動化しても人が毎回見ることになる。",
+          "textZh": "几乎每一件都是需要判断的例外。"
+        },
+        {
+          "text": "The task is performed only twice a month.",
+          "correct": false,
+          "explain": "不適。頻度が低くても自動化してよい場合はある。",
+          "textZh": "这个任务每月只做两次。"
+        },
+        {
+          "text": "The output is longer than one page.",
+          "correct": false,
+          "explain": "不適。長さは適否の基準にならない。",
+          "textZh": "输出超过一页。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**处理得好不等于该自动化**。法规要求有人负责、或者例外多到每次都要判断，这两种情况下，自动化省不下什么，反而把责任变得模糊。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-071",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "How should the value of a workflow be presented to a stakeholder who is sceptical?",
+      "stemZh": "面对持怀疑态度的相关方，应该怎样呈现一个流程的价值？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "With a before-and-after comparison they can verify themselves.",
+          "correct": true,
+          "explain": "正解。確かめられる数字は、形容詞より強い。",
+          "textZh": "用他们自己能够核实的前后对比。"
+        },
+        {
+          "text": "With a list of the technical features used.",
+          "correct": false,
+          "explain": "不適。相手の関心とずれている。",
+          "textZh": "列出所用到的技术特性。"
+        },
+        {
+          "text": "With an estimate of the best possible outcome.",
+          "correct": false,
+          "explain": "不適。懐疑を深める方向に働く。",
+          "textZh": "给出最理想情况下的预期效果。"
+        },
+        {
+          "text": "By explaining how the underlying model works.",
+          "correct": false,
+          "explain": "不適。仕組みの説明は価値の証明にならない。",
+          "textZh": "解释底层模型是怎么工作的。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**用对方能验证的量来说**。给出可以自己核对的前后对比，比形容词有说服力；夸大的承诺只会加深怀疑。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-072",
+      "domain": "D4",
+      "type": "mcq",
+      "stem": "A planning output lists ten actions but no order and no owners. What is missing that matters most?",
+      "stemZh": "一份规划输出列了十项行动，但没有先后顺序也没有负责人。最关键缺的是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whatever makes it actionable: who does what, and in what order.",
+          "correct": true,
+          "explain": "正解。担当と順序が無ければ、誰も動けない。",
+          "textZh": "让它可执行的东西：谁做什么、按什么顺序。"
+        },
+        {
+          "text": "A tenth action to make the list even.",
+          "correct": false,
+          "explain": "不適。数を揃えても実行できない。",
+          "textZh": "再加第十一项让列表更齐整。"
+        },
+        {
+          "text": "A shorter version of the same list.",
+          "correct": false,
+          "explain": "不適。短くしても実行可能にはならない。",
+          "textZh": "同一份列表的精简版。"
+        },
+        {
+          "text": "An estimate of the total cost.",
+          "correct": false,
+          "explain": "不適。有用だが、実行可能性の核心ではない。",
+          "textZh": "总成本的估算。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**没有负责人和顺序的清单无法执行**。看起来很完整，但没有人会动手，因为不知道谁先做什么。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-073",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO should be in place before a workflow is relied on by people outside the team that built it? (Select 2)",
+      "stemZh": "在建造团队之外的人开始依赖这个流程之前，哪两项必须先就位？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A stated boundary of what the workflow does not cover.",
+          "correct": true,
+          "explain": "正解。境界が無いと、対象外の場面で使われる。",
+          "textZh": "明确写出这个流程不覆盖哪些情况。"
+        },
+        {
+          "text": "A route for reporting problems.",
+          "correct": true,
+          "explain": "正解。報告の道が無ければ、不具合は放置される。",
+          "textZh": "一条反馈问题的途径。"
+        },
+        {
+          "text": "A record of who wrote each prompt.",
+          "correct": false,
+          "explain": "不適。利用者の判断には関係しない。",
+          "textZh": "记录每条提示词是谁写的。"
+        },
+        {
+          "text": "A schedule for changing the model.",
+          "correct": false,
+          "explain": "不適。運用開始の前提ではない。",
+          "textZh": "更换模型的时间表。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**外部使用者需要知道界线和求助的路径**。不写清楚什么情况下不该用、坏了找谁，问题就会以最坏的方式被发现。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-074",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A prototype is shown to users who like it, but the prototype skipped the hardest part of the problem. What is the risk?",
+      "stemZh": "一个原型拿给用户看，他们很喜欢，但这个原型跳过了问题里最难的部分。风险是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Approval is based on the part that was easy, and the hard part is still unproven.",
+          "correct": true,
+          "explain": "正解。避けた所こそ、後で全部のしかかってくる。",
+          "textZh": "批准是基于容易的那部分做出的，最难的部分仍未被验证。"
+        },
+        {
+          "text": "Users will dislike the finished version.",
+          "correct": false,
+          "explain": "不適。好みの予測は根拠が無い。",
+          "textZh": "用户会不喜欢成品。"
+        },
+        {
+          "text": "Prototypes should never be shown to users.",
+          "correct": false,
+          "explain": "不適。試作を見せること自体は有益である。",
+          "textZh": "原型不应该拿给用户看。"
+        },
+        {
+          "text": "The hardest part can be removed from the final design.",
+          "correct": false,
+          "explain": "不適。問題の核心を捨てることになる。",
+          "textZh": "最难的部分可以从最终设计里去掉。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**原型的说服力来自它避开的地方**。最难的部分没做，所以看起来顺畅；据此承诺工期或效果，后面会全部落在那一段上。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-075",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "Two stakeholders describe the same process differently. What does this most likely mean?",
+      "stemZh": "两位相关方对同一个流程的描述不一样。这最可能意味着什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The process actually runs differently in different places.",
+          "correct": true,
+          "explain": "正解。どちらかが間違いとは限らない。",
+          "textZh": "这个流程在不同地方实际的跑法就不一样。"
+        },
+        {
+          "text": "One of them is mistaken and should be corrected.",
+          "correct": false,
+          "explain": "不適。決めつけると実態を取り逃がす。",
+          "textZh": "其中一位记错了，应该纠正他。"
+        },
+        {
+          "text": "The process is too complex to document.",
+          "correct": false,
+          "explain": "不適。複雑さの証拠は示されていない。",
+          "textZh": "这个流程复杂到无法记录。"
+        },
+        {
+          "text": "The descriptions should be averaged.",
+          "correct": false,
+          "explain": "不適。実在しない流れが出来上がる。",
+          "textZh": "应该把两种描述取个折中。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**描述不一致往往说明实际做法就不一致**。不要急着挑一个当作正解，应当先查清楚两边各自是怎么做的。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-076",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO are honest ways to present a workflow that saves time but occasionally needs rework? (Select 2)",
+      "stemZh": "一个流程能省时间但偶尔需要返工。哪两种呈现方式是诚实的？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Report the net saving after rework is counted.",
+          "correct": true,
+          "explain": "正解。差し引きを示すのが実態である。",
+          "textZh": "把返工计入之后，报告净节省。"
+        },
+        {
+          "text": "State how often rework happens and what triggers it.",
+          "correct": true,
+          "explain": "正解。頻度と条件が分かれば、相手が判断できる。",
+          "textZh": "说明返工发生的频率和触发条件。"
+        },
+        {
+          "text": "Report only the saving on cases that went well.",
+          "correct": false,
+          "explain": "不適。都合の良い部分だけを示している。",
+          "textZh": "只报告顺利完成那些案例上的节省。"
+        },
+        {
+          "text": "Describe rework as a temporary issue that will disappear.",
+          "correct": false,
+          "explain": "不適。根拠の無い見通しである。",
+          "textZh": "把返工说成是会消失的临时问题。"
+        }
+      ],
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "commentaryZh": "考点是**把返工算进净效果里**。只报省下的时间而不报返工，等于把代价藏起来；同时说明返工的频率和触发条件才完整。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-077",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "An associate is asked to find out whether a process change is worth making. What should the research produce?",
+      "stemZh": "使用者被要求弄清楚某项流程变更值不值得做。这项调研应该产出什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The cost and benefit of changing and of leaving it alone.",
+          "correct": true,
+          "explain": "正解。両方を並べて初めて比較になる。",
+          "textZh": "改变的成本收益，以及维持现状的成本收益。"
+        },
+        {
+          "text": "A recommendation to make the change.",
+          "correct": false,
+          "explain": "不適。比較の材料を示さずに結論だけ出している。",
+          "textZh": "一条「应该改」的建议。"
+        },
+        {
+          "text": "A list of everything that could be changed.",
+          "correct": false,
+          "explain": "不適。問われているのは1つの変更の可否である。",
+          "textZh": "一份所有可能改动项的清单。"
+        },
+        {
+          "text": "The history of how the process was created.",
+          "correct": false,
+          "explain": "不適。判断には直接つながらない。",
+          "textZh": "这个流程当初是怎么形成的历史。"
+        }
+      ],
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "commentaryZh": "考点是**值不值得是个比较问题**。要给出改与不改各自的代价和收益，让决定的人自己权衡，而不是替他下结论。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-078",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A workflow is redesigned and the number of steps drops from twelve to four. What should be checked?",
+      "stemZh": "一个流程重新设计后，步骤从十二步减到四步。应该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether any of the removed steps were the ones catching errors.",
+          "correct": true,
+          "explain": "正解。検査点が消えていれば、誤りが最後まで通る。",
+          "textZh": "被去掉的步骤里，有没有原本是在拦截错误的。"
+        },
+        {
+          "text": "Whether four steps is the industry norm.",
+          "correct": false,
+          "explain": "不適。他所の慣例は判断の根拠にならない。",
+          "textZh": "四步是不是行业惯例。"
+        },
+        {
+          "text": "Whether the new workflow has a shorter name.",
+          "correct": false,
+          "explain": "不適。名称は関係が無い。",
+          "textZh": "新流程的名字是不是更短了。"
+        },
+        {
+          "text": "Whether the same people are still involved.",
+          "correct": false,
+          "explain": "不適。人員の異動は検査の有無と別。",
+          "textZh": "参与的人是不是还是原来那些。"
+        }
+      ],
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "commentaryZh": "考点是**减少的步骤里有没有检查点**。步骤变少通常是好事，但如果被合并掉的正是核对环节，错误就会一路穿到最后。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-079",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "Which TWO belong in a handover when a workflow passes to a team that did not build it? (Select 2)",
+      "stemZh": "当一个流程交接给不是它建造者的团队时，交接材料里应该包含哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Why the design is the way it is.",
+          "correct": true,
+          "explain": "正解。理由が無ければ、接手した側が意味なく変えてしまう。",
+          "textZh": "为什么会做成现在这个样子。"
+        },
+        {
+          "text": "What was tried before and did not work.",
+          "correct": true,
+          "explain": "正解。同じ失敗を繰り返さずに済む。",
+          "textZh": "此前试过哪些做法、为什么没成。"
+        },
+        {
+          "text": "The total number of lines in the prompts.",
+          "correct": false,
+          "explain": "不適。引き継ぎの判断には使えない。",
+          "textZh": "提示词总共有多少行。"
+        },
+        {
+          "text": "The date each file was last opened.",
+          "correct": false,
+          "explain": "不適。運用の判断に関係しない。",
+          "textZh": "每个文件最后一次被打开的日期。"
+        }
+      ],
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "commentaryZh": "考点是**交接要交出判断的依据**。为什么这样设计、以及哪些做法已经试过并失败，能让接手的人不重走弯路。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d4-080",
+      "domain": "D4",
+      "type": "scenario",
+      "stem": "A requested workflow would replace a step that exists only because of a rule nobody can locate. What should happen?",
+      "stemZh": "有人要求做一个流程，去替换某个只因为一条谁也找不到出处的规定而存在的步骤。应该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Establish whether the rule still applies before building anything.",
+          "correct": true,
+          "explain": "正解。実在するか分からない要求を自動化しても、外しても危ない。",
+          "textZh": "在动手之前，先确认那条规定是否仍然有效。"
+        },
+        {
+          "text": "Build the workflow as requested.",
+          "correct": false,
+          "explain": "不適。廃止された要求を固定化しかねない。",
+          "textZh": "按要求把流程做出来。"
+        },
+        {
+          "text": "Remove the step immediately since no rule can be found.",
+          "correct": false,
+          "explain": "不適。実在する規定に違反する危険がある。",
+          "textZh": "既然找不到规定，立刻去掉这一步。"
+        },
+        {
+          "text": "Keep the step and add the workflow alongside it.",
+          "correct": false,
+          "explain": "不適。二重になり、どちらが正か分からなくなる。",
+          "textZh": "保留这一步，同时再加一个流程。"
+        }
+      ],
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "commentaryZh": "考点是**先确认规定是否还存在**。照着做，可能在自动化一个已经废止的要求；直接删掉，又可能违反一条真实存在的规定。先查清楚。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
     }
   ]
 }
