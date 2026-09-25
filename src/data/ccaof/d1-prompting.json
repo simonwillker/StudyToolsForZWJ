@@ -2382,6 +2382,766 @@
       "commentaryZh": "考点是**什么时候收手**。判断依据是成本比较：如果再花二十分钟调提示词只为省下两分钟的手工修改，那就该停了。反过来，如果这个提示词要用一百次，多花一小时打磨就很划算——**看它会被用多少次**。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d1-061",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate must write a prompt that a colleague in another country will reuse. Which detail is most important to state explicitly?",
+      "stemZh": "某位同事要把这个提示词交给另一个国家的同事复用。哪一项最需要明确写出来？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The date, currency and unit conventions the output should use.",
+          "correct": true,
+          "explain": "正解。書き手が当然と思っている既定値こそ、相手の土地では変わる。",
+          "textZh": "输出应使用的日期、货币和计量单位约定。"
+        },
+        {
+          "text": "Which Claude model the colleague should select.",
+          "correct": false,
+          "explain": "不適。モデルの選択は地域によって変わらない。",
+          "textZh": "同事应该选用哪个 Claude 模型。"
+        },
+        {
+          "text": "How long the conversation is allowed to become.",
+          "correct": false,
+          "explain": "不適。会話の長さは再利用性の問題ではない。",
+          "textZh": "对话允许变得多长。"
+        },
+        {
+          "text": "The time of day the prompt should be run.",
+          "correct": false,
+          "explain": "不適。実行時刻は出力の内容に関係しない。",
+          "textZh": "应该在一天中的什么时间运行提示词。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**默认值会随使用者的处境而变**。日期格式、货币、计量单位这类东西，写提示词的人觉得理所当然，换个国家就不一样了。干扰项里的「模型名称」「对话长度」都不随地域变化。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-062",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A task has five steps. Steps 2 and 3 can be done in either order and do not depend on each other. What does that tell the associate?",
+      "stemZh": "一个任务有五个步骤，其中第2步和第3步顺序无所谓且互不依赖。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Each can be checked and redone on its own without affecting the other.",
+          "correct": true,
+          "explain": "正解。依存が無いので、片方の誤りがもう片方を汚さない。",
+          "textZh": "两步可以各自检查、各自重做，互不影响。"
+        },
+        {
+          "text": "They should be merged into a single step to save time.",
+          "correct": false,
+          "explain": "不適。合併すると、どちらが誤ったか分からなくなる。",
+          "textZh": "应该合并成一步以节省时间。"
+        },
+        {
+          "text": "The task cannot be decomposed reliably.",
+          "correct": false,
+          "explain": "不適。独立性はむしろ分解しやすさを示す。",
+          "textZh": "这个任务无法可靠地分解。"
+        },
+        {
+          "text": "Step 1 must be repeated between them.",
+          "correct": false,
+          "explain": "不適。繰り返す理由が無い。",
+          "textZh": "必须在两步之间重复第1步。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**独立的步骤可以分开验证**。互不依赖意味着其中一个出错不会污染另一个，所以可以各自检查、各自重做。不要误以为「顺序无所谓」就等于「可以合并成一步」。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-063",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate changed four things in a prompt at once and the output improved. What is the problem with stopping there?",
+      "stemZh": "某位同事一次改了提示词里的四处地方，输出变好了。就此打住有什么问题？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Some of the four changes may be making the output worse, hidden by the others.",
+          "correct": true,
+          "explain": "正解。差し引きで良くなっただけで、どれが効いたか分からない。",
+          "textZh": "四处改动里可能有的反而让输出变差，只是被其他改动掩盖了。"
+        },
+        {
+          "text": "Four changes is always too many to be safe.",
+          "correct": false,
+          "explain": "不適。数そのものが問題ではなく、切り分けられないことが問題。",
+          "textZh": "一次改四处永远都太多、不安全。"
+        },
+        {
+          "text": "The output cannot have genuinely improved.",
+          "correct": false,
+          "explain": "不適。実際に良くなったことは否定されていない。",
+          "textZh": "输出不可能真的变好了。"
+        },
+        {
+          "text": "Prompts should never be changed after the first version.",
+          "correct": false,
+          "explain": "不適。反復自体は推奨される。",
+          "textZh": "提示词不应该在第一版之后再改。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**一次改多处就无法归因**。四处里可能有一处在帮忙、一处在拖后腿，净效果为正而已。下次遇到别的任务时，不知道该带走哪一条。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-064",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO belong in a prompt asking Claude to critique a plan rather than improve it? (Select 2)",
+      "stemZh": "要求 Claude 评判一份计划（而不是改进它）时，提示词里应该包含哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The criteria the plan should be judged against.",
+          "correct": true,
+          "explain": "正解。基準が無ければ批評は感想になる。",
+          "textZh": "评判这份计划所依据的标准。"
+        },
+        {
+          "text": "An instruction not to rewrite the plan.",
+          "correct": true,
+          "explain": "正解。書き換えを止めないと改善案に流れる。",
+          "textZh": "一条不要改写计划的指示。"
+        },
+        {
+          "text": "A request for three alternative plans.",
+          "correct": false,
+          "explain": "不適。代替案を出させると批評ではなくなる。",
+          "textZh": "要求给出三个替代方案。"
+        },
+        {
+          "text": "The preferred length of the improved version.",
+          "correct": false,
+          "explain": "不適。改善版を作らない前提の課題である。",
+          "textZh": "改进版本的理想长度。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**评判和改进是两种不同的任务**。评判要的是判断的依据和范围，不是替你改。写出「按什么标准判断」和「不要直接改写」这两条，才能守住任务的边界。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-065",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt says \"be concise\" and the output is still long. What is the most likely reason?",
+      "stemZh": "提示词里写了「简洁一点」，输出还是很长。最可能的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Concise\" has no measurable threshold, so nothing constrains the length.",
+          "correct": true,
+          "explain": "正解。数えられない語は制約にならない。",
+          "textZh": "「简洁」没有可衡量的界线，所以没有任何东西在约束长度。"
+        },
+        {
+          "text": "The instruction must be placed at the end of the prompt.",
+          "correct": false,
+          "explain": "不適。位置ではなく測れるかどうかが問題。",
+          "textZh": "这条指示必须放在提示词的末尾。"
+        },
+        {
+          "text": "Length cannot be controlled by a prompt at all.",
+          "correct": false,
+          "explain": "不適。数値で指定すれば制御できる。",
+          "textZh": "长度根本无法通过提示词控制。"
+        },
+        {
+          "text": "The task itself requires a long answer.",
+          "correct": false,
+          "explain": "不適。課題の性質は述べられていない。",
+          "textZh": "这个任务本身就需要很长的回答。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**形容词不是可检验的约束**。「简洁」由谁来判断没有写明，所以无法落实。换成字数、条数这类能数出来的限制才有效。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-066",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate splits a task so that each step produces something the next step can consume. What is gained?",
+      "stemZh": "某位同事把任务拆成每一步都产出下一步能直接使用的东西。这样有什么好处？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "No manual reshaping is needed between steps, removing a place where errors enter.",
+          "correct": true,
+          "explain": "正解。受け渡しの手作業が減れば、誤りの入り口も減る。",
+          "textZh": "步骤之间不需要人工整理格式，少了一个出错的环节。"
+        },
+        {
+          "text": "Each step becomes faster to run.",
+          "correct": false,
+          "explain": "不適。速度が上がるとは限らない。",
+          "textZh": "每一步的运行速度都会变快。"
+        },
+        {
+          "text": "The number of steps is reduced.",
+          "correct": false,
+          "explain": "不適。分けているので数は増える。",
+          "textZh": "步骤的数量会减少。"
+        },
+        {
+          "text": "Verification becomes unnecessary.",
+          "correct": false,
+          "explain": "不適。検証は依然として必要。",
+          "textZh": "不再需要验证。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**步骤之间的接口**。上一步的产出正好是下一步的输入，中间就不需要人手改格式，出错的地方也少了一处。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-067",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "For which task is it appropriate for a prompt to ask for the reasoning before the answer?",
+      "stemZh": "对于哪一类任务，提示词要求先给推理过程、再给结论是合适的？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A judgment the associate must be able to check for themselves.",
+          "correct": true,
+          "explain": "正解。根拠が見えなければ検証できない。",
+          "textZh": "一个使用者必须能自己核对的判断。"
+        },
+        {
+          "text": "Converting a table from one format to another.",
+          "correct": false,
+          "explain": "不適。変換に推論の説明は要らない。",
+          "textZh": "把表格从一种格式转换成另一种。"
+        },
+        {
+          "text": "Generating a list of synonyms.",
+          "correct": false,
+          "explain": "不適。推論を見ても確かめる助けにならない。",
+          "textZh": "生成一组同义词。"
+        },
+        {
+          "text": "Counting the words in a document.",
+          "correct": false,
+          "explain": "不適。答えが一意で推論を要しない。",
+          "textZh": "数一份文档里的词数。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**推理过程对谁有用**。需要自己判断对错的任务，看得到推理才能查；单纯的格式转换写出推理只是噪音。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-068",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO should be recorded when a prompt is changed for a task that will be repeated? (Select 2)",
+      "stemZh": "当一个会重复使用的任务修改了提示词时，应该记录哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What was changed.",
+          "correct": true,
+          "explain": "正解。差分が無ければ原因をたどれない。",
+          "textZh": "改动了什么。"
+        },
+        {
+          "text": "Why it was changed.",
+          "correct": true,
+          "explain": "正解。意図が無ければ、後で戻すべきか判断できない。",
+          "textZh": "为什么要改。"
+        },
+        {
+          "text": "How long the prompt took to write.",
+          "correct": false,
+          "explain": "不適。所要時間は後の判断に使えない。",
+          "textZh": "写这条提示词花了多长时间。"
+        },
+        {
+          "text": "Which colleague suggested the wording.",
+          "correct": false,
+          "explain": "不適。提案者は再現性と関係が無い。",
+          "textZh": "是哪位同事提出的措辞。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**修改的可追溯性**。只留下新版本，下次出问题时无法判断是不是这次改动造成的。要留下「改了什么」和「为什么改」。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-069",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate's prompt includes an example of the desired output that is more polished than anything the task can realistically produce. What is the risk?",
+      "stemZh": "某位同事在提示词里放了一个范例，比这个任务实际可能产出的结果还要精致。风险是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The output may invent content to match the example's polish.",
+          "correct": true,
+          "explain": "正解。手本に届かせようとして、根拠の無い内容が足される。",
+          "textZh": "输出可能为了贴近范例的精致程度而编造内容。"
+        },
+        {
+          "text": "Examples always reduce output quality.",
+          "correct": false,
+          "explain": "不適。例そのものは有効な手段である。",
+          "textZh": "范例总是会降低输出质量。"
+        },
+        {
+          "text": "The example makes the prompt too long to process.",
+          "correct": false,
+          "explain": "不適。長さではなく、参照先が無いことが問題である。",
+          "textZh": "范例让提示词长到无法处理。"
+        },
+        {
+          "text": "Claude will refuse to produce output.",
+          "correct": false,
+          "explain": "不適。拒否される理由が無い。",
+          "textZh": "Claude 会拒绝产出结果。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**范例会被当成目标而不是格式说明**。范例过于理想，输出会为了贴近它而填补没有依据的内容。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-070",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A task requires both creative options and a final recommendation. What is the better prompting approach?",
+      "stemZh": "一个任务既要有创意方案，又要有最终建议。更好的提示词做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask for the options first, then choose among them in a separate request.",
+          "correct": true,
+          "explain": "正解。発散と収束を分けないと、選択肢の幅が先に潰れる。",
+          "textZh": "先要方案，再另起一次请求从中挑选。"
+        },
+        {
+          "text": "Ask for both in one request to save a step.",
+          "correct": false,
+          "explain": "不適。収束が先に起きて案が狭まる。",
+          "textZh": "在一次请求里同时要两者，省一步。"
+        },
+        {
+          "text": "Ask only for the recommendation and infer the options.",
+          "correct": false,
+          "explain": "不適。検討の幅が残らない。",
+          "textZh": "只要建议，从中反推方案。"
+        },
+        {
+          "text": "Ask for the options twice and compare them.",
+          "correct": false,
+          "explain": "不適。推薦が得られない。",
+          "textZh": "把方案要两遍再比较。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**发散和收敛是两种模式**。放在一次请求里，收敛会提前发生，方案的幅度被压掉。分开两次，先铺开再挑选。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-071",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO signs suggest a step in a decomposed workflow should be merged back with the next one? (Select 2)",
+      "stemZh": "哪两个迹象说明分解后的某一步应该和下一步合回去？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Its output is always passed on unchanged.",
+          "correct": true,
+          "explain": "正解。手を入れないなら分ける意味が無い。",
+          "textZh": "它的产出总是原样传给下一步。"
+        },
+        {
+          "text": "Nobody ever inspects its intermediate result.",
+          "correct": true,
+          "explain": "正解。検査しないなら検査点にならない。",
+          "textZh": "从来没有人查看它的中间结果。"
+        },
+        {
+          "text": "It takes longer than the other steps.",
+          "correct": false,
+          "explain": "不適。所要時間は分割の適否と別。",
+          "textZh": "它比其他步骤耗时更长。"
+        },
+        {
+          "text": "It uses a different output format.",
+          "correct": false,
+          "explain": "不適。形式の違いは合併の理由にならない。",
+          "textZh": "它使用了不同的输出格式。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**分得太细也有代价**。中间产物没人看、每次都原样传下去，那这一步就只是多了一次交接，没有带来检查的机会。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-072",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "What is the most reliable way to make an output usable by a downstream program?",
+      "stemZh": "要让输出能被下游程序直接使用，最可靠的做法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "State the exact structure and field names the output must use.",
+          "correct": true,
+          "explain": "正解。構造を指定しなければ、毎回ゆれる。",
+          "textZh": "写明输出必须使用的确切结构和字段名。"
+        },
+        {
+          "text": "Ask for the output to be \"well organised\".",
+          "correct": false,
+          "explain": "不適。曖昧な語では構造が定まらない。",
+          "textZh": "要求输出「组织得好一点」。"
+        },
+        {
+          "text": "Request the longest possible output.",
+          "correct": false,
+          "explain": "不適。長さは機械可読性と無関係。",
+          "textZh": "要求尽可能长的输出。"
+        },
+        {
+          "text": "Ask for the output in prose so it reads naturally.",
+          "correct": false,
+          "explain": "不適。下流の処理には向かない。",
+          "textZh": "要求用散文形式以便自然易读。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**机器读的输出要写明结构**。描述性的要求（「整齐一点」）无法保证字段名和层级一致，明确给出结构和字段才行。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-073",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "After several rounds, a prompt has grown to include instructions for cases that no longer occur. What should the associate do?",
+      "stemZh": "经过几轮修改，提示词里堆了一些针对已经不再发生的情况的指示。该怎么办？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Remove them, since stale instructions can conflict with current ones.",
+          "correct": true,
+          "explain": "正解。古い指示は衝突して、原因の分かりにくい挙動を生む。",
+          "textZh": "删掉它们，因为过时的指示可能和现行指示冲突。"
+        },
+        {
+          "text": "Keep them in case the cases return.",
+          "correct": false,
+          "explain": "不適。衝突の危険が残る。",
+          "textZh": "保留着，以防那些情况再次出现。"
+        },
+        {
+          "text": "Move them to the end of the prompt.",
+          "correct": false,
+          "explain": "不適。位置を変えても衝突は消えない。",
+          "textZh": "把它们移到提示词的末尾。"
+        },
+        {
+          "text": "Duplicate them to make them stronger.",
+          "correct": false,
+          "explain": "不適。矛盾が増えるだけ。",
+          "textZh": "把它们重复一遍以加强效果。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**提示词也需要清理**。过时的指示不只是累赘，还可能和新指示冲突，产生难以定位的行为。定期删掉不再适用的条目。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-074",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO fit a task where the associate must defend the conclusion to a sceptical audience? (Select 2)",
+      "stemZh": "如果使用者要向持怀疑态度的听众为结论辩护，哪两项做法合适？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Ask for the strongest objections to the conclusion.",
+          "correct": true,
+          "explain": "正解。反論を先に見ておかないと備えられない。",
+          "textZh": "要求列出针对该结论最有力的反对意见。"
+        },
+        {
+          "text": "Ask for the evidence behind each step of the argument.",
+          "correct": true,
+          "explain": "正解。根拠が無ければ追及に耐えられない。",
+          "textZh": "要求给出论证每一步背后的依据。"
+        },
+        {
+          "text": "Ask for the conclusion to be stated more confidently.",
+          "correct": false,
+          "explain": "不適。口調では疑いに答えられない。",
+          "textZh": "要求把结论说得更有信心。"
+        },
+        {
+          "text": "Ask for a shorter version of the conclusion.",
+          "correct": false,
+          "explain": "不適。長さは説得力と別。",
+          "textZh": "要求一个更短的结论版本。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**面对质疑要先准备反驳**。把最强的反面意见和各步骤的依据准备好，才是为辩护做的准备；只把语气写得更有信心没有任何帮助。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-075",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate's prompt asks for \"the industry standard approach\" to a problem. Why is this risky?",
+      "stemZh": "某位同事在提示词里要求给出某个问题的「行业标准做法」。为什么这有风险？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It presumes a single agreed approach exists, hiding genuine disagreement.",
+          "correct": true,
+          "explain": "正解。合意が無い所で、あるかのような答えが返る。",
+          "textZh": "它预设存在唯一公认的做法，从而掩盖了真实存在的分歧。"
+        },
+        {
+          "text": "Industry standards change too quickly to be useful.",
+          "correct": false,
+          "explain": "不適。変化の速さは主な問題ではない。",
+          "textZh": "行业标准变化太快，没有用处。"
+        },
+        {
+          "text": "The phrase makes the prompt too long.",
+          "correct": false,
+          "explain": "不適。長さではなく、参照先が無いことが問題である。",
+          "textZh": "这个说法让提示词变得太长。"
+        },
+        {
+          "text": "Standards can never be described in text.",
+          "correct": false,
+          "explain": "不適。記述自体は可能である。",
+          "textZh": "标准永远无法用文字描述。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**「行业标准」在很多领域并不存在唯一答案**。这样问，得到的会是一个被说成标准的做法，而真正的分歧被抹掉了。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-076",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A workflow has a step that fails about one time in ten. Where should the check be placed?",
+      "stemZh": "某个流程里有一步大约每十次失败一次。检查应该放在哪里？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Immediately after that step, before its output is used.",
+          "correct": true,
+          "explain": "正解。後段で加工されると、原因の特定が難しくなる。",
+          "textZh": "紧接在那一步之后、在它的产出被使用之前。"
+        },
+        {
+          "text": "At the very end of the workflow.",
+          "correct": false,
+          "explain": "不適。誤りが後段に伝播してからになる。",
+          "textZh": "放在整个流程的最后。"
+        },
+        {
+          "text": "Before the workflow begins.",
+          "correct": false,
+          "explain": "不適。まだ何も起きていない。",
+          "textZh": "在流程开始之前。"
+        },
+        {
+          "text": "Only when someone reports a problem.",
+          "correct": false,
+          "explain": "不適。9割は気づかないまま通る。",
+          "textZh": "只在有人报告问题时才检查。"
+        }
+      ],
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "commentaryZh": "考点是**检查要贴着不稳定的那一步**。放在最后，错误已经被后面几步加工过，定位更难、返工更多。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-077",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO indicate that a prompt problem is actually a task-definition problem? (Select 2)",
+      "stemZh": "哪两个迹象说明提示词的问题其实是任务定义的问题？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The associate cannot say what a correct output would look like.",
+          "correct": true,
+          "explain": "正解。正解像が無ければ、どう直しても合わない。",
+          "textZh": "使用者说不出正确的输出应该是什么样子。"
+        },
+        {
+          "text": "Two colleagues expect different results from the same request.",
+          "correct": true,
+          "explain": "正解。期待が割れているのは課題の定義の問題。",
+          "textZh": "两位同事对同一个请求期待不同的结果。"
+        },
+        {
+          "text": "The output is longer than expected.",
+          "correct": false,
+          "explain": "不適。長さは指示で直せる。",
+          "textZh": "输出比预期的长。"
+        },
+        {
+          "text": "The output uses the wrong heading style.",
+          "correct": false,
+          "explain": "不適。書式は指示で直せる。",
+          "textZh": "输出用错了标题样式。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**有些问题改提示词改不好**。使用者自己说不清什么样算对、不同的人期待不同的结果，这时要先把任务本身定清楚。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-078",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "For a research task, what should the prompt ask for alongside the findings?",
+      "stemZh": "对于一个调研类任务，提示词除了结论之外还应该要求什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Where each finding came from and how confident it is.",
+          "correct": true,
+          "explain": "正解。出所と確度が無ければ、そのまま使えない。",
+          "textZh": "每条结论的来源，以及把握有多大。"
+        },
+        {
+          "text": "A recommendation based on the findings.",
+          "correct": false,
+          "explain": "不適。調べることと決めることは別の課題。",
+          "textZh": "基于这些结论的一条建议。"
+        },
+        {
+          "text": "The findings restated in a second format.",
+          "correct": false,
+          "explain": "不適。同じ内容が増えるだけ。",
+          "textZh": "把结论再用另一种格式复述一遍。"
+        },
+        {
+          "text": "An estimate of how long the research took.",
+          "correct": false,
+          "explain": "不適。所要時間は検証に使えない。",
+          "textZh": "估算这次调研花了多长时间。"
+        }
+      ],
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "commentaryZh": "考点是**调研的价值在于可追溯**。同时要求出处和把握程度，使用者才知道哪些可以直接用、哪些需要自己再查。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-079",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate writes prompts that always work on the first try for simple tasks but never for complex ones. What most likely explains this?",
+      "stemZh": "某位同事写的提示词在简单任务上总是一次成功，在复杂任务上从不成功。最可能的解释是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Simple tasks have only one reasonable reading of what is missing; complex ones have many.",
+          "correct": true,
+          "explain": "正解。曖昧さは課題が複雑になるほど効いてくる。",
+          "textZh": "简单任务里缺失的条件只有一种合理的补法，复杂任务里有很多种。"
+        },
+        {
+          "text": "Complex tasks cannot be done with a single prompt.",
+          "correct": false,
+          "explain": "不適。分解すれば可能な場合も多い。",
+          "textZh": "复杂任务无法用一条提示词完成。"
+        },
+        {
+          "text": "The associate writes prompts that are too short.",
+          "correct": false,
+          "explain": "不適。長さではなく曖昧さの問題。",
+          "textZh": "这位同事写的提示词太短了。"
+        },
+        {
+          "text": "Simple tasks are checked less carefully.",
+          "correct": false,
+          "explain": "不適。検査の厳しさの話ではない。",
+          "textZh": "简单任务被检查得没那么仔细。"
+        }
+      ],
+      "objective": "Create effective prompts for business and technical tasks",
+      "commentaryZh": "考点是**简单任务容忍模糊**。任务简单时，缺失的条件只有一种合理的补法；任务复杂了，缺失的条件有很多种补法，于是每次都对不上。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d1-080",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "What should an associate do with a prompt that works but that nobody, including the author, can explain?",
+      "stemZh": "一条提示词有效，但包括作者在内没有人能解释它为什么有效。该怎么办？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Simplify it step by step to find which parts actually matter.",
+          "correct": true,
+          "explain": "正解。効いている部分が分からなければ、条件が変わったとき直せない。",
+          "textZh": "逐步简化它，找出真正起作用的部分。"
+        },
+        {
+          "text": "Leave it alone as long as it works.",
+          "correct": false,
+          "explain": "不適。変化に対応できないまま残る。",
+          "textZh": "只要还能用就别动它。"
+        },
+        {
+          "text": "Copy it to every other task.",
+          "correct": false,
+          "explain": "不適。なぜ効くか不明なまま広げると被害が増える。",
+          "textZh": "把它复制到其他所有任务上。"
+        },
+        {
+          "text": "Delete it and start over immediately.",
+          "correct": false,
+          "explain": "不適。使える資産を捨てる必要は無い。",
+          "textZh": "删掉它，马上重写。"
+        }
+      ],
+      "objective": "Iterate prompts to improve output quality",
+      "commentaryZh": "考点是**不可解释的提示词维护不了**。现在能用，条件一变就不知道该改哪里。要趁还能用的时候，把其中真正起作用的部分找出来。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
     }
   ]
 }

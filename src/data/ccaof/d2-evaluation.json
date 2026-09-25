@@ -2352,6 +2352,766 @@
       "commentaryZh": "考点是**比较与合并**。把两个版本当成「二选一」是没必要的自我限制：常见的情况是人写的结构更贴合实际、模型写的措辞更清楚。判断依据始终是读者需要什么，而不是「谁写的」。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d2-061",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An output cites a report with a plausible title, a real publisher and a year. What is the minimum needed before using it?",
+      "stemZh": "一段输出引用了一份报告，标题看起来合理，出版方真实存在，年份也有。使用之前最少需要做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Confirm that the report itself exists at the publisher named.",
+          "correct": true,
+          "explain": "正解。もっともらしさは存在の証拠にならない。",
+          "textZh": "去所提到的出版方那里确认这份报告确实存在。"
+        },
+        {
+          "text": "Check that the year is not in the future.",
+          "correct": false,
+          "explain": "不適。年が妥当でも存在の確認にならない。",
+          "textZh": "检查年份不是未来的年份。"
+        },
+        {
+          "text": "Ask Claude whether it is confident about the citation.",
+          "correct": false,
+          "explain": "不適。同じ出力源に確認しても独立した裏づけにならない。",
+          "textZh": "问 Claude 对这条引用有多大把握。"
+        },
+        {
+          "text": "Verify the publisher is a real organisation.",
+          "correct": false,
+          "explain": "不適。実在の出版社名は容易に混ざる。",
+          "textZh": "核实出版方是一个真实存在的机构。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**看起来对不等于存在**。出版方真实、标题合理，这些都容易被凑出来。最低限度是去出版方那里确认这份报告本身在不在。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-062",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO gaps are hardest to notice when reviewing a summary? (Select 2)",
+      "stemZh": "在审阅一份摘要时，哪两类缺漏最难被发现？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A point from the source that was left out entirely.",
+          "correct": true,
+          "explain": "正解。無いものは読んでも見えない。",
+          "textZh": "原文里被完全略掉的一个要点。"
+        },
+        {
+          "text": "A qualification that was dropped, making a claim absolute.",
+          "correct": true,
+          "explain": "正解。断定に変わっても文章としては自然に読める。",
+          "textZh": "被删掉的限定语，使某个说法变成了绝对的。"
+        },
+        {
+          "text": "A number that contradicts another number in the same summary.",
+          "correct": false,
+          "explain": "不適。同じ文章内の矛盾は比較的気づきやすい。",
+          "textZh": "摘要内部两个数字互相矛盾。"
+        },
+        {
+          "text": "A heading that uses the wrong font size.",
+          "correct": false,
+          "explain": "不適。書式の誤りは内容の欠落ではない。",
+          "textZh": "标题用错了字号。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**缺失比错误更难察觉**。摘要读起来是完整的，读者无法从文本本身看出哪些内容被略掉了。要靠对原文的了解，或者要求列出被排除的内容。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-063",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An output will be used to decide whether to contact a regulator. What review does it need?",
+      "stemZh": "一份输出将用于决定是否联系监管机构。它需要什么样的审阅？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Line-by-line verification by someone who knows the regulatory position.",
+          "correct": true,
+          "explain": "正解。取り返しのつかない判断には、分かる人の逐条確認が要る。",
+          "textZh": "由懂该监管领域的人逐条核实。"
+        },
+        {
+          "text": "A quick read to check the tone is appropriate.",
+          "correct": false,
+          "explain": "不適。語調では判断の根拠を確かめられない。",
+          "textZh": "快速读一遍，确认语气合适。"
+        },
+        {
+          "text": "Confirmation that the formatting matches the template.",
+          "correct": false,
+          "explain": "不適。体裁は内容の正しさと別。",
+          "textZh": "确认格式符合模板。"
+        },
+        {
+          "text": "A second output from Claude for comparison.",
+          "correct": false,
+          "explain": "不適。同じ弱点を共有しうるので独立の確認にならない。",
+          "textZh": "再让 Claude 产出一份来对比。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**按后果的不可逆程度决定审阅强度**。联系监管机构这一步很难收回，所以需要懂这个领域的人逐条核对依据，而不是读一遍觉得顺就行。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-064",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Two outputs from the same prompt agree on a specific figure. What does that establish?",
+      "stemZh": "同一条提示词产出的两份结果在某个具体数字上一致。这能说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Only that the figure is produced consistently, not that it is correct.",
+          "correct": true,
+          "explain": "正解。同じ出力源の一致は独立した証拠にならない。",
+          "textZh": "只能说明这个数字产出得稳定，不能说明它是对的。"
+        },
+        {
+          "text": "That the figure is almost certainly correct.",
+          "correct": false,
+          "explain": "不適。一致は正しさを意味しない。",
+          "textZh": "这个数字几乎肯定是对的。"
+        },
+        {
+          "text": "That no further checking is needed.",
+          "correct": false,
+          "explain": "不適。外部の裏づけが未了である。",
+          "textZh": "不需要再做检查了。"
+        },
+        {
+          "text": "That the prompt was well written.",
+          "correct": false,
+          "explain": "不適。一貫性と文面の良し悪しは別。",
+          "textZh": "说明提示词写得好。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**一致不等于正确**。同一来源的两次产出会共享同样的倾向，一致只是说明这个倾向稳定，不是外部证据。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-065",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "The same analysis must go to engineers and to the board. Which TWO should change between versions? (Select 2)",
+      "stemZh": "同一份分析要分别发给工程师和董事会。两个版本之间应该改变哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The level of technical detail included.",
+          "correct": true,
+          "explain": "正解。読み手の前提知識に合わせる部分である。",
+          "textZh": "包含的技术细节的深度。"
+        },
+        {
+          "text": "What is stated first.",
+          "correct": true,
+          "explain": "正解。関心の順序は読み手によって違う。",
+          "textZh": "最先说的是什么。"
+        },
+        {
+          "text": "The figures the analysis is based on.",
+          "correct": false,
+          "explain": "不適。数字が食い違えば2つの文書が矛盾する。",
+          "textZh": "分析所依据的数字。"
+        },
+        {
+          "text": "The conclusion that was reached.",
+          "correct": false,
+          "explain": "不適。結論を変えれば別の分析になる。",
+          "textZh": "得出的结论。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**换受众改的是呈现，不是结论**。细节的深度和先说什么可以变，但数字和结论必须一致，否则两份文件会互相打架。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-066",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "Which check is most useful for an output that summarises a document the associate has not read?",
+      "stemZh": "对于一份使用者没有读过的文档的摘要，哪种检查最有用？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Spot-check several specific claims against the source document.",
+          "correct": true,
+          "explain": "正解。原文に戻る以外に確かめる手立てが無い。",
+          "textZh": "抽取几条具体说法，回到原文核对。"
+        },
+        {
+          "text": "Check the summary for internal contradictions.",
+          "correct": false,
+          "explain": "不適。有用だが、原文にある内容の確認にならない。",
+          "textZh": "检查摘要内部有没有自相矛盾。"
+        },
+        {
+          "text": "Count the paragraphs to confirm the length is reasonable.",
+          "correct": false,
+          "explain": "不適。長さは正確さと関係が無い。",
+          "textZh": "数段落数，确认长度合理。"
+        },
+        {
+          "text": "Ask for the summary to be rewritten and compare.",
+          "correct": false,
+          "explain": "不適。同じ誤りが再現するだけのことがある。",
+          "textZh": "要求重写一遍摘要再对比。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**没读过原文时能做什么**。抽查几条回到原文核对，是唯一能真正验证的办法；其余做法都只在摘要内部打转。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-067",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Output will be pasted into a spreadsheet for further calculation. Which format should be requested?",
+      "stemZh": "输出要粘贴到电子表格里做后续计算。应该要求哪种格式？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Rows and columns with one value per cell and no units mixed in.",
+          "correct": true,
+          "explain": "正解。計算に回すなら、値がそのまま入る形にする。",
+          "textZh": "行列结构，每个单元格一个数值，不混入单位。"
+        },
+        {
+          "text": "Prose paragraphs describing each value.",
+          "correct": false,
+          "explain": "不適。転記の手作業が増える。",
+          "textZh": "用散文段落描述每个数值。"
+        },
+        {
+          "text": "A bulleted list with the units written out.",
+          "correct": false,
+          "explain": "不適。単位が混ざると計算できない。",
+          "textZh": "带单位写出的项目符号列表。"
+        },
+        {
+          "text": "A single block of text with values separated by commas.",
+          "correct": false,
+          "explain": "不適。列に分かれず、整形が必要になる。",
+          "textZh": "一整段文字，数值之间用逗号分隔。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**格式要配合下一步的处理**。要计算就得让每个数值落在自己的单元格里，散文和带单位的文字都需要人手再整理。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-068",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO are signs of bias rather than error in an output? (Select 2)",
+      "stemZh": "哪两项是输出中「偏向」而非「错误」的迹象？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Every example supports one side of the question.",
+          "correct": true,
+          "explain": "正解。個々は正しくても、選び方に偏りがある。",
+          "textZh": "所有例子都支持问题的同一边。"
+        },
+        {
+          "text": "Qualifications appear only when describing one group.",
+          "correct": true,
+          "explain": "正解。同じ扱いをしていない点が偏りである。",
+          "textZh": "只在描述某一方时才加限定语。"
+        },
+        {
+          "text": "A date is stated incorrectly.",
+          "correct": false,
+          "explain": "不適。これは単純な誤りである。",
+          "textZh": "某个日期写错了。"
+        },
+        {
+          "text": "Two sections use different heading styles.",
+          "correct": false,
+          "explain": "不適。体裁の不統一にすぎない。",
+          "textZh": "两个小节用了不同的标题样式。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**偏向和错误不一样**。偏向里每条陈述都可能是真的，问题出在取舍上：只举一边的例子、只对一边加限定语。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-069",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An associate finds one clear error in an output. What does that imply about the rest?",
+      "stemZh": "使用者在一份输出里发现了一处明确的错误。这对其余部分意味着什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The rest should be checked to the same standard, not assumed sound.",
+          "correct": true,
+          "explain": "正解。1つ見つかったことは、検査がまだ足りない証拠である。",
+          "textZh": "其余部分应该按同样的标准检查，而不是假定没问题。"
+        },
+        {
+          "text": "The rest is probably correct since one error was found.",
+          "correct": false,
+          "explain": "不適。見つかった数は残りの正しさを示さない。",
+          "textZh": "既然只发现一处，其余大概是对的。"
+        },
+        {
+          "text": "The whole output must be discarded without review.",
+          "correct": false,
+          "explain": "不適。使える部分まで捨てる必要は無い。",
+          "textZh": "整份输出必须不加审阅地丢弃。"
+        },
+        {
+          "text": "The error rate can be calculated from that one instance.",
+          "correct": false,
+          "explain": "不適。1件から割合は出せない。",
+          "textZh": "可以从这一处算出错误率。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**错误不是孤立的证据**。发现一处说明这份输出的检查还不够，其余部分应当按同样的标准重新看，而不是假定只有那一处。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-070",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A report answers every question that was asked but omits a risk the associate knows about. How should it be judged?",
+      "stemZh": "一份报告回答了所有被问到的问题，但漏掉了使用者已知的一项风险。应该如何评价它？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Incomplete, because completeness is measured against the decision, not the questions asked.",
+          "correct": true,
+          "explain": "正解。問われなかったことが、書かなくてよい理由にはならない。",
+          "textZh": "不完整，因为完整性是对照要做的决定来衡量的，不是对照提问。"
+        },
+        {
+          "text": "Complete, since it answered everything that was asked.",
+          "correct": false,
+          "explain": "不適。判断を支えられない報告は完全とは言えない。",
+          "textZh": "完整，因为它回答了所有被问到的问题。"
+        },
+        {
+          "text": "Incomplete only if the risk turns out to occur.",
+          "correct": false,
+          "explain": "不適。結果論で評価することになる。",
+          "textZh": "只有当那项风险真的发生时才算不完整。"
+        },
+        {
+          "text": "Complete, because the associate already knew the risk.",
+          "correct": false,
+          "explain": "不適。読む人は他にもいる。",
+          "textZh": "完整，因为使用者本来就知道那项风险。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**完整性是对任务而言的，不是对提问而言的**。没被问到不等于不该写；报告要支撑决定，漏掉已知风险就不足以支撑。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-071",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO make a fact-check independent rather than circular? (Select 2)",
+      "stemZh": "哪两项做法能让核查是独立的而不是循环的？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Checking against a source that was not used to produce the output.",
+          "correct": true,
+          "explain": "正解。別の出所でなければ独立にならない。",
+          "textZh": "对照一个没有参与产出这份输出的来源来核对。"
+        },
+        {
+          "text": "Having a person with domain knowledge verify the claim.",
+          "correct": true,
+          "explain": "正解。判断できる人の確認は独立した検証になる。",
+          "textZh": "请一位懂这个领域的人来核实。"
+        },
+        {
+          "text": "Asking the same question again in a new conversation.",
+          "correct": false,
+          "explain": "不適。同じ出力源に戻っている。",
+          "textZh": "在新对话里再问一遍同样的问题。"
+        },
+        {
+          "text": "Asking the output to rate its own confidence.",
+          "correct": false,
+          "explain": "不適。自己申告は独立した根拠にならない。",
+          "textZh": "让输出为自己的把握程度打分。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**循环核查毫无价值**。拿同一个来源再问一遍、或者让同一个产出自评，都在原地打转。要去到没有参与这次产出的来源。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-072",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An output is accurate but assumes knowledge the audience does not have. What is the right fix?",
+      "stemZh": "一份输出内容准确，但假定了受众并不具备的知识。正确的修正是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Supply the missing background the audience needs.",
+          "correct": true,
+          "explain": "正解。前提を補えば、正確さを保ったまま使える。",
+          "textZh": "补上受众所缺的背景。"
+        },
+        {
+          "text": "Remove the parts that need background.",
+          "correct": false,
+          "explain": "不適。内容が痩せて判断に足りなくなる。",
+          "textZh": "删掉那些需要背景知识的部分。"
+        },
+        {
+          "text": "Replace the technical terms with vaguer words.",
+          "correct": false,
+          "explain": "不適。曖昧にしても理解は進まない。",
+          "textZh": "把专业术语换成更模糊的说法。"
+        },
+        {
+          "text": "Shorten the output so there is less to misunderstand.",
+          "correct": false,
+          "explain": "不適。短さは理解の助けにならない。",
+          "textZh": "把输出缩短，减少被误解的机会。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**准确和可用是两件事**。要补上受众缺的前提，而不是把内容删薄或换个说法蒙混过去。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-073",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "When is an artifact the better choice than an inline response?",
+      "stemZh": "什么时候用 artifact 比直接在对话里回答更合适？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When the content will be revised and referred back to repeatedly.",
+          "correct": true,
+          "explain": "正解。作り込んで持ち出す成果物に向く。",
+          "textZh": "当这份内容会被反复修改和回看时。"
+        },
+        {
+          "text": "When the answer is one or two sentences.",
+          "correct": false,
+          "explain": "不適。短い回答は会話内のほうが速い。",
+          "textZh": "当答案只有一两句话时。"
+        },
+        {
+          "text": "When the associate wants the answer faster.",
+          "correct": false,
+          "explain": "不適。速さのための仕組みではない。",
+          "textZh": "当使用者希望更快拿到答案时。"
+        },
+        {
+          "text": "When the content must never be edited.",
+          "correct": false,
+          "explain": "不適。編集しやすさが利点である。",
+          "textZh": "当这份内容绝对不能被编辑时。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**artifact 适合会被反复取用和修改的成品**。一次性的简短回答放进 artifact 反而多一层跳转。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-074",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An output says \"studies have shown\" without naming any. How should the associate treat it?",
+      "stemZh": "一份输出写着「有研究表明」，但没有点出任何一项研究。使用者应该怎么处理？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "As unsupported until specific studies are identified.",
+          "correct": true,
+          "explain": "正解。出所の無い言及は根拠として使えない。",
+          "textZh": "在找到具体研究之前，视为没有依据。"
+        },
+        {
+          "text": "As supported, since the phrasing implies evidence exists.",
+          "correct": false,
+          "explain": "不適。ほのめかしは根拠ではない。",
+          "textZh": "视为有依据，因为这个说法暗示证据存在。"
+        },
+        {
+          "text": "As a formatting problem to fix later.",
+          "correct": false,
+          "explain": "不適。内容の問題であって体裁ではない。",
+          "textZh": "视为格式问题，以后再改。"
+        },
+        {
+          "text": "As correct if the claim sounds familiar.",
+          "correct": false,
+          "explain": "不適。既視感は検証の代わりにならない。",
+          "textZh": "如果这个说法听着耳熟就当它是对的。"
+        }
+      ],
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "commentaryZh": "考点是**没有出处的引用等于没有引用**。这句话不能当作依据带进后续文件，要么找到具体研究，要么把这条拿掉。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-075",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO conditions together mean a human must review before the output is used? (Select 2)",
+      "stemZh": "哪两个条件同时成立时，输出在使用前必须经人审阅？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The consequence of being wrong is hard to reverse.",
+          "correct": true,
+          "explain": "正解。取り返しのつかなさは審査の必要度を上げる。",
+          "textZh": "出错的后果难以挽回。"
+        },
+        {
+          "text": "Nobody using the output can tell whether it is right.",
+          "correct": true,
+          "explain": "正解。誰も検証できないなら、分かる人を入れるしかない。",
+          "textZh": "使用这份输出的人都无法判断它对不对。"
+        },
+        {
+          "text": "The output is longer than five pages.",
+          "correct": false,
+          "explain": "不適。長さは判断基準にならない。",
+          "textZh": "输出超过五页。"
+        },
+        {
+          "text": "The output was produced in a single request.",
+          "correct": false,
+          "explain": "不適。何回で作ったかは関係が無い。",
+          "textZh": "这份输出是一次请求产出的。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**后果和可检验性两条一起看**。后果重、又没人能当场判断对错，这时必须有人审。只满足其中一条时，程度可以放宽。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-076",
+      "domain": "D2",
+      "type": "mcq",
+      "stem": "A table in the output has correct individual rows but the total does not match their sum. What does this suggest about the rest?",
+      "stemZh": "输出里的表格每一行都对，但合计和各行之和对不上。这对其余部分说明了什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Relationships between items were not checked, so other cross-item claims are suspect.",
+          "correct": true,
+          "explain": "正解。項目間の整合が取られていない兆候である。",
+          "textZh": "条目之间的关系没有被检查，所以其他跨条目的结论也可疑。"
+        },
+        {
+          "text": "Only the total needs correcting.",
+          "correct": false,
+          "explain": "不適。同じ弱点が他にもある可能性を見落とす。",
+          "textZh": "只需要改合计就行。"
+        },
+        {
+          "text": "The individual rows must also be wrong.",
+          "correct": false,
+          "explain": "不適。各行が正しいことは前提に書かれている。",
+          "textZh": "各行也一定是错的。"
+        },
+        {
+          "text": "The table should be converted to prose.",
+          "correct": false,
+          "explain": "不適。形式を変えても整合は取れない。",
+          "textZh": "应该把表格改写成散文。"
+        }
+      ],
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "commentaryZh": "考点是**行之间的关系没有被检查过**。逐条都对、合起来不对，说明产出时没有做跨行的一致性检查，其他依赖多处数据的结论也要同样怀疑。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-077",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Two outputs answer the same question differently. What is the most useful first step in comparing them?",
+      "stemZh": "两份输出对同一个问题给出了不同的回答。比较它们时最有用的第一步是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Identify whether they differ in evidence or in how they read the question.",
+          "correct": true,
+          "explain": "正解。分岐点が分からなければ比較にならない。",
+          "textZh": "分清它们的差别是出在依据上，还是出在对问题的理解上。"
+        },
+        {
+          "text": "Choose the one that is better written.",
+          "correct": false,
+          "explain": "不適。書きぶりは正しさと別。",
+          "textZh": "选文笔更好的那一份。"
+        },
+        {
+          "text": "Choose the longer one as more thorough.",
+          "correct": false,
+          "explain": "不適。長さは根拠の強さを示さない。",
+          "textZh": "选更长的那份，认为它更周全。"
+        },
+        {
+          "text": "Merge them into a single answer.",
+          "correct": false,
+          "explain": "不適。矛盾を抱えたまま1つにすることになる。",
+          "textZh": "把两份合并成一个答案。"
+        }
+      ],
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "commentaryZh": "考点是**先找分歧的来源**。两份结论不同，可能是依据不同，也可能是对问题的理解不同。不先分清这一点，比较就变成了挑文笔。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-078",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO claims most need checking before a document is sent outside the organisation? (Select 2)",
+      "stemZh": "在文件发往组织外部之前，哪两类说法最需要核查？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Statements about what another organisation did.",
+          "correct": true,
+          "explain": "正解。誤れば相手への非難になり、取り返しがつかない。",
+          "textZh": "关于另一家机构做过什么的陈述。"
+        },
+        {
+          "text": "Specific figures the reader may rely on.",
+          "correct": true,
+          "explain": "正解。依拠されると誤りの影響が大きい。",
+          "textZh": "读者可能据以行事的具体数字。"
+        },
+        {
+          "text": "The order in which the sections appear.",
+          "correct": false,
+          "explain": "不適。構成は事実の正しさと別。",
+          "textZh": "各小节出现的先后顺序。"
+        },
+        {
+          "text": "The choice of greeting at the top.",
+          "correct": false,
+          "explain": "不適。体裁の問題である。",
+          "textZh": "开头问候语的选择。"
+        }
+      ],
+      "objective": "Apply fact-checking and validation techniques",
+      "commentaryZh": "考点是**对外的文件里，最容易变成承诺或指控的部分风险最大**。涉及第三方作为的陈述和具体的数字承诺，出错的代价远高于措辞。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-079",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An associate must keep a set of findings usable for six months. What matters most about how they are stored?",
+      "stemZh": "使用者需要让一组调研结论在半年内都可用。存放方式上最重要的是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Each finding keeps its source and the date it was verified.",
+          "correct": true,
+          "explain": "正解。半年後に、まだ信じてよいか判断できる。",
+          "textZh": "每条结论都保留它的来源和核实日期。"
+        },
+        {
+          "text": "They are stored in the same format as the original output.",
+          "correct": false,
+          "explain": "不適。形式は後の判断を助けない。",
+          "textZh": "按输出原来的格式存放。"
+        },
+        {
+          "text": "They are kept in a single long document.",
+          "correct": false,
+          "explain": "不適。まとめ方の問題ではない。",
+          "textZh": "全部放在一份很长的文档里。"
+        },
+        {
+          "text": "They are re-read once a month.",
+          "correct": false,
+          "explain": "不適。読み返しても出所が無ければ確かめられない。",
+          "textZh": "每个月重读一遍。"
+        }
+      ],
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "commentaryZh": "考点是**半年后还能判断该不该信**。当时的出处和确认日期留着，后来的人才知道这条是否过时；单纯把文本存好没有解决这个问题。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d2-080",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An associate has verified an output thoroughly and it is correct. What should be recorded?",
+      "stemZh": "使用者仔细核实了一份输出，确认无误。应该记录什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "What was checked and against what, so the next person need not repeat it.",
+          "correct": true,
+          "explain": "正解。検証の範囲が分かれば、二度手間と見落としの両方を防げる。",
+          "textZh": "核对了哪些内容、对照的是什么，让下一个人不必重来。"
+        },
+        {
+          "text": "Only the conclusion that it was correct.",
+          "correct": false,
+          "explain": "不適。何を見ていないかが分からない。",
+          "textZh": "只记录「核实无误」这个结论。"
+        },
+        {
+          "text": "How long the verification took.",
+          "correct": false,
+          "explain": "不適。所要時間は次の人の役に立たない。",
+          "textZh": "核实花了多长时间。"
+        },
+        {
+          "text": "The name of the model that produced it.",
+          "correct": false,
+          "explain": "不適。検証の範囲を示さない。",
+          "textZh": "产出这份输出的模型名称。"
+        }
+      ],
+      "objective": "Determine when human review or additional verification is required",
+      "commentaryZh": "考点是**核实过程本身也是成果**。留下核对了哪些、对照了什么，下一个人就不必从头再查一遍，也知道哪些部分还没查。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
     }
   ]
 }
