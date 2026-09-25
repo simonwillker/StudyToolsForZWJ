@@ -1,4 +1,11 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { analyseWeakness, pickFocusItems, MIN_ATTEMPTS } from "./ccaofWeakness";
+import {
+  downloadBackup,
+  parseBackup,
+  applyBackup,
+  describeBackup,
+} from "./ccaofBackup";
 import {
   DOMAINS,
   BLUEPRINT,
@@ -122,8 +129,11 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh }) {
       picked.length === correctIdx.length && correctIdx.every((i) => picked.includes(i));
     setSubmitted(true);
     if (ok) setScore((s) => s + 1);
-    recordAnswer(domain.id, q.id, ok);
-    recordReviewResult(domain.id, q.id, ok);
+    /* 重点演習では複数ドメインが混ざる。記録先は画面のドメインではなく
+       問題自身のドメインにする（そうしないと弱点判定の材料が壊れる） */
+    const recordDomain = q.domain || domain.id;
+    recordAnswer(recordDomain, q.id, ok);
+    recordReviewResult(recordDomain, q.id, ok);
   };
 
   const next = () => {
@@ -532,6 +542,8 @@ export default function CcaofApp({ onExitApp }) {
   }, []);
 
   const domain = domainId ? findDomain(domainId) : null;
+  /* 重点演習は特定のドメインに属さない。表示用だけの擬似ドメインを使う */
+  const FOCUS_DOMAIN = { id: "focus", name: "弱点の重点演習", color: "#3F6F52" };
   const examCounts = useMemo(() => examBlueprintCounts(), []);
 
   useEffect(() => {
@@ -581,21 +593,117 @@ export default function CcaofApp({ onExitApp }) {
     setScreen("quiz");
   };
 
+  /* ---- 弱点ドメインの重点演習 ---- */
+  const [focusBusy, setFocusBusy] = useState(false);
+  const [focusMode, setFocusMode] = useState(false);
+
+  const startFocus = async () => {
+    const analysis = analyseWeakness();
+    if (!analysis.ready) return;
+    setFocusBusy(true);
+    try {
+      /* 重点対象のドメインだけ読み込む。7つ全部は読まない */
+      const loaded = await Promise.all(analysis.focus.map((id) => loadDomainItems(id)));
+      const byDomain = {};
+      analysis.focus.forEach((id, i) => {
+        byDomain[id] = loaded[i];
+      });
+      const picked = pickFocusItems(byDomain, analysis.focus, UNIT_SIZE);
+      if (picked.length === 0) return;
+      setDomainId(null);
+      setFocusMode(true);
+      setQuestions(buildQuestions(picked));
+      setScreen("quiz");
+    } catch (e) {
+      /* 読み込みに失敗したら画面は変えない。利用者はもう一度押せる */
+    } finally {
+      setFocusBusy(false);
+    }
+  };
+
   const exitQuiz = () => {
     setStatsNonce((n) => n + 1);
+    if (focusMode) {
+      /* 重点演習はドメインに属さないので、ドメイン選択へ戻す */
+      setFocusMode(false);
+      setScreen("domainSelect");
+      return;
+    }
     setScreen("unitSelect");
   };
 
   /* 学習記録は localStorage から毎回読む。useMemo にすると、出題中に
      解いた分が学習記録の画面に出ないまま残る（実際にそうなっていた）。
      7ドメインぶんの読み出しなので、描画のたびに読んでも十分に軽い。 */
+  /* ---- 学習記録のバックアップ ---- */
+  const backupInputRef = useRef(null);
+  const [backupMsg, setBackupMsg] = useState(null);
+
+  const handleBackupExport = () => {
+    const d = downloadBackup();
+    setBackupMsg({
+      kind: "ok",
+      text: `${d.attempted}問ぶんの記録を書き出しました。ファイルを安全な場所に保存してください。`,
+    });
+  };
+
+  const handleBackupImport = async (e) => {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = ""; // 同じファイルを続けて選べるようにする
+    if (!file) return;
+    const result = parseBackup(await file.text());
+    if (!result.ok) {
+      setBackupMsg({ kind: "ng", text: result.error });
+      return;
+    }
+    const d = describeBackup(result.backup);
+    const when = d.exportedAt ? new Date(d.exportedAt).toLocaleDateString() : "日付不明";
+    /* 復元は今の記録を置き換える。取り返しがつかないので必ず中身を見せて確認する */
+    const okToApply = window.confirm(
+      `${when} のバックアップです。\n\n` +
+        `・解いた問題　${d.attempted}問（正解 ${d.correct}問）\n` +
+        `・学習した日数　${d.days}日\n` +
+        `・復習リスト　${d.reviewCount}問\n` +
+        `・模擬試験　${d.exams}回\n\n` +
+        `今この端末にある記録は、これで置き換えられます。よろしいですか？`
+    );
+    if (!okToApply) return;
+    applyBackup(result.backup);
+    window.location.reload();
+  };
+
   const domainStats = screen === "progress" ? getAllDomainStats(DOMAINS.map((d) => d.id)) : [];
   /* 受験履歴も localStorage から毎回読む（useMemo にすると採点直後に古い値が残る） */
   const pastResults = screen === "domainSelect" ? loadResults() : [];
+  /* 弱点の判定も localStorage から毎回読む（演習直後に古い値が残らないように） */
+  const weakness = screen === "domainSelect" || screen === "progress" ? analyseWeakness() : null;
 
   return (
     <div className="ccaof-app">
       <style>{`
+        .ccaof-focus-card {
+          max-width: 720px; margin: 0 auto; background: #fff;
+          border: 2px solid #3F6F52; border-radius: 10px; padding: 16px 18px;
+        }
+        .ccaof-focus-title { font-size: 15px; font-weight: 800; color: #3F6F52; }
+        .ccaof-focus-desc { font-size: 12.5px; color: #6B7280; line-height: 1.7; margin: 6px 0 12px; }
+        .ccaof-focus-rows { margin-bottom: 12px; }
+        .ccaof-focus-row {
+          display: flex; align-items: baseline; gap: 8px;
+          padding: 6px 0; border-top: 1px solid #EEE; font-size: 13px;
+        }
+        .ccaof-focus-id { font-weight: 800; color: #3F6F52; min-width: 26px; }
+        .ccaof-focus-name { flex: 1; color: #333; }
+        .ccaof-focus-pct { color: #6B7280; font-size: 12px; white-space: nowrap; }
+        .ccaof-backup-row {
+          display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;
+        }
+        .ccaof-backup-msg {
+          margin-top: 8px; padding: 8px 10px; border-radius: 8px;
+          font-size: 13px; line-height: 1.6;
+        }
+        .ccaof-backup-msg.ok { background: #EAF3EC; color: #2F5D3A; }
+        .ccaof-backup-msg.ng { background: #F7E9E7; color: #8A3324; }
         .ccaof-app {
           min-height: 100vh; background: #F7F6F2;
           font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
@@ -753,6 +861,37 @@ export default function CcaofApp({ onExitApp }) {
             <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.validityMonths}</div><div className="ccaof-fact-label">か月有効</div></div>
           </div>
 
+          <div className="ccaof-sub-head">弱点を重点的に</div>
+          <div className="ccaof-focus-card">
+            {weakness && weakness.ready ? (
+              <>
+                <div className="ccaof-focus-title">
+                  いま優先すべきは {weakness.ranked.slice(0, 3).map((r) => r.id).join("・")}
+                </div>
+                <div className="ccaof-focus-desc">
+                  {weakness.hasExam
+                    ? "模擬試験と演習の実績から割り出しています。"
+                    : "演習の実績から割り出しています。模擬試験を受けると精度が上がります。"}
+                  正答率だけでなく配点比率も掛けているので、同じ苦手でも配点の重いドメインが先に来ます。
+                </div>
+                <div className="ccaof-focus-rows">
+                  {weakness.ranked.slice(0, 3).map((r) => (
+                    <div className="ccaof-focus-row" key={r.id}>
+                      <span className="ccaof-focus-id">{r.id}</span>
+                      <span className="ccaof-focus-name">{r.name}</span>
+                      <span className="ccaof-focus-pct">{r.pct}%（{r.rawAttempted}問・配点{r.weight}%）</span>
+                    </div>
+                  ))}
+                </div>
+                <button className="ccaof-btn" style={{ "--c": "#3F6F52" }} onClick={startFocus} disabled={focusBusy}>
+                  {focusBusy ? "問題を準備しています…" : `この3つから ${UNIT_SIZE}問 解く`}
+                </button>
+              </>
+            ) : (
+              <div className="ccaof-focus-desc">{weakness ? weakness.reason : ""}</div>
+            )}
+          </div>
+
           <div className="ccaof-sub-head">模擬試験</div>
           <div className="ccaof-exam-card">
             <div className="ccaof-exam-card-title">本番と同じ {EXAM_FORMAT.items}問 / {EXAM_FORMAT.minutes}分</div>
@@ -906,8 +1045,14 @@ export default function CcaofApp({ onExitApp }) {
         />
       )}
 
-      {screen === "quiz" && domain && (
-        <Quiz domain={domain} questions={questions} onExit={exitQuiz} showZh={showZh} onToggleZh={toggleZh} />
+      {screen === "quiz" && (domain || focusMode) && (
+        <Quiz
+          domain={domain || FOCUS_DOMAIN}
+          questions={questions}
+          onExit={exitQuiz}
+          showZh={showZh}
+          onToggleZh={toggleZh}
+        />
       )}
 
       {screen === "progress" && (
@@ -937,6 +1082,30 @@ export default function CcaofApp({ onExitApp }) {
                 </div>
               );
             })}
+          </div>
+          <div className="ccaof-official-box">
+            <div className="ccaof-official-desc">
+              学習記録はこの端末のブラウザにだけ保存されます。別の端末に替えたときや、
+              閲覧データを消したときに失われるので、ときどき書き出しておいてください。
+            </div>
+            <div className="ccaof-backup-row">
+              <button className="ccaof-btn-ghost" onClick={handleBackupExport}>
+                ⬇ ファイルに書き出す
+              </button>
+              <button className="ccaof-btn-ghost" onClick={() => backupInputRef.current?.click()}>
+                ⬆ ファイルから戻す
+              </button>
+              <input
+                ref={backupInputRef}
+                type="file"
+                accept="application/json,.json"
+                style={{ display: "none" }}
+                onChange={handleBackupImport}
+              />
+            </div>
+            {backupMsg && (
+              <div className={`ccaof-backup-msg ${backupMsg.kind}`}>{backupMsg.text}</div>
+            )}
           </div>
           <div className="ccaof-official-box">
             <div className="ccaof-official-desc">
