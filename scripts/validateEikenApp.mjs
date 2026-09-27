@@ -22,6 +22,7 @@ function warn(f, p, m) { warnings.push(`${f} ${p}: ${m}`); }
 const files = readdirSync(DIR).filter((f) => f.endsWith(".json")).sort();
 const summary = [];
 const listeningByPart = [];
+const readingProgress = [];
 
 for (const file of files) {
   let d;
@@ -111,6 +112,37 @@ for (const file of files) {
     });
   });
 
+  // 長文読解：本文・設問の形式と、やさしい解説の有無を見る
+  let withSummary = 0;
+  (d.reading || []).forEach((r, i) => {
+    const p2 = r.id || `reading[${i}]`;
+    if (!r.title) err(file, p2, "title がありません");
+    if (!r.passage) err(file, p2, "passage がありません");
+    if (r.summaryJa) {
+      withSummary += 1;
+      // 小学生向けの説明なので、1〜2文だけだと足りない
+      if (r.summaryJa.length < 60) err(file, p2, `summaryJa が短すぎます（${r.summaryJa.length}字）`);
+    }
+    (r.questions || []).forEach((q, qi) => {
+      const p3 = q.id || `${p2}-q${qi + 1}`;
+      if (!q.q) err(file, p3, "設問文がありません");
+      const ch = q.choices || [];
+      if (ch.length !== 4) err(file, p3, `選択肢は4つです（現在${ch.length}つ）`);
+      if (ch.filter((c) => c.correct).length !== 1) err(file, p3, "correct: true がちょうど1つではありません");
+      if (new Set(ch.map((c) => c.text)).size !== ch.length) err(file, p3, "選択肢のテキストが重複しています");
+      ch.forEach((c, j) => {
+        if (!c.explain) err(file, p3, `choices[${j}] に explain がありません`);
+      });
+    });
+  });
+  const readingTotal = (d.reading || []).length;
+  readingProgress.push({
+    級: d.levelLabel,
+    文章: readingTotal,
+    全体訳: `${withSummary} / ${readingTotal}`,
+    残り: readingTotal - withSummary,
+  });
+
   const n = (d.vocab || []).length;
   summary.push({
     級: d.levelLabel,
@@ -141,6 +173,8 @@ console.log(`単語の総数：${summary.reduce((s, r) => s + r.単語, 0)}語`)
 // リスニングは題型ごとに100問が目標。どこがまだ薄いか一目で分かるようにする。
 console.log("\nリスニングの題型別（目標：各100問）");
 console.table(listeningByPart);
+console.log("\n長文読解：解答後に出す「文章ぜんたいの意味」（summaryJa）の用意ぐあい");
+console.table(readingProgress);
 
 if (warnings.length) {
   console.log(`\n⚠ 警告 ${warnings.length}件`);

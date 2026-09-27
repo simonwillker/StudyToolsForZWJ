@@ -407,6 +407,13 @@ function buildReadingItems(level, flatItems) {
       </div>
     ),
     choices: shuffle(q.choices),
+    // 解答後に本文ぜんたいの意味を日本語で出す（まだ用意できていない級は出さない）
+    extra: passage.summaryJa ? (
+      <div className="eiken-note-box">
+        <div className="eiken-note-point">📖 この文章ぜんたいの意味</div>
+        <div className="eiken-note-ja">{passage.summaryJa}</div>
+      </div>
+    ) : null,
   }));
 }
 
