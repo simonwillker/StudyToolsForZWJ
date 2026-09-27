@@ -5020,22 +5020,22 @@
             {
               "text": "Eleven years old.",
               "correct": true,
-              "explain": "本文に \"I am eleven years old.\" とあります。"
+              "explain": "正解です。本文に \"I am eleven years old.\"（私は11さいです）とあります。eleven は「11」です。"
             },
             {
               "text": "Ten years old.",
               "correct": false,
-              "explain": "本文には eleven（11歳）と書かれています。"
+              "explain": "10さいではありません。ten（10）と eleven（11）はちがいます。"
             },
             {
               "text": "Twelve years old.",
               "correct": false,
-              "explain": "本文には eleven（11歳）と書かれています。"
+              "explain": "12さいではありません。twelve（12）です。"
             },
             {
               "text": "Nine years old.",
               "correct": false,
-              "explain": "本文には eleven（11歳）と書かれています。"
+              "explain": "9さいではありません。nine（9）です。"
             }
           ]
         },
@@ -5046,22 +5046,22 @@
             {
               "text": "Kenta's sister.",
               "correct": true,
-              "explain": "\"I have one sister. Her name is Mai.\" と書かれています。"
+              "explain": "正解です。本文に \"I have one sister. Her name is Mai.\"（姉妹が一人いて、名前はマイ）とあります。sister は「姉・妹」です。"
             },
             {
               "text": "Kenta's mother.",
               "correct": false,
-              "explain": "Mai はケンタの姉（妹）です。母親ではありません。"
+              "explain": "お母さんではありません。"
             },
             {
               "text": "Kenta's teacher.",
               "correct": false,
-              "explain": "本文に先生についての記述はありません。"
+              "explain": "先生ではありません。"
             },
             {
               "text": "Kenta's friend.",
               "correct": false,
-              "explain": "Mai はケンタの家族（姉妹）です。"
+              "explain": "友だちではありません。"
             }
           ]
         },
@@ -5072,22 +5072,22 @@
             {
               "text": "They play soccer in the park.",
               "correct": true,
-              "explain": "\"we often go to the park and play soccer together\" とあります。"
+              "explain": "正解です。本文に \"On Sundays, we often go to the park and play soccer\"（日曜日にはよく公園でサッカーをする）とあります。often は「よく・たびたび」です。"
             },
             {
               "text": "They watch TV at home.",
               "correct": false,
-              "explain": "本文にはテレビの記述はありません。"
+              "explain": "家でテレビ、ではありません。"
             },
             {
               "text": "They go to school.",
               "correct": false,
-              "explain": "日曜日は学校に行く日ではありません。"
+              "explain": "学校に行く、ではありません。日曜日です。"
             },
             {
               "text": "They visit their grandparents.",
               "correct": false,
-              "explain": "祖父母についての記述はありません。"
+              "explain": "祖父母の家、ではありません。"
             }
           ]
         },
@@ -5098,22 +5098,22 @@
             {
               "text": "In Tokyo.",
               "correct": true,
-              "explain": "\"We live in Tokyo with our parents.\" とあります。"
+              "explain": "正解です。本文に \"We live in Tokyo\"（東京にすんでいる）とあります。live in 〜 は「〜にすむ」です。"
             },
             {
               "text": "In Osaka.",
               "correct": false,
-              "explain": "本文には Tokyo と書かれています。"
+              "explain": "大阪ではありません。"
             },
             {
               "text": "In Kyoto.",
               "correct": false,
-              "explain": "本文には Tokyo と書かれています。"
+              "explain": "京都ではありません。"
             },
             {
               "text": "In Nagoya.",
               "correct": false,
-              "explain": "本文には Tokyo と書かれています。"
+              "explain": "名古屋ではありません。"
             }
           ]
         },
@@ -5124,26 +5124,27 @@
             {
               "text": "Soccer.",
               "correct": true,
-              "explain": "\"I like soccer very much.\" とあります。"
+              "explain": "正解です。本文の最後に \"I like soccer very much.\"（サッカーが大すき）とあります。very much は「とても」です。"
             },
             {
               "text": "Baseball.",
               "correct": false,
-              "explain": "本文には soccer と書かれています。"
+              "explain": "野球ではありません。"
             },
             {
               "text": "Swimming.",
               "correct": false,
-              "explain": "本文には soccer と書かれています。"
+              "explain": "水泳ではありません。"
             },
             {
               "text": "Tennis.",
               "correct": false,
-              "explain": "本文には soccer と書かれています。"
+              "explain": "テニスではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "ケンタくんの自己しょうかいです。名前はケンタ、11さいです。マイという名前のお姉さん（妹さん）が一人います。ご両親といっしょに東京にすんでいます。日曜日にはよく、みんなで公園に行っていっしょにサッカーをします。ケンタくんはサッカーが大すきです。"
     },
     {
       "id": "r5-02",
@@ -5157,22 +5158,22 @@
             {
               "text": "Momo.",
               "correct": true,
-              "explain": "\"His name is Momo.\" とあります。"
+              "explain": "正解です。本文に \"His name is Momo.\"（名前はモモ）とあります。"
             },
             {
               "text": "Taro.",
               "correct": false,
-              "explain": "本文には Momo と書かれています。"
+              "explain": "タロウではありません。"
             },
             {
               "text": "Shiro.",
               "correct": false,
-              "explain": "本文には Momo と書かれています。"
+              "explain": "シロではありません。色は白ですが、名前はモモです。"
             },
             {
               "text": "Pochi.",
               "correct": false,
-              "explain": "本文には Momo と書かれています。"
+              "explain": "ポチではありません。"
             }
           ]
         },
@@ -5183,22 +5184,22 @@
             {
               "text": "In the park near the house.",
               "correct": true,
-              "explain": "\"I walk Momo in the park near my house\" とあります。"
+              "explain": "正解です。本文に \"I walk Momo in the park near my house\"（家の近くの公園でモモを散歩させる）とあります。walk はここでは「散歩させる」です。"
             },
             {
               "text": "At school.",
               "correct": false,
-              "explain": "学校についての記述はありません。"
+              "explain": "学校ではありません。"
             },
             {
               "text": "At the beach.",
               "correct": false,
-              "explain": "浜辺についての記述はありません。"
+              "explain": "海辺ではありません。"
             },
             {
               "text": "In the kitchen.",
               "correct": false,
-              "explain": "台所についての記述はありません。"
+              "explain": "台所ではありません。"
             }
           ]
         },
@@ -5209,22 +5210,22 @@
             {
               "text": "A ball.",
               "correct": true,
-              "explain": "\"He likes to play with a ball.\" とあります。"
+              "explain": "正解です。本文に \"He likes to play with a ball.\"（ボールで遊ぶのが好き）とあります。play with 〜 は「〜で遊ぶ」です。"
             },
             {
               "text": "A box.",
               "correct": false,
-              "explain": "箱についての記述はありません。"
+              "explain": "箱ではありません。ball（ボール）と box（箱）は形が似ているので気をつけましょう。"
             },
             {
               "text": "A book.",
               "correct": false,
-              "explain": "本についての記述はありません。"
+              "explain": "本ではありません。"
             },
             {
               "text": "A bicycle.",
               "correct": false,
-              "explain": "自転車についての記述はありません。"
+              "explain": "自転車ではありません。"
             }
           ]
         },
@@ -5235,22 +5236,22 @@
             {
               "text": "White.",
               "correct": true,
-              "explain": "\"Momo is white and small.\" とあります。"
+              "explain": "正解です。本文に \"Momo is white and small.\"（モモは白くて小さい）とあります。white は「白」です。"
             },
             {
               "text": "Black.",
               "correct": false,
-              "explain": "本文には white と書かれています。"
+              "explain": "黒ではありません。"
             },
             {
               "text": "Brown.",
               "correct": false,
-              "explain": "本文には white と書かれています。"
+              "explain": "茶色ではありません。"
             },
             {
               "text": "Gray.",
               "correct": false,
-              "explain": "本文には white と書かれています。"
+              "explain": "灰色ではありません。"
             }
           ]
         },
@@ -5261,26 +5262,27 @@
             {
               "text": "Last week.",
               "correct": true,
-              "explain": "\"My family got a new dog last week.\" とあります。"
+              "explain": "正解です。本文のはじめに \"got a new dog last week\"（先週、新しい犬が来た）とあります。last week は「先週」です。"
             },
             {
               "text": "Last month.",
               "correct": false,
-              "explain": "本文には last week と書かれています。"
+              "explain": "先月ではありません。week（週）と month（月）を見まちがえないようにしましょう。"
             },
             {
               "text": "Last year.",
               "correct": false,
-              "explain": "本文には last week と書かれています。"
+              "explain": "去年ではありません。"
             },
             {
               "text": "Yesterday.",
               "correct": false,
-              "explain": "本文には last week と書かれています。"
+              "explain": "きのうではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "新しく家族になった犬の話です。先週、家に新しい犬が来ました。名前はモモです。モモは白くて小さい犬です。書き手は毎朝、家の近くの公園でモモの散歩をします。モモはボールで遊ぶのが好きです。書き手はモモが大すきです。"
     },
     {
       "id": "r5-03",
@@ -5294,22 +5296,22 @@
             {
               "text": "Last Friday.",
               "correct": true,
-              "explain": "\"Last Friday, my class went to the zoo.\" とあります。"
+              "explain": "正解です。本文に \"Last Friday\"（先週の金曜日）とあります。Friday は「金曜日」です。"
             },
             {
               "text": "Last Sunday.",
               "correct": false,
-              "explain": "本文には Friday と書かれています。"
+              "explain": "日曜日ではありません。Sunday（日曜）と Friday（金曜）はちがいます。"
             },
             {
               "text": "Last Monday.",
               "correct": false,
-              "explain": "本文には Friday と書かれています。"
+              "explain": "月曜日ではありません。"
             },
             {
               "text": "This morning.",
               "correct": false,
-              "explain": "本文には Last Friday と書かれています。"
+              "explain": "今朝ではありません。"
             }
           ]
         },
@@ -5320,22 +5322,22 @@
             {
               "text": "By bus.",
               "correct": true,
-              "explain": "\"We took a bus from school.\" とあります。"
+              "explain": "正解です。本文に \"We took a bus from school.\"（学校からバスに乗った）とあります。take a bus は「バスに乗る」です。"
             },
             {
               "text": "By train.",
               "correct": false,
-              "explain": "本文には bus と書かれています。"
+              "explain": "電車ではありません。"
             },
             {
               "text": "By car.",
               "correct": false,
-              "explain": "本文には bus と書かれています。"
+              "explain": "車ではありません。"
             },
             {
               "text": "On foot.",
               "correct": false,
-              "explain": "本文には bus と書かれています。"
+              "explain": "歩きではありません。"
             }
           ]
         },
@@ -5346,22 +5348,22 @@
             {
               "text": "The panda.",
               "correct": true,
-              "explain": "\"My favorite animal was the panda\" とあります。"
+              "explain": "正解です。本文に \"My favorite animal was the panda\"（一番好きな動物はパンダだった）とあります。favorite は「一番好きな」です。"
             },
             {
               "text": "The elephant.",
               "correct": false,
-              "explain": "象は見た動物の一つですが、お気に入りはパンダです。"
+              "explain": "ゾウではありません。見はしましたが、一番ではありません。"
             },
             {
               "text": "The lion.",
               "correct": false,
-              "explain": "ライオンは見た動物の一つですが、お気に入りはパンダです。"
+              "explain": "ライオンではありません。"
             },
             {
               "text": "The tiger.",
               "correct": false,
-              "explain": "本文にトラは出てきません。"
+              "explain": "トラは出てきません。"
             }
           ]
         },
@@ -5372,22 +5374,22 @@
             {
               "text": "Because it was very cute.",
               "correct": true,
-              "explain": "\"because it was very cute\" とあります。"
+              "explain": "正解です。本文に \"because it was very cute\"（とてもかわいかったから）とあります。because は「〜だから」です。"
             },
             {
               "text": "Because it was very big.",
               "correct": false,
-              "explain": "大きさについての記述はありません。"
+              "explain": "とても大きかったから、ではありません。"
             },
             {
               "text": "Because it could run fast.",
               "correct": false,
-              "explain": "速さについての記述はありません。"
+              "explain": "速く走れたから、ではありません。"
             },
             {
               "text": "Because it was funny.",
               "correct": false,
-              "explain": "本文には cute と書かれています。"
+              "explain": "おもしろかったから、ではありません。"
             }
           ]
         },
@@ -5398,26 +5400,27 @@
             {
               "text": "Under a big tree.",
               "correct": true,
-              "explain": "\"We ate lunch under a big tree.\" とあります。"
+              "explain": "正解です。本文に \"We ate lunch under a big tree.\"（大きな木の下でお昼を食べた）とあります。under は「〜の下で」です。"
             },
             {
               "text": "In the bus.",
               "correct": false,
-              "explain": "本文には under a big tree と書かれています。"
+              "explain": "バスの中ではありません。"
             },
             {
               "text": "At a restaurant.",
               "correct": false,
-              "explain": "レストランについての記述はありません。"
+              "explain": "レストランではありません。"
             },
             {
               "text": "In the classroom.",
               "correct": false,
-              "explain": "教室についての記述はありません。"
+              "explain": "教室ではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "動物園への遠足の話です。先週の金曜日、書き手のクラスは動物園に行きました。学校からバスに乗って行きました。動物園ではゾウ、ライオン、パンダを見ました。書き手の一番好きな動物はパンダでした。とてもかわいかったからです。大きな木の下でお昼ごはんを食べました。楽しい一日になりました。"
     },
     {
       "id": "r5-04",
@@ -5431,22 +5434,22 @@
             {
               "text": "Every Saturday.",
               "correct": true,
-              "explain": "\"Every Saturday, I go to the library\" とあります。"
+              "explain": "正解です。本文に \"Every Saturday, I go to the library\"（毎週土曜日に図書館へ行く）とあります。Saturday は「土曜日」です。"
             },
             {
               "text": "Every Monday.",
               "correct": false,
-              "explain": "本文には Saturday と書かれています。"
+              "explain": "月曜日ではありません。"
             },
             {
               "text": "Every Sunday.",
               "correct": false,
-              "explain": "本文には Saturday と書かれています。"
+              "explain": "日曜日ではありません。Sunday（日曜）と Saturday（土曜）は形が似ているので注意しましょう。"
             },
             {
               "text": "Every day.",
               "correct": false,
-              "explain": "本文には Every Saturday と書かれています。"
+              "explain": "毎日ではありません。"
             }
           ]
         },
@@ -5457,22 +5460,22 @@
             {
               "text": "Near the speaker's house.",
               "correct": true,
-              "explain": "\"the library near my house\" とあります。"
+              "explain": "正解です。本文に \"the library near my house\"（家の近くの図書館）とあります。near は「〜の近くの」です。"
             },
             {
               "text": "Near the station.",
               "correct": false,
-              "explain": "本文には near my house と書かれています。"
+              "explain": "駅の近くではありません。"
             },
             {
               "text": "In the school.",
               "correct": false,
-              "explain": "本文には near my house と書かれています。"
+              "explain": "学校の中ではありません。"
             },
             {
               "text": "Far from the house.",
               "correct": false,
-              "explain": "本文には near（近い）と書かれています。"
+              "explain": "家から遠い、ではありません。near（近く）です。"
             }
           ]
         },
@@ -5483,22 +5486,22 @@
             {
               "text": "A boy who travels to the moon.",
               "correct": true,
-              "explain": "\"about a boy who travels to the moon\" とあります。"
+              "explain": "正解です。本文に \"about a boy who travels to the moon\"（月へ旅をする男の子についての本）とあります。travel は「旅をする」、moon は「月」です。"
             },
             {
               "text": "A girl who travels to Paris.",
               "correct": false,
-              "explain": "本文には the moon と書かれています。"
+              "explain": "パリへ行く女の子ではありません。"
             },
             {
               "text": "A dog who travels to a park.",
               "correct": false,
-              "explain": "本文には a boy who travels to the moon と書かれています。"
+              "explain": "公園へ行く犬ではありません。"
             },
             {
               "text": "A cat who lives in a library.",
               "correct": false,
-              "explain": "本文にそのような話は出てきません。"
+              "explain": "図書館にすむネコではありません。"
             }
           ]
         },
@@ -5509,22 +5512,22 @@
             {
               "text": "Three times.",
               "correct": true,
-              "explain": "\"I have read it three times.\" とあります。"
+              "explain": "正解です。本文に \"I have read it three times.\"（3回読んだ）とあります。three times は「3回」です。"
             },
             {
               "text": "Two times.",
               "correct": false,
-              "explain": "本文には three times と書かれています。"
+              "explain": "2回ではありません。"
             },
             {
               "text": "Four times.",
               "correct": false,
-              "explain": "本文には three times と書かれています。"
+              "explain": "4回ではありません。"
             },
             {
               "text": "Once.",
               "correct": false,
-              "explain": "本文には three times と書かれています。"
+              "explain": "1回ではありません。"
             }
           ]
         },
@@ -5535,26 +5538,27 @@
             {
               "text": "Because it is quiet and good for reading.",
               "correct": true,
-              "explain": "\"The library is quiet and I can read for a long time there.\" とあります。"
+              "explain": "正解です。本文の最後に \"The library is quiet and I can read for a long time there.\"（図書館は静かで、長いあいだ読める）とあります。quiet は「静かな」です。"
             },
             {
               "text": "Because it has many computers.",
               "correct": false,
-              "explain": "コンピューターについての記述はありません。"
+              "explain": "コンピューターが多いから、ではありません。"
             },
             {
               "text": "Because it is near the park.",
               "correct": false,
-              "explain": "公園についての記述はありません。"
+              "explain": "公園の近くだから、ではありません。"
             },
             {
               "text": "Because friends are always there.",
               "correct": false,
-              "explain": "友だちについての記述はありません。"
+              "explain": "友だちがいるから、ではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "本と図書館の話です。書き手は本を読むのが大すきです。毎週土曜日に、家の近くの図書館へ行きます。一番好きな本は、月へ旅をする男の子のお話です。もう3回読みました。図書館は静かなので、そこでは長いあいだ本を読むことができます。"
     },
     {
       "id": "r5-05",
@@ -5568,22 +5572,22 @@
             {
               "text": "The speaker's mother.",
               "correct": true,
-              "explain": "\"I made sandwiches with my mother.\" とあります。"
+              "explain": "正解です。本文に \"I made sandwiches with my mother\"（お母さんといっしょに作った）とあります。with は「〜といっしょに」です。"
             },
             {
               "text": "The speaker's father.",
               "correct": false,
-              "explain": "本文には mother と書かれています。"
+              "explain": "お父さんではありません。"
             },
             {
               "text": "The speaker's sister.",
               "correct": false,
-              "explain": "本文には mother と書かれています。"
+              "explain": "姉妹ではありません。"
             },
             {
               "text": "The speaker's teacher.",
               "correct": false,
-              "explain": "先生についての記述はありません。"
+              "explain": "先生ではありません。"
             }
           ]
         },
@@ -5594,22 +5598,22 @@
             {
               "text": "Bread, cheese, and ham.",
               "correct": true,
-              "explain": "\"We used bread, cheese, and ham.\" とあります。"
+              "explain": "正解です。本文に \"We used bread, cheese, and ham.\"（パン、チーズ、ハムを使った）とあります。"
             },
             {
               "text": "Bread, egg, and tomato.",
               "correct": false,
-              "explain": "本文には cheese and ham と書かれています。"
+              "explain": "たまごとトマトは出てきません。"
             },
             {
               "text": "Rice and fish.",
               "correct": false,
-              "explain": "米や魚についての記述はありません。"
+              "explain": "ごはんと魚ではありません。"
             },
             {
               "text": "Bread and butter only.",
               "correct": false,
-              "explain": "本文には cheese and ham も入っています。"
+              "explain": "パンとバターだけ、ではありません。チーズとハムも使っています。"
             }
           ]
         },
@@ -5620,22 +5624,22 @@
             {
               "text": "They washed their hands.",
               "correct": true,
-              "explain": "\"First, we washed our hands.\" とあります。"
+              "explain": "正解です。本文に \"First, we washed our hands.\"（はじめに手をあらった）とあります。First は「はじめに」です。"
             },
             {
               "text": "They cut the bread.",
               "correct": false,
-              "explain": "本文にはまず手を洗ったと書かれています。"
+              "explain": "パンを切ったのではありません。"
             },
             {
               "text": "They boiled water.",
               "correct": false,
-              "explain": "お湯を沸かす記述はありません。"
+              "explain": "お湯をわかしたのではありません。"
             },
             {
               "text": "They went shopping.",
               "correct": false,
-              "explain": "買い物の記述はありません。"
+              "explain": "買い物ではありません。"
             }
           ]
         },
@@ -5646,22 +5650,22 @@
             {
               "text": "Six.",
               "correct": true,
-              "explain": "\"We made six sandwiches.\" とあります。"
+              "explain": "正解です。本文に \"We made six sandwiches.\"（6つ作った）とあります。six は「6」です。"
             },
             {
               "text": "Four.",
               "correct": false,
-              "explain": "本文には six と書かれています。"
+              "explain": "4つではありません。four（4）です。"
             },
             {
               "text": "Eight.",
               "correct": false,
-              "explain": "本文には six と書かれています。"
+              "explain": "8つではありません。eight（8）です。"
             },
             {
               "text": "Ten.",
               "correct": false,
-              "explain": "本文には six と書かれています。"
+              "explain": "10ではありません。ten（10）です。"
             }
           ]
         },
@@ -5672,26 +5676,27 @@
             {
               "text": "Orange juice.",
               "correct": true,
-              "explain": "\"We ate them for lunch with orange juice.\" とあります。"
+              "explain": "正解です。本文の最後に \"We ate them for lunch with orange juice.\"（オレンジジュースといっしょに食べた）とあります。"
             },
             {
               "text": "Milk.",
               "correct": false,
-              "explain": "本文には orange juice と書かれています。"
+              "explain": "牛乳ではありません。"
             },
             {
               "text": "Tea.",
               "correct": false,
-              "explain": "本文には orange juice と書かれています。"
+              "explain": "お茶ではありません。"
             },
             {
               "text": "Water.",
               "correct": false,
-              "explain": "本文には orange juice と書かれています。"
+              "explain": "水ではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "サンドイッチ作りの話です。土曜日の朝、書き手はお母さんといっしょにサンドイッチを作りました。使ったのはパン、チーズ、ハムです。はじめに手をあらいました。それからパンのあいだにチーズとハムをはさみました。ぜんぶで6つ作りました。お昼ごはんに、オレンジジュースといっしょに食べました。"
     },
     {
       "id": "r5-06",
@@ -5705,22 +5710,22 @@
             {
               "text": "Spring.",
               "correct": true,
-              "explain": "\"Spring is my favorite season.\" とあります。"
+              "explain": "正解です。本文のいちばんはじめに \"Spring is my favorite season.\"（春が私の一番好きな季節です）とあります。favorite は「一番好きな」、season は「季節」です。"
             },
             {
               "text": "Summer.",
               "correct": false,
-              "explain": "本文には Spring と書かれています。"
+              "explain": "夏ではありません。summer は「夏」ですが、本文で好きだと言っているのは spring（春）です。"
             },
             {
               "text": "Autumn.",
               "correct": false,
-              "explain": "本文には Spring と書かれています。"
+              "explain": "秋ではありません。autumn は「秋」です。本文には出てきません。"
             },
             {
               "text": "Winter.",
               "correct": false,
-              "explain": "本文には Spring と書かれています。"
+              "explain": "冬ではありません。winter は「冬」です。本文には出てきません。"
             }
           ]
         },
@@ -5731,22 +5736,22 @@
             {
               "text": "In April.",
               "correct": true,
-              "explain": "\"In April, many flowers bloom\" とあります。"
+              "explain": "正解です。本文に \"In April, many flowers bloom in the park\"（4月に、公園でたくさんの花がさきます）とあります。April は「4月」、bloom は「花がさく」です。"
             },
             {
               "text": "In January.",
               "correct": false,
-              "explain": "本文には April と書かれています。"
+              "explain": "1月ではありません。January（1月）は寒い季節で、本文には出てきません。"
             },
             {
               "text": "In July.",
               "correct": false,
-              "explain": "本文には April と書かれています。"
+              "explain": "7月ではありません。July は「7月」です。本文に書いてあるのは April（4月）です。"
             },
             {
               "text": "In October.",
               "correct": false,
-              "explain": "本文には April と書かれています。"
+              "explain": "10月ではありません。October は「10月」です。本文に書いてあるのは April（4月）です。"
             }
           ]
         },
@@ -5757,22 +5762,22 @@
             {
               "text": "Pink.",
               "correct": true,
-              "explain": "\"the pink cherry blossoms\" とあります。"
+              "explain": "正解です。本文に \"the pink cherry blossoms\"（ピンク色の桜）とあります。pink は「ピンク色」、cherry blossoms は「桜の花」です。"
             },
             {
               "text": "Yellow.",
               "correct": false,
-              "explain": "本文には pink と書かれています。"
+              "explain": "黄色ではありません。yellow は「黄色」です。本文は pink（ピンク色）と言っています。"
             },
             {
               "text": "White.",
               "correct": false,
-              "explain": "本文には pink と書かれています。"
+              "explain": "白ではありません。white は「白」です。本文は pink（ピンク色）と言っています。"
             },
             {
               "text": "Red.",
               "correct": false,
-              "explain": "本文には pink と書かれています。"
+              "explain": "赤ではありません。red は「赤」です。ピンクと赤はにていますが、本文は pink です。"
             }
           ]
         },
@@ -5783,22 +5788,22 @@
             {
               "text": "They took many pictures.",
               "correct": true,
-              "explain": "\"we took many pictures under the trees\" とあります。"
+              "explain": "正解です。本文に \"Last weekend, we took many pictures under the trees.\"（先週末、木の下でたくさん写真をとりました）とあります。took pictures は「写真をとった」です。"
             },
             {
               "text": "They planted flowers.",
               "correct": false,
-              "explain": "花を植えたという記述はありません。"
+              "explain": "花を植えたのではありません。plant は「植える」ですが、本文では花を「見に行った」だけです。"
             },
             {
               "text": "They cleaned the park.",
               "correct": false,
-              "explain": "公園を掃除したという記述はありません。"
+              "explain": "公園のそうじではありません。clean は「そうじする」ですが、本文には出てきません。"
             },
             {
               "text": "They read books.",
               "correct": false,
-              "explain": "本を読んだという記述はありません。"
+              "explain": "本を読んだのではありません。本文にあるのは写真をとったことです。"
             }
           ]
         },
@@ -5809,26 +5814,27 @@
             {
               "text": "Warm and sunny.",
               "correct": true,
-              "explain": "\"The weather was warm and sunny.\" とあります。"
+              "explain": "正解です。本文の最後に \"The weather was warm and sunny.\"（天気はあたたかく、晴れていました）とあります。warm は「あたたかい」、sunny は「晴れた」です。"
             },
             {
               "text": "Cold and rainy.",
               "correct": false,
-              "explain": "本文には warm and sunny と書かれています。"
+              "explain": "寒くて雨ではありません。cold（寒い）・rainy（雨の）は本文とは反対です。"
             },
             {
               "text": "Windy and cloudy.",
               "correct": false,
-              "explain": "本文には warm and sunny と書かれています。"
+              "explain": "風が強くてくもり、ではありません。windy（風の強い）・cloudy（くもりの）は本文に出てきません。"
             },
             {
               "text": "Snowy.",
               "correct": false,
-              "explain": "本文には warm and sunny と書かれています。"
+              "explain": "雪ではありません。snowy は「雪の」です。4月の春の話なので雪はふりません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "春と花の話です。書き手の一番好きな季節は春です。4月になると、家の近くの公園でたくさんの花がさきます。書き手はお母さんとよく、ピンク色の桜を見に行きます。先週末には、木の下でたくさん写真をとりました。天気はあたたかく、晴れていました。"
     },
     {
       "id": "r5-07",
@@ -5842,22 +5848,22 @@
             {
               "text": "Next Sunday.",
               "correct": true,
-              "explain": "\"Next Sunday is my little brother's birthday.\" とあります。"
+              "explain": "正解です。本文のはじめに \"Next Sunday is my little brother's birthday.\"（次の日曜日が弟のたんじょう日です）とあります。next は「次の」、Sunday は「日曜日」です。"
             },
             {
               "text": "Next Monday.",
               "correct": false,
-              "explain": "本文には Next Sunday と書かれています。"
+              "explain": "月曜日ではありません。Monday は「月曜日」です。本文は Sunday（日曜日）です。"
             },
             {
               "text": "Yesterday.",
               "correct": false,
-              "explain": "本文には Next Sunday と書かれています。"
+              "explain": "きのうではありません。yesterday（きのう）はおもちゃ屋さんへ行った日です。たんじょう日とまちがえないようにしましょう。"
             },
             {
               "text": "Last week.",
               "correct": false,
-              "explain": "本文には Next Sunday と書かれています。"
+              "explain": "先週ではありません。last week は「先週」で、たんじょう日はこれから来る日です。"
             }
           ]
         },
@@ -5868,22 +5874,22 @@
             {
               "text": "Seven years old.",
               "correct": true,
-              "explain": "\"He will be seven years old.\" とあります。"
+              "explain": "正解です。本文に \"He will be seven years old.\"（弟は7さいになります）とあります。will be は「〜になる」、seven は「7」です。"
             },
             {
               "text": "Six years old.",
               "correct": false,
-              "explain": "本文には seven と書かれています。"
+              "explain": "6さいではありません。six（6）は今の年れいかもしれませんが、たんじょう日のあとは seven（7）です。"
             },
             {
               "text": "Eight years old.",
               "correct": false,
-              "explain": "本文には seven と書かれています。"
+              "explain": "8さいではありません。eight は「8」です。本文は seven（7）です。"
             },
             {
               "text": "Nine years old.",
               "correct": false,
-              "explain": "本文には seven と書かれています。"
+              "explain": "9さいではありません。nine は「9」です。本文は seven（7）です。"
             }
           ]
         },
@@ -5894,22 +5900,22 @@
             {
               "text": "Their father.",
               "correct": true,
-              "explain": "\"I went to a toy shop with my father.\" とあります。"
+              "explain": "正解です。本文に \"I went to a toy shop with my father.\"（お父さんといっしょにおもちゃ屋さんへ行きました）とあります。with は「〜といっしょに」、father は「お父さん」です。"
             },
             {
               "text": "Their mother.",
               "correct": false,
-              "explain": "本文には father と書かれています。"
+              "explain": "お母さんではありません。mother は「お母さん」ですが、本文は father（お父さん）です。"
             },
             {
               "text": "Their sister.",
               "correct": false,
-              "explain": "本文には father と書かれています。"
+              "explain": "お姉さん・妹ではありません。sister は本文に出てきません。出てくるのは brother（弟）です。"
             },
             {
               "text": "Their friend.",
               "correct": false,
-              "explain": "本文には father と書かれています。"
+              "explain": "友だちではありません。friend は本文に出てきません。"
             }
           ]
         },
@@ -5920,22 +5926,22 @@
             {
               "text": "A red toy car.",
               "correct": true,
-              "explain": "\"I chose a red toy car for him.\" とあります。"
+              "explain": "正解です。本文に \"I chose a red toy car for him.\"（赤いおもちゃの車をえらびました）とあります。chose は choose（えらぶ）の過去形、red は「赤」です。"
             },
             {
               "text": "A blue toy train.",
               "correct": false,
-              "explain": "本文には a red toy car と書かれています。"
+              "explain": "青い電車ではありません。blue（青）・train（電車）は本文に出てきません。色も物もちがいます。"
             },
             {
               "text": "A picture book.",
               "correct": false,
-              "explain": "本文には a red toy car と書かれています。"
+              "explain": "絵本ではありません。picture book は「絵本」ですが、えらんだのは車です。"
             },
             {
               "text": "A soccer ball.",
               "correct": false,
-              "explain": "本文には a red toy car と書かれています。"
+              "explain": "サッカーボールではありません。soccer ball は本文に出てきません。"
             }
           ]
         },
@@ -5946,26 +5952,27 @@
             {
               "text": "Cars.",
               "correct": true,
-              "explain": "\"He loves cars very much.\" とあります。"
+              "explain": "正解です。本文の最後に \"He loves cars very much.\"（弟は車が大すきです）とあります。love は「大すき」、very much は「とても」です。"
             },
             {
               "text": "Trains.",
               "correct": false,
-              "explain": "本文には cars と書かれています。"
+              "explain": "電車ではありません。trains は本文に出てきません。"
             },
             {
               "text": "Books.",
               "correct": false,
-              "explain": "本文には cars と書かれています。"
+              "explain": "本ではありません。books は本文に出てきません。"
             },
             {
               "text": "Games.",
               "correct": false,
-              "explain": "本文には cars と書かれています。"
+              "explain": "ゲームではありません。games は本文に出てきません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "弟へのたんじょう日プレゼントの話です。次の日曜日は、書き手の弟のたんじょう日です。弟は7さいになります。書き手はプレゼントを買ってあげたいと思いました。きのう、お父さんといっしょにおもちゃ屋さんへ行き、いろいろなおもちゃを見ました。そして最後に、赤いおもちゃの車をえらびました。弟は車が大すきだからです。"
     },
     {
       "id": "r5-08",
@@ -5979,22 +5986,22 @@
             {
               "text": "Yuki's birthday party.",
               "correct": true,
-              "explain": "\"my friend Yuki's birthday party\" とあります。"
+              "explain": "正解です。本文のはじめに \"Yesterday was my friend Yuki's birthday party.\"（きのうは友だちのユキのたんじょう日パーティーでした）とあります。Yuki's の 's は「〜の」という意味です。"
             },
             {
               "text": "The speaker's birthday party.",
               "correct": false,
-              "explain": "本文には Yuki's と書かれています。"
+              "explain": "書き手のたんじょう日ではありません。書き手はプレゼントをあげた人です。"
             },
             {
               "text": "The teacher's birthday party.",
               "correct": false,
-              "explain": "先生についての記述はありません。"
+              "explain": "先生のではありません。teacher は本文に出てきません。"
             },
             {
               "text": "Yuki's sister's birthday party.",
               "correct": false,
-              "explain": "本文には Yuki's と書かれています。"
+              "explain": "ユキのお姉さん・妹のではありません。本文の 's がついているのは Yuki です。"
             }
           ]
         },
@@ -6005,22 +6012,22 @@
             {
               "text": "At four o'clock.",
               "correct": true,
-              "explain": "\"The party was at her house at four o'clock.\" とあります。"
+              "explain": "正解です。本文に \"The party was at her house at four o'clock.\"（パーティーは彼女の家で4時からでした）とあります。four o'clock は「4時」です。"
             },
             {
               "text": "At two o'clock.",
               "correct": false,
-              "explain": "本文には four o'clock と書かれています。"
+              "explain": "2時ではありません。two o'clock は「2時」です。本文は four（4時）です。"
             },
             {
               "text": "At six o'clock.",
               "correct": false,
-              "explain": "本文には four o'clock と書かれています。"
+              "explain": "6時ではありません。six o'clock は「6時」です。本文は four（4時）です。"
             },
             {
               "text": "At noon.",
               "correct": false,
-              "explain": "本文には four o'clock と書かれています。"
+              "explain": "お昼ではありません。noon は「正午（12時）」です。本文は four（4時）です。"
             }
           ]
         },
@@ -6031,22 +6038,22 @@
             {
               "text": "Ten.",
               "correct": true,
-              "explain": "\"Ten friends came to the party.\" とあります。"
+              "explain": "正解です。本文に \"Ten friends came to the party.\"（友だちが10人来ました）とあります。ten は「10」です。"
             },
             {
               "text": "Five.",
               "correct": false,
-              "explain": "本文には Ten と書かれています。"
+              "explain": "5人ではありません。five は「5」です。本文は ten（10）です。"
             },
             {
               "text": "Eight.",
               "correct": false,
-              "explain": "本文には Ten と書かれています。"
+              "explain": "8人ではありません。eight は「8」です。本文は ten（10）です。"
             },
             {
               "text": "Twelve.",
               "correct": false,
-              "explain": "本文には Ten と書かれています。"
+              "explain": "12人ではありません。twelve は「12」です。ten（10）とにた数ですが、本文は ten です。"
             }
           ]
         },
@@ -6057,22 +6064,22 @@
             {
               "text": "A big chocolate cake.",
               "correct": true,
-              "explain": "\"We ate a big chocolate cake\" とあります。"
+              "explain": "正解です。本文に \"We ate a big chocolate cake and played games.\"（大きなチョコレートケーキを食べて、ゲームをしました）とあります。ate は eat（食べる）の過去形です。"
             },
             {
               "text": "Pizza.",
               "correct": false,
-              "explain": "本文には chocolate cake と書かれています。"
+              "explain": "ピザではありません。pizza は本文に出てきません。"
             },
             {
               "text": "Sandwiches.",
               "correct": false,
-              "explain": "本文には chocolate cake と書かれています。"
+              "explain": "サンドイッチではありません。sandwiches は別の文章（サンドイッチ作り）に出てくる言葉です。"
             },
             {
               "text": "Ice cream.",
               "correct": false,
-              "explain": "本文には chocolate cake と書かれています。"
+              "explain": "アイスクリームではありません。ice cream は本文に出てきません。"
             }
           ]
         },
@@ -6083,26 +6090,27 @@
             {
               "text": "A nice pen.",
               "correct": true,
-              "explain": "\"I gave Yuki a nice pen as a present.\" とあります。"
+              "explain": "正解です。本文に \"I gave Yuki a nice pen as a present.\"（ユキにすてきなペンをプレゼントしました）とあります。gave は give（あげる）の過去形、as a present は「プレゼントとして」です。"
             },
             {
               "text": "A book.",
               "correct": false,
-              "explain": "本文には a nice pen と書かれています。"
+              "explain": "本ではありません。book は本文に出てきません。"
             },
             {
               "text": "A toy.",
               "correct": false,
-              "explain": "本文には a nice pen と書かれています。"
+              "explain": "おもちゃではありません。toy は別の文章（弟へのプレゼント）に出てくる言葉です。"
             },
             {
               "text": "Flowers.",
               "correct": false,
-              "explain": "本文には a nice pen と書かれています。"
+              "explain": "花ではありません。flowers は本文に出てきません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "友だちのたんじょう日パーティーの話です。きのうは、友だちのユキちゃんのたんじょう日パーティーでした。パーティーはユキちゃんの家で、4時からでした。友だちが10人来ました。みんなで大きなチョコレートケーキを食べて、ゲームをしました。書き手はユキちゃんに、すてきなペンをプレゼントしました。ユキちゃんはとてもよろこんでくれました。"
     },
     {
       "id": "r5-09",
@@ -6116,22 +6124,22 @@
             {
               "text": "Last Saturday.",
               "correct": true,
-              "explain": "\"Our school had Sports Day last Saturday.\" とあります。"
+              "explain": "正解です。本文のはじめに \"Our school had Sports Day last Saturday.\"（学校で先週の土曜日に運動会がありました）とあります。last Saturday は「先週の土曜日」です。"
             },
             {
               "text": "Last Friday.",
               "correct": false,
-              "explain": "本文には Saturday と書かれています。"
+              "explain": "金曜日ではありません。Friday は「金曜日」です。本文は Saturday（土曜日）です。"
             },
             {
               "text": "Next Saturday.",
               "correct": false,
-              "explain": "本文には last Saturday と書かれています。"
+              "explain": "次の土曜日ではありません。next Saturday（これから来る土曜日）と last Saturday（先週の土曜日）はぎゃくです。"
             },
             {
               "text": "Yesterday.",
               "correct": false,
-              "explain": "本文には last Saturday と書かれています。"
+              "explain": "きのうではありません。yesterday は「きのう」で、本文には出てきません。"
             }
           ]
         },
@@ -6142,22 +6150,22 @@
             {
               "text": "At nine in the morning.",
               "correct": true,
-              "explain": "\"It started at nine in the morning.\" とあります。"
+              "explain": "正解です。本文に \"It started at nine in the morning.\"（朝9時に始まりました）とあります。started は「始まった」、in the morning は「朝に」です。"
             },
             {
               "text": "At eight in the morning.",
               "correct": false,
-              "explain": "本文には nine と書かれています。"
+              "explain": "8時ではありません。eight は「8」です。本文は nine（9時）です。"
             },
             {
               "text": "At ten in the morning.",
               "correct": false,
-              "explain": "本文には nine と書かれています。"
+              "explain": "10時ではありません。ten は「10」です。本文は nine（9時）です。"
             },
             {
               "text": "At one in the afternoon.",
               "correct": false,
-              "explain": "本文には nine in the morning と書かれています。"
+              "explain": "午後1時ではありません。in the afternoon は「午後に」ですが、本文は in the morning（朝に）です。"
             }
           ]
         },
@@ -6168,22 +6176,22 @@
             {
               "text": "Second place.",
               "correct": true,
-              "explain": "\"I ran in the 100-meter race and came in second place.\" とあります。"
+              "explain": "正解です。本文に \"I ran in the 100-meter race and came in second place.\"（100メートル走に出て2位になりました）とあります。second place は「2位」です。"
             },
             {
               "text": "First place.",
               "correct": false,
-              "explain": "本文には second place と書かれています。"
+              "explain": "1位ではありません。first place は「1位」です。本文は second（2位）です。"
             },
             {
               "text": "Third place.",
               "correct": false,
-              "explain": "本文には second place と書かれています。"
+              "explain": "3位ではありません。third place は「3位」です。本文は second（2位）です。"
             },
             {
               "text": "Last place.",
               "correct": false,
-              "explain": "本文には second place と書かれています。"
+              "explain": "最後ではありません。last place は「最下位」です。本文は second（2位）です。"
             }
           ]
         },
@@ -6194,22 +6202,22 @@
             {
               "text": "The tug-of-war.",
               "correct": true,
-              "explain": "\"My class also won the tug-of-war.\" とあります。"
+              "explain": "正解です。本文に \"My class also won the tug-of-war.\"（クラスは綱引きでも勝ちました）とあります。won は win（勝つ）の過去形、tug-of-war は「綱引き」です。"
             },
             {
               "text": "The relay race.",
               "correct": false,
-              "explain": "本文には tug-of-war と書かれています。"
+              "explain": "リレーではありません。relay race は「リレー」ですが、本文に出てくるのは綱引きです。"
             },
             {
               "text": "The dance contest.",
               "correct": false,
-              "explain": "本文には tug-of-war と書かれています。"
+              "explain": "ダンスのコンテストではありません。dance contest は本文に出てきません。"
             },
             {
               "text": "The ball game.",
               "correct": false,
-              "explain": "本文には tug-of-war と書かれています。"
+              "explain": "球技ではありません。ball game は本文に出てきません。"
             }
           ]
         },
@@ -6220,26 +6228,27 @@
             {
               "text": "They ate lunch together with their families.",
               "correct": true,
-              "explain": "\"we all ate lunch together with our families in the schoolyard\" とあります。"
+              "explain": "正解です。本文の最後に \"we all ate lunch together with our families in the schoolyard\"（みんなで家族といっしょに校庭でお昼ごはんを食べました）とあります。together は「いっしょに」、schoolyard は「校庭」です。"
             },
             {
               "text": "They went home early.",
               "correct": false,
-              "explain": "本文には昼食を一緒に食べたと書かれています。"
+              "explain": "早く家に帰ったのではありません。本文では、そのあとお昼ごはんを食べています。"
             },
             {
               "text": "They cleaned the schoolyard.",
               "correct": false,
-              "explain": "掃除についての記述はありません。"
+              "explain": "校庭のそうじではありません。校庭（schoolyard）でしたのは、お昼ごはんです。"
             },
             {
               "text": "They watched a movie.",
               "correct": false,
-              "explain": "映画についての記述はありません。"
+              "explain": "映画を見たのではありません。movie は本文に出てきません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "運動会の話です。先週の土曜日、書き手の学校で運動会がありました。朝9時に始まりました。書き手は100メートル走に出て、2位になりました。書き手のクラスは綱引きでも勝ちました。競技が終わったあと、みんなで家族といっしょに校庭でお昼ごはんを食べました。"
     },
     {
       "id": "r5-10",
@@ -6253,22 +6262,22 @@
             {
               "text": "Three days.",
               "correct": true,
-              "explain": "\"my family went to the sea for three days\" とあります。"
+              "explain": "正解です。本文に \"my family went to the sea for three days\"（家族で3日間、海へ行きました）とあります。for three days は「3日間」です。"
             },
             {
               "text": "Two days.",
               "correct": false,
-              "explain": "本文には three days と書かれています。"
+              "explain": "2日ではありません。two days は「2日間」です。本文は three（3日間）です。"
             },
             {
               "text": "Four days.",
               "correct": false,
-              "explain": "本文には three days と書かれています。"
+              "explain": "4日ではありません。four days は「4日間」です。本文は three（3日間）です。"
             },
             {
               "text": "One week.",
               "correct": false,
-              "explain": "本文には three days と書かれています。"
+              "explain": "1週間ではありません。one week は「1週間（7日）」です。本文は three days（3日間）です。"
             }
           ]
         },
@@ -6279,22 +6288,22 @@
             {
               "text": "A small hotel near the beach.",
               "correct": true,
-              "explain": "\"We stayed at a small hotel near the beach.\" とあります。"
+              "explain": "正解です。本文に \"We stayed at a small hotel near the beach.\"（海辺の近くの小さなホテルにとまりました）とあります。stayed は「とまった」、near は「〜の近くの」です。"
             },
             {
               "text": "Their grandparents' house.",
               "correct": false,
-              "explain": "本文には a small hotel と書かれています。"
+              "explain": "おじいさん・おばあさんの家ではありません。grandparents は本文に出てきません。"
             },
             {
               "text": "A big hotel in the city.",
               "correct": false,
-              "explain": "本文には near the beach と書かれています。"
+              "explain": "町の大きなホテルではありません。big（大きい）・city（町）は本文とちがいます。本文は small（小さい）ホテルで beach（海辺）の近くです。"
             },
             {
               "text": "A camping tent.",
               "correct": false,
-              "explain": "テントについての記述はありません。"
+              "explain": "キャンプのテントではありません。tent は本文に出てきません。"
             }
           ]
         },
@@ -6305,22 +6314,22 @@
             {
               "text": "Their brother.",
               "correct": true,
-              "explain": "\"I swam in the sea with my brother\" とあります。"
+              "explain": "正解です。本文に \"I swam in the sea with my brother.\"（弟といっしょに海で泳ぎました）とあります。swam は swim（泳ぐ）の過去形、brother は「兄・弟」です。"
             },
             {
               "text": "Their sister.",
               "correct": false,
-              "explain": "本文には brother と書かれています。"
+              "explain": "お姉さん・妹ではありません。sister は本文に出てきません。"
             },
             {
               "text": "Their father.",
               "correct": false,
-              "explain": "本文には brother と書かれています。"
+              "explain": "お父さんではありません。father は本文に出てきません。"
             },
             {
               "text": "Their friend.",
               "correct": false,
-              "explain": "本文には brother と書かれています。"
+              "explain": "友だちではありません。friend は本文に出てきません。いっしょに泳いだのは brother です。"
             }
           ]
         },
@@ -6331,22 +6340,22 @@
             {
               "text": "Beautiful fireworks.",
               "correct": true,
-              "explain": "\"we watched beautiful fireworks\" とあります。"
+              "explain": "正解です。本文に \"One night, we watched beautiful fireworks.\"（ある夜、きれいな花火を見ました）とあります。One night は「ある夜」、fireworks は「花火」です。"
             },
             {
               "text": "A movie.",
               "correct": false,
-              "explain": "本文には fireworks と書かれています。"
+              "explain": "映画ではありません。movie は本文に出てきません。"
             },
             {
               "text": "A boat race.",
               "correct": false,
-              "explain": "本文には fireworks と書かれています。"
+              "explain": "ボートのレースではありません。boat race は本文に出てきません。"
             },
             {
               "text": "A festival dance.",
               "correct": false,
-              "explain": "本文には fireworks と書かれています。"
+              "explain": "お祭りのおどりではありません。festival dance は本文に出てきません。"
             }
           ]
         },
@@ -6357,26 +6366,27 @@
             {
               "text": "Some shells.",
               "correct": true,
-              "explain": "\"we bought some shells as a memory of the trip\" とあります。"
+              "explain": "正解です。本文の最後に \"we bought some shells as a memory of the trip\"（旅行の思い出に貝がらをいくつか買いました）とあります。bought は buy（買う）の過去形、shells は「貝がら」、memory は「思い出」です。"
             },
             {
               "text": "Some postcards.",
               "correct": false,
-              "explain": "本文には shells と書かれています。"
+              "explain": "はがきではありません。postcards は本文に出てきません。"
             },
             {
               "text": "New swimsuits.",
               "correct": false,
-              "explain": "本文には shells と書かれています。"
+              "explain": "新しい水着ではありません。swimsuits は本文に出てきません。泳いだ話は出てきますが、買ったのは貝がらです。"
             },
             {
               "text": "Fresh fish.",
               "correct": false,
-              "explain": "本文には shells と書かれています。"
+              "explain": "新せんな魚ではありません。fresh fish は本文に出てきません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "夏の海への旅行の話です。この夏、書き手の家族は3日間、海へ行きました。海辺の近くの小さなホテルにとまりました。毎日、弟（お兄さん）といっしょに海で泳ぎました。ある夜には、きれいな花火を見ました。最後の日には、旅行の思い出に貝がらをいくつか買いました。"
     }
   ],
   "listening": [

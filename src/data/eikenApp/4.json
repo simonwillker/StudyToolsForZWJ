@@ -5020,22 +5020,22 @@
             {
               "text": "Nara",
               "correct": true,
-              "explain": "\"our class went on a school trip to Nara\" とあります。"
+              "explain": "正解です。本文に \"went on a school trip to Nara\"（奈良へ遠足に行った）とあります。school trip は「遠足・修学旅行」です。"
             },
             {
               "text": "Kyoto",
               "correct": false,
-              "explain": "本文には Nara と書かれています。"
+              "explain": "京都ではありません。本文に出てくる地名は Nara だけです。"
             },
             {
               "text": "Tokyo",
               "correct": false,
-              "explain": "本文には Nara と書かれています。"
+              "explain": "東京ではありません。"
             },
             {
               "text": "Osaka",
               "correct": false,
-              "explain": "本文には Nara と書かれています。"
+              "explain": "大阪ではありません。"
             }
           ]
         },
@@ -5046,22 +5046,22 @@
             {
               "text": "Because the deer came very close to them.",
               "correct": true,
-              "explain": "\"Some students were surprised because the deer came very close to them.\" とあります。"
+              "explain": "正解です。本文に \"surprised because the deer came very close to them\"（シカがとても近くまで来たのでおどろいた）とあります。close to は「〜の近くに」です。"
             },
             {
               "text": "Because it started to rain.",
               "correct": false,
-              "explain": "天気についての記述はありません。"
+              "explain": "雨がふりはじめたから、ではありません。天気の話は出てきません。"
             },
             {
               "text": "Because the temple was closed.",
               "correct": false,
-              "explain": "お寺が閉まっていたという記述はありません。"
+              "explain": "お寺が閉まっていたから、ではありません。ちゃんと見学しています。"
             },
             {
               "text": "Because they got lost.",
               "correct": false,
-              "explain": "迷子になったという記述はありません。"
+              "explain": "道にまよったから、ではありません。"
             }
           ]
         },
@@ -5072,22 +5072,22 @@
             {
               "text": "They ate lunch together.",
               "correct": true,
-              "explain": "\"We also ate lunch together under a big tree.\" とあります。"
+              "explain": "正解です。本文に \"ate lunch together under a big tree\"（大きな木の下でいっしょにお昼を食べた）とあります。together は「いっしょに」です。"
             },
             {
               "text": "They took a nap.",
               "correct": false,
-              "explain": "昼寝についての記述はありません。"
+              "explain": "昼寝ではありません。"
             },
             {
               "text": "They played soccer.",
               "correct": false,
-              "explain": "サッカーについての記述はありません。"
+              "explain": "サッカーではありません。"
             },
             {
               "text": "They read books.",
               "correct": false,
-              "explain": "読書についての記述はありません。"
+              "explain": "読書ではありません。"
             }
           ]
         },
@@ -5098,22 +5098,22 @@
             {
               "text": "Last month.",
               "correct": true,
-              "explain": "\"Last month, our class went on a school trip to Nara.\" とあります。"
+              "explain": "正解です。本文のはじめに \"Last month\"（先月）とあります。month は「月」です。"
             },
             {
               "text": "Last week.",
               "correct": false,
-              "explain": "本文には Last month と書かれています。"
+              "explain": "先週ではありません。week（週）と month（月）を読みまちがえないようにしましょう。"
             },
             {
               "text": "Yesterday.",
               "correct": false,
-              "explain": "本文には Last month と書かれています。"
+              "explain": "きのうではありません。"
             },
             {
               "text": "Last year.",
               "correct": false,
-              "explain": "本文には Last month と書かれています。"
+              "explain": "去年ではありません。year（年）ではなく month（月）です。"
             }
           ]
         },
@@ -5124,26 +5124,27 @@
             {
               "text": "Deer.",
               "correct": true,
-              "explain": "\"saw many deer in the park\" とあります。"
+              "explain": "正解です。本文に \"saw many deer in the park\"（公園でたくさんのシカを見た）とあります。deer は「シカ」で、1匹でも何匹でも形が変わりません。"
             },
             {
               "text": "Monkeys.",
               "correct": false,
-              "explain": "本文には deer と書かれています。"
+              "explain": "サルは出てきません。"
             },
             {
               "text": "Rabbits.",
               "correct": false,
-              "explain": "本文には deer と書かれています。"
+              "explain": "ウサギは出てきません。"
             },
             {
               "text": "Foxes.",
               "correct": false,
-              "explain": "本文には deer と書かれています。"
+              "explain": "キツネは出てきません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "奈良への遠足の話です。先月、書き手のクラスは奈良に遠足に行きました。古いお寺を見学し、公園でたくさんのシカを見ました。シカがとても近くまで来たので、おどろいた生徒もいました。みんなで大きな木の下でお昼ごはんも食べました。みんなにとって、楽しくて心に残る一日になりました。"
     },
     {
       "id": "r4-02",
@@ -5157,22 +5158,22 @@
             {
               "text": "The speaker and their mother.",
               "correct": true,
-              "explain": "\"My mother and I planned a surprise party for her\" とあります。"
+              "explain": "正解です。本文に \"My mother and I planned a surprise party\"（お母さんと私でサプライズパーティーを計画した）とあります。plan はここでは動詞で「計画する」です。"
             },
             {
               "text": "The sister herself.",
               "correct": false,
-              "explain": "妹自身が計画したのではなく、サプライズとして計画されました。"
+              "explain": "妹自身ではありません。おどろかされる側です。"
             },
             {
               "text": "The sister's teacher.",
               "correct": false,
-              "explain": "先生についての記述はありません。"
+              "explain": "先生ではありません。"
             },
             {
               "text": "Her best friend alone.",
               "correct": false,
-              "explain": "友だちだけが計画したという記述はありません。"
+              "explain": "親友ひとりではありません。よばれた側です。"
             }
           ]
         },
@@ -5183,22 +5184,22 @@
             {
               "text": "Very surprised.",
               "correct": true,
-              "explain": "\"she was very surprised to see everyone waiting for her\" とあります。"
+              "explain": "正解です。本文に \"she was very surprised\"（とてもおどろいた）とあります。surprised は「おどろいた」です。"
             },
             {
               "text": "Angry.",
               "correct": false,
-              "explain": "怒っていたという記述はありません。"
+              "explain": "おこっていた、ではありません。"
             },
             {
               "text": "Bored.",
               "correct": false,
-              "explain": "退屈していたという記述はありません。"
+              "explain": "たいくつしていた、ではありません。"
             },
             {
               "text": "Tired.",
               "correct": false,
-              "explain": "疲れていたという記述はありません。"
+              "explain": "つかれていた、ではありません。"
             }
           ]
         },
@@ -5209,22 +5210,22 @@
             {
               "text": "They played games until night.",
               "correct": true,
-              "explain": "\"We ate cake together and played games until night.\" とあります。"
+              "explain": "正解です。本文の最後に \"played games until night\"（夜までゲームをした）とあります。until は「〜まで（ずっと）」です。"
             },
             {
               "text": "They went to bed early.",
               "correct": false,
-              "explain": "早く寝たという記述はありません。"
+              "explain": "早く寝た、ではありません。夜まで遊んでいます。"
             },
             {
               "text": "They cleaned the house.",
               "correct": false,
-              "explain": "掃除についての記述はありません。"
+              "explain": "家のそうじではありません。"
             },
             {
               "text": "They watched a movie.",
               "correct": false,
-              "explain": "映画を見たという記述はありません。"
+              "explain": "映画ではありません。"
             }
           ]
         },
@@ -5235,22 +5236,22 @@
             {
               "text": "The speaker's little sister.",
               "correct": true,
-              "explain": "\"Yesterday was my little sister's birthday.\" とあります。"
+              "explain": "正解です。本文のはじめに \"my little sister's birthday\"（私の妹の誕生日）とあります。little sister は「妹」です。"
             },
             {
               "text": "The speaker's mother.",
               "correct": false,
-              "explain": "本文には little sister と書かれています。"
+              "explain": "お母さんではありません。お母さんは計画した側です。"
             },
             {
               "text": "The speaker's best friend.",
               "correct": false,
-              "explain": "本文には little sister と書かれています。"
+              "explain": "親友ではありません。"
             },
             {
               "text": "The speaker.",
               "correct": false,
-              "explain": "本文には little sister と書かれています。"
+              "explain": "書き手自身ではありません。"
             }
           ]
         },
@@ -5261,26 +5262,27 @@
             {
               "text": "With balloons.",
               "correct": true,
-              "explain": "\"decorated the living room with balloons\" とあります。"
+              "explain": "正解です。本文に \"decorated the living room with balloons\"（リビングを風船でかざった）とあります。decorate A with B は「AをBでかざる」です。"
             },
             {
               "text": "With flowers.",
               "correct": false,
-              "explain": "本文には balloons と書かれています。"
+              "explain": "花ではありません。"
             },
             {
               "text": "With photos.",
               "correct": false,
-              "explain": "本文には balloons と書かれています。"
+              "explain": "写真ではありません。"
             },
             {
               "text": "With lights.",
               "correct": false,
-              "explain": "本文には balloons と書かれています。"
+              "explain": "ライトではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "妹の誕生日のサプライズの話です。きのうは書き手の妹の誕生日でした。書き手とお母さんで、こっそりパーティーを計画しました。妹の仲良しの友だちをよんで、リビングを風船でかざりました。学校から帰ってきた妹は、みんなが待っているのを見てとてもおどろきました。妹は笑って「今までで一番いい誕生日だ」と言いました。みんなでケーキを食べ、夜までゲームをして遊びました。"
     },
     {
       "id": "r4-03",
@@ -5294,22 +5296,22 @@
             {
               "text": "Every November.",
               "correct": true,
-              "explain": "\"Every November, our school holds a festival called Bunkasai.\" とあります。"
+              "explain": "正解です。本文に \"Every November\"（毎年11月）とあります。November は「11月」です。"
             },
             {
               "text": "Every March.",
               "correct": false,
-              "explain": "本文には November と書かれています。"
+              "explain": "3月ではありません。"
             },
             {
               "text": "Every summer.",
               "correct": false,
-              "explain": "本文には November と書かれています。"
+              "explain": "夏ではありません。11月です。"
             },
             {
               "text": "Every January.",
               "correct": false,
-              "explain": "本文には November と書かれています。"
+              "explain": "1月ではありません。January（1月）と November（11月）を取りちがえないようにしましょう。"
             }
           ]
         },
@@ -5320,22 +5322,22 @@
             {
               "text": "Run a small café for two days.",
               "correct": true,
-              "explain": "\"my class decided to run a small café for two days\" とあります。"
+              "explain": "正解です。本文に \"run a small café for two days\"（2日間、小さなカフェをやる）とあります。run はここでは「（店を）やる・運営する」です。"
             },
             {
               "text": "Perform a school play.",
               "correct": false,
-              "explain": "本文には café と書かれています。"
+              "explain": "劇ではありません。"
             },
             {
               "text": "Sell handmade crafts.",
               "correct": false,
-              "explain": "本文には café と書かれています。"
+              "explain": "手作りの品を売る、ではありません。"
             },
             {
               "text": "Organize a photo exhibit.",
               "correct": false,
-              "explain": "本文には café と書かれています。"
+              "explain": "写真展ではありません。"
             }
           ]
         },
@@ -5346,22 +5348,22 @@
             {
               "text": "Tea and cookies they baked themselves.",
               "correct": true,
-              "explain": "\"We served tea and cookies that we baked ourselves.\" とあります。"
+              "explain": "正解です。本文に \"tea and cookies that we baked ourselves\"（自分たちで焼いたクッキーとお茶）とあります。ourselves は「自分たちで」です。"
             },
             {
               "text": "Sandwiches bought at a shop.",
               "correct": false,
-              "explain": "本文には自分たちで焼いたクッキーと書かれています。"
+              "explain": "買ったサンドイッチではありません。自分たちで焼いています。"
             },
             {
               "text": "Only juice.",
               "correct": false,
-              "explain": "本文には tea and cookies と書かれています。"
+              "explain": "ジュースだけ、ではありません。"
             },
             {
               "text": "Ice cream.",
               "correct": false,
-              "explain": "本文には tea and cookies と書かれています。"
+              "explain": "アイスクリームではありません。"
             }
           ]
         },
@@ -5372,22 +5374,22 @@
             {
               "text": "Many parents and students from other classes.",
               "correct": true,
-              "explain": "\"Many parents and students from other classes visited us.\" とあります。"
+              "explain": "正解です。本文に \"Many parents and students from other classes visited us\"（たくさんの保護者と、ほかのクラスの生徒が来てくれた）とあります。"
             },
             {
               "text": "Only teachers.",
               "correct": false,
-              "explain": "本文には parents and students と書かれています。"
+              "explain": "先生だけ、ではありません。"
             },
             {
               "text": "No one came.",
               "correct": false,
-              "explain": "多くの人が訪れたと書かれています。"
+              "explain": "だれも来なかった、ではありません。many（たくさん）と書かれています。"
             },
             {
               "text": "Only their own classmates.",
               "correct": false,
-              "explain": "本文には他のクラスの生徒や保護者も訪れたと書かれています。"
+              "explain": "自分のクラスの子だけ、ではありません。"
             }
           ]
         },
@@ -5398,26 +5400,27 @@
             {
               "text": "Proud of what they had done together.",
               "correct": true,
-              "explain": "\"everyone was smiling and proud of what we had done together\" とあります。"
+              "explain": "正解です。本文の最後に \"everyone was smiling and proud of what we had done together\"（みんな笑顔で、いっしょにやりとげたことをほこらしく思った）とあります。proud of は「〜をほこりに思う」です。"
             },
             {
               "text": "Disappointed with the results.",
               "correct": false,
-              "explain": "本文には proud と書かれています。"
+              "explain": "結果にがっかりした、ではありません。"
             },
             {
               "text": "Too tired to smile.",
               "correct": false,
-              "explain": "本文には smiling と書かれています。"
+              "explain": "つかれて笑えなかった、ではありません。smiling（笑顔）と書かれています。"
             },
             {
               "text": "Nervous throughout the event.",
               "correct": false,
-              "explain": "最初は緊張していましたが、最後には笑顔だったと書かれています。"
+              "explain": "ずっと緊張していた、ではありません。緊張していたのは「最初は（at first）」です。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "学校の文化祭の話です。書き手の学校では毎年11月に「文化祭」を開きます。クラスごとに発表する出し物を決めます。今年、書き手のクラスは2日間の小さなカフェをやることにしました。自分たちで焼いたクッキーとお茶を出しました。ほかのクラスの生徒や、たくさんの保護者が来てくれました。最初は緊張していたクラスメートもいましたが、2日目が終わるころには、みんな笑顔で、いっしょにやりとげたことをほこらしく思っていました。"
     },
     {
       "id": "r4-04",
@@ -5431,22 +5434,22 @@
             {
               "text": "This spring.",
               "correct": true,
-              "explain": "\"This spring, I started volunteering\" とあります。"
+              "explain": "正解です。本文に \"This spring, I started volunteering\"（この春、ボランティアを始めた）とあります。spring は「春」です。"
             },
             {
               "text": "This winter.",
               "correct": false,
-              "explain": "本文には spring と書かれています。"
+              "explain": "この冬ではありません。"
             },
             {
               "text": "Last summer.",
               "correct": false,
-              "explain": "本文には spring と書かれています。"
+              "explain": "去年の夏ではありません。"
             },
             {
               "text": "Two years ago.",
               "correct": false,
-              "explain": "本文には spring と書かれています。"
+              "explain": "2年前ではありません。"
             }
           ]
         },
@@ -5457,22 +5460,22 @@
             {
               "text": "To feed the cats and clean their cages.",
               "correct": true,
-              "explain": "\"My job is to feed the cats and clean their cages.\" とあります。"
+              "explain": "正解です。本文に \"to feed the cats and clean their cages\"（ネコにごはんをあげ、ケージをそうじする）とあります。feed は「えさをあげる」です。"
             },
             {
               "text": "To walk dogs in the park.",
               "correct": false,
-              "explain": "本文には猫の世話と書かれています。"
+              "explain": "公園で犬の散歩ではありません。"
             },
             {
               "text": "To answer phone calls.",
               "correct": false,
-              "explain": "本文にはそのような記述はありません。"
+              "explain": "電話に出る仕事ではありません。"
             },
             {
               "text": "To sell pet food.",
               "correct": false,
-              "explain": "本文にはそのような記述はありません。"
+              "explain": "ペットフードを売る仕事ではありません。"
             }
           ]
         },
@@ -5483,22 +5486,22 @@
             {
               "text": "Some were afraid of the speaker.",
               "correct": true,
-              "explain": "\"At first, some cats were afraid of me\" とあります。"
+              "explain": "正解です。本文に \"At first, some cats were afraid of me\"（はじめは、私をこわがるネコもいた）とあります。be afraid of は「〜をこわがる」です。"
             },
             {
               "text": "They ignored the speaker completely.",
               "correct": false,
-              "explain": "本文には afraid と書かれています。"
+              "explain": "完全に無視した、ではありません。"
             },
             {
               "text": "They came to the speaker right away.",
               "correct": false,
-              "explain": "最初は怖がっていたが、今は近づいてくると書かれています。"
+              "explain": "すぐに近づいてきた、ではありません。それは「今では（now）」の話です。"
             },
             {
               "text": "They tried to escape the shelter.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "逃げようとした、ではありません。"
             }
           ]
         },
@@ -5509,22 +5512,22 @@
             {
               "text": "It found a new family.",
               "correct": true,
-              "explain": "\"one of the cats I take care of found a new family\" とあります。"
+              "explain": "正解です。本文に \"one of the cats I take care of found a new family\"（世話をしているネコの1匹に新しい家族が見つかった）とあります。take care of は「世話をする」です。"
             },
             {
               "text": "It got sick.",
               "correct": false,
-              "explain": "本文には新しい家族が見つかったと書かれています。"
+              "explain": "病気になった、ではありません。"
             },
             {
               "text": "It ran away from the shelter.",
               "correct": false,
-              "explain": "逃げたという記述はありません。"
+              "explain": "逃げ出した、ではありません。"
             },
             {
               "text": "It had kittens.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "子ネコを産んだ、ではありません。"
             }
           ]
         },
@@ -5535,26 +5538,27 @@
             {
               "text": "Happy, but also a little sad.",
               "correct": true,
-              "explain": "\"I was happy for the cat, but I also felt a little sad to say goodbye.\" とあります。"
+              "explain": "正解です。本文の最後に \"happy for the cat, but I also felt a little sad\"（ネコのためにうれしいが、少しさびしくもあった）とあります。but が気持ちの切りかえの目印です。"
             },
             {
               "text": "Only angry.",
               "correct": false,
-              "explain": "本文には happy と sad が両方書かれています。"
+              "explain": "おこっていただけ、ではありません。"
             },
             {
               "text": "Completely indifferent.",
               "correct": false,
-              "explain": "感情が書かれているので無関心ではありません。"
+              "explain": "何とも思わなかった、ではありません。"
             },
             {
               "text": "Only happy, with no sadness at all.",
               "correct": false,
-              "explain": "少し悲しかったとも書かれています。"
+              "explain": "うれしいだけでさびしさはなかった、ではありません。**but also a little sad** と書かれています。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "動物保護施設でのボランティアの話です。この春から、書き手は家の近くの動物保護施設で、毎週土曜日の午前にボランティアを始めました。仕事はネコにごはんをあげることと、ケージのそうじです。はじめは書き手をこわがるネコもいましたが、今では何匹かが、書き手が来ると近づいてきます。先週、世話をしていたネコの1匹に新しい家族が見つかりました。書き手はそのネコのためにうれしく思いましたが、お別れは少しさびしくもありました。"
     },
     {
       "id": "r4-05",
@@ -5568,22 +5572,22 @@
             {
               "text": "Last week.",
               "correct": true,
-              "explain": "\"A new student named Aki joined our class last week.\" とあります。"
+              "explain": "正解です。本文に \"joined our class last week\"（先週、クラスに来た）とあります。join は「加わる」です。"
             },
             {
               "text": "Last month.",
               "correct": false,
-              "explain": "本文には last week と書かれています。"
+              "explain": "先月ではありません。week（週）です。"
             },
             {
               "text": "Yesterday.",
               "correct": false,
-              "explain": "本文には last week と書かれています。"
+              "explain": "きのうではありません。"
             },
             {
               "text": "This morning.",
               "correct": false,
-              "explain": "本文には last week と書かれています。"
+              "explain": "今朝ではありません。"
             }
           ]
         },
@@ -5594,22 +5598,22 @@
             {
               "text": "Because of her father's job.",
               "correct": true,
-              "explain": "\"She moved from a town in Hokkaido because of her father's job.\" とあります。"
+              "explain": "正解です。本文に \"because of her father's job\"（お父さんの仕事のため）とあります。because of は「〜のために」です。"
             },
             {
               "text": "Because of her school's decision.",
               "correct": false,
-              "explain": "本文には父親の仕事のためと書かれています。"
+              "explain": "学校が決めたから、ではありません。"
             },
             {
               "text": "Because her family wanted warmer weather.",
               "correct": false,
-              "explain": "そのような理由は書かれていません。"
+              "explain": "あたたかい所に行きたかったから、ではありません。"
             },
             {
               "text": "Because her grandmother lives there.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "おばあさんが住んでいるから、ではありません。"
             }
           ]
         },
@@ -5620,22 +5624,22 @@
             {
               "text": "Shy and quiet.",
               "correct": true,
-              "explain": "\"At first, Aki looked shy and didn't talk much.\" とあります。"
+              "explain": "正解です。本文に \"Aki looked shy and didn't talk much\"（アキははずかしそうで、あまり話さなかった）とあります。shy は「はずかしがりの」です。"
             },
             {
               "text": "Loud and cheerful.",
               "correct": false,
-              "explain": "本文には shy と書かれています。"
+              "explain": "にぎやかで明るい、ではありません。"
             },
             {
               "text": "Angry.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "おこっていた、ではありません。"
             },
             {
               "text": "Confident and talkative.",
               "correct": false,
-              "explain": "本文には didn't talk much と書かれています。"
+              "explain": "自信があってよく話す、ではありません。反対です。"
             }
           ]
         },
@@ -5646,22 +5650,22 @@
             {
               "text": "The snow festivals in her hometown.",
               "correct": true,
-              "explain": "\"she started talking about the snow festivals there\" とあります。"
+              "explain": "正解です。本文に \"she started talking about the snow festivals there\"（そこの雪まつりについて話しはじめた）とあります。snow festival は「雪まつり」です。"
             },
             {
               "text": "Her favorite subject.",
               "correct": false,
-              "explain": "本文には雪まつりについてと書かれています。"
+              "explain": "好きな教科ではありません。"
             },
             {
               "text": "Her pet dog.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "ペットの犬ではありません。"
             },
             {
               "text": "Her new school uniform.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "新しい制服ではありません。"
             }
           ]
         },
@@ -5672,26 +5676,27 @@
             {
               "text": "They are good friends and sit together every day.",
               "correct": true,
-              "explain": "\"We became good friends quickly, and now she sits with my group of friends every day.\" とあります。"
+              "explain": "正解です。本文の最後に \"We became good friends quickly, and now she sits with my group of friends every day\"（すぐ仲良くなり、今は毎日いっしょにすわっている）とあります。"
             },
             {
               "text": "They still don't talk to each other.",
               "correct": false,
-              "explain": "仲良くなったと書かれています。"
+              "explain": "まだ話さない、ではありません。"
             },
             {
               "text": "They had an argument and stopped talking.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "けんかしてやめた、ではありません。"
             },
             {
               "text": "They are in different classes now.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "別のクラス、ではありません。同じクラスです。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "転校してきた新しい友だちの話です。先週、アキという名前の新しい生徒が書き手のクラスに来ました。お父さんの仕事の都合で、北海道の町から引っこしてきたのです。はじめアキははずかしそうで、あまり話しませんでした。来て2日目のお昼に、書き手が故郷のことをたずねると、アキは地元の雪まつりの話をしはじめました。二人はすぐに仲良くなり、今ではアキは毎日、書き手の友だちのグループといっしょにすわっています。"
     },
     {
       "id": "r4-06",
@@ -5705,22 +5710,22 @@
             {
               "text": "At a lake.",
               "correct": true,
-              "explain": "\"my family went camping at a lake\" とあります。"
+              "explain": "正解です。本文に \"went camping at a lake\"（湖にキャンプに行った）とあります。lake は「湖」です。"
             },
             {
               "text": "In the mountains.",
               "correct": false,
-              "explain": "本文には lake と書かれています。"
+              "explain": "山ではありません。"
             },
             {
               "text": "At the beach.",
               "correct": false,
-              "explain": "本文には lake と書かれています。"
+              "explain": "海辺ではありません。beach（海辺）と lake（湖）はちがいます。"
             },
             {
               "text": "In a forest.",
               "correct": false,
-              "explain": "本文には lake と書かれています。"
+              "explain": "森ではありません。"
             }
           ]
         },
@@ -5731,22 +5736,22 @@
             {
               "text": "Curry.",
               "correct": true,
-              "explain": "\"we ... cooked curry over a small fire\" とあります。"
+              "explain": "正解です。本文に \"cooked curry over a small fire\"（小さな火でカレーを作った）とあります。over a fire は「火にかけて」です。"
             },
             {
               "text": "Fish.",
               "correct": false,
-              "explain": "本文には curry と書かれています。"
+              "explain": "魚ではありません。"
             },
             {
               "text": "Rice balls.",
               "correct": false,
-              "explain": "本文には curry と書かれています。"
+              "explain": "おにぎりではありません。"
             },
             {
               "text": "Soup.",
               "correct": false,
-              "explain": "本文には curry と書かれています。"
+              "explain": "スープではありません。"
             }
           ]
         },
@@ -5757,22 +5762,22 @@
             {
               "text": "Because there were no city lights.",
               "correct": true,
-              "explain": "\"we could see thousands of stars because there were no city lights\" とあります。"
+              "explain": "正解です。本文に \"because there were no city lights\"（町の明かりがなかったから）とあります。city lights は「町の明かり」です。"
             },
             {
               "text": "Because it was a full moon.",
               "correct": false,
-              "explain": "月についての記述はありません。"
+              "explain": "満月だったから、ではありません。むしろ明かりが少ないほど星は見えます。"
             },
             {
               "text": "Because they used a telescope.",
               "correct": false,
-              "explain": "望遠鏡についての記述はありません。"
+              "explain": "望遠鏡を使ったから、ではありません。"
             },
             {
               "text": "Because the sky was very cold.",
               "correct": false,
-              "explain": "寒さと星の見え方についての記述はありません。"
+              "explain": "空が冷たかったから、ではありません。"
             }
           ]
         },
@@ -5783,22 +5788,22 @@
             {
               "text": "Because he heard an owl.",
               "correct": true,
-              "explain": "\"my little brother was scared when he heard an owl\" とあります。"
+              "explain": "正解です。本文に \"scared when he heard an owl\"（フクロウの声を聞いてこわがった）とあります。owl は「フクロウ」です。"
             },
             {
               "text": "Because it started to rain.",
               "correct": false,
-              "explain": "雨についての記述はありません。"
+              "explain": "雨がふったから、ではありません。"
             },
             {
               "text": "Because he got lost.",
               "correct": false,
-              "explain": "迷子になったという記述はありません。"
+              "explain": "道にまよったから、ではありません。"
             },
             {
               "text": "Because the tent fell down.",
               "correct": false,
-              "explain": "テントが倒れたという記述はありません。"
+              "explain": "テントがたおれたから、ではありません。"
             }
           ]
         },
@@ -5809,26 +5814,27 @@
             {
               "text": "They watched the sunrise over the lake.",
               "correct": true,
-              "explain": "\"we ... woke up early to watch the sunrise over the lake\" とあります。"
+              "explain": "正解です。本文の最後に \"woke up early to watch the sunrise over the lake\"（早起きして、湖からのぼる朝日を見た）とあります。sunrise は「日の出」です。"
             },
             {
               "text": "They packed up and went home immediately.",
               "correct": false,
-              "explain": "本文には日の出を見たと書かれています。"
+              "explain": "すぐ帰った、ではありません。"
             },
             {
               "text": "They went fishing.",
               "correct": false,
-              "explain": "釣りについての記述はありません。"
+              "explain": "つりではありません。"
             },
             {
               "text": "They cooked breakfast first.",
               "correct": false,
-              "explain": "朝食についての記述はありません。"
+              "explain": "先に朝ごはん、ではありません。書かれているのは朝日を見たことです。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "家族ではじめて行ったキャンプの話です。先週末、書き手の家族ははじめて湖でキャンプをしました。水辺の近くにテントを張り、小さな火でカレーを作りました。夜は町の明かりがないので、何千もの星が見えました。弟はフクロウの声を聞いてこわがりましたが、お父さんが「えさをさがしている鳥なだけだよ」と説明してくれました。みんなよく眠り、朝早く起きて、湖からのぼる朝日を見ました。"
     },
     {
       "id": "r4-07",
@@ -5842,22 +5848,22 @@
             {
               "text": "Near the station.",
               "correct": true,
-              "explain": "\"My aunt owns a small bakery near the station\" とあります。"
+              "explain": "正解です。本文に \"a small bakery near the station\"（駅の近くの小さなパン屋）とあります。bakery は「パン屋」、station は「駅」です。"
             },
             {
               "text": "Near the school.",
               "correct": false,
-              "explain": "本文には near the station と書かれています。"
+              "explain": "学校の近くではありません。"
             },
             {
               "text": "In the countryside.",
               "correct": false,
-              "explain": "本文には near the station と書かれています。"
+              "explain": "いなかではありません。"
             },
             {
               "text": "Next to a park.",
               "correct": false,
-              "explain": "本文には near the station と書かれています。"
+              "explain": "公園のとなりではありません。"
             }
           ]
         },
@@ -5868,22 +5874,22 @@
             {
               "text": "Arrange bread on shelves and greet customers.",
               "correct": true,
-              "explain": "\"I usually arrange the bread on the shelves and greet customers.\" とあります。"
+              "explain": "正解です。本文に \"arrange the bread on the shelves and greet customers\"（棚にパンをならべ、お客さんにあいさつする）とあります。arrange は「ならべる」、greet は「あいさつする」です。"
             },
             {
               "text": "Bake the bread.",
               "correct": false,
-              "explain": "本文にはパンを並べることと挨拶と書かれています。"
+              "explain": "パンを焼くのではありません。焼くのはおばさんです。"
             },
             {
               "text": "Deliver bread to other shops.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "ほかの店に配達するのではありません。"
             },
             {
               "text": "Manage the money.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "お金の管理ではありません。"
             }
           ]
         },
@@ -5894,22 +5900,22 @@
             {
               "text": "Because of a local event nearby.",
               "correct": true,
-              "explain": "\"Last Sunday was especially busy because of a local event nearby.\" とあります。"
+              "explain": "正解です。本文に \"especially busy because of a local event nearby\"（近くの地元のイベントのせいでとくにいそがしかった）とあります。nearby は「近くで」です。"
             },
             {
               "text": "Because it was a holiday.",
               "correct": false,
-              "explain": "本文には地域のイベントと書かれています。"
+              "explain": "祝日だったから、ではありません。"
             },
             {
               "text": "Because the bakery had a sale.",
               "correct": false,
-              "explain": "セールについての記述はありません。"
+              "explain": "セールをしたから、ではありません。"
             },
             {
               "text": "Because another bakery was closed.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "ほかの店が休みだったから、ではありません。"
             }
           ]
         },
@@ -5920,22 +5926,22 @@
             {
               "text": "Melon pan.",
               "correct": true,
-              "explain": "\"We sold out of our most popular bread, melon pan, by noon.\" とあります。"
+              "explain": "正解です。本文に \"our most popular bread, melon pan, by noon\"（一番人気のメロンパンが、お昼までに）とあります。by noon は「昼までに」です。"
             },
             {
               "text": "Curry bread.",
               "correct": false,
-              "explain": "本文には melon pan と書かれています。"
+              "explain": "カレーパンではありません。"
             },
             {
               "text": "Chocolate bread.",
               "correct": false,
-              "explain": "本文には melon pan と書かれています。"
+              "explain": "チョコパンではありません。"
             },
             {
               "text": "Cream bread.",
               "correct": false,
-              "explain": "本文には melon pan と書かれています。"
+              "explain": "クリームパンではありません。"
             }
           ]
         },
@@ -5946,26 +5952,27 @@
             {
               "text": "A box of pastries.",
               "correct": true,
-              "explain": "\"she gave me a box of pastries to take home\" とあります。"
+              "explain": "正解です。本文に \"she gave me a box of pastries to take home\"（持ち帰り用におかしの箱をくれた）とあります。pastry は「（甘い）焼き菓子」です。"
             },
             {
               "text": "Some money.",
               "correct": false,
-              "explain": "本文には a box of pastries と書かれています。"
+              "explain": "お金ではありません。"
             },
             {
               "text": "A new apron.",
               "correct": false,
-              "explain": "本文には a box of pastries と書かれています。"
+              "explain": "新しいエプロンではありません。"
             },
             {
               "text": "A gift card.",
               "correct": false,
-              "explain": "本文には a box of pastries と書かれています。"
+              "explain": "ギフトカードではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "おばさんのパン屋さんを手伝う話です。書き手のおばさんは駅の近くで小さなパン屋さんをやっていて、書き手は日曜日にそこを手伝っています。ふだんの仕事は、パンを棚にならべることと、お客さんにあいさつをすることです。先週の日曜日は、近くで地元のお祭りがあったので、とくにいそがしくなりました。一番人気のメロンパンは、お昼までに売り切れました。おばさんはとても感謝して、おかしの箱を持たせてくれました。書き手は、役に立てたことをほこらしく思いました。"
     },
     {
       "id": "r4-08",
@@ -5979,22 +5986,22 @@
             {
               "text": "An event with a famous author.",
               "correct": true,
-              "explain": "\"A famous author came to talk about her new book\" とあります。"
+              "explain": "正解です。本文に \"A famous author came to talk about her new book\"（有名な作家が新しい本について話しに来た）とあります。author は「作家」です。"
             },
             {
               "text": "A book sale.",
               "correct": false,
-              "explain": "本文には著者のイベントと書かれています。"
+              "explain": "本の即売会ではありません。"
             },
             {
               "text": "A movie screening.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "映画の上映ではありません。"
             },
             {
               "text": "A quiz contest.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "クイズ大会ではありません。"
             }
           ]
         },
@@ -6005,22 +6012,22 @@
             {
               "text": "Over one hundred.",
               "correct": true,
-              "explain": "\"Over one hundred people attended\" とあります。"
+              "explain": "正解です。本文に \"Over one hundred people attended\"（100人をこえる人が参加した）とあります。over は「〜をこえて」です。"
             },
             {
               "text": "About ten.",
               "correct": false,
-              "explain": "本文には over one hundred と書かれています。"
+              "explain": "10人ほどではありません。"
             },
             {
               "text": "Fifty.",
               "correct": false,
-              "explain": "本文には over one hundred と書かれています。"
+              "explain": "50人ではありません。"
             },
             {
               "text": "Only the speaker.",
               "correct": false,
-              "explain": "多くの人が参加したと書かれています。"
+              "explain": "書き手だけ、ではありません。"
             }
           ]
         },
@@ -6031,22 +6038,22 @@
             {
               "text": "To get their book signed by the author.",
               "correct": true,
-              "explain": "\"I had to wait in a long line to get my book signed\" とあります。"
+              "explain": "正解です。本文に \"wait in a long line to get my book signed\"（本にサインをもらうため長い列に並んだ）とあります。get 〜 signed は「〜にサインをしてもらう」です。"
             },
             {
               "text": "To buy a ticket.",
               "correct": false,
-              "explain": "チケットについての記述はありません。"
+              "explain": "チケットを買うためではありません。"
             },
             {
               "text": "To enter the library.",
               "correct": false,
-              "explain": "図書館に入るための列ではありません。"
+              "explain": "図書館に入るためではありません。"
             },
             {
               "text": "To use the restroom.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "トイレのためではありません。"
             }
           ]
         },
@@ -6057,22 +6064,22 @@
             {
               "text": "She smiled and wrote a short message for them.",
               "correct": true,
-              "explain": "\"the author smiled and wrote a short message just for me\" とあります。"
+              "explain": "正解です。本文に \"the author smiled and wrote a short message just for me\"（作家はにっこりして、私のためだけに短いメッセージを書いた）とあります。just for me は「私のためだけに」です。"
             },
             {
               "text": "She asked the speaker to leave.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "帰るように言った、ではありません。"
             },
             {
               "text": "She gave a speech.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "演説をした、ではありません。"
             },
             {
               "text": "She sold the speaker a new book.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "本を売った、ではありません。"
             }
           ]
         },
@@ -6083,26 +6090,27 @@
             {
               "text": "Excited and inspired to write stories.",
               "correct": true,
-              "explain": "\"I left the library feeling very excited and inspired to write my own stories someday.\" とあります。"
+              "explain": "正解です。本文の最後に \"feeling very excited and inspired to write my own stories someday\"（とてもわくわくし、いつか自分の物語を書きたい気持ちになって）とあります。inspired は「やる気をもらった」です。"
             },
             {
               "text": "Tired and bored.",
               "correct": false,
-              "explain": "本文には excited and inspired と書かれています。"
+              "explain": "つかれてたいくつ、ではありません。"
             },
             {
               "text": "Disappointed.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "がっかり、ではありません。"
             },
             {
               "text": "Confused.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "こんらん、ではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "図書館のイベントの話です。先週の土曜日、町の図書館で、本が好きな子どものための特別なイベントが開かれました。有名な作家さんが来て、新しい本について話し、質問にも答えてくれました。100人をこえる人が集まったので、書き手は本にサインをもらうまで長い列に並ばなければなりませんでした。やっと順番が来ると、作家さんはにっこりして、書き手のためだけに短いメッセージを書いてくれました。書き手はとてもわくわくし、いつか自分でも物語を書いてみたいという気持ちになって図書館を出ました。"
     },
     {
       "id": "r4-09",
@@ -6116,22 +6124,22 @@
             {
               "text": "On the sidewalk.",
               "correct": true,
-              "explain": "\"I found a wallet on the sidewalk\" とあります。"
+              "explain": "正解です。本文に \"found a wallet on the sidewalk\"（歩道で財布を見つけた）とあります。sidewalk は「歩道」です。"
             },
             {
               "text": "On the train.",
               "correct": false,
-              "explain": "本文には sidewalk と書かれています。"
+              "explain": "電車の中ではありません。"
             },
             {
               "text": "In the classroom.",
               "correct": false,
-              "explain": "本文には sidewalk と書かれています。"
+              "explain": "教室ではありません。"
             },
             {
               "text": "At the park.",
               "correct": false,
-              "explain": "本文には sidewalk と書かれています。"
+              "explain": "公園ではありません。"
             }
           ]
         },
@@ -6142,22 +6150,22 @@
             {
               "text": "A student ID card, but no money.",
               "correct": true,
-              "explain": "\"saw a student ID card with a photo, but the wallet had no money in it\" とあります。"
+              "explain": "正解です。本文に \"saw a student ID card with a photo, but the wallet had no money in it\"（写真つきの学生証はあったが、お金は入っていなかった）とあります。but が対比の目印です。"
             },
             {
               "text": "A lot of money.",
               "correct": false,
-              "explain": "本文にはお金は入っていなかったと書かれています。"
+              "explain": "お金がたくさん、ではありません。no money（お金なし）です。"
             },
             {
               "text": "A house key.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "家のかぎは出てきません。"
             },
             {
               "text": "Nothing at all.",
               "correct": false,
-              "explain": "学生証は入っていたと書かれています。"
+              "explain": "何も入っていなかった、ではありません。学生証が入っていました。"
             }
           ]
         },
@@ -6168,22 +6176,22 @@
             {
               "text": "Took it to the police station.",
               "correct": true,
-              "explain": "\"I took the wallet to the police station near my house.\" とあります。"
+              "explain": "正解です。本文に \"took the wallet to the police station\"（財布を交番に持っていった）とあります。police station は「交番・警察署」です。"
             },
             {
               "text": "Kept it at home.",
               "correct": false,
-              "explain": "本文には警察署に届けたと書かれています。"
+              "explain": "家に置いた、ではありません。"
             },
             {
               "text": "Threw it away.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "捨てた、ではありません。"
             },
             {
               "text": "Gave it to a teacher.",
               "correct": false,
-              "explain": "本文には警察署と書かれています。"
+              "explain": "先生にわたした、ではありません。"
             }
           ]
         },
@@ -6194,22 +6202,22 @@
             {
               "text": "They would try to contact the owner.",
               "correct": true,
-              "explain": "\"said they would try to contact the owner\" とあります。"
+              "explain": "正解です。本文に \"said they would try to contact the owner\"（持ち主に連絡してみると言った）とあります。contact は「連絡する」、owner は「持ち主」です。"
             },
             {
               "text": "The wallet could not be returned.",
               "correct": false,
-              "explain": "本文には持ち主に連絡すると書かれています。"
+              "explain": "返せないと言った、ではありません。"
             },
             {
               "text": "The speaker should keep it.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "書き手がもらっていいと言った、ではありません。"
             },
             {
               "text": "They already knew the owner.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "もう持ち主を知っていた、ではありません。"
             }
           ]
         },
@@ -6220,26 +6228,27 @@
             {
               "text": "The speaker received a thank-you letter from the owner.",
               "correct": true,
-              "explain": "\"I received a letter from the owner, a high school student, thanking me for my honesty.\" とあります。"
+              "explain": "正解です。本文の最後に \"received a letter from the owner ... thanking me for my honesty\"（持ち主から、正直さへのお礼の手紙が届いた）とあります。honesty は「正直さ」です。"
             },
             {
               "text": "The speaker got the wallet back.",
               "correct": false,
-              "explain": "本文には手紙を受け取ったと書かれています。"
+              "explain": "財布が返ってきた、ではありません。返るのは持ち主のもとです。"
             },
             {
               "text": "Nothing happened.",
               "correct": false,
-              "explain": "手紙が届いたと書かれています。"
+              "explain": "何も起きなかった、ではありません。"
             },
             {
               "text": "The police returned the wallet to the speaker.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "警察が書き手に財布を返した、ではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "落ちていた財布の話です。きのうの学校の帰り道、書き手は歩道で財布を見つけました。そっと開けてみると、写真つきの学生証が入っていましたが、お金は入っていませんでした。書き手はその財布を、家の近くの交番に届けました。おまわりさんはお礼を言い、持ち主に連絡してみると言いました。2日後、持ち主である高校生から、正直でいてくれたことへのお礼の手紙が届きました。"
     },
     {
       "id": "r4-10",
@@ -6253,22 +6262,22 @@
             {
               "text": "Because a big typhoon came.",
               "correct": true,
-              "explain": "\"A big typhoon came to our area last Tuesday, so school was cancelled.\" とあります。"
+              "explain": "正解です。本文に \"A big typhoon came to our area ... so school was cancelled\"（大きな台風が来たので学校が休みになった）とあります。cancel は「中止する」です。"
             },
             {
               "text": "Because of heavy snow.",
               "correct": false,
-              "explain": "本文には typhoon と書かれています。"
+              "explain": "大雪ではありません。台風です。"
             },
             {
               "text": "Because of a school holiday.",
               "correct": false,
-              "explain": "本文には typhoon と書かれています。"
+              "explain": "学校の休日ではありません。台風のせいです。"
             },
             {
               "text": "Because the teachers were sick.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "先生が病気、ではありません。"
             }
           ]
         },
@@ -6279,22 +6288,22 @@
             {
               "text": "Stay away from windows.",
               "correct": true,
-              "explain": "\"My mother told me to stay away from windows\" とあります。"
+              "explain": "正解です。本文に \"told me to stay away from windows\"（窓から離れているように言った）とあります。stay away from は「〜から離れている」です。"
             },
             {
               "text": "Go outside and help.",
               "correct": false,
-              "explain": "本文には窓から離れるよう言われたと書かれています。"
+              "explain": "外に出て手伝う、ではありません。反対に危ないので離れます。"
             },
             {
               "text": "Call their grandmother.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "おばあさんに電話、ではありません。"
             },
             {
               "text": "Go to bed early.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "早く寝る、ではありません。"
             }
           ]
         },
@@ -6305,22 +6314,22 @@
             {
               "text": "About three hours.",
               "correct": true,
-              "explain": "\"We lost electricity for about three hours in the afternoon\" とあります。"
+              "explain": "正解です。本文に \"lost electricity for about three hours\"（3時間ほど停電した）とあります。about は「およそ」です。"
             },
             {
               "text": "About one hour.",
               "correct": false,
-              "explain": "本文には three hours と書かれています。"
+              "explain": "1時間ほど、ではありません。three（3）です。"
             },
             {
               "text": "All day.",
               "correct": false,
-              "explain": "本文には three hours と書かれています。"
+              "explain": "一日中、ではありません。"
             },
             {
               "text": "Ten minutes.",
               "correct": false,
-              "explain": "本文には three hours と書かれています。"
+              "explain": "10分ではありません。"
             }
           ]
         },
@@ -6331,22 +6340,22 @@
             {
               "text": "Lit candles and played card games.",
               "correct": true,
-              "explain": "\"we lit candles and played card games together\" とあります。"
+              "explain": "正解です。本文に \"we lit candles and played card games together\"（ろうそくをつけて、いっしょにトランプをした）とあります。lit は light（火をつける）の過去形です。"
             },
             {
               "text": "Watched television.",
               "correct": false,
-              "explain": "電気がなかったのでテレビは見られません。"
+              "explain": "テレビではありません。停電しているので見られません。"
             },
             {
               "text": "Went to a neighbor's house.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "となりの家に行った、ではありません。"
             },
             {
               "text": "Slept the whole time.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "ずっと寝ていた、ではありません。"
             }
           ]
         },
@@ -6357,26 +6366,27 @@
             {
               "text": "Only a few small branches fell.",
               "correct": true,
-              "explain": "\"luckily only a few small branches fell\" とあります。"
+              "explain": "正解です。本文に \"luckily only a few small branches fell\"（幸い、小さな枝が少し落ちただけだった）とあります。luckily は「幸い」、branch は「枝」です。"
             },
             {
               "text": "It was completely destroyed.",
               "correct": false,
-              "explain": "本文には少し枝が落ちただけと書かれています。"
+              "explain": "全部だめになった、ではありません。"
             },
             {
               "text": "Nothing happened to it.",
               "correct": false,
-              "explain": "小さな枝が落ちたと書かれています。"
+              "explain": "何も起きなかった、ではありません。枝は落ちています。"
             },
             {
               "text": "A tree fell on the house.",
               "correct": false,
-              "explain": "そのような記述はありません。"
+              "explain": "木が家にたおれた、ではありません。"
             }
           ]
         }
-      ]
+      ],
+      "summaryJa": "台風の日の話です。先週の火曜日、大きな台風が書き手の地域に来て、学校が休みになりました。風がとても強かったので、お母さんは「窓から離れていなさい」と言いました。午後には3時間ほど停電したので、ろうそくをつけて、いっしょにトランプをして過ごしました。お父さんは庭のことを心配していましたが、幸い、折れたのは小さな枝が少しだけでした。次の日の朝には、空はまた晴れて青くなっていました。"
     }
   ],
   "listening": [
