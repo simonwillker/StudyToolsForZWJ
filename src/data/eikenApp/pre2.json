@@ -18491,6 +18491,2006 @@
           "explain": "利用駅の質問は次の返事と合いません。"
         }
       ]
+    },
+    {
+      "id": "dp2-21",
+      "title": "Requesting a Shift Change",
+      "translation": "A：来週のシフトのことでお願いがあるのですが。 B：いいですよ。どうしました？ A：木曜の夜に試験があるのですが、シフトが入っていて。 B：___ A：とても助かります。かわりに彼女の土曜のシフトに入ります。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Could I ask you a favor about next week's schedule?"
+        },
+        {
+          "speaker": "B",
+          "text": "Sure. What's the problem?"
+        },
+        {
+          "speaker": "A",
+          "text": "I have an exam on Thursday evening, but I'm on the shift."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "That would be a big help. I can take her Saturday shift instead."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Let me ask Sayaka if she can cover for you.",
+          "correct": true,
+          "explain": "代わりを立てられるか確認すると伝える文です。cover for は「代わりに入る」です。"
+        },
+        {
+          "text": "Let me tell you about our new menu.",
+          "correct": false,
+          "explain": "新メニューの説明は、シフトの相談の答えになりません。"
+        },
+        {
+          "text": "You should study harder for your exams.",
+          "correct": false,
+          "explain": "勉強への説教は、この相談への返答として不自然です。"
+        },
+        {
+          "text": "The store closes at eleven on weekdays.",
+          "correct": false,
+          "explain": "閉店時刻の説明は、このお願いへの答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-22",
+      "title": "Discussing a Broken Washing Machine",
+      "translation": "A：うちのアパートの洗濯機が途中で止まってしまって。 B：電源を入れ直してみた？ A：___ B：じゃあ今朝、管理会社に連絡するね。 A：ありがとう。当面はコインランドリーを使うよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The washing machine in our apartment stopped in the middle of a cycle."
+        },
+        {
+          "speaker": "B",
+          "text": "Did you try turning it off and on again?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then I'll contact the building manager this morning."
+        },
+        {
+          "speaker": "A",
+          "text": "Thanks. I'll use the coin laundry for now."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Twice, but it stopped again at the same point.",
+          "correct": true,
+          "explain": "試したかへの答えとして、結果まで具体的に伝えます。at the same point は「同じところで」です。"
+        },
+        {
+          "text": "Twice a week is enough for me.",
+          "correct": false,
+          "explain": "洗濯の回数の話は、試したかの答えになりません。"
+        },
+        {
+          "text": "The laundry near the station is cheap.",
+          "correct": false,
+          "explain": "コインランドリーの値段の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "I bought the machine five years ago.",
+          "correct": false,
+          "explain": "購入時期だけでは、試したかの答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-23",
+      "title": "Asking About a Scholarship",
+      "translation": "A：2年生向けの奨学金について知りたいのですが。 B：成績によるものと、経済状況によるものの2種類があります。 A：両方同時に申しこめますか。 B：___ A：わかりました。では経済状況によるほうに申しこみます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to know about the scholarship for second-year students."
+        },
+        {
+          "speaker": "B",
+          "text": "There are two types: one based on grades and one on need."
+        },
+        {
+          "speaker": "A",
+          "text": "Can I apply for both at the same time?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I see. Then I'll apply for the need-based one."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "You may apply for both, but you can only receive one.",
+          "correct": true,
+          "explain": "同時申請の可否に答え、条件も添えます。receive は「受け取る」です。"
+        },
+        {
+          "text": "You may use the computer room until nine.",
+          "correct": false,
+          "explain": "パソコン室の話は、奨学金の質問の答えになりません。"
+        },
+        {
+          "text": "Most students graduate in four years.",
+          "correct": false,
+          "explain": "在学年数の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "The office is closed during lunchtime.",
+          "correct": false,
+          "explain": "窓口の時間の話は、申請の可否の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-24",
+      "title": "Talking About a Rent Increase",
+      "translation": "A：大家さんから来年は家賃が上がると言われたんだ。 B：どのくらい？ A：___ B：学生には大きいね。交渉できないの？ A：やってみるけど、この地域は人気が出てきたからね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "My landlord told me the rent will go up next year."
+        },
+        {
+          "speaker": "B",
+          "text": "By how much?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "That's a lot for a student. Can you negotiate?"
+        },
+        {
+          "speaker": "A",
+          "text": "I'll try, but the area has become popular."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Eight thousand yen a month, starting in April.",
+          "correct": true,
+          "explain": "上げ幅をたずねられているので、金額と時期を答えます。a month は「1か月あたり」です。"
+        },
+        {
+          "text": "Eight minutes on foot from the station.",
+          "correct": false,
+          "explain": "駅からの距離は、値上げ額の答えになりません。"
+        },
+        {
+          "text": "My room faces south and gets a lot of sun.",
+          "correct": false,
+          "explain": "部屋の向きの話は、この質問の答えになりません。"
+        },
+        {
+          "text": "I have lived there for two years.",
+          "correct": false,
+          "explain": "居住年数は、値上げ額の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-25",
+      "title": "Reporting a Problem at Work",
+      "translation": "A：お客さまから、今日はオンライン注文ページが遅いという声が出ています。 B：何人くらいから？ A：今のところ4人で、全員今朝からです。 B：___ A：時刻を記録して、正午までに送ります。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Some customers said our online order page is slow today."
+        },
+        {
+          "speaker": "B",
+          "text": "How many people have mentioned it?"
+        },
+        {
+          "speaker": "A",
+          "text": "Four so far, all since this morning."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I'll write down the times and send them by noon."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Please record the exact times and send them to the system team.",
+          "correct": true,
+          "explain": "報告を受けての指示です。record は「記録する」です。"
+        },
+        {
+          "text": "Please take your lunch break a little earlier today.",
+          "correct": false,
+          "explain": "昼休みの指示は、この報告への対応になりません。"
+        },
+        {
+          "text": "Our website was redesigned three years ago.",
+          "correct": false,
+          "explain": "改装時期の説明は、この報告への対応になりません。"
+        },
+        {
+          "text": "Customers usually order in the evening.",
+          "correct": false,
+          "explain": "注文の傾向の説明だけでは、対応になりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-26",
+      "title": "Choosing a Seminar",
+      "translation": "A：マーケティングのゼミとデータのゼミで選ばないといけないんだ。 B：どちらの先生がいいと思うの？ A：___ B：じゃあ自分に合うやり方のほうを選べばいいよ。 A：そうだね。議論のほうが身につくんだ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I have to choose between the marketing seminar and the data seminar."
+        },
+        {
+          "speaker": "B",
+          "text": "Which professor do you prefer?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then choose the one whose style fits you better."
+        },
+        {
+          "speaker": "A",
+          "text": "You're right. I learn more from discussions."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Professor Sato gives lectures, but Professor Aoki uses group discussions.",
+          "correct": true,
+          "explain": "どちらの先生かをたずねられたので、二人の授業のちがいを説明します。"
+        },
+        {
+          "text": "Professor Sato lives near the university.",
+          "correct": false,
+          "explain": "住んでいる場所の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "The library has many marketing books.",
+          "correct": false,
+          "explain": "図書館の蔵書の話は、ゼミ選びの答えになりません。"
+        },
+        {
+          "text": "I failed one class in my first year.",
+          "correct": false,
+          "explain": "過去の成績の話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-27",
+      "title": "At the City Office",
+      "translation": "A：先週引っこしてきたので、住所変更をしたいのですが。 B：在留カードと印鑑はお持ちですか。 A：カードはありますが、印鑑は持っていません。 B：___ A：よかった。では今日終えられますね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I moved here last week and need to change my address."
+        },
+        {
+          "speaker": "B",
+          "text": "Do you have your residence card and a stamp?"
+        },
+        {
+          "speaker": "A",
+          "text": "I have the card, but I don't have a stamp with me."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Good. Then I can finish it today."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "A signature is also acceptable for this form.",
+          "correct": true,
+          "explain": "印鑑が無くてもよいと伝える文です。signature は「署名」です。"
+        },
+        {
+          "text": "A new card takes about two months to make.",
+          "correct": false,
+          "explain": "カードの作成期間の話は、今の手続きの答えになりません。"
+        },
+        {
+          "text": "The city has about two hundred thousand people.",
+          "correct": false,
+          "explain": "人口の説明は、この場面の答えになりません。"
+        },
+        {
+          "text": "You should visit the museum on the third floor.",
+          "correct": false,
+          "explain": "観光案内は、手続きの答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-28",
+      "title": "Talking About a Job Interview",
+      "translation": "A：月曜日に旅行会社の面接があるんだ。 B：長所についての答えは準備した？ A：___ B：いいね。面接官は具体例をよく求めるよ。 A：じゃあ自分が運営した文化祭の話をしよう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I have an interview at a travel company on Monday."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you prepared answers about your strengths?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Good. Interviewers often ask for a real example."
+        },
+        {
+          "speaker": "A",
+          "text": "Then I'll talk about the school festival I organized."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Yes, but I'm not sure how detailed my examples should be.",
+          "correct": true,
+          "explain": "準備したかに答えつつ、迷っている点を伝えます。detailed は「くわしい」です。"
+        },
+        {
+          "text": "Yes, the company is located in Yokohama.",
+          "correct": false,
+          "explain": "会社の所在地の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "No, I traveled to Korea last summer.",
+          "correct": false,
+          "explain": "旅行の話は、準備したかの答えになりません。"
+        },
+        {
+          "text": "No, the interview starts at ten in the morning.",
+          "correct": false,
+          "explain": "開始時刻は、準備したかの答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-29",
+      "title": "Asking a Neighbor About Garbage Rules",
+      "translation": "A：すみません。プラスチックごみは何曜日か教えていただけますか。 B：プラスチックは水曜の朝8時までです。 A：古新聞はどうですか。 B：___ A：ありがとうございます。とても助かります。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Excuse me. Could you tell me which day is for plastic garbage?"
+        },
+        {
+          "speaker": "B",
+          "text": "Plastics are on Wednesday mornings, before eight."
+        },
+        {
+          "speaker": "A",
+          "text": "What about old newspapers?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you. That's very helpful."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Those go out on the second and fourth Saturdays.",
+          "correct": true,
+          "explain": "古新聞の日をたずねられているので、その日を答えます。go out は「収集に出す」です。"
+        },
+        {
+          "text": "Those shops are open until nine at night.",
+          "correct": false,
+          "explain": "店の営業時間の話は、ごみの質問の答えになりません。"
+        },
+        {
+          "text": "I have lived in this building for ten years.",
+          "correct": false,
+          "explain": "居住年数は、ごみの日の答えになりません。"
+        },
+        {
+          "text": "The park is just around the corner.",
+          "correct": false,
+          "explain": "公園の場所の話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-30",
+      "title": "Discussing a Group Report",
+      "translation": "A：レポートは金曜締め切りなのに、ケンジがまだ担当分を送ってこないんだ。 B：直接連絡した？ A：___ B：じゃあ彼には水曜の夜を締め切りにしよう。 A：賛成。今日の午後にはっきり伝えるよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Our report is due Friday, but Kenji hasn't sent his part."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you contacted him directly?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then let's set a deadline of Wednesday night for him."
+        },
+        {
+          "speaker": "A",
+          "text": "Agreed. I'll tell him clearly this afternoon."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "I sent two messages, but he only replied that he is busy.",
+          "correct": true,
+          "explain": "連絡したかへの答えとして、回数と返事の内容を伝えます。replied は「返事をした」です。"
+        },
+        {
+          "text": "I sent the report to the professor yesterday.",
+          "correct": false,
+          "explain": "提出済みという話は、この状況と矛盾します。"
+        },
+        {
+          "text": "He is a member of the tennis club.",
+          "correct": false,
+          "explain": "所属の説明は、連絡したかの答えになりません。"
+        },
+        {
+          "text": "The library closes early on Fridays.",
+          "correct": false,
+          "explain": "図書館の話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-31",
+      "title": "At an Electronics Store",
+      "translation": "A：オンライン授業とレポート用のノートパソコンを探しています。 B：軽さが必要ですか、それとも性能が大事ですか。 A：軽さです。毎日持ち運ぶので。 B：___ A：よさそうですね。保証はつきますか。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'm looking for a laptop for online classes and writing papers."
+        },
+        {
+          "speaker": "B",
+          "text": "Do you need it to be light, or is performance more important?"
+        },
+        {
+          "speaker": "A",
+          "text": "Light, because I carry it every day."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "It looks good. Does it come with a warranty?"
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "This model weighs under one kilogram and lasts ten hours.",
+          "correct": true,
+          "explain": "軽さ重視と聞いたので、重さと電池のもちを説明します。lasts は「もつ」です。"
+        },
+        {
+          "text": "This store has been in business since 1998.",
+          "correct": false,
+          "explain": "創業年の話は、商品の提案になりません。"
+        },
+        {
+          "text": "You should back up your files every week.",
+          "correct": false,
+          "explain": "バックアップの助言は、この質問の答えになりません。"
+        },
+        {
+          "text": "Printers are sold on the second floor.",
+          "correct": false,
+          "explain": "プリンターの売り場の話は、この場面の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-32",
+      "title": "Talking About a Club Budget",
+      "translation": "A：生徒会が部の予算を20パーセント減らしたんだ。 B：活動にはどう影響するの？ A：___ B：文化祭でお金を集められない？ A：それは手だね。手作りの品を売れるかも。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The student council cut our club budget by twenty percent."
+        },
+        {
+          "speaker": "B",
+          "text": "How will that affect your activities?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Could you raise money at the school festival?"
+        },
+        {
+          "speaker": "A",
+          "text": "That's an idea. We could sell handmade goods."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "We may have to cancel the spring training camp.",
+          "correct": true,
+          "explain": "影響をたずねられたので、具体的な影響を答えます。cancel は「中止する」です。"
+        },
+        {
+          "text": "We meet in the music room on Mondays.",
+          "correct": false,
+          "explain": "活動場所の説明は、影響の答えになりません。"
+        },
+        {
+          "text": "The student council has fifteen members.",
+          "correct": false,
+          "explain": "生徒会の人数は、この質問の答えになりません。"
+        },
+        {
+          "text": "I joined the club when I was a first-year student.",
+          "correct": false,
+          "explain": "入部時期の話は、影響の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-33",
+      "title": "Returning a Rental Car",
+      "translation": "A：この車を返却します。鍵です。 B：ありがとうございます。ガソリンは満タンにされましたか。 A：はい、空港の手前のスタンドで。 B：___ A：もちろん。こちらが領収書です。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to return this car. Here are the keys."
+        },
+        {
+          "speaker": "B",
+          "text": "Thank you. Did you fill up the tank?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, at the stand just before the airport."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Of course. Here is the receipt."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Could I see the receipt from the gas station?",
+          "correct": true,
+          "explain": "満タンの確認として、給油の領収書を求める文です。receipt は「領収書」です。"
+        },
+        {
+          "text": "Could I borrow your umbrella for a moment?",
+          "correct": false,
+          "explain": "かさを借りる話は、返却手続きに合いません。"
+        },
+        {
+          "text": "Our shop also rents bicycles and scooters.",
+          "correct": false,
+          "explain": "他のサービスの宣伝は、この場面の答えになりません。"
+        },
+        {
+          "text": "The airport is about ten kilometers away.",
+          "correct": false,
+          "explain": "距離の説明は、この手続きの流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-34",
+      "title": "Planning a Welcome Party",
+      "translation": "A：新入部員の歓迎会をやろうよ。 B：何人くらい来るの？ A：___ B：じゃあ小ホールではせますぎるね。 A：そうだね。かわりに食堂を予約しよう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "We should hold a welcome party for the new members."
+        },
+        {
+          "speaker": "B",
+          "text": "How many people will come?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then the small hall will be too crowded."
+        },
+        {
+          "speaker": "A",
+          "text": "Right. Let's book the cafeteria instead."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Around forty, including the new members and the seniors.",
+          "correct": true,
+          "explain": "人数をたずねられたので、内訳もふくめて答えます。including は「〜をふくめて」です。"
+        },
+        {
+          "text": "Around forty minutes by train from here.",
+          "correct": false,
+          "explain": "所要時間は、人数の答えになりません。"
+        },
+        {
+          "text": "The party will have games and music.",
+          "correct": false,
+          "explain": "内容の説明は、人数の答えになりません。"
+        },
+        {
+          "text": "I joined this club two years ago.",
+          "correct": false,
+          "explain": "入部時期の話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-35",
+      "title": "Asking About Vaccination Records",
+      "translation": "A：学校に予防接種の記録を求められたのですが、見つからなくて。 B：この市で接種されましたか。 A：いいえ、当時は名古屋に住んでいました。 B：___ A：ありがとうございます。明日、名古屋市役所に電話します。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The school asked me for my vaccination record, but I can't find it."
+        },
+        {
+          "speaker": "B",
+          "text": "Were you vaccinated in this city?"
+        },
+        {
+          "speaker": "A",
+          "text": "No, I lived in Nagoya at that time."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you. I'll call the Nagoya city office tomorrow."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Then you need to request a copy from the city where you were living.",
+          "correct": true,
+          "explain": "接種した自治体に請求するよう案内する文です。request は「請求する」です。"
+        },
+        {
+          "text": "Then you should see a doctor as soon as possible.",
+          "correct": false,
+          "explain": "受診をすすめる文は、記録の再発行の話に合いません。"
+        },
+        {
+          "text": "Our office handles passports on the fourth floor.",
+          "correct": false,
+          "explain": "パスポートの案内は、この質問の答えになりません。"
+        },
+        {
+          "text": "Most schools start in April in Japan.",
+          "correct": false,
+          "explain": "学期の説明は、この場面の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-36",
+      "title": "Talking About Studying Abroad Costs",
+      "translation": "A：カナダで学びたいけれど、費用が心配で。 B：いくつかの学校の総費用を比べてみた？ A：___ B：じゃあホームステイのほうがだいぶ節約になりそうだね。 A：うん、それに英語を話す機会も増えるしね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I want to study in Canada, but the cost worries me."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you compared the total costs of a few schools?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then the homestay option may save you a lot."
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, and it would give me more chances to speak English."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Yes, and the biggest difference was in housing, not tuition.",
+          "correct": true,
+          "explain": "比べたかに答えつつ、差が大きかった項目を伝えます。housing は「住居費」です。"
+        },
+        {
+          "text": "Yes, Canada has many beautiful national parks.",
+          "correct": false,
+          "explain": "観光の話は、費用の比較の答えになりません。"
+        },
+        {
+          "text": "No, my flight leaves from Narita Airport.",
+          "correct": false,
+          "explain": "出発空港の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "No, I have studied English since junior high school.",
+          "correct": false,
+          "explain": "学習歴は、費用の比較の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-37",
+      "title": "Handling a Double Booking",
+      "translation": "A：会議室が2時に二重予約になっているようです。 B：もう一方はどこが予約したのですか。 A：営業チームで、うちより1時間ほど前です。 B：___ A：聞いてみます。うちは30分しか使いませんので。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "It seems the meeting room is booked twice for two o'clock."
+        },
+        {
+          "speaker": "B",
+          "text": "Who made the other reservation?"
+        },
+        {
+          "speaker": "A",
+          "text": "The sales team, about an hour before ours."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I'll ask them. We only need thirty minutes."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Since they booked first, let's ask them if we can use it afterward.",
+          "correct": true,
+          "explain": "先に予約した側を尊重し、後に使えるか聞く提案です。afterward は「そのあとで」です。"
+        },
+        {
+          "text": "Since it is raining, let's take a taxi to the station.",
+          "correct": false,
+          "explain": "タクシーの話は、会議室の重複の相談に合いません。"
+        },
+        {
+          "text": "Our company moved to this building last spring.",
+          "correct": false,
+          "explain": "移転の話は、この問題への対応になりません。"
+        },
+        {
+          "text": "The sales team has twelve members now.",
+          "correct": false,
+          "explain": "人数の説明だけでは、対応の提案になりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-38",
+      "title": "At a Repair Counter",
+      "translation": "A：落としてしまって、スマホの画面がひび割れました。 B：タッチパネルはまだ動きますか。 A：___ B：では画面の交換だけで足りそうです。 A：携帯が使えないのはどのくらいですか。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The screen of my phone cracked when I dropped it."
+        },
+        {
+          "speaker": "B",
+          "text": "Does the touch panel still work?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then a screen replacement should be enough."
+        },
+        {
+          "speaker": "A",
+          "text": "How long will I be without my phone?"
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Yes, everything responds normally except for one corner.",
+          "correct": true,
+          "explain": "動作するかへの答えとして、状態を具体的に伝えます。except for は「〜を除いて」です。"
+        },
+        {
+          "text": "Yes, I bought this phone at your shop.",
+          "correct": false,
+          "explain": "購入場所の話は、動作についての答えになりません。"
+        },
+        {
+          "text": "No, I use my phone mainly for messages.",
+          "correct": false,
+          "explain": "使い方の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "No, the case was a birthday present.",
+          "correct": false,
+          "explain": "ケースの話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-39",
+      "title": "Discussing Remote Work",
+      "translation": "A：うちの会社、週2日の在宅勤務を認めるようになったんだ。 B：やってみたい？ A：どうかな。会社のほうが集中できるんだ。 B：___ A：たしかに。1日2時間節約できるのは魅力だね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Our company is letting some staff work from home twice a week."
+        },
+        {
+          "speaker": "B",
+          "text": "Would you like to do that?"
+        },
+        {
+          "speaker": "A",
+          "text": "I'm not sure. I concentrate better at the office."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "That's true. Saving two hours a day is attractive."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "But you would not have to spend so long on the train.",
+          "correct": true,
+          "explain": "在宅の利点として通勤時間を挙げる文です。spend は「（時間を）使う」です。"
+        },
+        {
+          "text": "But you should buy a bigger desk for your office.",
+          "correct": false,
+          "explain": "机を買う話は、在宅勤務の議論の答えになりません。"
+        },
+        {
+          "text": "I take the same train as you every morning.",
+          "correct": false,
+          "explain": "同じ電車という話だけでは、議論への返答になりません。"
+        },
+        {
+          "text": "Our office moved here three years ago.",
+          "correct": false,
+          "explain": "移転の話はこの議論に合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-40",
+      "title": "Asking About a Refund Policy",
+      "translation": "A：このコートをネットで買ったのですが、サイズが合いません。 B：タグと元のふくろは取ってありますか。 A：___ B：では14日以内なら返品できます。 A：よかった。カードに返金してもらえますか。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I bought this coat online, but it doesn't fit."
+        },
+        {
+          "speaker": "B",
+          "text": "Did you keep the tag and the original bag?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then you can return it within fourteen days."
+        },
+        {
+          "speaker": "A",
+          "text": "Good. Can I get the money back on my card?"
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Yes, I kept everything, and I haven't worn it outside.",
+          "correct": true,
+          "explain": "保管状況をたずねられたので、状態を具体的に答えます。worn は「着用した」です。"
+        },
+        {
+          "text": "Yes, the color is darker than in the photo.",
+          "correct": false,
+          "explain": "色の感想は、タグの有無の答えになりません。"
+        },
+        {
+          "text": "No, I usually wear a medium size.",
+          "correct": false,
+          "explain": "サイズの話は、この質問の答えになりません。"
+        },
+        {
+          "text": "No, the delivery arrived three days late.",
+          "correct": false,
+          "explain": "配送の遅れの話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-41",
+      "title": "Complaining About a Noisy Cafe",
+      "translation": "A：ここでは集中できないな。勉強するには音楽が大きすぎる。 B：別の場所をさがす？ A：___ B：いいね。図書館には自習ブースもあるし。 A：席がうまる前に行こう。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I can't concentrate here. The music is too loud for studying."
+        },
+        {
+          "speaker": "B",
+          "text": "Should we look for another place?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Good idea. The library also has study booths."
+        },
+        {
+          "speaker": "A",
+          "text": "Let's go there before the seats fill up."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Let's try the cafe on the fourth floor. It's usually quieter.",
+          "correct": true,
+          "explain": "別の場所をさがすかへの答えとして、候補と理由を挙げます。quieter は「より静か」です。"
+        },
+        {
+          "text": "Let's order two more cups of coffee.",
+          "correct": false,
+          "explain": "追加注文は、場所を変えるかの答えになりません。"
+        },
+        {
+          "text": "This cafe opened about a year ago.",
+          "correct": false,
+          "explain": "開店時期の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "I usually study late at night.",
+          "correct": false,
+          "explain": "勉強の時間帯の話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-42",
+      "title": "Asking About an Internship",
+      "translation": "A：御社が夏のインターンを実施していると拝見しました。 B：はい、毎年10名ほど受け入れています。 A：インターンは実際にどんな仕事をするのですか。 B：___ A：それは有意義ですね。応募の締め切りはいつですか。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I saw that your company offers summer internships."
+        },
+        {
+          "speaker": "B",
+          "text": "Yes, we take about ten students each year."
+        },
+        {
+          "speaker": "A",
+          "text": "What kind of work do interns actually do?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "That sounds valuable. When is the application deadline?"
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "They join a real project team and help with research and reports.",
+          "correct": true,
+          "explain": "仕事の内容をたずねられたので、実際の業務を説明します。"
+        },
+        {
+          "text": "They usually finish university in four years.",
+          "correct": false,
+          "explain": "在学年数の話は、業務内容の答えになりません。"
+        },
+        {
+          "text": "Our head office is located in Osaka.",
+          "correct": false,
+          "explain": "本社の場所の説明は、この質問の答えになりません。"
+        },
+        {
+          "text": "We were founded more than fifty years ago.",
+          "correct": false,
+          "explain": "創業の話は、業務内容の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-43",
+      "title": "Talking About a Difficult Customer",
+      "translation": "A：品切れでお客さまが怒ってしまって。 B：何と言ったの？ A：___ B：それが正しい対応だね。納得してくれた？ A：はい、金曜まで待ってくれることになりました。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "A customer got angry because the item was out of stock."
+        },
+        {
+          "speaker": "B",
+          "text": "What did you say to him?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "That was the right thing to do. Did he accept it?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, he agreed to wait until Friday."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "I apologized and offered to order the item for him.",
+          "correct": true,
+          "explain": "対応の内容を答える文です。apologized は「あやまった」、offered は「申し出た」です。"
+        },
+        {
+          "text": "I asked him where he bought his jacket.",
+          "correct": false,
+          "explain": "上着の話は、苦情への対応の説明になりません。"
+        },
+        {
+          "text": "Our shop has three staff members today.",
+          "correct": false,
+          "explain": "人員の説明は、この質問の答えになりません。"
+        },
+        {
+          "text": "The item costs four thousand yen.",
+          "correct": false,
+          "explain": "値段の説明だけでは、対応の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-44",
+      "title": "Choosing a Mobile Phone Plan",
+      "translation": "A：携帯代が高すぎるから、プランを変えようと思って。 B：毎月どのくらいデータを使うの？ A：5ギガくらい、ほとんど地図とメッセージだよ。 B：___ A：それなら請求がほぼ半分になるね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "My phone bill is too high. I'm thinking of changing my plan."
+        },
+        {
+          "speaker": "B",
+          "text": "How much data do you use each month?"
+        },
+        {
+          "speaker": "A",
+          "text": "About five gigabytes, mostly for maps and messages."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "That would cut my bill almost in half."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Then a smaller plan with seven gigabytes would be enough.",
+          "correct": true,
+          "explain": "使用量を聞いたうえで、適したプランを提案します。enough は「十分な」です。"
+        },
+        {
+          "text": "Then you should buy a new phone case.",
+          "correct": false,
+          "explain": "ケースを買う話は、料金プランの提案になりません。"
+        },
+        {
+          "text": "I changed my phone number last year.",
+          "correct": false,
+          "explain": "番号変更の話は、この相談の答えになりません。"
+        },
+        {
+          "text": "Most people use their phones for videos.",
+          "correct": false,
+          "explain": "一般論だけでは、この相談への提案になりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-45",
+      "title": "At a Language School Counter",
+      "translation": "A：会話クラスに入りたいのですが、6時まで仕事があります。 B：火曜と木曜に夜のクラスがあります。 A：___ B：夜のクラスは最大6名です。 A：それなら少人数ですね。火曜に申しこみます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to join a conversation class, but I work until six."
+        },
+        {
+          "speaker": "B",
+          "text": "We have evening classes on Tuesdays and Thursdays."
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "The evening classes have six students at most."
+        },
+        {
+          "speaker": "A",
+          "text": "That's small enough. I'll sign up for Tuesdays."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "How many students are in one class?",
+          "correct": true,
+          "explain": "次に人数を答えているので、クラスの人数をたずねる文が入ります。"
+        },
+        {
+          "text": "How do I get to the station from here?",
+          "correct": false,
+          "explain": "道案内の質問は、この流れに合いません。"
+        },
+        {
+          "text": "When was this school established?",
+          "correct": false,
+          "explain": "設立時期の質問は、次の答えとつながりません。"
+        },
+        {
+          "text": "Where can I park my bicycle?",
+          "correct": false,
+          "explain": "駐輪場の質問は、この場面の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-46",
+      "title": "Discussing a Community Event",
+      "translation": "A：町が外国人住民を歓迎するお祭りを計画しているんだ。 B：いいね。どんな手伝いが必要なの？ A：主に翻訳と案内だよ。 B：___ A：ちょうどいい。名前を入れておくね。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The town is planning a festival to welcome foreign residents."
+        },
+        {
+          "speaker": "B",
+          "text": "That's a nice idea. What do they need help with?"
+        },
+        {
+          "speaker": "A",
+          "text": "Mainly translation and guiding visitors."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Perfect. I'll put your name on the list."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "I could help with Chinese translation on the first day.",
+          "correct": true,
+          "explain": "手伝える内容を具体的に申し出る文です。translation は「翻訳」です。"
+        },
+        {
+          "text": "I could buy a new camera for the festival.",
+          "correct": false,
+          "explain": "カメラを買う話は、手伝いの申し出になりません。"
+        },
+        {
+          "text": "The festival was cancelled two years ago.",
+          "correct": false,
+          "explain": "過去の中止の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "Many foreign residents live near the river.",
+          "correct": false,
+          "explain": "住んでいる場所の話は、手伝いの答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-47",
+      "title": "Asking for a Deadline Extension",
+      "translation": "A：先生、期末レポートの締め切りについて伺えますか。 B：来週月曜です。何か問題が？ A：___ B：診断書を出してくれれば、3日のばせますよ。 A：ありがとうございます。明日持ってきます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Professor, could I ask about the deadline for the term paper?"
+        },
+        {
+          "speaker": "B",
+          "text": "It's next Monday. Is there a problem?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "If you send me a doctor's note, I can give you three more days."
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you. I'll bring it tomorrow."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "I was in the hospital for four days last week.",
+          "correct": true,
+          "explain": "事情をたずねられたので、理由となる出来事を説明します。"
+        },
+        {
+          "text": "I found your lecture very interesting.",
+          "correct": false,
+          "explain": "授業の感想は、問題の説明になりません。"
+        },
+        {
+          "text": "The library is open until ten at night.",
+          "correct": false,
+          "explain": "図書館の時間の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "My paper is about renewable energy.",
+          "correct": false,
+          "explain": "テーマの説明は、事情の説明になりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-48",
+      "title": "Talking About a Bank Account",
+      "translation": "A：アルバイト代を受け取る口座を開きたいのですが。 B：身分証と在留カードはお持ちですか。 A：はい、どちらもあります。 B：___ A：連絡先は携帯番号にします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like to open an account to receive my part-time salary."
+        },
+        {
+          "speaker": "B",
+          "text": "Do you have identification and your residence card?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, both are here."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "I'll use my phone number as the contact."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Please fill in this form with your address and contact number.",
+          "correct": true,
+          "explain": "本人確認のあと、記入をお願いする文です。fill in は「記入する」です。"
+        },
+        {
+          "text": "Please come back after you finish university.",
+          "correct": false,
+          "explain": "卒業後に来るよう言うのは、この手続きの案内になりません。"
+        },
+        {
+          "text": "Our bank has branches in twelve countries.",
+          "correct": false,
+          "explain": "支店数の説明は、この場面の案内になりません。"
+        },
+        {
+          "text": "Cash machines are available until nine.",
+          "correct": false,
+          "explain": "ATMの時間の話は、口座開設の案内になりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-49",
+      "title": "A Problem with a Group Trip",
+      "translation": "A：旅行の班の2人がきのうキャンセルしたんだ。 B：残りのみんなの費用は変わるの？ A：___ B：じゃあ、ほかに参加したい人がいないか聞いてみよう。 A：いい考えだね。グループチャットに書いてみる。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Two members of our trip group cancelled yesterday."
+        },
+        {
+          "speaker": "B",
+          "text": "Does that change the cost for the rest of us?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then let's ask if anyone else wants to join."
+        },
+        {
+          "speaker": "A",
+          "text": "Good idea. I'll post it in the group chat."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Yes, the hotel charges more per person for a smaller group.",
+          "correct": true,
+          "explain": "費用が変わるかに答え、理由も説明します。per person は「1人あたり」です。"
+        },
+        {
+          "text": "Yes, the weather forecast says it will rain.",
+          "correct": false,
+          "explain": "天気の話は、費用の質問の答えになりません。"
+        },
+        {
+          "text": "No, I have never been to Hokkaido.",
+          "correct": false,
+          "explain": "旅行経験の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "No, the train leaves at eight in the morning.",
+          "correct": false,
+          "explain": "出発時刻の話は、費用の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-50",
+      "title": "At a Job Orientation",
+      "translation": "A：ようこそ。今日は規則と研修日程を説明します。 B：研修はどのくらい続きますか。 A：2週間で、うち1週間は本店での研修です。 B：___ A：はい、研修日も通常の時給が支払われます。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "Welcome. Today we'll explain the rules and the training schedule."
+        },
+        {
+          "speaker": "B",
+          "text": "How long does the training last?"
+        },
+        {
+          "speaker": "A",
+          "text": "Two weeks, including one week at the main store."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, training days are paid at the normal hourly rate."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Are the training days paid as well?",
+          "correct": true,
+          "explain": "次に「研修日も時給が出る」と答えているので、給与についての質問が入ります。"
+        },
+        {
+          "text": "Are the uniforms washed every day?",
+          "correct": false,
+          "explain": "制服の洗濯の話は、次の答えとつながりません。"
+        },
+        {
+          "text": "Is the main store near the station?",
+          "correct": false,
+          "explain": "店の場所の質問は、この答えの流れに合いません。"
+        },
+        {
+          "text": "Do you have many foreign customers?",
+          "correct": false,
+          "explain": "客層の質問は、この場面の流れに合いません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-51",
+      "title": "Discussing Study Habits",
+      "translation": "A：毎晩3時間勉強しているのに、点数が上がらないんだ。 B：その3時間はどう使ってるの？ A：___ B：読むだけでは足りないかも。問題を解いてみたら。 A：たしかに。明日から過去問をやるよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I study for three hours every night, but my scores aren't improving."
+        },
+        {
+          "speaker": "B",
+          "text": "How do you spend those three hours?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Reading alone may not be enough. Try answering questions."
+        },
+        {
+          "speaker": "A",
+          "text": "You're right. I'll do practice tests from tomorrow."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "I mostly read the textbook and underline important parts.",
+          "correct": true,
+          "explain": "勉強のしかたをたずねられたので、具体的な方法を答えます。underline は「線を引く」です。"
+        },
+        {
+          "text": "I mostly go to bed around midnight.",
+          "correct": false,
+          "explain": "就寝時刻は、勉強のしかたの答えになりません。"
+        },
+        {
+          "text": "My favorite subject is world history.",
+          "correct": false,
+          "explain": "好きな教科の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "The exam will be held next month.",
+          "correct": false,
+          "explain": "試験日の話は、勉強のしかたの答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-52",
+      "title": "Calling About a Job Application",
+      "translation": "A：2週間前に事務の職に応募したのですが、連絡がありません。 B：お名前と応募日をうかがえますか。 A：中野美香、今月10日です。 B：___ A：ありがとうございます。連絡をお待ちします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I applied for the office position two weeks ago and haven't heard back."
+        },
+        {
+          "speaker": "B",
+          "text": "May I have your name and the date you applied?"
+        },
+        {
+          "speaker": "A",
+          "text": "Mika Nakano, on the tenth of this month."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Thank you. I'll wait for the call."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Your application is still being reviewed, and we'll call you this week.",
+          "correct": true,
+          "explain": "状況を説明し、いつ連絡するかを伝える文です。reviewed は「検討されている」です。"
+        },
+        {
+          "text": "Your order will be delivered on Thursday.",
+          "correct": false,
+          "explain": "配達の話は、応募の問い合わせの答えになりません。"
+        },
+        {
+          "text": "Our office is closed on national holidays.",
+          "correct": false,
+          "explain": "休業日の説明は、この質問の答えになりません。"
+        },
+        {
+          "text": "We sell office furniture to many companies.",
+          "correct": false,
+          "explain": "事業内容の説明は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-53",
+      "title": "Sharing a Dormitory Room",
+      "translation": "A：ルームメイトが明かりをつけたまま朝3時まで勉強するんだ。 B：本人に話してみた？ A：___ B：じゃあ、天井の明かりのかわりに電気スタンドを提案してみたら。 A：それならいけそう。今夜切り出してみるよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "My roommate studies until three in the morning with the lights on."
+        },
+        {
+          "speaker": "B",
+          "text": "Have you talked to him about it?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "Then maybe suggest a desk lamp instead of the ceiling light."
+        },
+        {
+          "speaker": "A",
+          "text": "That could work. I'll bring it up tonight."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Once, but he said he can't study with only a small light.",
+          "correct": true,
+          "explain": "話したかに答え、相手の言い分も伝えます。only は「〜だけ」です。"
+        },
+        {
+          "text": "Once, I visited his hometown in Kyushu.",
+          "correct": false,
+          "explain": "旅行の話は、話し合ったかの答えになりません。"
+        },
+        {
+          "text": "Our dormitory has eighty rooms.",
+          "correct": false,
+          "explain": "寮の規模の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "He is studying economics at this university.",
+          "correct": false,
+          "explain": "専攻の説明は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-54",
+      "title": "At a Hair Salon",
+      "translation": "A：カットをおねがいしたいのですが、今のばしているところで。 B：長さは残したいということですね。 A：はい、毛先と横のあたりだけで。 B：___ A：それでおねがいします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I'd like a haircut, but I'm growing my hair out."
+        },
+        {
+          "speaker": "B",
+          "text": "So you want to keep the length?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, mainly the ends and the sides."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "That sounds good. Please go ahead."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Then I'll trim about one centimeter and tidy the sides.",
+          "correct": true,
+          "explain": "希望を確認したうえで、具体的な施術を提案します。trim は「少し切りそろえる」です。"
+        },
+        {
+          "text": "Then I'll book you for a color next month.",
+          "correct": false,
+          "explain": "翌月のカラー予約は、今日の希望への答えになりません。"
+        },
+        {
+          "text": "Our salon has five stylists today.",
+          "correct": false,
+          "explain": "人員の説明は、この場面の答えになりません。"
+        },
+        {
+          "text": "Long hair is popular this year.",
+          "correct": false,
+          "explain": "流行の話は、希望への答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-55",
+      "title": "Discussing a News Article",
+      "translation": "A：この市で、すべての店でレジ袋が有料になるかもしれないって読んだよ。 B：本当にごみが減ると思う？ A：___ B：もっともだね。規則よりも習慣のほうが大事だよね。 A：それでも、少しの料金でも人は考えるようになるよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I read that this city may charge for plastic shopping bags at all shops."
+        },
+        {
+          "speaker": "B",
+          "text": "Do you think it will really reduce waste?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "That's a fair point. Habits matter more than rules."
+        },
+        {
+          "speaker": "A",
+          "text": "Still, a small charge does make people think."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Only if people start carrying their own bags every day.",
+          "correct": true,
+          "explain": "効果があるかに条件つきで答える文です。only if は「〜する場合にかぎり」です。"
+        },
+        {
+          "text": "Only two shops near my house sell food.",
+          "correct": false,
+          "explain": "近所の店の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "I bought three bags at the supermarket.",
+          "correct": false,
+          "explain": "自分の買い物の話は、意見の答えになりません。"
+        },
+        {
+          "text": "Plastic was invented a long time ago.",
+          "correct": false,
+          "explain": "歴史の話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-56",
+      "title": "Rescheduling a Lesson",
+      "translation": "A：学校行事のため、金曜のピアノのレッスンを休まないといけません。 B：わかりました。別の日に振りかえますか。 A：はい、できれば。 B：___ A：水曜の5時がちょうどいいです。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I have to miss Friday's piano lesson because of a school event."
+        },
+        {
+          "speaker": "B",
+          "text": "I see. Would you like to change it to another day?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, if that's possible."
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Wednesday at five would be perfect."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "I have space on Wednesday at five or Saturday morning.",
+          "correct": true,
+          "explain": "振替の候補を示す文です。space は「空き」という意味です。"
+        },
+        {
+          "text": "I have taught piano for twenty years.",
+          "correct": false,
+          "explain": "指導歴の話は、振替の提案になりません。"
+        },
+        {
+          "text": "You should practice scales every day.",
+          "correct": false,
+          "explain": "練習の助言は、日程の答えになりません。"
+        },
+        {
+          "text": "The recital will be held in December.",
+          "correct": false,
+          "explain": "発表会の話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-57",
+      "title": "Talking About a Driving Test",
+      "translation": "A：先週また運転免許の試験に落ちたんだ。 B：どの部分が問題だったの？ A：___ B：そこは練習がいるね。試験官は助言をくれた？ A：うん、もっとミラーを見るようにって。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I failed the driving test again last week."
+        },
+        {
+          "speaker": "B",
+          "text": "Which part was the problem?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "That part takes practice. Did the examiner give advice?"
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, he told me to check the mirrors more often."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "Changing lanes on the main road.",
+          "correct": true,
+          "explain": "どの部分かをたずねられたので、具体的な課題を答えます。changing lanes は「車線変更」です。"
+        },
+        {
+          "text": "Changing my plans for the weekend.",
+          "correct": false,
+          "explain": "予定変更の話は、試験の課題の答えになりません。"
+        },
+        {
+          "text": "The test center is far from my house.",
+          "correct": false,
+          "explain": "場所の話は、どの部分かの答えになりません。"
+        },
+        {
+          "text": "I want to buy a used car next year.",
+          "correct": false,
+          "explain": "車の購入の話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-58",
+      "title": "At a Clothing Store Fitting Room",
+      "translation": "A：このシャツは体に合うのですが、そでが少し長くて。 B：短くお直しできますよ。 A：追加でいくらかかりますか。 B：___ A：それならけっこうです。お直しでおねがいします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "This shirt fits well, but the sleeves are a little long."
+        },
+        {
+          "speaker": "B",
+          "text": "We can shorten them for you."
+        },
+        {
+          "speaker": "A",
+          "text": "How much extra does that cost?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "That's fine. I'll take it with the alteration."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "It's free if you buy the shirt today.",
+          "correct": true,
+          "explain": "追加費用をたずねられているので、金額の条件を答えます。free は「無料」です。"
+        },
+        {
+          "text": "It takes about ten minutes by bus.",
+          "correct": false,
+          "explain": "所要時間は、費用の質問の答えになりません。"
+        },
+        {
+          "text": "This design came out last spring.",
+          "correct": false,
+          "explain": "発売時期の話は、費用の答えになりません。"
+        },
+        {
+          "text": "Blue shirts sell well in summer.",
+          "correct": false,
+          "explain": "売れ行きの話は、この質問の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-59",
+      "title": "Volunteering at a Nursing Home",
+      "translation": "A：日曜日に老人ホームでボランティアを始めたんだ。 B：そこで何をするの？ A：___ B：入居者の方にとって大きな意味があるだろうね。 A：うん、先週はある女性が古い歌を教えてくれたよ。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "I started volunteering at a nursing home on Sundays."
+        },
+        {
+          "speaker": "B",
+          "text": "What do you do there?"
+        },
+        {
+          "speaker": "A",
+          "text": "___"
+        },
+        {
+          "speaker": "B",
+          "text": "That must mean a lot to the residents."
+        },
+        {
+          "speaker": "A",
+          "text": "Yes, one woman taught me an old song last week."
+        }
+      ],
+      "blankIndex": 2,
+      "choices": [
+        {
+          "text": "I mostly talk with the residents and help at tea time.",
+          "correct": true,
+          "explain": "活動内容をたずねられたので、具体的な仕事を答えます。residents は「入居者」です。"
+        },
+        {
+          "text": "I mostly travel by bicycle in summer.",
+          "correct": false,
+          "explain": "移動手段の話は、活動内容の答えになりません。"
+        },
+        {
+          "text": "The home was built ten years ago.",
+          "correct": false,
+          "explain": "建物の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "My grandmother is eighty-two years old.",
+          "correct": false,
+          "explain": "祖母の年齢は、活動内容の答えになりません。"
+        }
+      ]
+    },
+    {
+      "id": "dp2-60",
+      "title": "Checking a Train Delay",
+      "translation": "A：20分も電車が来ません。何かあったのですか。 B：みどり駅で事故がありました。 A：運転再開の時刻は分かりますか。 B：___ A：ではバスにします。",
+      "lines": [
+        {
+          "speaker": "A",
+          "text": "The train hasn't come for twenty minutes. Is something wrong?"
+        },
+        {
+          "speaker": "B",
+          "text": "There was an accident at Midori Station."
+        },
+        {
+          "speaker": "A",
+          "text": "Do you know when service will start again?"
+        },
+        {
+          "speaker": "B",
+          "text": "___"
+        },
+        {
+          "speaker": "A",
+          "text": "Then I'll take the bus instead."
+        }
+      ],
+      "blankIndex": 3,
+      "choices": [
+        {
+          "text": "Not exactly, but the announcement said about one hour.",
+          "correct": true,
+          "explain": "再開時刻をたずねられたので、分かる範囲で答えます。announcement は「アナウンス」です。"
+        },
+        {
+          "text": "Not exactly, but I usually take this train.",
+          "correct": false,
+          "explain": "自分の利用状況は、再開時刻の答えになりません。"
+        },
+        {
+          "text": "Yes, the platform is on the second floor.",
+          "correct": false,
+          "explain": "ホームの場所の話は、この質問の答えになりません。"
+        },
+        {
+          "text": "Yes, tickets cost three hundred and twenty yen.",
+          "correct": false,
+          "explain": "運賃の話は、再開時刻の答えになりません。"
+        }
+      ]
     }
   ]
 }

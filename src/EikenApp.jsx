@@ -145,6 +145,34 @@ function clampReadingUnit(level, unit) {
   return unit === "all" || unit < readingUnitCount(level) ? unit : 0;
 }
 
+/** 会話文も20問ずつの「組」に分けて出題する（1回で60問は多すぎるため） */
+const DIALOGUE_UNIT_SIZE = 20;
+
+function dialogueUnitCount(level) {
+  return Math.ceil((level.dialogue || []).length / DIALOGUE_UNIT_SIZE);
+}
+
+/** unit が "all" なら全問、数値ならその組（0始まり）の会話だけを返す */
+function dialogueOfUnit(level, unit) {
+  const all = level.dialogue || [];
+  if (unit === "all") return all;
+  const start = unit * DIALOGUE_UNIT_SIZE;
+  return all.slice(start, start + DIALOGUE_UNIT_SIZE);
+}
+
+function dialogueUnitLabel(level, unit) {
+  const all = level.dialogue || [];
+  if (unit === "all") return `すべて（${all.length}問）`;
+  const start = unit * DIALOGUE_UNIT_SIZE;
+  const end = Math.min(start + DIALOGUE_UNIT_SIZE, all.length);
+  return `${unit + 1}組（${start + 1}〜${end}）`;
+}
+
+/** 級を切りかえて組の数が減ったときなど、範囲外の組は1組目にもどす */
+function clampDialogueUnit(level, unit) {
+  return unit === "all" || unit < dialogueUnitCount(level) ? unit : 0;
+}
+
 /* ------------------------------------------------------------------
    リスニングは「題型 → 20問ずつの組」の二段階で選ぶ。
 
@@ -234,6 +262,27 @@ function GrammarUnitSelect({ level, value, onChange, allowAll }) {
           </option>
         ))}
         {allowAll && <option value="all">{grammarUnitLabel(level, "all")}</option>}
+      </select>
+    </label>
+  );
+}
+
+/** 会話文の出題範囲（組）の選択リスト */
+function DialogueUnitSelect({ level, value, onChange, allowAll }) {
+  return (
+    <label className="eiken-control-row">
+      <span className="eiken-control-label">出題範囲</span>
+      <select
+        className="eiken-unit-select"
+        value={String(value)}
+        onChange={(e) => onChange(e.target.value === "all" ? "all" : Number(e.target.value))}
+      >
+        {Array.from({ length: dialogueUnitCount(level) }, (_, u) => (
+          <option key={u} value={u}>
+            {dialogueUnitLabel(level, u)}
+          </option>
+        ))}
+        {allowAll && <option value="all">{dialogueUnitLabel(level, "all")}</option>}
       </select>
     </label>
   );
@@ -499,8 +548,8 @@ function ListeningHeader({ item, answered }) {
   );
 }
 
-function buildDialogueItems(level) {
-  return level.dialogue.map((d) => ({
+function buildDialogueItems(level, list = level.dialogue) {
+  return list.map((d) => ({
     id: d.id,
     header: (answered) => <DialogueHeader item={d} answered={answered} />,
     choices: shuffle(d.choices),
@@ -1075,6 +1124,7 @@ export default function EikenApp({ onExitApp }) {
   const [vocabDirection, setVocabDirection] = useState("en2ja");
   const [vocabUnit, setVocabUnit] = useState(0);
   const [grammarUnit, setGrammarUnit] = useState(0);
+  const [dialogueUnit, setDialogueUnit] = useState(0);
   const [listeningPart, setListeningPart] = useState("response");
   const [listeningUnit, setListeningUnit] = useState(0);
   const [readingUnit, setReadingUnit] = useState(0);
@@ -1161,10 +1211,22 @@ export default function EikenApp({ onExitApp }) {
       if (!part) return [];
       return buildListeningItems(level, listeningOfUnit(level, part, clampListeningUnit(level, part, listeningUnit)));
     }
-    if (mode === "dialogue") return buildDialogueItems(level);
+    if (mode === "dialogue")
+      return buildDialogueItems(level, dialogueOfUnit(level, clampDialogueUnit(level, dialogueUnit)));
     if (mode === "review") return buildReviewItems(level, vocabDirection);
     return [];
-  }, [level, mode, vocabDirection, vocabUnit, grammarUnit, readingUnit, listeningPart, listeningUnit, reviewNonce]);
+  }, [
+    level,
+    mode,
+    vocabDirection,
+    vocabUnit,
+    grammarUnit,
+    readingUnit,
+    dialogueUnit,
+    listeningPart,
+    listeningUnit,
+    reviewNonce,
+  ]);
 
   const goModeSelect = useCallback((lvId) => {
     stopSpeaking();
@@ -1603,6 +1665,11 @@ export default function EikenApp({ onExitApp }) {
           {mode === "reading" && readingUnitCount(level) > 1 && (
             <div className="eiken-vocab-controls">
               <ReadingUnitSelect level={level} value={clampReadingUnit(level, readingUnit)} onChange={setReadingUnit} allowAll />
+            </div>
+          )}
+          {mode === "dialogue" && dialogueUnitCount(level) > 1 && (
+            <div className="eiken-vocab-controls">
+              <DialogueUnitSelect level={level} value={clampDialogueUnit(level, dialogueUnit)} onChange={setDialogueUnit} allowAll />
             </div>
           )}
           {mode === "listening" && listeningParts(level).length > 0 && (

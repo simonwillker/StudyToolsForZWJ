@@ -10,6 +10,8 @@ import { fileURLToPath } from "node:url";
 
 const DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data", "eikenApp");
 const UNIT_SIZE = 20;
+/** 英文に混ざってはいけない文字（かな・漢字・ハングル・キリル文字）。打ちまちがいで実際に混入したことがある */
+const CJK = /[\u3040-\u30ff\u4e00-\u9fff\uac00-\ud7af\u0400-\u04ff]/;
 
 const errors = [];
 const warnings = [];
@@ -110,6 +112,45 @@ for (const file of files) {
     ch.forEach((c, j) => {
       if (!c.explain) err(file, p2, `choices[${j}] に explain がありません`);
     });
+  });
+
+  // 会話文（空所補充）：会話の形と、選ばせ方が成り立っているかを見る。
+  // ここは長いあいだ検証が無く、20問から60問に増やすときに追加した（2026-09-29）。
+  const dialogueAnswers = new Set();
+  const dialogueTitles = new Set();
+  (d.dialogue || []).forEach((dl, i) => {
+    const p2 = dl.id || `dialogue[${i}]`;
+    if (!dl.title) err(file, p2, "title がありません");
+    else if (dialogueTitles.has(dl.title)) err(file, p2, `題名が重複しています（${dl.title}）`);
+    else dialogueTitles.add(dl.title);
+    if (!dl.translation) err(file, p2, "日本語訳（translation）がありません");
+    else if (!dl.translation.includes("___")) err(file, p2, "日本語訳に空所（___）がありません");
+    const lines = dl.lines || [];
+    if (lines.length < 4) err(file, p2, `会話が短すぎます（${lines.length}行）`);
+    lines.forEach((l, j) => {
+      if (l.speaker !== "A" && l.speaker !== "B") err(file, p2, `lines[${j}] の speaker は A か B です`);
+      if (j > 0 && l.speaker === lines[j - 1].speaker) err(file, p2, `lines[${j}] で話者が交代していません`);
+      if (CJK.test(l.text || "")) err(file, p2, `lines[${j}] の英文に日本語などが混ざっています`);
+    });
+    const blanks = lines.filter((l) => l.text === "___").length;
+    if (blanks !== 1) err(file, p2, `空所（___）がちょうど1つではありません（現在${blanks}つ）`);
+    if (typeof dl.blankIndex !== "number" || !lines[dl.blankIndex]) err(file, p2, "blankIndex が範囲外です");
+    else if (lines[dl.blankIndex].text !== "___") err(file, p2, "blankIndex の行が空所になっていません");
+    const ch = dl.choices || [];
+    if (ch.length !== 4) err(file, p2, `選択肢は4つです（現在${ch.length}つ）`);
+    if (ch.filter((c) => c.correct).length !== 1) err(file, p2, "correct: true がちょうど1つではありません");
+    if (new Set(ch.map((c) => c.text)).size !== ch.length) err(file, p2, "選択肢のテキストが重複しています");
+    ch.forEach((c, j) => {
+      if (!c.explain) err(file, p2, `choices[${j}] に explain がありません`);
+      if (CJK.test(c.text || "")) err(file, p2, `choices[${j}] の英文に日本語などが混ざっています`);
+    });
+    const answer = (ch.find((c) => c.correct) || {}).text;
+    if (answer) {
+      const key = answer.trim().toLowerCase();
+      // 同じ答えを何度も出すと、覚えるだけで解けてしまう
+      if (dialogueAnswers.has(key)) err(file, p2, `正解の英文が他の問題と重複しています（${answer}）`);
+      dialogueAnswers.add(key);
+    }
   });
 
   // 長文読解：本文・設問の形式と、やさしい解説の有無を見る
