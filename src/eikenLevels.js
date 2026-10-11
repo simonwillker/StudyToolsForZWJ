@@ -6,7 +6,7 @@
    1級の問題まで最初に読み込んでいた（gzip 961 kB）。
 
    ここでは「級を選ぶ画面に必要な情報」だけを同期の定数として持ち、
-   重い本体（vocab / grammar / reading / listening / dialogue）は
+   重い本体（vocab / phrases / grammar / reading / listening / dialogue）は
    import() で級ごとに読む。Vite が自動で別チャンクに分ける。
 
    メタ情報は各 JSON の先頭4フィールドと同じ値。JSON 側を変えたら

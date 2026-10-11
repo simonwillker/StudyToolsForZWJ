@@ -14,7 +14,7 @@ const STORAGE_KEY = "eikenReviewV1";
 
 /** 復習ドリルとして出題し直せるモードだけを対象にする。
  *  発音練習（採点が主観的）と模擬テスト（問題IDが通し番号）は対象外。 */
-const REVIEWABLE_MODES = ["vocab", "grammar", "reading", "listening", "dialogue"];
+const REVIEWABLE_MODES = ["vocab", "phrases", "grammar", "reading", "listening", "dialogue"];
 
 /** 2回連続正解で克服とみなす */
 const MASTERY_STREAK = 2;
