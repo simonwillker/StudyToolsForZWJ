@@ -6,12 +6,16 @@
    保存先も別キーにして、英検の記録と混ざらないようにしてある。
    ============================================================ */
 
+import { learnerKey } from "./learner";
+import { DOMAINS } from "./ccaofDomains";
+import { recordStudy } from "./studyLog";
+
 const PROGRESS_KEY = "ccaofProgressV1";
 const REVIEW_KEY = "ccaofReviewV1";
 
 function read(key, fallback) {
   try {
-    const raw = window.localStorage.getItem(key);
+    const raw = window.localStorage.getItem(learnerKey(key));
     if (!raw) return fallback;
     const parsed = JSON.parse(raw);
     return parsed && typeof parsed === "object" ? parsed : fallback;
@@ -22,7 +26,7 @@ function read(key, fallback) {
 
 function write(key, value) {
   try {
-    window.localStorage.setItem(key, JSON.stringify(value));
+    window.localStorage.setItem(learnerKey(key), JSON.stringify(value));
   } catch (e) {
     // localStorage が使えない環境（プライベートブラウズ等）では記録を諦める。
     // 出題そのものは動き続ける。
@@ -41,6 +45,8 @@ export function loadProgress() {
 }
 
 export function recordAnswer(domainId, itemId, isCorrect) {
+  const domain = DOMAINS.find((d) => d.id === domainId);
+  recordStudy("CCAO-F 対策", domain ? `${domainId} ${domain.label}` : domainId, isCorrect);
   const store = loadProgress();
   const d = store.domains[domainId] || { attempted: 0, correct: 0, items: {} };
   d.attempted += 1;
