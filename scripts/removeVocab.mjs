@@ -23,33 +23,8 @@ if (!level || !words.length) {
 const targetPath = join(ROOT, "src", "data", "eikenApp", `${level}.json`);
 const text = readFileSync(targetPath, "utf8");
 
-function findArrayRange(src, key) {
-  const keyAt = src.indexOf(`"${key}":`);
-  if (keyAt < 0) throw new Error(`${key} が見つかりません`);
-  const start = src.indexOf("[", keyAt);
-  let depth = 0;
-  let inString = false;
-  let escaped = false;
-  for (let i = start; i < src.length; i++) {
-    const ch = src[i];
-    if (inString) {
-      if (escaped) escaped = false;
-      else if (ch === "\\") escaped = true;
-      else if (ch === '"') inString = false;
-      continue;
-    }
-    if (ch === '"') inString = true;
-    else if (ch === "[") depth += 1;
-    else if (ch === "]") {
-      depth -= 1;
-      if (depth === 0) return { start, end: i + 1 };
-    }
-  }
-  throw new Error(`${key} の配列が閉じていません`);
-}
-
-const range = findArrayRange(text, "vocab");
-const existing = JSON.parse(text.slice(range.start, range.end));
+const data = JSON.parse(text);
+const existing = data.vocab;
 const targets = new Set(words.map((w) => w.toLowerCase()));
 
 const kept = existing.filter((w) => !targets.has(w.word.toLowerCase()));
@@ -65,8 +40,9 @@ const renumbered = kept.map((w, i) => ({
   example: { en: w.example.en, ja: w.example.ja },
 }));
 
-const body = renumbered.map((w) => `    ${JSON.stringify(w)}`).join(",\n");
-writeFileSync(targetPath, `${text.slice(0, range.start)}[\n${body}\n  ]${text.slice(range.end)}`, "utf8");
+// 既存ファイルと同じ整形（2スペースインデント）で書き出す
+data.vocab = renumbered;
+writeFileSync(targetPath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
 
 console.log(`${level}.json: ${existing.length}語 → ${renumbered.length}語（削除 ${removed.length}）`);
 if (removed.length) console.log(`  削除: ${removed.join(", ")}`);

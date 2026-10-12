@@ -47,6 +47,7 @@ const OFFICIAL_LINKS = [
 
 const MODES = [
   { id: "vocab", label: "単語・熟語", desc: "4択クイズで語彙を覚える", icon: "📘" },
+  { id: "phrases", label: "常用短句", desc: "会話でそのまま使えるフレーズを覚える", icon: "🗣️" },
   { id: "grammar", label: "文法・穴うめ", desc: "空所に入る正しい語句を選ぶ", icon: "✏️" },
   { id: "reading", label: "長文読解", desc: "英文を読んで内容を答える", icon: "📖" },
   { id: "listening", label: "リスニング", desc: "音声を聞いて内容を答える", icon: "🎧" },
@@ -95,6 +96,36 @@ function vocabUnitLabel(level, unit) {
 /** 級を切りかえて組の数が減ったときなど、範囲外の組は1組目にもどす */
 function clampVocabUnit(level, unit) {
   return unit === "all" || unit < vocabUnitCount(level) ? unit : 0;
+}
+
+/** 常用短句（よく使う英語フレーズ）も単語と同じく20個ずつの「組」に分ける */
+const PHRASE_UNIT_SIZE = 20;
+
+function phrasesOf(level) {
+  return level.phrases || [];
+}
+
+function phraseUnitCount(level) {
+  return Math.ceil(phrasesOf(level).length / PHRASE_UNIT_SIZE);
+}
+
+/** unit が "all" なら全フレーズ、数値ならその組（0始まり）のフレーズだけを返す */
+function phrasesOfUnit(level, unit) {
+  if (unit === "all") return phrasesOf(level);
+  const start = unit * PHRASE_UNIT_SIZE;
+  return phrasesOf(level).slice(start, start + PHRASE_UNIT_SIZE);
+}
+
+function phraseUnitLabel(level, unit) {
+  const total = phrasesOf(level).length;
+  if (unit === "all") return `すべて（${total}個）`;
+  const start = unit * PHRASE_UNIT_SIZE;
+  const end = Math.min(start + PHRASE_UNIT_SIZE, total);
+  return `${unit + 1}組（${start + 1}〜${end}）`;
+}
+
+function clampPhraseUnit(level, unit) {
+  return unit === "all" || unit < phraseUnitCount(level) ? unit : 0;
 }
 
 function grammarUnitCount(level) {
@@ -246,6 +277,27 @@ function VocabUnitSelect({ level, value, onChange, allowAll }) {
   );
 }
 
+/** 常用短句の出題範囲（組）の選択リスト */
+function PhraseUnitSelect({ level, value, onChange, allowAll }) {
+  return (
+    <label className="eiken-control-row">
+      <span className="eiken-control-label">出題範囲</span>
+      <select
+        className="eiken-unit-select"
+        value={String(value)}
+        onChange={(e) => onChange(e.target.value === "all" ? "all" : Number(e.target.value))}
+      >
+        {Array.from({ length: phraseUnitCount(level) }, (_, u) => (
+          <option key={u} value={u}>
+            {phraseUnitLabel(level, u)}
+          </option>
+        ))}
+        {allowAll && <option value="all">{phraseUnitLabel(level, "all")}</option>}
+      </select>
+    </label>
+  );
+}
+
 /** 文法問題の出題範囲（組）の選択リスト */
 function GrammarUnitSelect({ level, value, onChange, allowAll }) {
   return (
@@ -376,7 +428,9 @@ function buildVocabItems(level, direction, words) {
       ]);
     }
     return {
-      id: `${w.id}-${direction}`,
+      // 復習リストは itemId で単語を引き直すので、出題方向をつけずに単語の id をそのまま使う
+      // （以前は "v3-001-en2ja" のように方向つきで記録していて、復習ドリルに出てこなかった）
+      id: w.id,
       header: () => (
         <div className="eiken-qhead">
           <div className="eiken-qhead-eyebrow">{direction === "en2ja" ? "この単語の意味は？" : "この意味を表す単語は？"}</div>
@@ -401,6 +455,62 @@ function buildVocabItems(level, direction, words) {
           <div className="eiken-example-ja">{w.example.ja}</div>
         </div>
       ),
+    };
+  });
+}
+
+/** フレーズの使う場面（note）と例文。クイズの解答後とカードの裏面で共通 */
+function PhraseDetail({ p }) {
+  return (
+    <>
+      {p.note && <div className="eiken-note-box">💡 {p.note}</div>}
+      <div className="eiken-example-box">
+        <div className="eiken-example-row">
+          <span className="eiken-example-en">{p.example.en}</span>
+          {isSpeechSynthesisSupported() && (
+            <button className="eiken-speak-btn small" onClick={() => speak(p.example.en)} aria-label="例文を聞く">🔊</button>
+          )}
+        </div>
+        <div className="eiken-example-ja">{p.example.ja}</div>
+      </div>
+    </>
+  );
+}
+
+/** 常用短句の4択。作りは buildVocabItems と同じで、誤答は同じ級の他のフレーズから選ぶ */
+function buildPhraseItems(level, direction, phrases) {
+  const questions = phrases && phrases.length ? phrases : phrasesOf(level);
+  return shuffle(questions).map((p) => {
+    const pool = phrasesOf(level).filter((x) => x.id !== p.id);
+    const wrongs = shuffle(pool).slice(0, 3);
+    let choices;
+    if (direction === "en2ja") {
+      choices = shuffle([
+        { text: p.meaning, correct: true, explain: `正解：${p.phrase} = ${p.meaning}` },
+        ...wrongs.map((x) => ({ text: x.meaning, correct: false, explain: `「${x.meaning}」は "${x.phrase}" の意味です。` })),
+      ]);
+    } else {
+      choices = shuffle([
+        { text: p.phrase, correct: true, explain: `正解：${p.phrase} = ${p.meaning}` },
+        ...wrongs.map((x) => ({ text: x.phrase, correct: false, explain: `"${x.phrase}" は「${x.meaning}」という意味です。` })),
+      ]);
+    }
+    return {
+      // 復習リストは itemId でフレーズを引き直すので、出題方向をつけずにフレーズの id をそのまま使う
+      id: p.id,
+      header: () => (
+        <div className="eiken-qhead">
+          <div className="eiken-qhead-eyebrow">{direction === "en2ja" ? "このフレーズの意味は？" : "この意味を表すフレーズは？"}</div>
+          <div className="eiken-qhead-main">
+            <span>{direction === "en2ja" ? p.phrase : p.meaning}</span>
+            {direction === "en2ja" && isSpeechSynthesisSupported() && (
+              <button className="eiken-speak-btn" onClick={() => speak(p.phrase)} aria-label="発音を聞く">🔊</button>
+            )}
+          </div>
+        </div>
+      ),
+      choices,
+      extra: <PhraseDetail p={p} />,
     };
   });
 }
@@ -636,6 +746,12 @@ function buildReviewItems(level, vocabDirection) {
     if (words.length) out.push(...tag(buildVocabItems(level, vocabDirection, words), "vocab"));
   }
 
+  const phraseIds = idsOf("phrases");
+  if (phraseIds.size) {
+    const ps = phrasesOf(level).filter((p) => phraseIds.has(p.id));
+    if (ps.length) out.push(...tag(buildPhraseItems(level, vocabDirection, ps), "phrases"));
+  }
+
   const grammarIds = idsOf("grammar");
   if (grammarIds.size) {
     const gs = level.grammar.filter((g) => grammarIds.has(g.id));
@@ -786,6 +902,71 @@ function ChoiceQuiz({ level, mode, items, accent, onExit }) {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+/* ============================================================
+   常用短句：カードで覚える
+   発音練習と同じく組の中から1つずつ選び、タップで意味を表示する。
+   ここでは正誤がないので学習記録はつけない（記録はクイズでつく）。
+   ============================================================ */
+
+function PhraseCards({ level, phrases }) {
+  const [idx, setIdx] = useState(0);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    setIdx(0);
+    setShown(false);
+  }, [phrases]);
+
+  if (!phrases.length) {
+    return <div className="eiken-empty">このレベルにはまだフレーズが登録されていません。</div>;
+  }
+
+  const i = Math.min(idx, phrases.length - 1);
+  const p = phrases[i];
+  const go = (n) => {
+    stopSpeaking();
+    setIdx((n + phrases.length) % phrases.length);
+    setShown(false);
+  };
+
+  return (
+    <div className="eiken-pronounce" style={{ "--c": level.color }}>
+      <div className="eiken-qhead-eyebrow">覚えるフレーズを選びましょう</div>
+      <div className="eiken-word-grid">
+        {phrases.map((x, k) => (
+          <button key={x.id} className={`eiken-word-chip ${k === i ? "active" : ""}`} onClick={() => go(k)}>
+            {k + 1}
+          </button>
+        ))}
+      </div>
+
+      <div className="eiken-pronounce-card">
+        <div className="eiken-qhead-main">
+          <span>{p.phrase}</span>
+          {isSpeechSynthesisSupported() && (
+            <button className="eiken-speak-btn" onClick={() => speak(p.phrase)} aria-label="発音を聞く">🔊</button>
+          )}
+        </div>
+        {shown ? (
+          <>
+            <div className="eiken-qhead-sub">{p.meaning}</div>
+            <PhraseDetail p={p} />
+          </>
+        ) : (
+          <div className="eiken-pronounce-actions">
+            <button className="eiken-btn" onClick={() => setShown(true)}>意味を見る</button>
+          </div>
+        )}
+        <div className="eiken-pronounce-actions">
+          <button className="eiken-btn-ghost" onClick={() => go(i - 1)}>← 前へ</button>
+          <span className="eiken-control-label">{i + 1} / {phrases.length}</span>
+          <button className="eiken-btn-ghost" onClick={() => go(i + 1)}>次へ →</button>
+        </div>
+      </div>
     </div>
   );
 }
@@ -1123,6 +1304,9 @@ export default function EikenApp({ onExitApp }) {
   const [mode, setMode] = useState(null);
   const [vocabDirection, setVocabDirection] = useState("en2ja");
   const [vocabUnit, setVocabUnit] = useState(0);
+  const [phraseDirection, setPhraseDirection] = useState("en2ja");
+  const [phraseUnit, setPhraseUnit] = useState(0);
+  const [phraseStyle, setPhraseStyle] = useState("quiz"); // quiz | card
   const [grammarUnit, setGrammarUnit] = useState(0);
   const [dialogueUnit, setDialogueUnit] = useState(0);
   const [listeningPart, setListeningPart] = useState("response");
@@ -1204,6 +1388,8 @@ export default function EikenApp({ onExitApp }) {
   const items = useMemo(() => {
     if (!level || !mode) return [];
     if (mode === "vocab") return buildVocabItems(level, vocabDirection, vocabOfUnit(level, clampVocabUnit(level, vocabUnit)));
+    if (mode === "phrases")
+      return buildPhraseItems(level, phraseDirection, phrasesOfUnit(level, clampPhraseUnit(level, phraseUnit)));
     if (mode === "grammar") return buildGrammarItems(level, grammarOfUnit(level, clampGrammarUnit(level, grammarUnit)));
     if (mode === "reading") return buildReadingItems(level, readingOfUnit(level, clampReadingUnit(level, readingUnit)));
     if (mode === "listening") {
@@ -1220,6 +1406,8 @@ export default function EikenApp({ onExitApp }) {
     mode,
     vocabDirection,
     vocabUnit,
+    phraseDirection,
+    phraseUnit,
     grammarUnit,
     readingUnit,
     dialogueUnit,
@@ -1227,6 +1415,12 @@ export default function EikenApp({ onExitApp }) {
     listeningUnit,
     reviewNonce,
   ]);
+
+  // カード表示は配列が変わると先頭にもどるので、組を変えたときだけ作り直す
+  const phraseCardList = useMemo(
+    () => (level ? phrasesOfUnit(level, clampPhraseUnit(level, phraseUnit)) : []),
+    [level, phraseUnit]
+  );
 
   const goModeSelect = useCallback((lvId) => {
     stopSpeaking();
@@ -1657,6 +1851,47 @@ export default function EikenApp({ onExitApp }) {
               <VocabUnitSelect level={level} value={clampVocabUnit(level, vocabUnit)} onChange={setVocabUnit} allowAll />
             </div>
           )}
+          {mode === "phrases" && (
+            <div className="eiken-vocab-controls">
+              <div className="eiken-control-row">
+                <span className="eiken-control-label">学び方</span>
+                <button
+                  className={`eiken-word-chip ${phraseStyle === "quiz" ? "active" : ""}`}
+                  style={{ "--c": level.color }}
+                  onClick={() => setPhraseStyle("quiz")}
+                >
+                  クイズ
+                </button>
+                <button
+                  className={`eiken-word-chip ${phraseStyle === "card" ? "active" : ""}`}
+                  style={{ "--c": level.color }}
+                  onClick={() => { stopSpeaking(); setPhraseStyle("card"); }}
+                >
+                  カード
+                </button>
+              </div>
+              {phraseStyle === "quiz" && (
+                <div className="eiken-control-row">
+                  <span className="eiken-control-label">出題方向</span>
+                  <button
+                    className={`eiken-word-chip ${phraseDirection === "en2ja" ? "active" : ""}`}
+                    style={{ "--c": level.color }}
+                    onClick={() => setPhraseDirection("en2ja")}
+                  >
+                    英語 → 日本語
+                  </button>
+                  <button
+                    className={`eiken-word-chip ${phraseDirection === "ja2en" ? "active" : ""}`}
+                    style={{ "--c": level.color }}
+                    onClick={() => setPhraseDirection("ja2en")}
+                  >
+                    日本語 → 英語
+                  </button>
+                </div>
+              )}
+              <PhraseUnitSelect level={level} value={clampPhraseUnit(level, phraseUnit)} onChange={setPhraseUnit} allowAll />
+            </div>
+          )}
           {mode === "grammar" && grammarUnitCount(level) > 1 && (
             <div className="eiken-vocab-controls">
               <GrammarUnitSelect level={level} value={clampGrammarUnit(level, grammarUnit)} onChange={setGrammarUnit} allowAll />
@@ -1688,7 +1923,11 @@ export default function EikenApp({ onExitApp }) {
               />
             </div>
           )}
-          <ChoiceQuiz level={level} mode={mode} items={items} accent={level.color} onExit={backToModeSelect} />
+          {mode === "phrases" && phraseStyle === "card" ? (
+            <PhraseCards level={level} phrases={phraseCardList} />
+          ) : (
+            <ChoiceQuiz level={level} mode={mode} items={items} accent={level.color} onExit={backToModeSelect} />
+          )}
         </>
       )}
 

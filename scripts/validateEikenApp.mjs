@@ -17,6 +17,9 @@ const errors = [];
 const warnings = [];
 const allIds = new Set();
 const wordLevels = new Map(); // word -> [levels]
+const phraseLevels = new Map(); // 正規化したフレーズ -> [levels]
+/** フレーズの重複判定用。大文字小文字・前後の空白・文末の句読点の違いは同じとみなす */
+const phraseKey = (s) => String(s || "").trim().toLowerCase().replace(/[.!?]+$/, "").trim();
 
 function err(f, p, m) { errors.push(`${f} ${p}: ${m}`); }
 function warn(f, p, m) { warnings.push(`${f} ${p}: ${m}`); }
@@ -35,7 +38,7 @@ for (const file of files) {
     continue;
   }
 
-  ["level", "levelLabel", "levelSub", "color", "vocab", "grammar", "reading", "listening", "dialogue"].forEach((k) => {
+  ["level", "levelLabel", "levelSub", "color", "vocab", "phrases", "grammar", "reading", "listening", "dialogue"].forEach((k) => {
     if (!d[k]) err(file, "(root)", `${k} がありません`);
   });
   if (d.level && file !== `${d.level}.json`) err(file, "(root)", `level "${d.level}" とファイル名が一致しません`);
@@ -69,6 +72,30 @@ for (const file of files) {
       else seenWord.set(key, w.id);
       if (!wordLevels.has(key)) wordLevels.set(key, []);
       wordLevels.get(key).push(d.level);
+    }
+  });
+
+  // 常用短句（よく使う英語フレーズ）：必須項目、id の形と一意性、級内・級間の重複
+  const seenPhrase = new Map();
+  (d.phrases || []).forEach((ph, i) => {
+    const p2 = `phrases[${i}]${ph.phrase ? `(${ph.phrase})` : ""}`;
+    ["id", "phrase", "meaning", "note"].forEach((k) => {
+      if (!ph[k] || !String(ph[k]).trim()) err(file, p2, `${k} が空です`);
+    });
+    if (!ph.example || !ph.example.en || !ph.example.ja) err(file, p2, "example.en / example.ja が必要です");
+    if (CJK.test(ph.phrase || "")) err(file, p2, "フレーズの英文に日本語などが混ざっています");
+    if (ph.example && CJK.test(ph.example.en || "")) err(file, p2, "例文の英文に日本語などが混ざっています");
+    if (ph.id) {
+      if (!new RegExp(`^p${d.level}-\\d{3}$`).test(ph.id)) err(file, p2, `id "${ph.id}" は p${d.level}-001 の形にしてください`);
+      if (allIds.has(ph.id)) err(file, p2, `id "${ph.id}" が他と重複しています`);
+      allIds.add(ph.id);
+    }
+    const key = phraseKey(ph.phrase);
+    if (key) {
+      if (seenPhrase.has(key)) err(file, p2, `同じ級に "${ph.phrase}" が重複しています（${seenPhrase.get(key)}）`);
+      else seenPhrase.set(key, ph.id);
+      if (!phraseLevels.has(key)) phraseLevels.set(key, []);
+      phraseLevels.get(key).push(d.level);
     }
   });
 
@@ -189,6 +216,7 @@ for (const file of files) {
     級: d.levelLabel,
     単語: n,
     出題範囲: `${Math.ceil(n / UNIT_SIZE)}組`,
+    短句: (d.phrases || []).length,
     文法: (d.grammar || []).length,
     読解: (d.reading || []).reduce((s, r) => s + r.questions.length, 0),
     リスニング: (d.listening || []).length,
@@ -206,6 +234,11 @@ for (const file of files) {
 // 級をまたいだ単語の重複（上位級と下位級で同じ単語を出すのは避ける）
 const crossLevel = [...wordLevels.entries()].filter(([, lv]) => lv.length > 1);
 crossLevel.forEach(([word, lv]) => warn("(全体)", word, `${lv.join(" / ")} に重複しています`));
+
+// 常用短句は級をまたいだ重複を認めない（その級で初めて学ぶフレーズだけを入れる）
+[...phraseLevels.entries()]
+  .filter(([, lv]) => lv.length > 1)
+  .forEach(([phrase, lv]) => errors.push(`(全体) phrases "${phrase}": ${lv.join(" / ")} に重複しています`));
 
 console.log(`\n検証したファイル：${files.length}件\n`);
 console.table(summary);
