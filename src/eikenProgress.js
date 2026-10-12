@@ -3,6 +3,11 @@
    正解・不正解にかかわらず、必ず記録する。
    ============================================================ */
 
+import { learnerKey } from "./learner";
+import { LEVEL_META } from "./eikenLevels";
+import { recordStudy, EIKEN_MODE_LABELS } from "./studyLog";
+
+
 const STORAGE_KEY = "eikenProgressV1";
 const MAX_HISTORY_PER_BUCKET = 100;
 /** 日ごとの記録を残す日数。これを超えた古い日付は捨てる。 */
@@ -23,7 +28,7 @@ export function localDateKey(d = new Date()) {
 
 export function loadProgress() {
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.localStorage.getItem(learnerKey(STORAGE_KEY));
     if (!raw) return emptyStore();
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object" || !parsed.levels) return emptyStore();
@@ -37,7 +42,7 @@ export function loadProgress() {
 
 function saveProgress(store) {
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    window.localStorage.setItem(learnerKey(STORAGE_KEY), JSON.stringify(store));
   } catch (e) {
     // localStorageが使えない環境（プライベートブラウズ等）では静かに諦める
   }
@@ -58,6 +63,8 @@ export function recordAnswer(level, mode, itemId, isCorrect) {
   const store = loadProgress();
   const bucket = getBucket(store, level, mode);
   const now = new Date().toISOString();
+  const levelLabel = (LEVEL_META.find((l) => l.level === level) || {}).levelLabel || level;
+  recordStudy("英検マスター", `${levelLabel} ${EIKEN_MODE_LABELS[mode] || mode}`, isCorrect);
 
   bucket.attempted += 1;
   if (isCorrect) bucket.correct += 1;

@@ -3,6 +3,8 @@
    1回受験するごとに1件のレコードを追加する。
    ============================================================ */
 
+import { learnerKey } from "./learner";
+
 const STORAGE_KEY = "eikenTestResultsV1";
 const MAX_RESULTS_PER_LEVEL = 30;
 
@@ -12,7 +14,7 @@ function emptyStore() {
 
 export function loadResults() {
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.localStorage.getItem(learnerKey(STORAGE_KEY));
     if (!raw) return emptyStore();
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object" || !parsed.levels) return emptyStore();
@@ -24,7 +26,7 @@ export function loadResults() {
 
 function save(store) {
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    window.localStorage.setItem(learnerKey(STORAGE_KEY), JSON.stringify(store));
   } catch (e) {
     // localStorageが使えない環境では静かに諦める
   }

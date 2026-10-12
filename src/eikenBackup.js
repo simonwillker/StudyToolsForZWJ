@@ -10,6 +10,8 @@
    （studyToolsActiveApp）のような画面の状態は対象にしない。
    ============================================================ */
 
+import { learnerKey } from "./learner";
+
 const FORMAT = "eiken-study-backup";
 const FORMAT_VERSION = 1;
 
@@ -22,7 +24,7 @@ export const BACKUP_KEYS = [
 
 function readKey(key) {
   try {
-    const raw = window.localStorage.getItem(key);
+    const raw = window.localStorage.getItem(learnerKey(key));
     return raw ? JSON.parse(raw) : null;
   } catch (e) {
     return null;
@@ -108,7 +110,7 @@ export function applyBackup(backup) {
     const v = backup.data[k];
     if (v === undefined) return;
     try {
-      window.localStorage.setItem(k, JSON.stringify(v));
+      window.localStorage.setItem(learnerKey(k), JSON.stringify(v));
       restored.push(k);
     } catch (e) {
       // 容量超過など。書けたものはそのまま残す。

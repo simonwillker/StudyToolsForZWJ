@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback, useRef, useEffect } from "react"
 import RIKA_DB from "./data/rika.json";
 import SHAKAI_DB from "./data/shakai.json";
 import KOKUGO_DB from "./data/kokugo.json";
+import { recordStudy } from "./studyLog";
 
 /* ============================================================
    ユーティリティ
@@ -966,7 +967,15 @@ subject === "カスタム単語"
     setCorrect(ok);
     setChecked(true);
     setLog((prev) => [...prev, { text: current.text, userAnswer: value, correct: ok, display: current.display }]);
-  }, [current, checked, input]);
+    // 勉強履歴：教科と学年・種類だけを残す
+    const label =
+      subject === "算数"
+        ? `算数 ${mathGrade} ${mathType}`
+        : subject === "理科" || subject === "社会"
+        ? `${subject} ${rsGrade}`
+        : (meta && meta.label) || subject;
+    recordStudy("きょうのドリル", label, ok);
+  }, [current, checked, input, subject, mathGrade, mathType, rsGrade, meta]);
 
   const handleSelectOption = useCallback(
     (opt) => {

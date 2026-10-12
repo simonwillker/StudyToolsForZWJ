@@ -10,6 +10,8 @@
    - 2回連続で正解したら「克服」としてリストから消える
    ============================================================ */
 
+import { learnerKey } from "./learner";
+
 const STORAGE_KEY = "eikenReviewV1";
 
 /** 復習ドリルとして出題し直せるモードだけを対象にする。
@@ -62,7 +64,7 @@ function migrateVocabIds(store) {
 
 function loadStore() {
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.localStorage.getItem(learnerKey(STORAGE_KEY));
     if (!raw) return emptyStore();
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object" || !parsed.levels) return emptyStore();
@@ -74,7 +76,7 @@ function loadStore() {
 
 function saveStore(store) {
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    window.localStorage.setItem(learnerKey(STORAGE_KEY), JSON.stringify(store));
   } catch (e) {
     // localStorageが使えない環境では静かに諦める（進捗記録と同じ方針）
   }

@@ -17,6 +17,8 @@
    「あなたの弱点は D5 です」と言うのは、助けではなく害になる。
    ============================================================ */
 
+import { learnerKey } from "./learner";
+
 import { DOMAINS } from "./ccaofDomains";
 import { loadResults } from "./ccaofExam";
 import { loadProgress } from "./ccaofProgress";
@@ -28,7 +30,7 @@ const EXAM_WEIGHT = 3;
 
 function read(key) {
   try {
-    const raw = window.localStorage.getItem(key);
+    const raw = window.localStorage.getItem(learnerKey(key));
     return raw ? JSON.parse(raw) : null;
   } catch (e) {
     return null;

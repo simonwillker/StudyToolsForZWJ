@@ -10,6 +10,8 @@
    得点を再現するものではない。画面にもそう書くこと。
    ============================================================ */
 
+import { learnerKey } from "./learner";
+
 import { DOMAINS, EXAM_FORMAT, examBlueprintCounts, loadAllDomainItems } from "./ccaofDomains";
 
 const RESULTS_KEY = "ccaofExamResultsV1";
@@ -120,7 +122,7 @@ export function gradeExam(questions, answers) {
 
 export function loadResults() {
   try {
-    const raw = window.localStorage.getItem(RESULTS_KEY);
+    const raw = window.localStorage.getItem(learnerKey(RESULTS_KEY));
     const parsed = raw ? JSON.parse(raw) : [];
     return Array.isArray(parsed) ? parsed : [];
   } catch (e) {
@@ -140,7 +142,7 @@ export function saveResult(result) {
     perDomain: result.perDomain,
   });
   try {
-    window.localStorage.setItem(RESULTS_KEY, JSON.stringify(list.slice(0, MAX_RESULTS)));
+    window.localStorage.setItem(learnerKey(RESULTS_KEY), JSON.stringify(list.slice(0, MAX_RESULTS)));
   } catch (e) {
     // 保存できなくても採点結果の表示は続ける
   }
@@ -148,7 +150,7 @@ export function saveResult(result) {
 
 export function clearResults() {
   try {
-    window.localStorage.removeItem(RESULTS_KEY);
+    window.localStorage.removeItem(learnerKey(RESULTS_KEY));
   } catch (e) {
     // 何もしない
   }
@@ -159,7 +161,7 @@ export function clearResults() {
 
 export function saveInProgress(state) {
   try {
-    window.localStorage.setItem(PROGRESS_KEY, JSON.stringify(state));
+    window.localStorage.setItem(learnerKey(PROGRESS_KEY), JSON.stringify(state));
   } catch (e) {
     // 保存できなくても受験自体は続けられる
   }
@@ -167,7 +169,7 @@ export function saveInProgress(state) {
 
 export function loadInProgress() {
   try {
-    const raw = window.localStorage.getItem(PROGRESS_KEY);
+    const raw = window.localStorage.getItem(learnerKey(PROGRESS_KEY));
     if (!raw) return null;
     const state = JSON.parse(raw);
     if (!state || !Array.isArray(state.questions) || !state.startedAt) return null;
@@ -184,7 +186,7 @@ export function loadInProgress() {
 
 export function clearInProgress() {
   try {
-    window.localStorage.removeItem(PROGRESS_KEY);
+    window.localStorage.removeItem(learnerKey(PROGRESS_KEY));
   } catch (e) {
     // 何もしない
   }

@@ -1,0 +1,115 @@
+import React, { useMemo, useState } from "react";
+import { LEARNERS } from "./learner";
+import { getDailySummaries } from "./studyLog";
+
+/* ============================================================
+   勉強履歴：日ごとに、何をどれだけ勉強したかを一覧する。
+   勉強者のタブで、ほかの人の履歴も見られる（家族で見せ合う用）。
+   ============================================================ */
+
+const WEEKDAY = ["日", "月", "火", "水", "木", "金", "土"];
+const PAGE_DAYS = 14;
+
+function dayLabel(date) {
+  const [y, m, d] = date.split("-").map(Number);
+  const dt = new Date(y, m - 1, d);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const diff = Math.round((today - dt) / 86400000);
+  const base = `${m}月${d}日（${WEEKDAY[dt.getDay()]}）`;
+  if (diff === 0) return `今日 ${base}`;
+  if (diff === 1) return `昨日 ${base}`;
+  return y === today.getFullYear() ? base : `${y}年${base}`;
+}
+
+function clock(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  return `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}`;
+}
+
+function pct(correct, attempted) {
+  return attempted ? Math.round((correct / attempted) * 100) : 0;
+}
+
+export default function StudyHistory({ learner, onBack }) {
+  const [who, setWho] = useState(learner);
+  const [shown, setShown] = useState(PAGE_DAYS);
+  const days = useMemo(() => getDailySummaries(who), [who]);
+  const color = (LEARNERS.find((l) => l.id === who) || LEARNERS[0]).color;
+
+  return (
+    <div className="study-history">
+      <style>{`
+        .study-history { min-height: 100vh; background: #F7F6F2; font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif; padding: 20px 16px 40px; color: #2B2E28; }
+        .study-history-inner { max-width: 640px; margin: 0 auto; }
+        .sh-back { background: none; border: none; color: #6B7280; font-size: 14px; cursor: pointer; padding: 0; text-decoration: underline; }
+        .sh-title { font-family: 'Shippori Mincho', serif; font-size: 26px; margin: 14px 0 14px; }
+        .sh-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+        .sh-tab { border: 2px solid var(--c); background: #fff; color: var(--c); border-radius: 999px; padding: 6px 16px; font-weight: 800; font-size: 14px; cursor: pointer; }
+        .sh-tab.active { background: var(--c); color: #fff; }
+        .sh-day { background: #fff; border: 1px solid #E4E2DA; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
+        .sh-day-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+        .sh-day-date { font-weight: 800; font-size: 16px; }
+        .sh-day-total { font-size: 13px; color: #6B7280; }
+        .sh-day-total b { color: var(--c); font-size: 16px; }
+        .sh-entry { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; padding: 8px 0; border-top: 1px dashed #E4E2DA; font-size: 14px; }
+        .sh-entry:first-of-type { margin-top: 8px; }
+        .sh-entry-app { font-size: 11.5px; color: #9AA093; font-weight: 700; }
+        .sh-entry-label { font-weight: 700; }
+        .sh-entry-num { text-align: right; white-space: nowrap; color: #2B2E28; }
+        .sh-entry-num small { color: #6B7280; }
+        .sh-note { font-size: 11.5px; color: #9AA093; margin-top: 6px; }
+        .sh-empty { background: #fff; border: 1px dashed #D8DCD3; border-radius: 12px; padding: 24px; text-align: center; color: #6B7280; font-size: 14px; }
+        .sh-more { display: block; margin: 8px auto 0; background: #fff; border: 1.5px solid #D8DCD3; border-radius: 10px; padding: 8px 18px; cursor: pointer; font-size: 14px; }
+      `}</style>
+      <div className="study-history-inner">
+        <button className="sh-back" onClick={onBack}>← アプリの選択にもどる</button>
+        <h1 className="sh-title">📅 勉強履歴</h1>
+        <div className="sh-tabs">
+          {LEARNERS.map((l) => (
+            <button
+              key={l.id}
+              className={`sh-tab ${who === l.id ? "active" : ""}`}
+              style={{ "--c": l.color }}
+              onClick={() => { setWho(l.id); setShown(PAGE_DAYS); }}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+
+        {days.length === 0 ? (
+          <div className="sh-empty">{who} さんの勉強履歴はまだありません。<br />問題を解くと、その日の内容がここに記録されます。</div>
+        ) : (
+          days.slice(0, shown).map((d) => (
+            <div key={d.date} className="sh-day" style={{ "--c": color }}>
+              <div className="sh-day-head">
+                <div className="sh-day-date">{dayLabel(d.date)}</div>
+                <div className="sh-day-total">
+                  {d.firstAt ? `${clock(d.firstAt)}〜${clock(d.lastAt)}　` : ""}<b>{d.attempted}</b>問
+                  {` ・ 正解率 ${pct(d.correct, d.attempted)}%`}
+                </div>
+              </div>
+              {d.entries.map((e) => (
+                <div key={`${e.app}｜${e.label}`} className="sh-entry">
+                  <div>
+                    <div className="sh-entry-app">{e.app}</div>
+                    <div className="sh-entry-label">{e.label}</div>
+                  </div>
+                  <div className="sh-entry-num">
+                    {e.attempted}問 <small>（正解 {e.correct}・{pct(e.correct, e.attempted)}%）</small>
+                  </div>
+                </div>
+              ))}
+              {d.legacy && <div className="sh-note">※ 勉強履歴を記録し始める前の日なので、残っていた記録から作った概要です。</div>}
+            </div>
+          ))
+        )}
+        {days.length > shown && (
+          <button className="sh-more" onClick={() => setShown((n) => n + PAGE_DAYS)}>もっと前の日を見る</button>
+        )}
+      </div>
+    </div>
+  );
+}
