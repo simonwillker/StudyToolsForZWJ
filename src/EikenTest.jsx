@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import { recordAnswer } from "./eikenProgress";
+import { newStudySession } from "./studyLog";
 import { saveTestResult, getTestResults, formatDateTime } from "./eikenTestResults";
 import { isSpeechSynthesisSupported, speak, stopSpeaking } from "./eikenSpeech";
 
@@ -808,6 +809,7 @@ export default function EikenTest({ test, onExit }) {
   };
 
   const grade = useCallback(() => {
+    newStudySession(); // 勉強履歴：模擬テスト1回ぶんとして記録する
     const perSection = new Map();
     let correct = 0;
     let total = 0;

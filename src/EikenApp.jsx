@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useCallback, useEffect, useRef } from "react";
 import EikenTest from "./EikenTest.jsx";
+import { newStudySession } from "./studyLog";
 import { LEVEL_META, findLevelMeta, peekLevel, peekTest, loadLevel, loadTest } from "./eikenLevels";
 import {
   recordAnswer,
@@ -791,6 +792,7 @@ function ChoiceQuiz({ level, mode, items, accent, onExit }) {
   const explainRef = useRef(null);
 
   useEffect(() => {
+    newStudySession(); // 勉強履歴：出題が変わったら新しい回
     setIndex(0);
     setSelected(null);
     setAnswered(false);
@@ -839,6 +841,7 @@ function ChoiceQuiz({ level, mode, items, accent, onExit }) {
   };
 
   const handleRetry = () => {
+    newStudySession();
     setIndex(0);
     setSelected(null);
     setAnswered(false);

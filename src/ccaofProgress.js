@@ -44,9 +44,10 @@ export function loadProgress() {
   return read(PROGRESS_KEY, { domains: {}, daily: {} });
 }
 
-export function recordAnswer(domainId, itemId, isCorrect) {
+/** studyLabel：勉強履歴に出す内容。省くとドメイン名（模擬試験・重点演習ではドメインが混ざるので渡す） */
+export function recordAnswer(domainId, itemId, isCorrect, studyLabel) {
   const domain = DOMAINS.find((d) => d.id === domainId);
-  recordStudy("CCAO-F 対策", domain ? `${domainId} ${domain.label}` : domainId, isCorrect);
+  recordStudy("CCAO-F 対策", studyLabel || (domain ? `${domainId} ${domain.label}` : domainId), isCorrect);
   const store = loadProgress();
   const d = store.domains[domainId] || { attempted: 0, correct: 0, items: {} };
   d.attempted += 1;
