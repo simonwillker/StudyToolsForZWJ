@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback, useRef, useEffect } from "react"
 import RIKA_DB from "./data/rika.json";
 import SHAKAI_DB from "./data/shakai.json";
 import KOKUGO_DB from "./data/kokugo.json";
-import { recordStudy } from "./studyLog";
+import { recordStudy, newStudySession } from "./studyLog";
 
 /* ============================================================
    ユーティリティ
@@ -829,6 +829,7 @@ export default function DailyDrill({ onExitApp } = {}) {
     setInput("");
     setChecked(false);
     setLog([]);
+    newStudySession();
     setScreen("quiz");
   }, []);
 
@@ -842,6 +843,7 @@ export default function DailyDrill({ onExitApp } = {}) {
     setInput("");
     setChecked(false);
     setLog([]);
+    newStudySession();
     setScreen("quiz");
   }, []);
 
@@ -852,6 +854,7 @@ export default function DailyDrill({ onExitApp } = {}) {
     setInput("");
     setChecked(false);
     setLog([]);
+    newStudySession();
     setScreen("quiz");
   }, []);
 
@@ -870,6 +873,7 @@ export default function DailyDrill({ onExitApp } = {}) {
       setInput("");
       setChecked(false);
       setLog([]);
+      newStudySession();
       setScreen("quiz");
       return;
     }
@@ -897,6 +901,7 @@ export default function DailyDrill({ onExitApp } = {}) {
       setInput("");
       setChecked(false);
       setLog([]);
+      newStudySession();
       setScreen("quiz");
     } catch (e) {
       setCustomError(`問題の作成に失敗しました（${e.message || "不明なエラー"}）。もう一度お試しください。`);
@@ -935,6 +940,7 @@ export default function DailyDrill({ onExitApp } = {}) {
       setInput("");
       setChecked(false);
       setLog([]);
+      newStudySession();
       setScreen("quiz");
     } catch (e) {
       setKanjiError(`問題の作成に失敗しました（${e.message || "不明なエラー"}）。もう一度お試しください。`);

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { newStudySession } from "./studyLog";
 import { analyseWeakness, pickFocusItems, MIN_ATTEMPTS } from "./ccaofWeakness";
 import {
   downloadBackup,
@@ -111,6 +112,11 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh }) {
   const q = questions[index];
   const total = questions.length;
 
+  // 勉強履歴：出題が始まるたびに新しい回
+  useEffect(() => {
+    newStudySession();
+  }, [questions]);
+
   const toggle = (i) => {
     if (submitted) return;
     setPicked((prev) => {
@@ -132,7 +138,7 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh }) {
     /* 重点演習では複数ドメインが混ざる。記録先は画面のドメインではなく
        問題自身のドメインにする（そうしないと弱点判定の材料が壊れる） */
     const recordDomain = q.domain || domain.id;
-    recordAnswer(recordDomain, q.id, ok);
+    recordAnswer(recordDomain, q.id, ok, domain ? undefined : "弱点の重点演習");
     recordReviewResult(recordDomain, q.id, ok);
   };
 
@@ -521,10 +527,11 @@ export default function CcaofApp({ onExitApp }) {
       result.timedOut = !!timedOut;
       saveResult(result);
       clearInProgress();
-      // 模試の結果はドメイン別の学習記録にも反映する
+      // 模試の結果はドメイン別の学習記録にも反映する（勉強履歴は「模擬試験」1回として）
+      newStudySession();
       prev.questions.forEach((q, i) => {
         const ok = isCorrect(q, prev.answers[i]);
-        recordAnswer(q.domain, q.id, ok);
+        recordAnswer(q.domain, q.id, ok, "模擬試験");
         recordReviewResult(q.domain, q.id, ok);
       });
       setExamResult(result);
