@@ -4,6 +4,8 @@
 
 - **きょうのドリル（Daily Drill）**：小学生向けの日常学習ドリル
 - **英検マスター（EIKEN Master）**：英検5級〜1級対応の総合学習アプリ
+- **CCAO-F 対策**：Claude Certified Associate – Foundations の練習問題
+- **Sapix 算数**：小4 冬期講習相当の算数 15 単元 × 20 問（オリジナル問題）
 
 ## 勉強者の選択と勉強履歴
 
@@ -112,6 +114,16 @@ CCAO-F 対策のトップにある「📘 頻出単語」から使います（`s
 - 記録は `ccaofVocabV1`（勉強者ごと）。学習記録のバックアップ・リセット・勉強履歴（「頻出単語 テスト／復習」）の対象です。
 - データ：意味は `src/data/ccaofVocab/glossary.json` に手で書き、出現回数・出現問題・例文は `node scripts/buildCcaofVocab.mjs` で `vocab.json` に生成します。問題を増やしたら作り直してください（`npm run validate` が作り直し忘れを検出します）。
 
+## Sapix 算数（小4 冬期講習相当）
+
+アプリ選択画面の「Sapix 算数」から使います（`src/SapixMathApp.jsx`）。問題は**すべてオリジナル**です。
+
+- **15 単元 × 20 問 ＝ 300 問**：数と計算（計算のくふう・約数と倍数・分数の計算）、文章題（和差算・分配算・つるかめ算・植木算・周期算・過不足算・年令算）、図形（角度・三角形・四角形の面積・立体）、規則性・場合の数。各単元は基本 8・標準 8・発展 4 の易→難の順。割合・比は使いません。
+- **流れ**：単元一覧 → 単元を選んで 20 問 → 1 問ずつ答え合わせ（正解と途中式つきの解き方を表示）→ 結果 → まちがえた問題だけもう一度。単元画面の「まちがえた問題だけ復習」は、端末に残る復習リスト（正解すると外れる）から出題します。
+- **答え方**：数値入力が基本（単位つき）。分数は整数・分子・分母の 3 つの欄（帯分数・仮分数どちらでも可。約分わすれは「答えは合っています」と表示して不正解）。曜日・色などは選択肢。図形・規則性の一部は SVG の図つき。
+- **学習記録**：単元ごとの正答率・最終学習日・前回の点数を `sapixMathProgressV1`、復習リストを `sapixMathReviewV1` に勉強者ごとに保存。勉強履歴（📅）にも「Sapix 算数／単元名」で出ます。学習記録画面からファイルに書き出し・読み込み（`src/sapixMathBackup.js`）・リセットができます。英検・CCAO-F の記録には触れません。
+- **データ**：`src/data/sapixMath/`（単元ごとの JSON、スキーマは同じ場所の `README.md`）。`npm run validate:sapix-math` で、必須項目・id の一意・各単元 20 問に加えて、**全問の正解を検算式（`calc`）で計算し直して**確かめます。
+
 ## ⚠️ 重要：Claude Artifacts 専用APIについて（きょうのドリル）
 
 以下は「きょうのドリル」にのみ関係する注意点です（英検マスターはブラウザ標準APIのみで動作するため対象外です）。このコンポーネントは、Claude.ai の Artifacts 実行環境でのみ動作する2つのブラウザAPIを使っています。**GitHub Pages やご自身のサーバーなど、Claude.ai の外で動かす場合は、以下の対応が必要です。**
@@ -192,6 +204,8 @@ StudyToolsForZWJ/
     ├── eikenProgress.js  ← 英検マスターの学習記録（localStorage）ユーティリティ
     ├── eikenTestResults.js ← 模擬テストの受験履歴（localStorage）ユーティリティ
     ├── eikenSpeech.js    ← 英検マスターの読み上げ／音声認識ユーティリティ
+    ├── SapixMathApp.jsx  ← Sapix 算数 本体コンポーネント
+    ├── sapixMathUnits.js / sapixMathProgress.js / sapixMathBackup.js ← 単元の読み込みと答えの判定／学習記録／バックアップ
     └── data/
         ├── rika.json     ← 理科の問題データベース
         ├── shakai.json   ← 社会の問題データベース
@@ -202,12 +216,14 @@ StudyToolsForZWJ/
         ├── eikenApp/     ← 英検マスター（分野別ドリル）の問題データベース（5級〜1級）
         │   ├── 5.json / 4.json / 3.json / pre2.json / 2.json / pre1.json / 1.json
         │   └── README.md ← スキーマ・問題を追加する手順の説明
-        └── eikenTest/    ← 英検 模擬テスト（本番形式）の問題データベース（5級〜1級）
-            ├── 5.json / 4.json / 3.json / pre2.json / 2.json / pre1.json / 1.json
-            └── README.md ← スキーマ・問題を追加する手順の説明
+        ├── eikenTest/    ← 英検 模擬テスト（本番形式）の問題データベース（5級〜1級）
+        │   ├── 5.json / 4.json / 3.json / pre2.json / 2.json / pre1.json / 1.json
+        │   └── README.md ← スキーマ・問題を追加する手順の説明
+        └── sapixMath/    ← Sapix 算数の問題データ（meta.json ＋ 単元ごとの JSON 15 個、README.md にスキーマ）
 └── scripts/
     ├── validateEikenApp.mjs  ← 単語・分野別ドリルのデータ検証
     ├── validateEikenTest.mjs ← 模擬テストデータの検証
+    ├── validateSapixMath.mjs ← Sapix 算数データの検証（全問の正解を検算）
     ├── addVocab.mjs          ← 単語の一括追加（級をまたいだ重複もスキップ・id自動採番）
     └── removeVocab.mjs       ← 単語の削除（id自動振り直し）
 ```

@@ -1,0 +1,27 @@
+{
+  "title": "Sapix 算数",
+  "target": "小学4年 冬期講習相当",
+  "categories": [
+    { "id": "keisan", "label": "数と計算", "color": "#2F5D8A" },
+    { "id": "bunshou", "label": "文章題", "color": "#2F7A4F" },
+    { "id": "zukei", "label": "図形", "color": "#8A3B2F" },
+    { "id": "sonota", "label": "規則性・場合の数", "color": "#5A3B8A" }
+  ],
+  "units": [
+    { "id": "kufu", "label": "計算のくふう", "category": "keisan", "file": "kufu.json" },
+    { "id": "yakusu", "label": "約数と倍数", "category": "keisan", "file": "yakusu.json" },
+    { "id": "bunsu", "label": "分数の計算", "category": "keisan", "file": "bunsu.json" },
+    { "id": "wasa", "label": "和差算", "category": "bunshou", "file": "wasa.json" },
+    { "id": "bunpai", "label": "分配算", "category": "bunshou", "file": "bunpai.json" },
+    { "id": "tsurukame", "label": "つるかめ算", "category": "bunshou", "file": "tsurukame.json" },
+    { "id": "ueki", "label": "植木算", "category": "bunshou", "file": "ueki.json" },
+    { "id": "shuki", "label": "周期算", "category": "bunshou", "file": "shuki.json" },
+    { "id": "kabusoku", "label": "過不足算", "category": "bunshou", "file": "kabusoku.json" },
+    { "id": "nenrei", "label": "年令算", "category": "bunshou", "file": "nenrei.json" },
+    { "id": "kakudo", "label": "角度", "category": "zukei", "file": "kakudo.json" },
+    { "id": "menseki", "label": "三角形・四角形の面積", "category": "zukei", "file": "menseki.json" },
+    { "id": "rittai", "label": "立体（直方体・展開図）", "category": "zukei", "file": "rittai.json" },
+    { "id": "kisoku", "label": "規則性（数列・図形の並び）", "category": "sonota", "file": "kisoku.json" },
+    { "id": "baai", "label": "場合の数", "category": "sonota", "file": "baai.json" }
+  ]
+}
