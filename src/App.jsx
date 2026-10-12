@@ -6,6 +6,7 @@ import { LEARNERS, getLearner, setLearner, clearLearner, getLastLearner } from "
 const DailyDrill = lazy(() => import("./DailyDrill.jsx"));
 const EikenApp = lazy(() => import("./EikenApp.jsx"));
 const CcaofApp = lazy(() => import("./CcaofApp.jsx"));
+const SapixMathApp = lazy(() => import("./SapixMathApp.jsx"));
 const StudyHistory = lazy(() => import("./StudyHistory.jsx"));
 
 function AppLoading() {
@@ -125,6 +126,13 @@ export default function App() {
         <LearnerBadge learner={learner} />
       </Suspense>
     );
+  if (active === "sapixMath")
+    return (
+      <Suspense fallback={<AppLoading />}>
+        <SapixMathApp onExitApp={backToMenu} />
+        <LearnerBadge learner={learner} />
+      </Suspense>
+    );
   if (active === "history")
     return (
       <Suspense fallback={<AppLoading />}>
@@ -177,6 +185,10 @@ export default function App() {
           <button className="app-switcher-card" style={{ "--c": "#C8743D" }} onClick={() => choose("ccaof")}>
             <div className="label">CCAO-F 対策</div>
             <div className="desc">Claude Certified Associate – Foundations の練習問題。公式ブループリントの7ドメイン別、ドメイン別正答率つき</div>
+          </button>
+          <button className="app-switcher-card" style={{ "--c": "#2F7A8A" }} onClick={() => choose("sapixMath")}>
+            <div className="label">Sapix 算数</div>
+            <div className="desc">小4 冬期講習相当の15単元×20問（計算のくふう・つるかめ算・角度・場合の数など）。解き方の解説・まちがえた問題の復習・単元ごとの正答率つき</div>
           </button>
           <button className="app-switcher-card" style={{ "--c": "#5A3B8A" }} onClick={() => choose("history")}>
             <div className="label">📅 勉強履歴</div>
