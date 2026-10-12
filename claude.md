@@ -30,6 +30,7 @@
 サーバー上にupdateする。Ipad、Iphone、PCどれでも確認とれる
 
 ## 状態
-- 最新バージョン：v1.26.0（2026-10-12）
+- 最新バージョン：v1.27.0（2026-10-12）
 - CCAO-F 対策：全7ドメイン 560問＋頻出単語 291語（勉強・復習・テスト）。単語データは `scripts/buildCcaofVocab.mjs` で問題から生成
 - Sapix 算数（小4 冬期講習相当）：15単元×20問＝300問（すべてオリジナル）。データは `src/data/sapixMath/`、`npm run validate:sapix-math` で全問の正解を検算
+- Sapix 国語・社会・理科（小4 冬期講習相当）：各10単元×20問＝600問（すべてオリジナル）。4教科とも `src/SapixApp.jsx` を共用、データは `src/data/sapixKokugo|sapixShakai|sapixRika/`、`npm run validate:sapix-subjects` で検証

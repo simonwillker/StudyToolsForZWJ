@@ -1,0 +1,21 @@
+{
+  "title": "Sapix 社会",
+  "target": "小学4年 冬期講習相当",
+  "categories": [
+    { "id": "chizu", "label": "地図と国土", "color": "#2F5D8A" },
+    { "id": "sangyou", "label": "産業", "color": "#2F7A4F" },
+    { "id": "kurashi", "label": "くらし", "color": "#8A3B2F" }
+  ],
+  "units": [
+    { "id": "chizu-kigou", "label": "地図の見方（方位・地図記号・縮尺）", "category": "chizu", "file": "chizu-kigou.json" },
+    { "id": "todoufuken", "label": "都道府県と県庁所在地", "category": "chizu", "file": "todoufuken.json" },
+    { "id": "sanchi", "label": "日本の山地・山脈・火山", "category": "chizu", "file": "sanchi.json" },
+    { "id": "kawa-heiya", "label": "日本の川・平野・湖", "category": "chizu", "file": "kawa-heiya.json" },
+    { "id": "kikou", "label": "日本の気候", "category": "chizu", "file": "kikou.json" },
+    { "id": "kome", "label": "米づくり", "category": "sangyou", "file": "kome.json" },
+    { "id": "yasai-kudamono", "label": "野菜・果物・畜産", "category": "sangyou", "file": "yasai-kudamono.json" },
+    { "id": "suisan", "label": "水産業", "category": "sangyou", "file": "suisan.json" },
+    { "id": "kougyou", "label": "工業", "category": "sangyou", "file": "kougyou.json" },
+    { "id": "kurashi", "label": "くらしを支える（水・ごみ・電気・安全）", "category": "kurashi", "file": "kurashi.json" }
+  ]
+}

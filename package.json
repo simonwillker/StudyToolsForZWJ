@@ -1,20 +1,21 @@
 {
   "name": "daily-drill",
   "private": true,
-  "version": "1.26.0",
+  "version": "1.27.0",
   "type": "module",
-  "description": "小学生向け日常学習ドリル（算数・国語・理科・社会＋カスタム単語／漢字テスト）、英検マスター（5級〜1級）、Sapix 算数（小4）",
+  "description": "小学生向け日常学習ドリル（算数・国語・理科・社会＋カスタム単語／漢字テスト）、英検マスター（5級〜1級）、Sapix 算数・国語・社会・理科（小4）",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "validate:test": "node scripts/validateEikenTest.mjs",
     "validate:app": "node scripts/validateEikenApp.mjs",
-    "validate": "node scripts/validateEikenApp.mjs && node scripts/validateEikenTest.mjs && node scripts/validateCcaofApp.mjs && node scripts/buildCcaofVocab.mjs --check && node scripts/validateSapixMath.mjs",
+    "validate": "node scripts/validateEikenApp.mjs && node scripts/validateEikenTest.mjs && node scripts/validateCcaofApp.mjs && node scripts/buildCcaofVocab.mjs --check && node scripts/validateSapixMath.mjs && node scripts/validateSapixSubjects.mjs",
     "validate:ccaof": "node scripts/validateCcaofApp.mjs",
     "build:ccaof-vocab": "node scripts/buildCcaofVocab.mjs",
     "validate:ccaof-vocab": "node scripts/buildCcaofVocab.mjs --check",
-    "validate:sapix-math": "node scripts/validateSapixMath.mjs"
+    "validate:sapix-math": "node scripts/validateSapixMath.mjs",
+    "validate:sapix-subjects": "node scripts/validateSapixSubjects.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

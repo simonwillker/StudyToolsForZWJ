@@ -1,18 +1,15 @@
 /* ============================================================
-   Sapix 算数：学習記録と復習リスト
+   Sapix（算数・国語・社会・理科）：学習記録と復習リスト
 
-   ccaofProgress.js と同じ考え方。軸は「単元」。
-   英検・CCAO-F とは別のキーに保存して、記録が混ざらないようにする。
-   勉強者ごとに分けるのも同じ（learnerKey）。
+   ccaofProgress.js と同じ考え方。軸は「単元」。教科ごとに別のキー
+   （sapixSubjects.js の progressKey / reviewKey）に保存して、
+   ほかのアプリや教科の記録と混ざらないようにする。勉強者ごとに
+   分けるのも同じ（learnerKey）。
    ============================================================ */
 
 import { learnerKey } from "./learner";
-import { findUnit } from "./sapixMathUnits";
+import { findUnit } from "./sapixSubjects";
 import { recordStudy } from "./studyLog";
-
-export const PROGRESS_KEY = "sapixMathProgressV1";
-export const REVIEW_KEY = "sapixMathReviewV1";
-const APP_LABEL = "Sapix 算数";
 
 function read(key, fallback) {
   try {
@@ -40,19 +37,19 @@ export function localDateKey(d = new Date()) {
   return `${y}-${m}-${day}`;
 }
 
-export function loadProgress() {
-  const p = read(PROGRESS_KEY, null);
+export function loadProgress(subject) {
+  const p = read(subject.progressKey, null);
   if (!p || !p.units || !p.daily) return { units: {}, daily: {} };
   return p;
 }
 
 /** 1問答えるごとに呼ぶ。review は「まちがえた問題だけ」で解いているとき */
-export function recordAnswer(unitId, itemId, isCorrect, review = false) {
-  const unit = findUnit(unitId);
+export function recordAnswer(subject, unitId, itemId, isCorrect, review = false) {
+  const unit = findUnit(subject, unitId);
   const label = unit ? unit.label : unitId;
-  recordStudy(APP_LABEL, review ? `${label}（復習）` : label, isCorrect);
+  recordStudy(subject.title, review ? `${label}（復習）` : label, isCorrect);
 
-  const store = loadProgress();
+  const store = loadProgress(subject);
   const u = store.units[unitId] || { attempted: 0, correct: 0, lastAt: null, items: {} };
   u.attempted += 1;
   if (isCorrect) u.correct += 1;
@@ -69,30 +66,30 @@ export function recordAnswer(unitId, itemId, isCorrect, review = false) {
   day.attempted += 1;
   if (isCorrect) day.correct += 1;
   store.daily[key] = day;
-  write(PROGRESS_KEY, store);
+  write(subject.progressKey, store);
 
   // 復習リスト：まちがえたら入れ、正解したら外す
-  const rv = loadReview();
+  const rv = loadReview(subject);
   const list = rv[unitId] || [];
   const idx = list.indexOf(itemId);
   if (isCorrect && idx >= 0) list.splice(idx, 1);
   if (!isCorrect && idx < 0) list.push(itemId);
   rv[unitId] = list;
-  write(REVIEW_KEY, rv);
+  write(subject.reviewKey, rv);
 }
 
 /** 20問を通して解き終えたときの点数を残す（単元一覧に「前回」として出す） */
-export function recordRun(unitId, correct, total) {
-  const store = loadProgress();
+export function recordRun(subject, unitId, correct, total) {
+  const store = loadProgress(subject);
   const u = store.units[unitId];
   if (!u) return;
   u.lastRun = { correct, total, at: new Date().toISOString() };
   if (!u.bestRun || correct > u.bestRun.correct) u.bestRun = { correct, total };
-  write(PROGRESS_KEY, store);
+  write(subject.progressKey, store);
 }
 
-export function getUnitStats(unitId) {
-  const u = loadProgress().units[unitId];
+export function getUnitStats(subject, unitId) {
+  const u = loadProgress(subject).units[unitId];
   return {
     attempted: u ? u.attempted : 0,
     correct: u ? u.correct : 0,
@@ -108,8 +105,8 @@ export function accuracyPercent(stats) {
   return Math.round((stats.correct / stats.attempted) * 100);
 }
 
-export function getStreak() {
-  const daily = loadProgress().daily;
+export function getStreak(subject) {
+  const daily = loadProgress(subject).daily;
   let streak = 0;
   const d = new Date();
   // きょうまだ解いていなくても連続を切らさないよう、きのうから数える
@@ -124,23 +121,23 @@ export function getStreak() {
   return streak;
 }
 
-export function getTodayStats() {
-  return loadProgress().daily[localDateKey()] || { attempted: 0, correct: 0 };
+export function getTodayStats(subject) {
+  return loadProgress(subject).daily[localDateKey()] || { attempted: 0, correct: 0 };
 }
 
-export function loadReview() {
-  return read(REVIEW_KEY, {});
+export function loadReview(subject) {
+  return read(subject.reviewKey, {});
 }
 
-export function getReviewIds(unitId) {
-  return loadReview()[unitId] || [];
+export function getReviewIds(subject, unitId) {
+  return loadReview(subject)[unitId] || [];
 }
 
-export function getTotalReviewCount() {
-  return Object.values(loadReview()).reduce((n, list) => n + (Array.isArray(list) ? list.length : 0), 0);
+export function getTotalReviewCount(subject) {
+  return Object.values(loadReview(subject)).reduce((n, list) => n + (Array.isArray(list) ? list.length : 0), 0);
 }
 
-export function resetProgress() {
-  write(PROGRESS_KEY, { units: {}, daily: {} });
-  write(REVIEW_KEY, {});
+export function resetProgress(subject) {
+  write(subject.progressKey, { units: {}, daily: {} });
+  write(subject.reviewKey, {});
 }

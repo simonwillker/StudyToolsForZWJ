@@ -1,16 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { newStudySession } from "./studyLog";
 import {
-  CATEGORIES,
-  UNITS,
+  getSubject,
   findUnit,
-  peekUnitQuestions,
-  loadUnitQuestions,
+  peekUnit,
+  loadUnit,
   checkAnswer,
   isAnswerEmpty,
   parseFraction,
   toMixed,
-} from "./sapixMathUnits";
+  choiceOrder,
+} from "./sapixSubjects";
 import {
   recordAnswer,
   recordRun,
@@ -21,21 +21,20 @@ import {
   getStreak,
   getTodayStats,
   resetProgress,
-} from "./sapixMathProgress";
-import { downloadBackup, parseBackup, applyBackup, describeBackup } from "./sapixMathBackup";
+} from "./sapixProgress";
+import { downloadBackup, parseBackup, applyBackup, describeBackup } from "./sapixBackup";
 
 /* ============================================================
-   Sapix 算数（小4 冬期講習相当）
+   Sapix 算数・国語・社会・理科（小4 冬期講習相当）
 
-   単元一覧 → 単元を選んで20問 → 1問ずつ答え合わせと解説 →
-   結果 → まちがえた問題だけもう一度、の流れ。
+   教科（subjectId）ごとに同じ画面を使う。単元一覧 → 単元を選んで20問 →
+   1問ずつ答え合わせと解説 → 結果 → まちがえた問題だけもう一度、の流れ。
    見た目と操作は CCAO-F 対策（CcaofApp.jsx）にそろえてある。
-   問題データは src/data/sapixMath/（スキーマは同じ場所の README.md）。
+   問題データは src/data/ の sapixMath・sapixKokugo・sapixShakai・sapixRika（スキーマは各フォルダの README.md）。
    ============================================================ */
 
 const APP_VERSION = __APP_VERSION__;
 const BUILD_DATE = __BUILD_DATE__;
-const ACCENT = "#2F5D8A";
 const LEVEL_COLOR = { 基本: "#2F7A4F", 標準: "#C8743D", 発展: "#C8323D" };
 
 function shortDate(iso) {
@@ -58,6 +57,7 @@ function Frac({ n, d }) {
 /** 正解の表示。分数は帯分数（1より大きいとき）と仮分数を両方出す */
 function AnswerText({ q }) {
   if (q.type === "choice") return <span>{q.choices[q.answer]}</span>;
+  if (q.type === "text") return <span>{q.accepted[0]}</span>;
   if (q.type === "number") return <span>{q.answer}{q.unit ? ` ${q.unit}` : ""}</span>;
   const f = parseFraction(q.answer);
   const m = toMixed(f);
@@ -71,7 +71,8 @@ function AnswerText({ q }) {
 }
 
 /** 問題文の中の「a/b」を縦書きの分数で表示する（「1と2/5」の「と」は帯分数の区切り） */
-function RichText({ text }) {
+function RichText({ text, fractions = true }) {
+  if (!fractions) return <>{text}</>;
   const parts = String(text).split(/(\d+と\d+\/\d+|\d+\/\d+)/g);
   return (
     <>
@@ -92,14 +93,15 @@ function Figure({ q }) {
   return <div className="sm-figure" role="img" aria-label={q.figureAlt || "図"} dangerouslySetInnerHTML={{ __html: q.figure }} />;
 }
 
-function AnswerInput({ q, input, setInput, disabled, onEnter }) {
+function AnswerInput({ q, order, input, setInput, disabled, onEnter }) {
   const onKey = (e) => {
     if (e.key === "Enter") onEnter();
   };
   if (q.type === "choice") {
     return (
-      <div className="sm-choices">
-        {q.choices.map((c, i) => {
+      <div className={`sm-choices${q.choices.some((c) => c.length > 8) ? " list" : ""}`}>
+        {order.map((i) => {
+          const c = q.choices[i];
           let cls = "sm-choice";
           if (disabled) {
             if (i === q.answer) cls += " correct";
@@ -132,6 +134,15 @@ function AnswerInput({ q, input, setInput, disabled, onEnter }) {
       </div>
     );
   }
+  if (q.type === "text") {
+    return (
+      <div className="sm-answer-row">
+        <span className="sm-answer-label">答え</span>
+        <input className="sm-input sm-input-text" lang="ja" aria-label="答え" autoComplete="off" autoCapitalize="off" spellCheck={false}
+          value={input.value || ""} onChange={(e) => setInput({ value: e.target.value })} onKeyDown={onKey} disabled={disabled} />
+      </div>
+    );
+  }
   return (
     <div className="sm-answer-row">
       <span className="sm-answer-label">答え</span>
@@ -142,7 +153,7 @@ function AnswerInput({ q, input, setInput, disabled, onEnter }) {
   );
 }
 
-function Quiz({ unit, questions, review, onFinish, onExit }) {
+function Quiz({ subject, unit, questions, passages, review, onFinish, onExit }) {
   const [index, setIndex] = useState(0);
   const [input, setInput] = useState({});
   const [result, setResult] = useState(null); // { ok, reason }
@@ -152,6 +163,10 @@ function Quiz({ unit, questions, review, onFinish, onExit }) {
 
   const q = questions[index];
   const total = questions.length;
+  // 選択肢の並びは問題ごとに1回だけ決める（答え合わせの前後で入れかわらないように）
+  const order = useMemo(() => (q.type === "choice" ? choiceOrder(subject, q) : []), [q, subject]);
+  const passage = q.passage ? passages[q.passage] : null;
+  const [showPassage, setShowPassage] = useState(true);
 
   // 勉強履歴：出題が始まるたびに新しい回
   useEffect(() => {
@@ -166,7 +181,7 @@ function Quiz({ unit, questions, review, onFinish, onExit }) {
     if (result || isAnswerEmpty(q, input)) return;
     const r = checkAnswer(q, input);
     setResult(r);
-    recordAnswer(unit.id, q.id, r.ok, review);
+    recordAnswer(subject, unit.id, q.id, r.ok, review);
     if (r.ok) setScore((s) => s + 1);
     else setWrongIds((w) => [...w, q.id]);
   };
@@ -192,18 +207,27 @@ function Quiz({ unit, questions, review, onFinish, onExit }) {
       </div>
       <div className="sm-progress-bar"><div style={{ width: `${(index / total) * 100}%`, background: unit.color }} /></div>
 
-      <div className="sm-stem"><RichText text={q.q} /></div>
+      {passage && (
+        <div className="sm-passage">
+          <button className="sm-passage-head" onClick={() => setShowPassage((v) => !v)} aria-expanded={showPassage}>
+            <span>📖 本文「{passage.title}」</span>
+            <span className="sm-passage-toggle">{showPassage ? "とじる ▲" : "ひらく ▼"}</span>
+          </button>
+          {showPassage && <div className="sm-passage-text">{passage.text}</div>}
+        </div>
+      )}
+      <div className="sm-stem"><RichText text={q.q} fractions={subject.fractions} /></div>
       <Figure q={q} />
 
-      <AnswerInput q={q} input={input} setInput={setInput} disabled={!!result} onEnter={result ? next : submit} />
+      <AnswerInput q={q} order={order} input={input} setInput={setInput} disabled={!!result} onEnter={result ? next : submit} />
 
       {result && (
         <div className={`sm-judge ${result.ok ? "ok" : "ng"}`}>
           <div className="sm-judge-title">{result.ok ? "⭕ 正解！" : "❌ ざんねん"}</div>
           {result.reason && <div className="sm-judge-reason">{result.reason}</div>}
           <div className="sm-judge-answer">正解：<AnswerText q={q} /></div>
-          <div className="sm-explain-title">解き方</div>
-          <div className="sm-explain"><RichText text={q.explain} /></div>
+          <div className="sm-explain-title">{subject.fractions ? "解き方" : "解説"}</div>
+          <div className="sm-explain"><RichText text={q.explain} fractions={subject.fractions} /></div>
         </div>
       )}
 
@@ -256,10 +280,12 @@ function Result({ unit, run, questions, onRetryWrong, onBack }) {
   );
 }
 
-export default function SapixMathApp({ onExitApp }) {
+export default function SapixApp({ subjectId, onExitApp }) {
+  const subject = getSubject(subjectId);
+  const ACCENT = subject.accent;
   const [screen, setScreen] = useState("units"); // units | unit | quiz | result | progress
   const [unitId, setUnitId] = useState(null);
-  const [questions, setQuestions] = useState(null); // 単元の全20問
+  const [unitData, setUnitData] = useState(null); // { questions（単元の全20問）, passages（読解の本文） }
   const [loadError, setLoadError] = useState(false);
   const [session, setSession] = useState(null); // { questions, review }
   const [run, setRun] = useState(null);
@@ -267,21 +293,22 @@ export default function SapixMathApp({ onExitApp }) {
   const [backupMsg, setBackupMsg] = useState(null);
   const backupInputRef = useRef(null);
 
-  const unit = unitId ? findUnit(unitId) : null;
+  const unit = unitId ? findUnit(subject, unitId) : null;
+  const questions = unitData ? unitData.questions : null;
 
   useEffect(() => {
     if (!unitId) return;
-    const cached = peekUnitQuestions(unitId);
+    const cached = peekUnit(subject, unitId);
     if (cached) {
-      setQuestions(cached);
+      setUnitData(cached);
       return;
     }
-    setQuestions(null);
+    setUnitData(null);
     setLoadError(false);
-    loadUnitQuestions(unitId)
-      .then(setQuestions)
+    loadUnit(subject, unitId)
+      .then(setUnitData)
       .catch(() => setLoadError(true));
-  }, [unitId]);
+  }, [subject, unitId]);
 
   const openUnit = (id) => {
     setUnitId(id);
@@ -296,7 +323,7 @@ export default function SapixMathApp({ onExitApp }) {
 
   const finish = (r) => {
     // 通しの20問だけを「前回の点数」として残す（復習は数が少ないので混ぜない）
-    if (!session.review && r.total === (questions || []).length) recordRun(unit.id, r.score, r.total);
+    if (!session.review && r.total === (questions || []).length) recordRun(subject, unit.id, r.score, r.total);
     setRun(r);
     setScreen("result");
   };
@@ -320,10 +347,10 @@ export default function SapixMathApp({ onExitApp }) {
     const okToApply = window.confirm(
       `${when} のバックアップです。\n\n` +
         `・解いた問題　${d.attempted}問（正解 ${d.correct}問）\n` +
-        `・学習した単元　${d.units}単元\n` +
+        (d.subjects.length ? `・教科　${d.subjects.join("、")}\n` : "") +
         `・学習した日数　${d.days}日\n` +
         `・復習リスト　${d.reviewCount}問\n\n` +
-        `今この端末にある Sapix 算数の記録は、これで置き換えられます。よろしいですか？`
+        `今この端末にある、バックアップに入っている教科の Sapix の記録は、これで置き換えられます。よろしいですか？`
     );
     if (!okToApply) return;
     applyBackup(result.backup);
@@ -331,7 +358,7 @@ export default function SapixMathApp({ onExitApp }) {
   };
 
   /* 学習記録は localStorage から毎回読む（解いた直後の画面に古い値が残らないように） */
-  const allStats = screen === "units" || screen === "progress" ? UNITS.map((u) => ({ u, s: getUnitStats(u.id), review: getReviewIds(u.id).length })) : [];
+  const allStats = screen === "units" || screen === "progress" ? subject.units.map((u) => ({ u, s: getUnitStats(subject, u.id), review: getReviewIds(subject, u.id).length })) : [];
   const totalAttempted = allStats.reduce((n, x) => n + x.s.attempted, 0);
 
   return (
@@ -406,6 +433,13 @@ export default function SapixMathApp({ onExitApp }) {
         .sm-unit { font-size: 16px; font-weight: 700; }
         .sm-answer-hint { font-size: 11px; color: #9AA093; flex-basis: 100%; }
         .sm-choices { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+        .sm-choices.list { grid-template-columns: 1fr; }
+        .sm-choices.list .sm-choice { text-align: left; font-size: 15.5px; font-weight: 600; line-height: 1.6; padding: 12px 14px; }
+        .sm-input-text { width: min(260px, 100%); font-size: 20px; }
+        .sm-passage { background: #FFFDF7; border: 1px solid #E4D9BF; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+        .sm-passage-head { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px; background: #FBF5E6; border: none; padding: 10px 14px; font-size: 13.5px; font-weight: 800; color: #6B5A2E; cursor: pointer; font-family: inherit; text-align: left; }
+        .sm-passage-toggle { font-size: 12px; font-weight: 700; white-space: nowrap; }
+        .sm-passage-text { font-size: 15.5px; line-height: 2.1; white-space: pre-wrap; padding: 12px 16px 16px; max-height: 46vh; overflow-y: auto; }
         .sm-choice { border: 2px solid #D8D5CB; background: #fff; border-radius: 10px; padding: 14px 10px; font-size: 17px; font-weight: 700; cursor: pointer; font-family: inherit; color: #2A2E27; }
         .sm-choice.picked { border-color: ${ACCENT}; background: #EEF3F8; }
         .sm-choice.correct { border-color: #1F6B45; background: #F1F8F3; }
@@ -466,21 +500,18 @@ export default function SapixMathApp({ onExitApp }) {
       {screen === "units" && (
         <>
           <div className="sm-title-block">
-            <div className="sm-eyebrow">SAPIX MATH — 4年 冬期講習</div>
-            <h1 className="sm-serif">Sapix 算数</h1>
+            <div className="sm-eyebrow">{subject.eyebrow}</div>
+            <h1 className="sm-serif">{subject.title}</h1>
             <div className="sm-under" />
-            <div className="sm-lead">
-              単元を選んで 20 問（基本 → 標準 → 発展の順）。1 問ずつ答え合わせをして、解き方を読みながら進めよう。
-              まちがえた問題は「復習」でもう一度解けます。
-            </div>
+            <div className="sm-lead">{subject.lead}</div>
           </div>
           <div className="sm-facts">
-            <div className="sm-fact"><div className="sm-fact-num">{getStreak()}</div><div className="sm-fact-label">日連続</div></div>
-            <div className="sm-fact"><div className="sm-fact-num">{getTodayStats().attempted}</div><div className="sm-fact-label">きょう解いた</div></div>
+            <div className="sm-fact"><div className="sm-fact-num">{getStreak(subject)}</div><div className="sm-fact-label">日連続</div></div>
+            <div className="sm-fact"><div className="sm-fact-num">{getTodayStats(subject).attempted}</div><div className="sm-fact-label">きょう解いた</div></div>
             <div className="sm-fact"><div className="sm-fact-num">{totalAttempted}</div><div className="sm-fact-label">のべ解答数</div></div>
-            <div className="sm-fact"><div className="sm-fact-num">{getTotalReviewCount()}</div><div className="sm-fact-label">復習待ち</div></div>
+            <div className="sm-fact"><div className="sm-fact-num">{getTotalReviewCount(subject)}</div><div className="sm-fact-label">復習待ち</div></div>
           </div>
-          {CATEGORIES.map((c) => (
+          {subject.categories.map((c) => (
             <React.Fragment key={c.id}>
               <div className="sm-sub-head"><span className="sm-cat-dot" style={{ "--c": c.color }} />{c.label}</div>
               <div className="sm-unit-grid">
@@ -510,7 +541,7 @@ export default function SapixMathApp({ onExitApp }) {
           <div className="sm-unit-box" style={{ "--c": unit.color }}>
             <div className="sm-unit-box-title">{unit.label}</div>
             {(() => {
-              const s = getUnitStats(unit.id);
+              const s = getUnitStats(subject, unit.id);
               const pct = accuracyPercent(s);
               return (
                 <div className="sm-unit-box-desc">
@@ -526,7 +557,7 @@ export default function SapixMathApp({ onExitApp }) {
                 <div className="sm-start-btns">
                   <button className="sm-big-btn" onClick={() => start(questions, false)}>{questions.length} 問を解く</button>
                   {(() => {
-                    const ids = getReviewIds(unit.id);
+                    const ids = getReviewIds(subject, unit.id);
                     const qs = questions.filter((q) => ids.includes(q.id));
                     return (
                       <button className="sm-big-btn outline" disabled={!qs.length} onClick={() => start(qs, true)}>
@@ -543,7 +574,7 @@ export default function SapixMathApp({ onExitApp }) {
                   ))}
                 </div>
                 {(() => {
-                  const items = getUnitStats(unit.id).items;
+                  const items = getUnitStats(subject, unit.id).items;
                   return (
                     <div className="sm-item-dots" aria-label="問題ごとの最後の結果">
                       {questions.map((q, i) => {
@@ -562,8 +593,10 @@ export default function SapixMathApp({ onExitApp }) {
       {screen === "quiz" && unit && session && (
         <Quiz
           key={session.id}
+          subject={subject}
           unit={unit}
           questions={session.questions}
+          passages={unitData ? unitData.passages : {}}
           review={session.review}
           onFinish={finish}
           onExit={() => { setNonce((n) => n + 1); setScreen("unit"); }}
@@ -588,10 +621,10 @@ export default function SapixMathApp({ onExitApp }) {
             <div className="sm-under" />
           </div>
           <div className="sm-facts">
-            <div className="sm-fact"><div className="sm-fact-num">{getStreak()}</div><div className="sm-fact-label">日連続</div></div>
-            <div className="sm-fact"><div className="sm-fact-num">{getTodayStats().attempted}</div><div className="sm-fact-label">きょう解いた</div></div>
+            <div className="sm-fact"><div className="sm-fact-num">{getStreak(subject)}</div><div className="sm-fact-label">日連続</div></div>
+            <div className="sm-fact"><div className="sm-fact-num">{getTodayStats(subject).attempted}</div><div className="sm-fact-label">きょう解いた</div></div>
             <div className="sm-fact"><div className="sm-fact-num">{totalAttempted}</div><div className="sm-fact-label">のべ解答数</div></div>
-            <div className="sm-fact"><div className="sm-fact-num">{getTotalReviewCount()}</div><div className="sm-fact-label">復習待ち</div></div>
+            <div className="sm-fact"><div className="sm-fact-num">{getTotalReviewCount(subject)}</div><div className="sm-fact-label">復習待ち</div></div>
           </div>
           <div className="sm-sub-head">単元ごとの正答率と最終学習日</div>
           <div style={{ maxWidth: 720, margin: "0 auto" }}>
@@ -619,8 +652,8 @@ export default function SapixMathApp({ onExitApp }) {
             {backupMsg && <div className={`sm-backup-msg ${backupMsg.kind}`}>{backupMsg.text}</div>}
           </div>
           <div className="sm-box">
-            <div className="sm-box-desc">Sapix 算数の記録だけを消します（英検・CCAO-F の記録はそのまま）。</div>
-            <button className="sm-btn-ghost" onClick={() => { if (window.confirm("Sapix 算数の学習記録と復習リストをすべて消します。よろしいですか？")) { resetProgress(); setNonce((n) => n + 1); } }}>
+            <div className="sm-box-desc">{subject.title}の記録だけを消します（ほかの教科や英検・CCAO-F の記録はそのまま）。</div>
+            <button className="sm-btn-ghost" onClick={() => { if (window.confirm(`${subject.title}の学習記録と復習リストをすべて消します。よろしいですか？`)) { resetProgress(subject); setNonce((n) => n + 1); } }}>
               学習記録をリセット
             </button>
           </div>

@@ -6,7 +6,9 @@ import { LEARNERS, getLearner, setLearner, clearLearner, getLastLearner } from "
 const DailyDrill = lazy(() => import("./DailyDrill.jsx"));
 const EikenApp = lazy(() => import("./EikenApp.jsx"));
 const CcaofApp = lazy(() => import("./CcaofApp.jsx"));
-const SapixMathApp = lazy(() => import("./SapixMathApp.jsx"));
+const SapixApp = lazy(() => import("./SapixApp.jsx"));
+/** Sapix の4教科。どれも SapixApp を教科を変えて使う */
+const SAPIX_APPS = ["sapixMath", "sapixKokugo", "sapixShakai", "sapixRika"];
 const StudyHistory = lazy(() => import("./StudyHistory.jsx"));
 
 function AppLoading() {
@@ -126,10 +128,10 @@ export default function App() {
         <LearnerBadge learner={learner} />
       </Suspense>
     );
-  if (active === "sapixMath")
+  if (SAPIX_APPS.includes(active))
     return (
       <Suspense fallback={<AppLoading />}>
-        <SapixMathApp onExitApp={backToMenu} />
+        <SapixApp key={active} subjectId={active} onExitApp={backToMenu} />
         <LearnerBadge learner={learner} />
       </Suspense>
     );
@@ -189,6 +191,18 @@ export default function App() {
           <button className="app-switcher-card" style={{ "--c": "#2F7A8A" }} onClick={() => choose("sapixMath")}>
             <div className="label">Sapix 算数</div>
             <div className="desc">小4 冬期講習相当の15単元×20問（計算のくふう・つるかめ算・角度・場合の数など）。解き方の解説・まちがえた問題の復習・単元ごとの正答率つき</div>
+          </button>
+          <button className="app-switcher-card" style={{ "--c": "#9A4A2F" }} onClick={() => choose("sapixKokugo")}>
+            <div className="label">Sapix 国語</div>
+            <div className="desc">小4 冬期講習相当の10単元×20問。漢字の読み書き・慣用句・ことわざ・四字熟語・文法・説明文と物語文の読解</div>
+          </button>
+          <button className="app-switcher-card" style={{ "--c": "#3F6F52" }} onClick={() => choose("sapixShakai")}>
+            <div className="label">Sapix 社会</div>
+            <div className="desc">小4 冬期講習相当の10単元×20問。地図の見方・都道府県・地形・気候・農業・水産業・工業・くらし</div>
+          </button>
+          <button className="app-switcher-card" style={{ "--c": "#6A4A9A" }} onClick={() => choose("sapixRika")}>
+            <div className="label">Sapix 理科</div>
+            <div className="desc">小4 冬期講習相当の10単元×20問。植物・こん虫・季節・星・月・太陽・電気・磁石・温まり方・水のすがた</div>
           </button>
           <button className="app-switcher-card" style={{ "--c": "#5A3B8A" }} onClick={() => choose("history")}>
             <div className="label">📅 勉強履歴</div>

@@ -1,0 +1,22 @@
+{
+  "title": "Sapix 国語",
+  "target": "小学4年 冬期講習相当",
+  "categories": [
+    { "id": "kanji", "label": "漢字", "color": "#8A3B2F" },
+    { "id": "kotoba", "label": "言葉の知識", "color": "#2F5D8A" },
+    { "id": "bunpou", "label": "文法", "color": "#2F7A4F" },
+    { "id": "dokkai", "label": "読解", "color": "#5A3B8A" }
+  ],
+  "units": [
+    { "id": "kanji-yomi", "label": "漢字の読み", "category": "kanji", "file": "kanji-yomi.json" },
+    { "id": "kanji-kaki", "label": "漢字の書き", "category": "kanji", "file": "kanji-kaki.json" },
+    { "id": "kanyouku", "label": "慣用句", "category": "kotoba", "file": "kanyouku.json" },
+    { "id": "kotowaza", "label": "ことわざ・故事成語", "category": "kotoba", "file": "kotowaza.json" },
+    { "id": "yojijukugo", "label": "四字熟語", "category": "kotoba", "file": "yojijukugo.json" },
+    { "id": "douon", "label": "同音異義語・同訓異字", "category": "kotoba", "file": "douon.json" },
+    { "id": "bun-kousei", "label": "主語・述語・修飾語", "category": "bunpou", "file": "bun-kousei.json" },
+    { "id": "kotoba-kimari", "label": "言葉のきまり（つなぎ言葉・こそあど・言葉の種類）", "category": "bunpou", "file": "kotoba-kimari.json" },
+    { "id": "setsumeibun", "label": "読解（説明文）", "category": "dokkai", "file": "setsumeibun.json" },
+    { "id": "monogatari", "label": "読解（物語文）", "category": "dokkai", "file": "monogatari.json" }
+  ]
+}
