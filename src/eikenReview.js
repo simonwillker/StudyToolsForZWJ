@@ -30,13 +30,43 @@ function emptyStore() {
   return { levels: {}, updatedAt: null };
 }
 
+/** 単語の itemId は以前 "v3-001-en2ja" のように出題方向つきで記録していた。
+ *  復習ドリルは単語の id（"v3-001"）で引くので、読み込むたびに方向を外してそろえる。
+ *  同じ単語が両方向で入っていたら1件にまとめる（間違い回数は合計、連続正解は少ないほう）。 */
+const DIRECTION_SUFFIX = /-(en2ja|ja2en)$/;
+
+function migrateVocabIds(store) {
+  Object.keys(store.levels).forEach((level) => {
+    const list = store.levels[level];
+    if (!Array.isArray(list) || !list.some((e) => e.mode === "vocab" && DIRECTION_SUFFIX.test(String(e.itemId)))) return;
+    const merged = [];
+    const byKey = new Map();
+    list.forEach((e) => {
+      const itemId = e.mode === "vocab" ? String(e.itemId).replace(DIRECTION_SUFFIX, "") : e.itemId;
+      const key = keyOf(e.mode, itemId);
+      const found = byKey.get(key);
+      if (!found) {
+        const entry = { ...e, key, itemId };
+        byKey.set(key, entry);
+        merged.push(entry);
+        return;
+      }
+      found.wrongCount += e.wrongCount || 0;
+      found.streak = Math.min(found.streak || 0, e.streak || 0);
+      if ((e.lastWrongAt || "") > (found.lastWrongAt || "")) found.lastWrongAt = e.lastWrongAt;
+    });
+    store.levels[level] = merged;
+  });
+  return store;
+}
+
 function loadStore() {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyStore();
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object" || !parsed.levels) return emptyStore();
-    return parsed;
+    return migrateVocabIds(parsed);
   } catch (e) {
     return emptyStore();
   }

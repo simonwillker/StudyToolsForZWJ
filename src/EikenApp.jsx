@@ -428,7 +428,9 @@ function buildVocabItems(level, direction, words) {
       ]);
     }
     return {
-      id: `${w.id}-${direction}`,
+      // 復習リストは itemId で単語を引き直すので、出題方向をつけずに単語の id をそのまま使う
+      // （以前は "v3-001-en2ja" のように方向つきで記録していて、復習ドリルに出てこなかった）
+      id: w.id,
       header: () => (
         <div className="eiken-qhead">
           <div className="eiken-qhead-eyebrow">{direction === "en2ja" ? "この単語の意味は？" : "この意味を表す単語は？"}</div>
