@@ -8,7 +8,7 @@ const EikenApp = lazy(() => import("./EikenApp.jsx"));
 const CcaofApp = lazy(() => import("./CcaofApp.jsx"));
 const SapixApp = lazy(() => import("./SapixApp.jsx"));
 /** Sapix の4教科。どれも SapixApp を教科を変えて使う */
-const SAPIX_APPS = ["sapixMath", "sapixKokugo", "sapixShakai", "sapixRika"];
+const SAPIX_APPS = ["sapixMath", "sapixKokugo", "sapixShakai", "sapixRika", "sapixEigo"];
 const StudyHistory = lazy(() => import("./StudyHistory.jsx"));
 
 function AppLoading() {
@@ -203,6 +203,10 @@ export default function App() {
           <button className="app-switcher-card" style={{ "--c": "#6A4A9A" }} onClick={() => choose("sapixRika")}>
             <div className="label">Sapix 理科</div>
             <div className="desc">小4 冬期講習相当の10単元×20問。植物・こん虫・季節・星・月・太陽・電気・磁石・温まり方・水のすがた</div>
+          </button>
+          <button className="app-switcher-card" style={{ "--c": "#2F7A8A" }} onClick={() => choose("sapixEigo")}>
+            <div className="label">Sapix 英語</div>
+            <div className="desc">英検5級〜4級程度の10単元×20問。単語・be 動詞・一般動詞・疑問詞・進行形・過去形・can/will・会話表現・短い英文の読解</div>
           </button>
           <button className="app-switcher-card" style={{ "--c": "#5A3B8A" }} onClick={() => choose("history")}>
             <div className="label">📅 勉強履歴</div>

@@ -1,5 +1,5 @@
 /* ============================================================
-   Sapix 算数・国語・社会・理科：教科の定義、単元ごとの遅延読み込み、
+   Sapix 算数・国語・社会・理科・英語：教科の定義、単元ごとの遅延読み込み、
    答えの判定
 
    ccaofDomains.js と同じ作り。単元一覧と学習記録が使うメタ情報
@@ -14,6 +14,7 @@ import MATH_META from "./data/sapixMath/meta.json";
 import KOKUGO_META from "./data/sapixKokugo/meta.json";
 import SHAKAI_META from "./data/sapixShakai/meta.json";
 import RIKA_META from "./data/sapixRika/meta.json";
+import EIGO_META from "./data/sapixEigo/meta.json";
 
 function withColors(meta) {
   return meta.units.map((u) => ({
@@ -79,6 +80,20 @@ export const SUBJECTS = {
     categories: RIKA_META.categories,
     units: withColors(RIKA_META),
   },
+  sapixEigo: {
+    id: "sapixEigo",
+    dir: "sapixEigo",
+    title: "Sapix 英語",
+    eyebrow: "ENGLISH — 英検5級〜4級レベル",
+    accent: "#2F7A8A",
+    lead: "単語・文法・会話・読解の 10 単元（英検5級〜4級程度）。1 問ずつ答え合わせをして、解説と日本語訳で確かめよう。つづりを書く問題は、大文字・小文字のちがいは気にしなくてだいじょうぶです。",
+    progressKey: "sapixEigoProgressV1",
+    reviewKey: "sapixEigoReviewV1",
+    shuffleChoices: true,
+    fractions: false,
+    categories: EIGO_META.categories,
+    units: withColors(EIGO_META),
+  },
 };
 
 export const SUBJECT_IDS = Object.keys(SUBJECTS);
@@ -143,10 +158,11 @@ export function parseNumber(text) {
   return Number(s);
 }
 
-/** 記述の答えをそろえる：空白・句点を取り、全角半角をそろえ、カタカナはひらがなにする */
+/** 記述の答えをそろえる：空白・句点を取り、全角半角・大文字小文字をそろえ、カタカナはひらがなにする */
 export function normalizeText(text) {
   return String(text ?? "")
     .normalize("NFKC")
+    .toLowerCase()
     .replace(/[\s　。．.、,]/g, "")
     .replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
 }

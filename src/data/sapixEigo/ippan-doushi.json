@@ -1,0 +1,25 @@
+{
+  "unit": "ippan-doushi",
+  "questions": [
+    { "id": "se-ippan-01", "level": "基本", "type": "choice", "q": "（　）に入る語を選びましょう。\nI (　　) tennis every day.", "choices": ["play", "plays", "playing", "am"], "answer": 0, "explain": "主語が I なので動詞はそのままの形。訳：わたしは毎日テニスをします。" },
+    { "id": "se-ippan-02", "level": "基本", "type": "choice", "q": "（　）に入る語を選びましょう。\nHe (　　) soccer after school.", "choices": ["plays", "play", "playing", "is play"], "answer": 0, "explain": "主語が he・she・it など（3人称単数）で現在の文なら、動詞に s をつけます。訳：彼は放課後サッカーをします。" },
+    { "id": "se-ippan-03", "level": "基本", "type": "choice", "q": "（　）に入る語を選びましょう。\nShe (　　) English every day.", "choices": ["studies", "studys", "study", "studying"], "answer": 0, "explain": "study は「子音字＋y」で終わるので、y を i にかえて es をつけ studies。訳：彼女は毎日英語を勉強します。" },
+    { "id": "se-ippan-04", "level": "基本", "type": "choice", "q": "（　）に入る語を選びましょう。\nDo you like music? — Yes, I (　　).", "choices": ["do", "am", "does", "like"], "answer": 0, "explain": "Do 〜？ には do を使って答えます。訳：音楽は好きですか。— はい、好きです。" },
+    { "id": "se-ippan-05", "level": "基本", "type": "choice", "q": "（　）に入る語を選びましょう。\n(　　) he live in Tokyo?", "choices": ["Does", "Do", "Is", "Are"], "answer": 0, "explain": "主語が he（3人称単数）の一般動詞の疑問文は Does で始め、動詞はもとの形（live）にします。訳：彼は東京に住んでいますか。" },
+    { "id": "se-ippan-06", "level": "基本", "type": "choice", "q": "（　）に入る語を選びましょう。\nMy father (　　) to work by bus.", "choices": ["goes", "go", "gos", "going"], "answer": 0, "explain": "go は es をつけて goes。訳：父はバスで仕事に行きます。" },
+    { "id": "se-ippan-07", "level": "基本", "type": "choice", "q": "「わたしはにんじんが好きではありません」になるように（　）に入る語を選びましょう。\nI (　　) like carrots.", "choices": ["don't", "doesn't", "am not", "not"], "answer": 0, "explain": "一般動詞の否定文は、主語が I・you・複数なら don't（do not）。" },
+    { "id": "se-ippan-08", "level": "基本", "type": "choice", "q": "（　）に入る語を選びましょう。\nDoes she have a cat? — No, she (　　).", "choices": ["doesn't", "don't", "isn't", "hasn't"], "answer": 0, "explain": "Does 〜？ には does / doesn't で答えます。訳：彼女はねこを飼っていますか。— いいえ。" },
+    { "id": "se-ippan-09", "level": "標準", "type": "choice", "q": "（　）に入る語を選びましょう。\nKen (　　) TV every evening.", "choices": ["watches", "watchs", "watch", "watching"], "answer": 0, "explain": "ch・sh・s・x・o で終わる動詞は es をつけます。watch → watches。訳：ケンは毎晩テレビを見ます。" },
+    { "id": "se-ippan-10", "level": "標準", "type": "choice", "q": "（　）に入る語を選びましょう。\nShe (　　) a new bike.", "choices": ["has", "have", "haves", "is"], "answer": 0, "explain": "have の3人称単数現在の形は has（特別な形）。訳：彼女は新しい自転車を持っています。" },
+    { "id": "se-ippan-11", "level": "標準", "type": "choice", "q": "（　）に入る語を選びましょう。\nMy brother doesn't (　　) coffee.", "choices": ["drink", "drinks", "drinking", "drank"], "answer": 0, "explain": "doesn't のあとの動詞は、s をつけないもとの形。訳：兄（弟）はコーヒーを飲みません。" },
+    { "id": "se-ippan-12", "level": "標準", "type": "choice", "q": "（　）に入る語を選びましょう。\nWhat sport do you (　　)? — I play baseball.", "choices": ["play", "plays", "do play", "playing"], "answer": 0, "explain": "do you のあとはもとの形。訳：あなたは何のスポーツをしますか。— 野球をします。" },
+    { "id": "se-ippan-13", "level": "標準", "type": "choice", "q": "（　）に入る語を選びましょう。\nWhere does your uncle (　　)?", "choices": ["live", "lives", "living", "lived"], "answer": 0, "explain": "does を使った疑問文では、動詞はもとの形。訳：あなたのおじさんはどこに住んでいますか。" },
+    { "id": "se-ippan-14", "level": "標準", "type": "text", "q": "go を、主語が he のときの現在の形（3人称単数現在）にして書きましょう。", "accepted": ["goes"], "explain": "go → goes（o で終わるので es）。do → does も同じです。" },
+    { "id": "se-ippan-15", "level": "標準", "type": "text", "q": "study を、主語が she のときの現在の形（3人称単数現在）にして書きましょう。", "accepted": ["studies"], "explain": "「子音字＋y」で終わる語は y を i にかえて es：study → studies。（play のように「母音字＋y」なら s だけ：plays）" },
+    { "id": "se-ippan-16", "level": "標準", "type": "text", "q": "have を、主語が it のときの現在の形（3人称単数現在）にして書きましょう。", "accepted": ["has"], "explain": "have → has（特別な形）。" },
+    { "id": "se-ippan-17", "level": "発展", "type": "choice", "q": "正しい英文を選びましょう。", "choices": ["Mika doesn't like milk.", "Mika don't like milk.", "Mika doesn't likes milk.", "Mika not like milk."], "answer": 0, "explain": "主語 Mika は3人称単数なので doesn't。doesn't のあとは s のつかない like。訳：ミカは牛乳が好きではありません。" },
+    { "id": "se-ippan-18", "level": "発展", "type": "choice", "q": "「わたしの姉は毎朝6時に起きます」を表す英文を選びましょう。", "choices": ["My sister gets up at six every morning.", "My sister get up at six every morning.", "My sister is get up at six every morning.", "My sister gets up six at every morning."], "answer": 0, "explain": "主語 my sister は3人称単数なので gets。「〜時に」は at ＋ 時刻。" },
+    { "id": "se-ippan-19", "level": "発展", "type": "choice", "q": "（　）に入る語を選びましょう。\nWho (　　) this computer? — My brother does.", "choices": ["uses", "use", "using", "is use"], "answer": 0, "explain": "who（だれが）が主語のときは3人称単数あつかいで uses。答えも does を使います。訳：だれがこのコンピューターを使いますか。— 兄（弟）です。" },
+    { "id": "se-ippan-20", "level": "発展", "type": "choice", "q": "Your sister plays the piano. を疑問文にしたものを選びましょう。", "choices": ["Does your sister play the piano?", "Does your sister plays the piano?", "Do your sister play the piano?", "Is your sister play the piano?"], "answer": 0, "explain": "Does を文の最初に出し、plays はもとの形 play にもどします。" }
+  ]
+}

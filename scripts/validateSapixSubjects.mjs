@@ -1,5 +1,5 @@
 /* ============================================================
-   Sapix 国語・社会・理科 問題データの検査
+   Sapix 国語・社会・理科・英語 問題データの検査
 
    算数（validateSapixMath.mjs）と同じ形のデータだが、正解を計算で
    確かめられない教科なので、検算のかわりに形と整合性を厳しく見る。
@@ -22,6 +22,7 @@ const SUBJECTS = [
   { dir: "sapixKokugo", label: "国語", prefix: "sk-" },
   { dir: "sapixShakai", label: "社会", prefix: "ss-" },
   { dir: "sapixRika", label: "理科", prefix: "sr-" },
+  { dir: "sapixEigo", label: "英語", prefix: "se-" },
 ];
 const UNIT_SIZE = 20;
 const LEVELS = ["基本", "標準", "発展"];
@@ -116,6 +117,9 @@ for (const subj of SUBJECTS) {
         // 読みの問題（「ひらがなで」）の正解はひらがなだけ
         if (/ひらがなで/.test(q.q) && q.accepted && q.accepted.some((a) => !/^[ぁ-ゖー]+$/.test(a)))
           errors.push(`${at}: 読みの正解はひらがなだけで書く`);
+        // 英語のつづりの問題の正解は英字だけ
+        if (/英語で書きましょう|形を書きましょう|過去形を書きましょう/.test(q.q) && q.accepted && q.accepted.some((a) => !/^[A-Za-z' ]+$/.test(a)))
+          errors.push(`${at}: 英語のつづりの正解は英字だけで書く`);
         // 書きの問題の正解はカタカナを残さない
         if (/漢字に直しましょう/.test(q.q) && q.accepted && q.accepted.some((a) => /[ァ-ヶ]/.test(a)))
           errors.push(`${at}: 書きの正解にカタカナが残っている`);
@@ -140,7 +144,7 @@ for (const subj of SUBJECTS) {
   }
 }
 
-console.log("\nSapix 国語・社会・理科 問題データ\n");
+console.log("\nSapix 国語・社会・理科・英語 問題データ\n");
 console.table(table);
 console.log(`合計 ${table.length} 単元 / ${total} 問`);
 if (warnings.length) {
