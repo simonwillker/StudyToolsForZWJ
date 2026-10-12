@@ -1,0 +1,22 @@
+{
+  "title": "Sapix 理科",
+  "target": "小学4年 冬期講習相当",
+  "categories": [
+    { "id": "seibutsu", "label": "生物", "color": "#2F7A4F" },
+    { "id": "chigaku", "label": "地学", "color": "#5A3B8A" },
+    { "id": "butsuri", "label": "物理", "color": "#2F5D8A" },
+    { "id": "kagaku", "label": "化学", "color": "#8A3B2F" }
+  ],
+  "units": [
+    { "id": "shokubutsu", "label": "植物のつくりと育ち方", "category": "seibutsu", "file": "shokubutsu.json" },
+    { "id": "konchu", "label": "こん虫のからだと育ち方", "category": "seibutsu", "file": "konchu.json" },
+    { "id": "kisetsu", "label": "季節と生き物", "category": "seibutsu", "file": "kisetsu.json" },
+    { "id": "hoshi", "label": "星と星座", "category": "chigaku", "file": "hoshi.json" },
+    { "id": "tsuki", "label": "月の動きと形", "category": "chigaku", "file": "tsuki.json" },
+    { "id": "taiyou", "label": "太陽と影・天気と気温", "category": "chigaku", "file": "taiyou.json" },
+    { "id": "denki", "label": "電気のはたらき", "category": "butsuri", "file": "denki.json" },
+    { "id": "jishaku", "label": "磁石と電磁石", "category": "butsuri", "file": "jishaku.json" },
+    { "id": "atatamarikata", "label": "ものの温まり方と体積", "category": "kagaku", "file": "atatamarikata.json" },
+    { "id": "mizu", "label": "水のすがたの変化", "category": "kagaku", "file": "mizu.json" }
+  ]
+}

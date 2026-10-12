@@ -1,22 +1,25 @@
 /* ============================================================
-   Sapix 算数の学習記録のバックアップ（書き出し・読み込み）
+   Sapix（算数・国語・社会・理科）の学習記録のバックアップ
 
    英検（eikenBackup.js）・CCAO-F（ccaofBackup.js）と同じ仕組み。
    学習記録は localStorage にしか無いので、端末を替えたり閲覧データを
    消したりすると消えてしまう。ファイルに書き出して戻せるようにする。
+
+   どの教科の画面から書き出しても、Sapix 4教科ぶんをまとめて書き出す
+   （教科ごとにファイルが分かれると、戻しわすれが起きやすいため）。
+   v1.26.0 の「Sapix 算数」だけのバックアップ（sapix-math-study-backup）も
+   読み込める。
    ============================================================ */
 
 import { learnerKey } from "./learner";
-import { PROGRESS_KEY, REVIEW_KEY } from "./sapixMathProgress";
+import { SUBJECTS } from "./sapixSubjects";
 
-const FORMAT = "sapix-math-study-backup";
+const FORMAT = "sapix-study-backup";
+const LEGACY_MATH_FORMAT = "sapix-math-study-backup";
 const FORMAT_VERSION = 1;
 
-/** 書き出し・読み込みの対象。増やすときはここに足す。 */
-export const BACKUP_KEYS = [
-  PROGRESS_KEY, // 単元別・日別の学習記録
-  REVIEW_KEY, // まちがえた問題の復習リスト
-];
+/** 書き出し・読み込みの対象。教科を足すと自動でふえる。 */
+export const BACKUP_KEYS = Object.values(SUBJECTS).flatMap((s) => [s.progressKey, s.reviewKey]);
 
 function readKey(key) {
   try {
@@ -39,17 +42,24 @@ export function buildBackup() {
 /** バックアップの中身を人が読める形にする。読み込む前の確認に使う。 */
 export function describeBackup(backup) {
   const d = (backup && backup.data) || {};
-  const progress = d[PROGRESS_KEY] || {};
   let attempted = 0;
   let correct = 0;
-  Object.values(progress.units || {}).forEach((u) => {
-    attempted += u.attempted || 0;
-    correct += u.correct || 0;
+  let reviewCount = 0;
+  const days = new Set();
+  const subjects = [];
+  Object.values(SUBJECTS).forEach((s) => {
+    const progress = d[s.progressKey] || {};
+    let a = 0;
+    Object.values(progress.units || {}).forEach((u) => {
+      a += u.attempted || 0;
+      correct += u.correct || 0;
+    });
+    attempted += a;
+    Object.keys(progress.daily || {}).forEach((day) => days.add(day));
+    reviewCount += Object.values(d[s.reviewKey] || {}).reduce((n, list) => n + (Array.isArray(list) ? list.length : 0), 0);
+    if (a) subjects.push(`${s.title} ${a}問`);
   });
-  const days = Object.keys(progress.daily || {}).length;
-  const units = Object.keys(progress.units || {}).length;
-  const reviewCount = Object.values(d[REVIEW_KEY] || {}).reduce((s, list) => s + (Array.isArray(list) ? list.length : 0), 0);
-  return { attempted, correct, days, units, reviewCount, exportedAt: backup?.exportedAt || null };
+  return { attempted, correct, days: days.size, reviewCount, subjects, exportedAt: backup?.exportedAt || null };
 }
 
 export function parseBackup(text) {
@@ -60,13 +70,13 @@ export function parseBackup(text) {
     return { ok: false, error: "ファイルを読み取れませんでした（JSONとして壊れています）。" };
   }
   if (!parsed || typeof parsed !== "object") return { ok: false, error: "ファイルの中身が正しくありません。" };
-  if (parsed.format !== FORMAT) {
+  if (parsed.format !== FORMAT && parsed.format !== LEGACY_MATH_FORMAT) {
     const hint =
       parsed.format === "eiken-study-backup"
         ? "これは英検マスターのバックアップです。英検の画面から読み込んでください。"
         : parsed.format === "ccaof-study-backup"
         ? "これは CCAO-F のバックアップです。CCAO-F の画面から読み込んでください。"
-        : "Sapix 算数のバックアップファイルではないようです。";
+        : "Sapix のバックアップファイルではないようです。";
     return { ok: false, error: hint };
   }
   if (typeof parsed.version !== "number" || parsed.version > FORMAT_VERSION)
@@ -78,6 +88,7 @@ export function parseBackup(text) {
   return { ok: true, backup: parsed, keys: known };
 }
 
+/** 検証済みのバックアップを書き戻す。バックアップに入っている教科の記録だけが置き換わる。 */
 export function applyBackup(backup) {
   const restored = [];
   BACKUP_KEYS.forEach((k) => {
@@ -98,7 +109,7 @@ function pad(n) {
 }
 
 export function backupFileName(d = new Date()) {
-  return `sapix-math-backup-${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}.json`;
+  return `sapix-backup-${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}.json`;
 }
 
 export function downloadBackup() {
