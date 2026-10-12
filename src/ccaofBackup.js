@@ -20,6 +20,7 @@ export const BACKUP_KEYS = [
   "ccaofProgressV1", // ドメイン別・日別の学習進捗
   "ccaofReviewV1", // まちがえた問題の復習リスト
   "ccaofExamResultsV1", // 模擬試験の結果（最大20件）
+  "ccaofVocabV1", // 頻出単語の学習記録と復習リスト
 ];
 
 function readKey(key) {
@@ -63,7 +64,10 @@ export function describeBackup(backup) {
   );
   const results = d.ccaofExamResultsV1;
   const exams = Array.isArray(results) ? results.length : 0;
-  return { attempted, correct, days, reviewCount, exams, exportedAt: backup?.exportedAt || null };
+  const vocab = d.ccaofVocabV1 || {};
+  const vocabWords = Object.keys(vocab.words || {}).length;
+  const vocabReview = Object.keys(vocab.review || {}).length;
+  return { attempted, correct, days, reviewCount, exams, vocabWords, vocabReview, exportedAt: backup?.exportedAt || null };
 }
 
 /** 読み込もうとしているファイルが本当に CCAO-F のバックアップか確かめる。 */

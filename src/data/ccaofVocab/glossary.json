@@ -1,0 +1,1854 @@
+{
+  "_note": "CCAO-F 頻出単語の意味（手で書く元データ）。出現回数・例文・出現問題は scripts/buildCcaofVocab.mjs が問題データから数えて vocab.json に書き出す。forms は自動で作れない活用形（不規則変化など）だけ書く。",
+  "words": [
+    {
+      "word": "output",
+      "pos": "名詞",
+      "ja": "出力、生成結果",
+      "zh": "输出、生成结果"
+    },
+    {
+      "word": "associate",
+      "pos": "名詞",
+      "ja": "担当者（試験の設問で主人公になる社員）",
+      "zh": "员工、担当者"
+    },
+    {
+      "word": "select",
+      "pos": "動詞",
+      "ja": "選ぶ",
+      "zh": "选择"
+    },
+    {
+      "word": "model",
+      "pos": "名詞",
+      "ja": "モデル（AIモデル）",
+      "zh": "模型（AI 模型）"
+    },
+    {
+      "word": "document",
+      "pos": "名詞",
+      "ja": "文書、資料",
+      "zh": "文档、文件"
+    },
+    {
+      "word": "prompt",
+      "pos": "名詞",
+      "ja": "プロンプト（AIへの指示文）",
+      "zh": "提示词"
+    },
+    {
+      "word": "task",
+      "pos": "名詞",
+      "ja": "タスク、作業",
+      "zh": "任务"
+    },
+    {
+      "word": "workflow",
+      "pos": "名詞",
+      "ja": "ワークフロー、業務の流れ",
+      "zh": "工作流程"
+    },
+    {
+      "word": "instruction",
+      "pos": "名詞",
+      "ja": "指示",
+      "zh": "指令、说明"
+    },
+    {
+      "word": "project",
+      "pos": "名詞",
+      "ja": "プロジェクト（Claude の Projects 機能も指す）",
+      "zh": "项目（也指 Claude 的 Projects 功能）"
+    },
+    {
+      "word": "whether",
+      "pos": "接続詞",
+      "ja": "〜かどうか",
+      "zh": "是否"
+    },
+    {
+      "word": "step",
+      "pos": "名詞",
+      "ja": "手順、段階",
+      "zh": "步骤"
+    },
+    {
+      "word": "request",
+      "pos": "名詞",
+      "ja": "依頼、要求",
+      "zh": "请求、要求"
+    },
+    {
+      "word": "conversation",
+      "pos": "名詞",
+      "ja": "会話（チャットのやり取り）",
+      "zh": "对话"
+    },
+    {
+      "word": "produce",
+      "pos": "動詞",
+      "ja": "生み出す、作成する",
+      "zh": "产生、生成"
+    },
+    {
+      "word": "result",
+      "pos": "名詞",
+      "ja": "結果",
+      "zh": "结果"
+    },
+    {
+      "word": "knowledge",
+      "pos": "名詞",
+      "ja": "知識（Projects のナレッジ）",
+      "zh": "知识（知识库）"
+    },
+    {
+      "word": "version",
+      "pos": "名詞",
+      "ja": "版、バージョン",
+      "zh": "版本"
+    },
+    {
+      "word": "review",
+      "pos": "動詞",
+      "ja": "見直す、レビューする",
+      "zh": "审阅、复核"
+    },
+    {
+      "word": "fix",
+      "pos": "動詞",
+      "ja": "直す、修正する",
+      "zh": "修正、修复"
+    },
+    {
+      "word": "error",
+      "pos": "名詞",
+      "ja": "誤り、エラー",
+      "zh": "错误"
+    },
+    {
+      "word": "process",
+      "pos": "名詞",
+      "ja": "工程、プロセス",
+      "zh": "流程、过程"
+    },
+    {
+      "word": "appropriate",
+      "pos": "形容詞",
+      "ja": "適切な",
+      "zh": "恰当的、合适的"
+    },
+    {
+      "word": "rule",
+      "pos": "名詞",
+      "ja": "規則、ルール",
+      "zh": "规则"
+    },
+    {
+      "word": "report",
+      "pos": "名詞",
+      "ja": "報告書、レポート",
+      "zh": "报告"
+    },
+    {
+      "word": "correct",
+      "pos": "形容詞",
+      "ja": "正しい",
+      "zh": "正确的"
+    },
+    {
+      "word": "format",
+      "pos": "名詞",
+      "ja": "形式、書式",
+      "zh": "格式"
+    },
+    {
+      "word": "source",
+      "pos": "名詞",
+      "ja": "出典、情報源",
+      "zh": "来源、出处"
+    },
+    {
+      "word": "summary",
+      "pos": "名詞",
+      "ja": "要約、まとめ",
+      "zh": "摘要、总结",
+      "forms": [
+        "summaries"
+      ]
+    },
+    {
+      "word": "apply",
+      "pos": "動詞",
+      "ja": "適用する、当てはめる",
+      "zh": "应用、适用"
+    },
+    {
+      "word": "current",
+      "pos": "形容詞",
+      "ja": "現在の、最新の",
+      "zh": "当前的、现行的"
+    },
+    {
+      "word": "likely",
+      "pos": "形容詞",
+      "ja": "ありそうな、〜しそうな",
+      "zh": "很可能的"
+    },
+    {
+      "word": "draft",
+      "pos": "名詞",
+      "ja": "下書き、草案",
+      "zh": "草稿"
+    },
+    {
+      "word": "capable",
+      "pos": "形容詞",
+      "ja": "能力の高い",
+      "zh": "能力强的"
+    },
+    {
+      "word": "decision",
+      "pos": "名詞",
+      "ja": "決定、判断",
+      "zh": "决定、判断"
+    },
+    {
+      "word": "require",
+      "pos": "動詞",
+      "ja": "必要とする、要求する",
+      "zh": "需要、要求"
+    },
+    {
+      "word": "state",
+      "pos": "動詞",
+      "ja": "述べる、明記する",
+      "zh": "陈述、说明"
+    },
+    {
+      "word": "contain",
+      "pos": "動詞",
+      "ja": "含む",
+      "zh": "包含"
+    },
+    {
+      "word": "remove",
+      "pos": "動詞",
+      "ja": "取り除く、削除する",
+      "zh": "删除、去掉"
+    },
+    {
+      "word": "reason",
+      "pos": "名詞",
+      "ja": "理由",
+      "zh": "理由"
+    },
+    {
+      "word": "avoid",
+      "pos": "動詞",
+      "ja": "避ける",
+      "zh": "避免"
+    },
+    {
+      "word": "input",
+      "pos": "名詞",
+      "ja": "入力（情報）",
+      "zh": "输入"
+    },
+    {
+      "word": "policy",
+      "pos": "名詞",
+      "ja": "方針、ポリシー",
+      "zh": "政策、方针",
+      "forms": [
+        "policies"
+      ]
+    },
+    {
+      "word": "colleague",
+      "pos": "名詞",
+      "ja": "同僚",
+      "zh": "同事"
+    },
+    {
+      "word": "single",
+      "pos": "形容詞",
+      "ja": "たった一つの、単一の",
+      "zh": "单一的"
+    },
+    {
+      "word": "against",
+      "pos": "前置詞",
+      "ja": "〜に照らして、〜に反して",
+      "zh": "对照；违反"
+    },
+    {
+      "word": "several",
+      "pos": "形容詞",
+      "ja": "いくつかの",
+      "zh": "几个"
+    },
+    {
+      "word": "accept",
+      "pos": "動詞",
+      "ja": "受け入れる",
+      "zh": "接受"
+    },
+    {
+      "word": "exist",
+      "pos": "動詞",
+      "ja": "存在する",
+      "zh": "存在"
+    },
+    {
+      "word": "cost",
+      "pos": "名詞",
+      "ja": "費用、コスト",
+      "zh": "成本、费用"
+    },
+    {
+      "word": "design",
+      "pos": "名詞",
+      "ja": "設計",
+      "zh": "设计"
+    },
+    {
+      "word": "detail",
+      "pos": "名詞",
+      "ja": "詳細",
+      "zh": "细节"
+    },
+    {
+      "word": "record",
+      "pos": "名詞",
+      "ja": "記録",
+      "zh": "记录"
+    },
+    {
+      "word": "useful",
+      "pos": "形容詞",
+      "ja": "役に立つ",
+      "zh": "有用的"
+    },
+    {
+      "word": "share",
+      "pos": "動詞",
+      "ja": "共有する",
+      "zh": "共享、分享"
+    },
+    {
+      "word": "confirm",
+      "pos": "動詞",
+      "ja": "確かめる、確認する",
+      "zh": "确认"
+    },
+    {
+      "word": "customer",
+      "pos": "名詞",
+      "ja": "顧客",
+      "zh": "客户"
+    },
+    {
+      "word": "specific",
+      "pos": "形容詞",
+      "ja": "具体的な、特定の",
+      "zh": "具体的、特定的"
+    },
+    {
+      "word": "risk",
+      "pos": "名詞",
+      "ja": "リスク、危険",
+      "zh": "风险"
+    },
+    {
+      "word": "quality",
+      "pos": "名詞",
+      "ja": "品質",
+      "zh": "质量",
+      "forms": [
+        "qualities"
+      ]
+    },
+    {
+      "word": "repeat",
+      "pos": "動詞",
+      "ja": "繰り返す",
+      "zh": "重复"
+    },
+    {
+      "word": "accurate",
+      "pos": "形容詞",
+      "ja": "正確な",
+      "zh": "准确的"
+    },
+    {
+      "word": "depend",
+      "pos": "動詞",
+      "ja": "〜次第である、頼る",
+      "zh": "取决于、依赖"
+    },
+    {
+      "word": "information",
+      "pos": "名詞",
+      "ja": "情報",
+      "zh": "信息"
+    },
+    {
+      "word": "suggest",
+      "pos": "動詞",
+      "ja": "提案する、示唆する",
+      "zh": "建议、暗示"
+    },
+    {
+      "word": "claim",
+      "pos": "名詞",
+      "ja": "主張",
+      "zh": "主张、说法"
+    },
+    {
+      "word": "describe",
+      "pos": "動詞",
+      "ja": "説明する、描写する",
+      "zh": "描述"
+    },
+    {
+      "word": "length",
+      "pos": "名詞",
+      "ja": "長さ",
+      "zh": "长度"
+    },
+    {
+      "word": "constraint",
+      "pos": "名詞",
+      "ja": "制約、条件",
+      "zh": "约束、限制"
+    },
+    {
+      "word": "content",
+      "pos": "名詞",
+      "ja": "内容",
+      "zh": "内容"
+    },
+    {
+      "word": "approach",
+      "pos": "名詞",
+      "ja": "やり方、方法",
+      "zh": "方法、做法"
+    },
+    {
+      "word": "requirement",
+      "pos": "名詞",
+      "ja": "要件、必要条件",
+      "zh": "要求、需求"
+    },
+    {
+      "word": "affect",
+      "pos": "動詞",
+      "ja": "影響する",
+      "zh": "影响"
+    },
+    {
+      "word": "upload",
+      "pos": "動詞",
+      "ja": "アップロードする",
+      "zh": "上传"
+    },
+    {
+      "word": "human",
+      "pos": "名詞",
+      "ja": "人間",
+      "zh": "人类、人工"
+    },
+    {
+      "word": "reference",
+      "pos": "名詞",
+      "ja": "参照、参考資料",
+      "zh": "参考、参考资料"
+    },
+    {
+      "word": "switch",
+      "pos": "動詞",
+      "ja": "切り替える",
+      "zh": "切换"
+    },
+    {
+      "word": "support",
+      "pos": "動詞",
+      "ja": "支える、対応する",
+      "zh": "支持"
+    },
+    {
+      "word": "separate",
+      "pos": "形容詞",
+      "ja": "別々の",
+      "zh": "单独的、分开的"
+    },
+    {
+      "word": "reduce",
+      "pos": "動詞",
+      "ja": "減らす",
+      "zh": "减少"
+    },
+    {
+      "word": "cover",
+      "pos": "動詞",
+      "ja": "扱う、含む、カバーする",
+      "zh": "涵盖"
+    },
+    {
+      "word": "section",
+      "pos": "名詞",
+      "ja": "節、セクション",
+      "zh": "章节、部分"
+    },
+    {
+      "word": "standard",
+      "pos": "名詞",
+      "ja": "基準、標準",
+      "zh": "标准"
+    },
+    {
+      "word": "rate",
+      "pos": "名詞",
+      "ja": "割合、率",
+      "zh": "比率"
+    },
+    {
+      "word": "verify",
+      "pos": "動詞",
+      "ja": "検証する、確かめる",
+      "zh": "验证、核实",
+      "forms": [
+        "verified",
+        "verifies",
+        "verifying"
+      ]
+    },
+    {
+      "word": "carry",
+      "pos": "動詞",
+      "ja": "運ぶ、引き継ぐ",
+      "zh": "携带、延续",
+      "forms": [
+        "carried",
+        "carries",
+        "carrying"
+      ]
+    },
+    {
+      "word": "reader",
+      "pos": "名詞",
+      "ja": "読み手",
+      "zh": "读者"
+    },
+    {
+      "word": "context",
+      "pos": "名詞",
+      "ja": "文脈、コンテキスト",
+      "zh": "上下文、语境"
+    },
+    {
+      "word": "immediately",
+      "pos": "副詞",
+      "ja": "すぐに",
+      "zh": "立即"
+    },
+    {
+      "word": "earlier",
+      "pos": "形容詞",
+      "ja": "以前の、先の",
+      "zh": "早先的"
+    },
+    {
+      "word": "rely",
+      "pos": "動詞",
+      "ja": "頼る",
+      "zh": "依赖",
+      "forms": [
+        "relied",
+        "relies",
+        "relying"
+      ]
+    },
+    {
+      "word": "internal",
+      "pos": "形容詞",
+      "ja": "社内の、内部の",
+      "zh": "内部的"
+    },
+    {
+      "word": "decide",
+      "pos": "動詞",
+      "ja": "決める",
+      "zh": "决定"
+    },
+    {
+      "word": "entirely",
+      "pos": "副詞",
+      "ja": "完全に",
+      "zh": "完全地"
+    },
+    {
+      "word": "rewrite",
+      "pos": "動詞",
+      "ja": "書き直す",
+      "zh": "改写",
+      "forms": [
+        "rewritten",
+        "rewrote",
+        "rewrites",
+        "rewriting"
+      ]
+    },
+    {
+      "word": "cause",
+      "pos": "動詞",
+      "ja": "引き起こす",
+      "zh": "导致"
+    },
+    {
+      "word": "analysis",
+      "pos": "名詞",
+      "ja": "分析",
+      "zh": "分析",
+      "forms": [
+        "analyses"
+      ]
+    },
+    {
+      "word": "figure",
+      "pos": "名詞",
+      "ja": "数字、数値",
+      "zh": "数字、数据"
+    },
+    {
+      "word": "include",
+      "pos": "動詞",
+      "ja": "含める、入れる",
+      "zh": "包括、纳入"
+    },
+    {
+      "word": "handle",
+      "pos": "動詞",
+      "ja": "扱う、処理する",
+      "zh": "处理"
+    },
+    {
+      "word": "material",
+      "pos": "名詞",
+      "ja": "資料、素材",
+      "zh": "材料、资料"
+    },
+    {
+      "word": "access",
+      "pos": "名詞",
+      "ja": "アクセス、利用権",
+      "zh": "访问、访问权限"
+    },
+    {
+      "word": "conclusion",
+      "pos": "名詞",
+      "ja": "結論",
+      "zh": "结论"
+    },
+    {
+      "word": "structure",
+      "pos": "名詞",
+      "ja": "構造、構成",
+      "zh": "结构"
+    },
+    {
+      "word": "explicitly",
+      "pos": "副詞",
+      "ja": "明示的に、はっきりと",
+      "zh": "明确地"
+    },
+    {
+      "word": "paragraph",
+      "pos": "名詞",
+      "ja": "段落",
+      "zh": "段落"
+    },
+    {
+      "word": "indicate",
+      "pos": "動詞",
+      "ja": "示す",
+      "zh": "表明、指出"
+    },
+    {
+      "word": "assume",
+      "pos": "動詞",
+      "ja": "仮定する、思い込む",
+      "zh": "假设、认为"
+    },
+    {
+      "word": "generate",
+      "pos": "動詞",
+      "ja": "生成する",
+      "zh": "生成"
+    },
+    {
+      "word": "configuration",
+      "pos": "名詞",
+      "ja": "設定、構成",
+      "zh": "配置"
+    },
+    {
+      "word": "consider",
+      "pos": "動詞",
+      "ja": "考慮する",
+      "zh": "考虑"
+    },
+    {
+      "word": "assumption",
+      "pos": "名詞",
+      "ja": "前提、仮定",
+      "zh": "假设、前提"
+    },
+    {
+      "word": "fail",
+      "pos": "動詞",
+      "ja": "失敗する",
+      "zh": "失败"
+    },
+    {
+      "word": "sentence",
+      "pos": "名詞",
+      "ja": "文",
+      "zh": "句子"
+    },
+    {
+      "word": "belong",
+      "pos": "動詞",
+      "ja": "属する",
+      "zh": "属于"
+    },
+    {
+      "word": "match",
+      "pos": "動詞",
+      "ja": "一致する",
+      "zh": "匹配、符合"
+    },
+    {
+      "word": "ignore",
+      "pos": "動詞",
+      "ja": "無視する",
+      "zh": "忽视"
+    },
+    {
+      "word": "original",
+      "pos": "形容詞",
+      "ja": "元の、最初の",
+      "zh": "原来的、原始的"
+    },
+    {
+      "word": "stakeholder",
+      "pos": "名詞",
+      "ja": "利害関係者、関係者",
+      "zh": "利益相关者"
+    },
+    {
+      "word": "connector",
+      "pos": "名詞",
+      "ja": "コネクタ（外部サービスとの接続）",
+      "zh": "连接器"
+    },
+    {
+      "word": "improve",
+      "pos": "動詞",
+      "ja": "改善する",
+      "zh": "改进"
+    },
+    {
+      "word": "language",
+      "pos": "名詞",
+      "ja": "言語、言葉づかい",
+      "zh": "语言、措辞"
+    },
+    {
+      "word": "differ",
+      "pos": "動詞",
+      "ja": "異なる",
+      "zh": "不同"
+    },
+    {
+      "word": "conflict",
+      "pos": "名詞",
+      "ja": "矛盾、対立",
+      "zh": "冲突、矛盾"
+    },
+    {
+      "word": "option",
+      "pos": "名詞",
+      "ja": "選択肢",
+      "zh": "选项"
+    },
+    {
+      "word": "explanation",
+      "pos": "名詞",
+      "ja": "説明",
+      "zh": "解释"
+    },
+    {
+      "word": "establish",
+      "pos": "動詞",
+      "ja": "確立する、確定する",
+      "zh": "确立、确定"
+    },
+    {
+      "word": "poor",
+      "pos": "形容詞",
+      "ja": "質の悪い",
+      "zh": "差的、质量低的"
+    },
+    {
+      "word": "supply",
+      "pos": "動詞",
+      "ja": "供給する、用意する",
+      "zh": "供应、提供",
+      "forms": [
+        "supplied",
+        "supplies",
+        "supplying"
+      ]
+    },
+    {
+      "word": "recommendation",
+      "pos": "名詞",
+      "ja": "推奨、提言",
+      "zh": "建议、推荐"
+    },
+    {
+      "word": "explain",
+      "pos": "動詞",
+      "ja": "説明する",
+      "zh": "解释"
+    },
+    {
+      "word": "appear",
+      "pos": "動詞",
+      "ja": "現れる、〜に見える",
+      "zh": "出现、看起来"
+    },
+    {
+      "word": "present",
+      "pos": "動詞",
+      "ja": "提示する",
+      "zh": "呈现、提出"
+    },
+    {
+      "word": "expect",
+      "pos": "動詞",
+      "ja": "期待する、予想する",
+      "zh": "期待、预期"
+    },
+    {
+      "word": "acceptable",
+      "pos": "形容詞",
+      "ja": "受け入れられる、許容できる",
+      "zh": "可接受的"
+    },
+    {
+      "word": "product",
+      "pos": "名詞",
+      "ja": "製品",
+      "zh": "产品"
+    },
+    {
+      "word": "similar",
+      "pos": "形容詞",
+      "ja": "似ている",
+      "zh": "相似的"
+    },
+    {
+      "word": "treat",
+      "pos": "動詞",
+      "ja": "扱う",
+      "zh": "对待、处理"
+    },
+    {
+      "word": "statement",
+      "pos": "名詞",
+      "ja": "記述、発言",
+      "zh": "陈述、声明"
+    },
+    {
+      "word": "practice",
+      "pos": "名詞",
+      "ja": "慣行、実践",
+      "zh": "做法、惯例"
+    },
+    {
+      "word": "effective",
+      "pos": "形容詞",
+      "ja": "効果的な",
+      "zh": "有效的"
+    },
+    {
+      "word": "comparison",
+      "pos": "名詞",
+      "ja": "比較",
+      "zh": "比较"
+    },
+    {
+      "word": "technical",
+      "pos": "形容詞",
+      "ja": "技術的な",
+      "zh": "技术性的"
+    },
+    {
+      "word": "reliable",
+      "pos": "形容詞",
+      "ja": "信頼できる",
+      "zh": "可靠的"
+    },
+    {
+      "word": "delete",
+      "pos": "動詞",
+      "ja": "削除する",
+      "zh": "删除"
+    },
+    {
+      "word": "outcome",
+      "pos": "名詞",
+      "ja": "成果、結果",
+      "zh": "结果、成效"
+    },
+    {
+      "word": "client",
+      "pos": "名詞",
+      "ja": "顧客、クライアント",
+      "zh": "客户"
+    },
+    {
+      "word": "compare",
+      "pos": "動詞",
+      "ja": "比較する",
+      "zh": "比较"
+    },
+    {
+      "word": "previous",
+      "pos": "形容詞",
+      "ja": "前の",
+      "zh": "之前的"
+    },
+    {
+      "word": "propose",
+      "pos": "動詞",
+      "ja": "提案する",
+      "zh": "提议"
+    },
+    {
+      "word": "notice",
+      "pos": "動詞",
+      "ja": "気づく",
+      "zh": "注意到"
+    },
+    {
+      "word": "measure",
+      "pos": "動詞",
+      "ja": "測定する",
+      "zh": "测量、衡量"
+    },
+    {
+      "word": "budget",
+      "pos": "名詞",
+      "ja": "予算",
+      "zh": "预算"
+    },
+    {
+      "word": "usable",
+      "pos": "形容詞",
+      "ja": "使える",
+      "zh": "可用的"
+    },
+    {
+      "word": "research",
+      "pos": "名詞",
+      "ja": "調査、研究",
+      "zh": "研究、调研"
+    },
+    {
+      "word": "judge",
+      "pos": "動詞",
+      "ja": "判断する",
+      "zh": "判断"
+    },
+    {
+      "word": "automatically",
+      "pos": "副詞",
+      "ja": "自動的に",
+      "zh": "自动地"
+    },
+    {
+      "word": "common",
+      "pos": "形容詞",
+      "ja": "よくある、共通の",
+      "zh": "常见的、共同的"
+    },
+    {
+      "word": "description",
+      "pos": "名詞",
+      "ja": "説明、記述",
+      "zh": "描述"
+    },
+    {
+      "word": "allow",
+      "pos": "動詞",
+      "ja": "許す、可能にする",
+      "zh": "允许"
+    },
+    {
+      "word": "artifact",
+      "pos": "名詞",
+      "ja": "アーティファクト（Claude の成果物表示機能）",
+      "zh": "Artifact（Claude 的独立成果物）"
+    },
+    {
+      "word": "situation",
+      "pos": "名詞",
+      "ja": "状況",
+      "zh": "情况"
+    },
+    {
+      "word": "available",
+      "pos": "形容詞",
+      "ja": "利用できる",
+      "zh": "可用的"
+    },
+    {
+      "word": "identify",
+      "pos": "動詞",
+      "ja": "特定する、見つける",
+      "zh": "识别、找出",
+      "forms": [
+        "identified",
+        "identifies",
+        "identifying"
+      ]
+    },
+    {
+      "word": "outside",
+      "pos": "前置詞",
+      "ja": "〜の外で",
+      "zh": "在…之外"
+    },
+    {
+      "word": "pilot",
+      "pos": "名詞",
+      "ja": "試験運用",
+      "zh": "试点"
+    },
+    {
+      "word": "paste",
+      "pos": "動詞",
+      "ja": "貼り付ける",
+      "zh": "粘贴"
+    },
+    {
+      "word": "action",
+      "pos": "名詞",
+      "ja": "行動、対応",
+      "zh": "行动"
+    },
+    {
+      "word": "manually",
+      "pos": "副詞",
+      "ja": "手作業で",
+      "zh": "手动地"
+    },
+    {
+      "word": "mention",
+      "pos": "動詞",
+      "ja": "言及する",
+      "zh": "提到"
+    },
+    {
+      "word": "perform",
+      "pos": "動詞",
+      "ja": "行う、実行する",
+      "zh": "执行"
+    },
+    {
+      "word": "estimate",
+      "pos": "名詞",
+      "ja": "見積もり",
+      "zh": "估计"
+    },
+    {
+      "word": "contract",
+      "pos": "名詞",
+      "ja": "契約（書）",
+      "zh": "合同"
+    },
+    {
+      "word": "finding",
+      "pos": "名詞",
+      "ja": "調査結果、発見",
+      "zh": "发现、调查结果"
+    },
+    {
+      "word": "genuinely",
+      "pos": "副詞",
+      "ja": "本当に",
+      "zh": "真正地"
+    },
+    {
+      "word": "difference",
+      "pos": "名詞",
+      "ja": "違い",
+      "zh": "差异"
+    },
+    {
+      "word": "provide",
+      "pos": "動詞",
+      "ja": "提供する",
+      "zh": "提供"
+    },
+    {
+      "word": "continue",
+      "pos": "動詞",
+      "ja": "続ける",
+      "zh": "继续"
+    },
+    {
+      "word": "reach",
+      "pos": "動詞",
+      "ja": "届く、達する",
+      "zh": "到达"
+    },
+    {
+      "word": "concern",
+      "pos": "名詞",
+      "ja": "懸念、心配",
+      "zh": "担忧、关注"
+    },
+    {
+      "word": "owner",
+      "pos": "名詞",
+      "ja": "所有者、担当責任者",
+      "zh": "负责人、所有者"
+    },
+    {
+      "word": "scope",
+      "pos": "名詞",
+      "ja": "範囲",
+      "zh": "范围"
+    },
+    {
+      "word": "feature",
+      "pos": "名詞",
+      "ja": "機能",
+      "zh": "功能"
+    },
+    {
+      "word": "replace",
+      "pos": "動詞",
+      "ja": "置き換える",
+      "zh": "替换"
+    },
+    {
+      "word": "build",
+      "pos": "動詞",
+      "ja": "構築する",
+      "zh": "构建",
+      "forms": [
+        "built",
+        "builds",
+        "building"
+      ]
+    },
+    {
+      "word": "consistently",
+      "pos": "副詞",
+      "ja": "一貫して",
+      "zh": "一贯地"
+    },
+    {
+      "word": "cite",
+      "pos": "動詞",
+      "ja": "引用する",
+      "zh": "引用"
+    },
+    {
+      "word": "improvement",
+      "pos": "名詞",
+      "ja": "改善",
+      "zh": "改进"
+    },
+    {
+      "word": "limit",
+      "pos": "名詞",
+      "ja": "上限、制限",
+      "zh": "限制、上限"
+    },
+    {
+      "word": "condition",
+      "pos": "名詞",
+      "ja": "条件",
+      "zh": "条件"
+    },
+    {
+      "word": "evidence",
+      "pos": "名詞",
+      "ja": "証拠、根拠",
+      "zh": "证据"
+    },
+    {
+      "word": "prefer",
+      "pos": "動詞",
+      "ja": "好む",
+      "zh": "偏好、更喜欢",
+      "forms": [
+        "preferred",
+        "preferring",
+        "prefers"
+      ]
+    },
+    {
+      "word": "verification",
+      "pos": "名詞",
+      "ja": "検証",
+      "zh": "验证"
+    },
+    {
+      "word": "prose",
+      "pos": "名詞",
+      "ja": "地の文（箇条書きでない普通の文章）",
+      "zh": "散文（普通段落文字）"
+    },
+    {
+      "word": "style",
+      "pos": "名詞",
+      "ja": "文体、スタイル",
+      "zh": "风格"
+    },
+    {
+      "word": "reasonable",
+      "pos": "形容詞",
+      "ja": "妥当な",
+      "zh": "合理的"
+    },
+    {
+      "word": "formal",
+      "pos": "形容詞",
+      "ja": "正式な、改まった",
+      "zh": "正式的"
+    },
+    {
+      "word": "vendor",
+      "pos": "名詞",
+      "ja": "ベンダー、供給業者",
+      "zh": "供应商"
+    },
+    {
+      "word": "spreadsheet",
+      "pos": "名詞",
+      "ja": "表計算シート",
+      "zh": "电子表格"
+    },
+    {
+      "word": "vary",
+      "pos": "動詞",
+      "ja": "変わる、異なる",
+      "zh": "变化、不同",
+      "forms": [
+        "varies",
+        "varied",
+        "varying"
+      ]
+    },
+    {
+      "word": "organization",
+      "pos": "名詞",
+      "ja": "組織",
+      "zh": "组织",
+      "forms": [
+        "organisation",
+        "organisations"
+      ]
+    },
+    {
+      "word": "contradict",
+      "pos": "動詞",
+      "ja": "矛盾する",
+      "zh": "矛盾、反驳"
+    },
+    {
+      "word": "determine",
+      "pos": "動詞",
+      "ja": "決定する、判断する",
+      "zh": "确定、判断"
+    },
+    {
+      "word": "feedback",
+      "pos": "名詞",
+      "ja": "フィードバック",
+      "zh": "反馈"
+    },
+    {
+      "word": "audience",
+      "pos": "名詞",
+      "ja": "読者・聞き手（対象者）",
+      "zh": "受众"
+    },
+    {
+      "word": "criteria",
+      "pos": "名詞",
+      "ja": "基準（criterion の複数形）",
+      "zh": "标准",
+      "forms": [
+        "criterion"
+      ]
+    },
+    {
+      "word": "mistake",
+      "pos": "名詞",
+      "ja": "間違い",
+      "zh": "错误"
+    },
+    {
+      "word": "template",
+      "pos": "名詞",
+      "ja": "テンプレート、ひな形",
+      "zh": "模板"
+    },
+    {
+      "word": "consistent",
+      "pos": "形容詞",
+      "ja": "一貫した",
+      "zh": "一致的"
+    },
+    {
+      "word": "thorough",
+      "pos": "形容詞",
+      "ja": "徹底的な",
+      "zh": "彻底的"
+    },
+    {
+      "word": "specify",
+      "pos": "動詞",
+      "ja": "明示する、指定する",
+      "zh": "指定、明确说明",
+      "forms": [
+        "specified",
+        "specifies",
+        "specifying"
+      ]
+    },
+    {
+      "word": "background",
+      "pos": "名詞",
+      "ja": "背景",
+      "zh": "背景"
+    },
+    {
+      "word": "control",
+      "pos": "名詞",
+      "ja": "管理、統制",
+      "zh": "控制",
+      "forms": [
+        "controlled",
+        "controlling"
+      ]
+    },
+    {
+      "word": "summarize",
+      "pos": "動詞",
+      "ja": "要約する",
+      "zh": "总结、概括",
+      "forms": [
+        "summarise",
+        "summarised",
+        "summarising"
+      ]
+    },
+    {
+      "word": "responsible",
+      "pos": "形容詞",
+      "ja": "責任がある",
+      "zh": "负责的"
+    },
+    {
+      "word": "relevant",
+      "pos": "形容詞",
+      "ja": "関連のある",
+      "zh": "相关的"
+    },
+    {
+      "word": "judgment",
+      "pos": "名詞",
+      "ja": "判断",
+      "zh": "判断",
+      "forms": [
+        "judgement",
+        "judgements"
+      ]
+    },
+    {
+      "word": "failure",
+      "pos": "名詞",
+      "ja": "失敗",
+      "zh": "失败"
+    },
+    {
+      "word": "genuine",
+      "pos": "形容詞",
+      "ja": "本物の",
+      "zh": "真正的"
+    },
+    {
+      "word": "factor",
+      "pos": "名詞",
+      "ja": "要因",
+      "zh": "因素"
+    },
+    {
+      "word": "remain",
+      "pos": "動詞",
+      "ja": "残る",
+      "zh": "剩余、保持"
+    },
+    {
+      "word": "manual",
+      "pos": "形容詞",
+      "ja": "手作業の",
+      "zh": "手动的"
+    },
+    {
+      "word": "refuse",
+      "pos": "動詞",
+      "ja": "拒否する",
+      "zh": "拒绝"
+    },
+    {
+      "word": "occur",
+      "pos": "動詞",
+      "ja": "起こる",
+      "zh": "发生",
+      "forms": [
+        "occurred",
+        "occurring",
+        "occurs"
+      ]
+    },
+    {
+      "word": "industry",
+      "pos": "名詞",
+      "ja": "業界",
+      "zh": "行业",
+      "forms": [
+        "industries"
+      ]
+    },
+    {
+      "word": "confident",
+      "pos": "形容詞",
+      "ja": "確信している、自信のある",
+      "zh": "有把握的"
+    },
+    {
+      "word": "complex",
+      "pos": "形容詞",
+      "ja": "複雑な",
+      "zh": "复杂的"
+    },
+    {
+      "word": "effort",
+      "pos": "名詞",
+      "ja": "労力",
+      "zh": "努力、工夫"
+    },
+    {
+      "word": "approval",
+      "pos": "名詞",
+      "ja": "承認",
+      "zh": "批准"
+    },
+    {
+      "word": "directly",
+      "pos": "副詞",
+      "ja": "直接",
+      "zh": "直接地"
+    },
+    {
+      "word": "term",
+      "pos": "名詞",
+      "ja": "用語；条件",
+      "zh": "术语；条款"
+    },
+    {
+      "word": "response",
+      "pos": "名詞",
+      "ja": "応答、回答",
+      "zh": "回答、回应"
+    },
+    {
+      "word": "individual",
+      "pos": "形容詞",
+      "ja": "個々の",
+      "zh": "个别的"
+    },
+    {
+      "word": "reject",
+      "pos": "動詞",
+      "ja": "却下する",
+      "zh": "拒绝"
+    },
+    {
+      "word": "reviewer",
+      "pos": "名詞",
+      "ja": "レビュー担当者",
+      "zh": "审核人"
+    },
+    {
+      "word": "rework",
+      "pos": "名詞",
+      "ja": "手戻り、やり直し",
+      "zh": "返工"
+    },
+    {
+      "word": "definition",
+      "pos": "名詞",
+      "ja": "定義",
+      "zh": "定义"
+    },
+    {
+      "word": "incomplete",
+      "pos": "形容詞",
+      "ja": "不完全な",
+      "zh": "不完整的"
+    },
+    {
+      "word": "preference",
+      "pos": "名詞",
+      "ja": "好み、希望",
+      "zh": "偏好"
+    },
+    {
+      "word": "attempt",
+      "pos": "名詞",
+      "ja": "試み",
+      "zh": "尝试"
+    },
+    {
+      "word": "decompose",
+      "pos": "動詞",
+      "ja": "分解する",
+      "zh": "分解"
+    },
+    {
+      "word": "interpret",
+      "pos": "動詞",
+      "ja": "解釈する",
+      "zh": "解读"
+    },
+    {
+      "word": "bullet",
+      "pos": "名詞",
+      "ja": "箇条書きの点（・）",
+      "zh": "项目符号"
+    },
+    {
+      "word": "edit",
+      "pos": "動詞",
+      "ja": "編集する",
+      "zh": "编辑"
+    },
+    {
+      "word": "accuracy",
+      "pos": "名詞",
+      "ja": "正確さ",
+      "zh": "准确性"
+    },
+    {
+      "word": "necessary",
+      "pos": "形容詞",
+      "ja": "必要な",
+      "zh": "必要的"
+    },
+    {
+      "word": "split",
+      "pos": "動詞",
+      "ja": "分割する",
+      "zh": "拆分"
+    },
+    {
+      "word": "deadline",
+      "pos": "名詞",
+      "ja": "締め切り",
+      "zh": "截止日期"
+    },
+    {
+      "word": "official",
+      "pos": "形容詞",
+      "ja": "公式の",
+      "zh": "官方的"
+    },
+    {
+      "word": "trust",
+      "pos": "動詞",
+      "ja": "信頼する",
+      "zh": "信任"
+    },
+    {
+      "word": "consequence",
+      "pos": "名詞",
+      "ja": "結果、影響",
+      "zh": "后果"
+    },
+    {
+      "word": "underlying",
+      "pos": "形容詞",
+      "ja": "根本的な、元になる",
+      "zh": "底层的、根本的"
+    },
+    {
+      "word": "factual",
+      "pos": "形容詞",
+      "ja": "事実に関する",
+      "zh": "事实性的"
+    },
+    {
+      "word": "complaint",
+      "pos": "名詞",
+      "ja": "苦情",
+      "zh": "投诉"
+    },
+    {
+      "word": "issue",
+      "pos": "名詞",
+      "ja": "問題、課題",
+      "zh": "问题"
+    },
+    {
+      "word": "create",
+      "pos": "動詞",
+      "ja": "作る",
+      "zh": "创建"
+    },
+    {
+      "word": "volume",
+      "pos": "名詞",
+      "ja": "量",
+      "zh": "量、数量"
+    },
+    {
+      "word": "redesign",
+      "pos": "動詞",
+      "ja": "再設計する",
+      "zh": "重新设计"
+    },
+    {
+      "word": "adopt",
+      "pos": "動詞",
+      "ja": "採用する",
+      "zh": "采用"
+    },
+    {
+      "word": "outdated",
+      "pos": "形容詞",
+      "ja": "時代遅れの、古くなった",
+      "zh": "过时的"
+    },
+    {
+      "word": "sensitive",
+      "pos": "形容詞",
+      "ja": "機密性の高い、取り扱い注意の",
+      "zh": "敏感的"
+    },
+    {
+      "word": "publish",
+      "pos": "動詞",
+      "ja": "公開する",
+      "zh": "发布"
+    },
+    {
+      "word": "optimize",
+      "pos": "動詞",
+      "ja": "最適化する",
+      "zh": "优化",
+      "forms": [
+        "optimise",
+        "optimised",
+        "optimising"
+      ]
+    },
+    {
+      "word": "optimization",
+      "pos": "名詞",
+      "ja": "最適化",
+      "zh": "优化",
+      "forms": [
+        "optimisation"
+      ]
+    },
+    {
+      "word": "brainstorm",
+      "pos": "動詞",
+      "ja": "ブレインストーミングする",
+      "zh": "头脑风暴"
+    },
+    {
+      "word": "compliance",
+      "pos": "名詞",
+      "ja": "法令順守、コンプライアンス",
+      "zh": "合规"
+    },
+    {
+      "word": "disclaimer",
+      "pos": "名詞",
+      "ja": "免責事項、注意書き",
+      "zh": "免责声明"
+    },
+    {
+      "word": "accountable",
+      "pos": "形容詞",
+      "ja": "説明責任がある",
+      "zh": "负有责任的"
+    },
+    {
+      "word": "terminology",
+      "pos": "名詞",
+      "ja": "専門用語",
+      "zh": "术语"
+    },
+    {
+      "word": "downstream",
+      "pos": "形容詞",
+      "ja": "後工程の、下流の",
+      "zh": "下游的、后续环节的"
+    },
+    {
+      "word": "tone",
+      "pos": "名詞",
+      "ja": "口調、トーン",
+      "zh": "语气"
+    },
+    {
+      "word": "citation",
+      "pos": "名詞",
+      "ja": "引用、出典表示",
+      "zh": "引用、出处标注"
+    },
+    {
+      "word": "personal",
+      "pos": "形容詞",
+      "ja": "個人の",
+      "zh": "个人的"
+    },
+    {
+      "word": "employee",
+      "pos": "名詞",
+      "ja": "従業員",
+      "zh": "员工"
+    },
+    {
+      "word": "manager",
+      "pos": "名詞",
+      "ja": "管理職、マネージャー",
+      "zh": "经理"
+    },
+    {
+      "word": "sample",
+      "pos": "名詞",
+      "ja": "見本、サンプル",
+      "zh": "样本"
+    },
+    {
+      "word": "dataset",
+      "pos": "名詞",
+      "ja": "データセット",
+      "zh": "数据集"
+    },
+    {
+      "word": "checklist",
+      "pos": "名詞",
+      "ja": "チェックリスト",
+      "zh": "检查清单"
+    },
+    {
+      "word": "escalate",
+      "pos": "動詞",
+      "ja": "上の担当者に上げる、エスカレーションする",
+      "zh": "上报、升级处理"
+    },
+    {
+      "word": "bias",
+      "pos": "名詞",
+      "ja": "偏り、バイアス",
+      "zh": "偏见、偏差",
+      "forms": [
+        "biases",
+        "biased"
+      ]
+    },
+    {
+      "word": "efficient",
+      "pos": "形容詞",
+      "ja": "効率的な",
+      "zh": "高效的"
+    },
+    {
+      "word": "stricter",
+      "pos": "形容詞",
+      "ja": "より厳しい",
+      "zh": "更严格的"
+    },
+    {
+      "word": "deliberately",
+      "pos": "副詞",
+      "ja": "わざと、意図的に",
+      "zh": "故意地"
+    },
+    {
+      "word": "independently",
+      "pos": "副詞",
+      "ja": "独立して、自分で",
+      "zh": "独立地"
+    },
+    {
+      "word": "announcement",
+      "pos": "名詞",
+      "ja": "告知、発表",
+      "zh": "公告"
+    },
+    {
+      "word": "concrete",
+      "pos": "形容詞",
+      "ja": "具体的な",
+      "zh": "具体的"
+    },
+    {
+      "word": "structured",
+      "pos": "形容詞",
+      "ja": "構造化された",
+      "zh": "结构化的"
+    },
+    {
+      "word": "adapt",
+      "pos": "動詞",
+      "ja": "適応させる、合わせる",
+      "zh": "调整、使适应"
+    },
+    {
+      "word": "valid",
+      "pos": "形容詞",
+      "ja": "有効な、妥当な",
+      "zh": "有效的"
+    },
+    {
+      "word": "stable",
+      "pos": "形容詞",
+      "ja": "安定した",
+      "zh": "稳定的"
+    },
+    {
+      "word": "inappropriate",
+      "pos": "形容詞",
+      "ja": "不適切な",
+      "zh": "不恰当的"
+    }
+  ]
+}

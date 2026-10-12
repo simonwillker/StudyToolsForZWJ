@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { newStudySession } from "./studyLog";
+import CcaofVocab from "./CcaofVocab";
+import { getVocabSummary } from "./ccaofVocabProgress";
 import { analyseWeakness, pickFocusItems, MIN_ATTEMPTS } from "./ccaofWeakness";
 import {
   downloadBackup,
@@ -464,7 +466,7 @@ function ExamReview({ result, questions, showZh, onBack }) {
    ============================================================ */
 
 export default function CcaofApp({ onExitApp }) {
-  const [screen, setScreen] = useState("domainSelect"); // domainSelect | unitSelect | quiz | progress
+  const [screen, setScreen] = useState("domainSelect"); // domainSelect | unitSelect | quiz | progress | vocab
   const [domainId, setDomainId] = useState(null);
   const [items, setItems] = useState(null);
   const [loadError, setLoadError] = useState(false);
@@ -671,7 +673,8 @@ export default function CcaofApp({ onExitApp }) {
         `・解いた問題　${d.attempted}問（正解 ${d.correct}問）\n` +
         `・学習した日数　${d.days}日\n` +
         `・復習リスト　${d.reviewCount}問\n` +
-        `・模擬試験　${d.exams}回\n\n` +
+        `・模擬試験　${d.exams}回\n` +
+        `・頻出単語　学習 ${d.vocabWords}語（復習待ち ${d.vocabReview}語）\n\n` +
         `今この端末にある記録は、これで置き換えられます。よろしいですか？`
     );
     if (!okToApply) return;
@@ -684,6 +687,8 @@ export default function CcaofApp({ onExitApp }) {
   const pastResults = screen === "domainSelect" ? loadResults() : [];
   /* 弱点の判定も localStorage から毎回読む（演習直後に古い値が残らないように） */
   const weakness = screen === "domainSelect" || screen === "progress" ? analyseWeakness() : null;
+  /* 頻出単語の記録も同じ理由で毎回読む */
+  const vocabSummary = screen === "domainSelect" || screen === "progress" ? getVocabSummary() : null;
 
   return (
     <div className="ccaof-app">
@@ -899,6 +904,17 @@ export default function CcaofApp({ onExitApp }) {
             )}
           </div>
 
+          <div className="ccaof-sub-head">頻出単語</div>
+          <div className="ccaof-focus-card" style={{ borderColor: "#7A5C2E" }}>
+            <div className="ccaof-focus-title" style={{ color: "#7A5C2E" }}>📘 問題によく出る単語（勉強・復習・テスト）</div>
+            <div className="ccaof-focus-desc">
+              全問題の設問・選択肢・解説によく出る単語を、出てくる問題が多い順に20語ずつ。
+              単語カードで覚えて、4択テストで確かめ、まちがえた単語を復習します。
+              {vocabSummary.touched > 0 && `（習熟 ${vocabSummary.mastered}語・復習待ち ${vocabSummary.reviewCount}語）`}
+            </div>
+            <button className="ccaof-btn" style={{ "--c": "#7A5C2E" }} onClick={() => setScreen("vocab")}>頻出単語を開く</button>
+          </div>
+
           <div className="ccaof-sub-head">模擬試験</div>
           <div className="ccaof-exam-card">
             <div className="ccaof-exam-card-title">本番と同じ {EXAM_FORMAT.items}問 / {EXAM_FORMAT.minutes}分</div>
@@ -1062,6 +1078,14 @@ export default function CcaofApp({ onExitApp }) {
         />
       )}
 
+      {screen === "vocab" && (
+        <CcaofVocab
+          showZh={showZh}
+          onToggleZh={toggleZh}
+          onExit={() => { setStatsNonce((n) => n + 1); setScreen("domainSelect"); }}
+        />
+      )}
+
       {screen === "progress" && (
         <div className="ccaof-inner">
           <button className="ccaof-back-link" style={{ marginBottom: 12 }} onClick={() => setScreen(domainId ? "unitSelect" : "domainSelect")}>← もどる</button>
@@ -1090,6 +1114,14 @@ export default function CcaofApp({ onExitApp }) {
               );
             })}
           </div>
+          <div className="ccaof-sub-head">頻出単語</div>
+          <div className="ccaof-exam-facts" style={{ marginTop: 0 }}>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{vocabSummary.touched}</div><div className="ccaof-fact-label">学習した単語</div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{vocabSummary.mastered}</div><div className="ccaof-fact-label">習熟（2回連続正解）</div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{vocabSummary.reviewCount}</div><div className="ccaof-fact-label">復習待ち</div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{vocabSummary.attempted ? `${Math.round((vocabSummary.correct / vocabSummary.attempted) * 100)}%` : "—"}</div><div className="ccaof-fact-label">単語テスト正答率</div></div>
+          </div>
+
           <div className="ccaof-official-box">
             <div className="ccaof-official-desc">
               学習記録はこの端末のブラウザにだけ保存されます。別の端末に替えたときや、
@@ -1119,7 +1151,7 @@ export default function CcaofApp({ onExitApp }) {
               本番の score report もドメイン別の正答率を出します（合否はスケールドスコアの合計で決まり、
               ドメイン別は参考値）。ここで弱いドメインは、配点比率の高いものから先に埋めるのが効率的です。
             </div>
-            <button className="ccaof-btn-ghost" onClick={() => { if (window.confirm("CCAO-F の学習記録をすべて消します。よろしいですか？")) { resetProgress(); setStatsNonce((n) => n + 1); } }}>
+            <button className="ccaof-btn-ghost" onClick={() => { if (window.confirm("CCAO-F の学習記録（問題演習と頻出単語）をすべて消します。よろしいですか？")) { resetProgress(); setStatsNonce((n) => n + 1); } }}>
               学習記録をリセット
             </button>
           </div>
