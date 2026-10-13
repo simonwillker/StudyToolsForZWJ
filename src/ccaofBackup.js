@@ -22,6 +22,7 @@ export const BACKUP_KEYS = [
   "ccaofExamResultsV1", // 模擬試験の結果（最大20件）
   "ccaofVocabV1", // 頻出単語の学習記録と復習リスト
   "ccaofMistakesV1", // 錯題本（まちがえた問題の間隔復習。v1.31.0〜）
+  "ccaofListenV1", // 音声モードで聞いた問題・讲义・単語（v1.32.0〜）
 ];
 
 function readKey(key) {
@@ -72,7 +73,14 @@ export function describeBackup(backup) {
   /* v1.30.0 までのバックアップには錯題本が無い。復元後に復習リストから作り直されるので
      その件数を見せる（null のときは画面で「復習リストから作成」と出す） */
   const mistakeCount = mistakes && mistakes.items ? Object.keys(mistakes.items).length : null;
-  return { attempted, correct, days, reviewCount, exams, vocabWords, vocabReview, mistakeCount, exportedAt: backup?.exportedAt || null };
+  const listen = d.ccaofListenV1 || {};
+  const listenedItems = Object.keys(listen.items || {}).length;
+  const listenedLessons = Object.keys(listen.lessons || {}).length;
+  return {
+    attempted, correct, days, reviewCount, exams, vocabWords, vocabReview, mistakeCount,
+    listenedItems, listenedLessons,
+    exportedAt: backup?.exportedAt || null,
+  };
 }
 
 /** 読み込もうとしているファイルが本当に CCAO-F のバックアップか確かめる。 */
