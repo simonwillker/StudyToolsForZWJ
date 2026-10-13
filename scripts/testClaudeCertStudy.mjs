@@ -1,5 +1,6 @@
 /* ============================================================
-   CCAO-F の考点・錯題本・合格予測・バックアップのテスト（v1.31.0〜）
+   Claude 認定（CCAO-F / CCAR-F）の考点・錯題本・合格予測・バックアップのテスト
+   （v1.31.0〜。v1.32.0 で資格ごとのキー分け・旧アプリ id の移行・シナリオ模試を追加）
 
    - 錯題本：まちがえる → 1日後 → 3日後 →（まちがえたら 1日後に戻る）
      → 2回続けて正解で外れる。期限前の正解は数えない
@@ -22,7 +23,7 @@ register(
   "data:text/javascript," +
     encodeURIComponent(`
       export async function resolve(spec, ctx, next) {
-        if (spec.startsWith("./") && !/\\.[a-z]+$/.test(spec)) {
+        if ((spec.startsWith("./") || spec.startsWith("../")) && !/\\.[a-z]+$/.test(spec)) {
           try { return await next(spec + ".js", ctx); } catch (e) { /* fallthrough */ }
         }
         return next(spec, ctx);
@@ -44,16 +45,19 @@ function makeStorage() {
 globalThis.window = { localStorage: makeStorage(), sessionStorage: makeStorage() };
 
 const here = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(here, "..", "src", "data", "ccaof");
+const certRoot = join(here, "..", "src", "data", "claudeCert");
+const dataDir = join(certRoot, "ccaof");
 const meta = JSON.parse(readFileSync(join(dataDir, "meta.json"), "utf8"));
 const lessons = JSON.parse(readFileSync(join(dataDir, "lessons.json"), "utf8")).lessons;
 const allItems = readdirSync(dataDir)
   .filter((f) => /^d\d+-.*\.json$/.test(f))
   .flatMap((f) => JSON.parse(readFileSync(join(dataDir, f), "utf8")).items);
 
-const core = await import("../src/ccaofStudyCore.js");
-const mistakes = await import("../src/ccaofMistakes.js");
-const backup = await import("../src/ccaofBackup.js");
+const core = await import("../src/claudeCert/studyCore.js");
+const mistakes = await import("../src/claudeCert/mistakes.js");
+const backup = await import("../src/claudeCert/backup.js");
+const certState = await import("../src/claudeCert/certState.js");
+const certs = await import("../src/claudeCert/certs.js");
 const learner = await import("../src/learner.js");
 
 let passed = 0;
@@ -68,7 +72,7 @@ function resetAll() {
   window.sessionStorage.clear();
 }
 
-console.log("\nCCAO-F 考点・錯題本・合格予測のテスト\n");
+console.log("\nClaude 認定 考点・錯題本・合格予測・資格切り替えのテスト\n");
 
 /* ---------- 錯題本の間隔 ---------- */
 
@@ -159,7 +163,7 @@ test("バックアップに錯題本が入り、そのまま戻せる", () => {
   ls.setItem("ccaofProgressV1", JSON.stringify({ domains: { D1: { attempted: 1, correct: 0, items: { "d1-001": { seen: 1, correct: 0 } } } }, daily: {} }));
   mistakes.recordMistakeAnswer({ id: "d1-001", domain: "D1" }, false, "2026-10-13");
   const b = backup.buildBackup();
-  assert.ok(backup.BACKUP_KEYS.includes("ccaofMistakesV1"));
+  assert.ok(backup.backupKeys().includes("ccaofMistakesV1"));
   assert.ok(b.data.ccaofMistakesV1.items["d1-001"]);
   assert.equal(backup.describeBackup(b).mistakeCount, 1);
   const text = JSON.stringify(b);
@@ -338,6 +342,116 @@ test("次にやること：復習 → 弱い考点 → 模試 の順で最大 3 
   assert.match(lines[0], /4 問/);
   assert.match(lines[1], /D2-3「事实核查」/);
   assert.match(lines[2], /模擬試験/);
+});
+
+/* ---------- v1.32.0：資格ごとのキー・旧アプリ id の移行・CCAR-F ---------- */
+
+const arDir = join(certRoot, "ccarf");
+const arMeta = JSON.parse(readFileSync(join(arDir, "meta.json"), "utf8"));
+const arLessons = JSON.parse(readFileSync(join(arDir, "lessons.json"), "utf8")).lessons;
+const arItems = readdirSync(arDir)
+  .filter((f) => /^d\d+-.*\.json$/.test(f))
+  .flatMap((f) => JSON.parse(readFileSync(join(arDir, f), "utf8")).items);
+
+test("既定の資格は CCAO-F で、キーは v1.31.0 までと 1 文字も変わらない", () => {
+  certState.setActiveCertState("ccaof");
+  assert.equal(certState.certKey("ProgressV1"), "ccaofProgressV1");
+  assert.deepEqual(backup.backupKeys(), ["ccaofProgressV1", "ccaofReviewV1", "ccaofExamResultsV1", "ccaofVocabV1", "ccaofMistakesV1", "ccaofListenV1"]);
+  assert.equal(mistakes.mistakesKey(), "ccaofMistakesV1");
+});
+
+test("v1.31.0 の CCAO-F の記録（錯題本・復習リスト）が新しいコードでそのまま読める", () => {
+  resetAll();
+  certState.setActiveCertState("ccaof");
+  ls.setItem("ccaofMistakesV1", JSON.stringify({ version: 1, migratedReview: true, items: { "d2-007": { domain: "D2", due: "2026-10-01", streak: 0, corrects: 0, wrongCount: 2 } } }));
+  ls.setItem("ccaofReviewV1", JSON.stringify({ D2: ["d2-007"] }));
+  const sum = mistakes.getMistakeSummary("2026-10-13");
+  assert.equal(sum.total, 1);
+  assert.deepEqual(mistakes.getDueMistakeIds("2026-10-13"), ["d2-007"]);
+});
+
+test("CCAR-F の記録は ccarf* の別キーに入り、CCAO-F の記録と混ざらない", () => {
+  resetAll();
+  certState.setActiveCertState("ccaof");
+  mistakes.recordMistakeAnswer({ id: "d1-001", domain: "D1" }, false, "2026-10-13");
+  certState.setActiveCertState("ccarf");
+  assert.equal(mistakes.getMistakeSummary("2026-10-13").total, 0);
+  mistakes.recordMistakeAnswer({ id: "ar1-001", domain: "D1" }, false, "2026-10-13");
+  assert.ok(JSON.parse(ls.getItem("ccarfMistakesV1")).items["ar1-001"]);
+  assert.equal(JSON.parse(ls.getItem("ccaofMistakesV1")).items["ar1-001"], undefined);
+  learner.setLearner("ZY");
+  mistakes.recordMistakeAnswer({ id: "ar2-001", domain: "D2" }, false, "2026-10-13");
+  assert.ok(JSON.parse(ls.getItem("ccarfMistakesV1::ZY")).items["ar2-001"]);
+  learner.clearLearner();
+  certState.setActiveCertState("ccaof");
+  assert.deepEqual(Object.keys(mistakes.loadMistakes("2026-10-13").items), ["d1-001"]);
+});
+
+test("バックアップは資格ごと：CCAR-F のファイルを CCAO-F に読ませると理由つきで断る", () => {
+  resetAll();
+  certState.setActiveCertState("ccarf");
+  ls.setItem("ccarfProgressV1", JSON.stringify({ domains: { D1: { attempted: 3, correct: 2, items: {} } }, daily: {} }));
+  const b = backup.buildBackup();
+  assert.equal(b.format, "ccarf-study-backup");
+  assert.deepEqual(Object.keys(b.data), ["ccarfProgressV1"]);
+  assert.equal(backup.describeBackup(b).attempted, 3);
+  assert.match(backup.backupFileName(new Date(2026, 9, 13)), /^ccarf-backup-20261013\.json$/);
+  certState.setActiveCertState("ccaof");
+  const r = backup.parseBackup(JSON.stringify(b));
+  assert.equal(r.ok, false);
+  assert.match(r.error, /CCAR-F/);
+  // 旧 CCAO-F のバックアップは従来どおり CCAO-F で読める
+  const old = { format: "ccaof-study-backup", version: 1, data: { ccaofProgressV1: { domains: {}, daily: {} } } };
+  assert.equal(backup.parseBackup(JSON.stringify(old)).ok, true);
+});
+
+test("トップの旧アプリ id \"ccaof\" は \"claudeCert\" に直し、CCAO-F を開く", () => {
+  assert.deepEqual(certs.migrateClaudeCertApp("ccaof"), { app: "claudeCert", cert: "ccaof" });
+  assert.deepEqual(certs.migrateClaudeCertApp("eiken"), { app: "eiken", cert: null });
+  assert.deepEqual(certs.migrateClaudeCertApp(null), { app: null, cert: null });
+});
+
+test("CCAR-F：30 考点・各ドメイン 75 問以上・全問がどれかの考点とシナリオ（あれば）に入る", () => {
+  const objs = core.buildObjectives(arMeta);
+  assert.equal(objs.length, 30);
+  const idx = core.buildObjectiveIndex(arMeta, arLessons);
+  assert.deepEqual(arItems.filter((i) => !idx.get(i.objective)).map((i) => i.id), []);
+  arMeta.domains.forEach((d) => assert.ok(arItems.filter((i) => i.domain === d.id).length >= 75, d.id));
+  const sc = new Set(arMeta.scenarios.map((x) => x.id));
+  assert.deepEqual(arItems.filter((i) => i.scenario && !sc.has(i.scenario)).map((i) => i.id), []);
+  assert.equal(arLessons.length, 30);
+});
+
+test("CCAR-F 模試：6 シナリオから 4 つ、各 15 問、シナリオごとにまとまり、配点に近い", () => {
+  for (let run = 0; run < 30; run += 1) {
+    const shuffle = (a) => {
+      const x = [...a];
+      for (let i = x.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [x[i], x[j]] = [x[j], x[i]];
+      }
+      return x;
+    };
+    const q = core.pickScenarioExam(arItems, { scenarios: arMeta.scenarios, domains: arMeta.domains, scenariosPerExam: 4, total: 60, shuffle });
+    assert.equal(q.length, 60);
+    assert.equal(new Set(q.map((i) => i.id)).size, 60);
+    const order = [];
+    q.forEach((i) => { if (order[order.length - 1] !== i.scenario) order.push(i.scenario); });
+    assert.equal(order.length, 4, "シナリオごとに連続して並ぶ");
+    order.forEach((sid) => assert.equal(q.filter((i) => i.scenario === sid).length, 15));
+    // どの抽選でもドメインの偏りが極端にならない（配点 27/18/20/20/15% → 60問で ±9問以内）
+    const target = core.blueprintCounts(arMeta.domains, 60);
+    arMeta.domains.forEach((d) => {
+      const n = q.filter((i) => i.domain === d.id).length;
+      assert.ok(Math.abs(n - target[d.id]) <= 9, `${d.id} ${n} vs ${target[d.id]}`);
+    });
+  }
+});
+
+test("blueprintCounts は合計を必ず total に合わせる", () => {
+  const c = core.blueprintCounts(arMeta.domains, 60);
+  assert.equal(Object.values(c).reduce((a, b) => a + b, 0), 60);
+  assert.deepEqual(c, { D1: 16, D2: 11, D3: 12, D4: 12, D5: 9 });
 });
 
 console.log(`\n✅ ${passed} 件すべて成功\n`);

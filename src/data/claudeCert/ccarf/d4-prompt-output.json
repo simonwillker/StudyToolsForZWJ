@@ -1,0 +1,3262 @@
+{
+  "domain": "D4",
+  "items": [
+    {
+      "id": "ar4-001",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 1,
+      "stem": "The CI reviewer's prompt says \"check that comments are accurate.\" It flags many harmless comments. Which rewrite is most likely to improve precision?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Flag a comment only when the behavior it claims contradicts what the code actually does.\"",
+          "correct": true,
+          "explain": "正解。何を報告するかの基準が具体的で判定できる。",
+          "textZh": "「只有当注释所声称的行为与代码实际行为相矛盾时，才标出该注释。」"
+        },
+        {
+          "text": "\"Be conservative when checking comments.\" That tells the reviewer to skip doubtful cases.",
+          "correct": false,
+          "explain": "不適。「保守的に」は基準になっていない。",
+          "textZh": "「检查注释时要保守一些。」这能让审查器跳过有疑问的情况。"
+        },
+        {
+          "text": "\"Only report high-confidence findings.\"",
+          "correct": false,
+          "explain": "不適。確信度に頼る絞り込みは精度を上げにくい。",
+          "textZh": "「只报告高置信度的发现。」"
+        },
+        {
+          "text": "\"Check comments very carefully.\"",
+          "correct": false,
+          "explain": "不適。具体的な条件が増えていない。",
+          "textZh": "「非常仔细地检查注释。」"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 审查器的提示词写着「检查注释是否准确」。它标出了大量无害的注释。哪种改写最可能提高精确度？",
+      "commentaryZh": "明确的判定标准胜过模糊指令。「保守一点」「只报高置信度」这类泛泛的说法，考试里通常是错误选项。"
+    },
+    {
+      "id": "ar4-002",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Developers have started ignoring the CI reviewer because its \"naming style\" findings are mostly false positives, even though its security findings are accurate. What is the best short-term action?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Temporarily disable the high-false-positive naming category to restore trust, while improving that category's criteria separately.",
+          "correct": true,
+          "explain": "正解。誤検知の多いカテゴリが、正確なカテゴリへの信頼まで損なっている。一時的に止めて基準を直す。",
+          "textZh": "暂时停用误报率高的命名类别以恢复信任，同时另行改进该类别的判定标准。"
+        },
+        {
+          "text": "Keep everything as is; developers will adapt.",
+          "correct": false,
+          "explain": "不適。信頼が失われると正しい指摘も読まれなくなる。",
+          "textZh": "保持原样；开发者会适应。"
+        },
+        {
+          "text": "Disable the security category too, for consistency, until every category reaches the same false-positive rate, so developers see a uniform tool.",
+          "correct": false,
+          "explain": "不適。正確で価値の高い指摘まで失う。",
+          "textZh": "为了一致，把安全类别也停用，直到所有类别的误报率都达到同一水平，让开发者看到的是一个一致的工具。"
+        },
+        {
+          "text": "Add \"please be accurate\" to the prompt.",
+          "correct": false,
+          "explain": "不適。基準が具体化されていない。",
+          "textZh": "在提示词里加一句「请准确」。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "开发者开始无视 CI 审查器，因为它的「命名风格」类发现大多是误报，尽管安全类发现是准确的。最好的短期措施是什么？",
+      "commentaryZh": "高误报类别会拖累对准确类别的信任。临时关闭问题类别、改进其标准，是考试指南中的明确做法。"
+    },
+    {
+      "id": "ar4-003",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Which instruction best defines what the CI reviewer should report versus skip?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Report: bugs that change behavior, security vulnerabilities, data loss risks. Skip: minor style preferences and patterns that match existing local conventions.\"",
+          "correct": true,
+          "explain": "正解。報告する種類とスキップする種類をカテゴリで具体的に示している。",
+          "textZh": "「报告：会改变行为的 bug、安全漏洞、数据丢失风险。跳过：细微的风格偏好，以及符合现有本地惯例的写法。」"
+        },
+        {
+          "text": "\"Report anything you think is important.\"",
+          "correct": false,
+          "explain": "不適。判断基準がモデル任せで、ぶれる。",
+          "textZh": "「报告你认为重要的任何问题。」"
+        },
+        {
+          "text": "\"Report fewer things.\"",
+          "correct": false,
+          "explain": "不適。何を減らすかが分からない。",
+          "textZh": "「少报告一些。」"
+        },
+        {
+          "text": "\"Only report issues you are 90% sure about.\" That keeps the reviewer focused on what matters.",
+          "correct": false,
+          "explain": "不適。自己申告の確信度による絞り込みは精度改善につながりにくい。",
+          "textZh": "「只报告你有 90% 把握的问题。」这能让审查器专注于重要的问题。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪条指令最能明确 CI 审查器应报告什么、跳过什么？",
+      "commentaryZh": "用具体类别定义「报什么、不报什么」，而不是依赖置信度过滤或模糊的「重要」。"
+    },
+    {
+      "id": "ar4-004",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "The reviewer labels similar issues as \"high\" in one PR and \"low\" in another. What is the most effective way to make severity classification consistent?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Define explicit criteria for each severity level, with a concrete code example illustrating each level.",
+          "correct": true,
+          "explain": "正解。基準と具体例があれば、似た問題に同じ判定ができる。",
+          "textZh": "为每个严重程度级别定义明确的标准，并为每个级别配上具体的代码示例。"
+        },
+        {
+          "text": "Ask Claude to \"use good judgment about severity.\"",
+          "correct": false,
+          "explain": "不適。基準が無いのでぶれは残る。",
+          "textZh": "让 Claude「对严重程度做出良好判断」。"
+        },
+        {
+          "text": "Remove the severity field.",
+          "correct": false,
+          "explain": "不適。優先度付けができなくなる。",
+          "textZh": "删除 severity 字段。"
+        },
+        {
+          "text": "Let Claude self-report its confidence for each severity and keep only the level it is most sure about.",
+          "correct": false,
+          "explain": "不適。確信度は分類基準の代わりにならない。",
+          "textZh": "让 Claude 为每个严重程度自报置信度，只保留它最有把握的那一级。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "审查器在一个 PR 中把某类问题标为「高」，在另一个 PR 中把类似问题标为「低」。让严重程度分类保持一致的最有效方法是什么？",
+      "commentaryZh": "一致的严重程度分类需要明确的级别定义，并为每个级别配上具体的代码示例，让相似问题得到相同判定。"
+    },
+    {
+      "id": "ar4-005",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Why do instructions like \"be conservative\" or \"only report high-confidence findings\" usually fail to improve a reviewer's precision?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "They do not tell the model which categories of issues to report or skip, so its judgment about what counts stays vague.",
+          "correct": true,
+          "explain": "正解。具体的なカテゴリ基準がなければ、どこで線を引くか決まらない。",
+          "textZh": "它们没有告诉模型应报告或跳过哪些类别的问题，所以模型对「什么算问题」的判断依然模糊。"
+        },
+        {
+          "text": "The model cannot understand the word \"conservative.\"",
+          "correct": false,
+          "explain": "不適。理解はできるが、基準として具体性がない。",
+          "textZh": "模型理解不了「保守」这个词。"
+        },
+        {
+          "text": "They make the output too long.",
+          "correct": false,
+          "explain": "不適。長さの問題ではない。",
+          "textZh": "它们会让输出太长。"
+        },
+        {
+          "text": "They are forbidden by the API.",
+          "correct": false,
+          "explain": "不適。そのような制限はない。",
+          "textZh": "API 禁止这类指令。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么像「保守一点」或「只报告高置信度发现」这样的指令通常无法提高审查器的精确度？",
+      "commentaryZh": "精确度来自「报告哪些类别、跳过哪些类别」这样的具体标准，而不是「谨慎一点」这类对态度的抽象要求。"
+    },
+    {
+      "id": "ar4-006",
+      "domain": "D4",
+      "type": "multi",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "Which TWO prompt changes are most likely to reduce false positives in the CI review? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Listing concrete categories to report and to skip.",
+          "correct": true,
+          "explain": "正解。判定の境界がはっきりする。",
+          "textZh": "列出具体的报告类别和跳过类别。"
+        },
+        {
+          "text": "Including examples that contrast acceptable code patterns with genuine issues.",
+          "correct": true,
+          "explain": "正解。何が問題でないかを示すと誤検知が減る。",
+          "textZh": "加入示例，对比可接受的代码写法与真正的问题。"
+        },
+        {
+          "text": "Adding \"do not make mistakes.\"",
+          "correct": false,
+          "explain": "不適。具体的な基準ではない。",
+          "textZh": "加上「不要犯错」。"
+        },
+        {
+          "text": "Asking for at least ten findings per PR.",
+          "correct": false,
+          "explain": "不適。数を求めると誤検知が増える。",
+          "textZh": "要求每个 PR 至少十条发现。"
+        },
+        {
+          "text": "Raising the temperature for creativity.",
+          "correct": false,
+          "explain": "不適。ばらつきが増える方向。",
+          "textZh": "提高 temperature 以增加创造性。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项提示词改动最可能减少 CI 审查中的误报？（选 2 项）",
+      "commentaryZh": "降低误报：明确报告/跳过的类别 + 用示例区分「可接受的写法」与「真正的问题」。"
+    },
+    {
+      "id": "ar4-007",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "What is the main reason high false-positive rates are harmful in an automated PR reviewer?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Developers lose trust and start ignoring all findings, including accurate ones.",
+          "correct": true,
+          "explain": "正解。誤検知が多いカテゴリが、正しいカテゴリへの信頼まで下げる。",
+          "textZh": "开发者会失去信任，开始忽视所有发现，包括准确的那些。"
+        },
+        {
+          "text": "False positives increase the API price.",
+          "correct": false,
+          "explain": "不適。費用の問題ではない。",
+          "textZh": "误报会提高 API 价格。"
+        },
+        {
+          "text": "False positives break the build automatically.",
+          "correct": false,
+          "explain": "不適。それ自体は仕組みの問題ではない。",
+          "textZh": "误报会自动导致构建失败。"
+        },
+        {
+          "text": "The model gets slower.",
+          "correct": false,
+          "explain": "不適。速度の問題ではなく、開発者の信頼が失われることが問題。",
+          "textZh": "模型会变慢。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在自动化 PR 审查器中，高误报率有害的主要原因是什么？",
+      "commentaryZh": "误报的真正代价是「信任」。一旦开发者不再看审查结果，准确的发现也失去了价值。"
+    },
+    {
+      "id": "ar4-008",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 1,
+      "stem": "Which instruction is the most explicit criterion for a security reviewer?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Flag SQL built by string concatenation with user-supplied input.\"",
+          "correct": true,
+          "explain": "正解。何を探せばよいかが具体的で判定できる。",
+          "textZh": "「标出用用户输入通过字符串拼接构造的 SQL。」"
+        },
+        {
+          "text": "\"Look for anything insecure.\"",
+          "correct": false,
+          "explain": "不適。「安全でないもの全部」は範囲が曖昧で判定できない。",
+          "textZh": "「查找任何不安全的地方。」"
+        },
+        {
+          "text": "\"Be very careful about security in every file.\" Repeating this in the prompt sets a high bar.",
+          "correct": false,
+          "explain": "不適。基準になっていない。",
+          "textZh": "「对每个文件的安全问题都要非常小心。」在提示词中重复这句话能设定很高的标准。"
+        },
+        {
+          "text": "\"Find the most important problems.\"",
+          "correct": false,
+          "explain": "不適。何が重要かが定義されていない。",
+          "textZh": "「找出最重要的问题。」"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "对安全审查器来说，下列哪条指令是最明确的判定标准？",
+      "commentaryZh": "明确标准 = 可判定的具体模式。模糊的态度性词语不能提升精确度。"
+    },
+    {
+      "id": "ar4-009",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The CI reviewer comments on every use of a project-specific error-handling pattern, calling it \"unusual.\" The pattern is the team's standard. What is the best fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "State in the criteria (or CLAUDE.md) that this local pattern is the standard and should not be reported, with an example of it.",
+          "correct": true,
+          "explain": "正解。スキップすべきローカルな慣習を明示すれば、誤検知が消える。",
+          "textZh": "在判定标准（或 CLAUDE.md）中说明这一本地写法是标准做法、不应报告，并附上示例。"
+        },
+        {
+          "text": "Ask the team to stop using the pattern.",
+          "correct": false,
+          "explain": "不適。正当な標準を変える理由にならない。",
+          "textZh": "让团队停止使用这种写法。"
+        },
+        {
+          "text": "Disable the reviewer for files using the pattern.",
+          "correct": false,
+          "explain": "不適。他の重要な問題も見逃す。",
+          "textZh": "对使用这种写法的文件停用审查器。"
+        },
+        {
+          "text": "Tell the reviewer to \"accept unusual code.\"",
+          "correct": false,
+          "explain": "不適。範囲が広すぎて本当の問題も見逃す。",
+          "textZh": "告诉审查器「接受不寻常的代码」。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 审查器对项目特有的一种错误处理写法每次都发评论，称其「不寻常」。这种写法其实是团队的标准。最好的修正是什么？",
+      "commentaryZh": "「跳过符合本地惯例的写法」是明确标准的一部分。把团队约定写进标准，可以消除这类误报。"
+    },
+    {
+      "id": "ar4-010",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "The extraction pipeline flags \"suspicious\" invoices for human review, but reviewers say most flags are noise. The prompt says \"flag anything that looks off.\" What should change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Replace it with explicit criteria, such as totals that do not match line items, missing tax IDs, or dates in the future.",
+          "correct": true,
+          "explain": "正解。判定できる具体的な条件にすると、無駄な人手確認が減る。",
+          "textZh": "改为明确的标准，例如合计与明细不符、缺少税号、日期在未来等。"
+        },
+        {
+          "text": "Ask the model to be more suspicious and to explain each flag in detail, so reviewers can quickly dismiss the weak ones themselves.",
+          "correct": false,
+          "explain": "不適。疑い深くすると誤検知が増え、人手の確認がさらに無駄になる。",
+          "textZh": "让模型更多疑一些，并详细解释每个标记，让复核人员自己快速剔除站不住脚的标记。"
+        },
+        {
+          "text": "Flag every invoice to be safe.",
+          "correct": false,
+          "explain": "不適。人手確認の意味がなくなる。",
+          "textZh": "为保险起见标出所有发票。"
+        },
+        {
+          "text": "Remove human review entirely.",
+          "correct": false,
+          "explain": "不適。本当の問題まで見逃す。",
+          "textZh": "完全取消人工复核。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "抽取流水线会把「可疑」发票标出来交给人工复核，但复核人员说大部分标记都是噪音。提示词写的是「标出任何看起来不对劲的地方」。应如何修改？",
+      "commentaryZh": "「看起来不对劲」无法判定。具体条件（金额不平、字段缺失、日期异常）才能让标记有意义。"
+    },
+    {
+      "id": "ar4-011",
+      "domain": "D4",
+      "type": "multi",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "Which TWO outcomes are expected when explicit, categorical criteria replace vague instructions in an extraction-review prompt? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Fewer false positives sent to human reviewers.",
+          "correct": true,
+          "explain": "正解。判定が具体的になり、不要なフラグが減る。",
+          "textZh": "送去人工复核的误报更少。"
+        },
+        {
+          "text": "More consistent decisions on similar documents.",
+          "correct": true,
+          "explain": "正解。同じ基準で判断されるため。",
+          "textZh": "对相似文档的判断更一致。"
+        },
+        {
+          "text": "The model no longer needs any examples in any situation.",
+          "correct": false,
+          "explain": "不適。曖昧なケースには例示も有効。",
+          "textZh": "模型在任何情况下都不再需要示例。"
+        },
+        {
+          "text": "Every document is processed with zero errors.",
+          "correct": false,
+          "explain": "不適。誤りがゼロになる保証はない。",
+          "textZh": "每份文档都零错误处理。"
+        },
+        {
+          "text": "The API cost drops to zero.",
+          "correct": false,
+          "explain": "不適。費用がゼロになることはない。基準の明確化とは無関係。",
+          "textZh": "API 费用降为零。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在抽取复核的提示词中，用明确的分类标准替换模糊指令后，预计会出现下列哪两种结果？（选 2 项）",
+      "commentaryZh": "明确标准的效果：减少误报、提升一致性。但它不是万能的，仍可结合示例和人工复核。"
+    },
+    {
+      "id": "ar4-012",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "Which instruction is most likely to produce consistent results across runs?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Classify each ticket as billing, technical, or account. Use 'other' only if none apply, and add a one-sentence reason.\"",
+          "correct": true,
+          "explain": "正解。選択肢と例外時の扱いが具体的。",
+          "textZh": "「把每张工单归类为 billing、technical 或 account。只有都不适用时才用 'other'，并附一句理由。」"
+        },
+        {
+          "text": "\"Categorize these tickets however makes sense.\"",
+          "correct": false,
+          "explain": "不適。分類の軸が毎回変わり得る。",
+          "textZh": "「按合理的方式给这些工单分类。」"
+        },
+        {
+          "text": "\"Do a great job categorizing.\"",
+          "correct": false,
+          "explain": "不適。「うまく分類して」は分類の基準になっていない。",
+          "textZh": "「把分类做好。」"
+        },
+        {
+          "text": "\"Be smart about categories.\"",
+          "correct": false,
+          "explain": "不適。「賢く」も基準ではなく、結果が毎回ぶれる。",
+          "textZh": "「聪明地处理分类。」"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪条指令最可能在多次运行中产生一致的结果？",
+      "commentaryZh": "一致性来自明确的类别和例外规则。开放式的「合理分类」每次结果都可能不同。"
+    },
+    {
+      "id": "ar4-013",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "A reviewer prompt asks Claude to \"report only findings with confidence above 0.8.\" Precision barely improves. What is the most likely reason?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Self-reported confidence is not a reliable filter; specific categorical criteria for what to report are more effective.",
+          "correct": true,
+          "explain": "正解。確信度の自己申告は較正されておらず、絞り込みとして機能しにくい。",
+          "textZh": "自报的置信度并不是可靠的过滤器；关于报告什么的具体分类标准更有效。"
+        },
+        {
+          "text": "0.8 is too low; it should be raised to 0.99 so only near-certain findings remain and the noise disappears.",
+          "correct": false,
+          "explain": "不適。しきい値を上げても根本は同じ。",
+          "textZh": "0.8 太低了，应该提高到 0.99，只留下几乎确定的发现，噪音自然就消失了。"
+        },
+        {
+          "text": "The model cannot output numbers.",
+          "correct": false,
+          "explain": "不適。数値は出力できる。問題は自己申告の確信度が当てにならないこと。",
+          "textZh": "模型无法输出数字。"
+        },
+        {
+          "text": "The prompt needs to be in JSON.",
+          "correct": false,
+          "explain": "不適。形式の問題ではない。",
+          "textZh": "提示词必须用 JSON 写。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个审查提示词要求 Claude「只报告置信度高于 0.8 的发现」。精确度几乎没有提升。最可能的原因是什么？",
+      "commentaryZh": "依赖模型自报的置信度过滤效果有限。用具体类别定义报告范围才是提升精确度的正途。"
+    },
+    {
+      "id": "ar4-014",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "A team must improve a code reviewer that has both too many false positives in \"performance\" and accurate findings in \"correctness.\" Which plan is best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Pause the performance category, rewrite its criteria with concrete examples of what does and does not count, test it on past PRs, then re-enable it.",
+          "correct": true,
+          "explain": "正解。問題のカテゴリだけ止め、基準を作り直し、検証してから戻す。",
+          "textZh": "暂停性能类别，用「算/不算」的具体示例重写其标准，在历史 PR 上测试后再重新启用。"
+        },
+        {
+          "text": "Turn off the whole reviewer until both categories are perfect.",
+          "correct": false,
+          "explain": "不適。正確なカテゴリの価値まで失う。",
+          "textZh": "在两个类别都完美之前，关闭整个审查器。"
+        },
+        {
+          "text": "Tell developers to ignore performance comments.",
+          "correct": false,
+          "explain": "不適。ノイズが残り、信頼も下がる。",
+          "textZh": "让开发者忽略性能类评论。"
+        },
+        {
+          "text": "Ask the model to lower its confidence on performance findings.",
+          "correct": false,
+          "explain": "不適。確信度の調整では基準の曖昧さは直らない。",
+          "textZh": "让模型降低对性能类发现的置信度。"
+        }
+      ],
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个代码审查器的「性能」类误报太多，而「正确性」类发现很准确。团队要改进它。哪种计划最好？",
+      "commentaryZh": "处理高误报类别的标准流程：暂停 → 用具体示例重写标准 → 验证 → 恢复，同时保留准确的类别。"
+    },
+    {
+      "id": "ar4-015",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The CI reviewer's comments vary in format: some include file and line, some do not; some propose a fix, some do not. Detailed format instructions have not helped. What is most effective?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add a few examples of correctly formatted findings (location, issue, severity, suggested fix).",
+          "correct": true,
+          "explain": "正解。指示だけで形式が揃わないとき、少数の例示が最も効く。",
+          "textZh": "加入几个格式正确的发现示例（位置、问题、严重程度、建议修复）。"
+        },
+        {
+          "text": "Repeat the format instructions three times, once at the start and twice at the end of the prompt.",
+          "correct": false,
+          "explain": "不適。既に効いていない方法の繰り返し。",
+          "textZh": "把格式说明重复三遍：开头一次，结尾两次（放在提示词中）。"
+        },
+        {
+          "text": "Ask for free-form comments.",
+          "correct": false,
+          "explain": "不適。さらに揃わなくなる。",
+          "textZh": "要求自由格式的评论。"
+        },
+        {
+          "text": "Lower max_tokens.",
+          "correct": false,
+          "explain": "不適。形式の一貫性とは無関係。",
+          "textZh": "降低 max_tokens。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 审查器的评论格式不一：有的有文件和行号，有的没有；有的提出修复建议，有的没有。详细的格式说明没有起作用。最有效的方法是什么？",
+      "commentaryZh": "当详细说明仍产生不一致的格式时，少样本示例是获得一致、可执行输出的最有效技巧。"
+    },
+    {
+      "id": "ar4-016",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "The reviewer struggles with branch-level test coverage: it either ignores missing else-branches or flags trivial ones. Which few-shot design best helps it generalize?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "2–4 examples of ambiguous cases, each showing the reasoning for why that branch gap was or was not worth reporting.",
+          "correct": true,
+          "explain": "正解。理由付きの例があると、新しいパターンにも判断を一般化できる。",
+          "textZh": "2–4 个模棱两可的例子，每个都展示为什么这个分支缺口值得或不值得报告的推理。"
+        },
+        {
+          "text": "20 examples of obvious, easy cases.",
+          "correct": false,
+          "explain": "不適。曖昧なケースの判断基準が学べない。",
+          "textZh": "20 个明显、简单的例子。"
+        },
+        {
+          "text": "One example with no explanation.",
+          "correct": false,
+          "explain": "不適。なぜそう判断したかが伝わらない。",
+          "textZh": "一个不带解释的例子。"
+        },
+        {
+          "text": "A list of every branch in the codebase.",
+          "correct": false,
+          "explain": "不適。例示ではなく、文脈を浪費する。",
+          "textZh": "列出代码库中的每一个分支。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "审查器在分支级测试覆盖上表现不佳：要么忽略缺失的 else 分支，要么标出无关紧要的分支。哪种少样本设计最能帮助它举一反三？",
+      "commentaryZh": "针对模糊情况的 2–4 个示例，并说明「为什么选这个而不是那个」，能让模型泛化判断，而不仅仅匹配预设情况。"
+    },
+    {
+      "id": "ar4-017",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "How do few-shot examples help the reviewer handle code patterns it has never seen before?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Well-chosen examples demonstrate the underlying judgment, which the model can generalize to novel patterns rather than only matching the listed cases.",
+          "correct": true,
+          "explain": "正解。例は「規則の一覧」ではなく「判断の仕方」を伝える。",
+          "textZh": "精心挑选的示例展示了背后的判断逻辑，模型可以把它推广到新写法上，而不仅仅匹配列出的情况。"
+        },
+        {
+          "text": "The model memorizes the examples as fixed rules and refuses any input that does not match one of them, so new patterns are always rejected.",
+          "correct": false,
+          "explain": "不適。一般化が期待される。",
+          "textZh": "模型会把示例记成固定规则，拒绝任何与示例都不匹配的输入，所以新的写法总会被拒绝。"
+        },
+        {
+          "text": "Few-shot examples only affect output length.",
+          "correct": false,
+          "explain": "不適。判断と形式の両方に効く。",
+          "textZh": "少样本示例只影响输出长度。"
+        },
+        {
+          "text": "They have no effect on unseen patterns.",
+          "correct": false,
+          "explain": "不適。一般化の効果がある。",
+          "textZh": "它们对未见过的写法毫无作用。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "少样本示例如何帮助审查器处理从未见过的代码写法？",
+      "commentaryZh": "少样本的价值不只是格式，还在于传达判断方式，使模型能处理新情况。"
+    },
+    {
+      "id": "ar4-018",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 1,
+      "stem": "How many targeted few-shot examples does the guidance typically recommend for clarifying ambiguous scenarios?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "About 2–4",
+          "correct": true,
+          "explain": "正解。少数の的を絞った例で十分効果がある。",
+          "textZh": "大约 2–4 个"
+        },
+        {
+          "text": "Exactly 1",
+          "correct": false,
+          "explain": "不適。一つでは判断の幅が伝わりにくい。",
+          "textZh": "恰好 1 个"
+        },
+        {
+          "text": "At least 50",
+          "correct": false,
+          "explain": "不適。多すぎると文脈を圧迫する。",
+          "textZh": "至少 50 个"
+        },
+        {
+          "text": "None; examples always hurt",
+          "correct": false,
+          "explain": "不適。適切な少数の例は有効。害になるという前提が誤り。",
+          "textZh": "不用；示例总是有害"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "对于澄清模糊情况，指引通常建议使用多少个有针对性的少样本示例？",
+      "commentaryZh": "考试指南中的建议是 2–4 个针对模糊情况的示例，并展示选择理由。"
+    },
+    {
+      "id": "ar4-019",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "The extraction pipeline often returns null for \"measurement\" fields when documents use informal phrasing like \"about two and a half inches.\" Which change helps most?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add few-shot examples showing correct extraction from informal measurements into the target format.",
+          "correct": true,
+          "explain": "正解。表現のばらつきへの対応は、例示で示すのが最も効く。",
+          "textZh": "加入少样本示例，展示如何把非正式的测量表述正确抽取为目标格式。"
+        },
+        {
+          "text": "Make the measurement field required so the model must fill it.",
+          "correct": false,
+          "explain": "不適。情報が本当に無い文書で値を捏造させる危険がある。",
+          "textZh": "把测量字段设为必填，强制模型填写。"
+        },
+        {
+          "text": "Remove the measurement field.",
+          "correct": false,
+          "explain": "不適。必要なデータを失う。",
+          "textZh": "删除测量字段。"
+        },
+        {
+          "text": "Ask the model to \"be flexible.\"",
+          "correct": false,
+          "explain": "不適。どう柔軟にするかが伝わらない。",
+          "textZh": "让模型「灵活一点」。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "当文档使用「大约两英寸半」这类非正式表述时，抽取流水线经常把「测量值」字段返回为 null。哪种改动最有帮助？",
+      "commentaryZh": "少样本示例能有效减少抽取中的幻觉与空值，尤其是面对非正式表述和多样的文档结构时。"
+    },
+    {
+      "id": "ar4-020",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Research papers in the extraction pipeline cite sources in different ways — some inline, some in a bibliography. Citations are often missed. What helps most?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Few-shot examples demonstrating correct extraction from both inline citations and bibliographies.",
+          "correct": true,
+          "explain": "正解。構造の違いごとに正しい扱いを例で示す。",
+          "textZh": "用少样本示例展示如何从行内引用和参考文献列表两种形式中正确抽取。"
+        },
+        {
+          "text": "A longer instruction saying \"find all citations.\"",
+          "correct": false,
+          "explain": "不適。どこにどう書かれているかの違いに対応できない。",
+          "textZh": "一条更长的指令：「找出所有引用」。"
+        },
+        {
+          "text": "Only processing papers with bibliographies.",
+          "correct": false,
+          "explain": "不適。対象の一部を捨てている。",
+          "textZh": "只处理带参考文献列表的论文。"
+        },
+        {
+          "text": "Force a citations array of exactly 10 items so none can be missed, padding with empty entries when fewer are found.",
+          "correct": false,
+          "explain": "不適。数を合わせるために捏造を招く。",
+          "textZh": "强制 citations 数组恰好包含 10 项，这样就不会遗漏，找到的不足时用空条目补齐。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "抽取流水线中的研究论文引用来源的方式不同——有的是行内引用，有的是参考文献列表。引用经常被遗漏。什么最有帮助？",
+      "commentaryZh": "文档结构多样时（行内引用 vs 参考文献、方法部分 vs 嵌入的细节），少样本示例能演示正确的处理方式。"
+    },
+    {
+      "id": "ar4-021",
+      "domain": "D4",
+      "type": "multi",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "Some contracts state the renewal term in a dedicated clause; others bury it in a paragraph about pricing. The model extracts it reliably only from the dedicated clause. Which TWO actions help most? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Add an example where the renewal term is embedded in a pricing paragraph, showing the correct extraction.",
+          "correct": true,
+          "explain": "正解。埋もれた書き方にも対応できるよう、具体的に示す。",
+          "textZh": "加一个续约期限嵌在价格段落中的示例，展示正确的抽取方式。"
+        },
+        {
+          "text": "Make the field nullable so documents that truly lack a renewal term return null instead of a guess.",
+          "correct": true,
+          "explain": "正解。本当に無い場合の捏造を防ぐ。",
+          "textZh": "把字段设为可为空（nullable），让确实没有续约期限的文档返回 null 而不是猜测值。"
+        },
+        {
+          "text": "Make the field required with no null allowed.",
+          "correct": false,
+          "explain": "不適。無い場合に値を作らせてしまう。",
+          "textZh": "把字段设为必填且不允许 null。"
+        },
+        {
+          "text": "Tell the model to read only the first page.",
+          "correct": false,
+          "explain": "不適。埋もれた情報をさらに見落とす。",
+          "textZh": "让模型只读第一页。"
+        },
+        {
+          "text": "Delete contracts without a dedicated clause.",
+          "correct": false,
+          "explain": "不適。対象を捨てている。",
+          "textZh": "删除没有专门条款的合同。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "有些合同在专门条款中写明续约期限，另一些则把它埋在关于价格的段落里。模型只能可靠地从专门条款中抽取。下列哪两项最有帮助？（选 2 项）",
+      "commentaryZh": "处理多样的文档结构：用示例覆盖「藏在别处」的情况；用可空字段防止在信息缺失时捏造。"
+    },
+    {
+      "id": "ar4-022",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "What is the main purpose of few-shot examples in an extraction prompt?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "To show, through concrete cases, how varied inputs should map to the expected output.",
+          "correct": true,
+          "explain": "正解。説明しにくい対応関係を例で示す。",
+          "textZh": "通过具体案例，展示各种不同的输入应如何映射到期望的输出。"
+        },
+        {
+          "text": "To make the prompt longer so the model works harder and pays closer attention to every instruction it contains.",
+          "correct": false,
+          "explain": "不適。長さは目的ではない。",
+          "textZh": "让提示词变长，从而让模型更卖力，并更仔细地关注其中的每条指令。"
+        },
+        {
+          "text": "To replace the JSON schema.",
+          "correct": false,
+          "explain": "不適。スキーマと例は役割が違い、併用する。",
+          "textZh": "替代 JSON schema。"
+        },
+        {
+          "text": "To store data for later requests.",
+          "correct": false,
+          "explain": "不適。例示は後のリクエストのためのデータ保存ではない。",
+          "textZh": "为之后的请求存储数据。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在抽取提示词中，少样本示例的主要作用是什么？",
+      "commentaryZh": "少样本示例 = 用具体案例演示输入到输出的映射，提升一致性与准确性。"
+    },
+    {
+      "id": "ar4-023",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "An extraction prompt includes three examples, all of which are clean, typed invoices. Real inputs include handwritten scans and multi-currency invoices, and accuracy on those is poor. What is the best adjustment?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Replace some examples with representative hard cases (a handwritten scan, a multi-currency invoice) that show the correct handling.",
+          "correct": true,
+          "explain": "正解。例は実際の入力の多様さ、とくに難しいケースを代表するべき。",
+          "textZh": "把部分示例替换成有代表性的难例（手写扫描件、多币种发票），展示正确的处理方式。"
+        },
+        {
+          "text": "Add ten more clean invoice examples.",
+          "correct": false,
+          "explain": "不適。偏りが強まるだけ。",
+          "textZh": "再加十个干净的发票示例。"
+        },
+        {
+          "text": "Remove all examples.",
+          "correct": false,
+          "explain": "不適。形式の手本も失う。",
+          "textZh": "删除所有示例。"
+        },
+        {
+          "text": "Reject handwritten scans.",
+          "correct": false,
+          "explain": "不適。業務上必要な入力を捨てている。",
+          "textZh": "拒绝处理手写扫描件。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个抽取提示词包含三个示例，全都是干净的打印发票。真实输入中有手写扫描件和多币种发票，这些的准确率很差。最好的调整是什么？",
+      "commentaryZh": "示例要覆盖真实输入的多样性，特别是难例。只有简单示例时，模型在难例上的表现不会改善。"
+    },
+    {
+      "id": "ar4-024",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "An agent must choose between two similar tools for ambiguous requests. Which few-shot example design is most helpful?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Examples of ambiguous requests that show which tool was chosen and why the other plausible tool was not.",
+          "correct": true,
+          "explain": "正解。選ばなかった理由まで示すと、判断の境界が伝わる。",
+          "textZh": "给出模糊请求的示例，展示选了哪个工具，以及为什么没有选另一个看似合理的工具。"
+        },
+        {
+          "text": "Examples that show only the chosen tool's name, with no reasoning, so the model is not distracted by long explanations.",
+          "correct": false,
+          "explain": "不適。新しいケースに一般化しにくい。",
+          "textZh": "只展示所选工具名称、不带任何推理的示例，免得模型被冗长的解释分散注意力。"
+        },
+        {
+          "text": "Examples where the request is obvious.",
+          "correct": false,
+          "explain": "不適。迷う場面の判断が学べない。",
+          "textZh": "请求含义很明显的示例。"
+        },
+        {
+          "text": "No examples, just the tool list.",
+          "correct": false,
+          "explain": "不適。曖昧なケースの扱いが分からない。",
+          "textZh": "不给示例，只给工具列表。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体在面对模糊请求时，必须在两个相似的工具之间做选择。哪种少样本示例设计最有帮助？",
+      "commentaryZh": "少样本示例最有价值的地方在「模糊情况」，并要说明为什么选这个工具，而不是另一个看似合理的工具。"
+    },
+    {
+      "id": "ar4-025",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "Detailed written instructions still produce inconsistently formatted output. According to the guidance, what is typically the most effective next technique?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Few-shot examples of the desired output.",
+          "correct": true,
+          "explain": "正解。説明で揃わないなら例で示す。",
+          "textZh": "提供期望输出的少样本示例。"
+        },
+        {
+          "text": "Raising the temperature.",
+          "correct": false,
+          "explain": "不適。ばらつきが増える。",
+          "textZh": "提高 temperature。"
+        },
+        {
+          "text": "Writing the instructions in all capitals.",
+          "correct": false,
+          "explain": "不適。大文字にしても情報は増えず、形式は揃わない。",
+          "textZh": "用全大写书写指令。"
+        },
+        {
+          "text": "Removing the system prompt.",
+          "correct": false,
+          "explain": "不適。システムプロンプトを消すと指示そのものがなくなる。",
+          "textZh": "删除系统提示词。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "详细的书面指令仍然产生格式不一致的输出。根据指引，通常最有效的下一步技巧是什么？",
+      "commentaryZh": "当详细的书面说明仍产生不一致的格式时，少样本示例是获得一致输出最有效的技巧之一。加大写、删提示词都无济于事。"
+    },
+    {
+      "id": "ar4-026",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO are good practices for writing few-shot examples? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Include ambiguous or borderline cases, not just easy ones.",
+          "correct": true,
+          "explain": "正解。迷う場面の扱いを示すのが効果的。",
+          "textZh": "包含模糊或临界的情况，而不只是简单情况。"
+        },
+        {
+          "text": "Show the reasoning for why one choice was made over a plausible alternative.",
+          "correct": true,
+          "explain": "正解。判断の理由が一般化を助ける。",
+          "textZh": "说明为什么在几个看似合理的选项中选了这一个。"
+        },
+        {
+          "text": "Use only examples that are identical in structure.",
+          "correct": false,
+          "explain": "不適。多様な入力に対応できない。",
+          "textZh": "只使用结构完全相同的示例。"
+        },
+        {
+          "text": "Include as many examples as possible regardless of relevance.",
+          "correct": false,
+          "explain": "不適。文脈を浪費し、焦点がぼける。",
+          "textZh": "不论相关性，尽可能多地加入示例。"
+        },
+        {
+          "text": "Hide the examples in a separate request the model never sees.",
+          "correct": false,
+          "explain": "不適。見えなければ効果がない。",
+          "textZh": "把示例放在模型看不到的另一个请求里。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项是编写少样本示例的好做法？（选 2 项）",
+      "commentaryZh": "好的少样本示例要覆盖难例和临界情况，并展示「为什么选这个而不是另一个」的理由，才能帮助模型泛化。"
+    },
+    {
+      "id": "ar4-027",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "What is the most reliable way, in the guidance, to guarantee that extraction output is valid JSON matching a schema?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Define an extraction tool whose input schema is the target JSON schema, and read the structured data from the tool_use response.",
+          "correct": true,
+          "explain": "正解。ツールの入力スキーマに沿った出力になり、構文エラーが起きない。",
+          "textZh": "定义一个抽取工具，其输入 schema 就是目标 JSON schema，再从 tool_use 响应中读取结构化数据。"
+        },
+        {
+          "text": "Ask for JSON in the prompt and parse the text.",
+          "correct": false,
+          "explain": "不適。構文エラーや形式のずれが起こり得る。",
+          "textZh": "在提示词中要求输出 JSON，再解析文本。"
+        },
+        {
+          "text": "Ask the model to double-check its JSON.",
+          "correct": false,
+          "explain": "不適。見直しを頼んでも構文の正しさは保証にならない。",
+          "textZh": "让模型复查自己的 JSON。"
+        },
+        {
+          "text": "Use a regular expression on free text.",
+          "correct": false,
+          "explain": "不適。形式の揺れに弱い。",
+          "textZh": "对自由文本使用正则表达式。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "根据指引，保证抽取输出是符合 schema 的有效 JSON，最可靠的方法是什么？",
+      "commentaryZh": "用工具（tool_use）+ JSON schema 获取结构化输出，可以消除 JSON 语法错误。这是 4.3 的核心。"
+    },
+    {
+      "id": "ar4-028",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "The extraction tool uses a strict JSON schema, yet some invoices come back with line items that do not add up to the total. Why?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Schemas guarantee structure and syntax, not semantic correctness; values can still be wrong or inconsistent.",
+          "correct": true,
+          "explain": "正解。スキーマは形の保証であって、中身の整合性は別途検証が必要。",
+          "textZh": "schema 只保证结构和语法，不保证语义正确；值本身仍可能错误或不一致。"
+        },
+        {
+          "text": "The schema is not strict enough; strict mode also checks that numbers add up, so the team only needs to enable it on the tool.",
+          "correct": false,
+          "explain": "不適。厳格さは構文の保証で、計算の正しさではない。",
+          "textZh": "schema 还不够严格；严格模式还会检查数字是否加得上，所以团队只需在工具上启用它。"
+        },
+        {
+          "text": "JSON cannot represent numbers.",
+          "correct": false,
+          "explain": "不適。JSON は数値を表せる。問題はスキーマが意味の整合性まで保証しないこと。",
+          "textZh": "JSON 无法表示数字。"
+        },
+        {
+          "text": "The model ignored the schema.",
+          "correct": false,
+          "explain": "不適。構造は守られている。問題は意味の整合性。",
+          "textZh": "模型忽略了 schema。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "抽取工具使用了严格的 JSON schema，但有些发票返回的明细加起来不等于合计。为什么？",
+      "commentaryZh": "严格 schema 消除语法错误，但不能防止语义错误（明细与合计不符、值填错字段）。需要额外的校验逻辑。"
+    },
+    {
+      "id": "ar4-029",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Some purchase orders do not include a delivery date. The schema marks delivery_date as required, and the model sometimes invents a date. What is the best schema change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Make delivery_date optional/nullable so the model can return null when the document does not contain it.",
+          "correct": true,
+          "explain": "正解。必須にすると、無い情報を埋めるために捏造を誘発する。",
+          "textZh": "把 delivery_date 设为可选/可为空，让模型在文档中没有该信息时返回 null。"
+        },
+        {
+          "text": "Keep it required and add \"do not invent dates.\"",
+          "correct": false,
+          "explain": "不適。必須の圧力が残る。",
+          "textZh": "保持必填，再加一句「不要编造日期」。"
+        },
+        {
+          "text": "Fill missing dates with today's date in post-processing.",
+          "correct": false,
+          "explain": "不適。偽のデータを作っている。",
+          "textZh": "在后处理中把缺失日期填为今天。"
+        },
+        {
+          "text": "Remove the field from the schema.",
+          "correct": false,
+          "explain": "不適。存在する場合の情報も取れなくなる。",
+          "textZh": "从 schema 中删除该字段。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "有些采购订单没有交货日期。schema 把 delivery_date 设为必填，模型有时会编造一个日期。最好的 schema 改动是什么？",
+      "commentaryZh": "源文档可能缺失的信息，字段应设为可选/可空，防止模型为满足必填而捏造。"
+    },
+    {
+      "id": "ar4-030",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "The extraction schema has a document_type enum: invoice, receipt, credit_note. Some documents are pro-forma invoices or statements. What enum design handles this best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add \"other\" plus a free-text detail field (for example document_type_detail), and an \"unclear\" value for genuinely ambiguous documents.",
+          "correct": true,
+          "explain": "正解。拡張可能な分類と曖昧な場合の受け皿を用意する。",
+          "textZh": "增加 \"other\" 加一个自由文本说明字段（如 document_type_detail），并为真正模糊的文档增加 \"unclear\" 值。"
+        },
+        {
+          "text": "Force every document into one of the three values, picking the closest match, and record the original type name in a comment that downstream systems ignore.",
+          "correct": false,
+          "explain": "不適。無理に既存の値へ押し込むと誤分類を生む。注釈を残しても下流では使われない。",
+          "textZh": "强制每份文档归入这三个值之一，选最接近的那个，并把原始类型名记在下游系统会忽略的注释里。"
+        },
+        {
+          "text": "Remove the enum and accept any string.",
+          "correct": false,
+          "explain": "不適。下流での集計が難しくなる。",
+          "textZh": "去掉枚举，接受任意字符串。"
+        },
+        {
+          "text": "Create 200 enum values for every possible type.",
+          "correct": false,
+          "explain": "不適。管理できず、選択も難しくなる。",
+          "textZh": "为每种可能的类型创建 200 个枚举值。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "抽取 schema 中有一个 document_type 枚举：invoice、receipt、credit_note。有些文档是形式发票或对账单。哪种枚举设计最合适？",
+      "commentaryZh": "可扩展分类的 schema 设计：\"other\" + 详情字段，以及表示模糊的 \"unclear\"。"
+    },
+    {
+      "id": "ar4-031",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "The pipeline has three extraction tools (invoice, contract, receipt) and the document type is unknown beforehand. The team wants a guaranteed structured result every time. How should tool_choice be set?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"any\", so Claude must call one of the extraction tools and chooses the one matching the document.",
+          "correct": true,
+          "explain": "正解。必ずツールを呼ばせつつ、種類の判断はモデルに任せる。",
+          "textZh": "设为 \"any\"，这样 Claude 必须调用某个抽取工具，并选择与文档相符的那个。"
+        },
+        {
+          "text": "\"auto\", relying on Claude to call a tool.",
+          "correct": false,
+          "explain": "不適。テキストで返す可能性がある。",
+          "textZh": "设为 \"auto\"，依赖 Claude 自觉调用工具。"
+        },
+        {
+          "text": "Force the invoice tool for every document.",
+          "correct": false,
+          "explain": "不適。種類が違えば誤った構造になる。",
+          "textZh": "对每份文档都强制使用发票工具。"
+        },
+        {
+          "text": "\"none\", then parse the text.",
+          "correct": false,
+          "explain": "不適。構造の保証がない。",
+          "textZh": "设为 \"none\"，再解析文本。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "流水线有三个抽取工具（发票、合同、收据），事先不知道文档类型。团队希望每次都能得到有保证的结构化结果。tool_choice 应如何设置？",
+      "commentaryZh": "多种 schema 且类型未知 → \"any\"。必须先运行某个特定抽取 → 强制指定。允许文本 → \"auto\"。"
+    },
+    {
+      "id": "ar4-032",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Before any enrichment tools run, the pipeline must always extract basic metadata (title, date, parties). How should the first request be configured?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Force tool_choice to {\"type\": \"tool\", \"name\": \"extract_metadata\"}, then run enrichment in later turns.",
+          "correct": true,
+          "explain": "正解。特定の抽出を最初に必ず行わせる。",
+          "textZh": "把 tool_choice 强制设为 {\"type\": \"tool\", \"name\": \"extract_metadata\"}，之后的回合再运行增强步骤。"
+        },
+        {
+          "text": "Put extract_metadata first in the tools list.",
+          "correct": false,
+          "explain": "不適。並び順は呼び出しを保証しない。",
+          "textZh": "把 extract_metadata 放在工具列表的第一个。"
+        },
+        {
+          "text": "Use \"any\" and rely on the description of extract_metadata to make it the obvious choice among the tools.",
+          "correct": false,
+          "explain": "不適。どのツールかは保証されない。",
+          "textZh": "用 \"any\"，依靠 extract_metadata 的描述让它成为显而易见的选择（在所有工具之中）。"
+        },
+        {
+          "text": "Ask the user to provide the metadata.",
+          "correct": false,
+          "explain": "不適。抽出の自動化の目的に反する。",
+          "textZh": "让用户提供元数据。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在运行任何增强工具之前，流水线必须先抽取基础元数据（标题、日期、当事方）。第一次请求应如何配置？",
+      "commentaryZh": "保证特定抽取先执行：强制指定工具。后续步骤在之后的回合里处理。"
+    },
+    {
+      "id": "ar4-033",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "What can strict JSON schemas (through tool use or structured outputs) NOT guarantee?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "That the extracted values are factually correct and consistent with each other.",
+          "correct": true,
+          "explain": "正解。スキーマは形の保証。中身の正しさは別途検証する。",
+          "textZh": "抽取出的值在事实上正确且彼此一致。"
+        },
+        {
+          "text": "That the output is syntactically valid JSON.",
+          "correct": false,
+          "explain": "不適。それは保証される。",
+          "textZh": "输出是语法有效的 JSON。"
+        },
+        {
+          "text": "That required fields are present.",
+          "correct": false,
+          "explain": "不適。構造として保証される。",
+          "textZh": "必填字段存在。"
+        },
+        {
+          "text": "That enum fields use allowed values.",
+          "correct": false,
+          "explain": "不適。スキーマで制約できる。",
+          "textZh": "枚举字段使用允许的值。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "严格的 JSON schema（通过工具调用或结构化输出）不能保证什么？",
+      "commentaryZh": "schema 保证结构（语法、必填、枚举），不保证语义（数值是否正确、是否自洽）。"
+    },
+    {
+      "id": "ar4-034",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "Source invoices write dates as \"03/04/26\", \"4 March 2026\", and \"2026-03-04\". The schema requires ISO dates, and some outputs are wrong (day and month swapped). What is the best combined fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep the strict schema and add explicit normalization rules to the prompt (for example, which locale's day/month order applies per supplier), with examples.",
+          "correct": true,
+          "explain": "正解。スキーマで形式を固定し、プロンプトで変換規則を明示する。両方を組み合わせる。",
+          "textZh": "保留严格 schema，同时在提示词中加入明确的规范化规则（例如各供应商适用哪种日/月顺序），并附示例。"
+        },
+        {
+          "text": "Remove the date format requirement.",
+          "correct": false,
+          "explain": "不適。下流の処理が壊れる。",
+          "textZh": "去掉日期格式要求。"
+        },
+        {
+          "text": "Rely on the strict schema alone; it rejects ambiguous dates and forces the model to pick the correct day/month order without any prompt changes.",
+          "correct": false,
+          "explain": "不適。スキーマは日と月の解釈までは決めない。",
+          "textZh": "只依赖严格 schema；它会拒绝有歧义的日期，迫使模型选出正确的日/月顺序，无需修改提示词。"
+        },
+        {
+          "text": "Ask suppliers to change their invoice format.",
+          "correct": false,
+          "explain": "不適。取引先に書式の変更を求めるのは現実的でない。",
+          "textZh": "要求供应商修改发票格式。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "源发票中的日期写法有「03/04/26」「4 March 2026」「2026-03-04」等。schema 要求 ISO 日期，有些输出出错了（日和月颠倒）。最好的组合修正是什么？",
+      "commentaryZh": "严格 schema 管格式，提示词中的规范化规则管「如何从不一致的源格式转换」。两者配合使用。"
+    },
+    {
+      "id": "ar4-035",
+      "domain": "D4",
+      "type": "multi",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Which TWO are sound schema design choices for an extraction tool? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Making fields optional or nullable when the source may not contain the information.",
+          "correct": true,
+          "explain": "正解。元の文書に無い情報を必須にしないことで、値の捏造を防ぐ。",
+          "textZh": "当源文档可能不包含该信息时，把字段设为可选或可为空。"
+        },
+        {
+          "text": "Using an enum with \"other\" plus a detail string for categories that may grow.",
+          "correct": true,
+          "explain": "正解。想定外の分類にも対応できる。",
+          "textZh": "对可能扩展的类别，使用带 \"other\" 加说明字符串的枚举。"
+        },
+        {
+          "text": "Making every field required to ensure completeness.",
+          "correct": false,
+          "explain": "不適。無い情報を捏造させる。",
+          "textZh": "把每个字段都设为必填以保证完整。"
+        },
+        {
+          "text": "Using free text for every field to stay flexible.",
+          "correct": false,
+          "explain": "不適。構造化の利点が失われる。",
+          "textZh": "每个字段都用自由文本以保持灵活。"
+        },
+        {
+          "text": "Adding a field the model must fill with its confidence in the schema itself.",
+          "correct": false,
+          "explain": "不適。スキーマ自体への確信度は抽出に意味のない情報。",
+          "textZh": "加一个字段，让模型填写自己对 schema 本身的置信度。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项是抽取工具合理的 schema 设计？（选 2 项）",
+      "commentaryZh": "健壮的 schema：缺失时可空；可扩展类别用 \"other\" + 详情；不要为了「完整」而强制必填。"
+    },
+    {
+      "id": "ar4-036",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "A team asks Claude for JSON in plain text and parses it with JSON.parse. About 2% of responses fail to parse. What is the most reliable fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Switch to tool use with a JSON schema (or schema-enforced structured output) so the response is always schema-compliant.",
+          "correct": true,
+          "explain": "正解。構文エラーを根本からなくす。",
+          "textZh": "改用带 JSON schema 的工具调用（或 schema 强制的结构化输出），让响应始终符合 schema。"
+        },
+        {
+          "text": "Retry every parse failure up to ten times with the same prompt, and keep the first response that parses successfully.",
+          "correct": false,
+          "explain": "不適。費用がかかり、根本的な解決ではない。",
+          "textZh": "每次解析失败都用同一个提示词最多重试十次，保留第一个能成功解析的响应。"
+        },
+        {
+          "text": "Ask the model to avoid trailing commas.",
+          "correct": false,
+          "explain": "不適。すべての構文エラーは防げない。",
+          "textZh": "让模型避免尾随逗号。"
+        },
+        {
+          "text": "Strip all quotes before parsing.",
+          "correct": false,
+          "explain": "不適。JSON が壊れる。",
+          "textZh": "解析前去掉所有引号。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队让 Claude 以纯文本输出 JSON，再用 JSON.parse 解析。约 2% 的响应解析失败。最可靠的修正是什么？",
+      "commentaryZh": "用工具调用 + JSON schema（或结构化输出）可以消除 JSON 语法错误，比提示词要求 + 文本解析可靠得多。"
+    },
+    {
+      "id": "ar4-037",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "An extraction occasionally places the shipping address in the billing_address field, even though the output passes schema validation. What kind of error is this, and what helps?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A semantic error; clarify field definitions with examples and add validation checks (for example, comparing against labeled sections) rather than relying on the schema.",
+          "correct": true,
+          "explain": "正解。値の取り違えはスキーマでは防げない。定義の明確化と意味的な検証で対処する。",
+          "textZh": "语义错误；用示例澄清字段定义，并增加校验检查（例如对照文档中带标签的部分），而不是依赖 schema。"
+        },
+        {
+          "text": "A syntax error; switch to strict mode.",
+          "correct": false,
+          "explain": "不適。構文は正しい。スキーマ検証も通っている。",
+          "textZh": "语法错误；切换到严格模式。"
+        },
+        {
+          "text": "A transient error; retry.",
+          "correct": false,
+          "explain": "不適。同じ理解なら同じ誤りが出る。",
+          "textZh": "临时性错误；重试即可。"
+        },
+        {
+          "text": "A permission error; grant more access.",
+          "correct": false,
+          "explain": "不適。権限とは無関係。値の取り違えという意味の誤り。",
+          "textZh": "权限错误；授予更多权限。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某个抽取偶尔把收货地址填进了 billing_address 字段，尽管输出通过了 schema 校验。这属于哪类错误，什么有帮助？",
+      "commentaryZh": "「值放错字段」是典型的语义错误，schema 校验发现不了。需要更清楚的字段说明、示例和语义校验。"
+    },
+    {
+      "id": "ar4-038",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "How is structured data obtained from an extraction tool call?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "From the input arguments of the tool_use block in Claude's response.",
+          "correct": true,
+          "explain": "正解。モデルがツールに渡そうとした引数が、スキーマに沿った抽出結果になる。",
+          "textZh": "从 Claude 响应中 tool_use 块的输入参数里获得。"
+        },
+        {
+          "text": "From the tool's return value after it runs on the server, once it has been sent back.",
+          "correct": false,
+          "explain": "不適。抽出結果はモデルが組み立てた引数側にある。",
+          "textZh": "从工具在服务器上运行后的返回值中获得，即返回之后。"
+        },
+        {
+          "text": "From the stop_reason field.",
+          "correct": false,
+          "explain": "不適。理由を示す値で、データではない。",
+          "textZh": "从 stop_reason 字段中获得。"
+        },
+        {
+          "text": "From the system prompt.",
+          "correct": false,
+          "explain": "不適。システムプロンプトは指示であって、抽出結果ではない。",
+          "textZh": "从系统提示词中获得。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "如何从抽取工具调用中获得结构化数据？",
+      "commentaryZh": "用工具做结构化输出时，数据就在 tool_use 块的 input 中——模型按 schema 填写了「调用参数」。"
+    },
+    {
+      "id": "ar4-039",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "What does tool_choice \"auto\" risk in an extraction pipeline that must always return structured data?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The model may answer with plain text instead of calling the extraction tool.",
+          "correct": true,
+          "explain": "正解。auto はツールを呼ばない選択も許す。",
+          "textZh": "模型可能直接用纯文本回答，而不调用抽取工具。"
+        },
+        {
+          "text": "The model must call every tool.",
+          "correct": false,
+          "explain": "不適。そのような挙動ではない。",
+          "textZh": "模型必须调用所有工具。"
+        },
+        {
+          "text": "The schema is ignored even when the tool is called.",
+          "correct": false,
+          "explain": "不適。呼ばれればスキーマに沿う。",
+          "textZh": "即使调用了工具，schema 也会被忽略。"
+        },
+        {
+          "text": "There is no risk.",
+          "correct": false,
+          "explain": "不適。テキストで返る可能性がある。",
+          "textZh": "没有风险。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在必须始终返回结构化数据的抽取流水线中，tool_choice 设为 \"auto\" 有什么风险？",
+      "commentaryZh": "必须结构化输出时，用 \"any\" 或强制指定工具，避免 \"auto\" 返回文本。"
+    },
+    {
+      "id": "ar4-040",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO statements about tool_choice in extraction are correct? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "\"any\" guarantees a tool call but lets the model choose which extraction tool.",
+          "correct": true,
+          "explain": "正解。any はツール呼び出しを保証し、どの抽出ツールを使うかはモデルに任せる。",
+          "textZh": "\"any\" 保证会调用工具，但由模型选择用哪个抽取工具。"
+        },
+        {
+          "text": "Forcing a named tool guarantees that specific extraction runs.",
+          "correct": true,
+          "explain": "正解。名前を指定した強制は、その抽出が必ず実行されることを保証する。",
+          "textZh": "强制指定某个工具，可以保证该特定抽取被执行。"
+        },
+        {
+          "text": "\"auto\" guarantees that a tool is called.",
+          "correct": false,
+          "explain": "不適。呼ばないこともある。",
+          "textZh": "\"auto\" 保证会调用工具。"
+        },
+        {
+          "text": "Forcing a named tool lets the model skip the call if unsure.",
+          "correct": false,
+          "explain": "不適。指定されたツールは必ず呼ばれる。",
+          "textZh": "强制指定工具时，模型不确定的话可以跳过调用。"
+        },
+        {
+          "text": "\"any\" requires the model to call every tool.",
+          "correct": false,
+          "explain": "不適。一つ（以上）を選んで呼ぶ。",
+          "textZh": "\"any\" 要求模型调用每一个工具。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于抽取场景中的 tool_choice，下列哪两项说法正确？（选 2 项）",
+      "commentaryZh": "再记一遍：auto（可文本）、any（必调工具、可选）、强制（必调指定工具）。"
+    },
+    {
+      "id": "ar4-041",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "A schema field \"priority\" uses an enum (low, medium, high). For tickets where priority genuinely cannot be determined, what is the best design?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add an \"unclear\" value so ambiguous cases are labeled honestly rather than forced into a level.",
+          "correct": true,
+          "explain": "正解。判断できないことを表す値があれば、無理な分類を防げる。",
+          "textZh": "增加 \"unclear\" 值，让模糊情况被如实标注，而不是被强行归入某一级。"
+        },
+        {
+          "text": "Default every ambiguous ticket to \"high.\"",
+          "correct": false,
+          "explain": "不適。優先度の情報が歪む。",
+          "textZh": "所有模糊工单默认设为 \"high\"。"
+        },
+        {
+          "text": "Remove the priority field.",
+          "correct": false,
+          "explain": "不適。判断できるチケットの情報も失う。",
+          "textZh": "删除 priority 字段。"
+        },
+        {
+          "text": "Let the model invent a new level each time.",
+          "correct": false,
+          "explain": "不適。毎回新しい値を作られると、下流のシステムで扱えない。",
+          "textZh": "让模型每次自己发明一个新级别。"
+        }
+      ],
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "schema 中的 \"priority\" 字段使用枚举（low、medium、high）。对于确实无法判断优先级的工单，最好的设计是什么？",
+      "commentaryZh": "为模糊情况提供 \"unclear\" 枚举值，比强行分类更诚实，也便于路由给人工。"
+    },
+    {
+      "id": "ar4-042",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The CI reviewer flags a repository's intentional use of a mutable default argument in a cache helper, which the team considers acceptable there. Which few-shot approach reduces such false positives without hiding genuine issues?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add paired examples: one where the pattern is acceptable (with the reason) and one where the same pattern causes a real bug and should be reported.",
+          "correct": true,
+          "explain": "正解。許容される場合と問題になる場合を対比させると、境界を一般化できる。",
+          "textZh": "加入成对的示例：一个说明这种写法可以接受（附理由），另一个展示同样写法导致真实 bug、应当报告。"
+        },
+        {
+          "text": "Add an example telling the reviewer never to mention default arguments.",
+          "correct": false,
+          "explain": "不適。本当のバグまで見逃す。",
+          "textZh": "加一个示例，让审查器永远不要提默认参数。"
+        },
+        {
+          "text": "Remove the cache helper from the repository.",
+          "correct": false,
+          "explain": "不適。正当なコードを消す理由にならない。",
+          "textZh": "从仓库中删除这个缓存辅助函数。"
+        },
+        {
+          "text": "Raise the reviewer's confidence threshold so that only findings it is very sure about are posted, which keeps the reviewer from commenting on intentional patterns.",
+          "correct": false,
+          "explain": "不適。確信度による絞り込みは境界の理解につながらない。",
+          "textZh": "提高审查器的置信度阈值，只发布它非常有把握的发现，这样审查器就不会对有意为之的写法发表评论。"
+        }
+      ],
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 审查器标出了仓库里一个缓存辅助函数中有意使用的可变默认参数，而团队认为在那里是可以接受的。哪种少样本做法能减少这类误报，同时不掩盖真正的问题？",
+      "commentaryZh": "用「可接受 vs 真正问题」的对比示例来减少误报，同时保持对真实问题的识别能力。"
+    },
+    {
+      "id": "ar4-043",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "An extracted invoice fails validation because the date is in the wrong format. What is the recommended retry approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Send a follow-up request containing the original document, the failed extraction, and the specific validation error, asking for a corrected result.",
+          "correct": true,
+          "explain": "正解。具体的なエラーを返すと、モデルは何を直せばよいか分かる。",
+          "textZh": "发送后续请求，包含原始文档、失败的抽取结果以及具体的校验错误，要求给出修正后的结果。"
+        },
+        {
+          "text": "Resend the same request without changes.",
+          "correct": false,
+          "explain": "不適。同じ誤りが繰り返されやすい。",
+          "textZh": "原封不动地重新发送同一个请求。"
+        },
+        {
+          "text": "Discard the document.",
+          "correct": false,
+          "explain": "不適。直せる誤りを捨てている。",
+          "textZh": "丢弃这份文档。"
+        },
+        {
+          "text": "Fix the date by hand every time.",
+          "correct": false,
+          "explain": "不適。自動化の目的に反する。",
+          "textZh": "每次都手工修正日期。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一张抽取出的发票因日期格式错误而校验失败。推荐的重试方式是什么？",
+      "commentaryZh": "带错误反馈的重试（retry-with-error-feedback）：把原文档、失败结果和具体校验错误一起发回，引导模型自我修正。"
+    },
+    {
+      "id": "ar4-044",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "A contract extraction keeps failing validation because \"governing_law\" is missing — and the contract itself never states governing law; it references a master agreement that is not provided. Will retries help?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "No; the information is absent from the provided document, so the field should be nullable or the case routed for the missing document rather than retried.",
+          "correct": true,
+          "explain": "正解。情報が無い場合、再試行しても正しい値は出てこない。捏造を招くだけ。",
+          "textZh": "不会；所提供的文档中根本没有该信息，所以应将该字段设为可空，或把案件转去获取缺失的文档，而不是重试。"
+        },
+        {
+          "text": "Yes; retry until the model finds it.",
+          "correct": false,
+          "explain": "不適。存在しない情報は見つからない。",
+          "textZh": "会；一直重试直到模型找到它。"
+        },
+        {
+          "text": "Yes, if the temperature is increased.",
+          "correct": false,
+          "explain": "不適。値を作り出す方向に働く。",
+          "textZh": "会，只要提高 temperature。"
+        },
+        {
+          "text": "Yes, if the prompt says \"look harder\" and includes the validation error each time, because the model eventually notices the information in the referenced document.",
+          "correct": false,
+          "explain": "不適。参照先の文書は渡されていないので、何度頼んでも見つからない。",
+          "textZh": "会，只要提示词说「再仔细找找」并且每次都附上校验错误，因为模型最终会注意到被引用文档中的信息。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一份合同的抽取一直因为缺少 \"governing_law\" 而校验失败——而合同本身根本没写适用法律，只引用了一份未提供的主协议。重试会有帮助吗？",
+      "commentaryZh": "重试的局限：信息根本不在源文档中时，重试无效（甚至诱发捏造）。重试只对格式/结构错误有效。"
+    },
+    {
+      "id": "ar4-045",
+      "domain": "D4",
+      "type": "multi",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Which TWO validation failures are most likely to be fixed by a retry with error feedback? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "An amount written as \"1.234,50\" when the schema expects 1234.50.",
+          "correct": true,
+          "explain": "正解。形式の誤りは、エラーを示せば直せる。",
+          "textZh": "金额写成了「1.234,50」，而 schema 期望 1234.50。"
+        },
+        {
+          "text": "Line items placed at the top level instead of inside the items array.",
+          "correct": true,
+          "explain": "正解。構造の誤りも、指摘すれば直せる。",
+          "textZh": "明细项被放在顶层，而不是放在 items 数组里。"
+        },
+        {
+          "text": "A tax ID that does not appear anywhere in the document.",
+          "correct": false,
+          "explain": "不適。情報が無いので、再試行では得られない。",
+          "textZh": "文档中根本没有出现的税号。"
+        },
+        {
+          "text": "A delivery date that exists only in a separate email not provided.",
+          "correct": false,
+          "explain": "不適。外部の資料にしか無い情報。",
+          "textZh": "只存在于另一封未提供的邮件中的交货日期。"
+        },
+        {
+          "text": "A signature date on a page that was not included in the upload.",
+          "correct": false,
+          "explain": "不適。入力に含まれていない。",
+          "textZh": "位于未上传页面上的签署日期。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两种校验失败最可能通过带错误反馈的重试修复？（选 2 项）",
+      "commentaryZh": "可重试修复：格式不匹配、结构错误。不可修复：源文档中根本不存在的信息。"
+    },
+    {
+      "id": "ar4-046",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "To catch extractions where line items do not match the invoice total, which schema design supports self-correction?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Extract both a \"stated_total\" (as printed) and a \"calculated_total\" (sum of line items), and flag a discrepancy when they differ.",
+          "correct": true,
+          "explain": "正解。印字された値と計算値を両方取ると、不整合を機械的に検出できる。",
+          "textZh": "同时抽取「stated_total」（票面印刷的合计）和「calculated_total」（明细之和），二者不一致时标出差异。"
+        },
+        {
+          "text": "Extract only the stated total.",
+          "correct": false,
+          "explain": "不適。明細との矛盾に気づけない。",
+          "textZh": "只抽取票面合计。"
+        },
+        {
+          "text": "Ask the model to make the numbers match.",
+          "correct": false,
+          "explain": "不適。事実を改変させてしまう。",
+          "textZh": "让模型把数字凑成一致。"
+        },
+        {
+          "text": "Remove line items from the schema.",
+          "correct": false,
+          "explain": "不適。必要な情報を失う。",
+          "textZh": "从 schema 中删除明细项。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为了发现明细与发票合计不符的抽取结果，哪种 schema 设计有助于自我修正？",
+      "commentaryZh": "自我校验设计：抽取 stated_total 与 calculated_total 进行比对；也可加 conflict_detected 布尔值标记源数据矛盾。"
+    },
+    {
+      "id": "ar4-047",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "A supplier's invoice shows two different invoice dates on different pages. How should the extraction handle this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Record the conflict explicitly (for example conflict_detected: true with both values) so it can be reviewed, rather than silently picking one.",
+          "correct": true,
+          "explain": "正解。矛盾は隠さず明示し、判断できる人や工程に回す。",
+          "textZh": "明确记录冲突（例如 conflict_detected: true 并附上两个值），以便复核，而不是悄悄选一个。"
+        },
+        {
+          "text": "Pick the earlier date.",
+          "correct": false,
+          "explain": "不適。根拠のない選択で、矛盾があった事実も消える。",
+          "textZh": "选较早的日期。"
+        },
+        {
+          "text": "Pick the later date, since later pages usually correct earlier ones, and drop the earlier one so the record stays simple for downstream systems.",
+          "correct": false,
+          "explain": "不適。根拠のない推測で、矛盾の存在を記録から消してしまう。",
+          "textZh": "选较晚的日期，因为后面的页面通常会更正前面的内容，并丢弃较早的日期，让记录对下游系统保持简洁。"
+        },
+        {
+          "text": "Leave the field blank and say nothing.",
+          "correct": false,
+          "explain": "不適。矛盾があった事実が失われる。",
+          "textZh": "把字段留空，什么也不说。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某供应商的发票在不同页上显示了两个不同的开票日期。抽取应如何处理？",
+      "commentaryZh": "源数据不一致时，加入 conflict_detected 等字段显式标记，比随意选择一个值更可靠。"
+    },
+    {
+      "id": "ar4-048",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "What is the difference between schema syntax errors and semantic validation errors in an extraction pipeline?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Syntax errors (invalid JSON, wrong types) are eliminated by schema-enforced tool use; semantic errors (totals that do not sum, values in the wrong field) need separate validation.",
+          "correct": true,
+          "explain": "正解。構文はスキーマで、意味は検証ロジックで扱う。",
+          "textZh": "语法错误（无效 JSON、类型错误）可通过 schema 强制的工具调用消除；语义错误（合计对不上、值填错字段）需要另外的校验。"
+        },
+        {
+          "text": "Both are eliminated by strict schemas.",
+          "correct": false,
+          "explain": "不適。意味の誤りは残る。",
+          "textZh": "两者都能被严格 schema 消除。"
+        },
+        {
+          "text": "Semantic errors are always caused by the network.",
+          "correct": false,
+          "explain": "不適。意味の誤りはネットワークとは関係ない。",
+          "textZh": "语义错误总是由网络引起的。"
+        },
+        {
+          "text": "There is no difference.",
+          "correct": false,
+          "explain": "不適。対処の方法が違う。",
+          "textZh": "两者没有区别。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在抽取流水线中，schema 语法错误和语义校验错误有什么区别？",
+      "commentaryZh": "牢记分工：schema 管语法和结构；校验逻辑（Pydantic 等）管语义。"
+    },
+    {
+      "id": "ar4-049",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "What should a retry request include to give the model the best chance of correcting a failed extraction?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The original document, the failed extraction, and the specific validation errors.",
+          "correct": true,
+          "explain": "正解。何がどう間違ったかを示す材料をそろえる。",
+          "textZh": "原始文档、失败的抽取结果以及具体的校验错误。"
+        },
+        {
+          "text": "Only the word \"again.\"",
+          "correct": false,
+          "explain": "不適。直す手がかりがない。",
+          "textZh": "只写「再来一次」。"
+        },
+        {
+          "text": "Only the validation errors, without the document, so the model focuses only on what needs fixing.",
+          "correct": false,
+          "explain": "不適。元の情報が無いと正しい値を取れない。",
+          "textZh": "只给校验错误，不给文档，让模型只关注需要修正的地方。"
+        },
+        {
+          "text": "A request to be more careful.",
+          "correct": false,
+          "explain": "不適。「注意して」では何を直せばよいか分からない。",
+          "textZh": "一句「请更仔细一些」。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为了让模型最有可能修正失败的抽取，重试请求应包含什么？",
+      "commentaryZh": "带错误反馈的重试 = 原文档 + 失败结果 + 具体错误信息。"
+    },
+    {
+      "id": "ar4-050",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "A pipeline retries every failed extraction up to five times. Costs are high and many documents still fail after five attempts. Which change addresses the root cause best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Classify failures first: retry with error feedback only for format/structure errors, and route missing-information cases to nullable fields or human review.",
+          "correct": true,
+          "explain": "正解。再試行で直るものと直らないものを分けると、無駄な再試行がなくなる。",
+          "textZh": "先对失败分类：只对格式/结构错误做带错误反馈的重试，信息缺失的情况则改为可空字段或转人工复核。"
+        },
+        {
+          "text": "Increase the retry limit to 20.",
+          "correct": false,
+          "explain": "不適。直らないものに費用をかけ続ける。",
+          "textZh": "把重试上限提高到 20 次。"
+        },
+        {
+          "text": "Retry without including the error message to save tokens.",
+          "correct": false,
+          "explain": "不適。修正の手がかりを捨てている。",
+          "textZh": "为节省 token，重试时不附错误信息。"
+        },
+        {
+          "text": "Stop validating outputs.",
+          "correct": false,
+          "explain": "不適。誤ったデータが下流に流れる。",
+          "textZh": "停止校验输出。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某流水线对每个失败的抽取最多重试五次。成本很高，而且很多文档在五次之后仍然失败。哪种改动最能解决根本原因？",
+      "commentaryZh": "识别哪些错误可通过重试解决（格式、结构），哪些不能（信息缺失），是 4.4 的核心判断。"
+    },
+    {
+      "id": "ar4-051",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Developers keep dismissing certain extraction-review flags. The team wants to analyze which patterns cause these false positives. What should be added to each structured finding?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A detected_pattern field recording which construct or rule triggered the finding.",
+          "correct": true,
+          "explain": "正解。何がきっかけで指摘したかを残せば、却下のパターンを集計して改善できる。",
+          "textZh": "加一个 detected_pattern 字段，记录是哪个结构或规则触发了这条发现。"
+        },
+        {
+          "text": "The reviewer's name.",
+          "correct": false,
+          "explain": "不適。原因の分析にならない。",
+          "textZh": "复核人的名字。"
+        },
+        {
+          "text": "A random identifier only.",
+          "correct": false,
+          "explain": "不適。パターンを分析できない。",
+          "textZh": "只有一个随机标识符。"
+        },
+        {
+          "text": "The full document text, so reviewers can see exactly what the model was given.",
+          "correct": false,
+          "explain": "不適。重く、分析の軸にならない。",
+          "textZh": "文档全文，让复核人员能看到模型拿到的全部内容。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "开发者总是驳回某些抽取复核的标记。团队想分析是哪些模式导致了这些误报。应该在每条结构化发现中加入什么？",
+      "commentaryZh": "在发现中加入 detected_pattern，可以系统分析哪些模式被驳回，从而有针对性地改进提示词。"
+    },
+    {
+      "id": "ar4-052",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The CI reviewer's findings are often dismissed by developers, but nobody knows which rules cause the dismissals. Which design change enables systematic improvement?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Include a detected_pattern field in each finding and track dismissals per pattern.",
+          "correct": true,
+          "explain": "正解。どの規則が誤検知を生んでいるかがデータで分かる。",
+          "textZh": "在每条发现中加入 detected_pattern 字段，并按模式统计驳回情况。"
+        },
+        {
+          "text": "Ask developers to stop dismissing findings.",
+          "correct": false,
+          "explain": "不適。原因を調べていない。",
+          "textZh": "让开发者不要再驳回发现。"
+        },
+        {
+          "text": "Hide dismissed findings from future reports.",
+          "correct": false,
+          "explain": "不適。同じ誤検知が続く。",
+          "textZh": "在以后的报告中隐藏被驳回的发现。"
+        },
+        {
+          "text": "Increase the number of findings per PR.",
+          "correct": false,
+          "explain": "不適。指摘の数を増やすとノイズが増えるだけ。",
+          "textZh": "增加每个 PR 的发现数量。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 审查器的发现经常被开发者驳回，但没人知道是哪些规则导致的。哪种设计改动能支持系统性的改进？",
+      "commentaryZh": "反馈环设计：记录触发模式（detected_pattern），分析驳回规律，再改进对应规则。"
+    },
+    {
+      "id": "ar4-053",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "When is retrying an extraction most likely to succeed?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When the failure is a format or structural error and the needed information is present in the document.",
+          "correct": true,
+          "explain": "正解。情報があるなら、誤りを示せば直せる。",
+          "textZh": "当失败属于格式或结构错误，且所需信息确实存在于文档中时。"
+        },
+        {
+          "text": "When the information is missing from the document.",
+          "correct": false,
+          "explain": "不適。無い情報は出てこない。",
+          "textZh": "当信息在文档中缺失时。"
+        },
+        {
+          "text": "When the document is in a language the model cannot read.",
+          "correct": false,
+          "explain": "不適。前提が成り立たない。",
+          "textZh": "当文档使用模型读不懂的语言时。"
+        },
+        {
+          "text": "Always, as long as it is retried enough times with the error message, even for fields missing from the source.",
+          "correct": false,
+          "explain": "不適。直らない種類の失敗がある。",
+          "textZh": "总是会成功，只要附上错误信息重试足够多次，即使源文档中缺少该字段也一样。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "什么时候重试抽取最可能成功？",
+      "commentaryZh": "重试有效的前提有两个：所需信息确实在文档中，且错误属于格式或结构类。信息缺失时重试只会诱发编造。"
+    },
+    {
+      "id": "ar4-054",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO statements about validation-retry loops are correct? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Appending specific validation errors to the retry request helps the model correct its output.",
+          "correct": true,
+          "explain": "正解。具体的な検証エラーを返すと、何を直すべきかが伝わる。",
+          "textZh": "在重试请求中附上具体的校验错误，有助于模型修正输出。"
+        },
+        {
+          "text": "Retries cannot recover information that exists only in a document that was not provided.",
+          "correct": true,
+          "explain": "正解。渡していない文書にしか無い情報は、何度試しても得られない。",
+          "textZh": "只存在于未提供文档中的信息，重试无法找回。"
+        },
+        {
+          "text": "Retries guarantee eventual success for every document.",
+          "correct": false,
+          "explain": "不適。情報が存在しない場合など、再試行で直らない失敗がある。",
+          "textZh": "重试最终保证每份文档都能成功。"
+        },
+        {
+          "text": "Schema-enforced output removes the need for semantic validation.",
+          "correct": false,
+          "explain": "不適。意味の誤りは残る。",
+          "textZh": "schema 强制的输出使语义校验变得不必要。"
+        },
+        {
+          "text": "Retries should omit the original document to reduce tokens.",
+          "correct": false,
+          "explain": "不適。正しい値を探す材料が無くなる。",
+          "textZh": "重试时应省略原始文档以减少 token。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于「校验—重试」循环，下列哪两项说法正确？（选 2 项）",
+      "commentaryZh": "校验—重试要附错误信息、附原文；它对缺失信息无能为力；schema 不能替代语义校验。"
+    },
+    {
+      "id": "ar4-055",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A purchase order extraction passes schema validation, but quantity × unit price does not match the line amount on 4% of lines. What is the best next step?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add a semantic check that recomputes each line, then retry with the specific mismatches as feedback, and flag lines that still conflict for review.",
+          "correct": true,
+          "explain": "正解。意味的な検証で誤りを見つけ、具体的に返して直し、それでも残るものは人に回す。",
+          "textZh": "增加一个重新计算每行的语义校验，再把具体的不符之处作为反馈进行重试，仍然冲突的行标出供复核。"
+        },
+        {
+          "text": "Accept the output since it passed the schema, which already validates numeric types and total amounts.",
+          "correct": false,
+          "explain": "不適。スキーマは計算の正しさを保証しない。",
+          "textZh": "既然通过了 schema 就接受输出，schema 已经校验了数值类型和合计金额。"
+        },
+        {
+          "text": "Round all numbers to integers.",
+          "correct": false,
+          "explain": "不適。丸めても計算の食い違いが隠れるだけ。",
+          "textZh": "把所有数字四舍五入成整数。"
+        },
+        {
+          "text": "Remove the line amount field.",
+          "correct": false,
+          "explain": "不適。検証の材料を失う。",
+          "textZh": "删除每行金额字段。"
+        }
+      ],
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个采购订单抽取通过了 schema 校验，但有 4% 的明细行出现「数量 × 单价」与该行金额不符。最好的下一步是什么？",
+      "commentaryZh": "语义校验 + 带具体错误的重试 + 无法自动解决时转人工，构成完整的质量反馈环。"
+    },
+    {
+      "id": "ar4-056",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "Each night the pipeline must process 50,000 archived documents, and results are needed by the next morning. Which API approach fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The Message Batches API, which costs less and suits latency-tolerant, non-blocking work.",
+          "correct": true,
+          "explain": "正解。翌朝でよい大量処理はバッチの典型的な用途。",
+          "textZh": "Message Batches API：成本更低，适合能容忍延迟、非阻塞的工作。"
+        },
+        {
+          "text": "Synchronous requests one at a time.",
+          "correct": false,
+          "explain": "不適。費用が高く、処理も遅い。",
+          "textZh": "逐个发送同步请求。"
+        },
+        {
+          "text": "Interactive Claude Code sessions.",
+          "correct": false,
+          "explain": "不適。大量の文書処理に向かない。",
+          "textZh": "交互式的 Claude Code 会话。"
+        },
+        {
+          "text": "A single request containing all 50,000 documents.",
+          "correct": false,
+          "explain": "不適。文脈に入りきらない。",
+          "textZh": "一个包含全部 5 万份文档的请求。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "流水线每晚要处理 5 万份归档文档，结果只需在第二天早上拿到。哪种 API 方式最合适？",
+      "commentaryZh": "批处理 API：约 50% 成本节省，处理窗口最长 24 小时，无延迟保证。适合夜间报表、每周审计等非阻塞任务。"
+    },
+    {
+      "id": "ar4-057",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "A document in a batch fails because it exceeded the context limit. How should the pipeline handle it?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Identify it by custom_id, split it into smaller chunks, and resubmit only that document.",
+          "correct": true,
+          "explain": "正解。失敗したものだけを custom_id で特定し、原因に合わせて修正して再投入する。",
+          "textZh": "通过 custom_id 找到它，把它拆成更小的块，只重新提交这份文档。"
+        },
+        {
+          "text": "Resubmit the entire batch unchanged, so the results stay in one place and custom_id values do not change.",
+          "correct": false,
+          "explain": "不適。成功分まで二重に処理し、失敗も繰り返す。",
+          "textZh": "原封不动地重新提交整个批次，让结果保持在一处，custom_id 也不会改变。"
+        },
+        {
+          "text": "Skip the document permanently.",
+          "correct": false,
+          "explain": "不適。永久に飛ばすとデータが欠ける。分割すれば処理できる。",
+          "textZh": "永久跳过这份文档。"
+        },
+        {
+          "text": "Resubmit the same document without changes.",
+          "correct": false,
+          "explain": "不適。同じ理由で失敗する。",
+          "textZh": "不做修改地重新提交这份文档。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "批处理中的一份文档因超出上下文限制而失败。流水线应如何处理？",
+      "commentaryZh": "批处理失败处理：用 custom_id 对应请求与结果，只重新提交失败项，并针对原因修改（如分块）。"
+    },
+    {
+      "id": "ar4-058",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "Contracts must be processed within 28 hours of arrival. Batch processing can take up to 24 hours. How often must new documents be submitted as a batch to meet the SLA in the worst case?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "At least every 4 hours, since a document may wait up to 4 hours before submission plus up to 24 hours of processing.",
+          "correct": true,
+          "explain": "正解。待ち時間の上限＋処理時間の上限が SLA 以内に収まるようにする。28 − 24 = 4 時間。",
+          "textZh": "至少每 4 小时一次，因为文档在提交前最多等待 4 小时，再加上最多 24 小时的处理。"
+        },
+        {
+          "text": "Once every 24 hours.",
+          "correct": false,
+          "explain": "不適。最悪 48 時間かかり SLA を超える。",
+          "textZh": "每 24 小时一次。"
+        },
+        {
+          "text": "Once every 12 hours.",
+          "correct": false,
+          "explain": "不適。最悪 36 時間になる。",
+          "textZh": "每 12 小时一次。"
+        },
+        {
+          "text": "Only once per week.",
+          "correct": false,
+          "explain": "不適。最悪で一週間以上待つことになり、SLA を大幅に超過する。",
+          "textZh": "每周只提交一次。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "合同必须在到达后 28 小时内处理完毕。批处理最长可能需要 24 小时。为了在最坏情况下满足 SLA，最长每隔多久就必须把新文档作为一个批次提交？",
+      "commentaryZh": "提交频率 = SLA − 最长处理时间。这类计算题在考试指南中有类似例子，关键是考虑「等待提交」的最坏情况。"
+    },
+    {
+      "id": "ar4-059",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Before sending 100,000 documents through the Batch API, what step most reduces costly resubmissions?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Refine the prompt on a representative sample set first, to maximize first-pass success.",
+          "correct": true,
+          "explain": "正解。少量で問題を出し切ってから大量処理に回す。",
+          "textZh": "先在有代表性的样本集上打磨提示词，以提高首次通过率。"
+        },
+        {
+          "text": "Submit everything immediately and fix later.",
+          "correct": false,
+          "explain": "不適。不備のある提示で大量に処理し、再投入の費用がかさむ。",
+          "textZh": "立即全部提交，以后再修。"
+        },
+        {
+          "text": "Split into 100,000 separate synchronous calls, so that each failure is visible immediately and can be fixed before moving on.",
+          "correct": false,
+          "explain": "不適。費用が高く、問題の解決にもならない。",
+          "textZh": "拆成 10 万次独立的同步调用，让每个失败都能立刻暴露，在继续之前修好。"
+        },
+        {
+          "text": "Remove validation to avoid failures.",
+          "correct": false,
+          "explain": "不適。誤りが見えなくなるだけ。",
+          "textZh": "去掉校验以避免失败。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在把 10 万份文档送入批处理 API 之前，哪一步最能减少昂贵的重复提交？",
+      "commentaryZh": "大批量处理前先在样本上调优提示词，提高首次成功率，降低重复提交成本。"
+    },
+    {
+      "id": "ar4-060",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "What is the purpose of custom_id in a Message Batches request?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "To correlate each result with the request (document) that produced it.",
+          "correct": true,
+          "explain": "正解。結果は順不同で返り得るので、ID で対応づける。",
+          "textZh": "把每个结果与产生它的请求（文档）对应起来。"
+        },
+        {
+          "text": "To set the model's temperature.",
+          "correct": false,
+          "explain": "不適。custom_id は温度とは無関係。結果とリクエストの対応づけに使う。",
+          "textZh": "设置模型的 temperature。"
+        },
+        {
+          "text": "To choose which tools are executed mid-request.",
+          "correct": false,
+          "explain": "不適。バッチではリクエスト途中のツール実行はできない。",
+          "textZh": "选择请求中途执行哪些工具。"
+        },
+        {
+          "text": "To encrypt the request.",
+          "correct": false,
+          "explain": "不適。暗号化の機能ではない。",
+          "textZh": "加密请求。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "Message Batches 请求中的 custom_id 有什么用途？",
+      "commentaryZh": "custom_id 用于把批处理的请求与结果一一对应，也用于识别并重新提交失败项。"
+    },
+    {
+      "id": "ar4-061",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The team wants Claude to review every pull request before merge, blocking the merge until the review completes. Which API approach is appropriate?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Synchronous API calls, because the workflow is blocking and needs a prompt response.",
+          "correct": true,
+          "explain": "正解。マージ前のチェックは待ち時間が直接開発を止めるので、同期処理が必要。",
+          "textZh": "同步 API 调用，因为这是阻塞式流程，需要及时响应。"
+        },
+        {
+          "text": "The Message Batches API, to save 50%, since the review result will arrive eventually and cost matters most.",
+          "correct": false,
+          "explain": "不適。処理時間の保証がなく、最大 24 時間待つことになり得る。",
+          "textZh": "用 Message Batches API 以节省 50%，因为审查结果迟早会到，而成本最重要。"
+        },
+        {
+          "text": "A weekly batch job.",
+          "correct": false,
+          "explain": "不適。マージ前のチェックにならない。",
+          "textZh": "每周一次的批处理任务。"
+        },
+        {
+          "text": "No API; review manually.",
+          "correct": false,
+          "explain": "不適。自動化の要件に合わない。",
+          "textZh": "不用 API；人工审查。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队希望 Claude 在合并前审查每个拉取请求，审查完成前阻止合并。哪种 API 方式合适？",
+      "commentaryZh": "阻塞式流程（合并前检查）用同步 API；可延迟的任务（夜间、每周）用批处理。"
+    },
+    {
+      "id": "ar4-062",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Which CI-related workload is the best fit for the Message Batches API?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A nightly job that generates test suggestions for all modules changed during the day.",
+          "correct": true,
+          "explain": "正解。翌朝までに終わればよい非ブロッキングの作業。",
+          "textZh": "一个夜间任务，为当天改动过的所有模块生成测试建议。"
+        },
+        {
+          "text": "A pre-merge check that developers wait on.",
+          "correct": false,
+          "explain": "不適。待ち時間が問題になる。",
+          "textZh": "开发者需要等待的合并前检查。"
+        },
+        {
+          "text": "An interactive debugging session.",
+          "correct": false,
+          "explain": "不適。即時の応答が必要。",
+          "textZh": "交互式的调试会话。"
+        },
+        {
+          "text": "A live chat assistant in the IDE.",
+          "correct": false,
+          "explain": "不適。即時の応答が必要。",
+          "textZh": "IDE 中的实时聊天助手。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪项与 CI 相关的工作负载最适合使用 Message Batches API？",
+      "commentaryZh": "判断标准：是否能容忍延迟、是否阻塞他人。夜间测试生成 → 批处理；合并前检查 → 同步。"
+    },
+    {
+      "id": "ar4-063",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "A team tries to run a batch job where each request needs Claude to call a tool, receive the result, and continue reasoning within the same request. Why does this not work with the Batch API?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A batch request cannot execute tools mid-request and return results; multi-turn tool calling must be orchestrated across separate requests.",
+          "correct": true,
+          "explain": "正解。バッチの各リクエストは一回の応答で完結する。ツール結果を返して続ける往復はできない。",
+          "textZh": "批处理请求无法在请求中途执行工具并返回结果；多轮工具调用必须通过多个独立请求来编排。"
+        },
+        {
+          "text": "Batches do not support system prompts.",
+          "correct": false,
+          "explain": "不適。理由が違う。システムプロンプトは使える。往復のツール実行ができないことが問題。",
+          "textZh": "批处理不支持系统提示词。"
+        },
+        {
+          "text": "Tools are disabled for all models in batch mode, so no tool definitions can be included in a batch request or response.",
+          "correct": false,
+          "explain": "不適。理由が違う。往復のツール実行ができないことが問題。",
+          "textZh": "批处理模式下所有模型的工具都被禁用，所以批处理请求中不能包含任何工具定义或响应中。"
+        },
+        {
+          "text": "Batches only accept images.",
+          "correct": false,
+          "explain": "不適。バッチは画像専用ではない。",
+          "textZh": "批处理只接受图片。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队尝试运行一个批处理任务，其中每个请求都需要 Claude 调用工具、获取结果，再在同一个请求中继续推理。为什么这在批处理 API 中行不通？",
+      "commentaryZh": "批处理 API 不支持在单个请求内进行多轮工具调用（无法中途执行工具再返回结果）。需要工具往返的流程不适合直接放进批处理。"
+    },
+    {
+      "id": "ar4-064",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "Which statement about the Message Batches API is correct?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It reduces cost compared with standard requests, and a batch can take up to 24 hours to complete.",
+          "correct": true,
+          "explain": "正解。費用の削減と最大 24 時間の処理時間が特徴。",
+          "textZh": "与标准请求相比可降低成本，一个批次最长可能需要 24 小时才能完成。"
+        },
+        {
+          "text": "It guarantees results within one minute.",
+          "correct": false,
+          "explain": "不適。レイテンシの保証はない。",
+          "textZh": "保证一分钟内出结果。"
+        },
+        {
+          "text": "It is more expensive but faster.",
+          "correct": false,
+          "explain": "不適。逆。安くなる代わりに、処理時間の保証がない。",
+          "textZh": "更贵但更快。"
+        },
+        {
+          "text": "It only works for a single request at a time.",
+          "correct": false,
+          "explain": "不適。大量のリクエストをまとめて処理する。",
+          "textZh": "一次只能处理一个请求。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于 Message Batches API，下列哪种说法正确？",
+      "commentaryZh": "批处理：约 50% 成本节省、最长 24 小时、无延迟 SLA、用 custom_id 对应结果。"
+    },
+    {
+      "id": "ar4-065",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO workloads are appropriate for the Message Batches API? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A weekly audit that classifies last week's support tickets.",
+          "correct": true,
+          "explain": "正解。遅延を許容できる定期処理。",
+          "textZh": "每周一次的审计，对上周的客服工单进行分类。"
+        },
+        {
+          "text": "Overnight summarization of a large document archive.",
+          "correct": true,
+          "explain": "正解。翌朝までに終われば良い。",
+          "textZh": "夜间对大量文档归档进行摘要。"
+        },
+        {
+          "text": "A customer chat that must answer in seconds.",
+          "correct": false,
+          "explain": "不適。数秒で答える必要があり、即時性が求められる。",
+          "textZh": "必须在几秒内回答的客户聊天。"
+        },
+        {
+          "text": "A pre-merge security gate developers wait for.",
+          "correct": false,
+          "explain": "不適。ブロッキングな処理。",
+          "textZh": "开发者需要等待的合并前安全检查。"
+        },
+        {
+          "text": "An agent loop that executes tools between steps in one request.",
+          "correct": false,
+          "explain": "不適。バッチではリクエスト途中のツール実行ができない。",
+          "textZh": "在一个请求内于步骤之间执行工具的智能体循环。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项工作负载适合使用 Message Batches API？（选 2 项）",
+      "commentaryZh": "批处理适合非阻塞、可容忍延迟、彼此独立的大量请求；需要秒级回答或在单个请求内往返执行工具的流程都不适合。"
+    },
+    {
+      "id": "ar4-066",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A batch of 10,000 extraction requests completes with 120 failures. What is the most efficient recovery?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use the custom_id of each failed request to resubmit only those 120, after fixing the cause where possible.",
+          "correct": true,
+          "explain": "正解。失敗分だけを特定して再投入する。",
+          "textZh": "用每个失败请求的 custom_id，在尽可能修正原因后，只重新提交这 120 个。"
+        },
+        {
+          "text": "Resubmit all 10,000 requests.",
+          "correct": false,
+          "explain": "不適。成功分を二重に処理する無駄。",
+          "textZh": "重新提交全部 1 万个请求。"
+        },
+        {
+          "text": "Ignore the failures.",
+          "correct": false,
+          "explain": "不適。失敗を無視するとデータが欠ける。",
+          "textZh": "忽略这些失败。"
+        },
+        {
+          "text": "Switch the whole pipeline to synchronous calls, so failures are handled one document at a time from now on.",
+          "correct": false,
+          "explain": "不適。費用が増え、根本原因も解決しない。",
+          "textZh": "把整个流水线改为同步调用，从此逐份文档地处理失败。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个包含 1 万个抽取请求的批次完成了，其中 120 个失败。最高效的恢复方式是什么？",
+      "commentaryZh": "失败恢复的关键是 custom_id：精准定位、修正原因、只重提失败项。"
+    },
+    {
+      "id": "ar4-067",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "A daily report must be delivered within 30 hours of the data arriving, and batch processing may take up to 24 hours. A team proposes submitting one batch per day at midnight. What is the problem?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Data arriving just after midnight would wait almost 24 hours to be submitted, then up to 24 hours more to process — up to about 48 hours, breaking the 30-hour SLA.",
+          "correct": true,
+          "explain": "正解。提出までの待ち時間を含めて最悪ケースで考える。6時間以内ごとの提出が必要。",
+          "textZh": "午夜刚过到达的数据要等将近 24 小时才被提交，再加上最多 24 小时的处理——最长约 48 小时，超出 30 小时的 SLA。"
+        },
+        {
+          "text": "There is no problem; 24 is less than 30.",
+          "correct": false,
+          "explain": "不適。提出までの待ち時間を無視している。",
+          "textZh": "没有问题；24 小于 30。"
+        },
+        {
+          "text": "Batches cannot be submitted at midnight.",
+          "correct": false,
+          "explain": "不適。時刻の制限ではない。",
+          "textZh": "午夜不能提交批次。"
+        },
+        {
+          "text": "The SLA should be measured from submission, not arrival.",
+          "correct": false,
+          "explain": "不適。要件の定義を勝手に変えている。",
+          "textZh": "SLA 应从提交时间算起，而不是到达时间。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某日报必须在数据到达后 30 小时内交付，而批处理最长可能需要 24 小时。团队提议每天午夜提交一个批次。问题在哪里？",
+      "commentaryZh": "SLA 计算要包含「等待提交」的最坏时间：提交间隔 ≤ SLA − 最长处理时间（此处为 6 小时）。"
+    },
+    {
+      "id": "ar4-068",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "The extraction pipeline asks the same Claude call to extract fields and then \"double-check your work.\" Subtle errors still get through. What does the guidance suggest instead?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use a separate, independent review instance that checks the extraction without the generator's reasoning context.",
+          "correct": true,
+          "explain": "正解。生成時の推論を引きずらない独立したレビューのほうが誤りに気づく。",
+          "textZh": "使用一个独立的审查实例，在不带生成者推理上下文的情况下检查抽取结果。"
+        },
+        {
+          "text": "Ask the same call to double-check twice.",
+          "correct": false,
+          "explain": "不適。同じ文脈の偏りは残る。",
+          "textZh": "让同一次调用复查两遍。"
+        },
+        {
+          "text": "Turn on extended thinking for the same call and trust its final answer, since longer reasoning catches what a quick pass misses.",
+          "correct": false,
+          "explain": "不適。指針では独立したレビューのほうが有効とされる。",
+          "textZh": "对同一次调用开启扩展思考，并信任它的最终答案，因为更长的推理能发现快速检查遗漏的问题。"
+        },
+        {
+          "text": "Skip review for high-value documents.",
+          "correct": false,
+          "explain": "不適。重要な文書ほど確認が必要。逆。",
+          "textZh": "对高价值文档跳过复查。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "抽取流水线让同一次 Claude 调用先抽取字段、再「复查一遍」。细微的错误仍会漏过。指引建议怎么做？",
+      "commentaryZh": "自我审查的局限：模型保留了生成时的推理，难以质疑自己的决定。独立实例审查更有效。"
+    },
+    {
+      "id": "ar4-069",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "The pipeline wants to route only uncertain extractions to human reviewers. Which design supports this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run a verification pass where the model reports a confidence level alongside each field, then route low-confidence fields to review (with thresholds calibrated on labeled data).",
+          "correct": true,
+          "explain": "正解。フィールド単位の確信度で振り分け、しきい値はラベル付きデータで較正する。",
+          "textZh": "运行一次核查，让模型为每个字段给出置信度，再把低置信度字段转人工（阈值用标注数据校准）。"
+        },
+        {
+          "text": "Route everything to humans.",
+          "correct": false,
+          "explain": "不適。人手が足りず、自動化の意味がない。",
+          "textZh": "全部转人工。"
+        },
+        {
+          "text": "Route nothing to humans if the overall accuracy is high.",
+          "correct": false,
+          "explain": "不適。特定の種類での弱さが隠れる。",
+          "textZh": "只要整体准确率高，就什么都不转人工。"
+        },
+        {
+          "text": "Ask the model to decide whether humans are needed without any criteria.",
+          "correct": false,
+          "explain": "不適。基準と較正が無い。",
+          "textZh": "让模型在没有任何标准的情况下决定是否需要人工。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "流水线希望只把不确定的抽取结果交给人工复核。哪种设计支持这一点？",
+      "commentaryZh": "在核查阶段输出字段级置信度，用于有校准的复核路由。这与 5.5 的人工复核工作流相连。"
+    },
+    {
+      "id": "ar4-070",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 1,
+      "stem": "Why is an independent review instance generally better than asking the generating session to review its own code?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The generating session keeps its earlier reasoning and tends not to question its own decisions.",
+          "correct": true,
+          "explain": "正解。独立したインスタンスは生成時の思い込みを持たない。",
+          "textZh": "生成代码的会话保留了之前的推理，往往不会质疑自己的决定。"
+        },
+        {
+          "text": "The independent instance is always a larger model with a bigger context window, which lets it hold more of the codebase.",
+          "correct": false,
+          "explain": "不適。モデルの大きさではなく文脈の独立性が理由。",
+          "textZh": "独立实例总是更大的模型，上下文窗口更大，能容纳更多代码。"
+        },
+        {
+          "text": "Sessions cannot read code they wrote.",
+          "correct": false,
+          "explain": "不適。技術的な制限ではない。",
+          "textZh": "会话无法读取自己写的代码。"
+        },
+        {
+          "text": "Independent review is free.",
+          "correct": false,
+          "explain": "不適。費用は理由ではない。生成時の推論を持たないことが利点。",
+          "textZh": "独立审查是免费的。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么独立的审查实例通常比让生成代码的会话自审更好？",
+      "commentaryZh": "自审的偏差来自保留的推理上下文；独立实例没有这种包袱，更容易发现细微问题。"
+    },
+    {
+      "id": "ar4-071",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "A PR changes 30 files. Reviewing them all in one pass gives inconsistent depth and contradictory comments. Which architecture is recommended?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Per-file passes for local issues plus a separate integration pass for cross-file data flow.",
+          "correct": true,
+          "explain": "正解。注意の分散と矛盾を防ぐ多パスの構成。",
+          "textZh": "逐文件审查局部问题，再单独做一次跨文件数据流的集成审查。"
+        },
+        {
+          "text": "One pass with a longer prompt.",
+          "correct": false,
+          "explain": "不適。注意の分散は解消しない。",
+          "textZh": "用更长的提示词做一次审查。"
+        },
+        {
+          "text": "Review only files with the most lines changed.",
+          "correct": false,
+          "explain": "不適。小さな変更の重大な問題を見逃す。",
+          "textZh": "只审查改动行数最多的文件。"
+        },
+        {
+          "text": "Ask the generating session to summarize its own changes instead.",
+          "correct": false,
+          "explain": "不適。レビューの代わりにならない。",
+          "textZh": "改为让生成代码的会话总结自己的改动。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个 PR 改动了 30 个文件。一次性审查全部文件，审查深度不一，评论也相互矛盾。推荐哪种架构？",
+      "commentaryZh": "多轮审查：逐文件局部审查 + 跨文件集成审查，避免注意力稀释与矛盾结论。"
+    },
+    {
+      "id": "ar4-072",
+      "domain": "D4",
+      "type": "multi",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Which TWO are features of a well-designed multi-pass review in CI? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Focused per-file passes that look for local issues.",
+          "correct": true,
+          "explain": "正解。ファイルごとに焦点を絞って局所的な問題を探す。",
+          "textZh": "聚焦于单个文件、查找局部问题的审查轮次。"
+        },
+        {
+          "text": "A dedicated pass that examines interfaces and data flow across files.",
+          "correct": true,
+          "explain": "正解。ファイル間のインターフェースとデータの流れを専用に確認する。",
+          "textZh": "专门检查跨文件接口和数据流的审查轮次。"
+        },
+        {
+          "text": "One giant pass over the entire diff at once.",
+          "correct": false,
+          "explain": "不適。一度に全体を見ると注意が分散する。",
+          "textZh": "对整个 diff 一次性做一个大审查。"
+        },
+        {
+          "text": "Having the code author's session review its own changes.",
+          "correct": false,
+          "explain": "不適。自己レビューの偏りがある。",
+          "textZh": "让代码作者的会话审查自己的改动。"
+        },
+        {
+          "text": "Skipping integration checks to save time.",
+          "correct": false,
+          "explain": "不適。ファイル間の問題を見逃す。",
+          "textZh": "为节省时间跳过集成检查。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项是 CI 中设计良好的多轮审查的特点？（选 2 项）",
+      "commentaryZh": "设计良好的多轮审查 = 聚焦单个文件的局部轮次 + 专门检查跨文件接口的集成轮次，并最好由独立实例执行。"
+    },
+    {
+      "id": "ar4-073",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "The CI reviewer generates code fixes and then validates them. The team notices that the validator approves fixes it should have rejected. The validator runs in the same conversation that produced the fixes. What is the best change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run validation in a fresh, independent instance that receives only the diff and the requirements, not the generator's reasoning.",
+          "correct": true,
+          "explain": "正解。生成の文脈から切り離すと、甘い判定が減る。",
+          "textZh": "在一个全新的独立实例中运行验证，只提供 diff 和需求，不提供生成者的推理。"
+        },
+        {
+          "text": "Ask the same conversation to be stricter and to list reasons for rejection first, using the same context so it understands the intent behind each fix.",
+          "correct": false,
+          "explain": "不適。同じ思い込みが残る。",
+          "textZh": "让同一个对话更严格，并先列出拒绝的理由，使用相同的上下文，以便理解每个修复背后的意图。"
+        },
+        {
+          "text": "Increase the number of fixes generated.",
+          "correct": false,
+          "explain": "不適。検証の質は上がらない。",
+          "textZh": "增加生成的修复数量。"
+        },
+        {
+          "text": "Remove validation.",
+          "correct": false,
+          "explain": "不適。検証をなくせば品質が下がる。",
+          "textZh": "去掉验证。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 审查器先生成代码修复，再对其进行验证。团队注意到验证器批准了本应拒绝的修复。验证器与生成修复的是同一个对话。最好的改动是什么？",
+      "commentaryZh": "「生成」和「验证」要放在不同实例中：验证器不带生成者的推理上下文，才能有效发现问题。"
+    },
+    {
+      "id": "ar4-074",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The reviewer marks each finding with a self-reported confidence level. How should this be used?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "As one input for routing review attention (for example, sending low-confidence findings to a human), calibrated against real outcomes rather than trusted blindly.",
+          "correct": true,
+          "explain": "正解。確信度は振り分けの材料として使い、実績で較正する。",
+          "textZh": "作为分配审查注意力的一个依据（例如把低置信度发现交给人工），并用真实结果进行校准，而不是盲目信任。"
+        },
+        {
+          "text": "As proof that high-confidence findings are always correct.",
+          "correct": false,
+          "explain": "不適。自己申告の確信度は較正しないと当てにならない。",
+          "textZh": "作为高置信度发现总是正确的证据。"
+        },
+        {
+          "text": "To automatically merge PRs with high-confidence approvals.",
+          "correct": false,
+          "explain": "不適。較正なしに自動化するのは危険。",
+          "textZh": "对高置信度通过的 PR 自动合并。"
+        },
+        {
+          "text": "Ignore it completely in all cases.",
+          "correct": false,
+          "explain": "不適。較正すれば振り分けに役立つ。",
+          "textZh": "在任何情况下都完全忽略它。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "审查器给每条发现都标注了自报的置信度。应该如何使用它？",
+      "commentaryZh": "自报置信度可以用于「经过校准的路由」（例如把低置信度发现交给人工），但不能当作正确性的证明。"
+    },
+    {
+      "id": "ar4-075",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 1,
+      "stem": "What problem does splitting a large review into per-file passes mainly address?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Attention dilution, where some files get shallow review when too much is examined at once.",
+          "correct": true,
+          "explain": "正解。焦点を絞ると、各ファイルを同じ深さで見られる。",
+          "textZh": "注意力稀释：一次审查太多内容时，部分文件只得到浅显的审查。"
+        },
+        {
+          "text": "API authentication failures.",
+          "correct": false,
+          "explain": "不適。認証の問題とは無関係。注意の分散の問題。",
+          "textZh": "API 认证失败。"
+        },
+        {
+          "text": "Slow network connections.",
+          "correct": false,
+          "explain": "不適。通信速度とは無関係。注意の分散の問題。",
+          "textZh": "网络连接慢。"
+        },
+        {
+          "text": "Missing CLAUDE.md files, which forces the model to read every file with the same rules.",
+          "correct": false,
+          "explain": "不適。CLAUDE.md の有無とは無関係。一度に見る量が多すぎることが原因。",
+          "textZh": "缺少 CLAUDE.md 文件，这迫使模型用相同的规则阅读每个文件。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "把大型审查拆分成逐文件审查，主要解决了什么问题？",
+      "commentaryZh": "逐文件审查解决的是注意力稀释：一次看太多文件时部分文件只被浅显审查。跨文件问题交给单独的集成审查。"
+    },
+    {
+      "id": "ar4-076",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Why might extended thinking alone not replace an independent reviewer for catching subtle bugs in generated code?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The same instance still reasons from its own earlier decisions; an independent instance without that context is more likely to question them.",
+          "correct": true,
+          "explain": "正解。考える量を増やしても、同じ前提に縛られやすい。",
+          "textZh": "同一个实例仍然从自己之前的决定出发推理；没有这些上下文的独立实例更可能对其提出质疑。"
+        },
+        {
+          "text": "Extended thinking cannot read code.",
+          "correct": false,
+          "explain": "不適。理由が違う。考える量を増やしても、同じ前提に縛られることが問題。",
+          "textZh": "扩展思考无法读取代码。"
+        },
+        {
+          "text": "Extended thinking always introduces bugs.",
+          "correct": false,
+          "explain": "不適。拡張思考が必ずバグを生むという極端な主張は誤り。",
+          "textZh": "扩展思考总会引入 bug。"
+        },
+        {
+          "text": "Independent reviewers never make mistakes.",
+          "correct": false,
+          "explain": "不適。独立したレビュアーも誤る。極端な主張。",
+          "textZh": "独立审查者从不犯错。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么仅靠扩展思考，未必能替代独立审查者来发现生成代码中的细微 bug？",
+      "commentaryZh": "指引指出：独立审查实例比自审指令或扩展思考更能发现细微问题，原因是摆脱了生成时的推理上下文。"
+    },
+    {
+      "id": "ar4-077",
+      "domain": "D4",
+      "type": "multi",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "Which TWO describe effective review architectures? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A second, independent Claude instance reviews generated code without the generator's reasoning.",
+          "correct": true,
+          "explain": "正解。生成時の推論を持たない独立したインスタンスは見落としに気づきやすい。",
+          "textZh": "由第二个独立的 Claude 实例审查生成的代码，不带生成者的推理。"
+        },
+        {
+          "text": "Large multi-file reviews are split into local passes plus a cross-file integration pass.",
+          "correct": true,
+          "explain": "正解。局所パスと統合パスに分けると注意の分散と矛盾を防げる。",
+          "textZh": "大型多文件审查被拆分为局部轮次加跨文件集成轮次。"
+        },
+        {
+          "text": "The generator reviews its own work in the same session to keep context.",
+          "correct": false,
+          "explain": "不適。同じセッションの自己レビューは生成時の偏りが残る。",
+          "textZh": "生成者在同一会话中审查自己的成果，以保留上下文。"
+        },
+        {
+          "text": "All files are reviewed together so the model sees everything at once.",
+          "correct": false,
+          "explain": "不適。一度に全部を見ると注意が分散する。",
+          "textZh": "所有文件放在一起审查，让模型一次看到全部。"
+        },
+        {
+          "text": "Findings are trusted when the model says it is confident.",
+          "correct": false,
+          "explain": "不適。確信度は較正が必要。",
+          "textZh": "只要模型说有把握就信任发现。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项描述了有效的审查架构？（选 2 项）",
+      "commentaryZh": "有效审查 = 独立实例 + 多轮（局部 + 集成）+ 经校准的置信度路由。"
+    },
+    {
+      "id": "ar4-078",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "A team uses one Claude call to write a function and a second, separate call (with only the function and its requirements) to review it. What is this pattern called?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Independent (multi-instance) review.",
+          "correct": true,
+          "explain": "正解。生成と審査を別のインスタンスに分ける。",
+          "textZh": "独立（多实例）审查。"
+        },
+        {
+          "text": "Prompt caching.",
+          "correct": false,
+          "explain": "不適。プロンプトキャッシュはこのパターンとは無関係。",
+          "textZh": "提示词缓存。"
+        },
+        {
+          "text": "Session forking.",
+          "correct": false,
+          "explain": "不適。分岐は履歴を複製するので、生成時の文脈を引き継ぐ。",
+          "textZh": "会话分叉。"
+        },
+        {
+          "text": "Batch processing.",
+          "correct": false,
+          "explain": "不適。バッチ処理はリクエストの処理方式で、生成と審査の分離ではない。",
+          "textZh": "批处理。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队用一次 Claude 调用编写函数，再用另一次独立调用（只提供该函数及其需求）来审查。这种模式叫什么？",
+      "commentaryZh": "多实例审查：生成与审查分离，审查者不继承生成者的推理上下文。"
+    },
+    {
+      "id": "ar4-079",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "A team must choose between the synchronous Messages API and the Message Batches API. Which factor should decide the choice first?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the workflow can tolerate waiting (non-blocking) or someone is blocked waiting for the result.",
+          "correct": true,
+          "explain": "正解。待てる処理はバッチ、誰かが待っている処理は同期。",
+          "textZh": "工作流能否容忍等待（非阻塞），还是有人在阻塞等待结果。"
+        },
+        {
+          "text": "Which API name sounds newer.",
+          "correct": false,
+          "explain": "不適。判断の根拠にならない。",
+          "textZh": "哪个 API 的名字听起来更新。"
+        },
+        {
+          "text": "Whether the prompt is written in English.",
+          "correct": false,
+          "explain": "不適。言語は API の選択基準ではない。",
+          "textZh": "提示词是否用英语书写。"
+        },
+        {
+          "text": "Whether the team likes JSON, since batch results and synchronous results use different formats.",
+          "correct": false,
+          "explain": "不適。好みや形式の違いは判断基準ではない。待てるかどうかが基準。",
+          "textZh": "团队是否喜欢 JSON，因为批处理结果和同步结果使用不同的格式。"
+        }
+      ],
+      "objective": "Design efficient batch processing strategies",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队要在同步 Messages API 和 Message Batches API 之间做选择。首先应依据哪个因素来决定？",
+      "commentaryZh": "先看延迟容忍度：阻塞式 → 同步；可延迟 → 批处理（更便宜、最长 24 小时、无延迟保证）。"
+    },
+    {
+      "id": "ar4-080",
+      "domain": "D4",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "A reviewer finds an issue in file A that is caused by how file B calls it, but the per-file pass for A cannot see B. Which part of a multi-pass architecture should catch this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The cross-file integration pass, which examines interfaces and data flow between files.",
+          "correct": true,
+          "explain": "正解。ファイル間の問題は統合パスの担当。",
+          "textZh": "跨文件集成审查，它专门检查文件之间的接口和数据流。"
+        },
+        {
+          "text": "The per-file pass for A, by reading the whole repository.",
+          "correct": false,
+          "explain": "不適。焦点を絞る意味がなくなる。",
+          "textZh": "A 的逐文件审查，通过读取整个仓库来发现。"
+        },
+        {
+          "text": "Nobody; cross-file issues cannot be reviewed.",
+          "correct": false,
+          "explain": "不適。ファイル間の問題は統合パスで扱える。",
+          "textZh": "没有任何部分；跨文件问题无法审查。"
+        },
+        {
+          "text": "The generating session's self-review.",
+          "correct": false,
+          "explain": "不適。自己レビューは偏りがある。",
+          "textZh": "生成代码的会话的自审。"
+        }
+      ],
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "审查器发现文件 A 的某个问题是由文件 B 的调用方式引起的，但 A 的逐文件审查看不到 B。多轮审查架构中应由哪一部分发现这类问题？",
+      "commentaryZh": "逐文件审查管局部问题；跨文件的调用关系和数据流交给专门的集成审查。"
+    }
+  ]
+}

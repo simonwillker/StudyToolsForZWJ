@@ -8,12 +8,12 @@
    ブラウザごとのくせ：
    - Chrome：発話オブジェクトがガベージコレクトされると onend が来ない
      → 読み終わるまで参照を持っておく。それでも来ないときのために時間切れも置く
-   - Chrome：長い発話は15秒ほどで止まる → ccaofAudioCore の splitSentences で分ける
+   - Chrome：長い発話は15秒ほどで止まる → audioCore.js の splitSentences で分ける
    - pause()/resume() は端末によって効かない → 一時停止は cancel して、
      再開はその文の頭から読み直す
    ============================================================ */
 
-import { utterancesOf } from "./ccaofAudioCore";
+import { utterancesOf } from "./audioCore";
 
 const LOCALES = { en: ["en-US", "en-GB", "en"], ja: ["ja-JP", "ja"], zh: ["zh-CN", "zh-Hans", "cmn", "zh-TW", "zh-HK", "zh"] };
 const LANG_TAG = { en: "en-US", ja: "ja-JP", zh: "zh-CN" };

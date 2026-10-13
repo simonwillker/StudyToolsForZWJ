@@ -18,8 +18,8 @@ import {
   onSpeakingKeyChange,
   speakingKey,
   clearSpeakingKey,
-} from "./ccaofSpeech";
-import { LANGS, RATES, GAPS, normalizeSettings, filterTracks, pauseMs } from "./ccaofAudioCore";
+} from "./speech";
+import { LANGS, RATES, GAPS, normalizeSettings, filterTracks, pauseMs } from "./audioCore";
 
 const SETTINGS_KEY = "ccaofAudioSettings";
 

@@ -1,8 +1,10 @@
 /* ============================================================
-   CCAO-F 模擬試験
+   Claude 認定の模擬試験（資格ごと。保存キーは certKey で分ける）
 
    本番は 60問 / 120分 / 100〜1000のスケールドスコアで 720点合格。
-   出題はブループリントの配点比率どおりに各ドメインから抜く。
+   - CCAO-F：ブループリントの配点比率どおりに各ドメインから抜く。
+   - CCAR-F：本番と同じく、シナリオ 6 つから 4 つを抽選し、各シナリオの
+     問題を 15 問ずつ（配点比率に近づくように）選んでシナリオごとに並べる。
 
    採点について：
    本番のスケールドスコアの換算方法は公表されていない。ここでは
@@ -10,12 +12,13 @@
    得点を再現するものではない。画面にもそう書くこと。
    ============================================================ */
 
-import { learnerKey } from "./learner";
+import { learnerKey } from "../learner";
+import { certKey } from "./certState";
+import { pickScenarioExam } from "./studyCore";
+import { DOMAINS, EXAM_FORMAT, SCENARIOS, examBlueprintCounts, loadAllDomainItems } from "./domains";
 
-import { DOMAINS, EXAM_FORMAT, examBlueprintCounts, loadAllDomainItems } from "./ccaofDomains";
-
-const RESULTS_KEY = "ccaofExamResultsV1";
-const PROGRESS_KEY = "ccaofExamInProgressV1";
+const RESULTS_KEY = () => certKey("ExamResultsV1");
+const PROGRESS_KEY = () => certKey("ExamInProgressV1");
 /** 保存する受験履歴の件数。増やしすぎると localStorage を圧迫する */
 const MAX_RESULTS = 20;
 
@@ -35,24 +38,37 @@ function shuffle(arr) {
  */
 export async function buildExam(total = EXAM_FORMAT.items) {
   const all = await loadAllDomainItems();
-  const counts = examBlueprintCounts(total);
-  const byDomain = new Map(DOMAINS.map((d) => [d.id, []]));
-  all.forEach((item) => {
-    const list = byDomain.get(item.domain);
-    if (list) list.push(item);
-  });
+  let picked;
+  if (EXAM_FORMAT.scenariosPerExam && SCENARIOS.length) {
+    // シナリオ形式：シナリオごとにまとめて出す（シナリオの中だけ混ぜる）
+    picked = pickScenarioExam(all, {
+      scenarios: SCENARIOS,
+      domains: DOMAINS,
+      scenariosPerExam: EXAM_FORMAT.scenariosPerExam,
+      total,
+      shuffle,
+    });
+  } else {
+    const counts = examBlueprintCounts(total);
+    const byDomain = new Map(DOMAINS.map((d) => [d.id, []]));
+    all.forEach((item) => {
+      const list = byDomain.get(item.domain);
+      if (list) list.push(item);
+    });
+    picked = [];
+    DOMAINS.forEach((d) => {
+      const pool = shuffle(byDomain.get(d.id) || []);
+      picked.push(...pool.slice(0, counts[d.id]));
+    });
+    // ドメインごとに固まらないよう、最後に全体を混ぜる
+    picked = shuffle(picked);
+  }
 
-  const picked = [];
-  DOMAINS.forEach((d) => {
-    const pool = shuffle(byDomain.get(d.id) || []);
-    picked.push(...pool.slice(0, counts[d.id]));
-  });
-
-  // ドメインごとに固まらないよう、最後に全体を混ぜる
-  return shuffle(picked).map((item) => ({
+  return picked.map((item) => ({
     id: item.id,
     domain: item.domain,
     objective: item.objective,
+    scenario: item.scenario,
     stem: item.stem,
     stemZh: item.stemZh,
     material: item.material,
@@ -123,7 +139,7 @@ export function gradeExam(questions, answers) {
 
 export function loadResults() {
   try {
-    const raw = window.localStorage.getItem(learnerKey(RESULTS_KEY));
+    const raw = window.localStorage.getItem(learnerKey(RESULTS_KEY()));
     const parsed = raw ? JSON.parse(raw) : [];
     return Array.isArray(parsed) ? parsed : [];
   } catch (e) {
@@ -143,7 +159,7 @@ export function saveResult(result) {
     perDomain: result.perDomain,
   });
   try {
-    window.localStorage.setItem(learnerKey(RESULTS_KEY), JSON.stringify(list.slice(0, MAX_RESULTS)));
+    window.localStorage.setItem(learnerKey(RESULTS_KEY()), JSON.stringify(list.slice(0, MAX_RESULTS)));
   } catch (e) {
     // 保存できなくても採点結果の表示は続ける
   }
@@ -151,7 +167,7 @@ export function saveResult(result) {
 
 export function clearResults() {
   try {
-    window.localStorage.removeItem(learnerKey(RESULTS_KEY));
+    window.localStorage.removeItem(learnerKey(RESULTS_KEY()));
   } catch (e) {
     // 何もしない
   }
@@ -162,7 +178,7 @@ export function clearResults() {
 
 export function saveInProgress(state) {
   try {
-    window.localStorage.setItem(learnerKey(PROGRESS_KEY), JSON.stringify(state));
+    window.localStorage.setItem(learnerKey(PROGRESS_KEY()), JSON.stringify(state));
   } catch (e) {
     // 保存できなくても受験自体は続けられる
   }
@@ -170,7 +186,7 @@ export function saveInProgress(state) {
 
 export function loadInProgress() {
   try {
-    const raw = window.localStorage.getItem(learnerKey(PROGRESS_KEY));
+    const raw = window.localStorage.getItem(learnerKey(PROGRESS_KEY()));
     if (!raw) return null;
     const state = JSON.parse(raw);
     if (!state || !Array.isArray(state.questions) || !state.startedAt) return null;
@@ -187,7 +203,7 @@ export function loadInProgress() {
 
 export function clearInProgress() {
   try {
-    window.localStorage.removeItem(learnerKey(PROGRESS_KEY));
+    window.localStorage.removeItem(learnerKey(PROGRESS_KEY()));
   } catch (e) {
     // 何もしない
   }

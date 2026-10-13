@@ -1,7 +1,7 @@
 /* ============================================================
-   CCAO-F 頻出単語：学習記録と復習リスト
+   Claude 認定 頻出単語：学習記録と復習リスト（資格ごとに別キー）
 
-   問題演習の記録（ccaofProgress.js）とは別のキーに置く。
+   問題演習の記録（progress.js）とは別のキーに置く。
    単語テストの結果でドメイン別の正答率や弱点判定が動くと困るため。
 
    ルール（英検の復習リスト eikenReview.js と同じ）：
@@ -10,12 +10,13 @@
    - 2回連続で正解した単語は「習熟」。間違えたらまた未習熟に戻る
    ============================================================ */
 
-import { learnerKey } from "./learner";
-import { recordStudy } from "./studyLog";
+import { learnerKey } from "../learner";
+import { recordStudy } from "../studyLog";
+import { certKey, activeCert } from "./certState";
 
-export const VOCAB_KEY = "ccaofVocabV1";
+/** CCAO-F は "ccaofVocabV1" */
+export const vocabKey = () => certKey("VocabV1");
 const MASTERY_STREAK = 2;
-const STUDY_APP = "CCAO-F 対策";
 
 function emptyStore() {
   return { words: {}, review: {}, updatedAt: null };
@@ -23,7 +24,7 @@ function emptyStore() {
 
 export function loadVocabStore() {
   try {
-    const raw = window.localStorage.getItem(learnerKey(VOCAB_KEY));
+    const raw = window.localStorage.getItem(learnerKey(vocabKey()));
     if (!raw) return emptyStore();
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object") return emptyStore();
@@ -36,7 +37,7 @@ export function loadVocabStore() {
 function save(store) {
   store.updatedAt = new Date().toISOString();
   try {
-    window.localStorage.setItem(learnerKey(VOCAB_KEY), JSON.stringify(store));
+    window.localStorage.setItem(learnerKey(vocabKey()), JSON.stringify(store));
   } catch (e) {
     // localStorage が使えない環境では記録を諦める。出題そのものは動き続ける
   }
@@ -52,7 +53,7 @@ function addToReview(store, id, at) {
 
 /** テストで1問答えるたびに呼ぶ。studyLabel は勉強履歴に出す内容 */
 export function recordVocabAnswer(id, isCorrect, studyLabel) {
-  recordStudy(STUDY_APP, studyLabel || "頻出単語", isCorrect);
+  recordStudy(activeCert().studyApp, studyLabel || "頻出単語", isCorrect);
   const store = loadVocabStore();
   const at = new Date().toISOString();
   const w = store.words[id] || { seen: 0, correct: 0, streak: 0 };

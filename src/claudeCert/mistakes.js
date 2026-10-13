@@ -1,15 +1,17 @@
 /* ============================================================
-   CCAO-F：錯題本（まちがえた問題の間隔復習）の保存
+   Claude 認定：錯題本（まちがえた問題の間隔復習）の保存
 
-   計算は ccaofStudyCore.js、ここは localStorage との出し入れだけ。
-   勉強者ごとに別キー（learnerKey）。バックアップの対象（ccaofBackup.js）。
+   計算は studyCore.js、ここは localStorage との出し入れだけ。
+   勉強者ごと・資格ごとに別キー（learnerKey＋certKey）。バックアップの対象（backup.js）。
+   CCAO-F のキーは v1.31.0 までと同じ ccaofMistakesV1。
 
    ドメイン画面の「復習する」（ccaofReviewV1。1回正解で外れる）は
    そのまま残す。錯題本は日をあけて出し直すための別の仕組み。
    初めて読むときに、ccaofReviewV1 に残っている問題を移す。
    ============================================================ */
 
-import { learnerKey } from "./learner";
+import { learnerKey } from "../learner";
+import { certKey } from "./certState";
 import {
   applyMistakeAnswer,
   dateKeyOf,
@@ -17,10 +19,11 @@ import {
   emptyMistakes,
   migrateMistakes,
   normalizeMistakes,
-} from "./ccaofStudyCore";
+} from "./studyCore";
 
-export const MISTAKES_KEY = "ccaofMistakesV1";
-const OLD_REVIEW_KEY = "ccaofReviewV1";
+/** いま開いている資格の錯題本のキー（CCAO-F は "ccaofMistakesV1"） */
+export const mistakesKey = () => certKey("MistakesV1");
+const oldReviewKey = () => certKey("ReviewV1");
 
 function readRaw(key) {
   try {
@@ -33,7 +36,7 @@ function readRaw(key) {
 
 function write(store) {
   try {
-    window.localStorage.setItem(learnerKey(MISTAKES_KEY), JSON.stringify(store));
+    window.localStorage.setItem(learnerKey(mistakesKey()), JSON.stringify(store));
   } catch (e) {
     // 保存できなくても出題は続ける
   }
@@ -45,10 +48,10 @@ export function todayKey() {
 
 /** 錯題本を読む。旧形式の復習リストがまだ移されていなければ、ここで移す */
 export function loadMistakes(today = todayKey()) {
-  const raw = readRaw(MISTAKES_KEY);
+  const raw = readRaw(mistakesKey());
   const store = normalizeMistakes(raw);
   if (store.migratedReview) return store;
-  const migrated = migrateMistakes(store, readRaw(OLD_REVIEW_KEY), today);
+  const migrated = migrateMistakes(store, readRaw(oldReviewKey()), today);
   write(migrated);
   return migrated;
 }

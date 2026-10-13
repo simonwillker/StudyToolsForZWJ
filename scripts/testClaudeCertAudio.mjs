@@ -22,15 +22,20 @@ register(
   "data:text/javascript," +
     encodeURIComponent(`
       export async function resolve(spec, ctx, next) {
-        if (spec.startsWith("./") && !/\\.[a-z]+$/.test(spec)) {
+        if ((spec.startsWith("./") || spec.startsWith("../")) && !/\\.[a-z]+$/.test(spec)) {
           try { return await next(spec + ".js", ctx); } catch (e) { /* fallthrough */ }
         }
         return next(spec, ctx);
       }
-      // ccaofProgress → ccaofDomains が meta.json を属性なしで import している（vite では読める）
+      // progress → domains.js は vite の import.meta.glob を使う。node では globalThis.__viteGlob で代用する
       export async function load(url, ctx, next) {
         if (url.endsWith(".json")) return next(url, { ...ctx, importAttributes: { type: "json" } });
-        return next(url, ctx);
+        const r = await next(url, ctx);
+        if (url.endsWith("/claudeCert/domains.js")) {
+          const src = String(r.source).replace(/import\\.meta\\.glob\\(/g, "globalThis.__viteGlob(");
+          return { ...r, source: src };
+        }
+        return r;
       }
     `)
 );
@@ -45,21 +50,45 @@ function makeStorage() {
   };
 }
 globalThis.window = { localStorage: makeStorage(), sessionStorage: makeStorage() };
+/* import.meta.glob の代わり：eager のときだけ meta.json を読み、遅延のものは空にする */
+globalThis.__viteGlob = (pattern, opts = {}) => {
+  if (!opts.eager) return {};
+  const root = join(dirname(fileURLToPath(import.meta.url)), "..", "src", "data", "claudeCert");
+  const out = {};
+  readdirSync(root).forEach((id) => {
+    try {
+      out[`../data/claudeCert/${id}/meta.json`] = JSON.parse(readFileSync(join(root, id, "meta.json"), "utf8"));
+    } catch (e) {
+      /* meta.json が無いフォルダは飛ばす */
+    }
+  });
+  return out;
+};
 
 const here = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(here, "..", "src", "data", "ccaof");
+const certRoot = join(here, "..", "src", "data", "claudeCert");
+const dataDir = join(certRoot, "ccaof");
 const lessons = JSON.parse(readFileSync(join(dataDir, "lessons.json"), "utf8")).lessons;
 const allItems = readdirSync(dataDir)
   .filter((f) => /^d\d+-.*\.json$/.test(f))
   .flatMap((f) => JSON.parse(readFileSync(join(dataDir, f), "utf8")).items);
-const words = JSON.parse(readFileSync(join(here, "..", "src", "data", "ccaofVocab", "vocab.json"), "utf8")).words;
+const words = JSON.parse(readFileSync(join(dataDir, "vocab.json"), "utf8")).words;
+/* CCAR-F（v1.33.0〜）も同じ台本づくりで読めるか */
+const arDir = join(certRoot, "ccarf");
+const arLessons = JSON.parse(readFileSync(join(arDir, "lessons.json"), "utf8")).lessons;
+const arItems = readdirSync(arDir)
+  .filter((f) => /^d\d+-.*\.json$/.test(f))
+  .flatMap((f) => JSON.parse(readFileSync(join(arDir, f), "utf8")).items);
+const arWords = JSON.parse(readFileSync(join(arDir, "vocab.json"), "utf8")).words;
+const arMeta = JSON.parse(readFileSync(join(arDir, "meta.json"), "utf8"));
 
-const audio = await import("../src/ccaofAudioCore.js");
-const listen = await import("../src/ccaofListen.js");
-const vocab = await import("../src/ccaofVocabProgress.js");
-const progress = await import("../src/ccaofProgress.js");
-const mistakes = await import("../src/ccaofMistakes.js");
-const backup = await import("../src/ccaofBackup.js");
+const audio = await import("../src/claudeCert/audioCore.js");
+const listen = await import("../src/claudeCert/listen.js");
+const vocab = await import("../src/claudeCert/vocabProgress.js");
+const progress = await import("../src/claudeCert/progress.js");
+const mistakes = await import("../src/claudeCert/mistakes.js");
+const backup = await import("../src/claudeCert/backup.js");
+const certState = await import("../src/claudeCert/certState.js");
 
 let passed = 0;
 function test(name, fn) {
@@ -71,7 +100,7 @@ function test(name, fn) {
 const ALL = { en: true, ja: true, zh: true };
 const CJK = /[぀-ヿ㐀-鿿]/;
 
-console.log("\nCCAO-F 音声モードのテスト\n");
+console.log("\nClaude 認定 音声モードのテスト（CCAO-F・CCAR-F）\n");
 
 function checkTracks(tracks, expectCount) {
   assert.equal(tracks.length, expectCount);
@@ -229,6 +258,33 @@ test("バックアップに ccaofListenV1 が入り、戻すと聞いた記録�
   const old = { ...b, data: { ccaofProgressV1: { domains: {}, daily: {} } } };
   assert.ok(backup.parseBackup(JSON.stringify(old)).ok);
   assert.equal(backup.describeBackup(old).listenedItems, 0);
+});
+
+test(`CCAR-F：全 ${arItems.length} 問・${arLessons.length} 讲义・${arWords.length} 語から台本が作れる`, () => {
+  checkTracks(audio.filterTracks(audio.questionTracks(arItems), ALL), arItems.length);
+  const lt = audio.filterTracks(audio.lessonTracks(arLessons), ALL);
+  checkTracks(lt, lt.length);
+  assert.deepEqual(lt.filter((t) => t.record).map((t) => t.record.id), arLessons.map((l) => l.id));
+  checkTracks(audio.filterTracks(audio.vocabTracks(arWords), ALL), arWords.length);
+  // シナリオの説明（画面の音声モードで material として先頭に読む）も台本にできる
+  const withSc = arItems.slice(0, 5).map((q) => {
+    const sc = arMeta.scenarios.find((x) => x.id === q.scenario);
+    return sc ? { ...q, material: `Scenario: ${sc.title}. ${sc.description}`, materialZh: `场景：${sc.titleZh}。${sc.descriptionZh}` } : q;
+  });
+  checkTracks(audio.filterTracks(audio.questionTracks(withSc), ALL), 5);
+});
+
+test("聞いた記録は資格ごと：CCAR-F は ccarfListenV1、CCAO-F の ccaofListenV1 は変わらない", () => {
+  window.localStorage.clear();
+  certState.setActiveCertState("ccaof");
+  listen.recordListen("item", "d1-001");
+  certState.setActiveCertState("ccarf");
+  assert.equal(listen.getListenSummary().items, 0);
+  listen.recordListen("item", "ar1-001");
+  assert.ok(JSON.parse(window.localStorage.getItem("ccarfListenV1")).items["ar1-001"]);
+  assert.ok(backup.buildBackup().data.ccarfListenV1);
+  certState.setActiveCertState("ccaof");
+  assert.deepEqual(Object.keys(JSON.parse(window.localStorage.getItem("ccaofListenV1")).items), ["d1-001"]);
 });
 
 console.log(`\n✅ ${passed} 件すべて成功\n`);

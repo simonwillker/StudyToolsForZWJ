@@ -1,0 +1,3245 @@
+{
+  "domain": "D2",
+  "items": [
+    {
+      "id": "ar2-001",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "The research coordinator has two tools, analyze_content and analyze_document, whose descriptions are almost identical (\"Analyzes the given content\"). It often picks the wrong one. Why?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tool descriptions are the main information Claude uses to choose a tool, and near-identical descriptions give it nothing to tell them apart.",
+          "correct": true,
+          "explain": "正解。モデルは説明文を読んでツールを選ぶ。説明が同じなら区別の手がかりがない。",
+          "textZh": "工具描述是 Claude 选择工具的主要依据，几乎相同的描述让它无从区分。"
+        },
+        {
+          "text": "Claude always picks the tool listed first.",
+          "correct": false,
+          "explain": "不適。並び順ではなく説明で選ぶ。",
+          "textZh": "Claude 总是选择排在第一位的工具。"
+        },
+        {
+          "text": "Tools with similar names cannot be registered together, so the second registration silently replaces the first.",
+          "correct": false,
+          "explain": "不適。登録はできる。問題は選び分けの手がかり。",
+          "textZh": "名称相似的工具不能同时注册，所以第二次注册会悄悄覆盖第一次。"
+        },
+        {
+          "text": "The coordinator needs a larger context window.",
+          "correct": false,
+          "explain": "不適。文脈の大きさは説明の曖昧さを解消しない。",
+          "textZh": "协调者需要更大的上下文窗口。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研协调者有两个工具 analyze_content 和 analyze_document，它们的描述几乎一样（「分析给定的内容」）。它经常选错。原因是什么？",
+      "commentaryZh": "工具描述是 LLM 选择工具的首要机制。描述过于简略或彼此重叠，就会导致误选。这是 2.1 的第一个知识点。"
+    },
+    {
+      "id": "ar2-002",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "Which change best resolves the misrouting between analyze_content (used for web search results) and analyze_document (used for uploaded PDFs)?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Rename analyze_content to something like extract_web_results and rewrite both descriptions to state what input each accepts and when to use it instead of the other.",
+          "correct": true,
+          "explain": "正解。名前と説明で役割の違いをはっきりさせ、機能の重なりをなくす。",
+          "textZh": "把 analyze_content 改名为类似 extract_web_results 的名字，并重写两个描述，写明各自接受什么输入、什么时候该用它而不是另一个。"
+        },
+        {
+          "text": "Add \"choose carefully\" to both descriptions.",
+          "correct": false,
+          "explain": "不適。違いの情報が増えていない。",
+          "textZh": "在两个描述里都加上「请谨慎选择」。"
+        },
+        {
+          "text": "Merge both into one tool called analyze that accepts any content, so Claude no longer has to choose between two similar tools at all and descriptions no longer matter.",
+          "correct": false,
+          "explain": "不適。入力の種類による違いが見えなくなり、汎用ツールの問題が悪化する。",
+          "textZh": "把两者合并成一个接受任何内容的 analyze 工具，这样 Claude 根本不用在两个相似工具之间做选择，描述也就不再重要了。"
+        },
+        {
+          "text": "Remove analyze_document and handle PDFs manually.",
+          "correct": false,
+          "explain": "不適。必要な機能を失う。",
+          "textZh": "去掉 analyze_document，PDF 改为人工处理。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "analyze_content（用于网络搜索结果）与 analyze_document（用于上传的 PDF）之间经常被误选。哪种改动最能解决？",
+      "commentaryZh": "消除功能重叠的方法：重命名 + 重写描述，明确输入、输出和「何时用它而不是另一个」。考试指南中正有这个例子。"
+    },
+    {
+      "id": "ar2-003",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "get_customer's description reads only \"Gets a customer.\" The agent sometimes passes an order number to it. What should the improved description include?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "What identifiers it accepts (email or customer ID, not order numbers), example inputs, what it returns, and when to use lookup_order instead.",
+          "correct": true,
+          "explain": "正解。入力形式・例・出力・境界（似たツールとの使い分け）を書くと誤用が減る。",
+          "textZh": "它接受哪些标识（邮箱或客户 ID，而不是订单号）、输入示例、返回内容，以及什么时候应改用 lookup_order。"
+        },
+        {
+          "text": "A longer sentence saying the tool is very important and that it should be used whenever a customer is mentioned.",
+          "correct": false,
+          "explain": "不適。重要性の強調は選択の手がかりにならない。",
+          "textZh": "一句更长的话，说明这个工具非常重要，以及只要提到客户就应使用它。"
+        },
+        {
+          "text": "The internal SQL query the tool runs.",
+          "correct": false,
+          "explain": "不適。実装の詳細はモデルの判断にほぼ役立たない。",
+          "textZh": "该工具内部执行的 SQL 查询。"
+        },
+        {
+          "text": "Nothing; the input schema alone is enough.",
+          "correct": false,
+          "explain": "不適。スキーマだけでは「何を入れるべきか」の意味が伝わらないことが多い。",
+          "textZh": "什么都不用加；单靠输入 schema 就够了。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "get_customer 的描述只有一句「获取客户」。智能体有时把订单号传给它。改进后的描述应包含什么？",
+      "commentaryZh": "好的工具描述要写清：输入格式、示例查询、边界情况、与相似工具的区别。描述越简略，选择越不可靠。"
+    },
+    {
+      "id": "ar2-004",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent's system prompt says: \"Whenever the user mentions a file, search it.\" Since this line was added, the agent uses the Grep tool even when the user asks to open a specific known path. What is happening?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A keyword-sensitive instruction in the system prompt is creating an unintended association that overrides otherwise clear tool descriptions.",
+          "correct": true,
+          "explain": "正解。システムプロンプトの言い回しがツール選択を歪めることがある。プロンプトも見直す対象。",
+          "textZh": "系统提示词中一条对关键词敏感的指令造成了意外的关联，压过了原本清楚的工具描述。"
+        },
+        {
+          "text": "Grep is always preferred over Read by design.",
+          "correct": false,
+          "explain": "不適。どちらを使うかは状況とプロンプトで決まる。",
+          "textZh": "按设计，Grep 总是优先于 Read。"
+        },
+        {
+          "text": "The Read tool is broken.",
+          "correct": false,
+          "explain": "不適。指示の変更と同時に起きた現象であり、原因は指示にある。",
+          "textZh": "Read 工具坏了。"
+        },
+        {
+          "text": "The model ignores system prompts during tool use, so Grep is simply the default it falls back to whenever a file is mentioned.",
+          "correct": false,
+          "explain": "不適。むしろ指示に忠実に従った結果。",
+          "textZh": "模型在使用工具时会忽略系统提示词，所以只要提到文件，它就会退回到默认的 Grep。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体的系统提示词里写着：「只要用户提到文件，就去搜索。」加上这句后，即使用户要求打开一个已知的具体路径，智能体也会用 Grep。发生了什么？",
+      "commentaryZh": "系统提示词中的关键词敏感指令（\"提到 X 就做 Y\"）会产生意外的工具关联。排查工具误选时，也要检查系统提示词。"
+    },
+    {
+      "id": "ar2-005",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "According to the guidance on tool design, what is the primary mechanism an LLM uses to decide which tool to call?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The tool's name and description.",
+          "correct": true,
+          "explain": "正解。説明文が選択の主な手がかり。",
+          "textZh": "工具的名称和描述。"
+        },
+        {
+          "text": "The order in which tools are defined.",
+          "correct": false,
+          "explain": "不適。順番で決めているわけではない。",
+          "textZh": "工具定义的先后顺序。"
+        },
+        {
+          "text": "The programming language the tool is implemented in.",
+          "correct": false,
+          "explain": "不適。モデルからは見えない。",
+          "textZh": "实现该工具的编程语言。"
+        },
+        {
+          "text": "The tool's execution time.",
+          "correct": false,
+          "explain": "不適。モデルは事前に実行時間を知らない。",
+          "textZh": "工具的执行时间。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "根据工具设计的指引，LLM 决定调用哪个工具的主要依据是什么？",
+      "commentaryZh": "工具描述是模型选择工具的首要依据，所以描述的质量直接决定选择的可靠性。"
+    },
+    {
+      "id": "ar2-006",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "A generic analyze_document tool is used for three different jobs: pulling numbers out, summarizing, and checking whether a claim is supported by a source. Results are inconsistent. What redesign follows the guidance?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Split it into purpose-specific tools — for example extract_data_points, summarize_content, and verify_claim_against_source — each with a defined input/output contract.",
+          "correct": true,
+          "explain": "正解。汎用ツールを目的別に分け、入出力の約束をはっきりさせると選択も結果も安定する。",
+          "textZh": "拆成目的明确的工具——例如 extract_data_points、summarize_content、verify_claim_against_source——每个都有明确的输入/输出约定。"
+        },
+        {
+          "text": "Add a mode parameter with free-text values.",
+          "correct": false,
+          "explain": "不適。自由文字列ではどの動作になるか曖昧なまま。",
+          "textZh": "加一个取值为自由文本的 mode 参数。"
+        },
+        {
+          "text": "Keep one tool but write a much longer description.",
+          "correct": false,
+          "explain": "不適。一つのツールに三つの責務が混ざる問題は残る。",
+          "textZh": "保留一个工具，只是把描述写得长得多。"
+        },
+        {
+          "text": "Remove the tool and let Claude analyze documents without tools, since the model can read the documents directly from context.",
+          "correct": false,
+          "explain": "不適。構造化された結果を得る手段を失う。",
+          "textZh": "去掉工具，让 Claude 不借助工具直接分析文档，因为模型可以直接从上下文中读取文档。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个通用的 analyze_document 工具被用来做三种不同的事：抽取数字、做摘要、核查某个论断是否有来源支持。结果很不稳定。哪种重新设计符合指引？",
+      "commentaryZh": "把通用工具拆分成目的明确、输入输出约定清楚的专用工具，是 2.1 的重要技能。"
+    },
+    {
+      "id": "ar2-007",
+      "domain": "D2",
+      "type": "multi",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "Which TWO additions to the process_refund tool description would most improve correct use? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The preconditions: it requires a verified customer ID and an order ID from lookup_order.",
+          "correct": true,
+          "explain": "正解。前提条件を書くと、呼ぶべきタイミングをモデルが判断しやすい。",
+          "textZh": "前置条件：需要已验证的客户 ID 和来自 lookup_order 的订单 ID。"
+        },
+        {
+          "text": "The boundary: partial refunds and exchanges are out of scope and should be escalated.",
+          "correct": true,
+          "explain": "正解。何をしないツールかを書くと、範囲外の依頼で誤って使われにくい。",
+          "textZh": "边界：部分退款和换货不在其范围内，应转人工。"
+        },
+        {
+          "text": "A note that refunds are important to the business.",
+          "correct": false,
+          "explain": "不適。使い方の情報が無い。",
+          "textZh": "一句「退款对公司很重要」。"
+        },
+        {
+          "text": "The name of the engineer who wrote the tool.",
+          "correct": false,
+          "explain": "不適。作者の名前はツールを選ぶ判断に何の役にも立たない。",
+          "textZh": "编写该工具的工程师姓名。"
+        },
+        {
+          "text": "A request to \"use this tool wisely and only when a refund is truly needed.\"",
+          "correct": false,
+          "explain": "不適。具体的な判断基準になっていない。",
+          "textZh": "一句「请明智地使用此工具，只在确实需要退款时使用」。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在 process_refund 工具的描述中加入下列哪两项，最能提高正确使用率？（选 2 项）",
+      "commentaryZh": "描述中写明前置条件与边界（什么情况不该用），能显著减少误用。空泛的提醒没有信息量。"
+    },
+    {
+      "id": "ar2-008",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "The productivity agent has both search_code (searches source files) and search_docs (searches the internal wiki). Which description for search_docs best supports correct selection?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Searches the internal engineering wiki (design docs, runbooks, onboarding guides). Use for questions about process or intent. For source code, use search_code.\"",
+          "correct": true,
+          "explain": "正解。対象・用途・似たツールとの使い分けが書かれている。",
+          "textZh": "「搜索内部工程 wiki（设计文档、运维手册、入职指南）。用于流程或设计意图方面的问题。搜索源代码请用 search_code。」"
+        },
+        {
+          "text": "\"Searches things.\"",
+          "correct": false,
+          "explain": "不適。何を検索するのか分からない。",
+          "textZh": "「搜索东西。」"
+        },
+        {
+          "text": "\"A powerful search tool.\"",
+          "correct": false,
+          "explain": "不適。宣伝文句で、選び分けの情報が無い。",
+          "textZh": "「一个强大的搜索工具。」"
+        },
+        {
+          "text": "\"Searches docs. Do not misuse.\" Short descriptions keep the tool list compact and leave more room for context.",
+          "correct": false,
+          "explain": "不適。何が誤用なのかが書かれていない。",
+          "textZh": "「搜索文档。不要误用。」简短的描述能让工具列表更紧凑，为上下文留出更多空间。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体同时有 search_code（搜索源代码文件）和 search_docs（搜索内部 wiki）。哪个 search_docs 的描述最有利于正确选择？",
+      "commentaryZh": "好描述 = 搜什么、何时用、和相似工具的区别。考试里的错误选项通常是空泛、夸张或只有命令语气。"
+    },
+    {
+      "id": "ar2-009",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Why can minimal tool descriptions cause unreliable behavior even when the tools themselves work correctly?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Without information about inputs, outputs, and boundaries, the model has to guess when and how to use each tool, especially among similar tools.",
+          "correct": true,
+          "explain": "正解。ツールの正しさと、選び方・使い方の正しさは別の問題。",
+          "textZh": "没有关于输入、输出和边界的信息，模型只能猜测何时以及如何使用每个工具，在相似工具之间尤其如此。"
+        },
+        {
+          "text": "Short descriptions make tools run slower.",
+          "correct": false,
+          "explain": "不適。実行速度とは関係ない。",
+          "textZh": "简短的描述会让工具运行得更慢。"
+        },
+        {
+          "text": "The API rejects descriptions under 100 words.",
+          "correct": false,
+          "explain": "不適。そのような制限はない。",
+          "textZh": "API 会拒绝少于 100 词的描述。"
+        },
+        {
+          "text": "Minimal descriptions disable the input schema, so the model receives the tool name without any parameter definitions, so it cannot fill in any arguments.",
+          "correct": false,
+          "explain": "不適。スキーマは別に機能する。",
+          "textZh": "过于简略的描述会使输入 schema 失效，导致模型只收到工具名而没有任何参数定义，因此无法填写任何参数。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么即使工具本身运行正确，过于简略的工具描述也会导致行为不可靠？",
+      "commentaryZh": "工具正确 ≠ 被正确选择和调用。描述承担了「告诉模型什么时候、怎么用」的职责。"
+    },
+    {
+      "id": "ar2-010",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "lookup_order fails because the order service is temporarily unavailable. Which tool response best follows the guidance for MCP error handling?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Return the result with isError set, plus structured details such as errorCategory \"transient\", isRetryable true, and a short human-readable description.",
+          "correct": true,
+          "explain": "正解。エラーであることを示し、種類と再試行の可否を構造化して返すと、エージェントが適切に回復できる。",
+          "textZh": "返回结果时设置 isError，并附带结构化信息，例如 errorCategory 为 \"transient\"、isRetryable 为 true，以及一段简短的人类可读说明。"
+        },
+        {
+          "text": "Return an empty order list as if the order did not exist, so the agent moves on without waiting for the service to recover.",
+          "correct": false,
+          "explain": "不適。失敗を「該当なし」に偽装しており、誤った回答につながる。",
+          "textZh": "返回空的订单列表，就像订单不存在一样，让智能体不必等待服务恢复就能继续。"
+        },
+        {
+          "text": "Return the plain text \"Operation failed.\"",
+          "correct": false,
+          "explain": "不適。一律のメッセージでは、再試行すべきか判断できない。",
+          "textZh": "返回纯文本「操作失败」。"
+        },
+        {
+          "text": "Throw an exception that crashes the agent.",
+          "correct": false,
+          "explain": "不適。1つの失敗で全体を止めるべきではない。",
+          "textZh": "抛出异常，让智能体崩溃。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "订单服务暂时不可用，导致 lookup_order 失败。哪种工具响应最符合 MCP 错误处理的指引？",
+      "commentaryZh": "MCP 工具用 isError 标志告知失败，并返回结构化元数据（错误类别、是否可重试、说明），让智能体能做出正确的恢复决定。"
+    },
+    {
+      "id": "ar2-011",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "A customer asks for a refund on an order delivered 120 days ago, but policy allows refunds only within 90 days. How should process_refund report this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "As a business-rule error marked not retryable, with a customer-friendly explanation the agent can relay (for example, the 90-day policy).",
+          "correct": true,
+          "explain": "正解。業務ルール違反は再試行しても結果が変わらない。理由を添えれば、エージェントが顧客に適切に説明できる。",
+          "textZh": "作为「业务规则错误」报告，标记为不可重试，并附上可以转述给客户的友好说明（例如 90 天政策）。"
+        },
+        {
+          "text": "As a transient error so the agent retries it later, in case the policy window is recalculated by the billing system overnight.",
+          "correct": false,
+          "explain": "不適。何度やっても同じ結果で、無駄な再試行になる。",
+          "textZh": "作为临时性错误报告，让智能体稍后重试，以防账单系统重新计算政策期限（在夜间）。"
+        },
+        {
+          "text": "As a success with amount $0.",
+          "correct": false,
+          "explain": "不適。事実と異なる結果を返している。",
+          "textZh": "作为成功报告，金额为 0 美元。"
+        },
+        {
+          "text": "As a generic \"permission denied\".",
+          "correct": false,
+          "explain": "不適。原因が違い、顧客への説明も誤る。",
+          "textZh": "作为笼统的「权限不足」报告。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客户要求为 120 天前送达的订单退款，但政策只允许 90 天内退款。process_refund 应如何报告这种情况？",
+      "commentaryZh": "错误类型要区分：临时性（可重试）、校验错误（输入有误）、业务规则错误（不可重试，需向客户说明）、权限错误。结构化地返回，智能体才能正确应对。"
+    },
+    {
+      "id": "ar2-012",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "Why is returning the same generic message (\"Operation failed\") for every tool error a problem for the support agent?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The agent cannot tell whether to retry, correct its input, explain a policy, or escalate, so it makes poor recovery decisions.",
+          "correct": true,
+          "explain": "正解。エラーの種類が分からなければ、回復の仕方も選べない。",
+          "textZh": "智能体无法判断该重试、修正输入、解释政策还是升级处理，因此会做出糟糕的恢复决定。"
+        },
+        {
+          "text": "Generic messages use more tokens.",
+          "correct": false,
+          "explain": "不適。トークン量の問題ではない。",
+          "textZh": "笼统的消息会消耗更多 token。"
+        },
+        {
+          "text": "The MCP protocol forbids generic error messages, so the tool must always return a detailed stack trace.",
+          "correct": false,
+          "explain": "不適。禁止されているわけではない。設計として不十分という話。",
+          "textZh": "MCP 协议禁止笼统的错误消息，所以工具必须总是返回详细的堆栈跟踪。"
+        },
+        {
+          "text": "Customers prefer detailed technical errors.",
+          "correct": false,
+          "explain": "不適。顧客に技術的な詳細を見せることが目的ではない。",
+          "textZh": "客户更喜欢详细的技术错误信息。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "对客服智能体来说，为什么所有工具错误都返回同一句笼统的「操作失败」是个问题？",
+      "commentaryZh": "统一的「操作失败」会掩盖错误类型，让智能体无从选择恢复策略。这是考试指南中点名的反模式。"
+    },
+    {
+      "id": "ar2-013",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "get_customer is called with an email that has no matching account. The query succeeded, but nothing was found. How should the tool report this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "As a successful result with no matches (not an error), so the agent can ask the customer to check the email or provide another identifier.",
+          "correct": true,
+          "explain": "正解。「該当なし」は正当な結果。アクセス失敗と区別すれば、エージェントは再試行ではなく確認の質問をする。",
+          "textZh": "作为「成功但无匹配」的结果（不是错误），这样智能体可以请客户核对邮箱或提供其他标识。"
+        },
+        {
+          "text": "As a transient error so the agent retries.",
+          "correct": false,
+          "explain": "不適。何度検索しても見つからない。無駄な再試行。",
+          "textZh": "作为临时性错误，让智能体重试。"
+        },
+        {
+          "text": "As isError with the message \"database failure\", so the agent knows the lookup did not return a usable customer and can retry later.",
+          "correct": false,
+          "explain": "不適。事実と異なり、障害として扱われてしまう。",
+          "textZh": "设置 isError 并返回「数据库故障」，让智能体知道这次查询没有返回可用的客户，可以稍后重试。"
+        },
+        {
+          "text": "By returning a random similar customer.",
+          "correct": false,
+          "explain": "不適。他人の情報を扱う危険な動作。",
+          "textZh": "返回一个随机的相似客户。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "用一个没有对应账户的邮箱调用 get_customer。查询本身成功了，只是没有找到结果。工具应如何报告？",
+      "commentaryZh": "要区分「访问失败」（超时、服务不可用，需要考虑重试）和「有效的空结果」（查询成功但没有匹配）。混淆两者会导致错误的恢复行为。"
+    },
+    {
+      "id": "ar2-014",
+      "domain": "D2",
+      "type": "multi",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "Which TWO fields in a structured tool error most directly help the agent decide what to do next? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "An error category such as transient, validation, business, or permission.",
+          "correct": true,
+          "explain": "正解。種類によって、再試行・入力修正・説明・エスカレーションのどれをするかが決まる。",
+          "textZh": "错误类别，例如临时性、校验、业务规则或权限。"
+        },
+        {
+          "text": "A flag stating whether the operation can be retried.",
+          "correct": true,
+          "explain": "正解。無駄な再試行を防ぐ。",
+          "textZh": "一个标明该操作能否重试的标志。"
+        },
+        {
+          "text": "The server's CPU usage at the time of failure.",
+          "correct": false,
+          "explain": "不適。エージェントの判断には役立たない。",
+          "textZh": "失败时服务器的 CPU 使用率。"
+        },
+        {
+          "text": "A stack trace of the server code.",
+          "correct": false,
+          "explain": "不適。開発者向けの情報で、エージェントの回復判断には不要。",
+          "textZh": "服务器代码的堆栈跟踪。"
+        },
+        {
+          "text": "A random error ID with no explanation.",
+          "correct": false,
+          "explain": "不適。ログ追跡には使えても、判断材料にならない。",
+          "textZh": "一个没有任何说明的随机错误 ID。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在结构化的工具错误中，下列哪两个字段最直接地帮助智能体决定下一步怎么做？（选 2 项）",
+      "commentaryZh": "结构化错误的核心字段：错误类别（errorCategory）+ 是否可重试（isRetryable）+ 可读说明。它们直接决定恢复策略。"
+    },
+    {
+      "id": "ar2-015",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "How does an MCP tool tell the agent that a call failed, as opposed to returning normal data?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It sets the isError flag in its result.",
+          "correct": true,
+          "explain": "正解。MCP のツール結果では isError でエラーを示す。",
+          "textZh": "在结果中设置 isError 标志。"
+        },
+        {
+          "text": "It returns HTTP status 200 with an empty body.",
+          "correct": false,
+          "explain": "不適。成功と区別できない。",
+          "textZh": "返回 HTTP 200 和空的响应体。"
+        },
+        {
+          "text": "It writes the error to a log file only.",
+          "correct": false,
+          "explain": "不適。エージェントには伝わらない。",
+          "textZh": "只把错误写进日志文件。"
+        },
+        {
+          "text": "It stops responding until the agent times out.",
+          "correct": false,
+          "explain": "不適。原因が分からず、時間も無駄になる。",
+          "textZh": "停止响应，直到智能体超时。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "MCP 工具如何告诉智能体「这次调用失败了」，以区别于返回正常数据？",
+      "commentaryZh": "MCP 用 isError 标志表示工具失败（Claude API 的 tool_result 对应字段是 is_error）。错误信息应作为结果返回给模型，而不是吞掉。"
+    },
+    {
+      "id": "ar2-016",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "The agent calls process_refund with amount \"-50\". The tool rejects it. What error design helps the agent recover correctly?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A validation error that names the invalid field and the rule (\"amount must be a positive number\"), marked not retryable as-is.",
+          "correct": true,
+          "explain": "正解。どの入力がなぜ不正かを示せば、エージェントは値を直して呼び直せる。",
+          "textZh": "返回校验错误，指出无效字段及规则（「amount 必须为正数」），并标明原样重试无效。"
+        },
+        {
+          "text": "A transient error, so the agent retries the same call after a short backoff period, in case the payment service rejected the value only temporarily.",
+          "correct": false,
+          "explain": "不適。同じ入力では何度やっても失敗する。",
+          "textZh": "返回临时性错误，让智能体在短暂退避后用相同参数重试，以防支付服务只是暂时拒绝了这个值。"
+        },
+        {
+          "text": "A permission error.",
+          "correct": false,
+          "explain": "不適。原因が違う。誤った回復につながる。",
+          "textZh": "返回权限错误。"
+        },
+        {
+          "text": "No error; silently refund $50.",
+          "correct": false,
+          "explain": "不適。入力を勝手に解釈して金銭を動かしている。",
+          "textZh": "不报错，悄悄退款 50 美元。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体用金额 \"-50\" 调用 process_refund，工具拒绝了。哪种错误设计能帮助智能体正确恢复？",
+      "commentaryZh": "校验错误应明确指出哪个字段、违反了什么规则。这样智能体可以修正参数再调用，而不是盲目重试。"
+    },
+    {
+      "id": "ar2-017",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The web-search subagent hits a timeout on one query. What should it do before reporting to the coordinator?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Attempt local recovery (for example, a retry or an alternative query) and propagate an error only if it still cannot resolve it, including what was attempted and any partial results.",
+          "correct": true,
+          "explain": "正解。一時的な失敗はサブエージェントの中で回復を試み、解決できないものだけを経緯と部分結果付きで上げる。",
+          "textZh": "先在本地尝试恢复（例如重试或换一个查询），仍无法解决时才向上报告错误，并附上尝试过什么以及已有的部分结果。"
+        },
+        {
+          "text": "Immediately report \"search unavailable\" with no details, so the coordinator can retry the search right away.",
+          "correct": false,
+          "explain": "不適。コーディネーターが判断できる情報が無い。",
+          "textZh": "立即报告「搜索不可用」，不附任何细节，让协调者可以马上重试搜索。"
+        },
+        {
+          "text": "Return an empty result set as success.",
+          "correct": false,
+          "explain": "不適。エラーを握りつぶしており、結果が無いと誤解される。",
+          "textZh": "把空结果集当作成功返回。"
+        },
+        {
+          "text": "Terminate the entire research job.",
+          "correct": false,
+          "explain": "不適。1つの失敗で全体を止めるのはアンチパターン。",
+          "textZh": "终止整个调研任务。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "网络搜索子智能体在某个查询上超时了。在向协调者报告之前，它应该做什么？",
+      "commentaryZh": "子智能体对临时性故障先本地恢复，解决不了再上报，并附带「尝试了什么 + 部分结果」。这样协调者能做出明智的决定。"
+    },
+    {
+      "id": "ar2-018",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "A document-analysis subagent fails on 2 of 10 PDFs due to corrupted files. Which report to the coordinator is most useful?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Results for the 8 successful files, plus a structured error for the 2 failures naming the files, the failure type (corrupted, not retryable), and a suggested alternative such as finding another copy.",
+          "correct": true,
+          "explain": "正解。部分的な成果と、失敗の種類・対象・代替案をそろえて返すと、コーディネーターが次の手を決められる。",
+          "textZh": "给出 8 个成功文件的结果，再为 2 个失败文件提供结构化错误：文件名、失败类型（文件损坏，不可重试），以及替代建议，例如寻找另一份副本。"
+        },
+        {
+          "text": "Report total failure because not every file succeeded.",
+          "correct": false,
+          "explain": "不適。成功した8件まで無駄にする。",
+          "textZh": "因为不是所有文件都成功，所以报告整体失败。"
+        },
+        {
+          "text": "Report success for the batch and omit the two failed files, so the coordinator is not distracted by problems that the subagent cannot fix anyway, and log the failures locally for the engineers to inspect later.",
+          "correct": false,
+          "explain": "不適。欠落が見えなくなり、レポートの網羅性を誤解させる。",
+          "textZh": "报告该批次成功并略去两个失败的文件，免得协调者被子智能体反正也修不了的问题分散注意力，并在本地记录失败，供工程师之后检查。"
+        },
+        {
+          "text": "Retry the corrupted files indefinitely.",
+          "correct": false,
+          "explain": "不適。壊れたファイルは再試行しても直らない。",
+          "textZh": "无限次重试损坏的文件。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "文档分析子智能体在 10 个 PDF 中有 2 个因文件损坏而失败。向协调者报告时，哪种最有用？",
+      "commentaryZh": "好的错误传播：部分成功的结果 + 结构化的失败信息（对象、类型、是否可重试、替代方案）。既不夸大失败，也不隐藏失败。"
+    },
+    {
+      "id": "ar2-019",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "Which response from a search tool lets the coordinator distinguish \"the search engine was unreachable\" from \"there are no results for this query\"?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An error result with isError and a transient category for the outage, versus a successful result with an empty list for no matches.",
+          "correct": true,
+          "explain": "正解。アクセス失敗と「該当なし」を別の形で返す。",
+          "textZh": "服务中断时返回带 isError、类别为临时性的错误结果；没有匹配时返回空列表的成功结果。"
+        },
+        {
+          "text": "An empty list in both cases.",
+          "correct": false,
+          "explain": "不適。区別がつかず、障害を見逃す。",
+          "textZh": "两种情况都返回空列表。"
+        },
+        {
+          "text": "The text \"nothing\" in both cases, with the coordinator expected to tell them apart from the timing.",
+          "correct": false,
+          "explain": "不適。同じく区別できない。",
+          "textZh": "两种情况都返回文本「nothing」，由协调者根据响应时间来区分两者。"
+        },
+        {
+          "text": "An error in both cases.",
+          "correct": false,
+          "explain": "不適。「該当なし」を障害と誤解し、無駄な再試行を招く。",
+          "textZh": "两种情况都返回错误。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "搜索工具的哪种响应能让协调者区分「搜索引擎无法访问」和「这个查询没有结果」？",
+      "commentaryZh": "访问失败 ≠ 空结果。前者需要重试或换路径，后者是有效答案。两者的返回形式必须不同。"
+    },
+    {
+      "id": "ar2-020",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent calls an MCP tool that queries a repository it has no access to. Which error category fits, and what should the agent do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A permission error, not retryable; the agent should tell the engineer which access is missing rather than retrying.",
+          "correct": true,
+          "explain": "正解。権限の問題は再試行しても解決しない。必要な権限を人に伝える。",
+          "textZh": "权限错误，不可重试；智能体应告诉工程师缺少哪项权限，而不是重试。"
+        },
+        {
+          "text": "A transient error; retry with exponential backoff until access becomes available, because access policies are often refreshed every few minutes.",
+          "correct": false,
+          "explain": "不適。権限が無い状態は時間がたっても変わらない。",
+          "textZh": "临时性错误；用指数退避一直重试，直到可以访问为止，因为访问策略通常每隔几分钟就会刷新。"
+        },
+        {
+          "text": "A validation error; change the repository name randomly.",
+          "correct": false,
+          "explain": "不適。原因の取り違えで、無意味な試行になる。",
+          "textZh": "校验错误；随机修改仓库名。"
+        },
+        {
+          "text": "A valid empty result; report that the repository has no files.",
+          "correct": false,
+          "explain": "不適。事実と異なる回答になる。",
+          "textZh": "有效的空结果；报告该仓库没有文件。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体调用的 MCP 工具去查询一个它无权访问的代码仓库。属于哪类错误，智能体应该怎么做？",
+      "commentaryZh": "权限错误不可通过重试解决，应如实报告缺少的权限。区分错误类别是正确恢复的前提。"
+    },
+    {
+      "id": "ar2-021",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which classification of tool errors matches the guidance?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Transient (timeouts, service unavailable), validation (invalid input), business (policy violations), and permission (access denied).",
+          "correct": true,
+          "explain": "正解。種類ごとに取るべき回復策が違う。",
+          "textZh": "临时性（超时、服务不可用）、校验（输入无效）、业务（违反政策）、权限（访问被拒）。"
+        },
+        {
+          "text": "Small, medium, and large errors.",
+          "correct": false,
+          "explain": "不適。大きさでは回復策が決まらない。",
+          "textZh": "小错误、中错误、大错误。"
+        },
+        {
+          "text": "Morning and evening errors.",
+          "correct": false,
+          "explain": "不適。時間帯でエラーを分けても、どう回復すべきかは決まらない。",
+          "textZh": "上午的错误和晚上的错误。"
+        },
+        {
+          "text": "Errors from Claude and errors from users, which shows who is responsible for fixing each one.",
+          "correct": false,
+          "explain": "不適。ツールのエラーの扱いを決める分類になっていない。",
+          "textZh": "来自 Claude 的错误和来自用户的错误，以表明谁负责修复每个错误。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪种工具错误分类符合指引？",
+      "commentaryZh": "四类错误：临时性 / 校验 / 业务规则 / 权限。每类对应不同的恢复策略，这是 2.2 的核心知识。"
+    },
+    {
+      "id": "ar2-022",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO practices reduce wasted retries in an agent that calls MCP tools? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Marking business-rule and permission errors as not retryable in the error metadata.",
+          "correct": true,
+          "explain": "正解。再試行しても変わらない失敗を明示する。",
+          "textZh": "在错误元数据中把业务规则错误和权限错误标记为不可重试。"
+        },
+        {
+          "text": "Returning \"no matches\" as a successful empty result rather than as an error.",
+          "correct": true,
+          "explain": "正解。「該当なし」を障害と誤解した再試行を防ぐ。",
+          "textZh": "把「没有匹配」作为成功的空结果返回，而不是作为错误。"
+        },
+        {
+          "text": "Returning the same generic error text for every failure.",
+          "correct": false,
+          "explain": "不適。種類が分からず、再試行すべきかも判断できない。",
+          "textZh": "所有失败都返回相同的笼统错误文本。"
+        },
+        {
+          "text": "Hiding all errors from the agent.",
+          "correct": false,
+          "explain": "不適。失敗に気づけず、誤った回答になる。",
+          "textZh": "对智能体隐藏所有错误。"
+        },
+        {
+          "text": "Telling the agent to retry every error five times.",
+          "correct": false,
+          "explain": "不適。直らない失敗にも無駄な試行を重ねる。",
+          "textZh": "让智能体对每个错误都重试五次。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项做法能减少调用 MCP 工具的智能体中无效的重试？（选 2 项）",
+      "commentaryZh": "减少无效重试的关键：明确标出不可重试的错误，并把「空结果」与「失败」区分开。"
+    },
+    {
+      "id": "ar2-023",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "The synthesis subagent in the research system has been given the web search tool \"just in case.\" What problem does the guidance warn about?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Agents with tools outside their specialization tend to misuse them — for example, the synthesis agent starts running its own web searches instead of synthesizing.",
+          "correct": true,
+          "explain": "正解。役割外のツールは誤用されやすい。各エージェントには役割に必要なツールだけを渡す。",
+          "textZh": "拥有专业范围之外工具的智能体往往会误用它们——例如综合智能体开始自己做网络搜索，而不是专心综合。"
+        },
+        {
+          "text": "The search tool will stop working for other agents.",
+          "correct": false,
+          "explain": "不適。そのような共有の制約はない。",
+          "textZh": "搜索工具对其他智能体会失效。"
+        },
+        {
+          "text": "Synthesis agents cannot read tool results.",
+          "correct": false,
+          "explain": "不適。ツール結果は読める。問題は役割外のツールを持っていること。",
+          "textZh": "综合智能体无法读取工具结果。"
+        },
+        {
+          "text": "It has no effect as long as the description is clear, because Claude only uses the tools its prompt tells it to.",
+          "correct": false,
+          "explain": "不適。説明が明確でも、持っていれば使ってしまう傾向がある。",
+          "textZh": "只要描述清楚就没有任何影响，因为 Claude 只会使用提示词让它用的工具。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研系统中的综合子智能体「以防万一」被配上了网络搜索工具。指引警告的是什么问题？",
+      "commentaryZh": "按角色限定工具集：综合智能体不该有搜索工具。跨专业的工具会被误用，并让职责边界变得模糊。"
+    },
+    {
+      "id": "ar2-024",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "A single research agent was given 18 tools covering search, analysis, writing, and administration. Tool selection has become unreliable. What does the guidance recommend?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Reduce each agent's tool set to the few (around 4–5) relevant to its role, distributing the rest across specialized agents.",
+          "correct": true,
+          "explain": "正解。ツールが多すぎると選択の判断が複雑になり信頼性が落ちる。役割ごとに絞る。",
+          "textZh": "把每个智能体的工具集缩减到与其角色相关的少数几个（大约 4–5 个），其余工具分给专门的智能体。"
+        },
+        {
+          "text": "Add more tools so every possible task is covered.",
+          "correct": false,
+          "explain": "不適。選択の難しさがさらに増す。",
+          "textZh": "再加更多工具，以覆盖所有可能的任务。"
+        },
+        {
+          "text": "Sort the 18 tools alphabetically.",
+          "correct": false,
+          "explain": "不適。並び順は選択の質を改善しない。",
+          "textZh": "把 18 个工具按字母排序。"
+        },
+        {
+          "text": "Use tool_choice \"any\" so the agent always calls something from the list, which reduces the chance of picking a wrong tool when there are many to choose from.",
+          "correct": false,
+          "explain": "不適。どれを呼ぶかの判断の質は上がらない。",
+          "textZh": "使用 tool_choice \"any\"，让智能体总会从列表中调用某个工具，这能降低在大量工具中选错的概率。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个调研智能体被配了 18 个工具，涵盖搜索、分析、写作和管理。工具选择变得不可靠。指引推荐怎么做？",
+      "commentaryZh": "工具太多（比如 18 个而不是 4–5 个）会增加决策复杂度、降低选择可靠性。按角色限定工具是 2.3 的核心原则。"
+    },
+    {
+      "id": "ar2-025",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The synthesis subagent frequently needs to double-check a single fact while writing. The team does not want it to have full web search. What is the recommended compromise?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Give it a narrowly scoped cross-role tool such as verify_fact for this high-frequency need, and route anything more complex back through the coordinator.",
+          "correct": true,
+          "explain": "正解。頻度の高い必要には限定的なツールで応え、複雑な調査はコーディネーター経由に保つ。",
+          "textZh": "针对这一高频需求，给它一个范围很窄的跨角色工具（如 verify_fact），更复杂的情况仍交回协调者处理。"
+        },
+        {
+          "text": "Give it the full web search tool after all, but ask it to use search only for fact checks.",
+          "correct": false,
+          "explain": "不適。役割外の探索を始めてしまうリスクが戻る。",
+          "textZh": "还是给它完整的网络搜索工具，但要求它只把搜索用于事实核对。"
+        },
+        {
+          "text": "Forbid any fact-checking during synthesis.",
+          "correct": false,
+          "explain": "不適。事実確認をなくすと、合成の品質が下がる。",
+          "textZh": "禁止在综合时做任何事实核对。"
+        },
+        {
+          "text": "Let it call the search subagent directly.",
+          "correct": false,
+          "explain": "不適。サブエージェント同士の直接通信は原則に反する。",
+          "textZh": "让它直接调用搜索子智能体。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "综合子智能体在写作时经常需要核对单个事实。团队不想给它完整的网络搜索能力。推荐的折中方案是什么？",
+      "commentaryZh": "对高频的跨角色需求，提供范围受限的专用工具；复杂情况仍通过协调者。这是「限定工具 + 必要的例外」的平衡。"
+    },
+    {
+      "id": "ar2-026",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "A document-loading subagent uses a generic fetch_url tool, and it has started fetching unrelated web pages. Which change follows the guidance?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Replace fetch_url with a constrained tool such as load_document that validates the URL points to an allowed document source.",
+          "correct": true,
+          "explain": "正解。汎用ツールを制約付きの専用ツールに置き換えると、役割外の使い方ができなくなる。",
+          "textZh": "用受约束的工具（如 load_document）替换 fetch_url，并校验 URL 指向的是允许的文档来源。"
+        },
+        {
+          "text": "Add \"only fetch documents from approved sources\" to the subagent's system prompt, and repeat the instruction at the end of every user message.",
+          "correct": false,
+          "explain": "不適。確率的な抑制にとどまる。",
+          "textZh": "在子智能体的系统提示词中加上「只从批准的来源抓取文档」，并在每条用户消息末尾重复这条指令。"
+        },
+        {
+          "text": "Give it a second generic tool for comparison.",
+          "correct": false,
+          "explain": "不適。選択肢が増え、問題が悪化する。",
+          "textZh": "再给它一个通用工具用来对比。"
+        },
+        {
+          "text": "Remove the subagent's ability to load anything.",
+          "correct": false,
+          "explain": "不適。本来の役割が果たせない。",
+          "textZh": "取消该子智能体加载任何内容的能力。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个负责加载文档的子智能体使用通用的 fetch_url 工具，结果开始抓取无关的网页。哪种改动符合指引？",
+      "commentaryZh": "用受约束的专用工具替换通用工具（fetch_url → load_document），可以从机制上防止越界使用。"
+    },
+    {
+      "id": "ar2-027",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "In the extraction step of the research pipeline, the coordinator must call extract_metadata first, then decide on enrichment tools in later turns. How should tool_choice be set for the first request?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Force the specific tool: {\"type\": \"tool\", \"name\": \"extract_metadata\"}, then handle the following steps in follow-up turns.",
+          "correct": true,
+          "explain": "正解。特定のツールを最初に必ず呼ばせたいときは強制指定を使う。",
+          "textZh": "强制指定工具：{\"type\": \"tool\", \"name\": \"extract_metadata\"}，之后的步骤在后续回合中处理。"
+        },
+        {
+          "text": "\"auto\", and ask nicely in the prompt.",
+          "correct": false,
+          "explain": "不適。auto ではテキストで返したり別のツールを選んだりできる。",
+          "textZh": "设为 \"auto\"，并在提示词里客气地请求。"
+        },
+        {
+          "text": "\"any\", which guarantees extract_metadata specifically, since it is the first tool in the list.",
+          "correct": false,
+          "explain": "不適。any は「何かのツール」を必ず呼ばせるだけで、どれかは選べない。",
+          "textZh": "设为 \"any\"，它能保证调用的就是 extract_metadata，因为它是列表中的第一个工具。"
+        },
+        {
+          "text": "\"none\", so the model plans first.",
+          "correct": false,
+          "explain": "不適。ツールが呼ばれなくなる。",
+          "textZh": "设为 \"none\"，让模型先做计划。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在调研流水线的抽取步骤中，协调者必须先调用 extract_metadata，然后在之后的回合中再决定用哪些增强工具。第一次请求的 tool_choice 应如何设置？",
+      "commentaryZh": "tool_choice 的三种主要设置：\"auto\"（可能返回文本）、\"any\"（必须调用某个工具）、强制指定（必须调用指定工具）。要保证先调用某个特定工具，就用强制指定。"
+    },
+    {
+      "id": "ar2-028",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "In the support agent, a step must return structured data through one of several tools, never conversational text. Which tool_choice setting guarantees a tool is called while still letting Claude pick which one?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"any\"",
+          "correct": true,
+          "explain": "正解。any はいずれかのツールの呼び出しを必須にし、どれを使うかはモデルに任せる。",
+          "textZh": "\"any\""
+        },
+        {
+          "text": "\"auto\"",
+          "correct": false,
+          "explain": "不適。auto はテキストで返すこともできる。",
+          "textZh": "\"auto\""
+        },
+        {
+          "text": "A forced specific tool",
+          "correct": false,
+          "explain": "不適。モデルが選ぶ余地がなくなる。",
+          "textZh": "强制指定某一个工具"
+        },
+        {
+          "text": "Omitting tools from the request",
+          "correct": false,
+          "explain": "不適。ツールが呼べなくなる。",
+          "textZh": "请求中不提供工具"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在客服智能体中，某一步必须通过若干工具之一返回结构化数据，绝不能返回对话文本。哪种 tool_choice 设置能保证调用工具、同时仍让 Claude 自己选择调用哪个？",
+      "commentaryZh": "\"any\" = 必须调用工具但可自选；强制指定 = 必须调用这一个；\"auto\" = 模型可自行决定是否调用。这三者的区别在 2.3 和 4.3 都会考。"
+    },
+    {
+      "id": "ar2-029",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "The support agent has get_customer, lookup_order, process_refund, escalate_to_human, plus 14 internal admin tools that were added \"for completeness.\" Escalations are now sometimes routed to an admin tool. What is the best fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Remove the admin tools from the support agent so it has only the tools its role needs.",
+          "correct": true,
+          "explain": "正解。役割に必要なツールだけにすると、選択の迷いと誤用が減る。",
+          "textZh": "从客服智能体中移除管理工具，只保留其角色需要的工具。"
+        },
+        {
+          "text": "Rename the admin tools with an \"admin_\" prefix and keep them available, so the agent can tell them apart.",
+          "correct": false,
+          "explain": "不適。名前を変えても選択肢が多い問題は残る。",
+          "textZh": "给管理工具加上 \"admin_\" 前缀，并继续保留可用，让智能体能区分它们。"
+        },
+        {
+          "text": "Force tool_choice to escalate_to_human for every request.",
+          "correct": false,
+          "explain": "不適。すべての問い合わせがエスカレーションになる。",
+          "textZh": "每个请求都把 tool_choice 强制设为 escalate_to_human。"
+        },
+        {
+          "text": "Lower the temperature.",
+          "correct": false,
+          "explain": "不適。選択肢の多さという原因は変わらない。",
+          "textZh": "降低 temperature。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服智能体有 get_customer、lookup_order、process_refund、escalate_to_human，外加 14 个「为了完整」而加入的内部管理工具。现在升级处理有时会被路由到某个管理工具上。最好的修正是什么？",
+      "commentaryZh": "「为了完整」而加的工具会降低选择可靠性并导致误用。只给智能体完成其角色所需的工具。"
+    },
+    {
+      "id": "ar2-030",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent has a code-explorer subagent (read-only investigation) and a refactor subagent (makes edits). Which tool assignment is most appropriate?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "code-explorer: Read, Grep, Glob. refactor: Read, Edit, Write, plus Bash only if it must run tests.",
+          "correct": true,
+          "explain": "正解。調査役には読み取り系だけ、変更役には編集系を渡す。役割外の操作を防げる。",
+          "textZh": "code-explorer：Read、Grep、Glob。refactor：Read、Edit、Write，只有在需要跑测试时才加 Bash。"
+        },
+        {
+          "text": "Both get every built-in tool.",
+          "correct": false,
+          "explain": "不適。調査役がファイルを書き換える事故の余地を残す。",
+          "textZh": "两者都拿到所有内置工具。"
+        },
+        {
+          "text": "code-explorer: Write and Edit only, so it can record its findings in files.",
+          "correct": false,
+          "explain": "不適。調査に必要な読み取りができない。",
+          "textZh": "code-explorer 只有 Write 和 Edit，好让它把发现写进文件。"
+        },
+        {
+          "text": "refactor: Grep only.",
+          "correct": false,
+          "explain": "不適。Grep だけでは検索しかできず、リファクタリングの変更ができない。",
+          "textZh": "refactor 只有 Grep。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体有一个 code-explorer 子智能体（只读调查）和一个 refactor 子智能体（负责修改）。哪种工具分配最合适？",
+      "commentaryZh": "按角色划分工具：只读角色只给读取类工具，修改角色给编辑类工具。既提高选择可靠性，也降低误操作风险。"
+    },
+    {
+      "id": "ar2-031",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "The agent must produce a JSON summary of a repository using one of three schemas (library, service, monorepo), but it does not know the repository type in advance. Which tool_choice setting ensures structured output?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"any\", with one tool per schema, so Claude must call one of them and picks the matching type.",
+          "correct": true,
+          "explain": "正解。種類が分からないときは any で「必ずどれかのツール」を呼ばせ、選択はモデルに任せる。",
+          "textZh": "设为 \"any\"，每种 schema 对应一个工具，这样 Claude 必须调用其中之一，并选择匹配的类型。"
+        },
+        {
+          "text": "Force the library tool and convert later.",
+          "correct": false,
+          "explain": "不適。種類を決め打ちしており、他の種類では誤った形になる。",
+          "textZh": "强制调用 library 工具，事后再转换。"
+        },
+        {
+          "text": "\"auto\", trusting Claude to call a tool.",
+          "correct": false,
+          "explain": "不適。テキストで返す可能性が残る。",
+          "textZh": "设为 \"auto\"，相信 Claude 会调用工具。"
+        },
+        {
+          "text": "No tools; ask for JSON in the prompt and describe all three schemas, then parse the reply with a JSON parser.",
+          "correct": false,
+          "explain": "不適。構文エラーやスキーマ不一致を防げない。",
+          "textZh": "不提供工具；在提示词中要求输出 JSON，并描述三种 schema，再用 JSON 解析器解析回复。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体必须用三种 schema（库、服务、monorepo）之一输出代码库的 JSON 摘要，但事先不知道仓库类型。哪种 tool_choice 设置能确保输出是结构化的？",
+      "commentaryZh": "多种抽取 schema 且类型未知时，用 \"any\" 保证一定调用某个工具（得到结构化输出），同时让模型选择合适的 schema。"
+    },
+    {
+      "id": "ar2-032",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "What does tool_choice \"auto\" allow the model to do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Decide whether to call a tool at all, and which one, or respond with text instead.",
+          "correct": true,
+          "explain": "正解。auto はツールを使うかどうかもモデルが決める。",
+          "textZh": "自行决定是否调用工具、调用哪个，或者改为直接用文本回答。"
+        },
+        {
+          "text": "It must call exactly one tool and cannot answer in text.",
+          "correct": false,
+          "explain": "不適。それは any や強制指定に近い動作。",
+          "textZh": "必须恰好调用一个工具，且不能用文本回答。"
+        },
+        {
+          "text": "It must call every tool once.",
+          "correct": false,
+          "explain": "不適。そのような設定はない。",
+          "textZh": "必须把每个工具各调用一次。"
+        },
+        {
+          "text": "It cannot call any tools.",
+          "correct": false,
+          "explain": "不適。それは \"none\"。",
+          "textZh": "不能调用任何工具。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "tool_choice 设为 \"auto\" 时，模型可以怎么做？",
+      "commentaryZh": "\"auto\" 是默认设置：模型可调用工具，也可直接回答文本。需要保证调用工具时，要用 \"any\" 或强制指定。"
+    },
+    {
+      "id": "ar2-033",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO statements about tool distribution across agents are correct? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Giving an agent too many tools makes tool selection less reliable.",
+          "correct": true,
+          "explain": "正解。判断の複雑さが増すため。",
+          "textZh": "给一个智能体太多工具，会降低工具选择的可靠性。"
+        },
+        {
+          "text": "Each agent should get the tools relevant to its role, with limited exceptions for frequent cross-role needs.",
+          "correct": true,
+          "explain": "正解。役割に絞りつつ、必要な例外は限定的なツールで対応する。",
+          "textZh": "每个智能体应拿到与其角色相关的工具，对高频的跨角色需求可以有限地例外。"
+        },
+        {
+          "text": "Every agent should have the same tools so behavior is uniform.",
+          "correct": false,
+          "explain": "不適。役割外のツールの誤用を招く。",
+          "textZh": "每个智能体都应有相同的工具，以保证行为一致。"
+        },
+        {
+          "text": "The number of tools has no effect on reliability.",
+          "correct": false,
+          "explain": "不適。多すぎると選択の精度が落ちる。",
+          "textZh": "工具数量对可靠性没有影响。"
+        },
+        {
+          "text": "Restricting tools is only needed for security, never for quality.",
+          "correct": false,
+          "explain": "不適。選択の精度という品質面の理由もある。",
+          "textZh": "限制工具只是为了安全，与质量无关。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于在多个智能体之间分配工具，下列哪两项说法正确？（选 2 项）",
+      "commentaryZh": "工具分配原则：按角色限定、数量适中、跨角色需求用受限工具解决。这兼顾了可靠性与安全性。"
+    },
+    {
+      "id": "ar2-034",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "The team wants every developer's Claude Code to connect to the shared GitHub MCP server, configured once and kept in version control. Where should it be configured?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In the project-scoped .mcp.json at the repository root.",
+          "correct": true,
+          "explain": "正解。プロジェクトスコープの .mcp.json はリポジトリに含めてチームで共有できる。",
+          "textZh": "在代码仓库根目录的项目级 .mcp.json 中。"
+        },
+        {
+          "text": "In each developer's ~/.claude.json.",
+          "correct": false,
+          "explain": "不適。ユーザー単位の設定で、チームには共有されない。",
+          "textZh": "在每位开发者的 ~/.claude.json 中。"
+        },
+        {
+          "text": "In ~/.claude/CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。CLAUDE.md は指示を書く場所で、MCP サーバーの接続設定ではない。",
+          "textZh": "在 ~/.claude/CLAUDE.md 中。"
+        },
+        {
+          "text": "In the system prompt of every session as a list of server URLs.",
+          "correct": false,
+          "explain": "不適。プロンプトに書いてもサーバーには接続されない。",
+          "textZh": "写在每个会话的系统提示词里（以服务器 URL 列表的形式）。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队希望每位开发者的 Claude Code 都连接共享的 GitHub MCP 服务器，只配置一次并纳入版本控制。应该配置在哪里？",
+      "commentaryZh": "MCP 服务器的作用域：项目级 .mcp.json（团队共享、可提交）；用户级 ~/.claude.json（个人、跨项目）。共享工具放项目级。"
+    },
+    {
+      "id": "ar2-035",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The shared .mcp.json needs a GitHub token, but secrets must never be committed. What is the recommended approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Reference the token with environment variable expansion, such as ${GITHUB_TOKEN}, and have each developer set the variable locally.",
+          "correct": true,
+          "explain": "正解。.mcp.json は環境変数の展開に対応しており、秘密を書かずに共有できる。",
+          "textZh": "用环境变量展开来引用 token，例如 ${GITHUB_TOKEN}，由每位开发者在本地设置该变量。"
+        },
+        {
+          "text": "Paste the token directly into .mcp.json and make the repository private so only the team can see it and nobody outside it.",
+          "correct": false,
+          "explain": "不適。私有でも秘密がリポジトリに残る。",
+          "textZh": "把 token 直接粘贴进 .mcp.json，并把仓库设为私有，只让团队看到，外部的人看不到。"
+        },
+        {
+          "text": "Put the token in CLAUDE.md so Claude can read it.",
+          "correct": false,
+          "explain": "不適。秘密がモデルの文脈に入り、リポジトリにも残る。",
+          "textZh": "把 token 写进 CLAUDE.md，让 Claude 能读到。"
+        },
+        {
+          "text": "Share the token in the team chat.",
+          "correct": false,
+          "explain": "不適。秘密の管理として不適切。",
+          "textZh": "在团队聊天里分享 token。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "共享的 .mcp.json 需要 GitHub token，但机密信息绝不能提交到仓库。推荐的做法是什么？",
+      "commentaryZh": ".mcp.json 支持 ${VAR} 形式的环境变量展开，用来在不提交机密的情况下共享配置。这是 2.4 的必考点。"
+    },
+    {
+      "id": "ar2-036",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "A developer wants to try an experimental MCP server for personal use across all their projects without affecting teammates. Where should they add it?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In user scope, stored in ~/.claude.json.",
+          "correct": true,
+          "explain": "正解。ユーザースコープは本人のすべてのプロジェクトで使え、チームには影響しない。",
+          "textZh": "用户作用域，保存在 ~/.claude.json 中。"
+        },
+        {
+          "text": "In the project's .mcp.json.",
+          "correct": false,
+          "explain": "不適。コミットするとチーム全員に影響する。",
+          "textZh": "项目的 .mcp.json 中。"
+        },
+        {
+          "text": "In .claude/rules/mcp.md.",
+          "correct": false,
+          "explain": "不適。ルールファイルは指示を書く場所。",
+          "textZh": ".claude/rules/mcp.md 中。"
+        },
+        {
+          "text": "In the project's README.",
+          "correct": false,
+          "explain": "不適。設定として読み込まれない。",
+          "textZh": "项目的 README 中。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位开发者想在自己所有项目中试用一个实验性的 MCP 服务器，且不影响队友。应该加在哪里？",
+      "commentaryZh": "个人/实验性服务器放用户作用域（~/.claude.json），团队共享服务器放项目作用域（.mcp.json）。"
+    },
+    {
+      "id": "ar2-037",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent is connected to three MCP servers (GitHub, Jira, internal docs). When are their tools available to the agent?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tools from all configured servers are discovered at connection time and are available at the same time.",
+          "correct": true,
+          "explain": "正解。設定したサーバーのツールは接続時にまとめて見つかり、同時に使える。",
+          "textZh": "所有已配置服务器的工具都会在连接时被发现，并同时可用。"
+        },
+        {
+          "text": "Only one server's tools can be active at a time.",
+          "correct": false,
+          "explain": "不適。複数のサーバーを同時に使える。",
+          "textZh": "同一时间只能启用一个服务器的工具。"
+        },
+        {
+          "text": "Each server must be selected manually before every request that needs its tools, using the /mcp command.",
+          "correct": false,
+          "explain": "不適。そのような手順は不要。",
+          "textZh": "每次需要某个服务器的工具时，都必须先手动选择该服务器，使用 /mcp 命令。"
+        },
+        {
+          "text": "Tools appear only after the agent asks for them by name.",
+          "correct": false,
+          "explain": "不適。接続時に発見される。",
+          "textZh": "只有智能体按名称请求后，工具才会出现。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体连接了三个 MCP 服务器（GitHub、Jira、内部文档）。它们的工具什么时候对智能体可用？",
+      "commentaryZh": "多个 MCP 服务器的工具在连接时被统一发现，并同时提供给智能体。这也意味着工具描述要清楚，避免跨服务器的混淆。"
+    },
+    {
+      "id": "ar2-038",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "The agent keeps using the built-in Grep tool to search tickets as text files, ignoring a more capable Jira MCP tool that supports filters by status and assignee. What is the best fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Improve the MCP tool's description to explain what it can do and what it returns, so Claude sees why it is better than Grep for tickets.",
+          "correct": true,
+          "explain": "正解。説明が乏しいと、モデルは使い慣れた組み込みツールを選びがち。能力と出力を具体的に書く。",
+          "textZh": "改进该 MCP 工具的描述，说明它能做什么、返回什么，让 Claude 明白查工单时它比 Grep 更合适。"
+        },
+        {
+          "text": "Disable Grep for the whole agent.",
+          "correct": false,
+          "explain": "不適。コード検索など本来必要な用途まで失う。",
+          "textZh": "对整个智能体禁用 Grep。"
+        },
+        {
+          "text": "Rename the Jira tool to \"grep_jira\".",
+          "correct": false,
+          "explain": "不適。名前だけでは能力の違いが伝わらない。",
+          "textZh": "把 Jira 工具改名为 \"grep_jira\"。"
+        },
+        {
+          "text": "Tell engineers to search Jira themselves and paste the results into the conversation.",
+          "correct": false,
+          "explain": "不適。統合の目的を放棄している。",
+          "textZh": "让工程师自己去搜 Jira，并把结果粘贴进对话。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体总是用内置的 Grep 把工单当作文本文件来搜，而忽略了更强大的 Jira MCP 工具（支持按状态和负责人筛选）。最好的修正是什么？",
+      "commentaryZh": "MCP 工具描述不充分时，智能体会偏向内置工具。详细说明能力和输出，是 2.4 中明确列出的技能。"
+    },
+    {
+      "id": "ar2-039",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The team needs Jira integration for the productivity agent. A community-maintained Jira MCP server already exists. What does the guidance recommend?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use the existing community server for the standard integration, and reserve custom servers for team-specific workflows.",
+          "correct": true,
+          "explain": "正解。標準的な連携は既存のものを使い、独自に作るのはチーム固有の処理だけにする。",
+          "textZh": "标准集成使用现有的社区服务器，自定义服务器留给团队特有的工作流程。"
+        },
+        {
+          "text": "Always build a custom server, so the team controls every detail and every update of the integration over time.",
+          "correct": false,
+          "explain": "不適。既にあるものを作り直す手間と保守負担が増える。",
+          "textZh": "总是自建服务器，让团队掌控集成的每个细节和每次更新，并长期维护。"
+        },
+        {
+          "text": "Avoid MCP and paste Jira exports into prompts.",
+          "correct": false,
+          "explain": "不適。最新の情報を取れず、文脈も圧迫する。",
+          "textZh": "不用 MCP，把 Jira 导出内容粘贴进提示词。"
+        },
+        {
+          "text": "Use both community and custom servers exposing identical tools.",
+          "correct": false,
+          "explain": "不適。同じツールが二重にあると選択が混乱する。",
+          "textZh": "同时使用社区版和自建版，两者暴露完全相同的工具。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队需要为效率智能体接入 Jira。社区已有维护中的 Jira MCP 服务器。指引推荐怎么做？",
+      "commentaryZh": "标准集成（如 Jira）优先使用现有社区 MCP 服务器；自建服务器用于团队特有流程。避免重复造轮子。"
+    },
+    {
+      "id": "ar2-040",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "The support agent sometimes calls escalate_to_human for simple password resets. The tool's description says only \"Escalates to a human.\" What should be added first?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When to use it and when not to — for example, explicit customer requests, policy gaps, or no progress — and that routine tasks like password resets should be handled directly.",
+          "correct": true,
+          "explain": "正解。使う場面と使わない場面の境界を書くと、不要なエスカレーションが減る。",
+          "textZh": "何时使用、何时不使用——例如客户明确要求、政策空白或无法推进时使用，而密码重置等常规事务应直接处理。"
+        },
+        {
+          "text": "The phone number of the support center.",
+          "correct": false,
+          "explain": "不適。ツール選択の判断材料にならない。",
+          "textZh": "客服中心的电话号码。"
+        },
+        {
+          "text": "A note that humans are expensive.",
+          "correct": false,
+          "explain": "不適。抽象的で、具体的な判断基準になっていない。",
+          "textZh": "一句「人工很贵」。"
+        },
+        {
+          "text": "The word \"IMPORTANT\" in capital letters, placed at the start of the description so it is noticed first.",
+          "correct": false,
+          "explain": "不適。強調は境界の情報を増やさない。",
+          "textZh": "用大写字母写上「IMPORTANT」，放在描述开头，让它最先被注意到。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服智能体有时会为简单的密码重置调用 escalate_to_human。该工具的描述只有一句「转人工」。首先应补充什么？",
+      "commentaryZh": "工具描述应包含使用边界。对于「升级」这类工具，写清触发条件和排除情况，比强调语气有效得多。"
+    },
+    {
+      "id": "ar2-041",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "lookup_order accepts either an order number or a tracking number, but the agent often passes tracking numbers in the wrong field. What change helps most?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Document each input field's format with examples (for example \"order_id: 8 digits, e.g. 10045521; tracking_number: carrier code + digits, e.g. UPS1Z99…\") in the description and schema.",
+          "correct": true,
+          "explain": "正解。入力形式と例があれば、どの欄に何を入れるか判断しやすい。",
+          "textZh": "在描述和 schema 中写明每个输入字段的格式并给出示例（例如「order_id：8 位数字，如 10045521；tracking_number：承运商代码 + 数字，如 UPS1Z99…」）。"
+        },
+        {
+          "text": "Make all fields optional strings with no description.",
+          "correct": false,
+          "explain": "不適。手がかりがさらに減る。",
+          "textZh": "把所有字段都改成没有描述的可选字符串。"
+        },
+        {
+          "text": "Add a retry loop that tries the number in both fields and keeps whichever call returns an order, logging which field worked for each format so the loop gets faster over time.",
+          "correct": false,
+          "explain": "不適。原因を直さず、無駄な呼び出しを増やしている。",
+          "textZh": "加一个重试循环，把号码分别填进两个字段试一遍，保留能返回订单的那次调用，记录每种格式哪个字段可用，让循环越来越快。"
+        },
+        {
+          "text": "Ask the customer to type the number twice.",
+          "correct": false,
+          "explain": "不適。顧客の手間が増えるだけ。",
+          "textZh": "让客户把号码输入两次。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "lookup_order 既可以接受订单号也可以接受物流单号，但智能体经常把物流单号填进错误的字段。哪种改动最有帮助？",
+      "commentaryZh": "工具描述应包含输入格式和示例。字段含义清楚，模型才能正确填参。"
+    },
+    {
+      "id": "ar2-042",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The research system has search_web and search_news tools. The coordinator uses search_web for breaking news, missing recent articles. Which description change best addresses this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "State in search_news that it covers articles from the past 30 days with publication dates, and in search_web that it is for general reference and may miss very recent news.",
+          "correct": true,
+          "explain": "正解。それぞれの守備範囲と限界を書けば、時事性の高い問いで正しいツールを選べる。",
+          "textZh": "在 search_news 中写明它覆盖近 30 天带发布日期的文章；在 search_web 中写明它用于一般性资料、可能遗漏最新新闻。"
+        },
+        {
+          "text": "Remove search_web.",
+          "correct": false,
+          "explain": "不適。一般的な調べ物ができなくなる。",
+          "textZh": "去掉 search_web。"
+        },
+        {
+          "text": "Tell the coordinator to \"be up to date.\", and to prefer recent results whenever it searches the web.",
+          "correct": false,
+          "explain": "不適。どのツールが最新情報を扱うかが分からないまま。",
+          "textZh": "告诉协调者「要保持最新」，并在网络搜索时优先选择最新结果。"
+        },
+        {
+          "text": "Merge both tools into one.",
+          "correct": false,
+          "explain": "不適。違いが見えなくなり、汎用ツールの問題が生じる。",
+          "textZh": "把两个工具合并成一个。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研系统有 search_web 和 search_news 两个工具。协调者在查突发新闻时用了 search_web，漏掉了最新文章。哪种描述上的改动最能解决？",
+      "commentaryZh": "描述中写明每个工具的覆盖范围和局限，模型才能在相似工具之间做出正确选择。"
+    },
+    {
+      "id": "ar2-043",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "A new MCP tool, run_query, is described as \"Runs a query.\" Engineers report that Claude sometimes uses it for full-text code search and sometimes avoids it for database questions. What is the root cause and fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The description is ambiguous; specify that it runs read-only SQL against the analytics database, show an example query, and state that code search should use Grep.",
+          "correct": true,
+          "explain": "正解。「クエリ」が何を指すか曖昧。対象・例・他ツールとの境界を書く。",
+          "textZh": "描述含糊；应写明它是对分析数据库执行只读 SQL，给出示例查询，并说明代码搜索应使用 Grep。"
+        },
+        {
+          "text": "The model does not support SQL.",
+          "correct": false,
+          "explain": "不適。説明が曖昧なのが原因。",
+          "textZh": "模型不支持 SQL。"
+        },
+        {
+          "text": "Too many tools are connected; disconnect all MCP servers except the database server so run_query has no competition when the agent decides which tool to use.",
+          "correct": false,
+          "explain": "不適。極端で、必要な連携まで失う。",
+          "textZh": "连接的工具太多；除了数据库服务器，断开所有 MCP 服务器，让 run_query 没有竞争对手（在智能体决定使用哪个工具时）。"
+        },
+        {
+          "text": "The tool should be renamed to \"query\" only.",
+          "correct": false,
+          "explain": "不適。さらに曖昧になる。",
+          "textZh": "只需把工具改名为 \"query\"。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "新的 MCP 工具 run_query 的描述是「运行一个查询」。工程师反映 Claude 有时用它做代码全文搜索，有时又在数据库问题上不用它。根本原因和修正是什么？",
+      "commentaryZh": "「查询」「分析」这类泛化词最容易导致误路由。描述要写清对象、示例和与其他工具的边界。"
+    },
+    {
+      "id": "ar2-044",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which description gives Claude the most useful information for tool selection?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Returns current stock levels for a SKU across all warehouses. Input: sku (string, e.g. 'AB-1203'). Use for availability questions; for prices use get_price.\"",
+          "correct": true,
+          "explain": "正解。何を返すか・入力形式と例・使う場面・似たツールとの違いがそろっている。",
+          "textZh": "「返回某个 SKU 在所有仓库的当前库存。输入：sku（字符串，如 'AB-1203'）。用于库存是否充足的问题；价格请用 get_price。」"
+        },
+        {
+          "text": "\"Inventory tool.\"",
+          "correct": false,
+          "explain": "不適。何を返し、いつ使うのかという情報がほぼ無い。",
+          "textZh": "「库存工具。」"
+        },
+        {
+          "text": "\"Use this tool when needed.\"",
+          "correct": false,
+          "explain": "不適。いつ必要なのかが書かれていない。",
+          "textZh": "「需要时使用此工具。」"
+        },
+        {
+          "text": "\"Very fast and reliable inventory API.\" Highlighting reliability makes the model trust the tool more.",
+          "correct": false,
+          "explain": "不適。宣伝文句で、選択の判断材料にならない。",
+          "textZh": "「非常快速可靠的库存 API。」强调可靠性能让模型更信任这个工具。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "哪个描述给 Claude 提供了对选择工具最有用的信息？",
+      "commentaryZh": "判断工具描述好坏的标准：返回什么、输入格式与示例、何时使用、与相似工具的区别。"
+    },
+    {
+      "id": "ar2-045",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO problems are most likely when two tools have overlapping, near-identical descriptions? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Claude routes some requests to the wrong tool.",
+          "correct": true,
+          "explain": "正解。区別の手がかりがないため誤選択が起きる。",
+          "textZh": "Claude 会把部分请求路由到错误的工具。"
+        },
+        {
+          "text": "Tool selection becomes inconsistent between similar requests.",
+          "correct": true,
+          "explain": "正解。同じような依頼でも選ばれるツールがぶれる。",
+          "textZh": "对相似的请求，工具选择变得前后不一致。"
+        },
+        {
+          "text": "The API refuses to load the second tool.",
+          "correct": false,
+          "explain": "不適。似た説明のツールでも登録自体はできる。起きるのは選び間違い。",
+          "textZh": "API 拒绝加载第二个工具。"
+        },
+        {
+          "text": "Claude stops using tools entirely.",
+          "correct": false,
+          "explain": "不適。実行速度とは関係ない。",
+          "textZh": "Claude 完全不再使用工具。"
+        },
+        {
+          "text": "Claude stops using tools entirely.",
+          "correct": false,
+          "explain": "不適。使わなくなるのではなく、選び間違える。",
+          "textZh": "Claude 完全不再使用工具。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "两个工具的描述相互重叠、几乎相同，最可能出现下列哪两个问题？（选 2 项）",
+      "commentaryZh": "描述重叠的直接后果是误路由与不一致。解决方法是重命名、重写描述、必要时拆分或合并职责。"
+    },
+    {
+      "id": "ar2-046",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A system prompt contains \"Always verify information before answering.\" Since then, the agent calls a verify_claim tool on every message, even greetings. What is the most appropriate fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Make the instruction specific about which kinds of statements need verification, and check that the wording does not unintentionally map to the tool's name.",
+          "correct": true,
+          "explain": "正解。キーワードに反応しやすい指示がツール選択を歪めている。対象を具体的にし、言葉の重なりを見直す。",
+          "textZh": "把指令改得具体，说明哪类陈述需要核实，并检查措辞是否无意中与工具名称形成了映射。"
+        },
+        {
+          "text": "Delete the verify_claim tool.",
+          "correct": false,
+          "explain": "不適。本当に必要な検証もできなくなる。",
+          "textZh": "删除 verify_claim 工具。"
+        },
+        {
+          "text": "Add \"but not for greetings\" and leave the rest in the system prompt.",
+          "correct": false,
+          "explain": "不適。場当たり的で、他の不要な呼び出しは残る。",
+          "textZh": "加一句「但问候除外」，其余不变（写在系统提示词里）。"
+        },
+        {
+          "text": "Set tool_choice to \"none\" permanently.",
+          "correct": false,
+          "explain": "不適。ツールが使えなくなる。",
+          "textZh": "永久把 tool_choice 设为 \"none\"。"
+        }
+      ],
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "系统提示词中有一句「回答前总要核实信息」。此后智能体对每条消息都调用 verify_claim 工具，连问候也不例外。最合适的修正是什么？",
+      "commentaryZh": "系统提示词中的关键词（如 \"verify\"）可能与工具名产生意外关联。审查系统提示词也是工具选择问题排查的一部分。"
+    },
+    {
+      "id": "ar2-047",
+      "domain": "D2",
+      "type": "multi",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "Which TWO tool responses are designed correctly for the support agent? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "get_customer, no account for the email: success with an empty result and a note that no account matched.",
+          "correct": true,
+          "explain": "正解。「該当なし」は正当な結果として返す。",
+          "textZh": "get_customer 查不到该邮箱的账户：返回成功的空结果，并说明没有匹配的账户。"
+        },
+        {
+          "text": "process_refund, order outside the refund window: isError with category business, retryable false, and a customer-friendly reason.",
+          "correct": true,
+          "explain": "正解。業務ルール違反は再試行不可として理由と一緒に返す。",
+          "textZh": "process_refund 遇到超出退款期限的订单：返回 isError，类别为业务规则，不可重试，并附上可告诉客户的原因。"
+        },
+        {
+          "text": "lookup_order, database timeout: an empty order list.",
+          "correct": false,
+          "explain": "不適。障害を「注文なし」に偽装している。",
+          "textZh": "lookup_order 数据库超时：返回空订单列表。"
+        },
+        {
+          "text": "process_refund, invalid amount: \"Something went wrong.\"",
+          "correct": false,
+          "explain": "不適。どの入力が悪いのか分からず、修正できない。",
+          "textZh": "process_refund 金额无效：「出错了。」"
+        },
+        {
+          "text": "escalate_to_human, queue full: success.",
+          "correct": false,
+          "explain": "不適。引き継ぎが行われていないのに成功と伝えている。",
+          "textZh": "escalate_to_human 队列已满：返回成功。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两种工具响应对客服智能体来说设计得是正确的？（选 2 项）",
+      "commentaryZh": "正确的设计：空结果是成功；业务规则违规是不可重试的错误并附原因。把故障伪装成空结果或成功，都会误导智能体。"
+    },
+    {
+      "id": "ar2-048",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "The productivity agent's file-index MCP tool times out under heavy load but usually works on a second attempt. How should the timeout be reported?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "As a transient error with isRetryable true.",
+          "correct": true,
+          "explain": "正解。一時的な失敗なので再試行可能と示す。",
+          "textZh": "作为临时性错误报告，isRetryable 为 true。"
+        },
+        {
+          "text": "As a permission error.",
+          "correct": false,
+          "explain": "不適。権限の問題ではなく一時的な負荷による失敗。誤った回復につながる。",
+          "textZh": "作为权限错误报告。"
+        },
+        {
+          "text": "As a successful empty index.",
+          "correct": false,
+          "explain": "不適。障害を隠している。",
+          "textZh": "作为成功的空索引报告。"
+        },
+        {
+          "text": "As a validation error on the file path, because the index path was not found.",
+          "correct": false,
+          "explain": "不適。入力のパスは正しい。原因の取り違えで、無駄な修正を招く。",
+          "textZh": "作为文件路径的校验错误报告，因为没找到索引路径。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体的文件索引 MCP 工具在高负载时会超时，但第二次尝试通常就能成功。超时应如何报告？",
+      "commentaryZh": "超时、服务暂时不可用属于临时性错误，应标为可重试，让智能体（或子智能体本地）进行合理的重试。"
+    },
+    {
+      "id": "ar2-049",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Why should a subagent include partial results and what it attempted when it propagates an error to the coordinator?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "So the coordinator can decide whether to retry differently, use what was found, or route the work elsewhere, without repeating failed attempts.",
+          "correct": true,
+          "explain": "正解。経緯と部分結果があれば、コーディネーターは無駄なく次の手を選べる。",
+          "textZh": "让协调者能决定是换种方式重试、使用已找到的内容，还是把工作转给别处，而不会重复已失败的尝试。"
+        },
+        {
+          "text": "Because the API requires a minimum response length.",
+          "correct": false,
+          "explain": "不適。そのような要件はない。",
+          "textZh": "因为 API 要求最低的响应长度。"
+        },
+        {
+          "text": "To make the final report longer.",
+          "correct": false,
+          "explain": "不適。目的は回復判断の材料。",
+          "textZh": "为了让最终报告更长。"
+        },
+        {
+          "text": "So the coordinator can identify and blame the right subagent in the final report and logs, so that faulty subagents can be replaced more quickly.",
+          "correct": false,
+          "explain": "不適。責任追及ではなく回復のため。",
+          "textZh": "方便协调者在最终报告和日志中找出并追究是哪个子智能体的责任，以便更快地替换出问题的子智能体。"
+        }
+      ],
+      "objective": "Implement structured error responses for MCP tools",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "子智能体向协调者上报错误时，为什么要附上部分结果和已尝试的操作？",
+      "commentaryZh": "结构化错误上下文（失败类型、尝试过的查询、部分结果、替代方案）让协调者能做出明智的恢复决定。"
+    },
+    {
+      "id": "ar2-050",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "Which tool_choice setting forces Claude to call escalate_to_human specifically on the next turn?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "{\"type\": \"tool\", \"name\": \"escalate_to_human\"}",
+          "correct": true,
+          "explain": "正解。強制指定で特定のツールを必ず呼ばせる。",
+          "textZh": "{\"type\": \"tool\", \"name\": \"escalate_to_human\"}"
+        },
+        {
+          "text": "{\"type\": \"any\"}",
+          "correct": false,
+          "explain": "不適。何かのツールを呼ぶが、どれかは選べない。",
+          "textZh": "{\"type\": \"any\"}"
+        },
+        {
+          "text": "{\"type\": \"auto\"}",
+          "correct": false,
+          "explain": "不適。呼ばないこともある。",
+          "textZh": "{\"type\": \"auto\"}"
+        },
+        {
+          "text": "{\"type\": \"none\"}",
+          "correct": false,
+          "explain": "不適。ツールを呼ばせない設定。",
+          "textZh": "{\"type\": \"none\"}"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "哪种 tool_choice 设置能强制 Claude 在下一回合调用 escalate_to_human 这个特定工具？",
+      "commentaryZh": "强制指定的写法是 {\"type\": \"tool\", \"name\": \"<工具名>\"}。\"any\" 只保证调用某个工具，\"auto\" 不保证调用。"
+    },
+    {
+      "id": "ar2-051",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "The research coordinator needs a verify_fact capability for the synthesis subagent, but the team worries that it will become a backdoor for open-ended research. Which design keeps the scope controlled?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "verify_fact accepts one claim plus the cited source and returns supported/unsupported with evidence; anything needing new research is returned to the coordinator.",
+          "correct": true,
+          "explain": "正解。入出力を狭く定義した専用ツールにし、範囲外は経路を分ける。",
+          "textZh": "verify_fact 只接受一条论断和其引用来源，返回「支持/不支持」及证据；任何需要新调研的情况都交回协调者。"
+        },
+        {
+          "text": "verify_fact accepts any free-text query and searches the web, returning the top results so the synthesis agent can judge them itself, which keeps the tool flexible.",
+          "correct": false,
+          "explain": "不適。実質的に汎用検索ツールで、懸念どおり裏口になる。",
+          "textZh": "verify_fact 接受任意自由文本查询并做网络搜索，返回排名靠前的结果，由综合智能体自行判断，让工具保持灵活。"
+        },
+        {
+          "text": "Give the synthesis agent no verification at all and accept errors.",
+          "correct": false,
+          "explain": "不適。頻度の高い必要を満たせない。",
+          "textZh": "不给综合智能体任何核实手段，接受出错。"
+        },
+        {
+          "text": "Let verify_fact call other subagents directly.",
+          "correct": false,
+          "explain": "不適。サブエージェント間の直接通信になる。",
+          "textZh": "让 verify_fact 直接调用其他子智能体。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研协调者需要给综合子智能体一个 verify_fact 能力，但团队担心它会变成做开放式调研的后门。哪种设计能控制范围？",
+      "commentaryZh": "跨角色工具要「窄」：明确的输入/输出约定、明确的范围，超出部分走协调者。这是限定工具访问的具体做法。"
+    },
+    {
+      "id": "ar2-052",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "Which statement about tool_choice \"any\" is correct?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Claude must call one of the provided tools, but it chooses which one.",
+          "correct": true,
+          "explain": "正解。ツール呼び出しを保証しつつ、選択はモデルに任せる。",
+          "textZh": "Claude 必须调用所提供工具中的某一个，但调用哪个由它选择。"
+        },
+        {
+          "text": "Claude may answer in plain text if it prefers, as long as the text contains valid JSON.",
+          "correct": false,
+          "explain": "不適。それは auto の挙動。",
+          "textZh": "如果 Claude 愿意，可以直接用文本回答，只要文本中包含有效的 JSON。"
+        },
+        {
+          "text": "Claude must call every tool.",
+          "correct": false,
+          "explain": "不適。呼ぶのは一つ（または必要なもの）で、全部ではない。",
+          "textZh": "Claude 必须调用每一个工具。"
+        },
+        {
+          "text": "Claude must call the first tool in the list.",
+          "correct": false,
+          "explain": "不適。どれを呼ぶかは選べる。",
+          "textZh": "Claude 必须调用列表中的第一个工具。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于 tool_choice 设为 \"any\"，下列哪种说法正确？",
+      "commentaryZh": "\"any\" = 保证调用工具 + 可自选；适合「必须结构化输出但 schema 不确定」的场景。"
+    },
+    {
+      "id": "ar2-053",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A classification agent has one tool, record_label, and must always return its answer through that tool. Which configuration is simplest and fully reliable?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Force tool_choice to {\"type\": \"tool\", \"name\": \"record_label\"}.",
+          "correct": true,
+          "explain": "正解。特定のツールを必ず呼ばせる。単一ツールなら any でも結果は同じだが、意図が最も明確。",
+          "textZh": "把 tool_choice 强制设为 {\"type\": \"tool\", \"name\": \"record_label\"}。"
+        },
+        {
+          "text": "Use \"auto\" and write \"always use record_label\" in the prompt.",
+          "correct": false,
+          "explain": "不適。テキストで返す可能性が残る。",
+          "textZh": "用 \"auto\"，并在提示词里写「总是使用 record_label」。"
+        },
+        {
+          "text": "Remove tools and parse labels from text.",
+          "correct": false,
+          "explain": "不適。形式の揺れに弱い。",
+          "textZh": "去掉工具，从文本中解析标签。"
+        },
+        {
+          "text": "Use \"none\" and add JSON instructions.",
+          "correct": false,
+          "explain": "不適。ツールが使えず、構造の保証もない。",
+          "textZh": "用 \"none\"，再加上 JSON 格式的指令。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个分类智能体只有一个工具 record_label，并且必须总是通过这个工具返回答案。哪种配置最简单且完全可靠？",
+      "commentaryZh": "必须通过某个工具输出时，强制指定该工具是最直接的做法。依赖提示词无法保证。"
+    },
+    {
+      "id": "ar2-054",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO configurations correctly match the requirement? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Need: guarantee a tool call, model chooses among several schemas → tool_choice \"any\".",
+          "correct": true,
+          "explain": "正解。呼び出しを保証しつつ選択を任せる。",
+          "textZh": "需求：保证调用工具，由模型在多个 schema 中选择 → tool_choice \"any\"。"
+        },
+        {
+          "text": "Need: run extract_metadata before anything else → force {\"type\": \"tool\", \"name\": \"extract_metadata\"} on the first request.",
+          "correct": true,
+          "explain": "正解。最初に特定のツールを確実に呼ばせる。",
+          "textZh": "需求：在其他操作之前先运行 extract_metadata → 在第一次请求中强制 {\"type\": \"tool\", \"name\": \"extract_metadata\"}。"
+        },
+        {
+          "text": "Need: let the model answer in text when no tool fits → tool_choice \"any\".",
+          "correct": false,
+          "explain": "不適。any ではテキストだけの返答はできない。auto が正しい。",
+          "textZh": "需求：没有合适工具时允许模型用文本回答 → tool_choice \"any\"。"
+        },
+        {
+          "text": "Need: guarantee a specific tool → tool_choice \"auto\".",
+          "correct": false,
+          "explain": "不適。auto は呼び出しを保証しない。",
+          "textZh": "需求：保证调用特定工具 → tool_choice \"auto\"。"
+        },
+        {
+          "text": "Need: model must not call tools → force a specific tool.",
+          "correct": false,
+          "explain": "不適。ツールを呼ばせたくないのに強制指定するのは正反対の設定。\"none\" を使う。",
+          "textZh": "需求：模型不得调用工具 → 强制指定某个工具。"
+        }
+      ],
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项配置与需求正确匹配？（选 2 项）",
+      "commentaryZh": "对照记忆：允许文本 → \"auto\"；必须调用但可选 → \"any\"；必须调用特定工具 → 强制指定；禁止调用 → \"none\"。"
+    },
+    {
+      "id": "ar2-055",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "The support agent frequently calls a search tool to find which refund policies exist before answering. The policies are a stable set of documents. What MCP feature can reduce these exploratory calls?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Expose the policy catalog as MCP resources so the agent can see what policies are available without searching for them.",
+          "correct": true,
+          "explain": "正解。リソースで内容の一覧を見せると、探索的なツール呼び出しが減る。",
+          "textZh": "把政策目录作为 MCP 资源（resources）暴露出来，让智能体无需搜索就能看到有哪些政策。"
+        },
+        {
+          "text": "Add a tool that lists tools.",
+          "correct": false,
+          "explain": "不適。ポリシー文書の存在は分からない。",
+          "textZh": "添加一个列出所有工具的工具。"
+        },
+        {
+          "text": "Raise the iteration limit.",
+          "correct": false,
+          "explain": "不適。無駄な呼び出しを許容しているだけ。",
+          "textZh": "提高循环次数上限。"
+        },
+        {
+          "text": "Paste every policy into each user message, so the agent never has to search for them, and refresh the list whenever a policy changes.",
+          "correct": false,
+          "explain": "不適。毎回文脈を大量に消費する。",
+          "textZh": "把每条政策都贴进每条用户消息，这样智能体就再也不需要搜索了，并在政策变化时刷新列表。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服智能体在回答前经常调用搜索工具来查看有哪些退款政策。这些政策是一组稳定的文档。哪种 MCP 功能可以减少这类探索性调用？",
+      "commentaryZh": "MCP 资源适合暴露内容目录（文档层级、数据库 schema、问题摘要等），让智能体知道有什么可用，从而减少探索性的工具调用。"
+    },
+    {
+      "id": "ar2-056",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "In MCP, what is the main difference between tools and resources?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tools perform actions or queries the model invokes; resources expose content (such as documents or catalogs) that can be provided as context.",
+          "correct": true,
+          "explain": "正解。ツールは「する」もの、リソースは「見せる」もの。",
+          "textZh": "工具执行模型调用的操作或查询；资源用于暴露内容（如文档或目录），可作为上下文提供。"
+        },
+        {
+          "text": "Tools are read-only; resources can modify data, such as updating records in a database.",
+          "correct": false,
+          "explain": "不適。逆に近い。操作はツールが担う。",
+          "textZh": "工具是只读的；资源可以修改数据，例如更新数据库中的记录。"
+        },
+        {
+          "text": "Resources are only for images.",
+          "correct": false,
+          "explain": "不適。文書・スキーマ・一覧などさまざま。",
+          "textZh": "资源只能用于图片。"
+        },
+        {
+          "text": "There is no difference; they are synonyms.",
+          "correct": false,
+          "explain": "不適。ツールは操作、リソースは内容の提示と役割が異なる。",
+          "textZh": "没有区别，两者是同义词。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在 MCP 中，工具（tools）和资源（resources）的主要区别是什么？",
+      "commentaryZh": "工具 = 动作（查询、处理、写入）；资源 = 内容目录（文档、schema 等）。在设计 MCP 接口时要按用途选择。"
+    },
+    {
+      "id": "ar2-057",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "The support team adds a project-scoped .mcp.json with the CRM server. A new team member clones the repo, but the CRM tools do not appear until they take an extra step. What is the most likely reason?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Claude Code asks for approval before using project-scoped servers from .mcp.json, so the new member must approve them (and set any required environment variables such as tokens).",
+          "correct": true,
+          "explain": "正解。プロジェクトスコープのサーバーは安全のため承認が必要で、環境変数の値も各自が用意する。",
+          "textZh": "Claude Code 在使用 .mcp.json 中的项目级服务器之前会请求批准，所以新成员需要批准（并设置所需的环境变量，例如 token）。"
+        },
+        {
+          "text": "Project-scoped servers only work for the person who created them, so each new member must re-add the CRM server themselves with their own credentials.",
+          "correct": false,
+          "explain": "不適。共有するための仕組み。",
+          "textZh": "项目级服务器只对创建者本人有效，所以每位新成员都必须自己重新添加 CRM 服务器，并使用自己的凭据。"
+        },
+        {
+          "text": ".mcp.json must be renamed for each user.",
+          "correct": false,
+          "explain": "不適。そのような手順はない。",
+          "textZh": "每个用户都必须重命名 .mcp.json。"
+        },
+        {
+          "text": "MCP servers can only be added through the system prompt.",
+          "correct": false,
+          "explain": "不適。設定ファイルやコマンドで追加する。",
+          "textZh": "MCP 服务器只能通过系统提示词添加。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服团队添加了包含 CRM 服务器的项目级 .mcp.json。新成员克隆仓库后，CRM 工具没有出现，需要多做一步才行。最可能的原因是什么？",
+      "commentaryZh": "项目级 .mcp.json 方便团队共享，但出于安全考虑，使用前需要用户批准；凭据通过环境变量由各自提供。"
+    },
+    {
+      "id": "ar2-058",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "Which file holds MCP servers that are shared with the whole team through version control?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": ".mcp.json in the project root",
+          "correct": true,
+          "explain": "正解。プロジェクトスコープの共有設定。",
+          "textZh": "项目根目录下的 .mcp.json"
+        },
+        {
+          "text": "~/.claude.json",
+          "correct": false,
+          "explain": "不適。個人の設定（ユーザースコープなど）。",
+          "textZh": "~/.claude.json"
+        },
+        {
+          "text": "~/.claude/CLAUDE.md",
+          "correct": false,
+          "explain": "不適。個人の指示ファイル。",
+          "textZh": "~/.claude/CLAUDE.md"
+        },
+        {
+          "text": ".claude/commands/mcp.md",
+          "correct": false,
+          "explain": "不適。スラッシュコマンドの定義。",
+          "textZh": ".claude/commands/mcp.md"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "哪个文件保存的是通过版本控制与整个团队共享的 MCP 服务器？",
+      "commentaryZh": "记住两个位置：.mcp.json（项目级、共享）与 ~/.claude.json（个人）。考试经常让你根据「共享还是个人」选位置。"
+    },
+    {
+      "id": "ar2-059",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The internal docs MCP server exposes the documentation hierarchy as resources. What benefit does this give the productivity agent?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The agent can see what documentation exists and pick the right page directly, instead of making many exploratory search calls.",
+          "correct": true,
+          "explain": "正解。全体の見取り図があれば、手探りの呼び出しが減る。",
+          "textZh": "智能体能看到有哪些文档，直接选中合适的页面，而不必做很多探索性的搜索调用。"
+        },
+        {
+          "text": "The documents are automatically rewritten into code.",
+          "correct": false,
+          "explain": "不適。リソースは内容の一覧を見せる仕組みで、文書をコードに変えたりはしない。",
+          "textZh": "文档会被自动改写成代码。"
+        },
+        {
+          "text": "The agent no longer needs any tools to read the docs, since resources replace tool calls, and the resources are rewritten into tools automatically by Claude Code.",
+          "correct": false,
+          "explain": "不適。操作にはツールが必要。",
+          "textZh": "智能体不再需要任何工具来读取文档，因为资源取代了工具调用，而且资源会被 Claude Code 自动改写成工具。"
+        },
+        {
+          "text": "Resources make the docs private.",
+          "correct": false,
+          "explain": "不適。アクセス権の仕組みではない。",
+          "textZh": "资源会让文档变成私有。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "内部文档 MCP 服务器把文档层级结构作为资源暴露出来。这给效率智能体带来什么好处？",
+      "commentaryZh": "把内容目录作为资源暴露，可以让智能体「先看目录再取内容」，减少探索性调用，节省时间和上下文。"
+    },
+    {
+      "id": "ar2-060",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "A developer adds a personal MCP server with local scope in one project, then wonders why it is not available in their other projects. What explains this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Local scope applies only to the current project for that user; to use it across all projects, add it with user scope.",
+          "correct": true,
+          "explain": "正解。local はそのプロジェクトのみ、user は本人の全プロジェクト、project はチーム共有。",
+          "textZh": "local 作用域只对该用户的当前项目生效；要在所有项目中使用，应以 user 作用域添加。"
+        },
+        {
+          "text": "MCP servers cannot be used in more than one project at the same time.",
+          "correct": false,
+          "explain": "不適。user スコープなら使える。",
+          "textZh": "MCP 服务器不能在多个项目中使用（在同一时间）。"
+        },
+        {
+          "text": "They must commit .mcp.json in every project.",
+          "correct": false,
+          "explain": "不適。個人用ならチームに共有する必要はない。",
+          "textZh": "他必须在每个项目中都提交 .mcp.json。"
+        },
+        {
+          "text": "The server must be restarted after each git pull.",
+          "correct": false,
+          "explain": "不適。再起動の問題ではなく、local スコープが現在のプロジェクト限定であることが原因。",
+          "textZh": "每次 git pull 后都必须重启服务器。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位开发者在某个项目中以 local 作用域添加了个人 MCP 服务器，却发现在其他项目中用不了。原因是什么？",
+      "commentaryZh": "Claude Code 的 MCP 作用域：local（仅当前项目、仅自己）、project（.mcp.json，团队共享）、user（自己所有项目）。"
+    },
+    {
+      "id": "ar2-061",
+      "domain": "D2",
+      "type": "multi",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "Which TWO are good practices when integrating MCP servers into Claude Code for a team? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Put shared servers in the project's .mcp.json and reference credentials with environment variables.",
+          "correct": true,
+          "explain": "正解。共有しつつ秘密はコミットしない。",
+          "textZh": "把共享服务器放在项目的 .mcp.json 中，并用环境变量引用凭据。"
+        },
+        {
+          "text": "Write MCP tool descriptions that explain capabilities and outputs in detail.",
+          "correct": true,
+          "explain": "正解。組み込みツールより有能な MCP ツールが選ばれるようになる。",
+          "textZh": "把 MCP 工具描述写得详细，说明其能力和输出。"
+        },
+        {
+          "text": "Commit API tokens directly in .mcp.json for convenience.",
+          "correct": false,
+          "explain": "不適。秘密の漏えいにつながる。",
+          "textZh": "为了方便，直接把 API token 提交到 .mcp.json 中。"
+        },
+        {
+          "text": "Build a custom server for every standard integration.",
+          "correct": false,
+          "explain": "不適。既存のコミュニティサーバーを使うのが推奨。",
+          "textZh": "每个标准集成都自建服务器。"
+        },
+        {
+          "text": "Add every available server to every project \"just in case.\"",
+          "correct": false,
+          "explain": "不適。ツールが増えすぎて選択の精度が落ちる。",
+          "textZh": "「以防万一」把所有可用服务器都加到每个项目里。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在团队中把 MCP 服务器接入 Claude Code 时，下列哪两项是好的做法？（选 2 项）",
+      "commentaryZh": "团队 MCP 集成要点：共享配置放 .mcp.json、凭据用环境变量、描述写清楚、标准集成用社区服务器、不过量添加。"
+    },
+    {
+      "id": "ar2-062",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team writes ${JIRA_URL:-https://jira.example.com} in .mcp.json. What does this do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It uses the JIRA_URL environment variable if it is set, and falls back to the given default otherwise.",
+          "correct": true,
+          "explain": "正解。.mcp.json の環境変数展開は既定値付きの書き方にも対応している。",
+          "textZh": "如果设置了 JIRA_URL 环境变量就使用它，否则使用给出的默认值。"
+        },
+        {
+          "text": "It always uses the default and ignores the variable unless the default is empty.",
+          "correct": false,
+          "explain": "不適。変数があればそちらが優先。",
+          "textZh": "总是使用默认值，忽略环境变量，除非默认值为空。"
+        },
+        {
+          "text": "It is a syntax error in .mcp.json.",
+          "correct": false,
+          "explain": "不適。サポートされた書き方。",
+          "textZh": "这在 .mcp.json 中是语法错误。"
+        },
+        {
+          "text": "It encrypts the URL.",
+          "correct": false,
+          "explain": "不適。暗号化の機能ではない。",
+          "textZh": "它会加密这个 URL。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队在 .mcp.json 中写了 ${JIRA_URL:-https://jira.example.com}。这表示什么？",
+      "commentaryZh": ".mcp.json 支持 ${VAR} 和 ${VAR:-默认值} 两种展开写法，便于共享配置而不写死环境相关的值。"
+    },
+    {
+      "id": "ar2-063",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Why should credentials in a shared .mcp.json be supplied through environment variable expansion?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "So the file can be committed and shared without exposing secrets, while each developer supplies their own values.",
+          "correct": true,
+          "explain": "正解。設定は共有、秘密は各自の環境に置く。",
+          "textZh": "这样文件可以提交和共享而不暴露机密，每位开发者自行提供自己的值。"
+        },
+        {
+          "text": "Because MCP servers cannot read plain strings.",
+          "correct": false,
+          "explain": "不適。技術的な制約ではなく、安全のため。",
+          "textZh": "因为 MCP 服务器无法读取普通字符串。"
+        },
+        {
+          "text": "To make the server start faster.",
+          "correct": false,
+          "explain": "不適。速度とは関係ない。",
+          "textZh": "为了让服务器启动更快。"
+        },
+        {
+          "text": "Because Claude needs to see the token in its context to authenticate to the server on behalf of the developer.",
+          "correct": false,
+          "explain": "不適。むしろ秘密をモデルの文脈に入れるべきではない。",
+          "textZh": "因为 Claude 需要在上下文中看到 token 才能向服务器认证，代表开发者进行认证。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么共享的 .mcp.json 中的凭据应通过环境变量展开来提供？",
+      "commentaryZh": "环境变量展开让配置可以共享、机密不入库。这是团队协作中最基本的安全做法。"
+    },
+    {
+      "id": "ar2-064",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "An engineer asks the productivity agent, \"Which files call the function parseInvoice?\" Which built-in tool should it use first?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Grep, to search file contents for the function name.",
+          "correct": true,
+          "explain": "正解。ファイルの中身からパターンを探すのは Grep。",
+          "textZh": "Grep，在文件内容中搜索这个函数名。"
+        },
+        {
+          "text": "Glob, to match file names.",
+          "correct": false,
+          "explain": "不適。Glob はファイル名・パスのパターン用。中身は探せない。",
+          "textZh": "Glob，匹配文件名。"
+        },
+        {
+          "text": "Write, to create a list file.",
+          "correct": false,
+          "explain": "不適。検索の手段ではない。",
+          "textZh": "Write，创建一个列表文件。"
+        },
+        {
+          "text": "Read every file in the repository to find the relevant names.",
+          "correct": false,
+          "explain": "不適。非効率で、文脈も圧迫する。",
+          "textZh": "读取代码库中的每一个文件，从中找出相关的名字。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "工程师问效率智能体：「哪些文件调用了 parseInvoice 函数？」它应首先使用哪个内置工具？",
+      "commentaryZh": "Grep 用于搜索文件内容（函数名、错误信息、import 语句等）；Glob 用于按文件名或路径模式找文件。"
+    },
+    {
+      "id": "ar2-065",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "The agent needs to find all React test files named like Button.test.tsx anywhere in the repo. Which tool and pattern fit best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Glob with **/*.test.tsx",
+          "correct": true,
+          "explain": "正解。名前のパターンでファイルを探すのは Glob。",
+          "textZh": "用 Glob，模式为 **/*.test.tsx"
+        },
+        {
+          "text": "Grep for the word \"test\" in all files",
+          "correct": false,
+          "explain": "不適。中身に test を含むファイルが大量にヒットする。",
+          "textZh": "用 Grep 在所有文件中搜索「test」一词"
+        },
+        {
+          "text": "Read on the src directory",
+          "correct": false,
+          "explain": "不適。Read はファイルを読むもので、検索はしない。",
+          "textZh": "对 src 目录使用 Read"
+        },
+        {
+          "text": "Edit with **/*.test.tsx",
+          "correct": false,
+          "explain": "不適。Edit は変更用。",
+          "textZh": "用 Edit，模式为 **/*.test.tsx"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体需要找出代码库中所有像 Button.test.tsx 这样命名的 React 测试文件。哪种工具和模式最合适？",
+      "commentaryZh": "按文件名/扩展名模式找文件 → Glob；按内容找 → Grep。这是 2.5 最基础的区分。"
+    },
+    {
+      "id": "ar2-066",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The Edit tool fails with an error because the text to replace appears several times in config.ts. What is the recommended fallback for a reliable change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Read the full file, then Write the complete corrected version (or provide a longer, unique anchor for Edit).",
+          "correct": true,
+          "explain": "正解。Edit は一意な一致が必要。一意にできないときは Read＋Write で確実に書き換える。",
+          "textZh": "先 Read 整个文件，再用 Write 写入完整的修正版本（或者给 Edit 提供更长、唯一的锚点文本）。"
+        },
+        {
+          "text": "Keep retrying Edit with the same text until it succeeds on one of the matches, because Edit will pick the first match.",
+          "correct": false,
+          "explain": "不適。一意でない限り同じエラーになる。",
+          "textZh": "用同样的文本反复重试 Edit，直到在某一处匹配上成功为止，因为 Edit 会选择第一个匹配。"
+        },
+        {
+          "text": "Use Grep to replace the text.",
+          "correct": false,
+          "explain": "不適。Grep は検索専用。",
+          "textZh": "用 Grep 来替换文本。"
+        },
+        {
+          "text": "Delete the file and recreate it from memory.",
+          "correct": false,
+          "explain": "不適。内容を失うおそれがある。",
+          "textZh": "删除文件，再凭记忆重建。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "Edit 工具报错，因为要替换的文本在 config.ts 中出现了好几次。为了可靠地修改，推荐的后备做法是什么？",
+      "commentaryZh": "Edit 依赖唯一的文本匹配。匹配不唯一时，用 Read 读全文再 Write 写回，是考试指南中明确的后备方案。"
+    },
+    {
+      "id": "ar2-067",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "An engineer asks the agent to explain how a request flows through an unfamiliar service. Which exploration approach best follows the guidance?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use Grep to find the entry point (for example the route handler), then Read that file and follow its imports step by step.",
+          "correct": true,
+          "explain": "正解。入口を探してから必要なファイルを順に読む、段階的な理解の積み上げ。",
+          "textZh": "先用 Grep 找到入口（例如路由处理函数），再 Read 该文件，逐步顺着 import 追踪。"
+        },
+        {
+          "text": "Read every file in the repository first, then answer so the answer is complete.",
+          "correct": false,
+          "explain": "不適。文脈を使い切り、要点が埋もれる。",
+          "textZh": "先读取代码库中的每个文件，再回答，让回答更完整。"
+        },
+        {
+          "text": "Use Glob to list all files and answer from the names.",
+          "correct": false,
+          "explain": "不適。名前だけでは流れは分からない。",
+          "textZh": "用 Glob 列出所有文件，根据文件名回答。"
+        },
+        {
+          "text": "Answer from general knowledge of similar services.",
+          "correct": false,
+          "explain": "不適。このリポジトリ固有の事実に基づいていない。",
+          "textZh": "根据对类似服务的一般了解来回答。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "工程师让智能体解释请求在一个陌生服务中是如何流转的。哪种探索方式最符合指引？",
+      "commentaryZh": "增量式理解代码库：Grep 找入口 → Read 跟踪 import 和调用链，而不是一开始就读所有文件。"
+    },
+    {
+      "id": "ar2-068",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "A utility module re-exports functions under new names (for example export { parse as parseDate }). The engineer wants every usage of these functions across the codebase. What is the most reliable approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "First identify all names the module exports, then Grep for each exported name across the codebase.",
+          "correct": true,
+          "explain": "正解。ラッパー経由の利用を追うには、公開名を洗い出してから各名前を検索する。",
+          "textZh": "先找出该模块导出的所有名字，再用 Grep 在整个代码库中逐个搜索这些导出名。"
+        },
+        {
+          "text": "Grep only for the original function names, since aliases resolve to them automatically at runtime.",
+          "correct": false,
+          "explain": "不適。別名で使われている箇所を見落とす。",
+          "textZh": "只用 Grep 搜索原始函数名，因为别名最终都指向它们，在运行时会自动解析。"
+        },
+        {
+          "text": "Glob for files named utils.*.",
+          "correct": false,
+          "explain": "不適。利用箇所ではなく定義ファイルが見つかるだけ。",
+          "textZh": "用 Glob 搜索名为 utils.* 的文件。"
+        },
+        {
+          "text": "Read the module and guess where it is used.",
+          "correct": false,
+          "explain": "不適。推測では網羅できない。",
+          "textZh": "读取该模块，然后猜测它在哪里被使用。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某个工具模块用新名字重新导出函数（例如 export { parse as parseDate }）。工程师想找出这些函数在整个代码库中的所有用法。最可靠的做法是什么？",
+      "commentaryZh": "追踪经包装模块的函数用法：先确认所有导出名，再分别搜索。这是 2.5 中的具体技能。"
+    },
+    {
+      "id": "ar2-069",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The agent needs to change one line in a 2,000-line file where the target line is unique. Which tool is most appropriate?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Edit, using the unique text as the match.",
+          "correct": true,
+          "explain": "正解。一意な部分の置き換えは Edit が最も安全で効率的。",
+          "textZh": "Edit，以这段唯一的文本作为匹配。"
+        },
+        {
+          "text": "Write, rewriting the entire file.",
+          "correct": false,
+          "explain": "不適。可能だが、全体を書き直す必要はなく、誤って他の部分を変えるリスクがある。",
+          "textZh": "Write，重写整个文件。"
+        },
+        {
+          "text": "Bash with an interactive editor.",
+          "correct": false,
+          "explain": "不適。対話的なエディタは自動実行に向かない。",
+          "textZh": "用 Bash 打开交互式编辑器。"
+        },
+        {
+          "text": "Grep with a replacement flag.",
+          "correct": false,
+          "explain": "不適。Grep は検索ツール。",
+          "textZh": "带替换参数的 Grep。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体需要修改一个 2000 行文件中的一行，而且目标行是唯一的。哪个工具最合适？",
+      "commentaryZh": "针对性修改用 Edit（唯一匹配）；整文件重写或 Edit 无法唯一匹配时用 Write。"
+    },
+    {
+      "id": "ar2-070",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "The agent must find where the error message \"Payment token expired\" is produced and then fix the logic. Which sequence is most efficient?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Grep for the message, Read the matching file around that location, then Edit the faulty condition.",
+          "correct": true,
+          "explain": "正解。検索 → 読解 → 局所修正の順で、無駄がない。",
+          "textZh": "用 Grep 搜索该信息，Read 匹配到的文件的相关部分，再用 Edit 修改有问题的条件。"
+        },
+        {
+          "text": "Glob for \"*.ts\", Read all results, then Write a new file.",
+          "correct": false,
+          "explain": "不適。大量のファイルを読む無駄があり、新規ファイルでは修正にならない。",
+          "textZh": "用 Glob 搜索 \"*.ts\"，读取所有结果，再 Write 一个新文件。"
+        },
+        {
+          "text": "Bash to run the whole test suite repeatedly until the error disappears.",
+          "correct": false,
+          "explain": "不適。原因箇所を探さずに試行を繰り返している。",
+          "textZh": "用 Bash 反复运行整套测试，直到错误消失。"
+        },
+        {
+          "text": "Edit the first file that contains the word \"payment\".",
+          "correct": false,
+          "explain": "不適。根拠のない修正で、該当箇所を探してもいない。",
+          "textZh": "修改第一个包含「payment」一词的文件。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体必须找到错误信息「Payment token expired」是在哪里产生的，然后修复逻辑。哪个顺序最高效？",
+      "commentaryZh": "典型流程：Grep 定位 → Read 理解 → Edit 精确修改。工具组合的选择也是 2.5 的考点。"
+    },
+    {
+      "id": "ar2-071",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "In the research system's document-analysis subagent, which built-in tool should be used to load the full text of a local report file?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Read",
+          "correct": true,
+          "explain": "正解。ファイルの内容を読み込むのは Read。",
+          "textZh": "Read"
+        },
+        {
+          "text": "Glob",
+          "correct": false,
+          "explain": "不適。ファイルを探すだけで、中身は読まない。",
+          "textZh": "Glob"
+        },
+        {
+          "text": "Write",
+          "correct": false,
+          "explain": "不適。Write はファイルを書き込むためのツールで、読み込みには使わない。",
+          "textZh": "Write"
+        },
+        {
+          "text": "Edit",
+          "correct": false,
+          "explain": "不適。Edit は既存の文字列を置き換えるためのツールで、読み込みには使わない。",
+          "textZh": "Edit"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在调研系统的文档分析子智能体中，应该用哪个内置工具来加载本地报告文件的全文？",
+      "commentaryZh": "Read 读文件内容，Write 写文件，Edit 做针对性修改，Grep 搜内容，Glob 按名字找文件，Bash 运行命令。"
+    },
+    {
+      "id": "ar2-072",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The analysis subagent must check whether any of 300 local reports mention \"lithium carbonate.\" Which approach is best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Grep for the phrase across the report directory, then Read only the matching files.",
+          "correct": true,
+          "explain": "正解。まず中身で絞り込み、必要なファイルだけ読む。",
+          "textZh": "在报告目录中用 Grep 搜索该短语，然后只 Read 匹配到的文件。"
+        },
+        {
+          "text": "Read all 300 reports into context.",
+          "correct": false,
+          "explain": "不適。文脈を浪費し、途中の情報を見落としやすい。",
+          "textZh": "把 300 份报告全部读进上下文。"
+        },
+        {
+          "text": "Glob for files named lithium*.",
+          "correct": false,
+          "explain": "不適。名前に含まれていなくても本文に言及があり得る。",
+          "textZh": "用 Glob 搜索名为 lithium* 的文件。"
+        },
+        {
+          "text": "Ask the search subagent to look it up on the web, since the reports were probably published online too.",
+          "correct": false,
+          "explain": "不適。対象はローカルの報告書。",
+          "textZh": "让搜索子智能体去网上查，因为这些报告很可能也在网上发布过。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "分析子智能体需要检查 300 份本地报告中是否有提到「lithium carbonate」的。哪种做法最好？",
+      "commentaryZh": "先用 Grep 按内容缩小范围，再 Read 少量相关文件。这能节省上下文，也更准确。"
+    },
+    {
+      "id": "ar2-073",
+      "domain": "D2",
+      "type": "multi",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "Which TWO tool choices are correct for the document-analysis subagent? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Glob with reports/**/*.pdf to list all PDF reports in the folder tree.",
+          "correct": true,
+          "explain": "正解。パスのパターンでファイル一覧を得る。",
+          "textZh": "用 Glob，模式 reports/**/*.pdf，列出文件夹树中的所有 PDF 报告。"
+        },
+        {
+          "text": "Grep to find which text files contain a specific company name.",
+          "correct": true,
+          "explain": "正解。中身の検索は Grep。",
+          "textZh": "用 Grep 找出哪些文本文件包含某个公司名称。"
+        },
+        {
+          "text": "Glob to find which files mention \"revenue\".",
+          "correct": false,
+          "explain": "不適。Glob は中身を見ない。",
+          "textZh": "用 Glob 找出哪些文件提到了「revenue」。"
+        },
+        {
+          "text": "Edit to read a file's contents.",
+          "correct": false,
+          "explain": "不適。読むのは Read。",
+          "textZh": "用 Edit 读取文件内容。"
+        },
+        {
+          "text": "Write to search for a phrase.",
+          "correct": false,
+          "explain": "不適。Write は書き込み用。",
+          "textZh": "用 Write 搜索一个短语。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "对于文档分析子智能体，下列哪两项工具选择是正确的？",
+      "commentaryZh": "牢记分工：Glob = 路径/文件名模式；Grep = 内容搜索；Read = 读取；Edit/Write = 修改。"
+    },
+    {
+      "id": "ar2-074",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "What is the main difference between the Grep and Glob tools?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Grep searches inside file contents for patterns; Glob finds files whose paths match a name pattern.",
+          "correct": true,
+          "explain": "正解。中身を探すか、名前で探すかの違い。",
+          "textZh": "Grep 在文件内容中搜索模式；Glob 查找路径符合名称模式的文件。"
+        },
+        {
+          "text": "Grep edits files; Glob deletes files.",
+          "correct": false,
+          "explain": "不適。どちらも検索系で、変更はしない。",
+          "textZh": "Grep 用来编辑文件；Glob 用来删除文件。"
+        },
+        {
+          "text": "Grep works only on Python; Glob works only on JavaScript, so the choice depends on the language.",
+          "correct": false,
+          "explain": "不適。言語に依存しない。",
+          "textZh": "Grep 只适用于 Python；Glob 只适用于 JavaScript，所以选择取决于语言。"
+        },
+        {
+          "text": "They are identical.",
+          "correct": false,
+          "explain": "不適。Grep は中身、Glob はファイル名と用途が異なる。",
+          "textZh": "两者完全相同。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "Grep 和 Glob 两个工具的主要区别是什么？",
+      "commentaryZh": "Grep：内容（函数名、报错信息、import）；Glob：文件路径模式（**/*.test.tsx）。"
+    },
+    {
+      "id": "ar2-075",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "When exploring a large unfamiliar codebase, why is \"read every file first\" a poor strategy?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It consumes the context window with mostly irrelevant content and buries the important parts; targeted search plus incremental reading is more effective.",
+          "correct": true,
+          "explain": "正解。段階的に理解を積み上げるほうが、文脈も精度も保てる。",
+          "textZh": "它会用大部分无关的内容占满上下文窗口，把重要部分淹没；有针对性的搜索加逐步阅读更有效。"
+        },
+        {
+          "text": "The Read tool can open only one file per day.",
+          "correct": false,
+          "explain": "不適。そのような制限はない。",
+          "textZh": "Read 工具每天只能打开一个文件。"
+        },
+        {
+          "text": "Reading files changes them.",
+          "correct": false,
+          "explain": "不適。Read は変更しない。",
+          "textZh": "读取文件会改变文件内容。"
+        },
+        {
+          "text": "It is the recommended approach for large repositories, because it gives the model a complete picture before any question is answered, all in one place.",
+          "correct": false,
+          "explain": "不適。推奨されるのは段階的な探索。",
+          "textZh": "这正是大型仓库的推荐做法，因为它能在回答任何问题之前给模型一个完整的全貌，全部集中在一处。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "探索一个庞大陌生的代码库时，为什么「先把每个文件都读一遍」是糟糕的策略？",
+      "commentaryZh": "「先全读」会浪费上下文、稀释注意力。正确方式是 Grep 找入口、Read 逐步追踪。"
+    },
+    {
+      "id": "ar2-076",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO statements about the Edit tool are correct? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "It makes targeted modifications by matching existing text.",
+          "correct": true,
+          "explain": "正解。指定した文字列を置き換える。",
+          "textZh": "它通过匹配已有文本来进行针对性修改。"
+        },
+        {
+          "text": "If the text to match is not unique, the edit fails unless a more specific match is given (or Read + Write is used instead).",
+          "correct": true,
+          "explain": "正解。一意な一致が必要。",
+          "textZh": "如果要匹配的文本不唯一，修改会失败，除非给出更具体的匹配（或改用 Read + Write）。"
+        },
+        {
+          "text": "It can only append text to the end of a file.",
+          "correct": false,
+          "explain": "不適。任意の位置の文字列を置き換えられる。",
+          "textZh": "它只能在文件末尾追加文本。"
+        },
+        {
+          "text": "It searches across the whole repository for a pattern.",
+          "correct": false,
+          "explain": "不適。それは Grep の役割。",
+          "textZh": "它会在整个代码库中按模式搜索。"
+        },
+        {
+          "text": "It creates new directories.",
+          "correct": false,
+          "explain": "不適。ディレクトリ作成の機能ではない。",
+          "textZh": "它会创建新目录。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于 Edit 工具，下列哪两项说法正确？（选 2 项）",
+      "commentaryZh": "Edit = 基于唯一文本匹配的局部修改。不唯一时要么给更长的锚点，要么 Read + Write。"
+    },
+    {
+      "id": "ar2-077",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An engineer wants all places where a deprecated logger is imported, regardless of whether files use import or require syntax. Which approach fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Grep with a pattern that matches both forms (for example the package name in import or require statements), then Read the hits as needed.",
+          "correct": true,
+          "explain": "正解。内容のパターンで両方の書き方を拾う。",
+          "textZh": "用能同时匹配两种写法的模式进行 Grep（例如在 import 或 require 语句中出现的包名），再按需 Read 命中的文件。"
+        },
+        {
+          "text": "Glob for files named logger.*.",
+          "correct": false,
+          "explain": "不適。利用箇所ではなく、ファイル名で探している。",
+          "textZh": "用 Glob 搜索名为 logger.* 的文件。"
+        },
+        {
+          "text": "Read package.json only.",
+          "correct": false,
+          "explain": "不適。依存の宣言は分かるが、どこで使われているかは分からない。",
+          "textZh": "只读取 package.json。"
+        },
+        {
+          "text": "Use Bash to uninstall the package and run the build to see which files break, then reinstall it once every usage has been found.",
+          "correct": false,
+          "explain": "不適。破壊的で、調査の方法として不適切。",
+          "textZh": "用 Bash 卸载这个包再运行构建，看看哪些文件出错，找到所有用法后再重新安装。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "工程师想找出所有引入了某个已弃用日志库的位置，不论文件用的是 import 还是 require 写法。哪种做法最合适？",
+      "commentaryZh": "根据内容模式（import/require 语句）查找使用位置是 Grep 的典型用途；Glob 只看文件名。"
+    },
+    {
+      "id": "ar2-078",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which built-in tool should the agent use to run the project's test suite?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Bash",
+          "correct": true,
+          "explain": "正解。コマンドの実行は Bash。",
+          "textZh": "Bash"
+        },
+        {
+          "text": "Grep",
+          "correct": false,
+          "explain": "不適。Grep は検索用。テストの実行にはコマンドを動かす Bash を使う。",
+          "textZh": "Grep"
+        },
+        {
+          "text": "Glob",
+          "correct": false,
+          "explain": "不適。ファイル名の検索用。",
+          "textZh": "Glob"
+        },
+        {
+          "text": "Read",
+          "correct": false,
+          "explain": "不適。ファイルを読むだけ。",
+          "textZh": "Read"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体应该用哪个内置工具来运行项目的测试套件？",
+      "commentaryZh": "Bash 用于执行命令（测试、构建、git 等）。其余内置工具分别负责搜索、读取和修改文件。"
+    },
+    {
+      "id": "ar2-079",
+      "domain": "D2",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "The agent explored a codebase by reading 60 files up front and now gives vague answers that reference \"typical patterns\" instead of specific classes. What change to its exploration strategy would most likely help?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Explore incrementally: Grep for entry points relevant to the question, Read only those files, and follow imports as needed.",
+          "correct": true,
+          "explain": "正解。必要なものだけを段階的に読めば、文脈が具体的な事実で満たされる。",
+          "textZh": "逐步探索：针对问题用 Grep 找相关入口，只 Read 这些文件，再按需顺着 import 追踪。"
+        },
+        {
+          "text": "Read 60 more files to be thorough.",
+          "correct": false,
+          "explain": "不適。文脈の劣化がさらに進む。",
+          "textZh": "为了全面，再读 60 个文件。"
+        },
+        {
+          "text": "Switch from Read to Write.",
+          "correct": false,
+          "explain": "不適。Write は書き込み用で、探索の仕方の問題は解決しない。",
+          "textZh": "把 Read 换成 Write。"
+        },
+        {
+          "text": "Ask the engineer to accept vague answers, since the agent has done its best with the available context.",
+          "correct": false,
+          "explain": "不適。問題を放置している。",
+          "textZh": "让工程师接受含糊的回答，因为智能体已经在现有上下文中尽力了。"
+        }
+      ],
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "reference": "https://code.claude.com/docs/en/tools-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体一开始就读了 60 个文件来探索代码库，现在给出的回答很含糊，总说「典型模式」而不是具体的类。改变哪种探索策略最可能有帮助？",
+      "commentaryZh": "一次性读入大量文件会稀释上下文，导致回答泛化。增量式探索能让上下文保持具体、相关。"
+    },
+    {
+      "id": "ar2-080",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A team's database MCP server offers a run_sql tool. The agent often issues several exploratory queries just to discover table names and columns before answering. Which change best reduces these calls?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Expose the database schema (tables, columns, descriptions) as an MCP resource the agent can consult, and keep run_sql for the actual queries.",
+          "correct": true,
+          "explain": "正解。スキーマのような「中身の一覧」はリソースで見せると、探索のための呼び出しが減る。",
+          "textZh": "把数据库 schema（表、列、说明）作为智能体可以查阅的 MCP 资源暴露出来，run_sql 只用于真正的查询。"
+        },
+        {
+          "text": "Remove run_sql and answer from the model's memory of the schema.",
+          "correct": false,
+          "explain": "不適。モデルはこのデータベースの構造を知らない。",
+          "textZh": "去掉 run_sql，凭模型对 schema 的记忆回答。"
+        },
+        {
+          "text": "Allow only one query per conversation.",
+          "correct": false,
+          "explain": "不適。必要な問い合わせまで制限してしまう。",
+          "textZh": "每个对话只允许一次查询。"
+        },
+        {
+          "text": "Rename run_sql to explore_database so the agent understands it can discover tables, with no other change to the tool.",
+          "correct": false,
+          "explain": "不適。名前を変えても構造は見えるようにならない。",
+          "textZh": "把 run_sql 改名为 explore_database，让智能体明白它可以用来发现表，工具本身无需其他改动。"
+        }
+      ],
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "reference": "https://code.claude.com/docs/en/mcp",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队的数据库 MCP 服务器提供 run_sql 工具。智能体在回答前经常发出好几条探索性查询，只为了弄清有哪些表和列。哪种改动最能减少这类调用？",
+      "commentaryZh": "资源适合暴露「内容目录」，如数据库 schema、文档层级、问题摘要等。让智能体先看目录，可以避免大量探索性工具调用。"
+    }
+  ]
+}

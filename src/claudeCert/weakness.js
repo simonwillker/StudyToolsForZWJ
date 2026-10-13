@@ -17,11 +17,11 @@
    「あなたの弱点は D5 です」と言うのは、助けではなく害になる。
    ============================================================ */
 
-import { learnerKey } from "./learner";
-
-import { DOMAINS } from "./ccaofDomains";
-import { loadResults } from "./ccaofExam";
-import { loadProgress } from "./ccaofProgress";
+import { learnerKey } from "../learner";
+import { certKey } from "./certState";
+import { DOMAINS } from "./domains";
+import { loadResults } from "./exam";
+import { loadProgress } from "./progress";
 
 /** これ未満の解答数では、そのドメインの正答率を信用しない */
 export const MIN_ATTEMPTS = 8;
@@ -45,7 +45,7 @@ function read(key) {
 export function collectDomainRecord() {
   const out = {};
   DOMAINS.forEach((d) => {
-    out[d.id] = { id: d.id, name: d.name, weight: d.weight, attempted: 0, correct: 0, rawAttempted: 0, examAttempted: 0 };
+    out[d.id] = { id: d.id, name: d.label, weight: d.weight, attempted: 0, correct: 0, rawAttempted: 0, examAttempted: 0 };
   });
 
   const progress = loadProgress();
@@ -80,7 +80,7 @@ export function analyseWeakness() {
     const pct = r.attempted > 0 ? Math.round((r.correct / r.attempted) * 100) : null;
     return {
       id: d.id,
-      name: d.name,
+      name: d.label,
       weight: d.weight,
       rawAttempted: r.rawAttempted,
       examAttempted: r.examAttempted,
@@ -94,7 +94,7 @@ export function analyseWeakness() {
   if (judgeable.length < 3) {
     return {
       ready: false,
-      reason: `まだ判断できません。7つのドメインのうち少なくとも3つで、それぞれ${MIN_ATTEMPTS}問以上解いてください（今は${judgeable.length}つ）。`,
+      reason: `まだ判断できません。${DOMAINS.length}つのドメインのうち少なくとも3つで、それぞれ${MIN_ATTEMPTS}問以上解いてください（今は${judgeable.length}つ）。`,
       rows,
     };
   }
@@ -118,7 +118,7 @@ export function analyseWeakness() {
  */
 export function pickFocusItems(itemsByDomain, focusIds, limit) {
   const progress = loadProgress();
-  const review = read("ccaofReviewV1") || {};
+  const review = read(certKey("ReviewV1")) || {};
   const wrong = [];
   const unseen = [];
   const seen = [];

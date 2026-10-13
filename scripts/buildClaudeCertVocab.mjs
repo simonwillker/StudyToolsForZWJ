@@ -1,13 +1,14 @@
 /* ============================================================
-   CCAO-F 頻出単語データの生成と検査
+   Claude 認定 頻出単語データの生成と検査（資格ごと）
 
-   意味（日本語・中国語・品詞）は src/data/ccaofVocab/glossary.json に
-   手で書く。出現回数・出現した問題・例文は、ここで全7ドメインの
+   意味（日本語・中国語・品詞）は src/data/claudeCert/<資格>/glossary.json に
+   手で書く。出現回数・出現した問題・例文は、ここでその資格の全ドメインの
    問題データ（設問・資料・選択肢・解説・中文注解）から数えて
-   src/data/ccaofVocab/vocab.json に書き出す。
+   同じ場所の vocab.json に書き出す。
 
-     node scripts/buildCcaofVocab.mjs          … vocab.json を作り直す
-     node scripts/buildCcaofVocab.mjs --check  … 作り直さずに検査だけ
+     node scripts/buildClaudeCertVocab.mjs              … 全資格の vocab.json を作り直す
+     node scripts/buildClaudeCertVocab.mjs ccarf        … 指定した資格だけ
+     node scripts/buildClaudeCertVocab.mjs --check      … 作り直さずに検査だけ
                                                   （問題を増やしたのに作り直し
                                                    忘れていたら失敗する）
 
@@ -19,11 +20,10 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(here, "..", "src", "data", "ccaof");
-const vocabDir = join(here, "..", "src", "data", "ccaofVocab");
-const glossaryPath = join(vocabDir, "glossary.json");
-const outPath = join(vocabDir, "vocab.json");
+const certRoot = join(here, "..", "src", "data", "claudeCert");
 const CHECK = process.argv.includes("--check");
+const ids = process.argv.slice(2).filter((a) => !a.startsWith("--"));
+const certIds = ids.length ? ids : readdirSync(certRoot).filter((d) => existsSync(join(certRoot, d, "glossary.json"))).sort();
 
 /** これより少ない問題にしか出ない語は「頻出」と呼ばない */
 const MIN_QUESTIONS = 4;
@@ -41,6 +41,14 @@ const STOPWORDS = new Set(
     .split(" ")
 );
 
+let failed = false;
+for (const certId of certIds) if (!build(certId)) failed = true;
+if (failed) process.exit(1);
+
+function build(certId) {
+const dataDir = join(certRoot, certId);
+const glossaryPath = join(dataDir, "glossary.json");
+const outPath = join(dataDir, "vocab.json");
 const errors = [];
 const warnings = [];
 
@@ -209,7 +217,7 @@ words.sort((a, b) => b.questionCount - a.questionCount || b.count - a.count || a
 if (dropped.length) warnings.push(`出現が ${MIN_QUESTIONS}問未満なので収録しない：${dropped.join("、")}`);
 
 const out = {
-  _note: "scripts/buildCcaofVocab.mjs が生成。手で直さず glossary.json を直して作り直すこと。",
+  _note: "scripts/buildClaudeCertVocab.mjs が生成。手で直さず glossary.json を直して作り直すこと。",
   minQuestions: MIN_QUESTIONS,
   totalQuestions: items.length,
   words,
@@ -219,7 +227,7 @@ const text = JSON.stringify(out, null, 2) + "\n";
 /* ---------- 報告 ---------- */
 
 const coveredItems = new Set(words.flatMap((w) => w.itemIds));
-console.log(`\nCCAO-F 頻出単語`);
+console.log(`\n${meta.examCode} 頻出単語`);
 console.log(`  問題 ${items.length}問 から数えた / 意味の登録 ${glossary.length}語 / 収録 ${words.length}語（${MIN_QUESTIONS}問以上に出る語）`);
 console.log(`  20語ずつ ${Math.ceil(words.length / 20)}組 / 例文つき ${words.filter((w) => w.examples.length).length}語`);
 console.log(`  頻出単語を1つ以上含む問題 ${coveredItems.size} / ${items.length}問`);
@@ -232,17 +240,19 @@ if (warnings.length) {
 if (errors.length) {
   console.log(`\n❌ エラー ${errors.length}件`);
   errors.slice(0, 40).forEach((e) => console.log("  - " + e));
-  process.exit(1);
+  return false;
 }
 
 if (CHECK) {
   const current = existsSync(outPath) ? readFileSync(outPath, "utf8") : "";
   if (current !== text) {
-    console.log("\n❌ vocab.json が問題データ・glossary.json と合っていません。node scripts/buildCcaofVocab.mjs で作り直してください。\n");
-    process.exit(1);
+    console.log(`\n❌ ${certId}/vocab.json が問題データ・glossary.json と合っていません。node scripts/buildClaudeCertVocab.mjs で作り直してください。\n`);
+    return false;
   }
   console.log("\n✅ vocab.json は最新です。\n");
 } else {
   writeFileSync(outPath, text);
   console.log(`\n✅ ${outPath.replace(join(here, "..") + "/", "")} を書き出しました。\n`);
+}
+return true;
 }

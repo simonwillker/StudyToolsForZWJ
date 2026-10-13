@@ -4,16 +4,18 @@
    聞いただけでは「解いた」ことにしない。正答率・弱点判定・錯題本・
    合格予測は答えた結果から出しているので、聞いた分を混ぜると壊れる。
    そこで別のキーに「何をいつ聞いたか」だけを残す。
-   - 問題・讲义：このファイル（ccaofListenV1）
+   - 問題・讲义：このファイル（資格ごと。CCAO-F は ccaofListenV1）
    - 頻出単語：単語の記録（ccaofVocabV1）にも listens を足す
      （聞いた単語が「学習した単語」「まだ習熟していない単語」に入り、
        あとでテストで確かめられるように。習熟は変えない）
-   どちらもバックアップ（ccaofBackup.js）の対象。
+   どちらもバックアップ（backup.js）の対象。
    ============================================================ */
 
-import { learnerKey } from "./learner";
+import { learnerKey } from "../learner";
+import { certKey } from "./certState";
 
-export const LISTEN_KEY = "ccaofListenV1";
+/** いま開いている資格のキー（CCAO-F は "ccaofListenV1"） */
+export const listenKey = () => certKey("ListenV1");
 /** これより古い日の集計は捨てる（studyLog と同じ） */
 const MAX_DAYS = 365;
 
@@ -30,7 +32,7 @@ function emptyStore() {
 
 export function loadListenStore() {
   try {
-    const raw = window.localStorage.getItem(learnerKey(LISTEN_KEY));
+    const raw = window.localStorage.getItem(learnerKey(listenKey()));
     if (!raw) return emptyStore();
     const p = JSON.parse(raw);
     if (!p || typeof p !== "object") return emptyStore();
@@ -42,7 +44,7 @@ export function loadListenStore() {
 
 function save(store) {
   try {
-    window.localStorage.setItem(learnerKey(LISTEN_KEY), JSON.stringify(store));
+    window.localStorage.setItem(learnerKey(listenKey()), JSON.stringify(store));
   } catch (e) {
     // 保存できなくても聞くこと自体は続けられる
   }

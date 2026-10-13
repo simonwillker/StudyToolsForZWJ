@@ -1,0 +1,179 @@
+{
+  "blueprintVersion": "1.0",
+  "blueprintEffective": "2026-07",
+  "examCode": "CCAR-F",
+  "examName": "Claude Certified Architect – Foundations",
+  "source": "Claude Certified Architect – Foundations Exam Guide, Version 1.0, Effective July 2026 (exam code CCAR-F)",
+  "checkedAt": "2026-10-13",
+  "objectiveLabel": "task statement",
+  "sources": [
+    {
+      "title": "Claude Certified Architect – Foundations Exam Guide v1.0（Anthropic Academy 配布 PDF）",
+      "url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542750/Claude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf",
+      "kind": "official",
+      "covers": "試験コード・問題数・時間・合格点・受験料・有効期間・5ドメインと配点・30 task statement・6シナリオと「4つを抽選」・出題範囲外のトピック"
+    },
+    {
+      "title": "Anthropic News: Claude Partner Network（2026-03-12、CCAR-F の発表）",
+      "url": "https://www.anthropic.com/news/claude-partner-network",
+      "kind": "official",
+      "covers": "資格の名称と対象（本番アプリを作るソリューションアーキテクト向けの技術試験）"
+    }
+  ],
+  "unofficialNote": "1 シナリオあたりの問題数（約 15 問）は公式資料に無く、60 問 ÷ 4 シナリオからの推定。シナリオごとのドメイン配分も非公開なので、模擬試験では配点比率に近づけて選んでいる。",
+  "examFormatSource": {
+    "items": "official",
+    "minutes": "official",
+    "passScaled": "official",
+    "validityMonths": "official",
+    "feeUsd": "official",
+    "scenariosPerExam": "official",
+    "scenarioBank": "official",
+    "questionsPerScenario": "unofficial"
+  },
+  "examFormat": {
+    "items": 60,
+    "minutes": 120,
+    "passScaled": 720,
+    "scaleMin": 100,
+    "scaleMax": 1000,
+    "validityMonths": 12,
+    "feeUsd": 125,
+    "scenarioBank": 6,
+    "scenariosPerExam": 4,
+    "questionsPerScenario": 15
+  },
+  "domains": [
+    {
+      "id": "D1",
+      "label": "エージェント設計とオーケストレーション",
+      "labelEn": "Agentic Architecture & Orchestration",
+      "weight": 27,
+      "color": "#2F5D8A",
+      "objectives": [
+        "Design and implement agentic loops for autonomous task execution",
+        "Orchestrate multi-agent systems with coordinator-subagent patterns",
+        "Configure subagent invocation, context passing, and spawning",
+        "Implement multi-step workflows with enforcement and handoff patterns",
+        "Apply Agent SDK hooks for tool call interception and data normalization",
+        "Design task decomposition strategies for complex workflows",
+        "Manage session state, resumption, and forking"
+      ]
+    },
+    {
+      "id": "D2",
+      "label": "ツール設計と MCP 連携",
+      "labelEn": "Tool Design & MCP Integration",
+      "weight": 18,
+      "color": "#8A3B2F",
+      "objectives": [
+        "Design effective tool interfaces with clear descriptions and boundaries",
+        "Implement structured error responses for MCP tools",
+        "Distribute tools appropriately across agents and configure tool choice",
+        "Integrate MCP servers into Claude Code and agent workflows",
+        "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively"
+      ]
+    },
+    {
+      "id": "D3",
+      "label": "Claude Code の設定とワークフロー",
+      "labelEn": "Claude Code Configuration & Workflows",
+      "weight": 20,
+      "color": "#3F6F52",
+      "objectives": [
+        "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+        "Create and configure custom slash commands and skills",
+        "Apply path-specific rules for conditional convention loading",
+        "Determine when to use plan mode vs direct execution",
+        "Apply iterative refinement techniques for progressive improvement",
+        "Integrate Claude Code into CI/CD pipelines"
+      ]
+    },
+    {
+      "id": "D4",
+      "label": "プロンプト設計と構造化出力",
+      "labelEn": "Prompt Engineering & Structured Output",
+      "weight": 20,
+      "color": "#8A6D2F",
+      "objectives": [
+        "Design prompts with explicit criteria to improve precision and reduce false positives",
+        "Apply few-shot prompting to improve output consistency and quality",
+        "Enforce structured output using tool use and JSON schemas",
+        "Implement validation, retry, and feedback loops for extraction quality",
+        "Design efficient batch processing strategies",
+        "Design multi-instance and multi-pass review architectures"
+      ]
+    },
+    {
+      "id": "D5",
+      "label": "コンテキスト管理と信頼性",
+      "labelEn": "Context Management & Reliability",
+      "weight": 15,
+      "color": "#5A3B8A",
+      "objectives": [
+        "Manage conversation context to preserve critical information across long interactions",
+        "Design effective escalation and ambiguity resolution patterns",
+        "Implement error propagation strategies across multi-agent systems",
+        "Manage context effectively in large codebase exploration",
+        "Design human review workflows and confidence calibration",
+        "Preserve information provenance and handle uncertainty in multi-source synthesis"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "S1",
+      "no": 1,
+      "title": "Customer Support Resolution Agent",
+      "titleZh": "客服问题解决智能体",
+      "primaryDomains": ["D1", "D2", "D5"],
+      "description": "Your team is building a support agent on the Claude Agent SDK. It handles ambiguous requests such as returns, billing disputes, and account problems, and it reaches backend systems through custom MCP tools: get_customer, lookup_order, process_refund, and escalate_to_human. The goal is to resolve most contacts on the first interaction (80% or more) while still recognizing when a human must take over.",
+      "descriptionZh": "团队正在用 Claude Agent SDK 构建客服智能体。它要处理退货、账单争议、账户问题等含糊的请求，并通过自定义 MCP 工具（get_customer、lookup_order、process_refund、escalate_to_human）访问后端系统。目标是首次接触解决率达到 80% 以上，同时能判断何时必须交给人工。"
+    },
+    {
+      "id": "S2",
+      "no": 2,
+      "title": "Code Generation with Claude Code",
+      "titleZh": "用 Claude Code 生成代码",
+      "primaryDomains": ["D3", "D5"],
+      "description": "A development team uses Claude Code day to day for writing new code, refactoring, debugging, and documentation. You are responsible for fitting it into the team's workflow: shared CLAUDE.md configuration, custom slash commands and skills, and clear guidance on when to plan first and when to edit directly.",
+      "descriptionZh": "一个开发团队在日常工作中用 Claude Code 写新代码、重构、调试和写文档。你负责把它融入团队的工作流程：共享的 CLAUDE.md 配置、自定义斜杠命令和技能（skills），以及何时先做计划、何时直接修改的明确指引。"
+    },
+    {
+      "id": "S3",
+      "no": 3,
+      "title": "Multi-Agent Research System",
+      "titleZh": "多智能体调研系统",
+      "primaryDomains": ["D1", "D2", "D5"],
+      "description": "You are building a research system on the Claude Agent SDK. A coordinator agent hands work to specialized subagents — one searches the web, one analyzes documents, one synthesizes findings, and one writes the report. The system must produce thorough reports in which every claim can be traced to a cited source.",
+      "descriptionZh": "你在用 Claude Agent SDK 构建调研系统。协调者（coordinator）智能体把工作分派给专门的子智能体：一个做网络搜索，一个分析文档，一个综合结论，一个撰写报告。系统必须产出完整的报告，且每个论断都能追溯到引用的来源。"
+    },
+    {
+      "id": "S4",
+      "no": 4,
+      "title": "Developer Productivity with Claude",
+      "titleZh": "用 Claude 提升开发者效率",
+      "primaryDomains": ["D2", "D3", "D1"],
+      "description": "You are building internal developer tools on the Claude Agent SDK. The agent helps engineers find their way around unfamiliar or legacy codebases, generates boilerplate, and automates repetitive chores. It works with the built-in tools (Read, Write, Edit, Bash, Grep, Glob) and connects to several MCP servers.",
+      "descriptionZh": "你在用 Claude Agent SDK 构建内部开发者工具。该智能体帮助工程师摸清陌生或遗留的代码库、生成样板代码、自动化重复性杂务。它使用内置工具（Read、Write、Edit、Bash、Grep、Glob），并连接若干 MCP 服务器。"
+    },
+    {
+      "id": "S5",
+      "no": 5,
+      "title": "Claude Code for Continuous Integration",
+      "titleZh": "在持续集成中使用 Claude Code",
+      "primaryDomains": ["D3", "D4"],
+      "description": "Your organization runs Claude Code inside its CI/CD pipeline. On each pull request it performs an automated review, proposes test cases, and posts feedback. The feedback must be specific enough to act on, and false positives must be kept low so that developers keep trusting it.",
+      "descriptionZh": "你们公司在 CI/CD 流水线中运行 Claude Code。每个拉取请求（PR）上，它都会自动审查代码、提出测试用例并发布反馈。反馈必须具体到可以直接行动，同时要把误报（false positive）压低，开发者才会持续信任它。"
+    },
+    {
+      "id": "S6",
+      "no": 6,
+      "title": "Structured Data Extraction",
+      "titleZh": "结构化数据抽取",
+      "primaryDomains": ["D4", "D5"],
+      "description": "You are building a pipeline that uses Claude to pull structured records out of unstructured documents such as invoices, contracts, and reports. The output is validated against JSON schemas and fed to downstream systems, so accuracy must stay high and unusual or incomplete documents must be handled without breaking anything.",
+      "descriptionZh": "你在构建一条用 Claude 从发票、合同、报告等非结构化文档中抽取结构化记录的流水线。输出要用 JSON Schema 校验后交给下游系统，因此准确率必须高，遇到特殊或不完整的文档也不能让流程出错。"
+    }
+  ]
+}
