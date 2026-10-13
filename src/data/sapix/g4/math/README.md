@@ -8,10 +8,11 @@
 
 | 分類 | 単元（ファイル） |
 |---|---|
-| 数と計算 | 計算のくふう（kufu）、約数と倍数（yakusu）、分数の計算（bunsu） |
+| 数と計算 | 計算のくふう（kufu）、約数と倍数（yakusu）、数のせいしつ（seishitsu）、分数の計算（bunsu） |
 | 文章題 | 和差算（wasa）、分配算（bunpai）、つるかめ算（tsurukame）、植木算（ueki）、周期算（shuki）、過不足算（kabusoku）、年令算（nenrei） |
 | 図形 | 角度（kakudo）、三角形・四角形の面積（menseki）、立体（rittai） |
 | 規則性・場合の数 | 規則性（kisoku）、場合の数（baai） |
+| 速さ・変化とグラフ | 速さ（hayasa）、グラフの読み取り（graph）、深さの変化・水そうとグラフ（suisou） |
 
 ## スキーマ
 

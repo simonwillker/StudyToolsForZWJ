@@ -30,9 +30,10 @@
 サーバー上にupdateする。Ipad、Iphone、PCどれでも確認とれる
 
 ## 状態
-- 最新バージョン：v1.29.0（2026-10-13）
+- 最新バージョン：v1.30.0（2026-10-13）
+- v1.30.0：4年に追加 16 単元（算数：速さ・グラフの読み取り・水そうとグラフ・数のせいしつ／理科：太陽高度・蒸散と光合成・食物連鎖・動物の分類と骨格・回路／社会：森林と林業・自然災害と防災・伝統工業・工業地域と太平洋ベルト・日本の地名と地形／国語：敬語・擬態語と擬音語）。教材（41B-33 など）の範囲に合わせたオリジナル問題
 - Sapix は v1.29.0 からトップのカード 1 枚に統合し、中で 学年 → 科目 → 単元 を選ぶ。データは `src/data/sapix/g<学年>/<科目>/`（追加手順は同じ場所の README.md、meta.json を置けば自動で出る）。4年の学習記録キーは以前のまま（`src/sapixStorage.js`、`npm run test:sapix-storage` で確認）
 - CCAO-F 対策：全7ドメイン 560問＋頻出単語 291語（勉強・復習・テスト）。単語データは `scripts/buildCcaofVocab.mjs` で問題から生成
-- Sapix 算数（小4 冬期講習相当）：15単元×20問＝300問（すべてオリジナル）。データは `src/data/sapix/g4/math/`、`npm run validate:sapix-math` で全問の正解を検算
-- Sapix 国語・社会・理科（小4 冬期講習相当）：各10単元×20問＝600問（すべてオリジナル）。4教科とも `src/SapixApp.jsx` を共用、データは `src/data/sapix/g4/kokugo|shakai|rika/`、`npm run validate:sapix-subjects` で検証
+- Sapix 算数（小4 冬期講習相当）：19単元×20問＝380問（すべてオリジナル）。データは `src/data/sapix/g4/math/`、`npm run validate:sapix-math` で全問の正解を検算
+- Sapix 国語・社会・理科（小4 冬期講習相当）：国語12・社会15・理科15単元×20問＝840問（すべてオリジナル）。4教科とも `src/SapixApp.jsx` を共用、データは `src/data/sapix/g4/kokugo|shakai|rika/`、`npm run validate:sapix-subjects` で検証
 - Sapix 英語（英検5級〜4級程度）：10単元×20問＝200問（すべてオリジナル）。`src/SapixApp.jsx` を共用、データは `src/data/sapix/g4/eigo/`、`npm run validate:sapix-subjects` で検証
