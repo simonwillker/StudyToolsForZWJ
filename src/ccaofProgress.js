@@ -10,6 +10,7 @@ import { learnerKey } from "./learner";
 import { DOMAINS } from "./ccaofDomains";
 import { recordStudy } from "./studyLog";
 import { resetVocabProgress } from "./ccaofVocabProgress";
+import { resetMistakes } from "./ccaofMistakes";
 
 const PROGRESS_KEY = "ccaofProgressV1";
 const REVIEW_KEY = "ccaofReviewV1";
@@ -111,6 +112,7 @@ export function resetProgress() {
   write(PROGRESS_KEY, { domains: {}, daily: {} });
   write(REVIEW_KEY, {});
   resetVocabProgress();
+  resetMistakes();
 }
 
 /* ---------- 復習リスト（間違えた問題だけ集める） ---------- */
