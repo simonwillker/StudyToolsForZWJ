@@ -25,12 +25,12 @@ import {
 import { downloadBackup, parseBackup, applyBackup, describeBackup } from "./sapixBackup";
 
 /* ============================================================
-   Sapix 算数・国語・社会・理科（小4 冬期講習相当）
+   Sapix 算数・国語・社会・理科（小4 冬期講習相当）・英語（英検5級〜4級程度）
 
    教科（subjectId）ごとに同じ画面を使う。単元一覧 → 単元を選んで20問 →
    1問ずつ答え合わせと解説 → 結果 → まちがえた問題だけもう一度、の流れ。
    見た目と操作は CCAO-F 対策（CcaofApp.jsx）にそろえてある。
-   問題データは src/data/ の sapixMath・sapixKokugo・sapixShakai・sapixRika（スキーマは各フォルダの README.md）。
+   問題データは src/data/ の sapixMath・sapixKokugo・sapixShakai・sapixRika・sapixEigo（スキーマは各フォルダの README.md）。
    ============================================================ */
 
 const APP_VERSION = __APP_VERSION__;
@@ -138,7 +138,7 @@ function AnswerInput({ q, order, input, setInput, disabled, onEnter }) {
     return (
       <div className="sm-answer-row">
         <span className="sm-answer-label">答え</span>
-        <input className="sm-input sm-input-text" lang="ja" aria-label="答え" autoComplete="off" autoCapitalize="off" spellCheck={false}
+        <input className="sm-input sm-input-text" lang={/^[A-Za-z]/.test(q.accepted[0]) ? "en" : "ja"} aria-label="答え" autoComplete="off" autoCapitalize="off" spellCheck={false}
           value={input.value || ""} onChange={(e) => setInput({ value: e.target.value })} onKeyDown={onKey} disabled={disabled} />
       </div>
     );

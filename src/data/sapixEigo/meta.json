@@ -1,0 +1,21 @@
+{
+  "title": "Sapix 英語",
+  "target": "英検5級〜4級程度",
+  "categories": [
+    { "id": "tango", "label": "単語", "color": "#2F5D8A" },
+    { "id": "bunpou", "label": "文法", "color": "#2F7A4F" },
+    { "id": "kaiwa", "label": "会話・読解", "color": "#8A3B2F" }
+  ],
+  "units": [
+    { "id": "tango-kihon", "label": "単語（身の回り・数・曜日・月）", "category": "tango", "file": "tango-kihon.json" },
+    { "id": "tango-doushi", "label": "単語（動詞・形容詞・前置詞）", "category": "tango", "file": "tango-doushi.json" },
+    { "id": "be-doushi", "label": "be 動詞（am・is・are）", "category": "bunpou", "file": "be-doushi.json" },
+    { "id": "ippan-doushi", "label": "一般動詞・3人称単数", "category": "bunpou", "file": "ippan-doushi.json" },
+    { "id": "gimonshi", "label": "疑問詞（what・who・where など）", "category": "bunpou", "file": "gimonshi.json" },
+    { "id": "shinkoukei", "label": "現在進行形", "category": "bunpou", "file": "shinkoukei.json" },
+    { "id": "kakokei", "label": "過去形", "category": "bunpou", "file": "kakokei.json" },
+    { "id": "jodoushi", "label": "can・will・be going to", "category": "bunpou", "file": "jodoushi.json" },
+    { "id": "kaiwa", "label": "会話表現", "category": "kaiwa", "file": "kaiwa.json" },
+    { "id": "dokkai", "label": "読解（短い英文）", "category": "kaiwa", "file": "dokkai.json" }
+  ]
+}
