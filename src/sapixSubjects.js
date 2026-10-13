@@ -1,20 +1,21 @@
 /* ============================================================
-   Sapix 算数・国語・社会・理科・英語：教科の定義、単元ごとの遅延読み込み、
-   答えの判定
+   Sapix：学年 → 科目 → 単元 の定義、単元ごとの遅延読み込み、答えの判定
 
    ccaofDomains.js と同じ作り。単元一覧と学習記録が使うメタ情報
    （ID・名前・分類）は meta.json から同期で持ち、問題本体は
    import() で単元ごとに読む。
 
-   算数の保存キーは最初に作ったときのまま（sapixMathProgressV1 など）。
-   ここを変えると、これまでの算数の記録が見えなくなる。
+   データは src/data/sapix/g<学年>/<科目>/ に置く（科目の ID は
+   sapixStorage.js の SUBJECT_DEFS）。meta.json を置けば、その学年・科目が
+   自動で画面に出る。コードの変更はいらない。
+
+   保存キーは sapixStorage.js の storageKeys で決まる。4年は
+   学年別にする前のキー（sapixMathProgressV1 など）のまま。
    ============================================================ */
 
-import MATH_META from "./data/sapixMath/meta.json";
-import KOKUGO_META from "./data/sapixKokugo/meta.json";
-import SHAKAI_META from "./data/sapixShakai/meta.json";
-import RIKA_META from "./data/sapixRika/meta.json";
-import EIGO_META from "./data/sapixEigo/meta.json";
+import { GRADES, SUBJECT_DEFS, courseId, storageKeys, logTitle } from "./sapixStorage";
+
+const METAS = import.meta.glob("./data/sapix/g*/*/meta.json", { eager: true, import: "default" });
 
 function withColors(meta) {
   return meta.units.map((u) => ({
@@ -23,83 +24,45 @@ function withColors(meta) {
   }));
 }
 
-export const SUBJECTS = {
-  sapixMath: {
-    id: "sapixMath",
-    dir: "sapixMath",
-    title: "Sapix 算数",
-    eyebrow: "SAPIX MATH — 4年 冬期講習",
-    accent: "#2F5D8A",
-    lead: "単元を選んで 20 問（基本 → 標準 → 発展の順）。1 問ずつ答え合わせをして、解き方を読みながら進めよう。まちがえた問題は「復習」でもう一度解けます。",
-    progressKey: "sapixMathProgressV1",
-    reviewKey: "sapixMathReviewV1",
-    shuffleChoices: false, // 曜日・色などの選択肢は並び順に意味があるので並べかえない
-    fractions: true, // 問題文の「a/b」を縦書きの分数で表示する
-    categories: MATH_META.categories,
-    units: withColors(MATH_META),
-  },
-  sapixKokugo: {
-    id: "sapixKokugo",
-    dir: "sapixKokugo",
-    title: "Sapix 国語",
-    eyebrow: "SAPIX JAPANESE — 4年 冬期講習",
-    accent: "#8A3B2F",
-    lead: "漢字の読み書き・言葉の知識・文法・読解の 10 単元。1 問ずつ答え合わせをして、解説を読みながら進めよう。読解は本文を読んでから答えます。",
-    progressKey: "sapixKokugoProgressV1",
-    reviewKey: "sapixKokugoReviewV1",
-    shuffleChoices: true,
-    fractions: false,
-    categories: KOKUGO_META.categories,
-    units: withColors(KOKUGO_META),
-  },
-  sapixShakai: {
-    id: "sapixShakai",
-    dir: "sapixShakai",
-    title: "Sapix 社会",
-    eyebrow: "SAPIX SOCIAL STUDIES — 4年 冬期講習",
-    accent: "#2F7A4F",
-    lead: "地図と国土・産業・くらしの 10 単元。1 問ずつ答え合わせをして、解説で理由まで確かめよう。",
-    progressKey: "sapixShakaiProgressV1",
-    reviewKey: "sapixShakaiReviewV1",
-    shuffleChoices: true,
-    fractions: false,
-    categories: SHAKAI_META.categories,
-    units: withColors(SHAKAI_META),
-  },
-  sapixRika: {
-    id: "sapixRika",
-    dir: "sapixRika",
-    title: "Sapix 理科",
-    eyebrow: "SAPIX SCIENCE — 4年 冬期講習",
-    accent: "#5A3B8A",
-    lead: "生物・地学・物理・化学の 10 単元。1 問ずつ答え合わせをして、解説で「なぜそうなるか」まで確かめよう。",
-    progressKey: "sapixRikaProgressV1",
-    reviewKey: "sapixRikaReviewV1",
-    shuffleChoices: true,
-    fractions: false,
-    categories: RIKA_META.categories,
-    units: withColors(RIKA_META),
-  },
-  sapixEigo: {
-    id: "sapixEigo",
-    dir: "sapixEigo",
-    title: "Sapix 英語",
-    eyebrow: "ENGLISH — 英検5級〜4級レベル",
-    accent: "#2F7A8A",
-    lead: "単語・文法・会話・読解の 10 単元（英検5級〜4級程度）。1 問ずつ答え合わせをして、解説と日本語訳で確かめよう。つづりを書く問題は、大文字・小文字のちがいは気にしなくてだいじょうぶです。",
-    progressKey: "sapixEigoProgressV1",
-    reviewKey: "sapixEigoReviewV1",
-    shuffleChoices: true,
-    fractions: false,
-    categories: EIGO_META.categories,
-    units: withColors(EIGO_META),
-  },
-};
+function buildCourse(grade, def, meta) {
+  return {
+    id: courseId(grade, def.id),
+    grade,
+    subjectId: def.id,
+    subjectLabel: def.label,
+    dir: `sapix/g${grade}/${def.id}`,
+    title: `Sapix ${grade}年 ${def.label}`,
+    logTitle: logTitle(grade, def.id),
+    eyebrow: meta.eyebrow || `SAPIX — ${grade}年 ${def.label}`,
+    target: meta.target || "",
+    accent: def.accent,
+    card: def.card,
+    lead: meta.lead || "単元を選んで 20 問。1 問ずつ答え合わせをして、解説を読みながら進めよう。",
+    ...storageKeys(grade, def.id),
+    shuffleChoices: def.shuffleChoices, // 算数は曜日・色などの選択肢の並び順に意味があるので並べかえない
+    fractions: def.fractions, // 問題文の「a/b」を縦書きの分数で表示する
+    categories: meta.categories,
+    units: withColors(meta),
+  };
+}
 
-export const SUBJECT_IDS = Object.keys(SUBJECTS);
+/** 学年×科目のすべて（データがあるものだけ）。並びは学年順 → 科目順 */
+export const COURSES = GRADES.flatMap((grade) =>
+  SUBJECT_DEFS.flatMap((def) => {
+    const meta = METAS[`./data/sapix/g${grade}/${def.id}/meta.json`];
+    return meta ? [buildCourse(grade, def, meta)] : [];
+  })
+);
 
-export function getSubject(id) {
-  return SUBJECTS[id] || SUBJECTS.sapixMath;
+/** 問題がある学年だけ */
+export const AVAILABLE_GRADES = GRADES.filter((g) => COURSES.some((c) => c.grade === g));
+
+export function coursesOfGrade(grade) {
+  return COURSES.filter((c) => c.grade === grade);
+}
+
+export function getCourse(grade, subjectId) {
+  return COURSES.find((c) => c.grade === grade && c.subjectId === subjectId) || null;
 }
 
 export function findUnit(subject, unitId) {
@@ -108,7 +71,7 @@ export function findUnit(subject, unitId) {
 
 /* 単元ファイルは meta.json の file で決まる。glob で拾っておけば、
    単元を足すときに meta.json と JSON を置くだけですむ */
-const FILES = import.meta.glob(["./data/sapix*/*.json", "!./data/sapix*/meta.json"], { import: "default" });
+const FILES = import.meta.glob(["./data/sapix/g*/*/*.json", "!./data/sapix/g*/*/meta.json"], { import: "default" });
 
 const cache = new Map();
 const pending = new Map();

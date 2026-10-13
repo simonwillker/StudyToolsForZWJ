@@ -5,21 +5,21 @@
    学習記録は localStorage にしか無いので、端末を替えたり閲覧データを
    消したりすると消えてしまう。ファイルに書き出して戻せるようにする。
 
-   どの教科の画面から書き出しても、Sapix の全教科ぶんをまとめて書き出す
+   どの学年・科目の画面から書き出しても、Sapix の全学年・全科目ぶんをまとめて書き出す
    （教科ごとにファイルが分かれると、戻しわすれが起きやすいため）。
    v1.26.0 の「Sapix 算数」だけのバックアップ（sapix-math-study-backup）も
    読み込める。
    ============================================================ */
 
 import { learnerKey } from "./learner";
-import { SUBJECTS } from "./sapixSubjects";
+import { COURSES } from "./sapixSubjects";
 
 const FORMAT = "sapix-study-backup";
 const LEGACY_MATH_FORMAT = "sapix-math-study-backup";
 const FORMAT_VERSION = 1;
 
-/** 書き出し・読み込みの対象。教科を足すと自動でふえる。 */
-export const BACKUP_KEYS = Object.values(SUBJECTS).flatMap((s) => [s.progressKey, s.reviewKey]);
+/** 書き出し・読み込みの対象。学年・科目を足すと自動でふえる（4年のキーは v1.28.0 までと同じ）。 */
+export const BACKUP_KEYS = COURSES.flatMap((s) => [s.progressKey, s.reviewKey]);
 
 function readKey(key) {
   try {
@@ -47,7 +47,7 @@ export function describeBackup(backup) {
   let reviewCount = 0;
   const days = new Set();
   const subjects = [];
-  Object.values(SUBJECTS).forEach((s) => {
+  COURSES.forEach((s) => {
     const progress = d[s.progressKey] || {};
     let a = 0;
     Object.values(progress.units || {}).forEach((u) => {

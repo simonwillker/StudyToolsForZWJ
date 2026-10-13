@@ -1,8 +1,8 @@
 /* ============================================================
-   Sapix（算数・国語・社会・理科・英語）：学習記録と復習リスト
+   Sapix（学年×科目）：学習記録と復習リスト
 
    ccaofProgress.js と同じ考え方。軸は「単元」。教科ごとに別のキー
-   （sapixSubjects.js の progressKey / reviewKey）に保存して、
+   （sapixStorage.js の storageKeys。4年は以前からのキーのまま）に保存して、
    ほかのアプリや教科の記録と混ざらないようにする。勉強者ごとに
    分けるのも同じ（learnerKey）。
    ============================================================ */
@@ -47,7 +47,7 @@ export function loadProgress(subject) {
 export function recordAnswer(subject, unitId, itemId, isCorrect, review = false) {
   const unit = findUnit(subject, unitId);
   const label = unit ? unit.label : unitId;
-  recordStudy(subject.title, review ? `${label}（復習）` : label, isCorrect);
+  recordStudy(subject.logTitle, review ? `${label}（復習）` : label, isCorrect);
 
   const store = loadProgress(subject);
   const u = store.units[unitId] || { attempted: 0, correct: 0, lastAt: null, items: {} };

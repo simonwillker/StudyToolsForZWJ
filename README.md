@@ -5,7 +5,7 @@
 - **きょうのドリル（Daily Drill）**：小学生向けの日常学習ドリル
 - **英検マスター（EIKEN Master）**：英検5級〜1級対応の総合学習アプリ
 - **CCAO-F 対策**：Claude Certified Associate – Foundations の練習問題
-- **Sapix 算数・国語・社会・理科・英語**：算数・国語・社会・理科は小4 冬期講習相当、英語は英検5級〜4級程度。算数 15 単元、ほか各 10 単元（各 20 問、計 1,100 問、オリジナル問題）
+- **Sapix**：学年 → 科目（算数・国語・理科・社会・英語）→ 単元の順に選ぶ。いまは4年（算数・国語・社会・理科は小4 冬期講習相当、英語は英検5級〜4級程度）。算数 15 単元、ほか各 10 単元（各 20 問、計 1,100 問、オリジナル問題）
 
 ## 勉強者の選択と勉強履歴
 
@@ -114,17 +114,38 @@ CCAO-F 対策のトップにある「📘 頻出単語」から使います（`s
 - 記録は `ccaofVocabV1`（勉強者ごと）。学習記録のバックアップ・リセット・勉強履歴（「頻出単語 テスト／復習」）の対象です。
 - データ：意味は `src/data/ccaofVocab/glossary.json` に手で書き、出現回数・出現問題・例文は `node scripts/buildCcaofVocab.mjs` で `vocab.json` に生成します。問題を増やしたら作り直してください（`npm run validate` が作り直し忘れを検出します）。
 
-## Sapix 算数・国語・社会・理科・英語
+## Sapix（学年 → 科目 → 単元）
 
-アプリ選択画面の「Sapix 算数」「Sapix 国語」「Sapix 社会」「Sapix 理科」「Sapix 英語」から使います。5教科とも同じ画面（`src/SapixApp.jsx`、教科の定義は `src/sapixSubjects.js`）です。以下は算数の説明で、国語・社会・理科は最後にまとめています。
+アプリ選択画面の「**Sapix**」1 枚から使います（v1.29.0 で科目ごとの 5 枚のカードを 1 枚にまとめました）。中で **学年（1〜6年のうち問題がある学年）→ 科目（算数・国語・理科・社会・英語のうち問題がある科目）→ 単元** の順に選びます。いまは **4年** の 5 科目です。どの学年・科目も同じ画面（`src/SapixApp.jsx`）で、学年・科目の一覧は `src/data/sapix/` のフォルダから自動で作ります（`src/sapixSubjects.js`）。以下は算数の説明で、国語・社会・理科・英語は後ろにまとめています。
+
+### データの置き場所と、学年・科目の追加方法
+
+```
+src/data/sapix/
+├── README.md          ← 追加手順（下と同じ）
+└── g4/                ← 学年（g1〜g6）
+    ├── math/          ← 科目：math（算数）/ kokugo（国語）/ rika（理科）/ shakai（社会）/ eigo（英語）
+    │   ├── meta.json  ← 単元一覧（grade・subject・分類・単元）
+    │   ├── README.md  ← スキーマ
+    │   └── <単元id>.json
+    ├── kokugo/ ・ rika/ ・ shakai/ ・ eigo/
+```
+
+1. `src/data/sapix/g<学年>/<科目>/` を作り、`meta.json` と単元ごとの JSON を置く（形は `g4/` の同じ科目をまねる。`meta.json` の `grade` と `subject` はフォルダ名と同じにする。`eyebrow`・`lead` は画面の見出しと説明、なくてもよい）。
+2. `npm run validate` を通す（算数は `validate:sapix-math` で全問を検算、ほかの科目は `validate:sapix-subjects`。フォルダの形・`grade`/`subject` の食いちがいもここで見つかる）。
+3. コードの変更はいらない。`meta.json` を置いた学年・科目が自動で画面に出る（学年・科目の画面には、データがあるものだけ出る）。
+
+- **学習記録のキー**：4年は学年別にする前からのキー（`sapixMathProgressV1` など）を**そのまま**使い、それ以外の学年は `sapixG<学年><科目>ProgressV1`（例：`sapixG5MathProgressV1`、復習は `…ReviewV1`）。決め方は `src/sapixStorage.js`。4年のキーを変えるとこれまでの記録が読めなくなるので変えないこと（`npm run test:sapix-storage` で確かめています）。
+- **勉強履歴の名前**：4年は以前と同じ「Sapix 算数」など、ほかの学年は「Sapix 5年 算数」など。
+- **v1.28.0 からの移行**：学習記録・復習リスト・バックアップの形は変えていないので、移しかえなしでそのまま見えます（ZWJ / ZY / Guest とも）。アプリ選択画面が覚えている「最後に開いたアプリ」が古い値（`sapixMath` など）のときは、自動で `sapix` に直し、その科目（4年）をそのまま開きます。
 
 **算数**：問題は**すべてオリジナル**です。
 
 - **15 単元 × 20 問 ＝ 300 問**：数と計算（計算のくふう・約数と倍数・分数の計算）、文章題（和差算・分配算・つるかめ算・植木算・周期算・過不足算・年令算）、図形（角度・三角形・四角形の面積・立体）、規則性・場合の数。各単元は基本 8・標準 8・発展 4 の易→難の順。割合・比は使いません。
 - **流れ**：単元一覧 → 単元を選んで 20 問 → 1 問ずつ答え合わせ（正解と途中式つきの解き方を表示）→ 結果 → まちがえた問題だけもう一度。単元画面の「まちがえた問題だけ復習」は、端末に残る復習リスト（正解すると外れる）から出題します。
 - **答え方**：数値入力が基本（単位つき）。分数は整数・分子・分母の 3 つの欄（帯分数・仮分数どちらでも可。約分わすれは「答えは合っています」と表示して不正解）。曜日・色などは選択肢。図形・規則性の一部は SVG の図つき。
-- **学習記録**：単元ごとの正答率・最終学習日・前回の点数を `sapixMathProgressV1`、復習リストを `sapixMathReviewV1` に勉強者ごとに保存。勉強履歴（📅）にも「Sapix 算数／単元名」で出ます。学習記録画面からファイルに書き出し・読み込み（`src/sapixBackup.js`。Sapix の全教科まとめて書き出し）・リセットができます。英検・CCAO-F の記録には触れません。
-- **データ**：`src/data/sapixMath/`（単元ごとの JSON、スキーマは同じ場所の `README.md`）。`npm run validate:sapix-math` で、必須項目・id の一意・各単元 20 問に加えて、**全問の正解を検算式（`calc`）で計算し直して**確かめます。
+- **学習記録**：単元ごとの正答率・最終学習日・前回の点数を `sapixMathProgressV1`、復習リストを `sapixMathReviewV1` に勉強者ごとに保存。勉強履歴（📅）にも「Sapix 算数／単元名」で出ます。学習記録画面からファイルに書き出し・読み込み（`src/sapixBackup.js`。Sapix の全学年・全科目まとめて書き出し）・リセットができます。英検・CCAO-F の記録には触れません。
+- **データ**：`src/data/sapix/g4/math/`（単元ごとの JSON、スキーマは同じ場所の `README.md`）。`npm run validate:sapix-math` で、必須項目・id の一意・各単元 20 問に加えて、**全問の正解を検算式（`calc`）で計算し直して**確かめます。
 
 **国語・社会・理科**（各 10 単元 × 20 問 ＝ 600 問、すべてオリジナル）
 
@@ -133,14 +154,14 @@ CCAO-F 対策のトップにある「📘 頻出単語」から使います（`s
 - **理科**：植物、こん虫、季節と生き物、星と星座、月、太陽と影・天気と気温、電気、磁石と電磁石、ものの温まり方と体積、水のすがたの変化。
 - 選択問題は毎回選択肢を並べかえて出します（順番に意味がある問題をのぞく）。漢字の読みは**ひらがなで入力**（カタカナで入れてもひらがなとして判定）、書きは**漢字で入力**します。
 - 学習記録は教科ごとに `sapixKokugoProgressV1` / `sapixShakaiProgressV1` / `sapixRikaProgressV1`（復習リストは `…ReviewV1`）。算数のキーは変えていないので、これまでの算数の記録はそのまま残ります。勉強履歴には「Sapix 国語／単元名」のように出ます。
-- **バックアップ**：どの教科の学習記録画面から書き出しても、Sapix の全教科ぶんをまとめて 1 つのファイル（`sapix-backup-YYYYMMDD.json`）に書き出します。v1.26.0 で書き出した算数だけのファイルも読み込めます。
-- **データ**：`src/data/sapixKokugo/`・`sapixShakai/`・`sapixRika/`（スキーマは各フォルダの `README.md`）。`npm run validate:sapix-subjects` で、必須項目・id の一意・各単元 20 問・難易度の順・選択肢・記述の正解の形・読解の本文の参照を確かめます。
+- **バックアップ**：どの学年・科目の学習記録画面から書き出しても、Sapix の全学年・全科目ぶんをまとめて 1 つのファイル（`sapix-backup-YYYYMMDD.json`）に書き出します。v1.26.0 で書き出した算数だけのファイルも読み込めます。
+- **データ**：`src/data/sapix/g4/kokugo/`・`shakai/`・`rika/`（スキーマは各フォルダの `README.md`）。`npm run validate:sapix-subjects` で、必須項目・id の一意・各単元 20 問・難易度の順・選択肢・記述の正解の形・読解の本文の参照を確かめます。
 
 **英語**（10 単元 × 20 問 ＝ 200 問、英検5級〜4級程度、すべてオリジナル。SAPIX の小4 カリキュラムに英語はないため、英検の級を目安にしています）
 
 - 単語（身の回り・数・曜日・月）、単語（動詞・形容詞・前置詞）、be 動詞、一般動詞・3人称単数、疑問詞、現在進行形、過去形、can・will・be going to、会話表現、読解（短い英文。オリジナルの英文を問題の上に表示）。
 - 穴うめ・会話・読解は選択式（選択肢は毎回並べかえ）、つづりの問題（曜日・月・動詞の変化形など）は**英語で入力**します。大文字・小文字のちがいは区別しません。解説には日本語訳をつけています。
-- 学習記録は `sapixEigoProgressV1` / `sapixEigoReviewV1`。バックアップは Sapix 5教科をまとめて書き出します。データは `src/data/sapixEigo/`、検証は `npm run validate:sapix-subjects`（国語・社会・理科と同じスクリプト）。
+- 学習記録は `sapixEigoProgressV1` / `sapixEigoReviewV1`。バックアップは Sapix 5教科をまとめて書き出します。データは `src/data/sapix/g4/eigo/`、検証は `npm run validate:sapix-subjects`（国語・社会・理科と同じスクリプト）。
 
 ## ⚠️ 重要：Claude Artifacts 専用APIについて（きょうのドリル）
 
@@ -222,8 +243,9 @@ StudyToolsForZWJ/
     ├── eikenProgress.js  ← 英検マスターの学習記録（localStorage）ユーティリティ
     ├── eikenTestResults.js ← 模擬テストの受験履歴（localStorage）ユーティリティ
     ├── eikenSpeech.js    ← 英検マスターの読み上げ／音声認識ユーティリティ
-    ├── SapixApp.jsx      ← Sapix 算数・国語・社会・理科・英語 本体コンポーネント（教科ごとに共通）
-    ├── sapixSubjects.js / sapixProgress.js / sapixBackup.js ← 教科の定義・単元の読み込み・答えの判定／学習記録／バックアップ
+    ├── SapixApp.jsx      ← Sapix 本体（学年 → 科目 → 単元。学年・科目ごとに共通）
+    ├── sapixStorage.js   ← Sapix の学年・科目の一覧、学習記録のキー、旧形式からの移行
+    ├── sapixSubjects.js / sapixProgress.js / sapixBackup.js ← 学年×科目の定義・単元の読み込み・答えの判定／学習記録／バックアップ
     └── data/
         ├── rika.json     ← 理科の問題データベース
         ├── shakai.json   ← 社会の問題データベース
@@ -237,13 +259,14 @@ StudyToolsForZWJ/
         ├── eikenTest/    ← 英検 模擬テスト（本番形式）の問題データベース（5級〜1級）
         │   ├── 5.json / 4.json / 3.json / pre2.json / 2.json / pre1.json / 1.json
         │   └── README.md ← スキーマ・問題を追加する手順の説明
-        ├── sapixMath/    ← Sapix 算数の問題データ（meta.json ＋ 単元ごとの JSON 15 個、README.md にスキーマ）
-        └── sapixKokugo/ ・ sapixShakai/ ・ sapixRika/ ・ sapixEigo/ ← Sapix 国語・社会・理科・英語の問題データ（各 10 単元）
+        └── sapix/        ← Sapix の問題データ（g<学年>/<科目>/。README.md に追加手順）
+            └── g4/       ← 4年：math（15 単元）・kokugo・rika・shakai・eigo（各 10 単元）
 └── scripts/
     ├── validateEikenApp.mjs  ← 単語・分野別ドリルのデータ検証
     ├── validateEikenTest.mjs ← 模擬テストデータの検証
     ├── validateSapixMath.mjs ← Sapix 算数データの検証（全問の正解を検算）
-    ├── validateSapixSubjects.mjs ← Sapix 国語・社会・理科・英語データの検証
+    ├── validateSapixSubjects.mjs ← Sapix 国語・社会・理科・英語データとフォルダの形（学年・科目）の検証
+    ├── testSapixStorage.mjs  ← Sapix の学習記録のキーと旧形式からの移行のテスト
     ├── addVocab.mjs          ← 単語の一括追加（級をまたいだ重複もスキップ・id自動採番）
     └── removeVocab.mjs       ← 単語の削除（id自動振り直し）
 ```
