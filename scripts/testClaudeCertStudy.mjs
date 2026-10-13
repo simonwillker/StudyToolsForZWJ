@@ -356,7 +356,7 @@ const arItems = readdirSync(arDir)
 test("既定の資格は CCAO-F で、キーは v1.31.0 までと 1 文字も変わらない", () => {
   certState.setActiveCertState("ccaof");
   assert.equal(certState.certKey("ProgressV1"), "ccaofProgressV1");
-  assert.deepEqual(backup.backupKeys(), ["ccaofProgressV1", "ccaofReviewV1", "ccaofExamResultsV1", "ccaofVocabV1", "ccaofMistakesV1"]);
+  assert.deepEqual(backup.backupKeys(), ["ccaofProgressV1", "ccaofReviewV1", "ccaofExamResultsV1", "ccaofVocabV1", "ccaofMistakesV1", "ccaofListenV1"]);
   assert.equal(mistakes.mistakesKey(), "ccaofMistakesV1");
 });
 

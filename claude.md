@@ -30,8 +30,9 @@
 サーバー上にupdateする。Ipad、Iphone、PCどれでも確認とれる
 
 ## 状態
-- 最新バージョン：v1.32.0（2026-10-13）
-- v1.32.0：トップの「CCAO-F 対策」を「Claude 認定」にし、中で資格を選ぶ構成に（`src/claudeCert/`、データは `src/data/claudeCert/<資格>/`）。CCAR-F（Claude Certified Architect – Foundations）を追加：公式 Exam Guide v1.0 の 5 ドメイン・30 task statement・6 シナリオ、400 問（シナリオ型中心、中国語訳・注解つき）、30 讲义、頻出単語 158 語、シナリオ別練習、4 シナリオ抽選の模擬試験。CCAO-F の保存キーは変えず、旧アプリ id `ccaof` は `claudeCert` に移行。`npm run validate:claude-cert`・`npm run test:ccaof-study` で確認
+- 最新バージョン：v1.33.0（2026-10-13）
+- v1.33.0：トップの「CCAO-F 対策」を「Claude 認定」にし、中で資格を選ぶ構成に（`src/claudeCert/`、データは `src/data/claudeCert/<資格>/`）。CCAR-F（Claude Certified Architect – Foundations）を追加：公式 Exam Guide v1.0 の 5 ドメイン・30 task statement・6 シナリオ、400 問（シナリオ型中心、中国語訳・注解つき）、30 讲义、頻出単語 158 語、シナリオ別練習、4 シナリオ抽選の模擬試験。音声読み上げ（v1.32.0）も資格共通にし、CCAR-F のシナリオは変わり目で説明を読み上げる。CCAO-F の保存キーは変えず、旧アプリ id `ccaof` は `claudeCert` に移行。`npm run validate:claude-cert`・`npm run test:ccaof-study` で確認
+- v1.32.0：CCAO-F に音声読み上げ。問題文・選択肢・解説・中文注解・頻出単語・讲义の横に🔊、音声モード（ハンズフリー連続再生：単語→意味→例文／問題→選択肢→考える間→正解→解説／讲义の節ごと）、一時停止・前へ・次へ・速度 0.75〜1.25 倍・間・読む言語（英語／日本語／中文）。Web Speech API のみ（外部 API なし）、非対応端末は表示しない。聞いた分は正答率に入れず `ccaofListenV1`（バックアップ対象）と頻出単語の「学習した単語」に記録。台本は `src/claudeCert/audioCore.js`（v1.33.0 で移動。CCAR-F でも使える）、`npm run test:ccaof-audio` で確認
 - v1.31.0：CCAO-F に 4 機能。考点讲义（30 objectives、中国語、`src/data/ccaof/lessons.json`）→ その考点だけの練習／考点別の成績と「弱い 3 考点だけ練習」／錯題本（1日→3日→7日、2回連続正解で外れる、`ccaofMistakesV1`）と今日の復習／合格予測（模試＋考点別正答率を配点で加重）。計算は `src/ccaofStudyCore.js`、`npm run test:ccaof-study` で確認
 - v1.30.0：4年に追加 16 単元（算数：速さ・グラフの読み取り・水そうとグラフ・数のせいしつ／理科：太陽高度・蒸散と光合成・食物連鎖・動物の分類と骨格・回路／社会：森林と林業・自然災害と防災・伝統工業・工業地域と太平洋ベルト・日本の地名と地形／国語：敬語・擬態語と擬音語）。教材（41B-33 など）の範囲に合わせたオリジナル問題
 - Sapix は v1.29.0 からトップのカード 1 枚に統合し、中で 学年 → 科目 → 単元 を選ぶ。データは `src/data/sapix/g<学年>/<科目>/`（追加手順は同じ場所の README.md、meta.json を置けば自動で出る）。4年の学習記録キーは以前のまま（`src/sapixStorage.js`、`npm run test:sapix-storage` で確認）

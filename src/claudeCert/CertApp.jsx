@@ -2,6 +2,10 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { newStudySession } from "../studyLog";
 import CertVocab from "./CertVocab";
 import { activeCert } from "./certState";
+import { SpeakButton, AudioPlayer, AudioStyle, AudioUnsupported, useStopSpeechOn } from "./CertAudio";
+import { isSpeechSupported } from "./speech";
+import { questionTracks, lessonTracks, splitMixed } from "./audioCore";
+import { recordListen, getListenSummary } from "./listen";
 import { getVocabSummary } from "./vocabProgress";
 import { analyseWeakness, pickFocusItems, MIN_ATTEMPTS } from "./weakness";
 import {
@@ -152,6 +156,7 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh, studyLabel, exitL
 
   const q = questions[index];
   const total = questions.length;
+  useStopSpeechOn(index);
 
   // 勉強履歴：出題が始まるたびに新しい回
   useEffect(() => {
@@ -237,10 +242,10 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh, studyLabel, exitL
       </div>
 
       {q.scenario && <ScenarioBox id={q.scenario} showZh={showZh} key={q.id} defaultOpen={index === 0 || questions[index - 1].scenario !== q.scenario} />}
-      {q.material && <div className="ccaof-material">{q.material}</div>}
-      {q.materialZh && showZh && <div className="ccaof-material zh">{q.materialZh}</div>}
-      <div className="ccaof-stem">{q.stem}</div>
-      {q.stemZh && showZh && <div className="ccaof-stem-zh">{q.stemZh}</div>}
+      {q.material && <div className="ccaof-material">{q.material}<SpeakButton text={q.material} /></div>}
+      {q.materialZh && showZh && <div className="ccaof-material zh">{q.materialZh}<SpeakButton text={q.materialZh} lang="zh" /></div>}
+      <div className="ccaof-stem">{q.stem}<SpeakButton text={q.stem} label="問題文を読み上げる" /></div>
+      {q.stemZh && showZh && <div className="ccaof-stem-zh">{q.stemZh}<SpeakButton text={q.stemZh} lang="zh" label="中文を読み上げる" /></div>}
       {q.selectCount > 1 && (
         <div className="ccaof-select-hint">{q.selectCount}つ選んでください（{picked.length}/{q.selectCount} 選択中）</div>
       )}
@@ -254,18 +259,31 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh, studyLabel, exitL
             else if (isPicked) cls += " wrong";
           } else if (isPicked) cls += " picked";
           return (
-            <button key={i} className={cls} onClick={() => toggle(i)} disabled={submitted}>
-              <div className="ccaof-choice-text">{c.text}</div>
-              {c.textZh && showZh && <div className="ccaof-choice-zh">{c.textZh}</div>}
-              {submitted && <div className="ccaof-choice-explain">{c.explain}</div>}
-            </button>
+            /* 答え合わせのあとも🔊は押せるように、無効化（disabled）はせず onClick で止める */
+            <div
+              key={i}
+              role="button"
+              tabIndex={submitted ? -1 : 0}
+              className={cls + (submitted ? " done" : "")}
+              onClick={() => toggle(i)}
+              onKeyDown={(e) => {
+                if (e.target === e.currentTarget && (e.key === "Enter" || e.key === " ")) {
+                  e.preventDefault();
+                  toggle(i);
+                }
+              }}
+            >
+              <div className="ccaof-choice-text">{c.text}<SpeakButton text={c.text} label="選択肢を読み上げる" /></div>
+              {c.textZh && showZh && <div className="ccaof-choice-zh">{c.textZh}<SpeakButton text={c.textZh} lang="zh" label="中文を読み上げる" /></div>}
+              {submitted && <div className="ccaof-choice-explain">{c.explain}<SpeakButton text={c.explain} lang="ja" label="解説を読み上げる" /></div>}
+            </div>
           );
         })}
       </div>
 
       {submitted && q.commentaryZh && (
         <div className="ccaof-note">
-          <div className="ccaof-note-title">中文注解</div>
+          <div className="ccaof-note-title">中文注解<SpeakButton text={q.commentaryZh} lang="zh" label="中文注解を読み上げる" /></div>
           <div className="ccaof-note-body">{q.commentaryZh}</div>
         </div>
       )}
@@ -474,8 +492,8 @@ function ExamReview({ result, questions, showZh, onBack }) {
         <div className="ccaof-review-item" key={w.id}>
           <div className="ccaof-review-no">第 {w.no} 問 · {findDomain(w.q.domain).label}</div>
           {w.q.scenario && <ScenarioBox id={w.q.scenario} showZh={showZh} defaultOpen={false} />}
-          <div className="ccaof-stem">{w.q.stem}</div>
-          {w.q.stemZh && showZh && <div className="ccaof-stem-zh">{w.q.stemZh}</div>}
+          <div className="ccaof-stem">{w.q.stem}<SpeakButton text={w.q.stem} label="問題文を読み上げる" /></div>
+          {w.q.stemZh && showZh && <div className="ccaof-stem-zh">{w.q.stemZh}<SpeakButton text={w.q.stemZh} lang="zh" /></div>}
           <div className="ccaof-choices">
             {w.q.choices.map((c, i) => {
               let cls = "ccaof-choice";
@@ -483,16 +501,16 @@ function ExamReview({ result, questions, showZh, onBack }) {
               else if (w.picked.includes(i)) cls += " wrong";
               return (
                 <div key={i} className={cls}>
-                  <div className="ccaof-choice-text">{c.text}</div>
-                  {c.textZh && showZh && <div className="ccaof-choice-zh">{c.textZh}</div>}
-                  <div className="ccaof-choice-explain">{c.explain}</div>
+                  <div className="ccaof-choice-text">{c.text}<SpeakButton text={c.text} /></div>
+                  {c.textZh && showZh && <div className="ccaof-choice-zh">{c.textZh}<SpeakButton text={c.textZh} lang="zh" /></div>}
+                  <div className="ccaof-choice-explain">{c.explain}<SpeakButton text={c.explain} lang="ja" label="解説を読み上げる" /></div>
                 </div>
               );
             })}
           </div>
           {w.q.commentaryZh && (
             <div className="ccaof-note">
-              <div className="ccaof-note-title">中文注解</div>
+              <div className="ccaof-note-title">中文注解<SpeakButton text={w.q.commentaryZh} lang="zh" /></div>
               <div className="ccaof-note-body">{w.q.commentaryZh}</div>
             </div>
           )}
@@ -575,8 +593,9 @@ function PredictionCard({ prediction, actions, loading }) {
    試験は英語なので、考点の見出しは公式 Exam Guide の英文のまま出す。
    ============================================================ */
 
-function LessonView({ lesson, stat, itemCount, color, onBack, onPractice }) {
+function LessonView({ lesson, stat, itemCount, color, onBack, onPractice, onListen }) {
   const pct = pctOf(stat);
+  const zh = (t) => <SpeakButton text={t} lang="zh" />;
   return (
     <div className="ccaof-inner">
       <button className="ccaof-back-link" style={{ marginBottom: 12 }} onClick={onBack}>← 考点一覧にもどる</button>
@@ -584,40 +603,48 @@ function LessonView({ lesson, stat, itemCount, color, onBack, onPractice }) {
         <div className="ccaof-eyebrow">{lesson.id} · {findDomain(lesson.domain).labelEn}</div>
         <h1 className="ccaof-serif ccaof-lesson-title">{lesson.titleZh}</h1>
         <div className="ccaof-under" />
-        <div className="ccaof-lead ccaof-lesson-obj">{lesson.objective}</div>
+        <div className="ccaof-lead ccaof-lesson-obj">{lesson.objective}<SpeakButton text={lesson.objective} /></div>
+      </div>
+
+      <div className="ccaof-lesson-actions" style={{ marginTop: 0, marginBottom: 12 }}>
+        {isSpeechSupported() ? (
+          <button className="ccaof-btn" style={{ "--c": "#5B4B8A" }} onClick={onListen}>🎧 この讲义を聞く（ハンズフリー）</button>
+        ) : (
+          <AudioUnsupported />
+        )}
       </div>
 
       <div className="ccaof-lesson-stat">
         {pct === null ? `この考点の問題 ${itemCount}問（まだ未学習）` : `この考点：正答率 ${pct}%（のべ ${stat.attempted}問）／ 問題 ${itemCount}問`}
       </div>
 
-      <div className="ccaof-lesson-box summary" style={{ "--c": color }}>{lesson.summaryZh}</div>
+      <div className="ccaof-lesson-box summary" style={{ "--c": color }}>{lesson.summaryZh}{zh(lesson.summaryZh)}</div>
 
       <div className="ccaof-lesson-h">核心概念</div>
       <div className="ccaof-lesson-box">
         {lesson.concepts.map((c) => (
           <div className="ccaof-lesson-concept" key={c.term}>
             <div className="ccaof-lesson-term" style={{ "--c": color }}>{c.term}</div>
-            <div className="ccaof-lesson-text">{c.zh}</div>
+            <div className="ccaof-lesson-text">{c.zh}<SpeakButton segments={[...splitMixed(c.term, "zh"), { lang: "zh", text: c.zh }]} /></div>
           </div>
         ))}
       </div>
 
       <div className="ccaof-lesson-h">正例与反例</div>
       <div className="ccaof-lesson-box">
-        <div className="ccaof-lesson-ex bad"><span className="ccaof-lesson-tag">✕ 反例</span>{lesson.example.bad}</div>
-        <div className="ccaof-lesson-ex good"><span className="ccaof-lesson-tag">○ 正例</span>{lesson.example.good}</div>
-        <div className="ccaof-lesson-text" style={{ marginTop: 8 }}>{lesson.example.whyZh}</div>
+        <div className="ccaof-lesson-ex bad"><span className="ccaof-lesson-tag">✕ 反例</span>{lesson.example.bad}{zh(lesson.example.bad)}</div>
+        <div className="ccaof-lesson-ex good"><span className="ccaof-lesson-tag">○ 正例</span>{lesson.example.good}{zh(lesson.example.good)}</div>
+        <div className="ccaof-lesson-text" style={{ marginTop: 8 }}>{lesson.example.whyZh}{zh(lesson.example.whyZh)}</div>
       </div>
 
       <div className="ccaof-lesson-h">常见陷阱</div>
-      <ul className="ccaof-lesson-list">{lesson.pitfalls.map((t) => <li key={t}>{t}</li>)}</ul>
+      <ul className="ccaof-lesson-list">{lesson.pitfalls.map((t) => <li key={t}>{t}{zh(t)}</li>)}</ul>
 
       <div className="ccaof-lesson-h">考试怎么考</div>
-      <ul className="ccaof-lesson-list">{lesson.examTips.map((t) => <li key={t}>{t}</li>)}</ul>
+      <ul className="ccaof-lesson-list">{lesson.examTips.map((t) => <li key={t}>{t}{zh(t)}</li>)}</ul>
 
       <div className="ccaof-lesson-h">实务应用</div>
-      <div className="ccaof-lesson-box"><div className="ccaof-lesson-text">{lesson.practiceZh}</div></div>
+      <div className="ccaof-lesson-box"><div className="ccaof-lesson-text">{lesson.practiceZh}{zh(lesson.practiceZh)}</div></div>
 
       <div className="ccaof-lesson-h">官方文档</div>
       <div className="ccaof-lesson-box">
@@ -671,6 +698,35 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
   const [lessonBack, setLessonBack] = useState("lessonList");
   /* 考点練習・弱点考点・今日の復習の出題情報 { label, color, studyLabel, returnTo, exitLabel } */
   const [quizCtx, setQuizCtx] = useState(null);
+  /* 音声モード { title, color, tracks, returnTo, exitLabel } */
+  const [audioCtx, setAudioCtx] = useState(null);
+
+  const startAudio = useCallback((ctx) => {
+    if (!ctx.tracks.length) return;
+    setAudioCtx(ctx);
+    setScreen("audio");
+    window.scrollTo(0, 0);
+  }, []);
+
+  const exitAudio = () => {
+    setStatsNonce((n) => n + 1);
+    setScreen(audioCtx ? audioCtx.returnTo : "domainSelect");
+    setAudioCtx(null);
+  };
+
+  const onAudioTrackDone = useCallback((t) => {
+    if (t.record) recordListen(t.record.kind, t.record.id);
+  }, []);
+
+  /* CCAR-F のシナリオ問題は、シナリオが変わったときだけ説明を読み上げる（同じ説明を毎回読まない） */
+  const withScenarioText = (qs) =>
+    qs.map((q, i) => {
+      const sc = q.scenario && !q.material && (i === 0 || qs[i - 1].scenario !== q.scenario) ? findScenario(q.scenario) : null;
+      return sc ? { ...q, material: `Scenario: ${sc.title}. ${sc.description}`, materialZh: `场景：${sc.titleZh}。${sc.descriptionZh}` } : q;
+    });
+
+  const listenQuestions = (picked, title, color, returnTo, exitLabel) =>
+    startAudio({ title, color, tracks: questionTracks(withScenarioText(buildQuestions(picked))), returnTo, exitLabel });
 
   useEffect(() => {
     let alive = true;
@@ -742,6 +798,22 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
       studyLabel: "弱い考点の練習",
       returnTo: "domainSelect",
       exitLabel: "トップにもどる",
+    });
+  };
+
+  const listenLessons = (fromId, returnTo = "lesson") => {
+    const l = lessonById.get(fromId);
+    if (!l) return;
+    /* その考点から、同じドメインの残りの讲义まで続けて読む */
+    const same = (lessons || []).filter((x) => x.domain === l.domain);
+    const rest = same.slice(same.findIndex((x) => x.id === fromId));
+    startAudio({
+      title: rest.length > 1 ? `讲义 ${rest[0].id}〜${rest[rest.length - 1].id}` : `讲义 ${l.id}`,
+      color: findDomain(l.domain).color,
+      tracks: lessonTracks(rest),
+      needLang: "zh",
+      returnTo,
+      exitLabel: returnTo === "lesson" ? "讲义にもどる" : "讲义一覧にもどる",
     });
   };
 
@@ -974,7 +1046,8 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
         `・復習リスト　${d.reviewCount}問\n` +
         `・模擬試験　${d.exams}回\n` +
         `・頻出単語　学習 ${d.vocabWords}語（復習待ち ${d.vocabReview}語）\n` +
-        `・錯題本　${d.mistakeCount === null ? "（復習リストから作り直します）" : `${d.mistakeCount}問`}\n\n` +
+        `・錯題本　${d.mistakeCount === null ? "（復習リストから作り直します）" : `${d.mistakeCount}問`}\n` +
+        `・音声で聞いた　問題 ${d.listenedItems}問・讲义 ${d.listenedLessons}個\n\n` +
         `今この端末にある記録は、これで置き換えられます。よろしいですか？`
     );
     if (!okToApply) return;
@@ -1015,9 +1088,11 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
       : [];
   /* 頻出単語の記録も同じ理由で毎回読む */
   const vocabSummary = screen === "domainSelect" || screen === "progress" ? getVocabSummary() : null;
+  const listenSummary = screen === "progress" ? getListenSummary() : null;
 
   return (
     <div className="ccaof-app">
+      <AudioStyle />
       <style>{`
         .ccaof-focus-card {
           max-width: 720px; margin: 0 auto; background: #fff;
@@ -1156,6 +1231,7 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
         .ccaof-choice.picked { border-color: #C8743D; background: #FDF6F0; }
         .ccaof-choice.correct { border-color: #1F6B45; background: #F1F8F3; }
         .ccaof-choice.wrong { border-color: #C8323D; background: #FCF2F2; }
+        .ccaof-choice.done { cursor: default; }
         .ccaof-choice-text { font-size: 13.5px; line-height: 1.7; }
         .ccaof-choice-explain { font-size: 12.5px; color: #6B7280; line-height: 1.7; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #D8D5CB; }
         .ccaof-source { font-size: 11.5px; color: #9AA093; margin-top: 12px; word-break: break-all; }
@@ -1276,6 +1352,38 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
 
           <div className="ccaof-sub-head">合格予測</div>
           <PredictionCard prediction={prediction} actions={actions} loading={!allItems && !studyLoadError} />
+
+          <div className="ccaof-sub-head">音声モード</div>
+          <div className="ccaof-audio-card" style={{ maxWidth: 720, margin: "0 auto" }} data-testid="audio-card">
+            <div className="ccaof-audio-card-title">🎧 疲れたときは耳で学習（ハンズフリー）</div>
+            <div className="ccaof-audio-card-desc">
+              問題・讲义・頻出単語を自動で読み上げて、画面を見なくても次へ進みます。
+              一時停止／再開・前へ／次へ・速度（0.75〜1.25倍）・読む言語（英語／日本語／中文）を切り替えられます。
+              問題は「問題文 → 選択肢 → 考える間 → 正解と解説」の順。各画面のテキストの横の🔊でも1つずつ読めます。
+            </div>
+            {isSpeechSupported() ? (
+              <div className="ccaof-audio-row">
+                <button
+                  className="ccaof-btn"
+                  style={{ "--c": "#5B4B8A" }}
+                  disabled={!allItems || !mistakeSummary || mistakeSummary.due === 0}
+                  onClick={() => {
+                    const due = new Set(getDueMistakeIds());
+                    listenQuestions(allItems.filter((i) => due.has(i.id)), "今日の復習を聞く", "#C8323D", "domainSelect", "トップにもどる");
+                  }}
+                >
+                  今日の復習を聞く{mistakeSummary && mistakeSummary.due > 0 ? `（${mistakeSummary.due}問）` : ""}
+                </button>
+                <button className="ccaof-btn-ghost" onClick={() => setScreen("lessonList")}>讲义を聞く</button>
+                <button className="ccaof-btn-ghost" onClick={() => setScreen("vocab")}>頻出単語を聞く</button>
+              </div>
+            ) : (
+              <AudioUnsupported />
+            )}
+            <div style={{ fontSize: 11.5, color: "#9AA093", marginTop: 6 }}>
+              ドメインの問題は、各ドメインの画面の「🎧 音声で聞く」から。
+            </div>
+          </div>
 
           <div className="ccaof-sub-head">錯題本</div>
           <div className="ccaof-focus-card" style={{ borderColor: "#C8323D" }} data-testid="review-card">
@@ -1515,6 +1623,42 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
                   </button>
                 </>
               )}
+              <div className="ccaof-sub-head">🎧 音声で聞く（ハンズフリー）</div>
+              <div className="ccaof-audio-card" style={{ maxWidth: 720, margin: "0 auto", borderColor: domain.color }}>
+                <div className="ccaof-audio-card-desc" style={{ marginTop: 0 }}>
+                  問題文 → 選択肢 → 考える間 → 正解 → 解説（→ 中文注解）の順に、20問ずつ自動で読み進めます。
+                  聞いただけでは正答率や錯題本には数えません（学習記録の「音声で聞いた」に残ります）。
+                </div>
+                {isSpeechSupported() ? (
+                  <div className="ccaof-audio-row">
+                    {Array.from({ length: unitCount(items.length) }, (_, u) => (
+                      <button
+                        key={u}
+                        className="ccaof-unit-btn"
+                        style={{ "--c": domain.color }}
+                        onClick={() => listenQuestions(items.slice(u * UNIT_SIZE, u * UNIT_SIZE + UNIT_SIZE), `${domain.label} ${u + 1}組`, domain.color, "unitSelect", "ドメインにもどる")}
+                      >
+                        🎧 {u + 1}組
+                      </button>
+                    ))}
+                    {getReviewCount(domainId) > 0 && (
+                      <button
+                        className="ccaof-unit-btn"
+                        style={{ "--c": "#C8323D" }}
+                        onClick={() => {
+                          const ids = getReviewIds(domainId);
+                          listenQuestions(items.filter((i) => ids.includes(i.id)), `${domain.label} まちがえた問題`, domain.color, "unitSelect", "ドメインにもどる");
+                        }}
+                      >
+                        🎧 まちがえた問題（{getReviewCount(domainId)}問）
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <AudioUnsupported />
+                )}
+              </div>
+
               <div className="ccaof-sub-head">出題範囲（{items.length}問）</div>
               <div className="ccaof-unit-grid">
                 {Array.from({ length: unitCount(items.length) }, (_, u) => {
@@ -1605,6 +1749,13 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
             return (
               <>
                 <div className="ccaof-sub-head" style={{ color: d.color }}>{d.id} {d.label}（{d.weight}%）</div>
+                {lessons && isSpeechSupported() && (
+                  <div style={{ maxWidth: 720, margin: "0 auto 10px" }}>
+                    <button className="ccaof-btn-ghost" onClick={() => listenLessons(`${d.id}-1`, "lessonList")}>
+                      🎧 {d.id} の讲义を続けて聞く
+                    </button>
+                  </div>
+                )}
                 {!lessons ? (
                   studyLoadError ? (
                     <div className="ccaof-empty">讲义を読み込めませんでした。</div>
@@ -1648,10 +1799,25 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
               setScreen(lessonBack);
             }}
             onPractice={(limit) => startObjectivePractice(lessonId, limit)}
+            onListen={() => listenLessons(lessonId)}
           />
         ) : (
           <DomainLoading label="讲义を読み込んでいます…" />
         )
+      )}
+
+      {screen === "audio" && audioCtx && (
+        <AudioPlayer
+          title={audioCtx.title}
+          color={audioCtx.color}
+          tracks={audioCtx.tracks}
+          needLang={audioCtx.needLang}
+          defaultZh={showZh}
+          onTrackDone={onAudioTrackDone}
+          onExit={exitAudio}
+          exitLabel={audioCtx.exitLabel}
+          recordNote="最後まで聞いた問題・讲义は学習記録の「音声で聞いた」に残ります（正答率・錯題本・合格予測は、答えた問題だけで計算します）。"
+        />
       )}
 
       {screen === "vocab" && (
@@ -1731,6 +1897,14 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
             <div className="ccaof-fact"><div className="ccaof-fact-num">{vocabSummary.attempted ? `${Math.round((vocabSummary.correct / vocabSummary.attempted) * 100)}%` : "—"}</div><div className="ccaof-fact-label">単語テスト正答率</div></div>
           </div>
 
+          <div className="ccaof-sub-head">音声で聞いた（音声モード）</div>
+          <div className="ccaof-exam-facts" style={{ marginTop: 0 }} data-testid="listen-stats">
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{listenSummary.today}</div><div className="ccaof-fact-label">きょう聞いた</div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{listenSummary.items}</div><div className="ccaof-fact-label">聞いた問題</div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{listenSummary.lessons}</div><div className="ccaof-fact-label">聞いた讲义</div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{listenSummary.words}</div><div className="ccaof-fact-label">聞いた単語</div></div>
+          </div>
+
           <div className="ccaof-official-box">
             <div className="ccaof-official-desc">
               学習記録はこの端末のブラウザにだけ保存されます。別の端末に替えたときや、
@@ -1760,7 +1934,7 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
               本番の score report もドメイン別の正答率を出します（合否はスケールドスコアの合計で決まり、
               ドメイン別は参考値）。ここで弱いドメインは、配点比率の高いものから先に埋めるのが効率的です。
             </div>
-            <button className="ccaof-btn-ghost" onClick={() => { if (window.confirm(`${cert.code} の学習記録（問題演習と頻出単語）をすべて消します。よろしいですか？`)) { resetProgress(); setStatsNonce((n) => n + 1); } }}>
+            <button className="ccaof-btn-ghost" onClick={() => { if (window.confirm(`${cert.code} の学習記録（問題演習・頻出単語・音声で聞いた記録）をすべて消します。よろしいですか？`)) { resetProgress(); setStatsNonce((n) => n + 1); } }}>
               学習記録をリセット
             </button>
           </div>

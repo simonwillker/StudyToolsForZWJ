@@ -11,9 +11,13 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { newStudySession } from "../studyLog";
 import { DOMAINS, findDomain, loadVocab as loadCertVocab } from "./domains";
-import { isSpeechSynthesisSupported, speak } from "../eikenSpeech";
+import { SpeakButton, AudioPlayer, AudioStyle, AudioUnsupported, useStopSpeechOn } from "./CertAudio";
+import { isSpeechSupported } from "./speech";
+import { vocabTracks } from "./audioCore";
+import { recordListen } from "./listen";
 import {
   recordVocabAnswer,
+  recordVocabListen,
   markStudied,
   getVocabReviewIds,
   getUnmasteredIds,
@@ -26,7 +30,7 @@ const UNIT_SIZE = 20;
 const COLOR = "#7A5C2E";
 
 /** どの画面（トップ・カード・テスト）でも同じ見た目になるよう、いつも一緒に描く */
-const VocabStyle = () => <style>{`
+const VocabStyle = () => <><AudioStyle /><style>{`
         .ccaof-v-toolbar { max-width: 720px; margin: 0 auto 10px; display: flex; justify-content: flex-end; align-items: center; }
         .ccaof-v-review-row { display: flex; gap: 8px; flex-wrap: wrap; }
         .ccaof-v-review-row .ccaof-review-btn { flex: 1 1 220px; margin: 0; }
@@ -57,8 +61,7 @@ const VocabStyle = () => <style>{`
         .ccaof-v-word { font-size: 30px; font-weight: 800; display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; word-break: break-word; }
         .ccaof-v-pos { font-size: 12px; color: #9AA093; margin-top: 4px; }
         .ccaof-v-tap { font-size: 13px; color: #9AA093; margin-top: 30px; }
-        .ccaof-v-speak { border: 1px solid #D8D5CB; background: #fff; border-radius: 999px; width: 34px; height: 34px; font-size: 15px; cursor: pointer; padding: 0; }
-        .ccaof-v-speak.small { width: 26px; height: 26px; font-size: 12px; margin-left: 6px; vertical-align: middle; }
+        .ccaof-v-actions .ccaof-audio-card { grid-column: 1 / -1; }
         .ccaof-v-qhead { background: #fff; border: 1px solid #E4E2DA; border-radius: 10px; padding: 16px; text-align: center; margin-bottom: 12px; }
         .ccaof-v-qeyebrow { font-size: 11.5px; color: #9AA093; font-weight: 700; margin-bottom: 4px; }
         .ccaof-v-detail { margin-top: 14px; text-align: left; }
@@ -73,7 +76,7 @@ const VocabStyle = () => <style>{`
         .ccaof-v-dchip { display: inline-block; border: 1px solid var(--c); color: var(--c); border-radius: 999px; padding: 0 8px; margin-left: 4px; font-weight: 700; }
         .ccaof-v-answer { font-size: 14px; margin-top: 12px; text-align: center; }
         .ccaof-v-wronglist { text-align: left; background: #fff; border: 1px solid #E4E2DA; border-radius: 10px; padding: 10px 14px; margin: 0 0 20px; font-size: 13px; line-height: 1.9; }
-`}</style>;
+`}</style></>;
 
 /* キャッシュは domains.js が資格ごとに持つ */
 function loadVocab() {
@@ -135,26 +138,19 @@ function Highlight({ text, forms }) {
   );
 }
 
-function SpeakBtn({ text, small }) {
-  if (!isSpeechSynthesisSupported()) return null;
-  return (
-    <button className={"ccaof-v-speak" + (small ? " small" : "")} onClick={(e) => { e.stopPropagation(); speak(text); }} aria-label="発音を聞く">🔊</button>
-  );
-}
-
 /** 単語の詳しい説明。カードの裏面とテストの解答後で共通 */
 function WordDetail({ w, showZh }) {
   return (
     <div className="ccaof-v-detail">
-      <div className="ccaof-v-meaning">{w.ja}</div>
-      {showZh && <div className="ccaof-v-meaning-zh">{w.zh}</div>}
+      <div className="ccaof-v-meaning">{w.ja}<SpeakButton text={w.ja} lang="ja" label="意味を読み上げる" /></div>
+      {showZh && <div className="ccaof-v-meaning-zh">{w.zh}<SpeakButton text={w.zh} lang="zh" label="中文を読み上げる" /></div>}
       {w.examples.map((ex) => (
         <div className="ccaof-v-example" key={ex.itemId}>
           <div className="ccaof-v-example-en">
             <Highlight text={ex.en} forms={w.forms} />
-            <SpeakBtn text={ex.en} small />
+            <SpeakButton text={ex.en} label="例文を読み上げる" />
           </div>
-          {showZh && <div className="ccaof-v-example-zh">{ex.zh}</div>}
+          {showZh && <div className="ccaof-v-example-zh">{ex.zh}<SpeakButton text={ex.zh} lang="zh" label="中文を読み上げる" /></div>}
           <div className="ccaof-v-example-src">問題 {ex.itemId} より</div>
         </div>
       ))}
@@ -176,6 +172,7 @@ function StudyCards({ words, showZh, onExit }) {
   const [marks, setMarks] = useState({});
   const w = words[index];
   const done = index >= words.length;
+  useStopSpeechOn(index);
 
   const mark = (known) => {
     markStudied(w.id, known);
@@ -214,7 +211,7 @@ function StudyCards({ words, showZh, onExit }) {
       <div className={"ccaof-v-card" + (open ? " open" : "")} onClick={() => setOpen(true)}>
         <div className="ccaof-v-word">
           {w.word}
-          <SpeakBtn text={w.word} />
+          <SpeakButton text={w.word} big label="発音を聞く" />
         </div>
         <div className="ccaof-v-pos">{w.pos} ・ {w.questionCount}問に出る</div>
         {open ? <WordDetail w={w} showZh={showZh} /> : <div className="ccaof-v-tap">タップして意味と例文を見る</div>}
@@ -250,6 +247,7 @@ function VocabQuiz({ questions, label, showZh, onExit }) {
 
   const q = questions[index];
   const done = index >= questions.length;
+  useStopSpeechOn(index);
 
   const pick = (i) => {
     if (picked !== null) return;
@@ -304,9 +302,9 @@ function VocabQuiz({ questions, label, showZh, onExit }) {
         <div className="ccaof-v-qeyebrow">{en2ja ? "この単語の意味は？" : "この意味を表す単語は？"}</div>
         <div className="ccaof-v-word">
           {en2ja ? q.word.word : q.word.ja}
-          {en2ja && <SpeakBtn text={q.word.word} />}
+          {en2ja ? <SpeakButton text={q.word.word} big label="発音を聞く" /> : <SpeakButton text={q.word.ja} lang="ja" big label="意味を読み上げる" />}
         </div>
-        {!en2ja && showZh && <div className="ccaof-v-meaning-zh">{q.word.zh}</div>}
+        {!en2ja && showZh && <div className="ccaof-v-meaning-zh">{q.word.zh}<SpeakButton text={q.word.zh} lang="zh" label="中文を読み上げる" /></div>}
         <div className="ccaof-v-pos">{q.word.pos}</div>
       </div>
       <div className="ccaof-choices">
@@ -354,7 +352,7 @@ export default function CertVocab({ showZh, onToggleZh, onExit }) {
   const [domainFilter, setDomainFilter] = useState("all");
   const [unit, setUnit] = useState(0);
   const [direction, setDirection] = useState("en2ja");
-  const [run, setRun] = useState(null); // { kind: "study"|"quiz", words|questions, label }
+  const [run, setRun] = useState(null); // { kind: "study"|"quiz"|"audio", words|questions|tracks, label }
   const [, setStatsNonce] = useState(0);
 
   useEffect(() => {
@@ -385,6 +383,28 @@ export default function CertVocab({ showZh, onToggleZh, onExit }) {
   const zhToggle = (
     <button className="ccaof-zh-toggle" onClick={onToggleZh}>中文訳 {showZh ? "ON" : "OFF"}</button>
   );
+
+  if (run && run.kind === "audio") {
+    return (
+      <>
+        <VocabStyle />
+        <AudioPlayer
+          title={run.label}
+          color={COLOR}
+          tracks={run.tracks}
+          defaultZh={showZh}
+          onTrackDone={(t) => {
+            if (!t.record) return;
+            recordVocabListen(t.record.id);
+            recordListen("word", t.record.id);
+          }}
+          recordNote="最後まで聞いた単語は「学習した単語」に入ります（習熟・正答率は変わりません）。覚えたかどうかはテストで確かめてください。"
+          onExit={exitRun}
+          exitLabel="頻出単語にもどる"
+        />
+      </>
+    );
+  }
 
   if (run) {
     return (
@@ -434,6 +454,7 @@ export default function CertVocab({ showZh, onToggleZh, onExit }) {
       // 「すべて」でも1回は20問まで（英検の単語テストと同じ1回の量）
       questions: buildTest(shuffle(unitWords).slice(0, UNIT_SIZE), all, direction),
     });
+  const startAudio = (words, label) => setRun({ kind: "audio", label, tracks: vocabTracks(words) });
   const startReview = (words) =>
     setRun({ kind: "quiz", label: "頻出単語 復習", questions: buildTest(words.slice(0, UNIT_SIZE), all, direction) });
 
@@ -511,6 +532,27 @@ export default function CertVocab({ showZh, onToggleZh, onExit }) {
           </div>
           <button className="ccaof-btn" style={{ "--c": COLOR }} onClick={startTest} disabled={!unitWords.length}>テストを始める</button>
         </div>
+        <div className="ccaof-audio-card">
+          <div className="ccaof-audio-card-title">🎧 音声で聞く（ハンズフリー）</div>
+          <div className="ccaof-audio-card-desc">
+            読みたくないときは耳で。単語 → 間 → 意味 → 例文 → 単語 の順に自動で読み進めます。
+            一時停止・前へ／次へ・速度（0.75〜1.25倍）・読む言語（英語／日本語／中文）を切り替えられます。
+          </div>
+          {isSpeechSupported() ? (
+            <div className="ccaof-audio-row">
+              <button className="ccaof-btn" style={{ "--c": "#5B4B8A" }} onClick={() => startAudio(unitWords, `頻出単語 ${filterLabel}${unitLabel}`)} disabled={!unitWords.length}>
+                この範囲を聞く（{unitWords.length}語）
+              </button>
+              {reviewWords.length > 0 && (
+                <button className="ccaof-btn-ghost" onClick={() => startAudio(reviewWords, "まちがえた単語")}>
+                  まちがえた単語を聞く（{reviewWords.length}語）
+                </button>
+              )}
+            </div>
+          ) : (
+            <AudioUnsupported />
+          )}
+        </div>
       </div>
 
       <div className="ccaof-sub-head">この範囲の単語</div>
@@ -520,7 +562,7 @@ export default function CertVocab({ showZh, onToggleZh, onExit }) {
           const inReview = !!store.review[w.id];
           return (
             <div className="ccaof-v-row" key={w.id}>
-              <span className="ccaof-v-row-word">{w.word}</span>
+              <span className="ccaof-v-row-word">{w.word}<SpeakButton text={w.word} label="発音を聞く" /></span>
               <span className="ccaof-v-row-ja">{w.ja}{showZh ? ` ／ ${w.zh}` : ""}</span>
               <span className="ccaof-v-row-n">{w.questionCount}問</span>
               <span className="ccaof-v-row-st">{isMastered(st) ? "✅" : inReview ? "🔁" : st ? "・" : ""}</span>

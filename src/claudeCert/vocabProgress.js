@@ -87,6 +87,16 @@ export function markStudied(id, known) {
   save(store);
 }
 
+/** 音声モードで1語を最後まで聞いた。習熟・正答率は変えず、「学習した単語」に入るだけ */
+export function recordVocabListen(id) {
+  const store = loadVocabStore();
+  const w = store.words[id] || { seen: 0, correct: 0, streak: 0 };
+  w.listens = (w.listens || 0) + 1;
+  w.listenedAt = new Date().toISOString();
+  store.words[id] = w;
+  save(store);
+}
+
 export function isMastered(entry) {
   return !!entry && (entry.streak || 0) >= MASTERY_STREAK;
 }
@@ -101,7 +111,7 @@ export function getVocabReviewIds() {
   );
 }
 
-/** 一度でも学習した（カードを見た・テストに出た）のに、まだ習熟していない単語 id */
+/** 一度でも学習した（カードを見た・テストに出た・音声で聞いた）のに、まだ習熟していない単語 id */
 export function getUnmasteredIds() {
   const words = loadVocabStore().words;
   return Object.keys(words).filter((id) => !isMastered(words[id]));

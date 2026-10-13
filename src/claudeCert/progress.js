@@ -12,6 +12,7 @@ import { DOMAINS } from "./domains";
 import { recordStudy } from "../studyLog";
 import { resetVocabProgress } from "./vocabProgress";
 import { resetMistakes } from "./mistakes";
+import { resetListen } from "./listen";
 
 const PROGRESS_KEY = () => certKey("ProgressV1");
 const REVIEW_KEY = () => certKey("ReviewV1");
@@ -114,6 +115,7 @@ export function resetProgress() {
   write(REVIEW_KEY(), {});
   resetVocabProgress();
   resetMistakes();
+  resetListen();
 }
 
 /* ---------- 復習リスト（間違えた問題だけ集める） ---------- */

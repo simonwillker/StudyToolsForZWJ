@@ -26,9 +26,10 @@ const BACKUP_SUFFIXES = [
   "ExamResultsV1", // 模擬試験の結果（最大20件）
   "VocabV1", // 頻出単語の学習記録と復習リスト
   "MistakesV1", // 錯題本（まちがえた問題の間隔復習。v1.31.0〜）
+  "ListenV1", // 音声モードで聞いた問題・讲义・単語（v1.32.0〜）
 ];
 
-/** いま開いている資格のキー。CCAO-F は ccaofProgressV1 … ccaofMistakesV1 */
+/** いま開いている資格のキー。CCAO-F は ccaofProgressV1 … ccaofListenV1 */
 export function backupKeys() {
   return BACKUP_SUFFIXES.map(certKey);
 }
@@ -81,7 +82,14 @@ export function describeBackup(backup) {
   /* v1.30.0 までのバックアップには錯題本が無い。復元後に復習リストから作り直されるので
      その件数を見せる（null のときは画面で「復習リストから作成」と出す） */
   const mistakeCount = mistakes && mistakes.items ? Object.keys(mistakes.items).length : null;
-  return { attempted, correct, days, reviewCount, exams, vocabWords, vocabReview, mistakeCount, exportedAt: backup?.exportedAt || null };
+  const listen = d[certKey("ListenV1")] || {};
+  const listenedItems = Object.keys(listen.items || {}).length;
+  const listenedLessons = Object.keys(listen.lessons || {}).length;
+  return {
+    attempted, correct, days, reviewCount, exams, vocabWords, vocabReview, mistakeCount,
+    listenedItems, listenedLessons,
+    exportedAt: backup?.exportedAt || null,
+  };
 }
 
 /** 読み込もうとしているファイルが本当にいま開いている資格のバックアップか確かめる。 */
