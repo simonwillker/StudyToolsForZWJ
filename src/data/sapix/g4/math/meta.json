@@ -9,11 +9,13 @@
     { "id": "keisan", "label": "数と計算", "color": "#2F5D8A" },
     { "id": "bunshou", "label": "文章題", "color": "#2F7A4F" },
     { "id": "zukei", "label": "図形", "color": "#8A3B2F" },
-    { "id": "sonota", "label": "規則性・場合の数", "color": "#5A3B8A" }
+    { "id": "sonota", "label": "規則性・場合の数", "color": "#5A3B8A" },
+    { "id": "henka", "label": "速さ・変化とグラフ", "color": "#C8743D" }
   ],
   "units": [
     { "id": "kufu", "label": "計算のくふう", "category": "keisan", "file": "kufu.json" },
     { "id": "yakusu", "label": "約数と倍数", "category": "keisan", "file": "yakusu.json" },
+    { "id": "seishitsu", "label": "数のせいしつ", "category": "keisan", "file": "seishitsu.json" },
     { "id": "bunsu", "label": "分数の計算", "category": "keisan", "file": "bunsu.json" },
     { "id": "wasa", "label": "和差算", "category": "bunshou", "file": "wasa.json" },
     { "id": "bunpai", "label": "分配算", "category": "bunshou", "file": "bunpai.json" },
@@ -26,6 +28,9 @@
     { "id": "menseki", "label": "三角形・四角形の面積", "category": "zukei", "file": "menseki.json" },
     { "id": "rittai", "label": "立体（直方体・展開図）", "category": "zukei", "file": "rittai.json" },
     { "id": "kisoku", "label": "規則性（数列・図形の並び）", "category": "sonota", "file": "kisoku.json" },
-    { "id": "baai", "label": "場合の数", "category": "sonota", "file": "baai.json" }
+    { "id": "baai", "label": "場合の数", "category": "sonota", "file": "baai.json" },
+    { "id": "hayasa", "label": "速さ", "category": "henka", "file": "hayasa.json" },
+    { "id": "graph", "label": "グラフの読み取り（変化とグラフ）", "category": "henka", "file": "graph.json" },
+    { "id": "suisou", "label": "深さの変化（水そうとグラフ）", "category": "henka", "file": "suisou.json" }
   ]
 }
