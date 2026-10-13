@@ -11,6 +11,7 @@ import { DOMAINS } from "./ccaofDomains";
 import { recordStudy } from "./studyLog";
 import { resetVocabProgress } from "./ccaofVocabProgress";
 import { resetMistakes } from "./ccaofMistakes";
+import { resetListen } from "./ccaofListen";
 
 const PROGRESS_KEY = "ccaofProgressV1";
 const REVIEW_KEY = "ccaofReviewV1";
@@ -113,6 +114,7 @@ export function resetProgress() {
   write(REVIEW_KEY, {});
   resetVocabProgress();
   resetMistakes();
+  resetListen();
 }
 
 /* ---------- 復習リスト（間違えた問題だけ集める） ---------- */
