@@ -1,5 +1,6 @@
 import React, { useState, Suspense, lazy } from "react";
 import { LEARNERS, getLearner, setLearner, clearLearner, getLastLearner } from "./learner";
+import { migrateActiveApp } from "./sapixStorage";
 
 /* アプリ本体は選んだほうだけ読む。
    きょうのドリルを使う日に英検の問題まで読み込む必要はない。 */
@@ -7,8 +8,6 @@ const DailyDrill = lazy(() => import("./DailyDrill.jsx"));
 const EikenApp = lazy(() => import("./EikenApp.jsx"));
 const CcaofApp = lazy(() => import("./CcaofApp.jsx"));
 const SapixApp = lazy(() => import("./SapixApp.jsx"));
-/** Sapix の4教科。どれも SapixApp を教科を変えて使う */
-const SAPIX_APPS = ["sapixMath", "sapixKokugo", "sapixShakai", "sapixRika", "sapixEigo"];
 const StudyHistory = lazy(() => import("./StudyHistory.jsx"));
 
 function AppLoading() {
@@ -21,11 +20,18 @@ function AppLoading() {
 
 const APP_STORAGE_KEY = "studyToolsActiveApp";
 
+/**
+ * 最後に開いたアプリ。v1.28.0 までの Sapix の科目別の値（"sapixMath" など）は
+ * "sapix" に直して保存し直し、その科目（4年）を開く。
+ */
 function loadInitialApp() {
   try {
-    return window.localStorage.getItem(APP_STORAGE_KEY) || "menu";
+    const stored = window.localStorage.getItem(APP_STORAGE_KEY);
+    const m = migrateActiveApp(stored);
+    if (stored && m.app !== stored) window.localStorage.setItem(APP_STORAGE_KEY, m.app);
+    return m;
   } catch (e) {
-    return "menu";
+    return { app: "menu", course: null };
   }
 }
 
@@ -78,7 +84,10 @@ function LearnerPicker({ onPick }) {
 }
 
 export default function App() {
-  const [active, setActive] = useState(loadInitialApp);
+  const [initial] = useState(loadInitialApp);
+  const [active, setActive] = useState(initial.app);
+  // 旧形式から移したときだけ、開いていた科目をそのまま開く（最初の 1 回だけ）
+  const [sapixCourse, setSapixCourse] = useState(initial.course);
   const [learner, setLearnerState] = useState(getLearner);
 
   const pickLearner = (id) => {
@@ -93,6 +102,7 @@ export default function App() {
 
   const choose = (id) => {
     setActive(id);
+    setSapixCourse(null);
     // 勉強履歴は次に開いたときの最初の画面にはしない
     if (id === "history") return;
     try {
@@ -128,10 +138,10 @@ export default function App() {
         <LearnerBadge learner={learner} />
       </Suspense>
     );
-  if (SAPIX_APPS.includes(active))
+  if (active === "sapix")
     return (
       <Suspense fallback={<AppLoading />}>
-        <SapixApp key={active} subjectId={active} onExitApp={backToMenu} />
+        <SapixApp initialCourse={sapixCourse} onExitApp={backToMenu} />
         <LearnerBadge learner={learner} />
       </Suspense>
     );
@@ -188,25 +198,9 @@ export default function App() {
             <div className="label">CCAO-F 対策</div>
             <div className="desc">Claude Certified Associate – Foundations の練習問題。公式ブループリントの7ドメイン別、ドメイン別正答率つき</div>
           </button>
-          <button className="app-switcher-card" style={{ "--c": "#2F7A8A" }} onClick={() => choose("sapixMath")}>
-            <div className="label">Sapix 算数</div>
-            <div className="desc">小4 冬期講習相当の15単元×20問（計算のくふう・つるかめ算・角度・場合の数など）。解き方の解説・まちがえた問題の復習・単元ごとの正答率つき</div>
-          </button>
-          <button className="app-switcher-card" style={{ "--c": "#9A4A2F" }} onClick={() => choose("sapixKokugo")}>
-            <div className="label">Sapix 国語</div>
-            <div className="desc">小4 冬期講習相当の10単元×20問。漢字の読み書き・慣用句・ことわざ・四字熟語・文法・説明文と物語文の読解</div>
-          </button>
-          <button className="app-switcher-card" style={{ "--c": "#3F6F52" }} onClick={() => choose("sapixShakai")}>
-            <div className="label">Sapix 社会</div>
-            <div className="desc">小4 冬期講習相当の10単元×20問。地図の見方・都道府県・地形・気候・農業・水産業・工業・くらし</div>
-          </button>
-          <button className="app-switcher-card" style={{ "--c": "#6A4A9A" }} onClick={() => choose("sapixRika")}>
-            <div className="label">Sapix 理科</div>
-            <div className="desc">小4 冬期講習相当の10単元×20問。植物・こん虫・季節・星・月・太陽・電気・磁石・温まり方・水のすがた</div>
-          </button>
-          <button className="app-switcher-card" style={{ "--c": "#2F7A8A" }} onClick={() => choose("sapixEigo")}>
-            <div className="label">Sapix 英語</div>
-            <div className="desc">英検5級〜4級程度の10単元×20問。単語・be 動詞・一般動詞・疑問詞・進行形・過去形・can/will・会話表現・短い英文の読解</div>
+          <button className="app-switcher-card" style={{ "--c": "#2F7A8A" }} onClick={() => choose("sapix")}>
+            <div className="label">Sapix</div>
+            <div className="desc">学年 → 科目（算数・国語・理科・社会・英語）→ 単元の順に選ぶ。いまは4年（冬期講習相当、英語は英検5級〜4級程度）。解説・まちがえた問題の復習・単元ごとの正答率つき</div>
           </button>
           <button className="app-switcher-card" style={{ "--c": "#5A3B8A" }} onClick={() => choose("history")}>
             <div className="label">📅 勉強履歴</div>

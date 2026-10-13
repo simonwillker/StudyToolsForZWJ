@@ -1,5 +1,6 @@
 /* ============================================================
-   Sapix 国語・社会・理科・英語 問題データの検査
+   Sapix 国語・社会・理科・英語 問題データの検査（全学年）
+   ＋ src/data/sapix/ のフォルダの形（学年・科目）の検査
 
    算数（validateSapixMath.mjs）と同じ形のデータだが、正解を計算で
    確かめられない教科なので、検算のかわりに形と整合性を厳しく見る。
@@ -13,23 +14,54 @@
    - 同じ単元に同じ問題文がない
    ============================================================ */
 
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const SUBJECTS = [
-  { dir: "sapixKokugo", label: "国語", prefix: "sk-" },
-  { dir: "sapixShakai", label: "社会", prefix: "ss-" },
-  { dir: "sapixRika", label: "理科", prefix: "sr-" },
-  { dir: "sapixEigo", label: "英語", prefix: "se-" },
+/* src/data/sapix/g<学年>/<科目>/ をすべて検査する。算数は validateSapixMath.mjs */
+const KINDS = [
+  { id: "kokugo", label: "国語", prefix: "sk-" },
+  { id: "shakai", label: "社会", prefix: "ss-" },
+  { id: "rika", label: "理科", prefix: "sr-" },
+  { id: "eigo", label: "英語", prefix: "se-" },
 ];
+const KNOWN_SUBJECTS = ["math", ...KINDS.map((k) => k.id)];
+const sapixDir = join(here, "..", "src", "data", "sapix");
+
+const errors = [];
+const warnings = [];
+
+/* フォルダの形：g1〜g6 の下に科目のフォルダ、meta.json の grade・subject がフォルダと合っているか */
+const SUBJECTS = [];
+for (const g of readdirSync(sapixDir).sort()) {
+  if (!statSync(join(sapixDir, g)).isDirectory()) continue;
+  if (!/^g[1-6]$/.test(g)) {
+    errors.push(`sapix/${g}: 学年のフォルダは g1〜g6`);
+    continue;
+  }
+  for (const s of readdirSync(join(sapixDir, g)).sort()) {
+    if (!statSync(join(sapixDir, g, s)).isDirectory()) continue;
+    const where = `sapix/${g}/${s}`;
+    if (!KNOWN_SUBJECTS.includes(s)) {
+      errors.push(`${where}: 科目のフォルダは ${KNOWN_SUBJECTS.join(" / ")} のどれか`);
+      continue;
+    }
+    if (!existsSync(join(sapixDir, g, s, "meta.json"))) {
+      errors.push(`${where}: meta.json が無い`);
+      continue;
+    }
+    const m = JSON.parse(readFileSync(join(sapixDir, g, s, "meta.json"), "utf8"));
+    if (m.grade !== Number(g.slice(1))) errors.push(`${where}/meta.json: grade が ${m.grade}（${g.slice(1)} であるべき）`);
+    if (m.subject !== s) errors.push(`${where}/meta.json: subject が ${m.subject}（${s} であるべき）`);
+    const kind = KINDS.find((k) => k.id === s);
+    if (kind) SUBJECTS.push({ dir: `sapix/${g}/${s}`, label: `${g.slice(1)}年 ${kind.label}`, prefix: kind.prefix });
+  }
+}
 const UNIT_SIZE = 20;
 const LEVELS = ["基本", "標準", "発展"];
 const TYPES = ["choice", "text", "number"];
 
-const errors = [];
-const warnings = [];
 const seenIds = new Set();
 const table = [];
 let total = 0;

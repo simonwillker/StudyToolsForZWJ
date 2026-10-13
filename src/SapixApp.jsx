@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { newStudySession } from "./studyLog";
 import {
-  getSubject,
+  AVAILABLE_GRADES,
+  coursesOfGrade,
+  getCourse,
   findUnit,
   peekUnit,
   loadUnit,
@@ -25,12 +27,14 @@ import {
 import { downloadBackup, parseBackup, applyBackup, describeBackup } from "./sapixBackup";
 
 /* ============================================================
-   Sapix 算数・国語・社会・理科（小4 冬期講習相当）・英語（英検5級〜4級程度）
+   Sapix：学年 → 科目 → 単元
 
-   教科（subjectId）ごとに同じ画面を使う。単元一覧 → 単元を選んで20問 →
+   トップ画面のカードは「Sapix」1 枚。中で学年（1〜6年のうちデータが
+   あるもの）→ 科目（算数・国語・理科・社会・英語のうちデータがあるもの）
+   を選び、科目の画面（SapixCourse）で単元一覧 → 単元を選んで20問 →
    1問ずつ答え合わせと解説 → 結果 → まちがえた問題だけもう一度、の流れ。
    見た目と操作は CCAO-F 対策（CcaofApp.jsx）にそろえてある。
-   問題データは src/data/ の sapixMath・sapixKokugo・sapixShakai・sapixRika・sapixEigo（スキーマは各フォルダの README.md）。
+   問題データは src/data/sapix/g<学年>/<科目>/（スキーマは各フォルダの README.md）。
    ============================================================ */
 
 const APP_VERSION = __APP_VERSION__;
@@ -280,8 +284,7 @@ function Result({ unit, run, questions, onRetryWrong, onBack }) {
   );
 }
 
-export default function SapixApp({ subjectId, onExitApp }) {
-  const subject = getSubject(subjectId);
+function SapixCourse({ subject, onBack, onExitApp }) {
   const ACCENT = subject.accent;
   const [screen, setScreen] = useState("units"); // units | unit | quiz | result | progress
   const [unitId, setUnitId] = useState(null);
@@ -347,10 +350,10 @@ export default function SapixApp({ subjectId, onExitApp }) {
     const okToApply = window.confirm(
       `${when} のバックアップです。\n\n` +
         `・解いた問題　${d.attempted}問（正解 ${d.correct}問）\n` +
-        (d.subjects.length ? `・教科　${d.subjects.join("、")}\n` : "") +
+        (d.subjects.length ? `・学年・科目　${d.subjects.join("、")}\n` : "") +
         `・学習した日数　${d.days}日\n` +
         `・復習リスト　${d.reviewCount}問\n\n` +
-        `今この端末にある、バックアップに入っている教科の Sapix の記録は、これで置き換えられます。よろしいですか？`
+        `今この端末にある、バックアップに入っている学年・科目の Sapix の記録は、これで置き換えられます。よろしいですか？`
     );
     if (!okToApply) return;
     applyBackup(result.backup);
@@ -488,6 +491,7 @@ export default function SapixApp({ subjectId, onExitApp }) {
 
       <div className="sm-top-nav">
         <div style={{ display: "flex", gap: 12 }}>
+          <button className="sm-back-link" onClick={onBack}>← 科目を選ぶ</button>
           <button className="sm-back-link" onClick={onExitApp}>他のアプリへ</button>
           <button className="sm-back-link" onClick={() => setScreen("progress")}>📊 学習記録</button>
         </div>
@@ -652,13 +656,102 @@ export default function SapixApp({ subjectId, onExitApp }) {
             {backupMsg && <div className={`sm-backup-msg ${backupMsg.kind}`}>{backupMsg.text}</div>}
           </div>
           <div className="sm-box">
-            <div className="sm-box-desc">{subject.title}の記録だけを消します（ほかの教科や英検・CCAO-F の記録はそのまま）。</div>
+            <div className="sm-box-desc">{subject.title}の記録だけを消します（ほかの学年・科目や英検・CCAO-F の記録はそのまま）。</div>
             <button className="sm-btn-ghost" onClick={() => { if (window.confirm(`${subject.title}の学習記録と復習リストをすべて消します。よろしいですか？`)) { resetProgress(subject); setNonce((n) => n + 1); } }}>
               学習記録をリセット
             </button>
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+/* ---------- 学年と科目を選ぶ画面 ---------- */
+
+/** 科目カードの小さな集計（のべ解答数・復習待ち） */
+function courseSummary(course) {
+  const attempted = course.units.reduce((n, u) => n + getUnitStats(course, u.id).attempted, 0);
+  return { attempted, review: getTotalReviewCount(course) };
+}
+
+export default function SapixApp({ initialCourse = null, onExitApp }) {
+  const initial = initialCourse ? getCourse(initialCourse.grade, initialCourse.subject) : null;
+  // 学年が 1 つしかなくても学年の画面は出す（ほかの学年を足したときに迷わないように）
+  const [grade, setGrade] = useState(initial ? initial.grade : null);
+  const [course, setCourse] = useState(initial);
+
+  if (course)
+    return <SapixCourse key={course.id} subject={course} onBack={() => setCourse(null)} onExitApp={onExitApp} />;
+
+  const courses = grade ? coursesOfGrade(grade) : [];
+  return (
+    <div className="sx-app">
+      <style>{`
+        .sx-app { min-height: 100vh; background: #F7F6F2; font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif; color: #2A2E27; padding: 28px 16px 60px; }
+        .sx-inner { max-width: 720px; margin: 0 auto; }
+        .sx-top-nav { display: flex; justify-content: space-between; align-items: center; max-width: 720px; margin: 0 auto 12px; }
+        .sx-back-link { font-size: 13px; color: #6B7280; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; background: none; border: none; padding: 0; }
+        .sx-version { font-size: 11px; color: #9AA093; font-weight: 700; display: flex; flex-direction: column; align-items: flex-end; line-height: 1.3; }
+        .sx-version span:last-child { font-weight: 400; }
+        .sx-title-block { text-align: center; margin-bottom: 20px; }
+        .sx-eyebrow { font-size: 11px; letter-spacing: 2px; color: #9AA093; font-weight: 700; }
+        .sx-serif { font-family: 'Shippori Mincho', serif; font-size: 28px; margin: 6px 0; }
+        .sx-under { width: 40px; height: 3px; background: #2F5D8A; margin: 0 auto; }
+        .sx-lead { font-size: 12.5px; color: #6B7280; line-height: 1.7; max-width: 560px; margin: 12px auto 0; }
+        .sx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+        .sx-card { border: 2px solid var(--c); border-radius: 12px; padding: 16px; text-align: left; background: #fff; cursor: pointer; }
+        .sx-card:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,0.07); }
+        .sx-card-label { font-size: 20px; font-weight: 800; color: var(--c); }
+        .sx-card-desc { font-size: 12px; color: #6B7280; margin-top: 6px; line-height: 1.6; }
+        .sx-card-review { color: #C8323D; font-weight: 700; }
+      `}</style>
+      <div className="sx-top-nav">
+        <div style={{ display: "flex", gap: 12 }}>
+          {grade && <button className="sx-back-link" onClick={() => setGrade(null)}>← 学年を選ぶ</button>}
+          <button className="sx-back-link" onClick={onExitApp}>他のアプリへ</button>
+        </div>
+        <div className="sx-version">
+          <span>v{APP_VERSION}</span>
+          <span>{BUILD_DATE}</span>
+        </div>
+      </div>
+      <div className="sx-inner">
+        <div className="sx-title-block">
+          <div className="sx-eyebrow">SAPIX</div>
+          <h1 className="sx-serif">{grade ? `Sapix ${grade}年` : "Sapix"}</h1>
+          <div className="sx-under" />
+          <div className="sx-lead">{grade ? "科目を選んでください。" : "学年を選んでください。"}</div>
+        </div>
+        {!grade && (
+          <div className="sx-grid">
+            {AVAILABLE_GRADES.map((g) => (
+              <button key={g} className="sx-card" style={{ "--c": "#2F5D8A" }} onClick={() => setGrade(g)}>
+                <div className="sx-card-label">{g}年</div>
+                <div className="sx-card-desc">{coursesOfGrade(g).map((c) => c.subjectLabel).join("・")}</div>
+              </button>
+            ))}
+          </div>
+        )}
+        {grade && (
+          <div className="sx-grid">
+            {courses.map((c) => {
+              const s = courseSummary(c);
+              return (
+                <button key={c.id} className="sx-card" style={{ "--c": c.card }} onClick={() => setCourse(c)}>
+                  <div className="sx-card-label">{c.subjectLabel}</div>
+                  <div className="sx-card-desc">
+                    {c.target && <>{c.target}・</>}{c.units.length}単元
+                    <br />
+                    {s.attempted ? `のべ ${s.attempted}問` : "未学習"}
+                    {s.review > 0 && <span className="sx-card-review">　復習 {s.review}問</span>}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

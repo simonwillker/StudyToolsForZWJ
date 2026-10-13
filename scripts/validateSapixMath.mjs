@@ -12,12 +12,17 @@
    - 図（figure）は <svg で始まり viewBox を持つか
    ============================================================ */
 
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(here, "..", "src", "data", "sapixMath");
+// src/data/sapix/g<学年>/math/ をすべて検査する（学年を足すと自動でふえる）
+const sapixDir = join(here, "..", "src", "data", "sapix");
+const MATH_DIRS = readdirSync(sapixDir)
+  .filter((g) => /^g[1-6]$/.test(g) && existsSync(join(sapixDir, g, "math", "meta.json")))
+  .sort()
+  .map((g) => ({ grade: g, dir: join(sapixDir, g, "math") }));
 const UNIT_SIZE = 20;
 const LEVELS = ["基本", "標準", "発展"];
 const TYPES = ["number", "fraction", "choice"];
@@ -141,124 +146,129 @@ function parseFractionAnswer(s) {
 
 /* ---------- 検査本体 ---------- */
 
-const meta = JSON.parse(readFileSync(join(dataDir, "meta.json"), "utf8"));
 const seenIds = new Set();
 const seenQ = new Map();
 const table = [];
 let total = 0;
 let figures = 0;
+let unitCount = 0;
 
-const unitIds = new Set();
-for (const u of meta.units) {
-  if (!u.id || !u.label || !u.category || !u.file) errors.push(`meta.json: 単元 ${u.id || "?"} に id/label/category/file のどれかが無い`);
-  if (unitIds.has(u.id)) errors.push(`meta.json: 単元 id ${u.id} が重複`);
-  unitIds.add(u.id);
-  if (!meta.categories.some((c) => c.id === u.category)) errors.push(`meta.json: 単元 ${u.id} の category "${u.category}" が categories に無い`);
-}
+for (const { grade, dir: dataDir } of MATH_DIRS) {
+  const meta = JSON.parse(readFileSync(join(dataDir, "meta.json"), "utf8"));
 
-for (const u of meta.units) {
-  let data;
-  try {
-    data = JSON.parse(readFileSync(join(dataDir, u.file), "utf8"));
-  } catch (e) {
-    errors.push(`${u.file}: 読めない（${e.message}）`);
-    continue;
+  const unitIds = new Set();
+  for (const u of meta.units) {
+    if (!u.id || !u.label || !u.category || !u.file) errors.push(`meta.json: 単元 ${u.id || "?"} に id/label/category/file のどれかが無い`);
+    if (unitIds.has(u.id)) errors.push(`meta.json: 単元 id ${u.id} が重複`);
+    unitIds.add(u.id);
+    if (!meta.categories.some((c) => c.id === u.category)) errors.push(`meta.json: 単元 ${u.id} の category "${u.category}" が categories に無い`);
   }
-  if (data.unit !== u.id) errors.push(`${u.file}: unit "${data.unit}" が meta.json の id "${u.id}" と違う`);
-  const qs = data.questions || [];
-  if (qs.length !== UNIT_SIZE) errors.push(`${u.file}: 問題数が ${qs.length}（${UNIT_SIZE}問であるべき）`);
-  const levelCount = { 基本: 0, 標準: 0, 発展: 0 };
-  let lastLevel = 0;
 
-  qs.forEach((q, i) => {
-    const at = `${u.file}[${i}] ${q.id || "(id なし)"}`;
-    total += 1;
-
-    if (!q.id) errors.push(`${at}: id が無い`);
-    else if (seenIds.has(q.id)) errors.push(`${at}: id が重複している`);
-    else seenIds.add(q.id);
-
-    if (!LEVELS.includes(q.level)) errors.push(`${at}: level は 基本/標準/発展 のどれか`);
-    else {
-      levelCount[q.level] += 1;
-      const lv = LEVELS.indexOf(q.level);
-      if (lv < lastLevel) errors.push(`${at}: 易→難の順になっていない（${q.level} が前の問題より易しい）`);
-      lastLevel = Math.max(lastLevel, lv);
+  for (const u of meta.units) {
+    let data;
+    try {
+      data = JSON.parse(readFileSync(join(dataDir, u.file), "utf8"));
+    } catch (e) {
+      errors.push(`${u.file}: 読めない（${e.message}）`);
+      continue;
     }
+    if (data.unit !== u.id) errors.push(`${u.file}: unit "${data.unit}" が meta.json の id "${u.id}" と違う`);
+    const qs = data.questions || [];
+    if (qs.length !== UNIT_SIZE) errors.push(`${u.file}: 問題数が ${qs.length}（${UNIT_SIZE}問であるべき）`);
+    const levelCount = { 基本: 0, 標準: 0, 発展: 0 };
+    let lastLevel = 0;
 
-    if (!q.q || typeof q.q !== "string") errors.push(`${at}: 問題文 q が無い`);
-    else if (seenQ.has(q.q)) errors.push(`${at}: 問題文が ${seenQ.get(q.q)} と同じ`);
-    else seenQ.set(q.q, q.id);
-    if (!q.explain || q.explain.length < 15) errors.push(`${at}: 解説 explain が無いか短すぎる`);
-    if (q.unit !== undefined && typeof q.unit !== "string") errors.push(`${at}: unit は文字列`);
+    qs.forEach((q, i) => {
+      const at = `${u.file}[${i}] ${q.id || "(id なし)"}`;
+      total += 1;
 
-    if (!TYPES.includes(q.type)) {
-      errors.push(`${at}: type は number / fraction / choice のどれか`);
-      return;
-    }
+      if (!q.id) errors.push(`${at}: id が無い`);
+      else if (seenIds.has(q.id)) errors.push(`${at}: id が重複している`);
+      else seenIds.add(q.id);
 
-    // 正解の型
-    if (q.type === "number" && (typeof q.answer !== "number" || !Number.isFinite(q.answer)))
-      errors.push(`${at}: number の answer は数値`);
-    let frac = null;
-    if (q.type === "fraction") {
-      frac = parseFractionAnswer(q.answer);
-      if (!frac) errors.push(`${at}: fraction の answer は "19/12" の形の文字列`);
+      if (!LEVELS.includes(q.level)) errors.push(`${at}: level は 基本/標準/発展 のどれか`);
       else {
-        if (gcd(frac.n, frac.d) !== 1) errors.push(`${at}: answer "${q.answer}" が約分されていない`);
-        if (frac.d === 1) errors.push(`${at}: 答えが整数なら type は number にする`);
+        levelCount[q.level] += 1;
+        const lv = LEVELS.indexOf(q.level);
+        if (lv < lastLevel) errors.push(`${at}: 易→難の順になっていない（${q.level} が前の問題より易しい）`);
+        lastLevel = Math.max(lastLevel, lv);
       }
-      if (q.form !== undefined && !["mixed", "improper"].includes(q.form)) errors.push(`${at}: form は mixed / improper`);
-    }
-    if (q.type === "choice") {
-      if (!Array.isArray(q.choices) || q.choices.length < 2) errors.push(`${at}: choices が2つ以上必要`);
-      else {
-        if (new Set(q.choices).size !== q.choices.length) errors.push(`${at}: choices に同じものがある`);
-        if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= q.choices.length)
-          errors.push(`${at}: choice の answer は choices の番号（0から）`);
-      }
-    } else if (q.choices) errors.push(`${at}: choices は choice のときだけ`);
 
-    // 検算
-    if (!q.calc) {
-      errors.push(`${at}: 検算式 calc が無い`);
-    } else {
-      let v;
-      try {
-        v = runCalc(q.calc);
-      } catch (e) {
-        errors.push(`${at}: calc を実行できない（${e.message}）`);
+      if (!q.q || typeof q.q !== "string") errors.push(`${at}: 問題文 q が無い`);
+      else if (seenQ.has(q.q)) errors.push(`${at}: 問題文が ${seenQ.get(q.q)} と同じ`);
+      else seenQ.set(q.q, q.id);
+      if (!q.explain || q.explain.length < 15) errors.push(`${at}: 解説 explain が無いか短すぎる`);
+      if (q.unit !== undefined && typeof q.unit !== "string") errors.push(`${at}: unit は文字列`);
+
+      if (!TYPES.includes(q.type)) {
+        errors.push(`${at}: type は number / fraction / choice のどれか`);
         return;
       }
-      let ok = false;
-      if (q.type === "number") {
-        const num = v && v.isRat ? v.n / v.d : v;
-        ok = typeof num === "number" && Math.abs(num - q.answer) < 1e-9;
-      } else if (q.type === "fraction") {
-        ok = !!(v && v.isRat && frac && v.n === frac.n && v.d === frac.d);
-      } else {
-        ok = Array.isArray(q.choices) && v === q.choices[q.answer];
+
+      // 正解の型
+      if (q.type === "number" && (typeof q.answer !== "number" || !Number.isFinite(q.answer)))
+        errors.push(`${at}: number の answer は数値`);
+      let frac = null;
+      if (q.type === "fraction") {
+        frac = parseFractionAnswer(q.answer);
+        if (!frac) errors.push(`${at}: fraction の answer は "19/12" の形の文字列`);
+        else {
+          if (gcd(frac.n, frac.d) !== 1) errors.push(`${at}: answer "${q.answer}" が約分されていない`);
+          if (frac.d === 1) errors.push(`${at}: 答えが整数なら type は number にする`);
+        }
+        if (q.form !== undefined && !["mixed", "improper"].includes(q.form)) errors.push(`${at}: form は mixed / improper`);
       }
-      if (!ok) errors.push(`${at}: 検算が合わない（calc=${v && v.isRat ? `${v.n}/${v.d}` : JSON.stringify(v)}, answer=${JSON.stringify(q.answer)}）`);
-    }
+      if (q.type === "choice") {
+        if (!Array.isArray(q.choices) || q.choices.length < 2) errors.push(`${at}: choices が2つ以上必要`);
+        else {
+          if (new Set(q.choices).size !== q.choices.length) errors.push(`${at}: choices に同じものがある`);
+          if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= q.choices.length)
+            errors.push(`${at}: choice の answer は choices の番号（0から）`);
+        }
+      } else if (q.choices) errors.push(`${at}: choices は choice のときだけ`);
 
-    if (q.figure !== undefined) {
-      figures += 1;
-      if (typeof q.figure !== "string" || !q.figure.trim().startsWith("<svg") || !/viewBox=/.test(q.figure) || !q.figure.trim().endsWith("</svg>"))
-        errors.push(`${at}: figure は viewBox つきの <svg>…</svg>`);
-      if (/<script|\son\w+=/i.test(q.figure)) errors.push(`${at}: figure にスクリプトを入れない`);
-      if (!q.figureAlt) warnings.push(`${at}: figureAlt（図の説明）が無い`);
-    }
-  });
+      // 検算
+      if (!q.calc) {
+        errors.push(`${at}: 検算式 calc が無い`);
+      } else {
+        let v;
+        try {
+          v = runCalc(q.calc);
+        } catch (e) {
+          errors.push(`${at}: calc を実行できない（${e.message}）`);
+          return;
+        }
+        let ok = false;
+        if (q.type === "number") {
+          const num = v && v.isRat ? v.n / v.d : v;
+          ok = typeof num === "number" && Math.abs(num - q.answer) < 1e-9;
+        } else if (q.type === "fraction") {
+          ok = !!(v && v.isRat && frac && v.n === frac.n && v.d === frac.d);
+        } else {
+          ok = Array.isArray(q.choices) && v === q.choices[q.answer];
+        }
+        if (!ok) errors.push(`${at}: 検算が合わない（calc=${v && v.isRat ? `${v.n}/${v.d}` : JSON.stringify(v)}, answer=${JSON.stringify(q.answer)}）`);
+      }
 
-  if (levelCount.基本 < 6 || levelCount.発展 < 3 || levelCount.発展 > 6)
-    warnings.push(`${u.file}: 難易度の配分が 基本${levelCount.基本}・標準${levelCount.標準}・発展${levelCount.発展}（目安 8・8・4）`);
-  table.push({ 単元: u.label, 分類: u.category, 問題数: qs.length, 基本: levelCount.基本, 標準: levelCount.標準, 発展: levelCount.発展 });
+      if (q.figure !== undefined) {
+        figures += 1;
+        if (typeof q.figure !== "string" || !q.figure.trim().startsWith("<svg") || !/viewBox=/.test(q.figure) || !q.figure.trim().endsWith("</svg>"))
+          errors.push(`${at}: figure は viewBox つきの <svg>…</svg>`);
+        if (/<script|\son\w+=/i.test(q.figure)) errors.push(`${at}: figure にスクリプトを入れない`);
+        if (!q.figureAlt) warnings.push(`${at}: figureAlt（図の説明）が無い`);
+      }
+    });
+
+    if (levelCount.基本 < 6 || levelCount.発展 < 3 || levelCount.発展 > 6)
+      warnings.push(`${u.file}: 難易度の配分が 基本${levelCount.基本}・標準${levelCount.標準}・発展${levelCount.発展}（目安 8・8・4）`);
+    table.push({ 学年: grade, 単元: u.label, 分類: u.category, 問題数: qs.length, 基本: levelCount.基本, 標準: levelCount.標準, 発展: levelCount.発展 });
+  }
+  unitCount += meta.units.length;
 }
 
 console.log("\nSapix 算数 問題データ\n");
 console.table(table);
-console.log(`合計 ${meta.units.length} 単元 / ${total} 問（図つき ${figures} 問）`);
+console.log(`合計 ${unitCount} 単元 / ${total} 問（図つき ${figures} 問）`);
 
 if (warnings.length) {
   console.log(`\n⚠ 警告 ${warnings.length}件`);
