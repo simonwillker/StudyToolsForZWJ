@@ -1,0 +1,1510 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-13",
+  "note": "考点讲义。正文为中文，术语附英文。不写价格、具体模型版本和上限值等易变事实，以官方链接为准。",
+  "lessons": [
+    {
+      "id": "D1-1",
+      "domain": "D1",
+      "objective": "Create effective prompts for business and technical tasks",
+      "titleZh": "写出有效的提示词",
+      "summaryZh": "好的提示词不是「写得用力」，而是给出可以验证的条件：目的、读者、范围、格式和异常时怎么办。模型不知道你的情况，没写出来的部分它只能按「一般情况」去猜。",
+      "concepts": [
+        {
+          "term": "Be clear and direct",
+          "zh": "把 Claude 当作一位聪明但完全不了解背景的新同事。任务目的、读者、成果用在哪里，都要直接写出来，而不是期待它自己领会。"
+        },
+        {
+          "term": "Context（背景信息）",
+          "zh": "用途和读者决定了几乎所有其他选择：用词、长度、要不要解释术语、结论放在开头还是结尾。缺了这一条，其余条件再多也会偏。"
+        },
+        {
+          "term": "Verifiable criteria（可判定的条件）",
+          "zh": "字数、必须包含的项目、语气示例、落款等，都是可以拿来判断「合格与否」的条件。「要完美」「别出错」不是条件，无法据此检查，也就无法改进。"
+        },
+        {
+          "term": "Output format（输出格式）",
+          "zh": "需要反复使用、或交给下游处理的提示词，要固定输出结构，并写明数据缺失、无法判断时该怎么处理。"
+        }
+      ],
+      "example": {
+        "bad": "「帮我总结一下这次会议。」——给谁看、看完要做什么都没说，三次生成三种总结，没有一次能直接用。",
+        "good": "「给没有参会的部门经理看：先列出三项决定，再列出待办（负责人＋期限），每项一行，共不超过 200 字；没有决定期限的待办标为『期限未定』。」",
+        "whyZh": "好的版本写清了读者、目的、结构、长度和异常处理，产出可以逐项对照检查。"
+      },
+      "pitfalls": [
+        "以为加上「你是资深专家」之类的角色头衔就能替代具体条件。角色可以帮助定调，但不能补上缺失的信息。",
+        "反复使用的提示词只写了正常情况，没写数据缺失时怎么办，结果每次遇到例外都要临时人工判断。",
+        "把「总结」「改进」「优化」这类词当作指令，它们本身几乎没有信息量。"
+      ],
+      "examTips": [
+        "选项里出现「加一句鼓励的话」「强调要认真」「换更贵的模型」时，通常是干扰项——它们没有增加任何信息。",
+        "正解往往是「补上读者／用途／判断标准」这类具体信息的那个选项。"
+      ],
+      "practiceZh": "工作中可以准备一张「提示词检查清单」：目的、读者、必须包含的内容、长度、格式、例外处理。每次写重要的提示词前对照一遍，缺哪项补哪项。常用的提示词保存成模板，下次只替换变化的部分。",
+      "references": [
+        {
+          "title": "Be clear, direct, and detailed",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D1-2",
+      "domain": "D1",
+      "objective": "Apply task decomposition techniques to structure complex requests",
+      "titleZh": "任务分解：把复杂请求拆成可检查的步骤",
+      "summaryZh": "复杂请求一次做完，出了错既看不出来，也不知道错在哪一步。任务分解（prompt chaining）的目的不只是「变小」，而是制造可以单独验收的检查点。",
+      "concepts": [
+        {
+          "term": "Prompt chaining（提示链）",
+          "zh": "把一个大任务拆成几个连续的子任务，上一步的产出作为下一步的输入。每一步的指示更单纯，Claude 更容易做好。"
+        },
+        {
+          "term": "Checkpoint（检查点）",
+          "zh": "拆分的边界应当放在「需要确认对错的地方」。例如先把数字提取成清单、核对无误，再拿清单去写文章。"
+        },
+        {
+          "term": "Hand-off（明确传递）",
+          "zh": "确认过的结果要原样传给下一步。如果下一步又从原始资料重新推导一遍，前面的确认就白做了。"
+        },
+        {
+          "term": "When to split（什么时候该拆）",
+          "zh": "判断标准是检查的单位：如果要判断结果对不对，必须分别核对好几件事，那它本来就是好几个任务。"
+        }
+      ],
+      "example": {
+        "bad": "「读这 40 页报告，找出所有问题并写一份改进后的新版本。」",
+        "good": "第 1 步：列出报告中的关键数字和结论（表格）。第 2 步：人确认表格。第 3 步：按「读者＝董事会、只改第 2、4 章、标准＝结论先行」改写。",
+        "whyZh": "拆开后每一步都能单独判定对错，错误不会一路传到最后，也能定位在哪一环出现。"
+      },
+      "pitfalls": [
+        "把提取和写作放在同一步：数字一旦写进流畅的文章，就很难再单独核对。",
+        "拆得过细、每一步都没有可检查的产出，只是增加了来回次数。",
+        "拆完之后没有把确认过的结果传下去，下一步重新推导，引入新的错误。"
+      ],
+      "examTips": [
+        "题干出现「一次性丢给模型、结果不理想」时，正解常是「按目的／读者／标准拆成几步，逐步执行」。",
+        "注意区分：分解是为了可验证，不是为了让模型「更努力」。"
+      ],
+      "practiceZh": "遇到长文档、多步骤的任务时，先在纸上写出「我要分别检查哪几件事」，每一件就是一步。中间产出（清单、表格、要点）保存下来，确认后再交给下一步。这样出了问题能马上知道是哪一步，返工也只需重做那一步。",
+      "references": [
+        {
+          "title": "Chain complex prompts for stronger performance",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D1-3",
+      "domain": "D1",
+      "objective": "Iterate prompts to improve output quality",
+      "titleZh": "迭代改进提示词",
+      "summaryZh": "提示词很少一次就完美。有效的迭代是：看清产出差在哪里 → 补上缺失的信息或示例 → 一次只改一处 → 比较效果。不断叠加要求和形容词，只会让指示自相矛盾。",
+      "concepts": [
+        {
+          "term": "Iteration（迭代）",
+          "zh": "先定义「什么算好」，再根据产出与标准的差距修改提示词，而不是凭感觉重写。"
+        },
+        {
+          "term": "Multishot / few-shot prompting（示例提示）",
+          "zh": "给 1～3 个示例，能一次传达难以用语言描述的体裁、语气和详细程度。示例要有代表性、彼此有差异，避免模型只模仿表面。"
+        },
+        {
+          "term": "One change at a time（一次只改一处）",
+          "zh": "同时改好几处，就无法知道是哪一个改动起了作用；变差时也不知道该退回哪里。"
+        },
+        {
+          "term": "Emphasis by position（用位置强调）",
+          "zh": "夹在长说明中间的条件容易被忽略。把关键要求单独成行、明确标为必须，比在原处加形容词更有效。"
+        }
+      ],
+      "example": {
+        "bad": "第一轮：「写详细点」；第二轮：「再专业一点，但要简短」；第三轮：「再详细一点」——要求之间已经互相矛盾。",
+        "good": "退回到效果最好的版本，补一句「读者已了解基本术语，不必解释」，并附一段理想的范文，然后只比较这一处改动的效果。",
+        "whyZh": "「更详细」是相对的，示例和「读者已知什么」才是可靠的信息。"
+      },
+      "pitfalls": [
+        "每一轮都只追加要求，第三轮时其中几条已经不可能同时满足。",
+        "把同样的话重复一遍或加「非常」「务必」，期待产出改变——没有新增信息，变化只是偶然。",
+        "示例只给一个，且和真实输入差异很大，模型照抄了示例的表面格式。"
+      ],
+      "examTips": [
+        "「产出时好时坏／太笼统」的题，正解常是「加示例」「写明读者已知什么」「退回有效版本一次改一处」。",
+        "重复指令、加强语气、单纯换模型，一般都是干扰项。"
+      ],
+      "practiceZh": "给常用提示词建一个简单的版本记录：日期、改了什么、效果如何。准备 3～5 个固定的测试输入，每次改动后都用它们跑一遍再比较。效果变差时，直接退回上一个有效版本，而不是继续往上叠加要求。",
+      "references": [
+        {
+          "title": "Prompt engineering overview",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"
+        },
+        {
+          "title": "Use examples (multishot prompting)",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting"
+        }
+      ]
+    },
+    {
+      "id": "D1-4",
+      "domain": "D1",
+      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "titleZh": "按任务类型调整提示策略",
+      "summaryZh": "分析、调研、起草、发想——这四类任务对「好产出」的定义不同，提示词的要求也不同，有时甚至相反。用同一套要求去套所有任务，哪一种都得不到该有的东西。",
+      "concepts": [
+        {
+          "term": "Analysis（分析）",
+          "zh": "价值在于证据与推理。要求给出依据、说明假设和适用边界，并允许回答「数据不足以判断」。"
+        },
+        {
+          "term": "Research（调研）",
+          "zh": "产出是可追溯的信息。要求注明来源、区分事实与推测、说清楚哪些查不到。"
+        },
+        {
+          "term": "Drafting（起草）",
+          "zh": "产出是成品。要给读者、目的、格式、长度和语气示例，让结果能直接使用或稍改即用。"
+        },
+        {
+          "term": "Brainstorming（发想）",
+          "zh": "价值在于广度。放宽约束、要求数量和多样性、允许不现实的想法，筛选放到下一步再做。"
+        }
+      ],
+      "example": {
+        "bad": "发想新产品名称时也要求「每个候选都要有市场数据支持」，结果只得到几个保守、平庸的名字。",
+        "good": "先「列出 30 个方向各不相同的名称，不必考虑可行性」，再另起一步「按以下三条标准筛选并说明理由」。",
+        "whyZh": "发想要宽、分析要严，两种要求分到不同的步骤里，各自才能做好。"
+      },
+      "pitfalls": [
+        "想要批评意见却只问「你觉得怎么样」，得到的多半是肯定加几句温和建议。应指定立场（例如「站在反对者的角度」）或问「失败需要哪些条件成立」。",
+        "调研时不要求来源，事后无法核实。",
+        "以「怕有偏见」为由不给分析所需的数据——数据能不能给是治理（D6）的问题，不是提示策略的问题。"
+      ],
+      "examTips": [
+        "题干会描述一种任务类型和一个不理想的产出，问「最合适的调整」。先判断任务类型，再看哪个选项符合该类型的「好产出」定义。",
+        "要批评就明确地要：指定立场或指定形式的选项通常是正解。"
+      ],
+      "practiceZh": "开始一项任务前先问自己：这次要的是「宽」（想法多）还是「严」（证据足）？是成品还是可追溯的信息？在提示词第一句就说明任务类型，例如「这是发想阶段，不需要考虑可行性」。混合任务就拆成两步分别提示。",
+      "references": [
+        {
+          "title": "Prompt engineering overview",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D2-1",
+      "domain": "D2",
+      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "titleZh": "评估产出的准确性与完整性",
+      "summaryZh": "准确性和完整性是两个不同的轴：准确＝说出来的都对；完整＝该说的都说了。读起来流畅的文章最容易掩盖遗漏，所以评估要拿原始需求逐条对照，而不是凭印象。",
+      "concepts": [
+        {
+          "term": "Accuracy（准确性）",
+          "zh": "事实、数字、引用、推理是否正确。要回到原始资料或可信来源核对，不能让产出自己证明自己。"
+        },
+        {
+          "term": "Completeness（完整性）",
+          "zh": "需求里的每一项是否都被覆盖。唯一可靠的办法是拿需求清单逐项打勾。"
+        },
+        {
+          "term": "Success criteria（成功标准）",
+          "zh": "评估之前先写下具体、可测量的标准。标准不明确，评估结果怎么解释都行。"
+        },
+        {
+          "term": "Inconsistency as signal（不一致是信号）",
+          "zh": "两次产出说法不同，说明至少有一次是错的。产出之间互相比较无法定真伪，必须回到外部依据。"
+        }
+      ],
+      "example": {
+        "bad": "「四项要求里已经满足了三项，整体质量很高，可以提交。」",
+        "good": "拿需求书逐项打勾，发现「迁移计划」一项完全没写，退回补写后再提交；同时核对文中三个关键数字的出处。",
+        "whyZh": "漏掉的那一项可能正是决策的关键；全部正确但不完整的产出仍然不合格。"
+      },
+      "pitfalls": [
+        "被流畅的文风说服，没有逐项检查。",
+        "发现遗漏后，为了让产出「合格」而去修改需求（让标准迁就产出）。",
+        "两次产出不一致时，取平均、投票或挑看起来更详细的一个，而不是去核实。"
+      ],
+      "examTips": [
+        "「几项中已满足大部分」「读起来很专业」这类选项多是陷阱。",
+        "正解通常包含「对照原始需求逐项检查」或「回到原始资料核实」。"
+      ],
+      "practiceZh": "对外提交之前，把原始需求复制成一张检查表，逐项标注「已覆盖／未覆盖／部分覆盖」，再单独挑出关键数字回到原始资料核对。检查表和核对结果可以一起附在提交记录里，方便别人复查。",
+      "references": [
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D2-2",
+      "domain": "D2",
+      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "titleZh": "识别幻觉、不一致与偏见",
+      "summaryZh": "幻觉（hallucination）是模型生成看似合理却不真实的内容。它往往出现在最具体的地方：数字、日期、人名、条款号、引用和链接。偏见则常常不是错误的事实，而是对同样的事实使用不同的措辞。",
+      "concepts": [
+        {
+          "term": "Hallucination（幻觉）",
+          "zh": "没有出处的具体数字、知识截止之后的断言、无法打开的引用，都是高风险征兆。越具体、越笃定，越需要核对。"
+        },
+        {
+          "term": "Fabricated citations（编造的引用）",
+          "zh": "链接和文献同样会被编造。不打开看就不算核实；找不到时不能改称「内部资料」「未发表」来掩饰。"
+        },
+        {
+          "term": "Implanted assumption（被植入的前提）",
+          "zh": "信息不足时，模型会补上一个「典型情况」并继续推理。结论看起来很具体，却建立在你没给过的前提上。"
+        },
+        {
+          "term": "Bias（偏见）",
+          "zh": "在竞品对比、候选人评价等文档中，语气本身就在下结论。检查时要看「同样的事实是否被同样地描述」。"
+        }
+      ],
+      "example": {
+        "bad": "报告引用了「2023 年某行业协会调查」，链接格式看起来正常，就直接放进了给客户的提案。",
+        "good": "逐一打开所有引用链接；找不到原文的引用删除或改为「待确认」，并把同类细节（日期、金额、人名）整类拉出来核对。",
+        "whyZh": "一处编造不会在别处留下痕迹，周围内容正确并不能保证这一处正确。"
+      },
+      "pitfalls": [
+        "只修正被发现的那一处，而不是检查同类的细节。",
+        "把「模型说自己不确定」当成风险——其实它正好指出了该核实的位置，是好事。",
+        "认为偏见只是「文风问题」，不属于检查范围。"
+      ],
+      "examTips": [
+        "题目常问「哪一项最可能是幻觉」：选没有出处的具体数字或截止日期之后的断言。",
+        "体裁、长度、语气是否正式，与正确性无关。"
+      ],
+      "practiceZh": "拿到产出后，先用记号笔标出所有具体的数字、日期、人名、引用和链接——这些是幻觉高发区，逐一核对来源。对比较类、评价类文档，再看一遍措辞：同样的事实，对不同对象是否用了不同强度的形容词。",
+      "references": [
+        {
+          "title": "Reduce hallucinations",
+          "url": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D2-3",
+      "domain": "D2",
+      "objective": "Apply fact-checking and validation techniques",
+      "titleZh": "事实核查与验证技巧",
+      "summaryZh": "核查的两条原则：回到原文（而不是让产出自证），以及按分量排序（先核对错了后果最大的陈述）。在提示阶段就限定来源、要求出处、允许说「不知道」，可以显著减少需要核查的量。",
+      "concepts": [
+        {
+          "term": "Ground in sources（限定来源）",
+          "zh": "要求只根据提供的文档回答，并为每个结论附上原文引文。没有引文支撑的结论应撤回。"
+        },
+        {
+          "term": "Allow \"I don't know\"（允许说不知道）",
+          "zh": "明确告诉模型信息不足时可以说不知道。如果指示逼着它必须给答案，它就会把空白填满。"
+        },
+        {
+          "term": "Prioritize by impact（按影响排序）",
+          "zh": "时间有限时，先核对一旦出错后果最大的内容：金额、法律条款、对外承诺、健康安全相关信息。"
+        },
+        {
+          "term": "Self-reported confidence（自报置信度）",
+          "zh": "模型说「我很确定」不是精度指标。置信度表述只能作为线索，不能代替核实。"
+        }
+      ],
+      "example": {
+        "bad": "让 Claude「再检查一遍你刚才的回答是否正确」，它回答「已确认无误」，就当作核查完成。",
+        "good": "要求「只根据附件合同回答，每个结论附上原文条款号和引文；合同中没有的内容回答『合同未规定』」，然后抽查引文与原文是否一致。",
+        "whyZh": "让产出自证不是核查；回到原文、要求可追溯的引文才是。"
+      },
+      "pitfalls": [
+        "让同一个模型自我检查，或拿两次产出互相比较，就当作已经核实。",
+        "从头到尾平均地读一遍，结果把时间花在了无关紧要的地方。",
+        "要送到合规、法务、审计手里的内容，没有逐条回到原文确认。"
+      ],
+      "examTips": [
+        "D2 占比最大（21%），这是其中最典型的考法。正解通常是「回到原始来源」「要求引文」「允许不知道」。",
+        "「越具体越可信」是反的——具体的条款号、数字和引文恰恰是幻觉高发区。"
+      ],
+      "practiceZh": "在提示词里直接写「只根据附件回答，每个结论附原文引文；附件中没有的写『未提及』」。收到产出后先核对风险最大的几条（金额、条款、承诺），时间允许再抽查其余部分，并记录核对过哪些内容。",
+      "references": [
+        {
+          "title": "Reduce hallucinations",
+          "url": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+        },
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests"
+        }
+      ]
+    },
+    {
+      "id": "D2-4",
+      "domain": "D2",
+      "objective": "Determine when human review or additional verification is required",
+      "titleZh": "判断何时需要人工复核",
+      "summaryZh": "需不需要人复核，判断标准不是「内容难不难」，而是「出错的后果有多大、能不能挽回」。工具不承担责任，使用工具的人承担——这是整个资格的底层前提。",
+      "concepts": [
+        {
+          "term": "Human in the loop（人在回路中）",
+          "zh": "在后果重大的环节保留人的判断与签字。模型的产出是草稿，最终决定由有权限的人做。"
+        },
+        {
+          "term": "Irreversibility（不可挽回性）",
+          "zh": "健康、法律、金钱、对外承诺这几类，错了都不容易收回；内部草稿和排版改动错了当场就能改。"
+        },
+        {
+          "term": "Accountability（责任归属）",
+          "zh": "责任不会因为「这是 AI 写的」「附了免责声明」「只是草稿」而转移给厂商或工具。"
+        },
+        {
+          "term": "Authority boundary（权限边界）",
+          "zh": "模型不知道你的审批权限和公司内部规矩，可能提出合理但你无权承诺的方案，或用行业通例代替公司规定。"
+        }
+      ],
+      "example": {
+        "bad": "客服让 Claude 直接回复客户的退款请求，回复中承诺了「全额退款并赔偿运费」，事后才发现超出了自己的权限。",
+        "good": "Claude 起草回复，涉及金额和承诺的部分标出来，由有审批权限的人确认后再发送。",
+        "whyZh": "对客户说出口的数字就已经形成了预期，事后加「待批准」也收不回来。"
+      },
+      "pitfalls": [
+        "以为附上「本内容由 AI 生成」就转移了出错的责任。",
+        "问模型「我们公司应该怎么做」并直接采纳——内部政策不在模型的训练数据里。",
+        "把所有内容都送人工复核，导致真正重要的地方没有被认真看。"
+      ],
+      "examTips": [
+        "选项里「推给厂商」「推给免责声明」「这只是草稿」都是常见的自我开脱，都不成立。",
+        "正解常以「后果大小／可逆性」为判断依据。"
+      ],
+      "practiceZh": "可以在团队里约定一张简单的「复核分级表」：涉及健康、法律、金钱、对外承诺的产出必须由有权限的人确认；内部草稿可自行使用。表格贴在 Project 指示或团队文档里，大家判断时就有统一的标准。",
+      "references": [
+        {
+          "title": "Anthropic Commercial Terms",
+          "url": "https://www.anthropic.com/legal/commercial-terms"
+        },
+        {
+          "title": "Anthropic Usage Policy",
+          "url": "https://www.anthropic.com/legal/aup"
+        }
+      ]
+    },
+    {
+      "id": "D2-5",
+      "domain": "D2",
+      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "titleZh": "面向读者编辑、改写与比较产出",
+      "summaryZh": "同样的内容，读者和使用方式变了，合适的形态就变了。压缩不是均匀地变淡，而是先确定取舍标准（读者要回答什么问题），再据此保留和删除。",
+      "concepts": [
+        {
+          "term": "Audience adaptation（面向读者改写）",
+          "zh": "董事会要的是「批不批」，要以决定开头；执行团队要的是步骤和负责人。"
+        },
+        {
+          "term": "Single source of truth（同一来源派生）",
+          "zh": "多个版本应从同一组确认过的结论派生，而不是分别独立生成，否则数字会互相打架。"
+        },
+        {
+          "term": "Purposeful cutting（有目的的删减）",
+          "zh": "按读者的问题决定取舍。按段落、按比例或从末尾硬切，常常会把结论和依据一起删掉。"
+        },
+        {
+          "term": "Jargon vs. content terms（行话与内容术语）",
+          "zh": "有些术语是内容本身，换掉会失真，应保留并解释；有些只是行话，对这个读者无用，可以删除。"
+        }
+      ],
+      "example": {
+        "bad": "把 10 页技术报告直接截取前 3 页发给管理层当「摘要」。",
+        "good": "先从报告中整理出确认过的结论表，再分别派生「管理层版（决定＋影响＋需批准事项，1 页）」和「技术团队版（步骤＋风险）」。",
+        "whyZh": "两个版本共享同一组数字，且各自回答了自己读者的问题。"
+      },
+      "pitfalls": [
+        "对不同读者分别从零生成，导致两个版本的数字不一致。",
+        "为了「通俗」把关键术语全部替换，结果意思变了。",
+        "比较两个产出时没有事先定好比较标准，只凭喜好挑选。"
+      ],
+      "examTips": [
+        "题干给出一个读者（董事会、客户、新员工等），问最合适的改写方式：选「以该读者的决策需要为标准」的选项。",
+        "「原样发送」「按比例删减」通常是干扰项。"
+      ],
+      "practiceZh": "同一份材料要给多个读者时，先整理出一份「已确认的结论与数字」，所有版本都从它派生。改写前先写一句「这位读者看完要做什么决定」，然后只保留帮助他做这个决定的内容。",
+      "references": [
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D2-6",
+      "domain": "D2",
+      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "titleZh": "整理信息并选择合适的产出格式",
+      "summaryZh": "选择格式的判断依据是「下一步谁会怎么用它」：人读 → 散文或要点；机器、表格或脚本接收 → 结构化且每次都一样；会被单独打开、反复修改和共享的 → 做成独立的成果物（artifact）。",
+      "concepts": [
+        {
+          "term": "Inline response（对话内回答）",
+          "zh": "一句话的回答、来回的确认和讨论，留在对话里最快。"
+        },
+        {
+          "term": "Artifacts（成果物）",
+          "zh": "之后还会被单独打开使用的文档、表格、代码等，适合从对话流中切出来，作为可反复修改的独立内容。"
+        },
+        {
+          "term": "Structured data（结构化数据）",
+          "zh": "交给表格、公式、宏或程序处理时，列和字段要固定、每次都一致。一致性比表达力更重要。"
+        },
+        {
+          "term": "Curation（整理与策展）",
+          "zh": "会被长期复用的产出，需要唯一的存放位置，以及每条结论的日期与来源，否则版本会分叉、半年后没人知道它是否仍然成立。"
+        }
+      ],
+      "example": {
+        "bad": "每周让 Claude 用文字描述销售数据，团队再手动抄进表格，列的顺序每次都不一样。",
+        "good": "要求「按以下固定列输出 CSV：日期, 地区, 金额；缺失值填 N/A」，直接导入表格。",
+        "whyZh": "下游依赖列的位置，固定的结构化格式才能被稳定地处理。"
+      },
+      "pitfalls": [
+        "把讨论过程也做成成果物，堆积一堆没人再看的文件。",
+        "多人反复修改的内容散落在多个对话里，没有唯一的当前版本。",
+        "交给程序处理的输出没有固定格式，下游时不时出错。"
+      ],
+      "examTips": [
+        "判断题眼：「它之后还会被单独打开使用吗？」「下游是人还是机器？」",
+        "不必记具体的产品界面细节，记住选择的依据即可。"
+      ],
+      "practiceZh": "在提示词末尾明确写出产出用途：「这段会直接贴进周报」或「这份表会导入 Excel，列固定为…」。需要反复修改和共享的内容做成独立文档并放在唯一位置，在文件开头注明日期和来源。",
+      "references": [
+        {
+          "title": "Claude 产品概览",
+          "url": "https://claude.com/product/overview"
+        },
+        {
+          "title": "Files API",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/files"
+        }
+      ]
+    },
+    {
+      "id": "D3-1",
+      "domain": "D3",
+      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "titleZh": "选择合适的 Claude 产品功能",
+      "summaryZh": "chat、Projects、research（调研）模式、artifacts 各有适用场景。选择依据是任务的性质：一次性问答、反复使用的知识与指示、需要查找和汇总外部信息、还是需要单独打开和打磨的成果物。",
+      "concepts": [
+        {
+          "term": "Chat（普通对话）",
+          "zh": "一次性的问题、临时的讨论。为它专门建 Project，配置成本反而更高。"
+        },
+        {
+          "term": "Projects",
+          "zh": "带有自己的对话历史、知识库和项目指示的工作空间。适合反复使用的资料和团队共享的指示，避免每次手动粘贴、漏贴或版本不一致。"
+        },
+        {
+          "term": "Research（调研模式）",
+          "zh": "需要跨多个来源查找、汇总信息的任务。产出要能追溯来源，并且仍然需要人核实关键结论。"
+        },
+        {
+          "term": "Artifacts（成果物）",
+          "zh": "会被单独打开、反复修改或交付的内容（文档、表格、代码、页面等）。对话中的问答、确认和澄清不需要做成成果物。"
+        }
+      ],
+      "example": {
+        "bad": "团队每次写客户提案都在新对话里重新粘贴公司介绍和格式规范，有人贴的是旧版本。",
+        "good": "建一个「客户提案」Project：把公司介绍和格式规范放进知识库，把共同的写作要求写进项目指示，大家在其中开新对话。",
+        "whyZh": "反复使用的知识和指示放在 Project 里，只需维护一处，也不会漏贴。"
+      },
+      "pitfalls": [
+        "所有工作都在同一个越来越长的对话里进行，代替 Project。",
+        "把一次性的小问题也建成 Project。",
+        "以为调研模式的结果可以不经核实直接使用。"
+      ],
+      "examTips": [
+        "题干描述一个场景，问「最合适的功能」。抓住关键词：反复／共享 → Projects；单独打开、要交付 → artifacts；查找多来源 → research；一次性 → chat。",
+        "产品界面和可用功能会更新，具体以官方帮助中心为准。"
+      ],
+      "practiceZh": "盘点一下自己每周重复做的工作：需要固定资料和固定要求的，建成 Project；需要交付的文档用成果物来打磨；需要查多方资料的用调研功能并核实来源；其余的零碎问题直接在普通对话里问。",
+      "references": [
+        {
+          "title": "What are projects?",
+          "url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D3-2",
+      "domain": "D3",
+      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "titleZh": "区分 Claude 模型类型（Haiku / Sonnet / Opus）",
+      "summaryZh": "模型层级是权衡，不是好坏排序。一般来说 Haiku 更快、成本更低，Opus 能力最强、适合最难的推理，Sonnet 在两者之间取得平衡。具体的版本、价格和上限会变化，以官方模型概览为准。",
+      "concepts": [
+        {
+          "term": "Haiku",
+          "zh": "速度快、成本低。适合大量、定型、推理较浅的任务，例如分类、提取、初筛。"
+        },
+        {
+          "term": "Sonnet",
+          "zh": "能力与速度、成本的平衡。适合大多数日常业务任务。"
+        },
+        {
+          "term": "Opus",
+          "zh": "能力最强。适合复杂推理、条款互相牵连的文件、质量差异真正看得出来的关键任务。"
+        },
+        {
+          "term": "Tiered routing（分级处理）",
+          "zh": "便宜的模型做初筛，判断「这件事需不需要更强的判断」，难的再往上送。这比全部用最强模型更快、更省，也能保证难题的质量。"
+        }
+      ],
+      "example": {
+        "bad": "「质量最重要，所以每天 5000 条工单分类全部用最强的模型。」",
+        "good": "工单分类用快速低成本的模型并抽样测准确率；被标为「复杂／高风险」的少数工单交给更强的模型或人处理。",
+        "whyZh": "模型选择是任务级的：数量和推理深度决定了答案，而不是「组织一律用哪个」。"
+      },
+      "pitfalls": [
+        "把层级理解成「越贵越好」，在大量简单任务上付出不必要的成本和等待时间。",
+        "把模型选择定成全公司统一的规则，而不是按任务决定。",
+        "死记具体的价格或上下文上限——考试考的是选择的思路，数字以官方为准。"
+      ],
+      "examTips": [
+        "回应「永远用最好的」的正解，不是否定质量，而是把它精确化：哪些环节质量差异真的看得出来。",
+        "出现「大量＋简单」→ 快速低成本模型；「单份＋复杂推理」→ 能力最强的模型。"
+      ],
+      "practiceZh": "给团队常见任务做一张「模型选择表」：任务、数量、所需推理深度、建议的模型层级、上次测试的结果。新任务先套用这张表，有疑问时再小规模测试。具体可用的模型名称和价格以官方页面为准，定期更新这张表。",
+      "references": [
+        {
+          "title": "Models overview",
+          "url": "https://docs.claude.com/en/docs/about-claude/models/overview"
+        },
+        {
+          "title": "Choosing the right model",
+          "url": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model"
+        }
+      ]
+    },
+    {
+      "id": "D3-3",
+      "domain": "D3",
+      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "titleZh": "按成本、速度、质量匹配模型",
+      "summaryZh": "从能满足要求的最便宜、最快的选项开始，用数据决定是否往上走。换模型之前要做对照测试：同样的输入、同样的判定标准。",
+      "concepts": [
+        {
+          "term": "Cost / speed / quality trade-off（三者权衡）",
+          "zh": "三者很难同时最大化。先明确这项任务最在意哪一个，以及「够用」的标准是什么。"
+        },
+        {
+          "term": "Start cheap, measure（先试便宜的再测量）",
+          "zh": "定型、大量的任务先用低成本模型，测出准确率；够用就不必升级。"
+        },
+        {
+          "term": "Spend where it matters（钱花在刀刃上）",
+          "zh": "只有一份、推理深度会带来实际差异的任务（如复杂合同），用最强模型的额外成本微不足道。"
+        },
+        {
+          "term": "A/B comparison（对照测试）",
+          "zh": "换模型或改配置时，用同一组测试输入和同一套评分标准比较。质量下降往往没人抱怨，只是悄悄变差。"
+        }
+      ],
+      "example": {
+        "bad": "为了省钱，把合同审查从强模型换成便宜模型，没有测试就上线，三个月后才发现漏掉了关键风险条款。",
+        "good": "准备 30 份已知答案的合同样本，两个模型各跑一遍，用同一张检查表评分，再决定是否切换。",
+        "whyZh": "有对照数据，才能判断节省的成本是否值得质量上的变化。"
+      },
+      "pitfalls": [
+        "凭感觉选模型，而不是用测试数据。",
+        "只看单价，不看返工和人工修正的成本。",
+        "在不需要质量上限的大量任务上使用最强模型，增加了成本和延迟。"
+      ],
+      "examTips": [
+        "正解常含「先测试／用同样的输入和标准比较」。",
+        "「每次都用最强模型」「直接换便宜模型」这类不经测试的选项多为干扰项。"
+      ],
+      "practiceZh": "换模型或改设置前，先准备一组有标准答案的测试样本，记录当前的准确率和处理时间；换了之后用同一组样本再测一次，把成本、速度、质量三项并排比较，再决定是否切换。",
+      "references": [
+        {
+          "title": "Choosing the right model",
+          "url": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D3-4",
+      "domain": "D3",
+      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "titleZh": "管理上下文限制与记忆",
+      "summaryZh": "上下文窗口（context window）有上限，一句「请记住」改变不了这一点。长对话里被推翻的假设和旧数字仍然在上下文中，会影响当前回答。要延续的东西必须显式写下来：整理摘要、重开对话，或放进 Project 知识库。",
+      "concepts": [
+        {
+          "term": "Context window（上下文窗口）",
+          "zh": "模型一次能参考的文本量是有限的。具体上限因模型而异，以官方文档为准。"
+        },
+        {
+          "term": "Restart with summary（带摘要重开）",
+          "zh": "对话变长、方向变了或开始出现前后矛盾时，把已确定的决定、数字和约束整理成摘要，带到新对话。"
+        },
+        {
+          "term": "Persist explicitly（显式保存）",
+          "zh": "需要长期延续的信息（规范、决定、术语表）写成文档，放进 Project 知识库或项目指示，而不是依赖对话记忆。"
+        },
+        {
+          "term": "Relevance over volume（相关性优先）",
+          "zh": "给得太多反而更差：无关的内容会稀释真正相关的部分。只提供完成任务所需的材料。"
+        }
+      ],
+      "example": {
+        "bad": "在已经来回 80 轮的对话里说「请忘掉前面关于预算的讨论，按新预算重新做」。",
+        "good": "把「目前确定的需求、新预算、已放弃的方案」整理成一段摘要，开新对话，贴上摘要再继续。",
+        "whyZh": "旧内容仍在上下文里；带着整理好的摘要重开，既保留了该保留的，也甩掉了负担。"
+      },
+      "pitfalls": [
+        "完全不带背景地重开，把已确定的决定一起丢了。",
+        "以为换一个模型就能解决对话过长的问题。",
+        "把 300 页资料全部贴进去，期待模型自己找到相关的那一页。"
+      ],
+      "examTips": [
+        "题干出现「长对话后回答变差／前后矛盾」，正解通常是「整理摘要后重开」。",
+        "「要持续的东西写下来」这条原则在交接、跨轮迭代等题里反复出现。"
+      ],
+      "practiceZh": "养成习惯：长对话进行到一定程度，或方向发生改变时，让 Claude 先整理「目前已确定的事项」，确认后开新对话贴上。长期有效的规范和决定，直接写进 Project 知识库或项目指示。",
+      "references": [
+        {
+          "title": "Context windows",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/context-windows"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D4-1",
+      "domain": "D4",
+      "objective": "Apply Claude to analyze requirements and use cases",
+      "titleZh": "用 Claude 分析需求与用例",
+      "summaryZh": "动手自动化之前，先弄清现状：现在的流程有哪些工序、时间花在哪里、人在其中做了哪些判断，以及「能不能判定产出对不对」。连好坏标准都说不清的任务，用不用模型都无法验收。",
+      "concepts": [
+        {
+          "term": "Current-state analysis（现状分析）",
+          "zh": "不了解现有流程就自动化，会把人原本在做的隐性判断一起抹掉。"
+        },
+        {
+          "term": "Decompose the request（拆解需求）",
+          "zh": "「处理邮件」包含分类、提取、起草、审批等完全不同的动作，通常只有一两个真正耗时。"
+        },
+        {
+          "term": "Evaluability（可判定性）",
+          "zh": "适合交给模型的任务，必须能说清什么算好。先把标准定下来，再谈工具。"
+        },
+        {
+          "term": "Value × risk（收益与风险两条轴）",
+          "zh": "优先做「省得多、错了也容易被发现」的用例，在摸清之前不要从高风险环节开始。"
+        }
+      ],
+      "example": {
+        "bad": "「我们用 Claude 自动处理所有客户邮件吧。」随后直接写提示词上线。",
+        "good": "先让 Claude 帮忙整理一周的邮件样本：按类型统计数量和处理时间，标出哪些需要人判断，再挑「量大、格式固定、容易检查」的一类做试点。",
+        "whyZh": "先分析再动手，才知道该自动化什么、怎么验收。"
+      },
+      "pitfalls": [
+        "还没定「要自动化什么」就先写详细提示词跑一遍。",
+        "让 Claude 设计方案后原样实施，不加验证。",
+        "做了一个功能齐全却没解决真正痛点的东西。"
+      ],
+      "examTips": [
+        "正解多含「先了解现状／先定标准」的步骤。",
+        "「立即全面自动化」「让模型自行决定并实施」是典型干扰项。"
+      ],
+      "practiceZh": "想引入 Claude 时，先用一周时间记录现有流程：每个工序做什么、花多少时间、谁在做判断、怎么判断对错。把记录交给 Claude 整理成表格，再从中挑选「量大、可检查、出错后果小」的环节作为第一个试点。",
+      "references": [
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Chain complex prompts",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts"
+        }
+      ]
+    },
+    {
+      "id": "D4-2",
+      "domain": "D4",
+      "objective": "Leverage Claude for research, planning, and process optimization",
+      "titleZh": "用 Claude 做调研、规划与流程优化",
+      "summaryZh": "流程优化要以数据说话：事先定好衡量标准，用与现状的差值衡量改善，并如实报告速度与质量的取舍。工作量（写了多少提示词、报告多长）不是成果。",
+      "concepts": [
+        {
+          "term": "Baseline（基线）",
+          "zh": "先测量现状（时间、错误率），改善只能用与基线的差来衡量。"
+        },
+        {
+          "term": "Pre-defined criteria（事先定标准）",
+          "zh": "试点开始前就写下成功标准，否则结束后怎么解释都行。"
+        },
+        {
+          "term": "Step-level estimate（落到工序的估算）",
+          "zh": "「时间减半」必须能拆开说明：时间花在哪几步、哪几步能交给模型。只有人能做的审批和沟通部分不会因模型变快。"
+        },
+        {
+          "term": "Honest reporting（如实报告）",
+          "zh": "同时报告速度和质量，并说明「要让错误率可接受需要改什么」，让相关方有选择。被修正的案例最有价值，它们指明了下一步。"
+        }
+      ],
+      "example": {
+        "bad": "试点报告只写「处理速度提升 60%」，没有提到错误率上升了。",
+        "good": "报告：速度提升 60%，错误率从 2% 升到 5%；错误集中在退货类邮件，若该类保留人工审核，错误率可回到 2%，速度仍提升 45%。",
+        "whyZh": "只报一边是误导；把取舍和改进条件一起交给决策者。"
+      },
+      "pitfalls": [
+        "没有基线，事后无法证明改善。",
+        "把产出数量当作成果。",
+        "只记录成功案例，丢掉了最有信息量的失败与修正案例。"
+      ],
+      "examTips": [
+        "看到「如何评估试点效果」，选「事先定标准＋与现状对比」的选项。",
+        "注意「改善估算是否考虑了只有人能做的工序」。"
+      ],
+      "practiceZh": "做试点之前，用一页纸写清：现状数据、成功标准、测量方法、试点期间谁负责检查。结束时按同一张纸汇报结果，速度和质量都写，并附上被人修正过的典型案例和下一步改进建议。",
+      "references": [
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D4-3",
+      "domain": "D4",
+      "objective": "Use Claude to support solution design, development, and iteration",
+      "titleZh": "用 Claude 支持方案设计、开发与迭代",
+      "summaryZh": "方案反复被打回，常常不是方案质量差，而是双方理解的问题不同。先让 Claude 复述问题和约束并与评审者确认；迭代时保持固定的出发点，一次只改一件事，用范例固定难以描述的要求。",
+      "concepts": [
+        {
+          "term": "Align on the problem（先对齐问题）",
+          "zh": "让模型先复述「要解决的问题、约束、成功标准」，拿去和相关人确认，几分钟能省掉几轮返工。"
+        },
+        {
+          "term": "Fixed baseline document（固定的出发点）",
+          "zh": "需求写在一份文档里，而不是散落在对话中；否则第五轮时已经和第一轮不是一回事。"
+        },
+        {
+          "term": "Examples in the pipeline（把范例固定在流程中）",
+          "zh": "文风、版式这类要求，用两三个范例一次说清，并把它们放进模板或项目设置，而不是每次靠人想起来贴。"
+        },
+        {
+          "term": "Checkpoints（检查点）",
+          "zh": "把设计拆成几步，每一步的产出确认后再进入下一步，错误可以定位，不会一路传到最后。"
+        }
+      ],
+      "example": {
+        "bad": "直接让 Claude「设计一个新的报销流程」，三次被经理打回，每次都在对话里追加新要求。",
+        "good": "先让 Claude 列出「现行问题、约束（预算、审批层级）、成功标准」，经理确认后写成需求文档，再基于该文档逐步设计。",
+        "whyZh": "先对齐问题，再做方案；需求固定在一处，迭代才有因果可循。"
+      },
+      "pitfalls": [
+        "一轮同时改好几处，不知道是哪个改动起了作用。",
+        "用长篇文字描述风格，而不是给范例。",
+        "把模型提出的方案当作已经验证过的结论。"
+      ],
+      "examTips": [
+        "题干描述「反复返工」，正解多是「先确认问题和约束」。",
+        "与 D1 的迭代、D7 的诊断是同一套方法：固定基准、一次改一处。"
+      ],
+      "practiceZh": "做方案时先让 Claude 输出「问题陈述＋约束＋成功标准」，交给相关人确认后保存成需求文档。后续每一轮修改都在文档里记录改了什么、为什么改，风格类要求附上范例并放进项目设置。",
+      "references": [
+        {
+          "title": "Chain complex prompts",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts"
+        },
+        {
+          "title": "Use examples (multishot prompting)",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting"
+        }
+      ]
+    },
+    {
+      "id": "D4-4",
+      "domain": "D4",
+      "objective": "Integrate Claude into existing workflows to augment or redesign them",
+      "titleZh": "把 Claude 融入现有工作流",
+      "summaryZh": "安全的引入方式是先增强（augment）、再考虑重新设计（redesign）：把模型放在人的检查之前做草稿，检查环节先不动；等有了实际数据，再讨论要不要调整流程。效果要看端到端时间，因为瓶颈会移动。",
+      "concepts": [
+        {
+          "term": "Augment first（先增强）",
+          "zh": "模型负责起草、整理、初筛，人保留检查和决定。先积累「复核时间降了多少、拦下了什么」的数据。"
+        },
+        {
+          "term": "Good candidates（合适的流程）",
+          "zh": "重复（值得投入）且可判定（能验收）。没有人检查的流程最不该先自动化，错误会畅通无阻地流出去。"
+        },
+        {
+          "term": "Bottleneck shift（瓶颈移动）",
+          "zh": "局部提速常常只是把积压推到下一环。用端到端时间衡量效果，并找出新瓶颈的成因。"
+        },
+        {
+          "term": "Adoption（落地）",
+          "zh": "被接受的改动通常减少了使用者已经在抱怨的负担，并且不要求他们学太多新东西。"
+        }
+      ],
+      "example": {
+        "bad": "上线第一天就让 Claude 直接把报价单发给客户，取消原来的人工核对。",
+        "good": "Claude 根据询价邮件起草报价单，销售核对后发送；两个月后根据修改率决定哪些类型可以简化核对。",
+        "whyZh": "检查环节保持不动，引入的风险小，而且能积累调整流程所需的数据。"
+      },
+      "pitfalls": [
+        "一开始就去掉人工检查，把「慢」当成「不必要」。",
+        "只测被优化那一步的速度，忽略了下游积压。",
+        "瓶颈卡在人的审批时，还在继续加模型。"
+      ],
+      "examTips": [
+        "「先放在人的检查之前做草稿」类选项常是正解。",
+        "题干出现「某步变快了但整体没变快」→ 考的是瓶颈移动与端到端衡量。"
+      ],
+      "practiceZh": "引入初期保持原有的检查环节，只让 Claude 负责起草或初筛，同时记录人工修改率和复核时间。每月看一次端到端的处理时间，找出新的瓶颈，再决定下一步调整哪里。",
+      "references": [
+        {
+          "title": "Claude 产品概览",
+          "url": "https://claude.com/product/overview"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D4-5",
+      "domain": "D4",
+      "objective": "Communicate Claude's value and limitations to stakeholders",
+      "titleZh": "向相关方传达 Claude 的价值与限制，并适时升级",
+      "summaryZh": "向相关方说明时，价值和限制要一起讲：哪里可靠、哪里必须留人、实测数字是多少、哪些场景明确不能用。同时要认清自己的职责边界——进入系统实现（API、认证、部署）或受监管数据时，把需求写清楚并交给合适的人，自己范围内的部分继续负责。",
+      "concepts": [
+        {
+          "term": "Value + limitations（价值与限制并讲）",
+          "zh": "只说「很准」会在第一次出错时失去全部信任；只说「不完美」会让对方否掉方案。"
+        },
+        {
+          "term": "Evidence + no-go zones（实测证据与禁区）",
+          "zh": "向管理层汇报要有实测数据，并事先划出「不能用在这里」的范围，避免被理解成「什么都能干」。"
+        },
+        {
+          "term": "Change communication（向使用者说明变化）",
+          "zh": "具体说明哪些交出去、哪些留下来、明天开始有什么不同。空泛的「不会变」一旦被推翻，信任就没了。"
+        },
+        {
+          "term": "Escalation（升级与移交）",
+          "zh": "Associate 负责流程判断、配置、模型选型；API 调用、错误处理、部署、认证属于 Developer／Architect。遇到受监管数据先问「该不该」，再问「能不能」。"
+        }
+      ],
+      "example": {
+        "bad": "经理问「能不能把 Claude 接进我们的客户数据库自动回复？」，回答「可以，我自学一下就能接」。",
+        "good": "回答：「起草回复这部分我可以先做并测效果；接数据库涉及权限和客户数据，需要先确认方针，并请开发团队评估。我把需求整理好交给他们。」",
+        "whyZh": "升级不是把整件事丢出去，而是写清需求、交给合适的人，同时继续负责自己范围内的部分。"
+      },
+      "pitfalls": [
+        "为了推广而只讲优点。",
+        "为迁就自己的技能而改变设计目标。",
+        "遇到受监管数据时先动手试技术，或去问模型「可不可以」。"
+      ],
+      "examTips": [
+        "「哪里可靠／哪里留人／实测数字」三要素齐全的选项多为正解。",
+        "升级题的两个极端干扰项：「自学后独自实现」和「彻底放弃」。"
+      ],
+      "practiceZh": "向上级或同事介绍时，准备一页「能做／要人看／不能用」三栏说明，并附上实测数据。遇到超出自己职责的需求（系统对接、权限、受监管数据），先把需求和背景写清楚，交给开发或合规部门，同时说明自己会继续负责哪些部分。",
+      "references": [
+        {
+          "title": "Claude 产品概览",
+          "url": "https://claude.com/product/overview"
+        },
+        {
+          "title": "Remote MCP servers",
+          "url": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers"
+        }
+      ],
+      "relatedObjectives": [
+        "Recognize limitations and escalate more complex or technical implementations"
+      ]
+    },
+    {
+      "id": "D5-1",
+      "domain": "D5",
+      "objective": "Configure Claude Projects with instructions and knowledge sources",
+      "titleZh": "配置 Claude Projects 的指示与知识源",
+      "summaryZh": "Project 的配置分两部分：项目指示（适用于每一次对话的要求）和知识库（稳定、会被反复引用的资料）。共通的放进设置，每次不同的留在请求里。",
+      "concepts": [
+        {
+          "term": "Project instructions（项目指示）",
+          "zh": "对该 Project 中所有对话都适用的前提：读者、语气、格式、禁止事项等。写一次，所有人共用。"
+        },
+        {
+          "term": "Project knowledge（知识库）",
+          "zh": "放稳定、会被反复引用、修改时只需改一处的资料，例如产品手册、格式规范。一次性的截图留在那次对话里即可。"
+        },
+        {
+          "term": "Common vs. variable（共通与可变）",
+          "zh": "共通的放设置，可变的放请求。为处理差异而复制一份知识库，会立刻产生「哪份是最新的」问题。"
+        },
+        {
+          "term": "Sensitive data（敏感数据）",
+          "zh": "不要为了方便把客户姓名、账号等常驻在知识库中——能用这个 Project 的人都能间接接触到它们（参见 D6）。"
+        }
+      ],
+      "example": {
+        "bad": "把过去三年的全部邮件和客户名单一股脑上传到知识库，「以防万一」。",
+        "good": "只上传现行的产品手册和回复规范；项目指示写明「面向客户、使用敬语、不承诺价格和交期」。",
+        "whyZh": "知识库放稳定且必要的资料，指示写所有对话共通的要求。"
+      },
+      "pitfalls": [
+        "把只用一次的材料放进知识库，增加噪音和过期风险。",
+        "为不同客户复制多个几乎相同的 Project，维护时漏改。",
+        "改了项目指示却不告诉其他使用者，大家只觉得「今天的结果怪怪的」。"
+      ],
+      "examTips": [
+        "判断题眼：「它适用于这里的每一次对话吗？」「它会被反复引用吗？」",
+        "具体的界面与容量限制以帮助中心为准，考试考的是放什么、放哪里。"
+      ],
+      "practiceZh": "建 Project 时先列两张清单：「每次对话都适用的要求」写进项目指示；「会被反复查阅的稳定资料」放进知识库。上传前确认资料中没有不必要的个人信息，并在团队文档里记录这个 Project 的用途和负责人。",
+      "references": [
+        {
+          "title": "What are projects?",
+          "url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D5-2",
+      "domain": "D5",
+      "objective": "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
+      "titleZh": "管理上传的知识与连接器（Google Drive、Gmail 等）",
+      "summaryZh": "接上连接器（connector）等于移动了权限的边界：能使用这个 Project 或对话的人，就可能间接读到连接目标里的内容。「只读」不等于安全。连接器需要在启用前确认权限，并像知识库一样定期盘点。",
+      "concepts": [
+        {
+          "term": "Connectors（连接器）",
+          "zh": "让 Claude 读取 Google Drive、Gmail 等外部服务的数据。方便的同时，也把数据暴露给了能使用它的人和对话。"
+        },
+        {
+          "term": "Permission boundary（权限边界）",
+          "zh": "启用前确认：谁能用、能读到哪些范围、这些人本来是否有权看到这些数据。"
+        },
+        {
+          "term": "Read-only is not safe（只读不等于安全）",
+          "zh": "只读同样会造成「不该看到的人看到了」的事故。"
+        },
+        {
+          "term": "Scope drift（范围漂移）",
+          "zh": "当初连接的文件夹，半年后可能被别人放进了新资料；人员调动后权限也没收回。要定期复查范围和人。"
+        }
+      ],
+      "example": {
+        "bad": "为了方便，把整个部门共享盘连接到全员可用的 Project，理由是「只读，不会改坏」。",
+        "good": "只连接本任务需要的一个文件夹，确认能用该 Project 的人本来就有权看到它，并每季度复查一次连接范围和成员。",
+        "whyZh": "最小范围连接，并定期盘点范围与人员。"
+      },
+      "pitfalls": [
+        "把连接器当作「设好就不用管」的东西。",
+        "出事之后才去确认权限。",
+        "上传到知识库的文件副本过期了，却没人知道（参见 D5-4）。"
+      ],
+      "examTips": [
+        "连接器题的第一问题永远是权限与范围。",
+        "「只读所以安全」是最常见的错误选项。"
+      ],
+      "practiceZh": "启用连接器前，写下三件事：连接范围（哪些文件夹或邮箱）、可使用的人、这些人本来是否有权查看这些数据。之后每季度复查一次范围和成员，业务结束或人员调动时及时收回。",
+      "references": [
+        {
+          "title": "Remote MCP servers",
+          "url": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers"
+        },
+        {
+          "title": "Files API",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/files"
+        }
+      ]
+    },
+    {
+      "id": "D5-3",
+      "domain": "D5",
+      "objective": "Create effective system-level instructions",
+      "titleZh": "写出有效的系统级指示",
+      "summaryZh": "系统级指示（项目指示、system prompt）解决的是一致性和重复劳动：所有对话共通的前提只写一次。好的指示覆盖异常情况、解释余地小；抽象的形容词无法产生一致的结果。",
+      "concepts": [
+        {
+          "term": "System-level instructions（系统级指示）",
+          "zh": "对每一次对话都适用的角色、读者、格式和规则。只适用于这一次的要求留在提示词里。"
+        },
+        {
+          "term": "Concrete rules（具体规则）",
+          "zh": "「正式」「专业」「简洁」每个人理解不同。改为可判定的规则（如「不用缩写、不用第二人称、每段不超过 3 句」）或给范例。"
+        },
+        {
+          "term": "Edge cases（异常情况）",
+          "zh": "写明信息不足、请求超出范围、遇到敏感话题时怎么办。"
+        },
+        {
+          "term": "Two-reader test（两人检验法）",
+          "zh": "把指示给两个人看，问他们会怎么执行；答案不一样，模型也会摇摆。"
+        }
+      ],
+      "example": {
+        "bad": "项目指示：「请专业、简洁地回答。」",
+        "good": "项目指示：「读者是外部客户。用敬语；结论放第一句；不超过 150 字；不承诺价格和交期，遇到这类问题回答『由负责人另行联系』。」",
+        "whyZh": "具体、可判定、覆盖了例外，不同的人和不同的对话都会得到一致的结果。"
+      },
+      "pitfalls": [
+        "把临时的要求写进系统指示，结果之后莫名影响别的工作。",
+        "期待写指示就能解决检查、维护或权限设计的问题——那些属于别的机制。",
+        "让每个人在自己的笔记里保存一份指示，各自修改后标准分裂。"
+      ],
+      "examTips": [
+        "判断标准：「它适用于这里的每一次对话吗？」是 → 系统级指示。",
+        "「放共享文档每次复制」类选项留下了手工步骤，通常不是最佳答案。"
+      ],
+      "practiceZh": "写完项目指示后，找一位同事读一遍，请他说出会怎么执行；理解不一致的地方改成具体规则或补充范例。同时写明遇到超出范围的请求时该如何回应，例如「请联系负责人」。",
+      "references": [
+        {
+          "title": "What are projects?",
+          "url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D5-4",
+      "domain": "D5",
+      "objective": "Inform, maintain, and update Claude configurations, knowledge sources, and instructions",
+      "titleZh": "维护与更新配置、知识源和指示",
+      "summaryZh": "知识库和指示不是放上去就完事，而是需要保养的对象。过期副本最危险的地方在于没有任何征兆——产出依然流畅自信，只是事实是旧的。每个文件要有负责人和最后确认日期，改动要告知使用者。",
+      "concepts": [
+        {
+          "term": "Owner + last reviewed（负责人与确认日期）",
+          "zh": "缺了这两样，没人知道该找谁更新，也没人知道哪些文件该复查。（本 APP 给每道题加 reviewedAt 也是同样的道理。）"
+        },
+        {
+          "term": "Silent staleness（无声的过期）",
+          "zh": "上传的文件是副本，原文件更新后它不会自动更新。"
+        },
+        {
+          "term": "Review triggers（复查信号）",
+          "zh": "产出与现行源文件冲突、出现没人认得的文件——这两个是该复查的信号；文件数量多或放了很久本身不是。"
+        },
+        {
+          "term": "Change log & notice（变更记录与告知）",
+          "zh": "改动前记录原状态，改动后通知使用者。这样出问题时能找到差分，也能快速回退。"
+        }
+      ],
+      "example": {
+        "bad": "价格表更新了，但知识库里还是半年前上传的旧版，Claude 照旧版报价，没人察觉。",
+        "good": "知识库清单记录每个文件的负责人和最后确认日；价格表更新时由负责人替换文件、更新日期，并在团队频道通知。",
+        "whyZh": "主动维护加上告知，才能避免「流畅而过期」的产出。"
+      },
+      "pitfalls": [
+        "加一条指示「请使用最新信息」来代替更新文件——模型无法知道哪份是最新的。",
+        "改了配置不留记录，事后无法诊断质量变化。",
+        "删除文件时没有确认是否还有人依赖它。"
+      ],
+      "examTips": [
+        "正解多含「负责人」「确认日期」「通知使用者」等维护要素。",
+        "与 D7-2 相连：没有改动记录，诊断的第一步就走不动。"
+      ],
+      "practiceZh": "为知识库维护一张清单：文件名、负责人、来源位置、最后确认日期。约定检查周期，源文件更新时由负责人替换副本并通知团队。修改项目指示时，先保存旧版本，以便出现问题时对比和回退。",
+      "references": [
+        {
+          "title": "Files API",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/files"
+        },
+        {
+          "title": "What are projects?",
+          "url": "https://support.claude.com/en/articles/9517075-what-are-projects"
+        }
+      ]
+    },
+    {
+      "id": "D6-1",
+      "domain": "D6",
+      "objective": "Identify appropriate and inappropriate use cases",
+      "titleZh": "识别适当与不适当的使用场景",
+      "summaryZh": "判断一个用途是否适当，看两条线索：是否违反使用政策或合同义务（例如第三方机密信息），以及产出是否会直接改变某个具体的人的处境（招聘、晋升、信贷等）。后者不一定被禁止，但需要额外的审查、记录和人的判断。",
+      "concepts": [
+        {
+          "term": "Usage Policy（使用政策）",
+          "zh": "Anthropic 的使用政策规定了禁止和需要特别注意的用途。具体条款以官方原文为准。"
+        },
+        {
+          "term": "High-impact decisions（影响个人处遇的用途）",
+          "zh": "招聘、续约、晋升、信贷、保险等，产出会改变具体某个人的机会，必须有人审查并能说明理由。"
+        },
+        {
+          "term": "Inferring sensitive attributes（推测敏感属性）",
+          "zh": "从文本推断健康、宗教、政治倾向、性取向等，等于制造敏感数据，既无依据也无当事人同意。"
+        },
+        {
+          "term": "Over-restriction（过度禁止）",
+          "zh": "「人事话题一律不用」也是错误的。起草通知、整理制度说明等低风险用途仍然有价值。"
+        }
+      ],
+      "example": {
+        "bad": "让 Claude 根据应聘者的简历和照片直接给出「录用／不录用」，HR 照单执行。",
+        "good": "让 Claude 按事先公开的岗位要求整理每份简历的相关经历，由 HR 依据标准判断，并记录理由。",
+        "whyZh": "模型辅助整理信息，决定和责任留在人这里；评价标准事先明确，不涉及敏感属性。"
+      },
+      "pitfalls": [
+        "以为「附注是 AI 生成的」就让高风险用途变得可以接受。",
+        "把已签署合同中第三方的机密信息直接交给外部工具。",
+        "一刀切地禁止某个部门使用，放弃了低风险的有用场景。"
+      ],
+      "examTips": [
+        "题目常列出几个用途，问哪个最需要额外审查：选「直接影响个人处遇」或「涉及第三方机密」的那个。",
+        "公开信息的整理、内部草稿等通常是适当用途。"
+      ],
+      "practiceZh": "团队里可以整理一份「使用场景红黄绿表」：绿＝可以直接用（公开信息整理、内部草稿）；黄＝需要人审查和记录（涉及个人处遇、对外发布）；红＝不使用（违反政策或合同）。不确定时按黄处理并询问负责部门。",
+      "references": [
+        {
+          "title": "Anthropic Usage Policy",
+          "url": "https://www.anthropic.com/legal/aup"
+        },
+        {
+          "title": "Claude 产品概览",
+          "url": "https://claude.com/product/overview"
+        }
+      ]
+    },
+    {
+      "id": "D6-2",
+      "domain": "D6",
+      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "titleZh": "数据敏感性、法规与隐私",
+      "summaryZh": "「我有权限看」不等于「我可以拿出去」。处理数据的基本顺序：先看组织方针 → 只给完成任务所必需的部分（数据最小化）→ 能去标识化就去标识化。一条「请不要保留」的指示改变不了数据已经被传出去这个事实。",
+      "concepts": [
+        {
+          "term": "Data minimization（数据最小化）",
+          "zh": "大多数分析并不需要姓名、编号等标识信息。只提供完成任务所必需的部分。"
+        },
+        {
+          "term": "De-identification（去标识化）",
+          "zh": "删除或替换姓名和可识别细节后再使用。拆分成多次发送并不减少总量。"
+        },
+        {
+          "term": "Synthetic data for testing（用合成数据测试）",
+          "zh": "测试提示词需要的是问题的形态（长度、结构、常见歧义），用合成或去标识化的例子完全可以复现，不需要真人数据。"
+        },
+        {
+          "term": "Regulatory context（法规背景）",
+          "zh": "个人信息、健康、金融等数据可能受法律法规和合同约束。不确定时先问负责的部门，而不是先试。"
+        }
+      ],
+      "example": {
+        "bad": "把含有员工姓名和评语的绩效评估全文贴给 Claude，理由是「反正是内部分析」。",
+        "good": "先确认公司方针；分析只需要评语的倾向时，删除姓名和可识别细节，只保留部门和评语文本。",
+        "whyZh": "改成既遵守方针、又能达成目的的形式，是这类题的标准答案。"
+      },
+      "pitfalls": [
+        "用「内部用途」作为例外的理由。",
+        "以为加一条「请不要保存这些数据」的指示就能代替方针。",
+        "因为担心风险而完全不测试——那样上线后的风险更大。"
+      ],
+      "examTips": [
+        "D6 最典型的考法：正解是「改成既守方针又能达成目的的形式」。",
+        "「彻底放弃使用」和「照常使用」通常都是两个极端的干扰项。"
+      ],
+      "practiceZh": "把数据交给 Claude 之前，先问三个问题：方针允许吗？这些字段对任务是必需的吗？能否去掉姓名和可识别信息？测试提示词时，用自己编写的合成样本，只在方针允许的前提下处理真实数据。",
+      "references": [
+        {
+          "title": "Anthropic Usage Policy",
+          "url": "https://www.anthropic.com/legal/aup"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D6-3",
+      "domain": "D6",
+      "objective": "Follow organizational AI policies and governance standards",
+      "titleZh": "遵守组织的 AI 方针与治理标准",
+      "summaryZh": "组织的 AI 方针在被正式修改之前必须遵守；对方针有异议可以提出，但不能逐案用个人判断代替。没有专门的 AI 方针时，原有的保密规程仍然有效。发现违规要报告，而不是掩盖。",
+      "concepts": [
+        {
+          "term": "Policy compliance（遵守方针）",
+          "zh": "「只在别人看得到时遵守」「逐案自己判断」都会在审计或事故时成为最大的问题。"
+        },
+        {
+          "term": "Existing obligations（既有义务）",
+          "zh": "保密规程、客户合同中的保密义务在使用 AI 时依然适用。AI 不是法外之地，也不是必须全面停用的理由。"
+        },
+        {
+          "term": "Escalate, don't decide（该问的人要问）",
+          "zh": "决定边界不是 Associate 的权限。方针不明确时，向负责的部门确认。"
+        },
+        {
+          "term": "Incident reporting（违规报告）",
+          "zh": "发现违规时如实报告。为动机开脱、用删除来掩盖、把先例当许可，都不改变义务已经被违反的事实。"
+        }
+      ],
+      "example": {
+        "bad": "同事把客户合同贴进了未经批准的工具，你建议「删掉对话记录就没事了」。",
+        "good": "停止继续使用，按公司流程向负责部门报告发生了什么、涉及哪些数据，配合后续处理。",
+        "whyZh": "合同性的保密义务已经受影响，报告才能让组织及时应对。"
+      },
+      "pitfalls": [
+        "认为方针不合理就可以先不遵守。",
+        "没有 AI 方针时，以为「没有规定就是允许」。",
+        "把别人以前这样做过当作许可。"
+      ],
+      "examTips": [
+        "正解常是「遵守现行方针，同时通过正式渠道提出意见」或「向负责部门报告」。",
+        "依赖者决定核实强度：收到的人不会再检查时，你就是最后一道关口。"
+      ],
+      "practiceZh": "把公司的 AI 方针和保密规程的链接放在团队常用文档里，遇到不确定的情况先查方针、再问负责部门。发现问题时按流程报告，记录发生了什么、涉及哪些数据、已经采取了什么措施。",
+      "references": [
+        {
+          "title": "Anthropic Commercial Terms",
+          "url": "https://www.anthropic.com/legal/commercial-terms"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D6-4",
+      "domain": "D6",
+      "objective": "Understand the ethical implications of AI usage",
+      "titleZh": "理解 AI 使用的伦理影响",
+      "summaryZh": "伦理问题常出在「规模」和「信息不对称」上：自动化把偏见整齐划一地施加给所有人，而当事人无从申诉；读者不知道内容由 AI 起草，就可能按错误的前提去信任它。透明度和人的判断是基本对策。",
+      "concepts": [
+        {
+          "term": "Systemic bias at scale（规模化偏见）",
+          "zh": "人的偏见是分散的，自动化的偏见是系统性的。速度本身不是问题，问题是速度扩大了影响面。"
+        },
+        {
+          "term": "Explainability & recourse（可解释与申诉）",
+          "zh": "影响个人的判断，当事人应能知道依据并提出异议。"
+        },
+        {
+          "term": "Transparency（透明度）",
+          "zh": "告知内容由 AI 参与生成，让读者调整信任度；有些行业和场合还有强制披露要求。披露不转移责任，但不披露可能本身就是问题。"
+        },
+        {
+          "term": "Wrong metrics（错误的指标）",
+          "zh": "用「和 AI 聊天的次数」衡量员工产出，指标本身就是错的；用它给人排名还会造成实际伤害。拒绝时要说明理由并给出替代方案。"
+        }
+      ],
+      "example": {
+        "bad": "管理层要求用 Claude 的使用记录给员工打分排名，你默默照做。",
+        "good": "说明「使用次数不等于产出，用于排名会造成不公平」，并建议改用与业务成果相关的指标。",
+        "whyZh": "正确的回应不是沉默拒绝或照做，而是说清理由并给出替代方案。"
+      },
+      "pitfalls": [
+        "认为「AI 做的判断更客观」。",
+        "不告知读者内容由 AI 起草，导致对方跳过了本该做的核对。",
+        "只关注效率提升，忽略了受影响者的申诉途径。"
+      ],
+      "examTips": [
+        "伦理题的正解通常兼顾「说明理由」与「给出替代方案」。",
+        "注意与 D2-4 的关系：披露不转移责任，但披露本身可能是义务。"
+      ],
+      "practiceZh": "在涉及个人评价或对外发布的场景，主动说明 AI 参与的部分，并保留人的最终判断和申诉途径。被要求用 AI 做可能不公平的事时，用事实说明风险，同时提出可行的替代方案。",
+      "references": [
+        {
+          "title": "Anthropic Usage Policy",
+          "url": "https://www.anthropic.com/legal/aup"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    },
+    {
+      "id": "D7-1",
+      "domain": "D7",
+      "objective": "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
+      "titleZh": "诊断并解决表现不佳的提示词",
+      "summaryZh": "产出不理想时，先回去读自己的提示词：有没有互相矛盾的条件？关键要求是不是埋在长段落中间？是不是只给了形容词而没给材料？诊断的方向是找出原因，而不是加强语气或直接换模型。",
+      "concepts": [
+        {
+          "term": "Conflicting instructions（矛盾的指示）",
+          "zh": "给了无法同时成立的条件（如「详细说明」和「不超过 50 字」），必定有一条被破坏。"
+        },
+        {
+          "term": "Buried requirement（被埋没的要求）",
+          "zh": "夹在长段落中间的条件容易被忽略。把它单独成行并标为必须，往往一次就解决。"
+        },
+        {
+          "term": "Specific input → specific output（具体来自材料）",
+          "zh": "笼统的产出来自笼统的输入。具体性来自你提供的事实、数据和例子，而不是「要具体」这句话。"
+        },
+        {
+          "term": "Standard request template（标准请求模板）",
+          "zh": "同一项任务不同人得到的质量差别很大，说明缺少标准。把好请求的要素写成模板（参见 D5）。"
+        }
+      ],
+      "example": {
+        "bad": "产出太笼统 → 在提示词末尾加上「请务必具体！！」",
+        "good": "补上具体材料（产品规格、目标客户、三个竞品的差异），并说明不要使用的套话，例如「不要写『提升效率』这类泛泛的表述」。",
+        "whyZh": "补信息、去矛盾、调位置，是比加强语气更可靠的修法。"
+      },
+      "pitfalls": [
+        "一遇到问题就换更贵的模型。",
+        "调整 temperature 等参数来解决本质上是指示不清的问题。",
+        "只修改提示词的措辞，而没有检查输入材料是否足够。"
+      ],
+      "examTips": [
+        "D7 的问题数量最多，题干通常描述一个症状，问「最可能的原因」或「第一步该做什么」。",
+        "先查指示本身（矛盾、位置、信息不足）的选项通常是正解。"
+      ],
+      "practiceZh": "产出不理想时按顺序检查：①指示之间有没有矛盾；②关键要求是否被埋在中间；③是否提供了足够的具体材料；④有没有给范例。四项都检查过之后，再考虑调整模型或参数。",
+      "references": [
+        {
+          "title": "Prompt engineering overview",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"
+        },
+        {
+          "title": "Be clear, direct, and detailed",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct"
+        }
+      ]
+    },
+    {
+      "id": "D7-2",
+      "domain": "D7",
+      "objective": "Adjust approach based on feedback and results",
+      "titleZh": "根据反馈和结果调整做法",
+      "summaryZh": "质量变化必然对应某个改变，诊断从「差分」开始：最近改了什么（提示词、知识库、模型、输入）？修好之后要验证两件事：原来的失败不再发生，并且没有引入新的问题。",
+      "concepts": [
+        {
+          "term": "Diff-based diagnosis（差分诊断）",
+          "zh": "找出质量下降前后改变了什么，比任何猜测都快。这要求平时保留改动记录（参见 D5-4）。"
+        },
+        {
+          "term": "Regression check（回归检查）",
+          "zh": "修复后，用原来失败的案例和一组正常案例一起测试，确认没有在别处引入新问题。"
+        },
+        {
+          "term": "Reduce variance（压低波动）",
+          "zh": "产出时好时坏，往往是好坏标准没有写进指示里。用示例和结构说明把标准固定下来。"
+        },
+        {
+          "term": "Different premises（前提不同）",
+          "zh": "同一个改动在两个人那里结果相反，先确认输入是否不同、评判标准是否不同，再下结论。"
+        }
+      ],
+      "example": {
+        "bad": "产出时好时坏，于是每次多跑几遍挑最好的一个。",
+        "good": "收集好与坏的产出各几份，找出差别所在，把判断标准和一个范例写进指示；用同一组测试输入确认波动变小，且原本好的案例没有变差。",
+        "whyZh": "去掉原因，而不是让人工筛选的成本永远留着。"
+      },
+      "pitfalls": [
+        "把提示词写短来「减少出错」，结果标准更模糊。",
+        "只验证了原来的失败案例，没检查其他案例是否变差。",
+        "把结果差异归咎于「有人用错了」，而没有先比对输入和标准。"
+      ],
+      "examTips": [
+        "题干出现「最近质量下降」，正解常是「先确认最近改了什么」。",
+        "「多跑几次挑最好的」是典型干扰项。"
+      ],
+      "practiceZh": "为重要的提示词和配置保留改动记录，并准备一组固定的测试案例（包含过去失败过的案例）。每次修改后都跑一遍，确认旧问题已解决、其他案例没有变差，再正式使用。",
+      "references": [
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Use examples (multishot prompting)",
+          "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting"
+        }
+      ]
+    },
+    {
+      "id": "D7-3",
+      "domain": "D7",
+      "objective": "Optimize workflows for efficiency and effectiveness",
+      "titleZh": "优化工作流的效率与效果",
+      "summaryZh": "优化的两条纪律：先测量，一次只改一处。时间如果实际花在复核上，把生成变快什么也改变不了；返工的时间必须计入总账。优先级按「频率 × 每次收益」排，再加上风险。",
+      "concepts": [
+        {
+          "term": "Measure first（先测量）",
+          "zh": "先弄清时间和错误发生在哪一步，再决定优化哪里。"
+        },
+        {
+          "term": "Total cost incl. rework（含返工的总成本）",
+          "zh": "如果修正时间超过节省的时间，所谓「提速」只是把工作挪到了另一环，而且总量更多。"
+        },
+        {
+          "term": "ROI of optimization（优化的投入产出）",
+          "zh": "每月省 40 分钟却花了两天去调，不划算。按频率 × 每次收益排序，容易出错的流程也值得优先。"
+        },
+        {
+          "term": "Keep the human check（保留人工检查）",
+          "zh": "「慢」不是「不必要」的理由。去掉复核之前，要有数据证明它确实没有拦下问题。"
+        }
+      ],
+      "example": {
+        "bad": "为了加速，每一步都换成最快的模型，并取消人工复核。",
+        "good": "测量发现 70% 的时间花在复核上，原因是产出格式不固定；先固定输出格式和检查表，复核时间减半，其余步骤不动。",
+        "whyZh": "先找到真正的瓶颈，再做一处有针对性的改动，并用数据确认效果。"
+      },
+      "pitfalls": [
+        "没有确认原因就同时改动多处。",
+        "只看生成速度，不看返工和复核时间。",
+        "把罕见、收益很小的流程当作优化重点。"
+      ],
+      "examTips": [
+        "正解常含「先测量／找出时间花在哪里」。",
+        "这条与 D1 的迭代、D4 的流程改善是同一套方法，在考试中反复出现。"
+      ],
+      "practiceZh": "优化前先记录一周的数据：每一步花多少时间、返工多少次。按「频率 × 每次可节省的时间」排出优先级，一次只改一处，改完再测一次，用数据决定是否保留这个改动。",
+      "references": [
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Claude.ai 帮助中心",
+          "url": "https://support.anthropic.com/en/collections/4078531-claude-ai"
+        }
+      ]
+    }
+  ]
+}

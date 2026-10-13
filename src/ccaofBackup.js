@@ -21,6 +21,7 @@ export const BACKUP_KEYS = [
   "ccaofReviewV1", // まちがえた問題の復習リスト
   "ccaofExamResultsV1", // 模擬試験の結果（最大20件）
   "ccaofVocabV1", // 頻出単語の学習記録と復習リスト
+  "ccaofMistakesV1", // 錯題本（まちがえた問題の間隔復習。v1.31.0〜）
 ];
 
 function readKey(key) {
@@ -67,7 +68,11 @@ export function describeBackup(backup) {
   const vocab = d.ccaofVocabV1 || {};
   const vocabWords = Object.keys(vocab.words || {}).length;
   const vocabReview = Object.keys(vocab.review || {}).length;
-  return { attempted, correct, days, reviewCount, exams, vocabWords, vocabReview, exportedAt: backup?.exportedAt || null };
+  const mistakes = d.ccaofMistakesV1;
+  /* v1.30.0 までのバックアップには錯題本が無い。復元後に復習リストから作り直されるので
+     その件数を見せる（null のときは画面で「復習リストから作成」と出す） */
+  const mistakeCount = mistakes && mistakes.items ? Object.keys(mistakes.items).length : null;
+  return { attempted, correct, days, reviewCount, exams, vocabWords, vocabReview, mistakeCount, exportedAt: backup?.exportedAt || null };
 }
 
 /** 読み込もうとしているファイルが本当に CCAO-F のバックアップか確かめる。 */
@@ -109,6 +114,16 @@ export function parseBackup(text) {
 /** 検証済みのバックアップを実際に書き戻す。既存の記録は置き換えられる。 */
 export function applyBackup(backup) {
   const restored = [];
+  /* v1.30.0 までのバックアップ（錯題本なし）を戻すときは、今の錯題本を消しておく。
+     次に開いたとき、復元した復習リスト（ccaofReviewV1）から作り直される。
+     消さないと、別の時点の錯題本と復習リストが混ざる。 */
+  if (backup.data.ccaofMistakesV1 === undefined && backup.data.ccaofReviewV1 !== undefined) {
+    try {
+      window.localStorage.removeItem(learnerKey("ccaofMistakesV1"));
+    } catch (e) {
+      // 消せなくても復元は続ける
+    }
+  }
   BACKUP_KEYS.forEach((k) => {
     const v = backup.data[k];
     if (v === undefined) return;

@@ -10,12 +10,30 @@
    ============================================================ */
 
 import META from "./data/ccaof/meta.json";
+import { buildObjectives } from "./ccaofStudyCore";
 
 export const BLUEPRINT = META;
 export const EXAM_FORMAT = META.examFormat;
 /* meta.json は軽い（ドメイン定義と出題目標だけ）ので同期で持ってよい。
    重いのは問題本体の7ファイル。 */
 export const DOMAINS = META.domains;
+/* 30 考点。id は "D1-1" のようにドメイン内の並び順から作る */
+export const OBJECTIVES = buildObjectives(META);
+
+/* 考点讲义（src/data/ccaof/lessons.json）。中国語の本文で重いので、
+   問題と同じく必要になってから読む。 */
+let lessonsPromise = null;
+export function loadLessons() {
+  if (!lessonsPromise) {
+    lessonsPromise = import("./data/ccaof/lessons.json")
+      .then((mod) => (mod.default || mod).lessons || [])
+      .catch((e) => {
+        lessonsPromise = null;
+        throw e;
+      });
+  }
+  return lessonsPromise;
+}
 
 const LOADERS = {
   D1: () => import("./data/ccaof/d1-prompting.json"),

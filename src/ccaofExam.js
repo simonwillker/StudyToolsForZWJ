@@ -52,6 +52,7 @@ export async function buildExam(total = EXAM_FORMAT.items) {
   return shuffle(picked).map((item) => ({
     id: item.id,
     domain: item.domain,
+    objective: item.objective,
     stem: item.stem,
     stemZh: item.stemZh,
     material: item.material,

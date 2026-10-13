@@ -10,7 +10,21 @@ import {
   describeBackup,
 } from "./ccaofBackup";
 import {
+  buildObjectiveIndex,
+  collectObjectiveStats,
+  rankWeakObjectives,
+  pickPracticeItems,
+  predictScore,
+  nextActions,
+  pctOf,
+  MIN_OBJECTIVE_ATTEMPTS,
+} from "./ccaofStudyCore";
+import { recordMistakeAnswer, getMistakeSummary, getDueMistakeIds } from "./ccaofMistakes";
+import {
   DOMAINS,
+  OBJECTIVES,
+  loadLessons,
+  loadAllDomainItems,
   BLUEPRINT,
   EXAM_FORMAT,
   findDomain,
@@ -43,6 +57,7 @@ import {
   getStreak,
   getTodayStats,
   resetProgress,
+  loadProgress,
 } from "./ccaofProgress";
 
 const APP_VERSION = __APP_VERSION__;
@@ -104,7 +119,7 @@ function loadShowZh() {
   }
 }
 
-function Quiz({ domain, questions, onExit, showZh, onToggleZh }) {
+function Quiz({ domain, questions, onExit, showZh, onToggleZh, studyLabel, exitLabel = "ドメイン選択にもどる" }) {
   const [index, setIndex] = useState(0);
   const [picked, setPicked] = useState([]);
   const [submitted, setSubmitted] = useState(false);
@@ -140,8 +155,10 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh }) {
     /* 重点演習では複数ドメインが混ざる。記録先は画面のドメインではなく
        問題自身のドメインにする（そうしないと弱点判定の材料が壊れる） */
     const recordDomain = q.domain || domain.id;
-    recordAnswer(recordDomain, q.id, ok, domain ? undefined : "弱点の重点演習");
+    recordAnswer(recordDomain, q.id, ok, studyLabel);
     recordReviewResult(recordDomain, q.id, ok);
+    /* 錯題本：どの練習でまちがえても登録し、期限の来た問題の正解は復習の進み具合に数える */
+    recordMistakeAnswer({ id: q.id, domain: recordDomain }, ok);
   };
 
   const next = () => {
@@ -175,7 +192,7 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh }) {
           本番は1000点満点で720点が合格。ここでの正答率はそのまま点数にはなりませんが、
           72%を下回るうちは同じドメインを解き直すのが近道です。
         </div>
-        <button className="ccaof-btn" style={{ "--c": domain.color }} onClick={onExit}>ドメイン選択にもどる</button>
+        <button className="ccaof-btn" style={{ "--c": domain.color }} onClick={onExit}>{exitLabel}</button>
       </div>
     );
   }
@@ -462,6 +479,137 @@ function ExamReview({ result, questions, showZh, onBack }) {
 }
 
 /* ============================================================
+   合格予測
+
+   本番の換算式は非公開。模試の目安スコアと考点別の正答率から出す
+   「目安」なので、断定する言い方はしない。データが足りないときは
+   数字を出さずに、何が足りないかを書く。
+   ============================================================ */
+
+function PredictionCard({ prediction, actions, loading }) {
+  if (loading || !prediction) {
+    return (
+      <div className="ccaof-focus-card" style={{ borderColor: "#C8743D" }}>
+        <div className="ccaof-focus-desc">{loading ? "成績を集計しています…" : ""}</div>
+      </div>
+    );
+  }
+  const pass = EXAM_FORMAT.passScaled;
+  return (
+    <div className="ccaof-focus-card ccaof-predict" style={{ borderColor: "#C8743D" }} data-testid="prediction">
+      {prediction.ready ? (
+        <>
+          <div className="ccaof-predict-top">
+            <div>
+              <div className="ccaof-predict-label">予測スコア（目安）</div>
+              <div className={"ccaof-predict-num " + (prediction.gap <= 0 ? "pass" : "fail")}>{prediction.predicted}</div>
+            </div>
+            <div className="ccaof-predict-gap">
+              {prediction.gap > 0
+                ? <>合格 {pass} まで<br /><strong>あと {prediction.gap} 点</strong>（約 {prediction.questionsShort} 問）</>
+                : <>合格 {pass} を<br /><strong>{-prediction.gap} 点 上回る</strong></>}
+            </div>
+          </div>
+          <div className="ccaof-predict-track">
+            <div className="ccaof-predict-fill" style={{ width: `${((prediction.predicted - EXAM_FORMAT.scaleMin) / (EXAM_FORMAT.scaleMax - EXAM_FORMAT.scaleMin)) * 100}%` }} />
+            <div className="ccaof-predict-pass" style={{ left: `${((pass - EXAM_FORMAT.scaleMin) / (EXAM_FORMAT.scaleMax - EXAM_FORMAT.scaleMin)) * 100}%` }} />
+          </div>
+          <div className="ccaof-focus-desc" style={{ marginBottom: 0 }}>
+            材料：
+            {prediction.examScaled !== null ? `模擬試験 ${prediction.examCount}回（直近の目安 ${prediction.examScaled}）` : "模擬試験なし"}
+            {" ／ "}
+            {prediction.practiceScaled !== null
+              ? `考点別の正答率（配点の ${prediction.coveredWeight}% ぶん、配点で加重 → ${prediction.practiceScaled}）`
+              : `考点別の正答率は材料不足（配点の ${prediction.coveredWeight}% ぶん）`}
+            。確からしさ：<strong>{prediction.confidence}</strong>。
+            本番の換算式は公表されていないので、これは目安で、合否を保証するものではありません。
+          </div>
+        </>
+      ) : (
+        <div className="ccaof-focus-desc" style={{ marginBottom: 0 }}>{prediction.reason}</div>
+      )}
+      {actions.length > 0 && (
+        <div className="ccaof-next">
+          <div className="ccaof-next-title">次にやること</div>
+          <ol>{actions.map((a) => <li key={a}>{a}</li>)}</ol>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ============================================================
+   考点讲义
+
+   本文は中国語（学習者は中国語話者）、用語は英語を併記する。
+   試験は英語なので、考点の見出しは公式 Exam Guide の英文のまま出す。
+   ============================================================ */
+
+function LessonView({ lesson, stat, itemCount, color, onBack, onPractice }) {
+  const pct = pctOf(stat);
+  return (
+    <div className="ccaof-inner">
+      <button className="ccaof-back-link" style={{ marginBottom: 12 }} onClick={onBack}>← 考点一覧にもどる</button>
+      <div className="ccaof-title-block">
+        <div className="ccaof-eyebrow">{lesson.id} · {findDomain(lesson.domain).labelEn}</div>
+        <h1 className="ccaof-serif ccaof-lesson-title">{lesson.titleZh}</h1>
+        <div className="ccaof-under" />
+        <div className="ccaof-lead ccaof-lesson-obj">{lesson.objective}</div>
+      </div>
+
+      <div className="ccaof-lesson-stat">
+        {pct === null ? `この考点の問題 ${itemCount}問（まだ未学習）` : `この考点：正答率 ${pct}%（のべ ${stat.attempted}問）／ 問題 ${itemCount}問`}
+      </div>
+
+      <div className="ccaof-lesson-box summary" style={{ "--c": color }}>{lesson.summaryZh}</div>
+
+      <div className="ccaof-lesson-h">核心概念</div>
+      <div className="ccaof-lesson-box">
+        {lesson.concepts.map((c) => (
+          <div className="ccaof-lesson-concept" key={c.term}>
+            <div className="ccaof-lesson-term" style={{ "--c": color }}>{c.term}</div>
+            <div className="ccaof-lesson-text">{c.zh}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="ccaof-lesson-h">正例与反例</div>
+      <div className="ccaof-lesson-box">
+        <div className="ccaof-lesson-ex bad"><span className="ccaof-lesson-tag">✕ 反例</span>{lesson.example.bad}</div>
+        <div className="ccaof-lesson-ex good"><span className="ccaof-lesson-tag">○ 正例</span>{lesson.example.good}</div>
+        <div className="ccaof-lesson-text" style={{ marginTop: 8 }}>{lesson.example.whyZh}</div>
+      </div>
+
+      <div className="ccaof-lesson-h">常见陷阱</div>
+      <ul className="ccaof-lesson-list">{lesson.pitfalls.map((t) => <li key={t}>{t}</li>)}</ul>
+
+      <div className="ccaof-lesson-h">考试怎么考</div>
+      <ul className="ccaof-lesson-list">{lesson.examTips.map((t) => <li key={t}>{t}</li>)}</ul>
+
+      <div className="ccaof-lesson-h">实务应用</div>
+      <div className="ccaof-lesson-box"><div className="ccaof-lesson-text">{lesson.practiceZh}</div></div>
+
+      <div className="ccaof-lesson-h">官方文档</div>
+      <div className="ccaof-lesson-box">
+        {lesson.references.map((r) => (
+          <a key={r.url} className="ccaof-official-link" href={r.url} target="_blank" rel="noopener noreferrer">{r.title} ↗</a>
+        ))}
+        <div className="ccaof-lesson-note">价格、模型版本、上限值等会变化，请以官方页面为准。</div>
+      </div>
+
+      <div className="ccaof-lesson-actions">
+        <button className="ccaof-btn" style={{ "--c": color }} onClick={() => onPractice(UNIT_SIZE)} disabled={!itemCount}>
+          この考点の問題を解く（{Math.min(UNIT_SIZE, itemCount)}問）
+        </button>
+        {itemCount > UNIT_SIZE && (
+          <button className="ccaof-btn-ghost" onClick={() => onPractice(itemCount)}>すべて（{itemCount}問）</button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
    メイン
    ============================================================ */
 
@@ -480,6 +628,106 @@ export default function CcaofApp({ onExitApp }) {
   const [examResult, setExamResult] = useState(null);
   const [examBusy, setExamBusy] = useState(false);
   const [resumable, setResumable] = useState(() => loadInProgress());
+
+  /* 考点（objective）まわり。考点別の成績・合格予測・今日の復習は全ドメインの
+     問題が要るので、CCAO-F を開いたら7ドメインぶんと讲义を読んでおく
+     （英検など他のアプリでは読まれない）。 */
+  const [allItems, setAllItems] = useState(null);
+  const [lessons, setLessons] = useState(null);
+  const [studyLoadError, setStudyLoadError] = useState(false);
+  const [lessonDomainId, setLessonDomainId] = useState(DOMAINS[0].id);
+  const [lessonId, setLessonId] = useState(null);
+  const [lessonBack, setLessonBack] = useState("lessonList");
+  /* 考点練習・弱点考点・今日の復習の出題情報 { label, color, studyLabel, returnTo, exitLabel } */
+  const [quizCtx, setQuizCtx] = useState(null);
+
+  useEffect(() => {
+    let alive = true;
+    Promise.all([loadAllDomainItems(), loadLessons()])
+      .then(([items, ls]) => {
+        if (!alive) return;
+        setAllItems(items);
+        setLessons(ls);
+      })
+      .catch(() => {
+        if (alive) setStudyLoadError(true);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [loadNonce]);
+
+  const objectiveIndex = useMemo(() => buildObjectiveIndex(BLUEPRINT, lessons || []), [lessons]);
+  const lessonById = useMemo(() => new Map((lessons || []).map((l) => [l.id, l])), [lessons]);
+  const lessonTitles = useMemo(() => Object.fromEntries((lessons || []).map((l) => [l.id, l.titleZh])), [lessons]);
+  const itemsByObjective = useMemo(() => {
+    const m = new Map(OBJECTIVES.map((o) => [o.id, []]));
+    (allItems || []).forEach((item) => {
+      const id = objectiveIndex.get(item.objective);
+      if (id && m.has(id)) m.get(id).push(item);
+    });
+    return m;
+  }, [allItems, objectiveIndex]);
+
+  const startCtxQuiz = useCallback((picked, ctx) => {
+    if (!picked.length) return;
+    setDomainId(null);
+    setQuizCtx(ctx);
+    setQuestions(buildQuestions(picked));
+    setScreen("quiz");
+  }, []);
+
+  const openLesson = (id, back) => {
+    setLessonId(id);
+    setLessonBack(back);
+    setScreen("lesson");
+    window.scrollTo(0, 0);
+  };
+
+  const startObjectivePractice = (objId, limit) => {
+    const items = itemsByObjective.get(objId) || [];
+    const picked = pickPracticeItems(items, loadProgress(), getMistakeSummary().ids, limit, shuffle);
+    const d = findDomain(objId.split("-")[0]);
+    startCtxQuiz(picked, {
+      label: `考点 ${objId}`,
+      color: d.color,
+      studyLabel: `考点 ${objId} 練習`,
+      returnTo: "lesson",
+      exitLabel: "讲义にもどる",
+    });
+  };
+
+  const startWeakObjectives = (picks) => {
+    const progress = loadProgress();
+    const mistakeIds = getMistakeSummary().ids;
+    /* 3つの考点から均等に取る（1つの考点の未解答だけで埋まらないように） */
+    const per = Math.ceil(UNIT_SIZE / Math.max(1, picks.length));
+    const picked = picks
+      .flatMap((p) => pickPracticeItems(itemsByObjective.get(p.id) || [], progress, mistakeIds, per, shuffle))
+      .slice(0, UNIT_SIZE);
+    startCtxQuiz(picked, {
+      label: "弱い考点",
+      color: "#3F6F52",
+      studyLabel: "弱い考点の練習",
+      returnTo: "domainSelect",
+      exitLabel: "トップにもどる",
+    });
+  };
+
+  const startTodayReview = () => {
+    if (!allItems) return;
+    const due = new Set(getDueMistakeIds());
+    startCtxQuiz(
+      allItems.filter((i) => due.has(i.id)),
+      {
+        label: "今日の復習",
+        color: "#C8323D",
+        studyLabel: "錯題本 今日の復習",
+        returnTo: "domainSelect",
+        exitLabel: "トップにもどる",
+      }
+    );
+  };
 
   const toggleZh = useCallback(() => {
     setShowZh((prev) => {
@@ -535,6 +783,7 @@ export default function CcaofApp({ onExitApp }) {
         const ok = isCorrect(q, prev.answers[i]);
         recordAnswer(q.domain, q.id, ok, "模擬試験");
         recordReviewResult(q.domain, q.id, ok);
+        recordMistakeAnswer({ id: q.id, domain: q.domain }, ok);
       });
       setExamResult(result);
       setScreen("examResult");
@@ -552,7 +801,7 @@ export default function CcaofApp({ onExitApp }) {
 
   const domain = domainId ? findDomain(domainId) : null;
   /* 重点演習は特定のドメインに属さない。表示用だけの擬似ドメインを使う */
-  const FOCUS_DOMAIN = { id: "focus", name: "弱点の重点演習", color: "#3F6F52" };
+  const FOCUS_DOMAIN = { id: "focus", name: "弱点の重点演習", label: "弱点の重点演習", color: "#3F6F52" };
   const examCounts = useMemo(() => examBlueprintCounts(), []);
 
   useEffect(() => {
@@ -632,6 +881,11 @@ export default function CcaofApp({ onExitApp }) {
 
   const exitQuiz = () => {
     setStatsNonce((n) => n + 1);
+    if (quizCtx) {
+      setScreen(quizCtx.returnTo);
+      setQuizCtx(null);
+      return;
+    }
     if (focusMode) {
       /* 重点演習はドメインに属さないので、ドメイン選択へ戻す */
       setFocusMode(false);
@@ -674,7 +928,8 @@ export default function CcaofApp({ onExitApp }) {
         `・学習した日数　${d.days}日\n` +
         `・復習リスト　${d.reviewCount}問\n` +
         `・模擬試験　${d.exams}回\n` +
-        `・頻出単語　学習 ${d.vocabWords}語（復習待ち ${d.vocabReview}語）\n\n` +
+        `・頻出単語　学習 ${d.vocabWords}語（復習待ち ${d.vocabReview}語）\n` +
+        `・錯題本　${d.mistakeCount === null ? "（復習リストから作り直します）" : `${d.mistakeCount}問`}\n\n` +
         `今この端末にある記録は、これで置き換えられます。よろしいですか？`
     );
     if (!okToApply) return;
@@ -687,6 +942,32 @@ export default function CcaofApp({ onExitApp }) {
   const pastResults = screen === "domainSelect" ? loadResults() : [];
   /* 弱点の判定も localStorage から毎回読む（演習直後に古い値が残らないように） */
   const weakness = screen === "domainSelect" || screen === "progress" ? analyseWeakness() : null;
+  /* 考点別の成績・錯題本・合格予測も同じ理由で毎回読む */
+  const studyScreens = ["domainSelect", "progress", "lessonList", "lesson"];
+  const onStudyScreen = studyScreens.includes(screen);
+  const objectiveStats = onStudyScreen && allItems ? collectObjectiveStats(allItems, loadProgress(), objectiveIndex) : null;
+  const mistakeSummary = onStudyScreen ? getMistakeSummary() : null;
+  const weakObjectives = objectiveStats ? rankWeakObjectives(OBJECTIVES, objectiveStats) : null;
+  const prediction =
+    objectiveStats && (screen === "domainSelect" || screen === "progress")
+      ? predictScore({
+          results: loadResults(),
+          objectives: OBJECTIVES,
+          objectiveStats,
+          domains: DOMAINS,
+          examFormat: EXAM_FORMAT,
+        })
+      : null;
+  const actions =
+    prediction && mistakeSummary
+      ? nextActions({
+          prediction,
+          dueCount: mistakeSummary.due,
+          weak: weakObjectives ? weakObjectives.picks : [],
+          titles: lessonTitles,
+          untouchedCount: OBJECTIVES.filter((o) => !objectiveStats[o.id] || !objectiveStats[o.id].attempted).length,
+        })
+      : [];
   /* 頻出単語の記録も同じ理由で毎回読む */
   const vocabSummary = screen === "domainSelect" || screen === "progress" ? getVocabSummary() : null;
 
@@ -716,6 +997,59 @@ export default function CcaofApp({ onExitApp }) {
         }
         .ccaof-backup-msg.ok { background: #EAF3EC; color: #2F5D3A; }
         .ccaof-backup-msg.ng { background: #F7E9E7; color: #8A3324; }
+
+        /* ---- 合格予測・錯題本・考点讲义（v1.31.0） ---- */
+        .ccaof-badge {
+          display: inline-block; min-width: 22px; padding: 1px 7px; margin-left: 8px;
+          border-radius: 11px; background: #C8323D; color: #fff; font-size: 12px;
+          text-align: center; vertical-align: 2px;
+        }
+        .ccaof-predict-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+        .ccaof-predict-label { font-size: 12px; color: #6B7280; font-weight: 700; }
+        .ccaof-predict-num { font-size: 36px; font-weight: 800; line-height: 1.1; }
+        .ccaof-predict-num.pass { color: #1F6B45; }
+        .ccaof-predict-num.fail { color: #C8743D; }
+        .ccaof-predict-gap { font-size: 13px; color: #4B5563; text-align: right; line-height: 1.6; }
+        .ccaof-predict-track { position: relative; height: 8px; background: #EDEBE3; border-radius: 4px; margin: 10px 0 8px; }
+        .ccaof-predict-fill { height: 100%; background: #C8743D; border-radius: 4px; }
+        .ccaof-predict-pass { position: absolute; top: -4px; width: 2px; height: 16px; background: #1F6B45; }
+        .ccaof-next { margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEE; }
+        .ccaof-next-title { font-size: 13px; font-weight: 800; color: #3F6F52; margin-bottom: 4px; }
+        .ccaof-next ol { margin: 0; padding-left: 20px; list-style: decimal; }
+        .ccaof-next li { font-size: 13px; line-height: 1.7; color: #333; }
+        .ccaof-row-btn { width: 100%; background: none; border-left: none; border-right: none; border-bottom: none; cursor: pointer; text-align: left; font: inherit; color: inherit; }
+        .ccaof-stat-row.ccaof-row-btn { border: none; padding: 2px 0; }
+        .ccaof-row-btn:hover .ccaof-focus-name, .ccaof-row-btn:hover .ccaof-stat-name { text-decoration: underline; }
+        .ccaof-obj-group { margin-bottom: 12px; }
+        .ccaof-obj-group-head { font-size: 12.5px; font-weight: 800; margin: 6px 0; }
+        .ccaof-inline-link { background: none; border: none; padding: 0; color: #2F5D8A; text-decoration: underline; cursor: pointer; font-size: 12px; }
+        .ccaof-chips { display: flex; flex-wrap: wrap; gap: 6px; max-width: 720px; margin: 0 auto; }
+        .ccaof-chip { border: 2px solid var(--c); color: var(--c); background: #fff; border-radius: 16px; padding: 6px 14px; font-weight: 800; font-size: 13px; cursor: pointer; min-width: 48px; }
+        .ccaof-chip.on { background: var(--c); color: #fff; }
+        .ccaof-lesson-title { font-size: 24px; line-height: 1.4; }
+        .ccaof-lesson-obj { font-style: italic; }
+        .ccaof-lesson-stat { text-align: center; font-size: 12.5px; color: #6B7280; margin-bottom: 12px; }
+        .ccaof-lesson-h { font-size: 14px; font-weight: 800; color: #2A2E27; margin: 20px 0 8px; }
+        .ccaof-lesson-box { background: #fff; border: 1px solid #E4E2DA; border-radius: 10px; padding: 12px 14px; }
+        .ccaof-lesson-box.summary { border-left: 4px solid var(--c); font-size: 14px; line-height: 1.9; }
+        .ccaof-lesson-concept + .ccaof-lesson-concept { border-top: 1px solid #EEE; margin-top: 10px; padding-top: 10px; }
+        .ccaof-lesson-term { font-weight: 800; color: var(--c); font-size: 13.5px; margin-bottom: 2px; }
+        .ccaof-lesson-text { font-size: 14px; line-height: 1.85; color: #333; }
+        .ccaof-lesson-ex { font-size: 14px; line-height: 1.8; padding: 8px 10px; border-radius: 8px; margin-bottom: 6px; }
+        .ccaof-lesson-ex.bad { background: #F7E9E7; }
+        .ccaof-lesson-ex.good { background: #EAF3EC; }
+        .ccaof-lesson-tag { font-weight: 800; margin-right: 6px; font-size: 12.5px; }
+        .ccaof-lesson-ex.bad .ccaof-lesson-tag { color: #8A3324; }
+        .ccaof-lesson-ex.good .ccaof-lesson-tag { color: #2F5D3A; }
+        .ccaof-lesson-list { background: #fff; border: 1px solid #E4E2DA; border-radius: 10px; padding: 10px 14px 10px 30px; margin: 0; list-style: disc; }
+        .ccaof-lesson-list li { font-size: 14px; line-height: 1.85; color: #333; margin: 2px 0; }
+        .ccaof-lesson-note { font-size: 12px; color: #9AA093; margin-top: 6px; }
+        .ccaof-lesson-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
+        @media (max-width: 480px) {
+          .ccaof-stat-name { width: 120px; }
+          .ccaof-stat-num { width: 92px; }
+          .ccaof-lesson-actions .ccaof-btn { width: 100%; }
+        }
         .ccaof-app {
           min-height: 100vh; background: #F7F6F2;
           font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
@@ -873,7 +1207,73 @@ export default function CcaofApp({ onExitApp }) {
             <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.validityMonths}</div><div className="ccaof-fact-label">か月有効</div></div>
           </div>
 
+          {studyLoadError && (
+            <div className="ccaof-empty">
+              考点別の成績・讲义を読み込めませんでした。通信を確認して、もう一度ためしてください。
+              <div style={{ marginTop: 10 }}>
+                <button className="ccaof-btn-ghost" onClick={() => { setStudyLoadError(false); setLoadNonce((n) => n + 1); }}>もう一度</button>
+              </div>
+            </div>
+          )}
+
+          <div className="ccaof-sub-head">合格予測</div>
+          <PredictionCard prediction={prediction} actions={actions} loading={!allItems && !studyLoadError} />
+
+          <div className="ccaof-sub-head">錯題本</div>
+          <div className="ccaof-focus-card" style={{ borderColor: "#C8323D" }} data-testid="review-card">
+            <div className="ccaof-focus-title" style={{ color: "#C8323D" }}>
+              📕 今日の復習
+              {mistakeSummary && mistakeSummary.due > 0 && <span className="ccaof-badge" data-testid="due-badge">{mistakeSummary.due}</span>}
+            </div>
+            <div className="ccaof-focus-desc">
+              まちがえた問題は、模擬試験・ドメイン練習・考点練習のどこでも錯題本に入ります。
+              1日後 → 3日後 → 7日後と間をあけて出し直し、2回続けて正解すると外れます。
+              {mistakeSummary && `（錯題本 ${mistakeSummary.total}問・きょう期限 ${mistakeSummary.due}問）`}
+            </div>
+            <button
+              className="ccaof-btn"
+              style={{ "--c": "#C8323D" }}
+              onClick={startTodayReview}
+              disabled={!allItems || !mistakeSummary || mistakeSummary.due === 0}
+            >
+              {mistakeSummary && mistakeSummary.due > 0 ? `今日の復習を始める（${mistakeSummary.due}問）` : "きょうの復習はありません"}
+            </button>
+          </div>
+
+          <div className="ccaof-sub-head">考点讲义</div>
+          <div className="ccaof-focus-card" style={{ borderColor: "#2F6E8A" }}>
+            <div className="ccaof-focus-title" style={{ color: "#2F6E8A" }}>📖 30 考点の讲义（中文）</div>
+            <div className="ccaof-focus-desc">
+              公式 Exam Guide の 30 の出題目標（objective）ごとに、核心概念・正例と反例・よくある落とし穴・
+              試験での問われ方・実務での使い方・公式ドキュメントをまとめました。読んだらその考点の問題だけを解けます。
+            </div>
+            <button className="ccaof-btn" style={{ "--c": "#2F6E8A" }} onClick={() => setScreen("lessonList")}>讲义を開く</button>
+          </div>
+
           <div className="ccaof-sub-head">弱点を重点的に</div>
+          {weakObjectives && (
+            <div className="ccaof-focus-card" style={{ marginBottom: 10 }}>
+              <div className="ccaof-focus-title">弱い 3 考点だけ練習</div>
+              <div className="ccaof-focus-desc">
+                解答数が {MIN_OBJECTIVE_ATTEMPTS}問以上の考点を、正答率の低い順に選びます。
+                {weakObjectives.judgeableCount < 3 && `判断できる考点がまだ ${weakObjectives.judgeableCount} 個なので、解答の少ない考点で補っています。`}
+              </div>
+              <div className="ccaof-focus-rows">
+                {weakObjectives.picks.map((r) => (
+                  <button className="ccaof-focus-row ccaof-row-btn" key={r.id} onClick={() => openLesson(r.id, "domainSelect")}>
+                    <span className="ccaof-focus-id">{r.id}</span>
+                    <span className="ccaof-focus-name">{lessonTitles[r.id] || r.text}</span>
+                    <span className="ccaof-focus-pct">
+                      {r.reason === "weak" ? `${r.pct}%（${r.attempted}問）` : r.attempted ? `データ少（${r.attempted}問）` : "未学習"}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <button className="ccaof-btn" style={{ "--c": "#3F6F52" }} onClick={() => startWeakObjectives(weakObjectives.picks)}>
+                この3考点から {UNIT_SIZE}問 解く
+              </button>
+            </div>
+          )}
           <div className="ccaof-focus-card">
             {weakness && weakness.ready ? (
               <>
@@ -992,7 +1392,16 @@ export default function CcaofApp({ onExitApp }) {
 
           <div className="ccaof-sub-head">このドメインで問われること（公式 Exam Guide）</div>
           <div className="ccaof-objectives">
-            <ul>{domain.objectives.map((o) => <li key={o}>{o}</li>)}</ul>
+            <ul>
+              {domain.objectives.map((o, i) => (
+                <li key={o}>
+                  {o}{" "}
+                  <button className="ccaof-inline-link" onClick={() => openLesson(`${domain.id}-${i + 1}`, "unitSelect")}>
+                    讲义 ›
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {!items ? (
@@ -1068,14 +1477,91 @@ export default function CcaofApp({ onExitApp }) {
         />
       )}
 
-      {screen === "quiz" && (domain || focusMode) && (
+      {screen === "quiz" && (quizCtx || domain || focusMode) && (
         <Quiz
-          domain={domain || FOCUS_DOMAIN}
+          domain={quizCtx ? { id: "ctx", label: quizCtx.label, color: quizCtx.color } : domain || FOCUS_DOMAIN}
           questions={questions}
           onExit={exitQuiz}
           showZh={showZh}
           onToggleZh={toggleZh}
+          studyLabel={quizCtx ? quizCtx.studyLabel : undefined}
+          exitLabel={quizCtx ? quizCtx.exitLabel : undefined}
         />
+      )}
+
+      {screen === "lessonList" && (
+        <div className="ccaof-inner">
+          <button className="ccaof-back-link" style={{ marginBottom: 12 }} onClick={() => setScreen("domainSelect")}>← トップにもどる</button>
+          <div className="ccaof-title-block">
+            <div className="ccaof-eyebrow">30 OBJECTIVES — 考点讲义</div>
+            <h1 className="ccaof-serif">考点讲义</h1>
+            <div className="ccaof-under" />
+            <div className="ccaof-lead">ドメインを選び、考点を開いて讲义を読みます。讲义の最後から、その考点の問題だけを解けます。</div>
+          </div>
+          <div className="ccaof-chips">
+            {DOMAINS.map((d) => (
+              <button
+                key={d.id}
+                className={"ccaof-chip" + (d.id === lessonDomainId ? " on" : "")}
+                style={{ "--c": d.color }}
+                onClick={() => setLessonDomainId(d.id)}
+              >
+                {d.id}
+              </button>
+            ))}
+          </div>
+          {(() => {
+            const d = findDomain(lessonDomainId);
+            return (
+              <>
+                <div className="ccaof-sub-head" style={{ color: d.color }}>{d.id} {d.label}（{d.weight}%）</div>
+                {!lessons ? (
+                  studyLoadError ? (
+                    <div className="ccaof-empty">讲义を読み込めませんでした。</div>
+                  ) : (
+                    <DomainLoading label="讲义を読み込んでいます…" />
+                  )
+                ) : (
+                  <div className="ccaof-domain-grid" style={{ marginTop: 0 }}>
+                    {OBJECTIVES.filter((o) => o.domain === d.id).map((o) => {
+                      const l = lessonById.get(o.id);
+                      const st = objectiveStats ? objectiveStats[o.id] : null;
+                      const pct = pctOf(st);
+                      return (
+                        <button key={o.id} className="ccaof-domain-card" style={{ "--c": d.color }} onClick={() => openLesson(o.id, "lessonList")}>
+                          <div className="ccaof-domain-top">
+                            <span className="ccaof-domain-label">{o.id} {l ? l.titleZh : ""}</span>
+                            <span className="ccaof-domain-weight">{(itemsByObjective.get(o.id) || []).length}問</span>
+                          </div>
+                          <div className="ccaof-domain-en">{o.text}</div>
+                          <div className="ccaof-domain-stat">{pct === null ? "まだ未学習" : `正答率 ${pct}%（のべ ${st.attempted}問）`}</div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </>
+            );
+          })()}
+        </div>
+      )}
+
+      {screen === "lesson" && lessonId && (
+        lessonById.get(lessonId) ? (
+          <LessonView
+            lesson={lessonById.get(lessonId)}
+            stat={objectiveStats ? objectiveStats[lessonId] : null}
+            itemCount={(itemsByObjective.get(lessonId) || []).length}
+            color={findDomain(lessonId.split("-")[0]).color}
+            onBack={() => {
+              if (lessonBack === "lessonList") setLessonDomainId(lessonId.split("-")[0]);
+              setScreen(lessonBack);
+            }}
+            onPractice={(limit) => startObjectivePractice(lessonId, limit)}
+          />
+        ) : (
+          <DomainLoading label="讲义を読み込んでいます…" />
+        )
       )}
 
       {screen === "vocab" && (
@@ -1114,6 +1600,39 @@ export default function CcaofApp({ onExitApp }) {
               );
             })}
           </div>
+          <div className="ccaof-sub-head">合格予測</div>
+          <PredictionCard prediction={prediction} actions={actions} loading={!allItems && !studyLoadError} />
+
+          <div className="ccaof-sub-head">錯題本</div>
+          <div className="ccaof-exam-facts" style={{ marginTop: 0 }}>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{mistakeSummary ? mistakeSummary.total : 0}</div><div className="ccaof-fact-label">錯題本の問題</div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{mistakeSummary ? mistakeSummary.due : 0}</div><div className="ccaof-fact-label">きょう期限</div></div>
+          </div>
+
+          <div className="ccaof-sub-head">考点別の正答率（30 考点）</div>
+          {!objectiveStats ? (
+            <DomainLoading label="集計しています…" />
+          ) : (
+            <div style={{ maxWidth: 720, margin: "0 auto" }} data-testid="objective-stats">
+              {DOMAINS.map((d) => (
+                <div key={d.id} className="ccaof-obj-group">
+                  <div className="ccaof-obj-group-head" style={{ color: d.color }}>{d.id} {d.label}</div>
+                  {OBJECTIVES.filter((o) => o.domain === d.id).map((o) => {
+                    const st = objectiveStats[o.id];
+                    const pct = pctOf(st);
+                    return (
+                      <button className="ccaof-stat-row ccaof-row-btn" key={o.id} style={{ "--c": d.color }} onClick={() => openLesson(o.id, "progress")}>
+                        <div className="ccaof-stat-name">{o.id} {lessonTitles[o.id] || ""}</div>
+                        <div className="ccaof-stat-track"><div className="ccaof-stat-fill" style={{ width: `${pct ?? 0}%` }} /></div>
+                        <div className="ccaof-stat-num">{pct === null ? "未学習" : `${pct}%（${st.attempted}問）`}</div>
+                      </button>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          )}
+
           <div className="ccaof-sub-head">頻出単語</div>
           <div className="ccaof-exam-facts" style={{ marginTop: 0 }}>
             <div className="ccaof-fact"><div className="ccaof-fact-num">{vocabSummary.touched}</div><div className="ccaof-fact-label">学習した単語</div></div>

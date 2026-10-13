@@ -49,7 +49,8 @@ const warnings = [];
 const meta = JSON.parse(readFileSync(join(dataDir, "meta.json"), "utf8"));
 const domainOrder = meta.domains.map((d) => d.id);
 const items = readdirSync(dataDir)
-  .filter((f) => f.endsWith(".json") && f !== "meta.json")
+  /* 問題ファイルは d1-*.json〜d7-*.json。lessons.json（考点讲义）などは対象外 */
+  .filter((f) => /^d\d+-.*\.json$/.test(f))
   .sort()
   .flatMap((f) => JSON.parse(readFileSync(join(dataDir, f), "utf8")).items || []);
 

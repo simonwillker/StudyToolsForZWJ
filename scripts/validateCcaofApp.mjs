@@ -11,6 +11,8 @@
       放っておくと、古い仕様のまま正解として教え続けることになる。
    3. 中国語（設問訳・選択肢訳・解答後の注解）が全問にあるか。
       ユーザーの指示で、問題は中国語訳つき・解答後に中文注解を出す。
+   4. 考点讲义（lessons.json）が 30 objectives すべてにあるか。
+      必須項目・本文の長さ・公式ドキュメントへのリンクの形式も見る。
    ============================================================ */
 
 import { readFileSync, readdirSync } from "node:fs";
@@ -35,13 +37,16 @@ const objectivesByDomain = new Map(meta.domains.map((d) => [d.id, new Set(d.obje
    どのドメインの問題にも紐づけてよい */
 const competencies = new Set(meta.competencies || []);
 
-const files = readdirSync(dataDir).filter((f) => f.endsWith(".json") && f !== "meta.json").sort();
+/* 問題ファイルは d1-*.json〜d7-*.json。lessons.json（考点讲义）は下で別に検査する */
+const files = readdirSync(dataDir).filter((f) => /^d\d+-.*\.json$/.test(f)).sort();
 
 const seenIds = new Set();
 const seenStems = new Map();
 const counts = {};
 let stale = 0;
 const today = new Date();
+/** objective（英文）→ その考点の問題で使っている出典 URL */
+const refsByObjective = new Map();
 
 for (const file of files) {
   const data = JSON.parse(readFileSync(join(dataDir, file), "utf8"));
@@ -107,8 +112,121 @@ for (const file of files) {
       }
     }
 
+    if (it.objective && it.reference) {
+      if (!refsByObjective.has(it.objective)) refsByObjective.set(it.objective, new Set());
+      refsByObjective.get(it.objective).add(it.reference);
+    }
+
     if (it.objective && !objectivesByDomain.get(dom).has(it.objective) && !competencies.has(it.objective))
       warnings.push(`${at}: objective が meta.json の出題目標に無い`);
+  });
+}
+
+/* ---------- 考点讲义（lessons.json） ---------- */
+
+/* 讲义から張るリンクは Anthropic の公式サイトだけ */
+const LESSON_HOSTS = new Set([
+  "docs.claude.com",
+  "support.claude.com",
+  "support.anthropic.com",
+  "www.anthropic.com",
+  "claude.com",
+]);
+/* 本文（中国語＋用語）の文字数。依頼は 1本 600〜1000字程度 */
+const LESSON_MIN = 500;
+const LESSON_MAX = 1300;
+let lessonCount = 0;
+const lessonsPath = join(dataDir, "lessons.json");
+let lessonsDoc = null;
+try {
+  lessonsDoc = JSON.parse(readFileSync(lessonsPath, "utf8"));
+} catch (e) {
+  errors.push(`lessons.json: 読めない（${e.message}）`);
+}
+if (lessonsDoc) {
+  const lessons = Array.isArray(lessonsDoc.lessons) ? lessonsDoc.lessons : [];
+  const byId = new Map();
+  lessons.forEach((l, i) => {
+    const at = `lessons.json[${i}] ${l.id || "(id なし)"}`;
+    if (!l.id || !/^D\d+-\d+$/.test(l.id)) errors.push(`${at}: id が "D1-1" の形でない`);
+    else if (byId.has(l.id)) errors.push(`${at}: id が重複している`);
+    else byId.set(l.id, l);
+  });
+  meta.domains.forEach((d) => {
+    d.objectives.forEach((obj, i) => {
+      const id = `${d.id}-${i + 1}`;
+      const l = byId.get(id);
+      if (!l) {
+        errors.push(`lessons.json: ${id}「${obj}」の讲义が無い`);
+        return;
+      }
+      lessonCount += 1;
+      const at = `lessons.json ${id}`;
+      if (l.domain !== d.id) errors.push(`${at}: domain が ${l.domain}（${d.id} であるべき）`);
+      if (l.objective !== obj) errors.push(`${at}: objective が meta.json の文と一致しない`);
+      ["titleZh", "summaryZh", "practiceZh"].forEach((k) => {
+        if (typeof l[k] !== "string" || l[k].trim().length < (k === "titleZh" ? 4 : 30))
+          errors.push(`${at}: ${k} が無い、または短すぎる`);
+      });
+      const concepts = Array.isArray(l.concepts) ? l.concepts : [];
+      if (concepts.length < 3 || concepts.length > 5) errors.push(`${at}: 核心概念（concepts）は 3〜5 個（今は ${concepts.length}）`);
+      concepts.forEach((c, ci) => {
+        if (!c || !c.term || !c.zh || c.zh.length < 15) errors.push(`${at}: concepts[${ci}] に term と zh（15字以上）が要る`);
+      });
+      const ex = l.example || {};
+      ["bad", "good", "whyZh"].forEach((k) => {
+        if (!ex[k] || ex[k].length < 10) errors.push(`${at}: example.${k}（正例／反例）が無い、または短すぎる`);
+      });
+      ["pitfalls", "examTips"].forEach((k) => {
+        if (!Array.isArray(l[k]) || l[k].length < 2 || l[k].some((t) => typeof t !== "string" || t.length < 10))
+          errors.push(`${at}: ${k} は 10字以上の文を 2つ以上`);
+      });
+      const refs = Array.isArray(l.references) ? l.references : [];
+      if (refs.length < 1) errors.push(`${at}: references（公式ドキュメント）が無い`);
+      const used = refsByObjective.get(obj) || new Set();
+      refs.forEach((r, ri) => {
+        let url = null;
+        try {
+          url = new URL(r.url);
+        } catch (e) {
+          // 下でエラーにする
+        }
+        if (!r.title) errors.push(`${at}: references[${ri}] に title が無い`);
+        if (!url || url.protocol !== "https:") errors.push(`${at}: references[${ri}] の url が https:// でない`);
+        else if (!LESSON_HOSTS.has(url.hostname))
+          errors.push(`${at}: references[${ri}] が公式サイト以外（${url.hostname}）`);
+        else if (![...refsByObjective.values()].some((set) => set.has(r.url)))
+          warnings.push(`${at}: references[${ri}] はどの問題の出典にも使われていない URL`);
+      });
+      if (refs.length && !refs.some((r) => used.has(r.url)))
+        warnings.push(`${at}: この考点の問題の出典を 1つも再利用していない`);
+      (l.relatedObjectives || []).forEach((rel) => {
+        if (!competencies.has(rel)) errors.push(`${at}: relatedObjectives「${rel}」は meta.json の competencies に無い`);
+      });
+      const text = [
+        l.titleZh,
+        l.summaryZh,
+        ...concepts.map((c) => `${c.term || ""}${c.zh || ""}`),
+        ex.bad,
+        ex.good,
+        ex.whyZh,
+        ...(l.pitfalls || []),
+        ...(l.examTips || []),
+        l.practiceZh,
+      ].join("");
+      if (text.length < LESSON_MIN || text.length > LESSON_MAX)
+        errors.push(`${at}: 本文が ${text.length}字（${LESSON_MIN}〜${LESSON_MAX}字にする）`);
+    });
+  });
+  byId.forEach((l, id) => {
+    const [dom, n] = id.split("-");
+    const d = meta.domains.find((x) => x.id === dom);
+    if (!d || Number(n) < 1 || Number(n) > d.objectives.length) errors.push(`lessons.json ${id}: meta.json に無い考点`);
+  });
+  /* 問題の objective のうち、どの讲义からも練習できないものが無いか */
+  const reachable = new Set([...meta.domains.flatMap((d) => d.objectives), ...lessons.flatMap((l) => l.relatedObjectives || [])]);
+  refsByObjective.forEach((_, obj) => {
+    if (!reachable.has(obj)) warnings.push(`問題の objective「${obj}」に対応する讲义が無い（考点練習に出ない）`);
   });
 }
 
@@ -128,6 +246,7 @@ console.table(
 );
 console.log(`合計 ${Object.values(counts).reduce((a, b) => a + b, 0)} 問 / 目標 420 問`);
 if (stale) console.log(`⚠ ${STALE_DAYS}日以上見直していない問題が ${stale} 件あります`);
+console.log(`考点讲义 ${lessonCount} / ${meta.domains.reduce((n, d) => n + d.objectives.length, 0)} 考点`);
 
 if (warnings.length) {
   console.log(`\n⚠ 警告 ${warnings.length}件`);
