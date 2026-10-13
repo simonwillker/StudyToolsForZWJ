@@ -1,0 +1,1487 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-13",
+  "note": "CCAR-F 考点讲义（30 task statements）。正文为中文，术语附英文。不写价格、具体模型版本和上限值等易变事实，以官方链接为准。",
+  "lessons": [
+    {
+      "id": "D1-1",
+      "domain": "D1",
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "titleZh": "设计智能体循环",
+      "summaryZh": "智能体循环就是「发请求 → 看 stop_reason → 执行工具 → 把结果写回历史 → 再发请求」。循环靠结构化的 stop_reason 驱动：\"tool_use\" 继续，\"end_turn\" 结束。不要用模型说了什么来判断是否结束。",
+      "concepts": [
+        {
+          "term": "stop_reason",
+          "zh": "每个响应都带有停止原因。\"tool_use\" 表示模型请求执行工具，需要把结果送回去；\"end_turn\" 表示模型认为本轮完成。\"max_tokens\" 表示被截断，不能当作完成。"
+        },
+        {
+          "term": "tool_result（工具结果写回）",
+          "zh": "执行工具后，要把结果作为 tool_result 块放进新的 user 消息，并带上对应的 tool_use id。一次响应里有多个调用时，要把所有结果一起返回。API 无状态，每次都发送完整历史。"
+        },
+        {
+          "term": "Model-driven（模型驱动）",
+          "zh": "下一步调用哪个工具由 Claude 根据当前上下文决定，而不是开发者事先写死的固定顺序。适合需要根据中间发现调整的开放任务。"
+        },
+        {
+          "term": "Iteration cap（次数上限）",
+          "zh": "可以设置循环上限作为防失控的安全护栏，但它不是正常的停止机制。把它当主要停止条件，会截断本该继续的任务。"
+        }
+      ],
+      "example": {
+        "bad": "循环检查助手文本里有没有「完成」「还有什么需要帮忙」之类的词，有就结束；没有文本就当作「还在工作」。",
+        "good": "循环只看 stop_reason：\"tool_use\" 时执行所有请求的工具并追加 tool_result，再发送；\"end_turn\" 时输出最终回答；遇到 \"max_tokens\" 等其他值单独处理。",
+        "whyZh": "响应里文本与工具调用可以并存，措辞也会变化。结构化字段才是可靠的分支依据。"
+      },
+      "pitfalls": [
+        "用自然语言信号（关键词）判断循环是否结束，换个说法就会失效。",
+        "把「有没有助手文本」当作完成标志，导致在「我去查一下」并附带工具调用时提前停止。",
+        "把固定次数上限当作主要停止机制，复杂任务被中途截断。"
+      ],
+      "examTips": [
+        "选项里出现「解析文本」「检查是否有文本」「固定 N 次」作为主要停止条件时，基本都是反模式。",
+        "正解通常是「执行工具 → 追加 tool_result → 再发送，直到 end_turn」。"
+      ],
+      "practiceZh": "自己实现一个最小循环：定义两三个工具，打印每次响应的 stop_reason 和内容块。故意让一个响应同时包含文本和工具调用，确认循环不会提前停止；再人为制造 max_tokens 截断，确认它被单独处理。",
+      "references": [
+        {
+          "title": "How the agent loop works（Agent SDK）",
+          "url": "https://code.claude.com/docs/en/agent-sdk/agent-loop"
+        },
+        {
+          "title": "Handle tool calls",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+        },
+        {
+          "title": "Stop reasons",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons"
+        }
+      ]
+    },
+    {
+      "id": "D1-2",
+      "domain": "D1",
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "titleZh": "协调者—子智能体的编排",
+      "summaryZh": "多智能体系统采用 hub-and-spoke（中心辐射）结构：协调者负责任务分解、委派、结果汇总，以及子智能体之间的所有通信与错误处理。子智能体彼此不直接对话，也不会自动共享上下文。",
+      "concepts": [
+        {
+          "term": "Hub-and-spoke",
+          "zh": "所有信息和错误都经过协调者。好处是可观测性高、错误处理一致、信息流受控，出问题时能追踪到底发生了什么。"
+        },
+        {
+          "term": "Dynamic selection（按需选择子智能体）",
+          "zh": "协调者要分析查询的复杂度，只调用真正需要的子智能体。简单问题不必走完整条流水线。"
+        },
+        {
+          "term": "Scope partitioning（范围划分）",
+          "zh": "把调研范围按子主题或来源类型分给不同子智能体，既减少重复，又保证覆盖。分解过窄会漏掉广泛主题的重要方面。"
+        },
+        {
+          "term": "Iterative refinement（迭代改进）",
+          "zh": "协调者评估综合结果的缺口，针对性地重新派发搜索/分析任务，再重新综合，直到覆盖充分。"
+        }
+      ],
+      "example": {
+        "bad": "「远程办公的影响」被拆成三个都与生产力指标有关的子任务；每个查询都启动全部四个子智能体；搜索子智能体直接把结果发给报告子智能体。",
+        "good": "协调者按生产力、员工健康、成本、招聘等互不重叠的子主题分工；简单查询只调用必要的子智能体；所有结果回到协调者，由它评估缺口并补派任务。",
+        "whyZh": "好的分解既覆盖完整又不重复，而集中路由让错误处理和质量把关都在一处完成。"
+      },
+      "pitfalls": [
+        "分解过窄，报告只覆盖题目的一小部分。",
+        "给多个子智能体相同的宽泛指令，导致重复劳动。",
+        "让子智能体之间直接通信，失去可观测性和统一的错误处理。"
+      ],
+      "examTips": [
+        "「发现缺口」类题目，正解一般是「针对缺口重新派发 + 重新综合」，而不是重来或凭常识补。",
+        "「为什么要经过协调者」的正解关键词：可观测性、一致的错误处理、受控的信息流。"
+      ],
+      "practiceZh": "设计调研任务时，先写出子主题清单并检查是否互不重叠、合起来是否覆盖题目；为协调者写一份「完成标准」，用来判断综合结果是否还有缺口。",
+      "references": [
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        },
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ]
+    },
+    {
+      "id": "D1-3",
+      "domain": "D1",
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "titleZh": "子智能体的调用、上下文传递与启动",
+      "summaryZh": "子智能体通过专门的工具调用来启动（考试资料称 Task 工具，新版 SDK 叫 Agent），协调者的 allowedTools 必须包含它。子智能体从全新的上下文开始，它需要的信息必须写进提示词里。",
+      "concepts": [
+        {
+          "term": "Task / Agent tool",
+          "zh": "启动子智能体的机制。协调者没有这个工具的使用权限，就无法委派，只能自己干活。"
+        },
+        {
+          "term": "AgentDefinition",
+          "zh": "为每种子智能体定义 description（何时使用）、prompt（系统提示词）和 tools（工具限制）。按角色限定工具能减少误用。"
+        },
+        {
+          "term": "Explicit context passing（显式传递上下文）",
+          "zh": "子智能体不继承父级对话，也不在调用之间共享记忆。把前面智能体的完整发现、已知文件路径、已排除的方向直接写进提示词。"
+        },
+        {
+          "term": "Parallel spawning（并行启动）",
+          "zh": "相互独立的任务，在协调者的同一个响应中发出多个子智能体调用，就会并行执行，而不是分散在多个回合里串行等待。"
+        }
+      ],
+      "example": {
+        "bad": "协调者告诉综合子智能体「请记住搜索智能体找到的内容」，然后只传了一段拼接好的文字，没有来源信息。",
+        "good": "协调者把搜索结果和文档分析结果以结构化格式（论断、摘录、来源 URL、文档名、页码）完整放进综合子智能体的提示词，并说明报告的目标和质量标准。",
+        "whyZh": "子智能体只知道提示词里的内容；内容与元数据分开传递，出处才能保留到最终报告。"
+      },
+      "pitfalls": [
+        "以为子智能体能看到父级对话或其他子智能体的结果。",
+        "给子智能体写十几条逐步操作指令，结构一变就失败；应写目标与质量标准。",
+        "每个回合只启动一个子智能体，白白增加等待时间。"
+      ],
+      "examTips": [
+        "「协调者从不启动子智能体」→ 检查 allowedTools 是否包含启动子智能体的工具。",
+        "「子智能体忽略了之前的发现」→ 把发现直接写进它的提示词。"
+      ],
+      "practiceZh": "为每种子智能体写 AgentDefinition 时，先列出它需要的最少工具；再写一份「交接模板」，规定协调者传给子智能体的字段（目标、已知事实、排除项、输出格式、质量标准）。",
+      "references": [
+        {
+          "title": "Subagents in the SDK",
+          "url": "https://code.claude.com/docs/en/agent-sdk/subagents"
+        },
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        }
+      ]
+    },
+    {
+      "id": "D1-4",
+      "domain": "D1",
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "titleZh": "多步骤工作流的强制与交接",
+      "summaryZh": "提示词里的规则只能「提高概率」，存在非零的失败率。凡是必须百分之百遵守的顺序或前提（如退款前验证身份），要用程序化的前置检查来保证。中途转人工时，要给对方一份结构化交接摘要。",
+      "concepts": [
+        {
+          "term": "Programmatic enforcement（程序化强制）",
+          "zh": "用钩子或前置闸门检查前置步骤是否完成，未完成就拦截后续工具调用。例如在得到已验证的客户 ID 之前拦截 process_refund。"
+        },
+        {
+          "term": "Prompt-based guidance（提示词引导）",
+          "zh": "适合语气、措辞、追问策略等需要判断的事项。它是概率性的，测试通过多次也不能变成保证。"
+        },
+        {
+          "term": "Multi-concern decomposition（多诉求分解）",
+          "zh": "一条消息里有多个问题时，拆成独立项，利用共享的客户上下文分别调查（能并行就并行），最后给出统一答复。"
+        },
+        {
+          "term": "Structured handoff（结构化交接）",
+          "zh": "接手的人看不到对话记录。交接摘要要包含客户 ID、关键事实（金额、日期）、根因分析、已尝试的处理和建议动作。"
+        }
+      ],
+      "example": {
+        "bad": "系统提示词写「退款前务必先调用 get_customer」，转人工时只留一句「客户对账单不满，请协助」。",
+        "good": "代码在 get_customer 返回已验证 ID 之前拒绝 process_refund；转人工时附上「客户 C-4471（已验证），5 月 3 日订单 5521 重复扣款 89 美元，疑似网关重试，建议撤回并邮件确认」。",
+        "whyZh": "关键规则交给代码保证，交接信息让人工无需重新调查就能处理。"
+      },
+      "pitfalls": [
+        "因为测试中提示词「一直有效」就认为不需要程序化控制。",
+        "多诉求消息只处理第一个问题，或因为问题多就直接转人工。",
+        "交接时转发原始工具输出或完整记录，要点被淹没。"
+      ],
+      "examTips": [
+        "题干出现「必须保证」「绝不能」「合规」时，正解指向程序化强制。",
+        "题干写明「人工看不到对话记录」时，正解是结构化交接摘要。"
+      ],
+      "practiceZh": "把业务规则列成表，逐条标注「必须保证 / 尽量遵守」。前者写成代码检查或钩子，后者写进提示词。再设计一个交接 JSON 模板，确保每次升级都包含相同的字段。",
+      "references": [
+        {
+          "title": "Intercept and control agent behavior with hooks",
+          "url": "https://code.claude.com/docs/en/agent-sdk/hooks"
+        },
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ]
+    },
+    {
+      "id": "D1-5",
+      "domain": "D1",
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "titleZh": "用 Agent SDK 钩子拦截与规范化",
+      "summaryZh": "钩子是确定性的控制点。PreToolUse 在工具执行前触发，可检查并拒绝违规调用；PostToolUse 在执行后触发，可在模型看到之前加工结果（统一格式、裁剪字段）。需要保证遵守的规则用钩子，而不是提示词。",
+      "concepts": [
+        {
+          "term": "PreToolUse",
+          "zh": "检查即将执行的调用，可以拒绝并返回原因，例如拦截超过 500 美元的退款或删除项目外文件的命令。拒绝后应把流程重定向到替代路径（如人工审批）。"
+        },
+        {
+          "term": "PostToolUse",
+          "zh": "在结果进入上下文前做转换：把 Unix 时间戳、ISO 8601、数字状态码统一成一种格式，或只保留任务需要的字段。"
+        },
+        {
+          "term": "Deterministic vs probabilistic",
+          "zh": "钩子每次都会执行，是确定性的；提示词指令是概率性的。业务规则要求保证遵守时选钩子。"
+        }
+      ],
+      "example": {
+        "bad": "在系统提示词里写「退款绝不超过 500 美元」，并让 Claude 自己换算各工具返回的不同时间格式。",
+        "good": "PreToolUse 钩子拦截金额超过 500 美元的 process_refund，返回原因并转向 escalate_to_human；PostToolUse 钩子把所有时间统一成 ISO 8601。",
+        "whyZh": "规则与格式转换都交给确定性的代码，模型只负责需要判断的部分。"
+      },
+      "pitfalls": [
+        "用 PostToolUse 去「阻止」操作——执行后才触发，已经来不及。",
+        "钩子拦截后什么都不说，智能体却告诉客户操作成功。",
+        "把格式换算交给模型，导致偶发的日期、单位误读。"
+      ],
+      "examTips": [
+        "「执行前阻止」→ PreToolUse；「执行后加工结果」→ PostToolUse。",
+        "题干强调「保证」而选项是「在提示词中强调」时，那是陷阱。"
+      ],
+      "practiceZh": "列出所有工具返回的数据格式，为不一致的字段写一个 PostToolUse 规范化函数；再为每条金额、权限类规则写一个 PreToolUse 检查，并确认拒绝时会返回清楚的原因。",
+      "references": [
+        {
+          "title": "Intercept and control agent behavior with hooks",
+          "url": "https://code.claude.com/docs/en/agent-sdk/hooks"
+        },
+        {
+          "title": "Hooks reference（Claude Code）",
+          "url": "https://code.claude.com/docs/en/hooks"
+        }
+      ]
+    },
+    {
+      "id": "D1-6",
+      "domain": "D1",
+      "objective": "Design task decomposition strategies for complex workflows",
+      "titleZh": "复杂工作流的任务分解策略",
+      "summaryZh": "可预测、步骤固定的任务用提示词链（固定流水线）；开放式、需要根据中间发现调整的任务用动态分解。大型代码审查要拆成逐文件的局部审查加一次跨文件的集成审查，避免注意力稀释。",
+      "concepts": [
+        {
+          "term": "Prompt chaining（提示词链）",
+          "zh": "把工作拆成一串聚焦的步骤，每步以上一步的输出为输入，例如每周固定格式的简报、翻译 → 术语检查 → 排版。"
+        },
+        {
+          "term": "Dynamic decomposition（动态分解）",
+          "zh": "先做较宽的调查，再根据每一步的发现生成后续子任务。适合原因未知的调查，例如「市场份额为什么下降」。"
+        },
+        {
+          "term": "Attention dilution（注意力稀释）",
+          "zh": "一次处理太多材料时，部分内容只得到浅显处理，结论还可能自相矛盾。分而治之 + 专门的集成步骤可以缓解。"
+        },
+        {
+          "term": "Plan for open-ended work",
+          "zh": "「给遗留代码库补测试」这类大任务：先摸清结构，找出高影响区域，制定按优先级排序的计划，并随依赖关系的发现调整。"
+        }
+      ],
+      "example": {
+        "bad": "把抽取、校验、写邮件塞进一个巨大的提示词；25 个文件的 PR 一次性审完。",
+        "good": "抽取 → 校验 → 起草邮件串成三步；PR 先逐文件找局部问题，再单独检查跨文件接口和数据流。",
+        "whyZh": "每一步只做一件事，质量更稳定，也能在步骤之间检查。"
+      },
+      "pitfalls": [
+        "认为动态分解总是更好——对可预测任务反而增加不稳定。",
+        "对原因未知的调查使用固定流水线，漏掉意料之外的原因。",
+        "开放式大任务一上来就按字母顺序逐个文件处理。"
+      ],
+      "examTips": [
+        "题干强调「每次相同」「固定格式」→ 提示词链；强调「未知」「开放」「需要调查」→ 动态分解。",
+        "「评论深浅不一、前后矛盾」→ 逐文件审查 + 集成审查。"
+      ],
+      "practiceZh": "拿一个真实任务，先判断它是否可预测：可预测就画出固定步骤；不可预测就写出第一步的调查问题，以及「发现 X 时下一步做什么」的规则。",
+      "references": [
+        {
+          "title": "Chain complex prompts",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts"
+        },
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ]
+    },
+    {
+      "id": "D1-7",
+      "domain": "D1",
+      "objective": "Manage session state, resumption, and forking",
+      "titleZh": "会话状态、恢复与分叉",
+      "summaryZh": "continue 接上最近的会话，resume 按 ID（Claude Code 中也可按会话名）恢复指定会话，fork 从原会话历史复制出新分支、原会话不变。之前的上下文大多仍有效就恢复；工具结果大多过期就新开会话并注入结构化摘要。",
+      "concepts": [
+        {
+          "term": "Resume / --resume",
+          "zh": "恢复指定会话。Claude Code 中可用 claude --resume <会话名> 恢复命名会话；SDK 中需要追踪会话 ID。多会话场景必须用 resume 而不是 continue。"
+        },
+        {
+          "term": "Fork / --fork-session",
+          "zh": "以原会话历史为起点创建新会话，适合从同一份分析出发比较两种方案（如两种测试策略、两种重构方式）。"
+        },
+        {
+          "term": "Stale context（过期上下文）",
+          "zh": "恢复的会话保存的是当时的工具结果。文件或外部信息变化后，要明确告诉智能体改了什么，或者新开会话并只注入仍然成立的结论。"
+        }
+      ],
+      "example": {
+        "bad": "一周后代码大改，仍直接恢复旧会话并相信之前的分析；想比较两种方案时在同一会话里先后尝试。",
+        "good": "只改了少量文件时，恢复会话并说明「这三个文件已重构，请重新分析它们」；大改时新开会话注入结构化摘要；比较方案时从共享分析处 fork 出两个分支。",
+        "whyZh": "按「上下文还有多少有效」来选择恢复或重开，并用 fork 隔离不同方向的探索。"
+      },
+      "pitfalls": [
+        "以为恢复后的会话会自动发现文件变化。",
+        "把 continue 当成「找最相关的会话」，其实它只找最近的。",
+        "以为 fork 会删除或合并原会话。"
+      ],
+      "examTips": [
+        "「从同一基线比较两种方案」→ fork；「回到某个特定会话」→ resume；「接着最近一次」→ continue。",
+        "「工具结果大多过期」→ 新会话 + 结构化摘要。"
+      ],
+      "practiceZh": "给重要的调查会话起名，结束前写一段「结论与待办」摘要。恢复时先列出此后改动的文件，再决定是恢复、分叉还是新开会话。",
+      "references": [
+        {
+          "title": "Work with sessions（Agent SDK）",
+          "url": "https://code.claude.com/docs/en/agent-sdk/sessions"
+        },
+        {
+          "title": "CLI reference",
+          "url": "https://code.claude.com/docs/en/cli-reference"
+        }
+      ]
+    },
+    {
+      "id": "D2-1",
+      "domain": "D2",
+      "objective": "Design effective tool interfaces with clear descriptions and boundaries",
+      "titleZh": "设计清晰的工具接口",
+      "summaryZh": "工具描述是模型选择工具的首要依据。描述要写清：做什么、接受什么输入（格式与示例）、返回什么、边界在哪里、和相似工具有什么区别。功能重叠时要重命名、重写描述，必要时把通用工具拆成目的明确的专用工具。",
+      "concepts": [
+        {
+          "term": "Tool description（工具描述）",
+          "zh": "过于简略的描述（如「获取客户」「运行查询」）会让模型在相似工具之间猜测。加入输入格式、示例查询、边界情况和「什么时候改用另一个工具」。"
+        },
+        {
+          "term": "Functional overlap（功能重叠）",
+          "zh": "analyze_content 与 analyze_document 描述几乎相同就会误路由。把前者改名为 extract_web_results 并写明只处理网页结果，就能消除重叠。"
+        },
+        {
+          "term": "Purpose-specific tools（专用工具）",
+          "zh": "把一个什么都做的 analyze_document 拆成 extract_data_points、summarize_content、verify_claim_against_source，每个都有明确的输入/输出约定。"
+        },
+        {
+          "term": "Keyword-sensitive prompts",
+          "zh": "系统提示词中「提到文件就搜索」「回答前总要核实」这类关键词指令，会与工具名产生意外关联，压过原本清楚的描述。排查误选时也要检查系统提示词。"
+        }
+      ],
+      "example": {
+        "bad": "search_docs：「搜索文档。不要误用。」",
+        "good": "search_docs：「搜索内部工程 wiki（设计文档、运维手册、入职指南）。用于流程或设计意图的问题。搜索源代码请用 search_code。」",
+        "whyZh": "好的描述告诉模型对象、用途和与相似工具的界线，而不是只下命令。"
+      },
+      "pitfalls": [
+        "用「非常重要」「强大可靠」之类的宣传词代替具体信息。",
+        "写进内部实现细节（SQL、函数名），却不写何时使用。",
+        "看到误选就删除工具，而不是修正描述或系统提示词。"
+      ],
+      "examTips": [
+        "错误选项常见：加强语气、加大写、合并成一个通用工具、调 temperature。",
+        "正解关键词：区分用途、输入输出、示例、边界、重命名、拆分。"
+      ],
+      "practiceZh": "把所有工具描述并排放在一起读一遍：如果你自己也分不清该用哪个，模型同样分不清。为每对相似工具各写一句「何时用我而不是它」。",
+      "references": [
+        {
+          "title": "Define tools",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools"
+        },
+        {
+          "title": "Writing effective tools for agents",
+          "url": "https://www.anthropic.com/engineering/writing-tools-for-agents"
+        }
+      ]
+    },
+    {
+      "id": "D2-2",
+      "domain": "D2",
+      "objective": "Implement structured error responses for MCP tools",
+      "titleZh": "MCP 工具的结构化错误响应",
+      "summaryZh": "MCP 工具用 isError 标志告诉智能体调用失败，并应返回结构化元数据：错误类别、是否可重试、可读说明。笼统的「操作失败」会让智能体无从选择恢复策略。还要区分「访问失败」和「有效的空结果」。",
+      "concepts": [
+        {
+          "term": "isError",
+          "zh": "MCP 工具结果中表示失败的标志（Claude API 的 tool_result 对应 is_error）。错误应作为结果返回给模型，而不是吞掉或让整个智能体崩溃。"
+        },
+        {
+          "term": "Error categories（错误类别）",
+          "zh": "临时性（超时、服务不可用，可重试）、校验错误（输入无效，修正参数后再调）、业务规则错误（违反政策，不可重试，需向客户说明）、权限错误（不可重试，需申请权限）。"
+        },
+        {
+          "term": "isRetryable",
+          "zh": "明确标出能否重试，避免对业务规则或权限错误做无效重试。业务错误最好附上可转述给客户的友好说明。"
+        },
+        {
+          "term": "Empty result ≠ failure",
+          "zh": "查询成功但没有匹配是有效答案，应作为成功的空结果返回；把它当错误，会引发不必要的重试。"
+        }
+      ],
+      "example": {
+        "bad": "订单服务超时时返回空订单列表；超过退款期限时返回「操作失败」。",
+        "good": "超时：isError + errorCategory \"transient\" + isRetryable true；超过期限：isError + \"business\" + isRetryable false + 「本店退款期限为 90 天」。",
+        "whyZh": "智能体据此决定是重试、修正、解释政策还是升级。"
+      },
+      "pitfalls": [
+        "把故障伪装成「没有数据」，智能体给出错误的回答。",
+        "所有错误都用同一句话，导致该重试的不重试、不该重试的反复重试。",
+        "把权限错误当作临时错误不断退避重试。"
+      ],
+      "examTips": [
+        "「区分超时和无结果」类题目，正解是两种不同的返回形式。",
+        "子智能体遇到临时故障：先本地恢复，解决不了再带着尝试经过和部分结果上报。"
+      ],
+      "practiceZh": "为每个工具列出可能的失败情形，逐一归类并决定 isRetryable 和面向用户的说明。写测试分别模拟超时、无效输入、政策违规和无权限，确认智能体的反应各不相同。",
+      "references": [
+        {
+          "title": "Connect Claude Code to tools via MCP",
+          "url": "https://code.claude.com/docs/en/mcp"
+        },
+        {
+          "title": "Handle tool calls",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+        }
+      ]
+    },
+    {
+      "id": "D2-3",
+      "domain": "D2",
+      "objective": "Distribute tools appropriately across agents and configure tool choice",
+      "titleZh": "在智能体之间分配工具与 tool_choice",
+      "summaryZh": "工具太多（例如 18 个而不是 4–5 个）会降低选择的可靠性；拥有专业范围外工具的智能体容易误用。按角色限定工具，高频的跨角色需求用范围很窄的专用工具解决。tool_choice 控制是否必须调用工具以及调用哪一个。",
+      "concepts": [
+        {
+          "term": "Scoped tool access（按角色限定）",
+          "zh": "只读调查角色只给 Read/Grep/Glob，修改角色才给 Edit/Write；综合智能体不该有网络搜索工具。"
+        },
+        {
+          "term": "Constrained tools（受约束的工具）",
+          "zh": "用 load_document（校验 URL 是否为允许的文档来源）替代通用的 fetch_url，从机制上防止越界。"
+        },
+        {
+          "term": "tool_choice",
+          "zh": "\"auto\"：模型可调用工具，也可直接回答文本；\"any\"：必须调用某个工具，但可以自选；{\"type\": \"tool\", \"name\": \"...\"}：必须调用指定工具；\"none\"：不调用工具。"
+        },
+        {
+          "term": "Forced first step（强制第一步）",
+          "zh": "需要保证某个工具先执行（如 extract_metadata）时，第一次请求强制指定它，后续步骤在之后的回合中处理。"
+        }
+      ],
+      "example": {
+        "bad": "客服智能体除 4 个业务工具外，还「为完整起见」加了 14 个管理工具；必须结构化输出的步骤却用 \"auto\"。",
+        "good": "客服智能体只保留业务工具；schema 未知的结构化输出步骤用 \"any\"；必须先抽元数据时强制指定 extract_metadata。",
+        "whyZh": "工具少而精，选择更可靠；tool_choice 把「必须调用」变成机制而不是期望。"
+      },
+      "pitfalls": [
+        "以为 \"any\" 能保证调用某个特定工具。",
+        "给所有子智能体相同的完整工具集，「以免卡住」。",
+        "为跨角色需求直接放开完整的通用工具，而不是提供受限工具。"
+      ],
+      "examTips": [
+        "对照记忆：允许文本 → auto；必须调用但可选 → any；必须调用这一个 → 强制指定。",
+        "「工具太多导致误选」的正解是减少工具，而不是改排序或调参数。"
+      ],
+      "practiceZh": "画一张「角色 × 工具」矩阵，每个角色只勾选必需的工具，再标出少数确有需要的跨角色例外，并为这些例外设计输入输出都很窄的专用工具。",
+      "references": [
+        {
+          "title": "Define tools（tool_choice）",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools"
+        },
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        }
+      ]
+    },
+    {
+      "id": "D2-4",
+      "domain": "D2",
+      "objective": "Integrate MCP servers into Claude Code and agent workflows",
+      "titleZh": "把 MCP 服务器接入 Claude Code 与智能体",
+      "summaryZh": "团队共享的 MCP 服务器放在项目根目录的 .mcp.json（可提交），个人或实验性服务器放在用户作用域（~/.claude.json）。凭据用环境变量展开引用，不要提交机密。所有已配置服务器的工具在连接时被发现、同时可用。",
+      "concepts": [
+        {
+          "term": "Scopes（作用域）",
+          "zh": "local：仅自己、仅当前项目；project：.mcp.json，团队共享，使用前需要批准；user：仅自己、所有项目。"
+        },
+        {
+          "term": "Env var expansion（环境变量展开）",
+          "zh": ".mcp.json 支持 ${GITHUB_TOKEN} 与 ${VAR:-默认值}。配置可共享，机密由每个人在本地提供。"
+        },
+        {
+          "term": "MCP resources（资源）",
+          "zh": "用来暴露内容目录，如文档层级、数据库 schema、问题摘要。智能体先看目录再取内容，减少探索性的工具调用。工具负责动作，资源负责内容。"
+        },
+        {
+          "term": "Community vs custom servers",
+          "zh": "Jira 等标准集成优先使用现有社区服务器；自建服务器留给团队特有的流程。"
+        }
+      ],
+      "example": {
+        "bad": "把 GitHub token 直接写进 .mcp.json 并提交；Jira 工具描述只有一句，智能体总用 Grep 去搜工单文本。",
+        "good": ".mcp.json 中写 ${GITHUB_TOKEN}；Jira 工具描述写明支持按状态、负责人筛选并返回结构化工单，说明它比 Grep 更适合查工单。",
+        "whyZh": "共享配置不泄露机密；详细的 MCP 工具描述让智能体不再偏向内置工具。"
+      },
+      "pitfalls": [
+        "把个人实验服务器加进项目 .mcp.json，影响整个团队。",
+        "以为同一时间只能启用一个服务器的工具。",
+        "用 local 作用域添加后，奇怪为什么其他项目里用不了。"
+      ],
+      "examTips": [
+        "「团队共享 + 纳入版本控制」→ 项目级 .mcp.json；「个人 + 所有项目」→ user 作用域。",
+        "「减少探索性调用」→ 把目录、schema 作为资源暴露。"
+      ],
+      "practiceZh": "为团队写一份 .mcp.json 模板：只引用环境变量、不写任何机密；在 README 中列出每个变量的获取方式。为每个 MCP 工具补全描述后，观察智能体是否改用它而不是 Grep。",
+      "references": [
+        {
+          "title": "Connect Claude Code to tools via MCP",
+          "url": "https://code.claude.com/docs/en/mcp"
+        },
+        {
+          "title": "Connect to external tools with MCP（Agent SDK）",
+          "url": "https://code.claude.com/docs/en/agent-sdk/mcp"
+        }
+      ]
+    },
+    {
+      "id": "D2-5",
+      "domain": "D2",
+      "objective": "Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively",
+      "titleZh": "正确选用内置工具",
+      "summaryZh": "Grep 搜文件内容（函数名、报错信息、import），Glob 按路径模式找文件（**/*.test.tsx），Read 读取全文，Edit 基于唯一文本做局部修改，Write 写入整个文件，Bash 运行命令。理解陌生代码要增量推进：Grep 找入口，Read 顺着 import 追踪。",
+      "concepts": [
+        {
+          "term": "Grep vs Glob",
+          "zh": "Grep 看内容，Glob 看文件名/路径。「哪些文件调用了 parseInvoice」用 Grep；「找所有测试文件」用 Glob。"
+        },
+        {
+          "term": "Edit 的唯一匹配",
+          "zh": "Edit 需要要替换的文本在文件中唯一。不唯一时给更长的锚点文本，或者 Read 全文后用 Write 写回。"
+        },
+        {
+          "term": "Incremental exploration（增量探索）",
+          "zh": "不要一开始就读所有文件。先用 Grep 找入口，再 Read 相关文件，按需跟踪调用链，保持上下文具体而相关。"
+        },
+        {
+          "term": "Wrapper modules（包装模块）",
+          "zh": "函数被重新导出改名时，先找出模块导出的所有名字，再逐个 Grep，才能找全用法。"
+        }
+      ],
+      "example": {
+        "bad": "为回答「重试逻辑在哪」，先 Read 了 60 个文件，结果回答越来越泛泛。",
+        "good": "Grep 搜 retry、backoff 等名字 → Read 命中文件的相关部分 → 顺着 import 找到实际实现 → 用 Edit 修改有问题的条件。",
+        "whyZh": "检索 → 阅读 → 局部修改，既节省上下文，又能给出具体答案。"
+      },
+      "pitfalls": [
+        "用 Glob 去找「提到某个词」的文件。",
+        "Edit 因匹配不唯一而失败后，原样反复重试。",
+        "只搜原始函数名，漏掉通过别名使用的地方。"
+      ],
+      "examTips": [
+        "内容 → Grep；路径模式 → Glob；运行测试 → Bash；单处修改 → Edit。",
+        "「先全读一遍」通常是错误选项。"
+      ],
+      "practiceZh": "练习三个小任务：找出所有调用某函数的文件；列出所有某类测试文件；修改一个在文件中出现两次的字符串。分别记录你选了哪个工具、为什么。",
+      "references": [
+        {
+          "title": "Tools reference（Claude Code）",
+          "url": "https://code.claude.com/docs/en/tools-reference"
+        },
+        {
+          "title": "Best practices for Claude Code",
+          "url": "https://code.claude.com/docs/en/best-practices"
+        }
+      ]
+    },
+    {
+      "id": "D3-1",
+      "domain": "D3",
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "titleZh": "CLAUDE.md 的层级、作用域与模块化",
+      "summaryZh": "CLAUDE.md 有三层：用户级 ~/.claude/CLAUDE.md（只对自己，跨项目）、项目级 ./CLAUDE.md 或 ./.claude/CLAUDE.md（团队共享）、目录级（子目录中的 CLAUDE.md，处理该目录文件时按需加载）。用 @导入 和 .claude/rules/ 保持模块化，用 /memory 确认加载了什么。",
+      "concepts": [
+        {
+          "term": "User vs project level",
+          "zh": "团队规范写在用户级文件里，新同事就收不到。团队共享的内容必须放项目级并提交；个人且仅限本项目的偏好用 CLAUDE.local.md。"
+        },
+        {
+          "term": "@import",
+          "zh": "用 @path/to/file 引入其他文件，相对路径以发起导入的文件为基准，可递归导入。它帮助组织内容，但被导入的文件同样会加载，并不节省上下文。"
+        },
+        {
+          "term": ".claude/rules/",
+          "zh": "把臃肿的 CLAUDE.md 拆成 testing.md、api-conventions.md、deployment.md 等主题文件。没有 paths 的规则在启动时加载。"
+        },
+        {
+          "term": "/memory",
+          "zh": "查看并编辑当前加载的记忆文件。「有的会话遵守、有的不遵守」时首先用它确认加载情况。"
+        }
+      ],
+      "example": {
+        "bad": "技术负责人把编码规范写在自己的 ~/.claude/CLAUDE.md；monorepo 的每个包都复制了全部规范文件。",
+        "good": "规范放在项目 CLAUDE.md 并提交；每个包的 CLAUDE.md 用 @ 只导入与本包相关的规范文件。",
+        "whyZh": "放对层级才能共享；按需导入让每个包只看到相关规范。"
+      },
+      "pitfalls": [
+        "以为用户级设置会通过账号同步给队友。",
+        "以为 @导入 能减少上下文占用。",
+        "行为不一致时先改措辞，而不是先用 /memory 检查是否加载。"
+      ],
+      "examTips": [
+        "「只有某个人生效」→ 层级问题（写在了用户级）。",
+        "「CLAUDE.md 太长」→ 拆到 .claude/rules/；「每个包要不同规范」→ @导入。"
+      ],
+      "practiceZh": "在一个仓库里同时放置用户级、项目级、子目录级 CLAUDE.md 和一个 rules 文件，用 /memory 观察不同工作目录下加载了哪些文件，并记录结果。",
+      "references": [
+        {
+          "title": "Manage Claude's memory",
+          "url": "https://code.claude.com/docs/en/memory"
+        },
+        {
+          "title": "Best practices for Claude Code",
+          "url": "https://code.claude.com/docs/en/best-practices"
+        }
+      ]
+    },
+    {
+      "id": "D3-2",
+      "domain": "D3",
+      "objective": "Create and configure custom slash commands and skills",
+      "titleZh": "自定义斜杠命令与技能（skills）",
+      "summaryZh": "项目级命令/技能放在仓库的 .claude/commands/ 或 .claude/skills/<名称>/SKILL.md，随版本控制共享；个人的放在 ~/.claude/ 下。技能前置信息可设置 context: fork（在隔离的子智能体上下文中运行）、allowed-tools、argument-hint 等。",
+      "concepts": [
+        {
+          "term": "Project vs user scope",
+          "zh": "团队都要用的 /review-pr 放项目目录；个人变体放 ~/.claude/skills/ 并起不同名字，避免影响或混淆团队版本。"
+        },
+        {
+          "term": "context: fork",
+          "zh": "让技能在隔离的上下文中运行，只把结果带回主会话。适合输出冗长的代码库分析或探索性的头脑风暴。"
+        },
+        {
+          "term": "argument-hint / allowed-tools",
+          "zh": "argument-hint 在自动补全时提示需要的参数（如 [migration-name]）；allowed-tools 在前置信息中声明技能执行时可用的工具。"
+        },
+        {
+          "term": "Skill vs CLAUDE.md",
+          "zh": "始终生效的通用规范放 CLAUDE.md；按需调用的特定任务流程做成技能。有副作用的流程可用 disable-model-invocation 只允许手动触发。"
+        }
+      ],
+      "example": {
+        "bad": "/analyze-codebase 把几千行探索结果直接倒进主对话；队友为了加自己的步骤直接改了共享的 /release。",
+        "good": "/analyze-codebase 设置 context: fork，只返回摘要；队友在 ~/.claude/skills/release-mine 中做个人变体。",
+        "whyZh": "隔离冗长输出保护主上下文；个人定制不影响团队。"
+      },
+      "pitfalls": [
+        "把只在发布时才用的长流程写进 CLAUDE.md，每次都占上下文。",
+        "用与团队技能同名的个人技能覆盖，造成混淆。",
+        "以为 context: fork 是用来「共享给团队」的。"
+      ],
+      "examTips": [
+        "「输出太冗长、污染主对话」→ context: fork。",
+        "「调用时常忘带参数」→ argument-hint；「团队都要用」→ 项目目录。"
+      ],
+      "practiceZh": "把团队里重复最多的三个操作做成项目技能，各写清 description 和 argument-hint；其中输出最多的一个加上 context: fork，比较主会话上下文的变化。",
+      "references": [
+        {
+          "title": "Extend Claude with skills",
+          "url": "https://code.claude.com/docs/en/skills"
+        },
+        {
+          "title": "Slash commands",
+          "url": "https://code.claude.com/docs/en/slash-commands"
+        }
+      ]
+    },
+    {
+      "id": "D3-3",
+      "domain": "D3",
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "titleZh": "按路径条件加载的规则",
+      "summaryZh": ".claude/rules/ 中的规则文件可在 YAML 前置信息里写 paths（glob 模式），只有 Claude 处理匹配的文件时才加载。这样能减少无关上下文，也适合散落在多个目录中的同类文件（如测试文件）。",
+      "concepts": [
+        {
+          "term": "paths frontmatter",
+          "zh": "例如 paths: [\"terraform/**/*\"] 或 [\"**/*.test.tsx\"]。** 匹配任意层级目录。"
+        },
+        {
+          "term": "Conditional loading（条件加载）",
+          "zh": "只在处理匹配文件时加载；不涉及这些文件的讨论（例如纯设计讨论）里不会出现。需要始终生效的内容不要加 paths。"
+        },
+        {
+          "term": "Rules vs directory CLAUDE.md",
+          "zh": "约定集中在某个目录 → 目录级 CLAUDE.md 也可以；约定按文件类型分散在各处 → 用 glob 路径规则，一条就能覆盖。"
+        }
+      ],
+      "example": {
+        "bad": "前端无障碍规则写在根目录 CLAUDE.md 里，CI 审查器把它套用到后端 Go 文件上。",
+        "good": "建立 .claude/rules/a11y.md，paths 设为 [\"web/**/*.tsx\"]；Python 与 Go 的约定分别放在 paths 为 **/*.py 与 **/*.go 的规则中。",
+        "whyZh": "规则只在相关文件出现，减少误用和无关评论。"
+      },
+      "pitfalls": [
+        "写成 *.test.tsx 而不是 **/*.test.tsx，只匹配到根目录。",
+        "给必须始终生效的规范加了 paths，导致某些场景不加载。",
+        "在全局 CLAUDE.md 里不断追加「不适用于 X」的例外。"
+      ],
+      "examTips": [
+        "「只在编辑某类文件时加载」→ 带 paths 的规则文件。",
+        "「跨目录的同类文件」→ glob 路径规则优于目录级 CLAUDE.md。"
+      ],
+      "practiceZh": "把现有 CLAUDE.md 中只适用于某类文件的段落挑出来，各自移到带 paths 的规则文件中，然后分别编辑一个匹配文件和一个不匹配文件，用 /memory 确认加载差异。",
+      "references": [
+        {
+          "title": "Manage Claude's memory（path-specific rules）",
+          "url": "https://code.claude.com/docs/en/memory"
+        }
+      ]
+    },
+    {
+      "id": "D3-4",
+      "domain": "D3",
+      "objective": "Determine when to use plan mode vs direct execution",
+      "titleZh": "计划模式与直接执行",
+      "summaryZh": "计划模式下 Claude 只读探索并提出计划，批准前不改动文件，适合大规模、多文件、有多种可行方案或涉及架构的改动。范围清楚的小改动（单文件修复、加一个校验）直接执行即可。常见组合：先计划，批准后直接执行。",
+      "concepts": [
+        {
+          "term": "Plan mode",
+          "zh": "安全地探索和设计，避免投入修改后才发现方案不对的高代价返工。可在会话中切换，也可用 --permission-mode plan 启动。"
+        },
+        {
+          "term": "Direct execution",
+          "zh": "适合影响范围明确、方案唯一的改动，例如堆栈跟踪已指明行号的空值检查。"
+        },
+        {
+          "term": "Explore subagent",
+          "zh": "把冗长的只读发现阶段放到隔离的子智能体中，只返回摘要，防止多阶段任务耗尽主上下文。"
+        }
+      ],
+      "example": {
+        "bad": "45 个文件的 HTTP 库迁移直接开改，改到一半发现另一种迁移策略更合适；修一个拼写错误却先写多页设计文档。",
+        "good": "库迁移先在计划模式中调查两种策略并选定，批准后直接执行；拼写错误直接修改。",
+        "whyZh": "按改动的范围与不确定性来选择模式，大改先对齐方案，小改不浪费时间。"
+      },
+      "pitfalls": [
+        "以为「机械性改动」就不需要计划，即使涉及几十个文件。",
+        "计划不符合需求时不给反馈，退出后自行实现，约束没有传达给 Claude。",
+        "在主会话中进行大量探索，上下文被搜索结果占满。"
+      ],
+      "examTips": [
+        "关键词「架构」「多种方案」「45+ 文件」「迁移」→ 计划模式。",
+        "关键词「单文件」「堆栈已指明」「加一个检查」→ 直接执行。"
+      ],
+      "practiceZh": "把最近的三项任务按「影响范围 × 不确定性」打分，决定用哪种模式；对计划模式的那项，练习给计划写反馈（例如运维约束），让 Claude 修订后再批准。",
+      "references": [
+        {
+          "title": "Common workflows（plan mode）",
+          "url": "https://code.claude.com/docs/en/common-workflows"
+        },
+        {
+          "title": "Create custom subagents",
+          "url": "https://code.claude.com/docs/en/sub-agents"
+        }
+      ]
+    },
+    {
+      "id": "D3-5",
+      "domain": "D3",
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "titleZh": "迭代改进的技巧",
+      "summaryZh": "文字描述被不一致地理解时，给 2–3 个具体的输入/输出示例；先写测试再迭代，把失败信息反馈给 Claude；在陌生领域用「访谈模式」让 Claude 先提问；相互影响的问题放在一条消息里一起处理，独立的问题逐个迭代。",
+      "concepts": [
+        {
+          "term": "Input/output examples",
+          "zh": "比文字更能准确传达转换要求。修复边界情况时，直接给出包含 null 等特殊值的输入和期望输出。"
+        },
+        {
+          "term": "Test-driven iteration（测试驱动）",
+          "zh": "先写覆盖期望行为、边界情况和性能要求的测试，再实现，并用具体的失败输出引导下一次修改。只说「还是不行」无法推进。"
+        },
+        {
+          "term": "Interview pattern（访谈模式）",
+          "zh": "实现前让 Claude 就需求提问，暴露开发者没想到的点，例如缓存失效策略、故障模式、时钟偏差。"
+        },
+        {
+          "term": "Interacting vs independent issues",
+          "zh": "修一个会影响另一个的问题要一次说明清楚；互不相关的问题分开处理，每次修改更小、更易审查。"
+        }
+      ],
+      "example": {
+        "bad": "「把日期处理得更好一点」；测试失败后只回复「还是失败」。",
+        "good": "给出三个「输入 → 期望输出」的日期示例；附上最近一次失败的完整输出和改动内容。",
+        "whyZh": "具体的样例和失败证据让每一轮修改都有明确目标。"
+      },
+      "pitfalls": [
+        "重复同样的文字指令，或用大写强调。",
+        "把相互影响的修复拆到不同会话，导致反复冲突。",
+        "跳过测试，凭感觉判断「应该好了」。"
+      ],
+      "examTips": [
+        "「文字描述被不一致理解」→ 具体输入/输出示例。",
+        "「陌生领域、不确定会遇到什么」→ 访谈模式。"
+      ],
+      "practiceZh": "下次请 Claude 实现功能前，先让它问你五个问题；回答后再写测试，最后实现。对比与直接实现相比，返工次数是否减少。",
+      "references": [
+        {
+          "title": "Best practices for Claude Code",
+          "url": "https://code.claude.com/docs/en/best-practices"
+        },
+        {
+          "title": "Use examples effectively",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively"
+        }
+      ]
+    },
+    {
+      "id": "D3-6",
+      "domain": "D3",
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "titleZh": "把 Claude Code 集成进 CI/CD",
+      "summaryZh": "CI 中用 -p（--print）以非交互模式运行，避免等待输入而挂起；用 --output-format json 与 --json-schema 得到机器可解析的结构化结果；项目上下文（测试规范、fixture、审查标准）写在 CLAUDE.md 中。审查最好由独立的实例完成。",
+      "concepts": [
+        {
+          "term": "-p / --print",
+          "zh": "非交互地执行并输出结果。缺少它时 CI 会因等待输入而挂起。--max-turns 可作为防失控的安全护栏。"
+        },
+        {
+          "term": "--output-format json + --json-schema",
+          "zh": "让审查发现以固定结构输出，便于自动发布为 PR 行内评论，并可把 severity 等设为必填字段进行校验。"
+        },
+        {
+          "term": "Session context isolation",
+          "zh": "生成代码的同一会话不太会质疑自己的决定。用独立的 Claude Code 调用来审查，效果更好。"
+        },
+        {
+          "term": "Avoid duplicates（避免重复）",
+          "zh": "重新审查时传入之前的发现，只报告新的或仍未解决的问题；生成测试时提供已有测试文件，避免重复场景。"
+        }
+      ],
+      "example": {
+        "bad": "CI 中直接运行 claude，任务挂起；每次推送都重复发布几十条旧评论。",
+        "good": "claude -p 配合 --output-format json 与 --json-schema；把上一轮的发现放进上下文，要求只报告新的或未解决的问题。",
+        "whyZh": "非交互 + 结构化输出 + 去重，才能让自动审查可靠且不扰人。"
+      },
+      "pitfalls": [
+        "让生成代码的同一会话审查自己的改动。",
+        "把 CI 需要的规范写在开发者个人的 ~/.claude/CLAUDE.md 里。",
+        "用 grep 去解析自由文本输出来判断格式是否正确。"
+      ],
+      "examTips": [
+        "「CI 挂起」→ -p；「需要机器可解析」→ --output-format json + --json-schema。",
+        "「重复评论」→ 传入之前的发现；「测试重复」→ 提供已有测试文件。"
+      ],
+      "practiceZh": "为 PR 审查写一个最小的 JSON schema（文件、行号、问题、严重程度、建议修复），在本地用 -p 跑通后再放进 CI；第二次运行时传入第一次的结果，确认不会重复评论。",
+      "references": [
+        {
+          "title": "Run Claude Code programmatically（headless）",
+          "url": "https://code.claude.com/docs/en/headless"
+        },
+        {
+          "title": "CLI reference",
+          "url": "https://code.claude.com/docs/en/cli-reference"
+        }
+      ]
+    },
+    {
+      "id": "D4-1",
+      "domain": "D4",
+      "objective": "Design prompts with explicit criteria to improve precision and reduce false positives",
+      "titleZh": "用明确标准提高精确度、降低误报",
+      "summaryZh": "「保守一点」「只报告高置信度的发现」这类泛泛的指令很难提升精确度。要用可判定的具体类别定义「报告什么、跳过什么」，并为每个严重程度级别给出标准和代码示例。误报多的类别会拖累整个工具的信任。",
+      "concepts": [
+        {
+          "term": "Explicit criteria（明确标准）",
+          "zh": "「只有当注释声称的行为与代码实际行为矛盾时才标出」比「检查注释是否准确」更可判定，结果也更一致。"
+        },
+        {
+          "term": "Report vs skip categories",
+          "zh": "报告：改变行为的 bug、安全漏洞、数据丢失风险；跳过：细微风格偏好、符合本地惯例的写法。把团队约定写进跳过列表能消除一类误报。"
+        },
+        {
+          "term": "Severity definitions（严重程度定义）",
+          "zh": "每个级别都写明判定条件并配上具体代码示例，类似问题才会被一致地分级。"
+        },
+        {
+          "term": "Trust and false positives",
+          "zh": "误报率高的类别会让开发者忽视所有发现。可临时停用问题类别，重写其标准并在历史 PR 上验证后再恢复，同时保留准确的类别。"
+        }
+      ],
+      "example": {
+        "bad": "「请保守一些，只报告你 90% 有把握的问题。」",
+        "good": "「报告：用用户输入拼接的 SQL、未处理的异常导致的数据丢失。跳过：命名风格、符合 utils/errors.ts 约定的错误处理写法。」",
+        "whyZh": "具体类别让模型知道边界在哪里，而自报置信度并不能可靠地过滤误报。"
+      },
+      "pitfalls": [
+        "为了「一致」，把准确的类别也一起停用。",
+        "通过要求更多发现数量来「提高覆盖」，结果误报更多。",
+        "让模型自报置信度并据此过滤，以为能提高精确度。"
+      ],
+      "examTips": [
+        "「保守」「高置信度」「仔细一点」通常是错误选项。",
+        "「开发者开始忽视审查」→ 暂停高误报类别并改进其标准。"
+      ],
+      "practiceZh": "收集最近 20 条被驳回的审查评论，按类别统计。为误报最多的类别写出「算/不算」的判定条件和各一个代码示例，再在这 20 条上验证新标准。",
+      "references": [
+        {
+          "title": "Be clear and direct",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct"
+        },
+        {
+          "title": "Use examples effectively",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively"
+        }
+      ]
+    },
+    {
+      "id": "D4-2",
+      "domain": "D4",
+      "objective": "Apply few-shot prompting to improve output consistency and quality",
+      "titleZh": "用少样本示例提升一致性与质量",
+      "summaryZh": "详细说明仍得不到一致格式时，少样本示例是最有效的技巧。2–4 个有针对性的示例，最好覆盖模糊或临界情况，并说明为什么选这个而不是另一个看似合理的选项，模型就能把判断推广到新情况。",
+      "concepts": [
+        {
+          "term": "Format demonstration",
+          "zh": "展示期望的输出结构（位置、问题、严重程度、建议修复），比再写一遍格式说明更能让输出一致。"
+        },
+        {
+          "term": "Ambiguous cases（模糊情况）",
+          "zh": "示例的价值集中在难以判断的情况：例如某个分支缺口值不值得报告、模糊请求该用哪个工具。附上推理，模型学到的是判断方式。"
+        },
+        {
+          "term": "Generalization（泛化）",
+          "zh": "好的示例让模型处理没见过的写法，而不只是匹配列出的情况。对比「可接受的写法」与「真正的问题」还能减少误报。"
+        },
+        {
+          "term": "Extraction examples",
+          "zh": "面对非正式表述（「大约两英寸半」）和多样的文档结构（行内引用 vs 参考文献），示例能减少空值和幻觉。"
+        }
+      ],
+      "example": {
+        "bad": "三个示例全是干净的打印发票，而真实输入里有手写扫描件和多币种发票。",
+        "good": "示例包括一张手写扫描件和一张多币种发票，并展示如何处理不清楚的字段（返回 null 并说明原因）。",
+        "whyZh": "示例要代表真实输入的多样性，尤其是难例。"
+      },
+      "pitfalls": [
+        "只放简单、明显的示例，难例上的表现没有改善。",
+        "示例只有答案没有理由，新情况无法泛化。",
+        "示例越多越好——无关示例会浪费上下文、分散焦点。"
+      ],
+      "examTips": [
+        "「详细说明后格式仍不一致」→ 少样本示例。",
+        "「模糊情况判断不稳」→ 2–4 个带推理的模糊案例示例。"
+      ],
+      "practiceZh": "从生产日志中挑出模型最常出错的三类输入，各写一个带「为什么这样处理」的示例放进提示词，然后用另一批同类输入检验效果。",
+      "references": [
+        {
+          "title": "Use examples effectively",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively"
+        }
+      ]
+    },
+    {
+      "id": "D4-3",
+      "domain": "D4",
+      "objective": "Enforce structured output using tool use and JSON schemas",
+      "titleZh": "用工具调用和 JSON Schema 强制结构化输出",
+      "summaryZh": "把目标 JSON schema 作为抽取工具的输入 schema，从 tool_use 块的 input 中读取数据，可以消除 JSON 语法错误。但 schema 只保证结构，不保证语义：数值是否正确、是否填错字段需要另外校验。schema 设计要允许缺失、为分类留余地。",
+      "concepts": [
+        {
+          "term": "tool_use as output",
+          "zh": "模型按 schema 填写「调用参数」，这些参数就是结构化结果。相比在提示词里要求 JSON 再解析文本，可靠得多。"
+        },
+        {
+          "term": "tool_choice for extraction",
+          "zh": "文档类型未知、有多个抽取 schema 时用 \"any\"；必须先运行某个抽取（如 extract_metadata）时强制指定；\"auto\" 可能返回文本。"
+        },
+        {
+          "term": "Nullable fields（可空字段）",
+          "zh": "源文档可能缺失的信息设为可选/可空，避免模型为满足必填而编造。"
+        },
+        {
+          "term": "Enum design",
+          "zh": "可扩展的类别用 \"other\" + 说明字段；确实无法判断时提供 \"unclear\"。同时在提示词里写清格式规范化规则（如日期的日/月顺序）。"
+        }
+      ],
+      "example": {
+        "bad": "delivery_date 设为必填，没有交货日期的订单被填上编造的日期；document_type 只有三个值，形式发票被硬塞进 invoice。",
+        "good": "delivery_date 可为空；document_type 增加 \"other\" + document_type_detail 和 \"unclear\"；提示词说明各供应商日期格式的解析规则。",
+        "whyZh": "schema 管结构，提示词管转换规则，两者配合才能既合规又真实。"
+      },
+      "pitfalls": [
+        "以为严格 schema 能防止「明细加起来不等于合计」这类语义错误。",
+        "为了「完整」把所有字段设为必填。",
+        "必须结构化输出时仍用 tool_choice \"auto\"。"
+      ],
+      "examTips": [
+        "「2% 响应解析失败」→ 改用工具调用 + JSON schema。",
+        "「通过 schema 却填错字段」→ 语义错误，需要字段说明、示例和语义校验。"
+      ],
+      "practiceZh": "为一种文档设计抽取 schema：标出哪些字段可能缺失（可空）、哪些分类需要 other/unclear。准备几份缺字段的文档，确认输出是 null 而不是编造的值。",
+      "references": [
+        {
+          "title": "Structured outputs",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+        },
+        {
+          "title": "Define tools",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools"
+        }
+      ]
+    },
+    {
+      "id": "D4-4",
+      "domain": "D4",
+      "objective": "Implement validation, retry, and feedback loops for extraction quality",
+      "titleZh": "校验、重试与反馈环",
+      "summaryZh": "抽取校验失败时，把原文档、失败的结果和具体的校验错误一起发回，引导模型自我修正。重试只对格式和结构错误有效；信息根本不在提供的文档中时，重试只会诱发编造。用 detected_pattern 等字段建立反馈环，系统地分析误报。",
+      "concepts": [
+        {
+          "term": "Retry with error feedback",
+          "zh": "后续请求包含：原始文档 + 失败的抽取 + 具体错误（如「amount 必须是数字，收到 '1.234,50'」）。只说「再来一次」效果很差。"
+        },
+        {
+          "term": "Limits of retry",
+          "zh": "适用法律只写在未提供的主协议里、签署日期在未上传的页面上——这类情况应设为可空或转去获取文档，而不是重试。"
+        },
+        {
+          "term": "Self-correction fields",
+          "zh": "同时抽取 stated_total（票面合计）与 calculated_total（明细之和），不一致就标出；源数据自相矛盾时用 conflict_detected 记录。"
+        },
+        {
+          "term": "detected_pattern",
+          "zh": "在每条发现中记录是哪个结构或规则触发的，按模式统计开发者的驳回情况，找出需要改进的规则。"
+        }
+      ],
+      "example": {
+        "bad": "每个失败都原样重试五次，成本很高，很多文档仍然失败。",
+        "good": "先给失败分类：格式/结构错误带反馈重试；信息缺失改为 null 或转人工；合计不符的明细行标出供复核。",
+        "whyZh": "区分「能通过重试修好」和「修不好」，才能既省成本又保质量。"
+      },
+      "pitfalls": [
+        "为节省 token，重试时不附原文档或错误信息。",
+        "让模型「把数字凑成一致」，掩盖真实差异。",
+        "既然通过了 schema 就认为结果正确。"
+      ],
+      "examTips": [
+        "「信息不在文档中」→ 重试无效。",
+        "「想分析哪些规则导致驳回」→ detected_pattern 字段。"
+      ],
+      "practiceZh": "给你的校验错误写一张分类表：哪些附错误重试、哪些转人工、哪些设为 null。上线后每周统计一次各类比例，看看哪种错误应通过改提示词从源头减少。",
+      "references": [
+        {
+          "title": "Structured outputs",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+        },
+        {
+          "title": "Reduce hallucinations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+        }
+      ]
+    },
+    {
+      "id": "D4-5",
+      "domain": "D4",
+      "objective": "Design efficient batch processing strategies",
+      "titleZh": "高效的批处理策略",
+      "summaryZh": "Message Batches API 成本更低（约为标准价格的一半），最长可能需要 24 小时完成，没有延迟保证。适合夜间报表、每周审计等非阻塞任务，不适合开发者要等待的合并前检查。单个批处理请求内不能执行工具再返回结果。",
+      "concepts": [
+        {
+          "term": "Latency tolerance（延迟容忍度）",
+          "zh": "先问：有没有人在阻塞等待结果？有 → 同步 API；没有、只需在第二天或本周内得到 → 批处理。"
+        },
+        {
+          "term": "custom_id",
+          "zh": "把每个结果与对应请求对应起来。失败时只按 custom_id 重新提交失败项，并针对原因修改（如把超出上下文的文档分块）。"
+        },
+        {
+          "term": "SLA calculation",
+          "zh": "最坏情况 = 等待提交的时间 + 最长处理时间。SLA 为 28 小时、处理最长 24 小时，就至少每 4 小时提交一次。"
+        },
+        {
+          "term": "No in-request tool loops",
+          "zh": "需要「调用工具 → 拿结果 → 继续推理」的流程，不能放进单个批处理请求，需要拆成多次请求来编排。"
+        }
+      ],
+      "example": {
+        "bad": "每天午夜提交一个批次，承诺 30 小时内出报告；某批 120 个失败就把 1 万个请求全部重交。",
+        "good": "按 SLA 计算出至少每 6 小时提交一次；用 custom_id 找出 120 个失败项，修正原因后只重提它们；大批量前先在样本集上打磨提示词。",
+        "whyZh": "批处理省钱的前提是正确的提交频率和精准的失败处理。"
+      },
+      "pitfalls": [
+        "为省钱把合并前检查放进批处理。",
+        "计算 SLA 时忽略「等待提交」的时间。",
+        "不先在样本上调优就提交大批量，导致大量重提。"
+      ],
+      "examTips": [
+        "「阻塞式、开发者在等」→ 同步；「夜间、每周」→ 批处理。",
+        "「找出并重提失败项」→ custom_id。"
+      ],
+      "practiceZh": "用小样本（例如 50 份文档）先跑一轮同步请求，修好提示词，再提交批处理；记录首次成功率和重提成本，作为以后估算的依据。",
+      "references": [
+        {
+          "title": "Batch processing",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing"
+        }
+      ]
+    },
+    {
+      "id": "D4-6",
+      "domain": "D4",
+      "objective": "Design multi-instance and multi-pass review architectures",
+      "titleZh": "多实例与多轮审查架构",
+      "summaryZh": "生成者在同一会话中自审，会带着之前的推理，不太会质疑自己的决定。用独立的实例（只给 diff 和需求）审查更有效。大型多文件审查拆成逐文件的局部轮次和一次跨文件的集成轮次，避免注意力稀释和矛盾结论。",
+      "concepts": [
+        {
+          "term": "Self-review limits",
+          "zh": "「复查一遍」「更严格一点」都无法摆脱生成时的推理上下文；单靠扩展思考也未必能替代独立审查者。"
+        },
+        {
+          "term": "Independent instance",
+          "zh": "第二个 Claude 实例不继承生成者的推理，更容易发现细微问题。生成与验证要放在不同的实例中。"
+        },
+        {
+          "term": "Multi-pass review",
+          "zh": "逐文件轮次找局部问题；集成轮次专门检查接口和跨文件数据流。文件 A 的问题由文件 B 的调用方式引起时，要靠集成轮次发现。"
+        },
+        {
+          "term": "Confidence for routing",
+          "zh": "核查轮次中让模型为每条发现给出置信度，用于把注意力分配给人工；这些分数需要用真实结果校准，而不是当作正确性的证明。"
+        }
+      ],
+      "example": {
+        "bad": "同一个对话先生成修复、再验证修复，验证器批准了本该拒绝的改动。",
+        "good": "生成在一个调用中完成；另起一个只收到 diff 与需求的实例来验证；大型 PR 再加一轮跨文件集成审查。",
+        "whyZh": "把「写」和「审」分开，并按局部/集成分层，审查的深度和一致性都会提高。"
+      },
+      "pitfalls": [
+        "为保留上下文而让生成会话自审。",
+        "把 30 个文件一次性塞给审查器，期待它「同等关注」。",
+        "高置信度就自动合并，不做校准。"
+      ],
+      "examTips": [
+        "「验证器总是放过问题」→ 独立实例审查。",
+        "「评论深浅不一、互相矛盾」→ 逐文件 + 集成的多轮审查。"
+      ],
+      "practiceZh": "在你的流水线里把审查步骤改成独立调用，只传入 diff、需求和项目规范；对比改动前后在同一批历史 PR 上发现的问题数和误报数。",
+      "references": [
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Chain complex prompts",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts"
+        }
+      ]
+    },
+    {
+      "id": "D5-1",
+      "domain": "D5",
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "titleZh": "在长交互中保留关键信息",
+      "summaryZh": "渐进式摘要会把金额、日期、百分比和对客户的承诺压缩成模糊表述。把交易事实放在每次请求都附带的「案件事实」块中；在工具结果累积之前裁剪无关字段；长输入要把关键摘要放在开头并用小标题组织，缓解「中间遗失」效应。",
+      "concepts": [
+        {
+          "term": "Case facts block",
+          "zh": "订单号、金额、日期、状态、承诺等事实单独保存、原样附带，不参与摘要。多问题会话为每个问题维护一条结构化记录。"
+        },
+        {
+          "term": "Trim tool output（裁剪工具输出）",
+          "zh": "订单查询返回 40 多个字段而只需要 5 个时，在进入上下文前只保留相关字段，节省 token，也减少干扰。"
+        },
+        {
+          "term": "Lost in the middle",
+          "zh": "模型能可靠利用长输入的开头和结尾，中间部分容易被忽略。关键发现摘要置顶，详细结果用明确的章节标题分隔。"
+        },
+        {
+          "term": "Upstream structure",
+          "zh": "下游上下文有限时，修改上游：让子智能体返回关键事实、引用、相关度和日期等元数据，而不是冗长原文与推理链。"
+        }
+      ],
+      "example": {
+        "bad": "滚动摘要把「订单 7781 退款 132.40 美元，承诺周五前完成」写成「客户想尽快退款」。",
+        "good": "提示词中固定附带「案件事实：订单 7781｜退款 132.40 美元｜承诺周五前｜状态：待处理」，其余对话才做摘要。",
+        "whyZh": "事实不参与压缩，后续回复就不会给错金额或日期。"
+      },
+      "pitfalls": [
+        "为省 token 更激进地摘要，丢掉更多细节。",
+        "把所有工具字段都留着「以防万一」。",
+        "把最重要的事实放在长输入的中间。"
+      ],
+      "examTips": [
+        "「摘要后金额错了」→ 持久的案件事实块。",
+        "「中间的发现被遗漏」→ 关键摘要置顶 + 章节标题。"
+      ],
+      "practiceZh": "为你的智能体定义一个固定格式的事实块（字段清单），在每轮工具调用后自动更新；再写一个函数，只把工具结果中的必要字段写进上下文。",
+      "references": [
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        },
+        {
+          "title": "Long context prompting",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting"
+        }
+      ]
+    },
+    {
+      "id": "D5-2",
+      "domain": "D5",
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "titleZh": "升级与歧义处理",
+      "summaryZh": "恰当的升级触发：客户明确要求人工、政策存在例外或空白、无法取得实质进展。情绪分数和模型自报的置信度都不是复杂度的可靠指标。客户要求人工时立即升级；有情绪但问题可解决时先表达理解并解决；多个匹配时要求补充标识。",
+      "concepts": [
+        {
+          "term": "Explicit request",
+          "zh": "客户说「我要找真人」就立即转人工，不先尝试调查或说服。"
+        },
+        {
+          "term": "Frustration ≠ complexity",
+          "zh": "客户很恼火但问题在能力范围内（如补发物流单号），先承认情绪并提出解决；客户再次要求人工时才升级。"
+        },
+        {
+          "term": "Policy gaps（政策空白）",
+          "zh": "政策只涉及本站调价、客户要求按竞争对手价格调整——政策沉默时升级，而不是自行批准或一律拒绝。超出权限（如金额上限）也属于升级情形。"
+        },
+        {
+          "term": "Multiple matches",
+          "zh": "查到多个同名客户时，请客户提供邮箱或订单号等额外标识，不要凭「最近活跃」之类的启发式挑选。"
+        }
+      ],
+      "example": {
+        "bad": "提示词写「复杂的案件要升级」，并在情绪分数为负时自动转人工。",
+        "good": "提示词列出具体触发条件（明确要求人工、政策空白或例外、两次尝试后仍无进展），并附几个「升级 vs 自主解决」的示例。",
+        "whyZh": "可判定的条件加示例，让升级判断一致。"
+      },
+      "pitfalls": [
+        "客户明确要求人工，智能体却先尝试解决。",
+        "把「政策没写」理解为「禁止」。",
+        "多个匹配时选第一个结果。"
+      ],
+      "examTips": [
+        "「情绪」「自报置信度」作为升级依据的选项通常是错的。",
+        "「政策沉默」「超出权限」→ 升级。"
+      ],
+      "practiceZh": "收集 10 个真实或虚构的客服案例，为每个标注「升级/自主解决」及理由，挑出其中最容易判断错的 3 个写成提示词中的少样本示例。",
+      "references": [
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        },
+        {
+          "title": "Use examples effectively",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively"
+        }
+      ]
+    },
+    {
+      "id": "D5-3",
+      "domain": "D5",
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "titleZh": "多智能体系统中的错误传播",
+      "summaryZh": "子智能体先在本地处理临时性故障，解决不了才上报；上报时附上结构化错误上下文：失败类型、尝试的查询、部分结果、可能的替代方案。要区分访问失败与有效的空结果。两种反模式：悄悄吞掉错误，以及因单个失败终止整个流程。",
+      "concepts": [
+        {
+          "term": "Structured error context",
+          "zh": "例如「查询期刊库『grid storage 2025』超时，已重试 2 次；取回 10 条中的 4 条；建议改用预印本服务器」。笼统的「搜索不可用」会隐藏这些信息。"
+        },
+        {
+          "term": "Access failure vs empty result",
+          "zh": "超时、服务不可用需要重试或替代决策；查询成功但没有匹配是有效答案，不应重试。"
+        },
+        {
+          "term": "Local recovery",
+          "zh": "子智能体处理自己能解决的临时故障，只上报无法解决的问题，协调者不会被琐碎失败淹没。"
+        },
+        {
+          "term": "Coverage annotations",
+          "zh": "综合输出中标明哪些发现有充分支持、哪些方面因来源不可用而存在缺口，让读者知道结论的可靠程度。"
+        }
+      ],
+      "example": {
+        "bad": "某个来源失败后返回空结果并报告成功；或者四个搜索子智能体中一个超时，整个调研就终止。",
+        "good": "失败的子智能体返回结构化错误和部分结果；协调者用已有结果继续，并在报告中注明该来源造成的覆盖缺口。",
+        "whyZh": "既不隐藏失败，也不因局部失败放弃全部成果。"
+      },
+      "pitfalls": [
+        "把「没找到」当作错误报告，引发无效重试。",
+        "权限错误也反复重试。",
+        "报告覆盖不完整却不加说明。"
+      ],
+      "examTips": [
+        "「搜索不可用」类笼统消息是反面教材。",
+        "正确选项通常同时包含「继续」和「注明缺口」。"
+      ],
+      "practiceZh": "为子智能体定义一个统一的错误对象（类型、尝试、部分结果、替代方案、是否可重试），并在协调者中写出每种类型的处理分支；再模拟一次超时，检查最终报告是否带有覆盖注记。",
+      "references": [
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        },
+        {
+          "title": "Connect Claude Code to tools via MCP",
+          "url": "https://code.claude.com/docs/en/mcp"
+        }
+      ]
+    },
+    {
+      "id": "D5-4",
+      "domain": "D5",
+      "objective": "Manage context effectively in large codebase exploration",
+      "titleZh": "大型代码库探索中的上下文管理",
+      "summaryZh": "长会话中会出现上下文退化：回答前后不一，开始引用「典型模式」而不是之前发现的具体类。对策：用子智能体隔离冗长探索、用 scratchpad 文件持久保存关键发现、阶段之间先总结再注入、必要时用 /compact，长任务用状态清单（manifest）支持崩溃恢复。",
+      "concepts": [
+        {
+          "term": "Context degradation",
+          "zh": "探索了很久之后，早期发现的具体信息不再被可靠利用。症状是答案变得泛泛、与之前矛盾。"
+        },
+        {
+          "term": "Scratchpad file",
+          "zh": "把类名、文件路径、决定等关键发现写入文件，之后回答问题时查阅，跨越上下文边界保存信息。"
+        },
+        {
+          "term": "Subagent delegation",
+          "zh": "「找出所有测试文件」「追踪退款流程的依赖」等具体问题交给子智能体，只返回精简摘要；详细内容写进文件备查。"
+        },
+        {
+          "term": "/compact 与 manifest",
+          "zh": "/compact 总结对话以释放空间，但会丢细节，先保存关键事实。多智能体长任务中每个智能体导出状态，协调者恢复时加载清单并注入提示词。"
+        }
+      ],
+      "example": {
+        "bad": "一次性读入大量文件；子智能体返回 2000 行原始报告；崩溃后从头再来。",
+        "good": "子智能体只返回关键模块、入口和风险的结构化摘要；主会话维护 scratchpad；每个阶段结束先总结再交给下一阶段；状态定期写入 manifest。",
+        "whyZh": "主上下文只保留高层理解，细节放在可随时查阅的外部存储里。"
+      },
+      "pitfalls": [
+        "在执行 /compact 之前没有记下关键发现。",
+        "以为下一阶段的子智能体会自动知道上一阶段的结论。",
+        "把探索结果粘贴进 CLAUDE.md，让每次启动都背上这些内容。"
+      ],
+      "examTips": [
+        "「开始说『典型模式』」→ 上下文退化 → scratchpad / 子智能体 / 新会话加摘要。",
+        "「崩溃后不想重做」→ 状态导出 + manifest。"
+      ],
+      "practiceZh": "下次进行长时间代码调查时，从一开始就维护 findings.md：每确认一个事实就写一行。中途开新会话时只给它这份文件，观察回答质量是否恢复。",
+      "references": [
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        },
+        {
+          "title": "Create custom subagents",
+          "url": "https://code.claude.com/docs/en/sub-agents"
+        },
+        {
+          "title": "Manage costs effectively（/compact）",
+          "url": "https://code.claude.com/docs/en/costs"
+        }
+      ]
+    },
+    {
+      "id": "D5-5",
+      "domain": "D5",
+      "objective": "Design human review workflows and confidence calibration",
+      "titleZh": "人工复核流程与置信度校准",
+      "summaryZh": "整体准确率（如 97%）可能掩盖某些文档类型或字段上的糟糕表现。减少人工复核前，要按文档类型和字段分段验证；用分层随机抽样持续测量高置信度结果的错误率；字段级置信度要用标注验证集校准，再用来路由有限的复核人力。",
+      "concepts": [
+        {
+          "term": "Segmented accuracy（分段准确率）",
+          "zh": "某供应商发票 18% 出错、其他约 1%，整体只有 2%。只看整体就会漏掉这个问题。"
+        },
+        {
+          "term": "Stratified sampling（分层抽样）",
+          "zh": "在文档类型、字段等分组内分别抽样，持续测量错误率，并发现新的错误模式（例如新供应商格式出现后）。"
+        },
+        {
+          "term": "Calibration（校准）",
+          "zh": "模型标为「高置信度」的值在标注数据上只有 85% 正确，说明需要根据标注结果调整阈值，而不是照单全收。"
+        },
+        {
+          "term": "Review routing",
+          "zh": "复核人力有限时，优先低置信度的字段，以及源文档含糊或自相矛盾的案例——后者与模型置信度无关。"
+        }
+      ],
+      "example": {
+        "bad": "整体准确率 97%，于是完全取消人工复核；新类型的报关单直接按通用阈值自动化。",
+        "good": "先按文档类型和字段分段分析；对报关单单独用标注样本验证；上线后持续分层抽样，低置信度和源数据矛盾的案例进入复核队列。",
+        "whyZh": "自动化的范围取决于每个细分领域的实际表现，而不是一个平均数。"
+      },
+      "pitfalls": [
+        "只把高置信度案例交给人工，方向完全反了。",
+        "阈值一旦设定就不再检查，新的错误模式悄悄出现。",
+        "把未经校准的置信度当作正确性的证明。"
+      ],
+      "examTips": [
+        "「整体准确率很高，想取消复核」→ 先做分段分析。",
+        "「如何持续测量高置信度结果的错误率」→ 分层随机抽样。"
+      ],
+      "practiceZh": "准备一份按文档类型分层的标注样本，计算每种类型、每个关键字段的准确率与置信度对应关系，据此为各字段分别设定复核阈值，并每月复查一次。",
+      "references": [
+        {
+          "title": "Define success criteria and build evaluations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Reduce hallucinations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+        }
+      ]
+    },
+    {
+      "id": "D5-6",
+      "domain": "D5",
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "titleZh": "多来源综合中的出处与不确定性",
+      "summaryZh": "每经过一次摘要或合并，来源归属都可能丢失。要求子智能体输出结构化的「论断—来源」映射（论断、URL 或文档名、摘录、日期），下游一路保留。可信来源冲突时同时列出并注明，不要随意取一个或取平均；区分已确立与有争议的结论，并按内容类型选择呈现方式。",
+      "concepts": [
+        {
+          "term": "Claim-source mapping",
+          "zh": "每条发现带着来源 URL、文档名、相关摘录。综合时合并映射而不是丢掉它们，最终报告才能逐条引用。"
+        },
+        {
+          "term": "Conflict annotation（冲突标注）",
+          "zh": "两个可信来源给出不同的市场规模时，同时列出两个值和来源；文档分析阶段先完整保留并标注，由协调者决定如何调和。"
+        },
+        {
+          "term": "Temporal data（时间信息）",
+          "zh": "要求输出发表/采集日期。2019 年和 2024 年方法不同的两项研究不能直接得出「下降」的结论；合同与修订也要靠日期判断哪个值有效。"
+        },
+        {
+          "term": "Fit format to content",
+          "zh": "财务数据用表格、新闻用叙述、技术发现用结构化列表；保留来源的原始表述和证据强度，不把一篇博客写成「研究表明」。"
+        }
+      ],
+      "example": {
+        "bad": "综合子智能体把十条发现压成一段话，末尾列一串 URL；两个冲突数字被取了平均值。",
+        "good": "报告按「已确立 / 存在争议」分节，每个论断附来源与日期；冲突数字并列给出并说明各自的方法与时间。",
+        "whyZh": "读者能看到每个结论的依据与可靠程度，自己做出判断。"
+      },
+      "pitfalls": [
+        "为了让报告更易读而删掉引用。",
+        "去掉日期以「简化」合并，把时间差异误当成矛盾。",
+        "所有内容都套用同一种格式。"
+      ],
+      "examTips": [
+        "「冲突的统计数据」→ 并列 + 注明来源，而不是平均或二选一。",
+        "「出处丢失」→ 结构化的论断—来源映射。"
+      ],
+      "practiceZh": "为调研子智能体规定统一的输出结构：claim、evidence、source、date、method。写一个合并函数，检查最终报告中的每个论断是否都能追溯到至少一个来源。",
+      "references": [
+        {
+          "title": "Citations",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/citations"
+        },
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        }
+      ]
+    }
+  ]
+}

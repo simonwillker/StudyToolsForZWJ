@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { newStudySession } from "./studyLog";
-import CcaofVocab from "./CcaofVocab";
-import { getVocabSummary } from "./ccaofVocabProgress";
-import { analyseWeakness, pickFocusItems, MIN_ATTEMPTS } from "./ccaofWeakness";
+import { newStudySession } from "../studyLog";
+import CertVocab from "./CertVocab";
+import { activeCert } from "./certState";
+import { getVocabSummary } from "./vocabProgress";
+import { analyseWeakness, pickFocusItems, MIN_ATTEMPTS } from "./weakness";
 import {
   downloadBackup,
   parseBackup,
   applyBackup,
   describeBackup,
-} from "./ccaofBackup";
+} from "./backup";
 import {
   buildObjectiveIndex,
   collectObjectiveStats,
@@ -18,8 +19,8 @@ import {
   nextActions,
   pctOf,
   MIN_OBJECTIVE_ATTEMPTS,
-} from "./ccaofStudyCore";
-import { recordMistakeAnswer, getMistakeSummary, getDueMistakeIds } from "./ccaofMistakes";
+} from "./studyCore";
+import { recordMistakeAnswer, getMistakeSummary, getDueMistakeIds } from "./mistakes";
 import {
   DOMAINS,
   OBJECTIVES,
@@ -31,7 +32,9 @@ import {
   peekDomainItems,
   loadDomainItems,
   examBlueprintCounts,
-} from "./ccaofDomains";
+  SCENARIOS,
+  findScenario,
+} from "./domains";
 import {
   buildExam,
   gradeExam,
@@ -45,7 +48,7 @@ import {
   clearInProgress,
   remainingMs,
   formatClock,
-} from "./ccaofExam";
+} from "./exam";
 import {
   recordAnswer,
   recordReviewResult,
@@ -58,7 +61,7 @@ import {
   getTodayStats,
   resetProgress,
   loadProgress,
-} from "./ccaofProgress";
+} from "./progress";
 
 const APP_VERSION = __APP_VERSION__;
 const BUILD_DATE = __BUILD_DATE__;
@@ -66,11 +69,32 @@ const BUILD_DATE = __BUILD_DATE__;
 /** 英検と同じく20問1組で出す */
 const UNIT_SIZE = 20;
 
-const OFFICIAL_LINKS = [
-  { label: "Claude 認定プログラム（Pearson VUE） ↗", url: "https://www.pearsonvue.com/us/en/anthropic.html" },
-  { label: "Claude ドキュメント ↗", url: "https://docs.claude.com/" },
-  { label: "Anthropic 利用ポリシー ↗", url: "https://www.anthropic.com/legal/aup" },
-];
+/** 非公式・推定の値に付ける印。meta.json の examFormatSource で "unofficial" とした項目 */
+function UnofficialMark({ field }) {
+  const src = (BLUEPRINT.examFormatSource || {})[field];
+  if (src !== "unofficial") return null;
+  return <span className="ccaof-unofficial" title="公式資料で確認できない値。第三者情報からの推定">非公式・推定</span>;
+}
+
+/* ============================================================
+   シナリオ（CCAR-F）。本番はシナリオの説明文のあとに複数の問題が続く。
+   問題ごとに同じ説明を出すと長いので、たためるようにしておく。
+   ============================================================ */
+
+function ScenarioBox({ id, showZh, defaultOpen = true }) {
+  const sc = findScenario(id);
+  if (!sc) return null;
+  return (
+    <details className="ccaof-scenario" open={defaultOpen} data-testid="scenario-box">
+      <summary>
+        <span className="ccaof-scenario-tag">シナリオ {sc.no}</span> {sc.title}
+        {showZh && sc.titleZh && <span className="ccaof-scenario-zh-title">（{sc.titleZh}）</span>}
+      </summary>
+      <div className="ccaof-scenario-body">{sc.description}</div>
+      {showZh && sc.descriptionZh && <div className="ccaof-scenario-body zh">{sc.descriptionZh}</div>}
+    </details>
+  );
+}
 
 /* 問題データは正解を choices[0] に置いていることがある。
    英検アプリで全モードが「1番目を押せば必ず正解」になっていた事故があったので、
@@ -212,6 +236,7 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh, studyLabel, exitL
         </span>
       </div>
 
+      {q.scenario && <ScenarioBox id={q.scenario} showZh={showZh} key={q.id} defaultOpen={index === 0 || questions[index - 1].scenario !== q.scenario} />}
       {q.material && <div className="ccaof-material">{q.material}</div>}
       {q.materialZh && showZh && <div className="ccaof-material zh">{q.materialZh}</div>}
       <div className="ccaof-stem">{q.stem}</div>
@@ -336,6 +361,10 @@ function ExamRunner({ questions, answers, onPick, startedAt, onSubmit, onAbandon
         ))}
       </div>
 
+      {q.scenario && (index === 0 || questions[index - 1].scenario !== q.scenario) && (
+        <div className="ccaof-scenario-new">ここから新しいシナリオです</div>
+      )}
+      {q.scenario && <ScenarioBox id={q.scenario} showZh={showZh} key={q.id} />}
       {q.material && <div className="ccaof-material">{q.material}</div>}
       <div className="ccaof-stem">{q.stem}</div>
       {q.stemZh && showZh && <div className="ccaof-stem-zh">{q.stemZh}</div>}
@@ -444,6 +473,7 @@ function ExamReview({ result, questions, showZh, onBack }) {
       {wrong.map((w) => (
         <div className="ccaof-review-item" key={w.id}>
           <div className="ccaof-review-no">第 {w.no} 問 · {findDomain(w.q.domain).label}</div>
+          {w.q.scenario && <ScenarioBox id={w.q.scenario} showZh={showZh} defaultOpen={false} />}
           <div className="ccaof-stem">{w.q.stem}</div>
           {w.q.stemZh && showZh && <div className="ccaof-stem-zh">{w.q.stemZh}</div>}
           <div className="ccaof-choices">
@@ -613,7 +643,8 @@ function LessonView({ lesson, stat, itemCount, color, onBack, onPractice }) {
    メイン
    ============================================================ */
 
-export default function CcaofApp({ onExitApp }) {
+export default function CertApp({ onExitApp, onBackToCerts }) {
+  const cert = activeCert();
   const [screen, setScreen] = useState("domainSelect"); // domainSelect | unitSelect | quiz | progress | vocab
   const [domainId, setDomainId] = useState(null);
   const [items, setItems] = useState(null);
@@ -630,7 +661,7 @@ export default function CcaofApp({ onExitApp }) {
   const [resumable, setResumable] = useState(() => loadInProgress());
 
   /* 考点（objective）まわり。考点別の成績・合格予測・今日の復習は全ドメインの
-     問題が要るので、CCAO-F を開いたら7ドメインぶんと讲义を読んでおく
+     問題が要るので、資格を開いたら全ドメインぶんと讲义を読んでおく
      （英検など他のアプリでは読まれない）。 */
   const [allItems, setAllItems] = useState(null);
   const [lessons, setLessons] = useState(null);
@@ -727,6 +758,20 @@ export default function CcaofApp({ onExitApp }) {
         exitLabel: "トップにもどる",
       }
     );
+  };
+
+  /* シナリオ別練習（CCAR-F）。そのシナリオの問題を、まちがえ → 未解答 → 解答済み の順に */
+  const startScenarioPractice = (sc, limit) => {
+    if (!allItems) return;
+    const items = allItems.filter((i) => i.scenario === sc.id);
+    const picked = pickPracticeItems(items, loadProgress(), getMistakeSummary().ids, limit, shuffle);
+    startCtxQuiz(picked, {
+      label: `シナリオ ${sc.no}`,
+      color: "#2F5D8A",
+      studyLabel: `シナリオ ${sc.no} ${sc.title}`,
+      returnTo: "domainSelect",
+      exitLabel: "トップにもどる",
+    });
   };
 
   const toggleZh = useCallback(() => {
@@ -860,7 +905,7 @@ export default function CcaofApp({ onExitApp }) {
     if (!analysis.ready) return;
     setFocusBusy(true);
     try {
-      /* 重点対象のドメインだけ読み込む。7つ全部は読まない */
+      /* 重点対象のドメインだけ読み込む。全部は読まない */
       const loaded = await Promise.all(analysis.focus.map((id) => loadDomainItems(id)));
       const byDomain = {};
       analysis.focus.forEach((id, i) => {
@@ -897,7 +942,7 @@ export default function CcaofApp({ onExitApp }) {
 
   /* 学習記録は localStorage から毎回読む。useMemo にすると、出題中に
      解いた分が学習記録の画面に出ないまま残る（実際にそうなっていた）。
-     7ドメインぶんの読み出しなので、描画のたびに読んでも十分に軽い。 */
+     ドメインぶんの読み出しなので、描画のたびに読んでも十分に軽い。 */
   /* ---- 学習記録のバックアップ ---- */
   const backupInputRef = useRef(null);
   const [backupMsg, setBackupMsg] = useState(null);
@@ -1174,11 +1219,21 @@ export default function CcaofApp({ onExitApp }) {
         .ccaof-official-box { max-width: 720px; margin: 24px auto 0; background: #FBFAF6; border: 1px solid #E4E2DA; border-radius: 10px; padding: 16px 18px; }
         .ccaof-official-title { font-weight: 800; font-size: 14px; margin-bottom: 6px; }
         .ccaof-official-desc { font-size: 12.5px; color: #6B7280; line-height: 1.7; margin-bottom: 10px; }
+        .ccaof-unofficial { display: inline-block; font-size: 9.5px; font-weight: 800; color: #8A3324; background: #F7E9E7; border-radius: 4px; padding: 0 4px; margin-left: 2px; vertical-align: 1px; }
+        .ccaof-scenario { background: #F2F6FA; border: 1px solid #C9D6E3; border-left: 4px solid #2F5D8A; border-radius: 8px; padding: 8px 12px; margin-bottom: 12px; }
+        .ccaof-scenario summary { cursor: pointer; font-size: 13px; font-weight: 800; color: #2F5D8A; }
+        .ccaof-scenario-tag { background: #2F5D8A; color: #fff; border-radius: 4px; padding: 1px 6px; font-size: 11px; margin-right: 4px; }
+        .ccaof-scenario-zh-title { font-weight: 600; color: #4B5563; }
+        .ccaof-scenario-body { font-size: 13px; line-height: 1.8; color: #333; margin-top: 6px; }
+        .ccaof-scenario-body.zh { color: #5A5F55; border-top: 1px dashed #C9D6E3; padding-top: 6px; }
+        .ccaof-scenario-new { font-size: 11.5px; font-weight: 800; color: #2F5D8A; margin-bottom: 6px; }
+        .ccaof-domain-card:disabled { opacity: 0.55; cursor: default; }
         .ccaof-official-link { font-size: 13px; color: #2F5D8A; text-decoration: underline; display: block; margin-bottom: 6px; }
       `}</style>
 
       <div className="ccaof-top-nav">
         <div style={{ display: "flex", gap: 12 }}>
+          {onBackToCerts && <button className="ccaof-back-link" onClick={onBackToCerts}>← 資格の選択</button>}
           <button className="ccaof-back-link" onClick={onExitApp}>他のアプリへ</button>
           <button className="ccaof-back-link" onClick={() => setScreen("progress")}>📊 学習記録</button>
         </div>
@@ -1191,21 +1246,24 @@ export default function CcaofApp({ onExitApp }) {
       {screen === "domainSelect" && (
         <>
           <div className="ccaof-title-block">
-            <div className="ccaof-eyebrow">CCAO-F — CLAUDE CERTIFIED ASSOCIATE (FOUNDATIONS)</div>
-            <h1 className="ccaof-serif">CCAO-F 対策</h1>
+            <div className="ccaof-eyebrow">{cert.eyebrow}</div>
+            <h1 className="ccaof-serif">{cert.title}</h1>
             <div className="ccaof-under" />
-            <div className="ccaof-lead">
-              公式 Exam Guide v1.0（2026年7月発効）の7ドメインに沿った練習問題です。
-              問題文はすべてオリジナルで、公式の試験問題は使っていません。
-            </div>
+            <div className="ccaof-lead">{cert.lead}</div>
           </div>
 
           <div className="ccaof-exam-facts">
-            <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.items}</div><div className="ccaof-fact-label">問</div></div>
-            <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.minutes}</div><div className="ccaof-fact-label">分</div></div>
-            <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.passScaled}</div><div className="ccaof-fact-label">合格点（{EXAM_FORMAT.scaleMax}点満点）</div></div>
-            <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.validityMonths}</div><div className="ccaof-fact-label">か月有効</div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.items}</div><div className="ccaof-fact-label">問 <UnofficialMark field="items" /></div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.minutes}</div><div className="ccaof-fact-label">分 <UnofficialMark field="minutes" /></div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.passScaled}</div><div className="ccaof-fact-label">合格点（{EXAM_FORMAT.scaleMax}点満点） <UnofficialMark field="passScaled" /></div></div>
+            <div className="ccaof-fact"><div className="ccaof-fact-num">{EXAM_FORMAT.validityMonths}</div><div className="ccaof-fact-label">か月有効 <UnofficialMark field="validityMonths" /></div></div>
           </div>
+          {EXAM_FORMAT.scenariosPerExam && (
+            <div className="ccaof-lead" style={{ textAlign: "center" }} data-testid="scenario-format">
+              本番はシナリオ形式：{EXAM_FORMAT.scenarioBank} シナリオから {EXAM_FORMAT.scenariosPerExam} つを抽選 <UnofficialMark field="scenariosPerExam" />
+              ／ 1 シナリオあたり約 {EXAM_FORMAT.questionsPerScenario} 問 <UnofficialMark field="questionsPerScenario" />
+            </div>
+          )}
 
           {studyLoadError && (
             <div className="ccaof-empty">
@@ -1242,9 +1300,9 @@ export default function CcaofApp({ onExitApp }) {
 
           <div className="ccaof-sub-head">考点讲义</div>
           <div className="ccaof-focus-card" style={{ borderColor: "#2F6E8A" }}>
-            <div className="ccaof-focus-title" style={{ color: "#2F6E8A" }}>📖 30 考点の讲义（中文）</div>
+            <div className="ccaof-focus-title" style={{ color: "#2F6E8A" }}>📖 {OBJECTIVES.length} 考点の讲义（中文）</div>
             <div className="ccaof-focus-desc">
-              公式 Exam Guide の 30 の出題目標（objective）ごとに、核心概念・正例と反例・よくある落とし穴・
+              公式 Exam Guide の {OBJECTIVES.length} の出題目標（{BLUEPRINT.objectiveLabel || "objective"}）ごとに、核心概念・正例と反例・よくある落とし穴・
               試験での問われ方・実務での使い方・公式ドキュメントをまとめました。読んだらその考点の問題だけを解けます。
             </div>
             <button className="ccaof-btn" style={{ "--c": "#2F6E8A" }} onClick={() => setScreen("lessonList")}>讲义を開く</button>
@@ -1304,6 +1362,26 @@ export default function CcaofApp({ onExitApp }) {
             )}
           </div>
 
+          {SCENARIOS.length > 0 && (
+            <>
+              <div className="ccaof-sub-head">シナリオ別に練習（本番と同じ形式）</div>
+              <div className="ccaof-domain-grid" style={{ marginTop: 0 }} data-testid="scenario-list">
+                {SCENARIOS.map((sc) => {
+                  const n = allItems ? allItems.filter((i) => i.scenario === sc.id).length : 0;
+                  return (
+                    <button key={sc.id} className="ccaof-domain-card" style={{ "--c": "#2F5D8A" }} disabled={!allItems || !n} onClick={() => startScenarioPractice(sc, UNIT_SIZE)}>
+                      <div className="ccaof-domain-top">
+                        <span className="ccaof-domain-label">シナリオ {sc.no}　{sc.title}</span>
+                        <span className="ccaof-domain-weight">{allItems ? `${n}問 → ${Math.min(UNIT_SIZE, n)}問出題` : "…"}</span>
+                      </div>
+                      <div className="ccaof-domain-en">{sc.titleZh}／主なドメイン：{sc.primaryDomains.join("・")}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          )}
+
           <div className="ccaof-sub-head">頻出単語</div>
           <div className="ccaof-focus-card" style={{ borderColor: "#7A5C2E" }}>
             <div className="ccaof-focus-title" style={{ color: "#7A5C2E" }}>📘 問題によく出る単語（勉強・復習・テスト）</div>
@@ -1319,7 +1397,9 @@ export default function CcaofApp({ onExitApp }) {
           <div className="ccaof-exam-card">
             <div className="ccaof-exam-card-title">本番と同じ {EXAM_FORMAT.items}問 / {EXAM_FORMAT.minutes}分</div>
             <div className="ccaof-exam-card-desc">
-              配点比率どおりに全ドメインから出題します（D2 から {examCounts.D2}問、D4 から {examCounts.D4}問…）。
+              {EXAM_FORMAT.scenariosPerExam
+                ? `本番と同じく ${EXAM_FORMAT.scenarioBank} シナリオから ${EXAM_FORMAT.scenariosPerExam} つを抽選し、シナリオごとに約 ${Math.round(EXAM_FORMAT.items / EXAM_FORMAT.scenariosPerExam)}問ずつ出題します。各シナリオの中では配点比率に近づくようにドメインを選びます。`
+                : `配点比率どおりに全ドメインから出題します（${[...DOMAINS].sort((a, b) => b.weight - a.weight).slice(0, 2).map((d) => `${d.id} から ${examCounts[d.id]}問`).join("、")}…）。`}
               解答は提出するまで採点されません。途中で閉じても、制限時間内なら続きから再開できます。
             </div>
             {resumable ? (
@@ -1370,11 +1450,21 @@ export default function CcaofApp({ onExitApp }) {
           <div className="ccaof-official-box">
             <div className="ccaof-official-title">📄 公式情報</div>
             <div className="ccaof-official-desc">
-              受験料 ${EXAM_FORMAT.feeUsd}、Pearson VUE のオンライン監督またはテストセンターで受験します。
-              申し込みは Anthropic Partner Academy から。問題はすべてオリジナルで、
-              公式の試験問題（機密扱い）は一切含みません。
+              {cert.officialDesc.replace("${fee}", `$${EXAM_FORMAT.feeUsd}`)}
             </div>
-            {OFFICIAL_LINKS.map((l) => (
+            {BLUEPRINT.sources && (
+              <div className="ccaof-official-desc" data-testid="blueprint-sources">
+                大綱の出典（確認日 {BLUEPRINT.checkedAt}）：
+                {BLUEPRINT.sources.map((src) => (
+                  <div key={src.url}>
+                    ・<a href={src.url} target="_blank" rel="noopener noreferrer">{src.title}</a>
+                    {src.kind === "official" ? "（公式）" : "（非公式・第三者）"}
+                  </div>
+                ))}
+                {BLUEPRINT.unofficialNote && <div style={{ marginTop: 4 }}>{BLUEPRINT.unofficialNote}</div>}
+              </div>
+            )}
+            {cert.links.map((l) => (
               <a key={l.url} className="ccaof-official-link" href={l.url} target="_blank" rel="noopener noreferrer">{l.label}</a>
             ))}
           </div>
@@ -1390,7 +1480,7 @@ export default function CcaofApp({ onExitApp }) {
             <div className="ccaof-under" />
           </div>
 
-          <div className="ccaof-sub-head">このドメインで問われること（公式 Exam Guide）</div>
+          <div className="ccaof-sub-head">このドメインで問われること（公式 Exam Guide{BLUEPRINT.objectiveLabel ? ` の ${BLUEPRINT.objectiveLabel}` : ""}）</div>
           <div className="ccaof-objectives">
             <ul>
               {domain.objectives.map((o, i) => (
@@ -1493,7 +1583,7 @@ export default function CcaofApp({ onExitApp }) {
         <div className="ccaof-inner">
           <button className="ccaof-back-link" style={{ marginBottom: 12 }} onClick={() => setScreen("domainSelect")}>← トップにもどる</button>
           <div className="ccaof-title-block">
-            <div className="ccaof-eyebrow">30 OBJECTIVES — 考点讲义</div>
+            <div className="ccaof-eyebrow">{OBJECTIVES.length} OBJECTIVES — 考点讲义</div>
             <h1 className="ccaof-serif">考点讲义</h1>
             <div className="ccaof-under" />
             <div className="ccaof-lead">ドメインを選び、考点を開いて讲义を読みます。讲义の最後から、その考点の問題だけを解けます。</div>
@@ -1565,7 +1655,7 @@ export default function CcaofApp({ onExitApp }) {
       )}
 
       {screen === "vocab" && (
-        <CcaofVocab
+        <CertVocab
           showZh={showZh}
           onToggleZh={toggleZh}
           onExit={() => { setStatsNonce((n) => n + 1); setScreen("domainSelect"); }}
@@ -1609,7 +1699,7 @@ export default function CcaofApp({ onExitApp }) {
             <div className="ccaof-fact"><div className="ccaof-fact-num">{mistakeSummary ? mistakeSummary.due : 0}</div><div className="ccaof-fact-label">きょう期限</div></div>
           </div>
 
-          <div className="ccaof-sub-head">考点別の正答率（30 考点）</div>
+          <div className="ccaof-sub-head">考点別の正答率（{OBJECTIVES.length} 考点）</div>
           {!objectiveStats ? (
             <DomainLoading label="集計しています…" />
           ) : (
@@ -1670,7 +1760,7 @@ export default function CcaofApp({ onExitApp }) {
               本番の score report もドメイン別の正答率を出します（合否はスケールドスコアの合計で決まり、
               ドメイン別は参考値）。ここで弱いドメインは、配点比率の高いものから先に埋めるのが効率的です。
             </div>
-            <button className="ccaof-btn-ghost" onClick={() => { if (window.confirm("CCAO-F の学習記録（問題演習と頻出単語）をすべて消します。よろしいですか？")) { resetProgress(); setStatsNonce((n) => n + 1); } }}>
+            <button className="ccaof-btn-ghost" onClick={() => { if (window.confirm(`${cert.code} の学習記録（問題演習と頻出単語）をすべて消します。よろしいですか？`)) { resetProgress(); setStatsNonce((n) => n + 1); } }}>
               学習記録をリセット
             </button>
           </div>

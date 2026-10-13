@@ -1,0 +1,3242 @@
+{
+  "domain": "D5",
+  "items": [
+    {
+      "id": "ar5-001",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "In a long support conversation, the agent's running summary turns \"refund of $132.40 for order 7781, promised by Friday\" into \"customer wants a refund soon.\" Later replies give the wrong amount. What is the best fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep transactional facts (amounts, dates, order numbers, statuses) in a persistent \"case facts\" block included in every prompt, outside the summarized history.",
+          "correct": true,
+          "explain": "正解。要約で数値や約束が曖昧になるのを防ぐため、事実は別枠で保持する。",
+          "textZh": "把交易事实（金额、日期、订单号、状态）放在一个持久的「案件事实」块中，每次请求都附上，并放在被摘要的历史之外。"
+        },
+        {
+          "text": "Summarize more aggressively to save tokens.",
+          "correct": false,
+          "explain": "不適。さらに情報が失われる。",
+          "textZh": "更激进地摘要以节省 token。"
+        },
+        {
+          "text": "Ask the customer to repeat the amount every few messages.",
+          "correct": false,
+          "explain": "不適。顧客に何度も繰り返させるのは体験が悪い。",
+          "textZh": "每隔几条消息就请客户重复一遍金额。"
+        },
+        {
+          "text": "Stop summarizing and let the context overflow.",
+          "correct": false,
+          "explain": "不適。文脈の上限で別の問題が起きる。",
+          "textZh": "不再做摘要，任由上下文溢出。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在一段很长的客服对话中，智能体的滚动摘要把「订单 7781 退款 132.40 美元，承诺周五前完成」压缩成了「客户想尽快退款」。之后的回复给错了金额。最好的修正是什么？",
+      "commentaryZh": "渐进式摘要会把数字、百分比、日期和客户被承诺的内容压缩成模糊表述。把关键事实单独放在持久的「案件事实」块中。"
+    },
+    {
+      "id": "ar5-002",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "lookup_order returns 40+ fields, but the return workflow needs only order ID, items, delivery date, amount, and status. After several lookups the context is crowded. What should the agent do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Trim each tool output to the return-relevant fields before it accumulates in context.",
+          "correct": true,
+          "explain": "正解。関連の薄い項目でトークンを使わないよう、蓄積される前に絞る。",
+          "textZh": "在工具输出进入上下文之前，把它裁剪为与退货相关的字段。"
+        },
+        {
+          "text": "Keep everything in case it is needed later.",
+          "correct": false,
+          "explain": "不適。不要な情報が文脈を圧迫し、判断もぶれる。",
+          "textZh": "全部保留，以防以后用得上。"
+        },
+        {
+          "text": "Call lookup_order less often by guessing order details.",
+          "correct": false,
+          "explain": "不適。推測は誤りの原因。",
+          "textZh": "通过猜测订单信息来减少调用 lookup_order。"
+        },
+        {
+          "text": "Start a new conversation after every lookup.",
+          "correct": false,
+          "explain": "不適。会話の連続性が失われる。",
+          "textZh": "每次查询后都开新对话。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "lookup_order 返回 40 多个字段，但退货流程只需要订单 ID、商品、送达日期、金额和状态。几次查询之后上下文就很拥挤了。智能体应该怎么做？",
+      "commentaryZh": "工具结果在上下文中的累积会不成比例地消耗 token。只保留相关字段（可用 PostToolUse 钩子或应用代码裁剪）。"
+    },
+    {
+      "id": "ar5-003",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "Why must the application send the complete conversation history in each Messages API request?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The API does not remember previous requests, so coherence depends on the history the application sends.",
+          "correct": true,
+          "explain": "正解。ステートレスなので、必要な文脈は毎回送る。",
+          "textZh": "API 不会记住之前的请求，所以对话的连贯性取决于应用发送的历史。"
+        },
+        {
+          "text": "Because the API charges less for longer requests.",
+          "correct": false,
+          "explain": "不適。逆。長いリクエストほど費用はかかる。",
+          "textZh": "因为请求越长 API 收费越低。"
+        },
+        {
+          "text": "Because tools only work with full history.",
+          "correct": false,
+          "explain": "不適。理由が違う。API が会話を保存しないことが理由。",
+          "textZh": "因为工具只在有完整历史时才工作。"
+        },
+        {
+          "text": "It is not necessary; the server stores it.",
+          "correct": false,
+          "explain": "不適。Messages API は会話を保存しない。",
+          "textZh": "没有必要；服务器会保存历史。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么应用在每次 Messages API 请求中都必须发送完整的对话历史？",
+      "commentaryZh": "Messages API 无状态。连贯性来自每次请求附带的历史；需要压缩时要有意识地保留关键事实。"
+    },
+    {
+      "id": "ar5-004",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "A customer raises three issues in one session (a late delivery, a duplicate charge, and a broken item). By the end, the agent confuses which order each amount belongs to. Which design prevents this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Maintain a separate structured layer listing each issue with its order ID, amount, and status, and include it in every prompt.",
+          "correct": true,
+          "explain": "正解。複数の問題を扱うときは、問題ごとの事実を構造化して別枠で保持する。",
+          "textZh": "维护一个独立的结构化层，逐条列出每个问题的订单 ID、金额和状态，并在每次请求中附上。"
+        },
+        {
+          "text": "Handle all three in one paragraph of notes.",
+          "correct": false,
+          "explain": "不適。どの数値がどの件か混ざる。",
+          "textZh": "把三个问题都写在一段笔记里。"
+        },
+        {
+          "text": "Rely on the model's memory of the conversation, which already contains every amount, so no extra structure is needed.",
+          "correct": false,
+          "explain": "不適。長い会話では取り違えが起きやすい。",
+          "textZh": "依赖模型对对话的记忆，因为对话里已经包含了每个金额，所以不需要额外的结构。"
+        },
+        {
+          "text": "Close two issues without investigating.",
+          "correct": false,
+          "explain": "不適。顧客の問題が解決しない。",
+          "textZh": "不调查就关闭其中两个问题。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位客户在一次会话中提出三个问题（延迟送达、重复扣款、商品损坏）。到最后，智能体搞混了每个金额属于哪个订单。哪种设计能防止这种情况？",
+      "commentaryZh": "多问题会话中，把每个问题的结构化数据（订单号、金额、状态）放在独立的上下文层，避免混淆。"
+    },
+    {
+      "id": "ar5-005",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "The agent receives a 60-message transcript as context. It reliably uses facts from the start and end but misses a refund promise made in the middle. What is this effect, and what helps?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The \"lost in the middle\" effect; put a summary of key findings at the beginning and organize details under clear section headers.",
+          "correct": true,
+          "explain": "正解。長い入力の中ほどは見落とされやすい。要点を先頭に置き、構造化する。",
+          "textZh": "「中间遗失（lost in the middle）」效应；把关键发现的摘要放在开头，并用清晰的小标题组织细节。"
+        },
+        {
+          "text": "A tokenizer bug; split words differently.",
+          "correct": false,
+          "explain": "不適。トークナイザーの問題ではなく、長い入力の位置による見落とし。",
+          "textZh": "分词器的 bug；换一种分词方式。"
+        },
+        {
+          "text": "A permissions issue; grant more access.",
+          "correct": false,
+          "explain": "不適。権限とは無関係。位置による見落としの問題。",
+          "textZh": "权限问题；授予更多权限。"
+        },
+        {
+          "text": "A batch API limit; switch APIs.",
+          "correct": false,
+          "explain": "不適。バッチ API とは無関係。",
+          "textZh": "批处理 API 的限制；换一个 API。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体收到一份 60 条消息的对话记录作为上下文。它能可靠地使用开头和结尾的事实，却遗漏了中间做出的一个退款承诺。这是什么效应，什么方法有帮助？",
+      "commentaryZh": "位置效应：长输入的中间部分容易被忽略。缓解方法：关键摘要置顶、用明确的章节标题组织内容。"
+    },
+    {
+      "id": "ar5-006",
+      "domain": "D5",
+      "type": "multi",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "Which TWO practices best preserve critical information across a long support interaction? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Keeping a persistent case-facts block (amounts, dates, order IDs) outside the summarized history.",
+          "correct": true,
+          "explain": "正解。要約で事実が曖昧にならない。",
+          "textZh": "在被摘要的历史之外，保留一个持久的案件事实块（金额、日期、订单号）。"
+        },
+        {
+          "text": "Trimming verbose tool results to the fields the task needs before they accumulate.",
+          "correct": true,
+          "explain": "正解。文脈を節約し、重要な情報が埋もれない。",
+          "textZh": "在冗长的工具结果累积之前，把它们裁剪为任务需要的字段。"
+        },
+        {
+          "text": "Replacing all history with a one-line summary after every turn.",
+          "correct": false,
+          "explain": "不適。数値や約束が失われる。",
+          "textZh": "每个回合之后都把全部历史替换成一句话摘要。"
+        },
+        {
+          "text": "Placing the most important facts in the middle of the context.",
+          "correct": false,
+          "explain": "不適。中ほどは見落とされやすい。",
+          "textZh": "把最重要的事实放在上下文中间。"
+        },
+        {
+          "text": "Dropping earlier messages without extracting anything from them.",
+          "correct": false,
+          "explain": "不適。必要な事実まで消える。",
+          "textZh": "不提取任何内容就丢弃之前的消息。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项做法最能在长时间的客服互动中保留关键信息？（选 2 项）",
+      "commentaryZh": "两个核心技能：持久化的案件事实 + 裁剪冗长工具输出。注意位置效应，不要把关键事实埋在中间。"
+    },
+    {
+      "id": "ar5-007",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "When the agent summarizes older parts of a conversation, which information is most at risk of being lost or blurred?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Exact numbers, percentages, dates, and what the customer was promised.",
+          "correct": true,
+          "explain": "正解。具体的な値と約束は、要約で「だいたい」になりやすい。",
+          "textZh": "精确的数字、百分比、日期，以及向客户做出的承诺。"
+        },
+        {
+          "text": "The customer's greeting.",
+          "correct": false,
+          "explain": "不適。失われても問題にならない。",
+          "textZh": "客户的问候语。"
+        },
+        {
+          "text": "The name of the company.",
+          "correct": false,
+          "explain": "不適。システムプロンプトなどで常に与えられる。",
+          "textZh": "公司名称。"
+        },
+        {
+          "text": "The model's own tone.",
+          "correct": false,
+          "explain": "不適。重要な事実ではない。",
+          "textZh": "模型自己的语气。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "当智能体对对话中较早的部分做摘要时，哪类信息最容易丢失或变模糊？",
+      "commentaryZh": "渐进式摘要的风险集中在数值、日期和客户期望上。这些应抽取到结构化的事实块里。"
+    },
+    {
+      "id": "ar5-008",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "The support agent calls get_customer, lookup_order, and a billing tool for each request. Responses are slower and quality dips late in long sessions. Which change best addresses both?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep only the fields each step needs from tool results and carry key facts forward in a compact structured block.",
+          "correct": true,
+          "explain": "正解。文脈が軽くなり、必要な事実は確実に残る。",
+          "textZh": "只保留每一步所需的工具结果字段，并用紧凑的结构化块延续关键事实。"
+        },
+        {
+          "text": "Add more tools so each call returns less data, even if the agent then needs to call more of them.",
+          "correct": false,
+          "explain": "不適。ツールが増えて選択が難しくなる。",
+          "textZh": "增加更多工具，让每次调用返回更少的数据，即使智能体因此要调用更多工具。"
+        },
+        {
+          "text": "Increase max_tokens.",
+          "correct": false,
+          "explain": "不適。入力の肥大化は解決しない。",
+          "textZh": "增大 max_tokens。"
+        },
+        {
+          "text": "Remove get_customer to save calls.",
+          "correct": false,
+          "explain": "不適。本人確認ができなくなる。",
+          "textZh": "去掉 get_customer 以减少调用。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服智能体对每个请求都调用 get_customer、lookup_order 和账单工具。在长会话的后期，响应变慢、质量下降。哪种改动最能同时解决这两个问题？",
+      "commentaryZh": "上下文膨胀既拖慢速度又降低质量。精简工具结果 + 结构化事实是标准做法。"
+    },
+    {
+      "id": "ar5-009",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The synthesis subagent has a limited context budget, but the search subagent returns full pages plus its reasoning. What should change upstream?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Have the search subagent return structured data — key facts, citations, and relevance scores — instead of verbose content and reasoning chains.",
+          "correct": true,
+          "explain": "正解。下流の文脈予算に合わせ、上流は要点を構造化して返す。",
+          "textZh": "让搜索子智能体返回结构化数据——关键事实、引用和相关度评分——而不是冗长的内容和推理链。"
+        },
+        {
+          "text": "Give the synthesis subagent a bigger model.",
+          "correct": false,
+          "explain": "不適。上流の出力の無駄は変わらない。",
+          "textZh": "给综合子智能体换更大的模型。"
+        },
+        {
+          "text": "Truncate the search output at a random point.",
+          "correct": false,
+          "explain": "不適。重要な情報が切れる。",
+          "textZh": "在随机位置截断搜索输出。"
+        },
+        {
+          "text": "Have the synthesis subagent search again itself.",
+          "correct": false,
+          "explain": "不適。重複作業で、役割外。",
+          "textZh": "让综合子智能体自己再搜索一遍。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "综合子智能体的上下文预算有限，但搜索子智能体返回的是整页内容加上它的推理过程。上游应如何调整？",
+      "commentaryZh": "下游上下文有限时，修改上游智能体的输出：返回结构化的关键事实、引用、相关度，而不是冗长原文与推理。"
+    },
+    {
+      "id": "ar5-010",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The synthesis step misreads two findings because it does not know when or where each was published. What should the subagents include?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Metadata such as publication dates, source locations, and methodological context in their structured outputs.",
+          "correct": true,
+          "explain": "正解。下流で正しく解釈するための付帯情報を一緒に返す。",
+          "textZh": "在结构化输出中包含元数据，例如发表日期、来源位置和研究方法背景。"
+        },
+        {
+          "text": "Longer prose summaries that explain each finding in more detail, so the synthesis step has richer context.",
+          "correct": false,
+          "explain": "不適。必要なメタデータが無ければ解決しない。",
+          "textZh": "更长的文字摘要，更详细地解释每条发现，让综合步骤拥有更丰富的上下文。"
+        },
+        {
+          "text": "Only the claim text.",
+          "correct": false,
+          "explain": "不適。時期や出所が分からない。",
+          "textZh": "只给论断文本。"
+        },
+        {
+          "text": "A confidence score only.",
+          "correct": false,
+          "explain": "不適。出典情報の代わりにならない。",
+          "textZh": "只给一个置信度分数。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "综合步骤误读了两条发现，因为它不知道每条是何时、在何处发表的。子智能体应包含什么？",
+      "commentaryZh": "要求子智能体在结构化输出中带上日期、来源位置、方法背景，支持下游准确综合。"
+    },
+    {
+      "id": "ar5-011",
+      "domain": "D5",
+      "type": "multi",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "The coordinator aggregates results from five subagents into one long input for synthesis. Findings from the third and fourth subagents are often omitted. Which TWO changes help most? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Put a summary of key findings from all subagents at the beginning of the aggregated input.",
+          "correct": true,
+          "explain": "正解。先頭の要約で中ほどの内容も拾われやすくなる。",
+          "textZh": "在汇总输入的开头放上所有子智能体关键发现的摘要。"
+        },
+        {
+          "text": "Organize each subagent's detailed results under explicit section headers.",
+          "correct": true,
+          "explain": "正解。構造化すると位置による見落としが減る。",
+          "textZh": "用明确的小标题组织每个子智能体的详细结果。"
+        },
+        {
+          "text": "Randomize the order of results each time.",
+          "correct": false,
+          "explain": "不適。見落としの位置が変わるだけ。",
+          "textZh": "每次随机打乱结果顺序。"
+        },
+        {
+          "text": "Concatenate everything without separators.",
+          "correct": false,
+          "explain": "不適。さらに見落としやすくなる。",
+          "textZh": "不加分隔地把所有内容拼接起来。"
+        },
+        {
+          "text": "Drop the third and fourth subagents.",
+          "correct": false,
+          "explain": "不適。必要な調査を失う。",
+          "textZh": "去掉第三和第四个子智能体。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "协调者把五个子智能体的结果汇总成一份很长的输入交给综合步骤。第三、第四个子智能体的发现经常被遗漏。哪两项改动最有帮助？（选 2 项）",
+      "commentaryZh": "缓解「中间遗失」效应的方法：把所有子智能体的关键发现摘要放在开头，并用明确的章节标题组织详细结果。"
+    },
+    {
+      "id": "ar5-012",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "What is the \"lost in the middle\" effect?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Models reliably use information at the beginning and end of long inputs but may overlook material in the middle.",
+          "correct": true,
+          "explain": "正解。長い入力の位置による見落とし。",
+          "textZh": "模型能可靠地利用长输入开头和结尾的信息，但可能忽略中间部分的内容。"
+        },
+        {
+          "text": "Models lose network connection mid-request.",
+          "correct": false,
+          "explain": "不適。通信とは無関係。長い入力の中ほどが見落とされやすいという現象。",
+          "textZh": "模型在请求中途断开网络。"
+        },
+        {
+          "text": "Models delete the middle of files.",
+          "correct": false,
+          "explain": "不適。ファイルを消すわけではない。見落としの現象。",
+          "textZh": "模型会删除文件的中间部分。"
+        },
+        {
+          "text": "Tokens in the middle of a prompt are billed at a higher rate, so the model saves cost by reading them less carefully.",
+          "correct": false,
+          "explain": "不適。料金の仕組みではない。位置による注意の偏り。",
+          "textZh": "提示词中间部分的 token 按更高价格计费，所以模型会为了省钱而读得不那么仔细。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#long-context-prompting",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "什么是「中间遗失（lost in the middle）」效应？",
+      "commentaryZh": "位置效应提醒我们：关键内容放开头（或结尾），并用结构化标题组织长输入。"
+    },
+    {
+      "id": "ar5-013",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A developer notices token usage per turn growing fast in an agent because every tool result is kept in full. What is the most targeted fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Reduce tool outputs to the fields relevant to the task before adding them to the context.",
+          "correct": true,
+          "explain": "正解。蓄積する前に必要な部分だけ残す。",
+          "textZh": "在把工具输出加入上下文之前，把它们精简为与任务相关的字段。"
+        },
+        {
+          "text": "Switch to a different programming language.",
+          "correct": false,
+          "explain": "不適。言語を変えても、ツール結果の蓄積という原因は残る。",
+          "textZh": "换一种编程语言。"
+        },
+        {
+          "text": "Remove the system prompt.",
+          "correct": false,
+          "explain": "不適。原因が違う。増えているのはツール結果。",
+          "textZh": "删除系统提示词。"
+        },
+        {
+          "text": "Ask the user to type shorter messages.",
+          "correct": false,
+          "explain": "不適。増えているのはツール結果。",
+          "textZh": "让用户输入更短的消息。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "开发者发现，由于每个工具结果都被完整保留，智能体每回合的 token 用量增长很快。最有针对性的修正是什么？",
+      "commentaryZh": "工具结果的累积是上下文膨胀的主要来源。精简字段是最直接的手段。"
+    },
+    {
+      "id": "ar5-014",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which design keeps critical numbers accurate when an agent must summarize its own long history?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Extracting transactional facts into a structured block that is carried verbatim, while only the narrative part is summarized.",
+          "correct": true,
+          "explain": "正解。数値は要約せずそのまま持ち回る。",
+          "textZh": "把交易事实抽取到一个原样保留的结构化块中，只对叙述部分做摘要。"
+        },
+        {
+          "text": "Summarizing everything, including numbers, into prose that is easier to read and shorter for the model.",
+          "correct": false,
+          "explain": "不適。数値が丸められやすい。",
+          "textZh": "把包括数字在内的所有内容都摘要成更易读的文字，对模型来说也更短。"
+        },
+        {
+          "text": "Rounding all numbers to save space.",
+          "correct": false,
+          "explain": "不適。丸めると正確さを失う。",
+          "textZh": "为节省空间把所有数字四舍五入。"
+        },
+        {
+          "text": "Keeping only the last message.",
+          "correct": false,
+          "explain": "不適。それ以前の事実が消える。",
+          "textZh": "只保留最后一条消息。"
+        }
+      ],
+      "objective": "Manage conversation context to preserve critical information across long interactions",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "当智能体必须对自己的长历史做摘要时，哪种设计能让关键数字保持准确？",
+      "commentaryZh": "事实与叙述分离：金额、日期、订单号等事实原样保留在结构化块中，只有叙述部分才做压缩。"
+    },
+    {
+      "id": "ar5-015",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "A customer writes: \"I want to speak to a human, now.\" The issue looks simple. What should the agent do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Honor the request immediately and escalate, without first trying to investigate or resolve.",
+          "correct": true,
+          "explain": "正解。明示的に人間を求められたら、すぐに応じる。",
+          "textZh": "立即尊重这一请求并转人工，不要先尝试调查或解决。"
+        },
+        {
+          "text": "Try to solve it first, then offer a human if it fails.",
+          "correct": false,
+          "explain": "不適。明示的な要望を無視している。",
+          "textZh": "先尝试解决，失败了再提供人工。"
+        },
+        {
+          "text": "Ask the customer to explain why they want a human.",
+          "correct": false,
+          "explain": "不適。理由を求める必要はない。",
+          "textZh": "让客户解释为什么要找真人。"
+        },
+        {
+          "text": "Ignore the request because the issue is simple.",
+          "correct": false,
+          "explain": "不適。顧客の意思を尊重していない。",
+          "textZh": "因为问题简单而忽略这一请求。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位客户写道：「我现在就要和真人客服说话。」问题看起来很简单。智能体应该怎么做？",
+      "commentaryZh": "客户明确要求人工时，应立即升级，不先尝试调查。这是 5.2 的明确技能点。"
+    },
+    {
+      "id": "ar5-016",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "A customer is clearly frustrated (\"This is the third time I'm asking!\") but has not asked for a human, and the issue — a missing tracking number — is within the agent's capability. What is the best response?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Acknowledge the frustration and offer to resolve it right away; escalate only if the customer then says they want a human.",
+          "correct": true,
+          "explain": "正解。感情に寄り添いつつ解決を提案し、改めて人間を望まれたら引き継ぐ。",
+          "textZh": "承认客户的不满并立即提出解决；只有客户随后表示想要人工时才转人工。"
+        },
+        {
+          "text": "Escalate immediately because the customer is upset and repeated contact signals a failure that should be handled by a person.",
+          "correct": false,
+          "explain": "不適。感情だけを理由にしたエスカレーションは複雑さの指標にならない。",
+          "textZh": "因为客户不满，且多次联系说明处理失败，立即转人工，应由人工处理。"
+        },
+        {
+          "text": "Ignore the emotion and paste the tracking policy.",
+          "correct": false,
+          "explain": "不適。感情を無視して規約を貼るのは顧客体験が悪い。",
+          "textZh": "无视情绪，直接贴出物流政策。"
+        },
+        {
+          "text": "Ask the customer to calm down first.",
+          "correct": false,
+          "explain": "不適。「落ち着いて」は逆効果になりやすい。",
+          "textZh": "先请客户冷静下来。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位客户显然很恼火（「这已经是我第三次问了！」），但没有要求转人工，而问题——缺少物流单号——在智能体的能力范围内。最好的回应是什么？",
+      "commentaryZh": "情绪不等于复杂度。能解决就先表达理解并解决；客户重申要人工时再升级。"
+    },
+    {
+      "id": "ar5-017",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "A customer asks the agent to match a competitor's lower price. The policy covers price adjustments for the company's own site but says nothing about competitors. What should the agent do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Escalate, because the policy is silent on this specific request.",
+          "correct": true,
+          "explain": "正解。方針に穴があるケースは、エージェントが勝手に判断せず人に回す。",
+          "textZh": "转人工，因为政策对这一具体请求没有规定。"
+        },
+        {
+          "text": "Approve the match because it seems fair.",
+          "correct": false,
+          "explain": "不適。方針に無い判断を勝手に行っており、権限外。",
+          "textZh": "批准调价，因为看起来合理。"
+        },
+        {
+          "text": "Deny it, because anything not allowed is forbidden.",
+          "correct": false,
+          "explain": "不適。方針が想定していないだけかもしれない。",
+          "textZh": "拒绝，因为凡是没允许的都是禁止的。"
+        },
+        {
+          "text": "Offer a random discount instead.",
+          "correct": false,
+          "explain": "不適。根拠のない割引で、方針にも無い。",
+          "textZh": "改为提供一个随意的折扣。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位客户要求智能体按竞争对手的更低价格调价。政策只涉及本公司网站的价格调整，对竞争对手只字未提。智能体应该怎么做？",
+      "commentaryZh": "升级触发条件之一是「政策例外或空白」——不只是「复杂」。政策沉默时应升级，而不是自行决定。"
+    },
+    {
+      "id": "ar5-018",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "get_customer returns three accounts matching the name \"Alex Chen.\" What should the agent do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask the customer for an additional identifier (such as email or order number) before proceeding.",
+          "correct": true,
+          "explain": "正解。複数一致は推測で選ばず、追加の識別情報で絞る。",
+          "textZh": "在继续之前，请客户提供额外的标识（例如邮箱或订单号）。"
+        },
+        {
+          "text": "Pick the most recently active account, since active accounts are the ones most likely to contact support.",
+          "correct": false,
+          "explain": "不適。ヒューリスティックで他人の口座を扱う危険。",
+          "textZh": "选最近活跃的那个账户，因为活跃账户最可能联系客服。"
+        },
+        {
+          "text": "Pick the first result.",
+          "correct": false,
+          "explain": "不適。最初の結果を選ぶのも根拠のない選択で、他人の口座を扱う危険がある。",
+          "textZh": "选第一个结果。"
+        },
+        {
+          "text": "Merge the three accounts.",
+          "correct": false,
+          "explain": "不適。口座を統合するのは重大な誤操作。",
+          "textZh": "合并三个账户。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "get_customer 返回了三个匹配「Alex Chen」这个名字的账户。智能体应该怎么做？",
+      "commentaryZh": "多个匹配时要求补充标识，而不是靠启发式选择。这是 5.2 的明确技能点。"
+    },
+    {
+      "id": "ar5-019",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "Which is an appropriate trigger for the support agent to escalate to a human?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The agent cannot make meaningful progress after reasonable attempts.",
+          "correct": true,
+          "explain": "正解。進展できないことはエスカレーションの正当な理由。",
+          "textZh": "智能体在合理尝试之后仍无法取得实质进展。"
+        },
+        {
+          "text": "The customer used a negative word.",
+          "correct": false,
+          "explain": "不適。感情だけでは基準にならない。",
+          "textZh": "客户用了一个负面词语。"
+        },
+        {
+          "text": "The conversation has more than five messages.",
+          "correct": false,
+          "explain": "不適。長さは複雑さの指標ではない。",
+          "textZh": "对话超过了五条消息。"
+        },
+        {
+          "text": "The agent's self-reported confidence is 0.6.",
+          "correct": false,
+          "explain": "不適。自己申告の確信度は当てにならない。",
+          "textZh": "智能体自报的置信度是 0.6。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪项是客服智能体转人工的恰当触发条件？",
+      "commentaryZh": "恰当的升级触发：客户要求人工、政策例外/空白、无法取得进展。情绪和自报置信度都不是可靠指标。"
+    },
+    {
+      "id": "ar5-020",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "The team wants the agent to escalate more consistently. Which change is most effective?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add explicit escalation criteria to the system prompt, with few-shot examples showing when to escalate and when to resolve autonomously.",
+          "correct": true,
+          "explain": "正解。基準と境界例を示すと判断が安定する。",
+          "textZh": "在系统提示词中加入明确的升级标准，并用少样本示例展示何时升级、何时自主解决。"
+        },
+        {
+          "text": "Escalate whenever sentiment analysis is negative.",
+          "correct": false,
+          "explain": "不適。感情は複雑さの代理指標として不正確。",
+          "textZh": "只要情感分析为负面就升级。"
+        },
+        {
+          "text": "Escalate whenever the model's self-reported confidence is below 0.9 for its answer, because low confidence means the case is complex.",
+          "correct": false,
+          "explain": "不適。自己申告の確信度は較正されていない。",
+          "textZh": "只要模型对答案自报的置信度低于 0.9 就升级，因为置信度低意味着案件复杂。"
+        },
+        {
+          "text": "Never escalate, to maximize first-contact resolution.",
+          "correct": false,
+          "explain": "不適。必要な引き継ぎができない。",
+          "textZh": "永不升级，以最大化首次解决率。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队希望智能体的升级判断更加一致。哪种改动最有效？",
+      "commentaryZh": "明确的升级标准加上少样本示例，比依据情绪分数或模型自报置信度更能让升级判断保持一致。"
+    },
+    {
+      "id": "ar5-021",
+      "domain": "D5",
+      "type": "multi",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "Which TWO are unreliable proxies for deciding when the support agent should escalate? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Customer sentiment scores.",
+          "correct": true,
+          "explain": "正解。不満と案件の複雑さは一致しない。",
+          "textZh": "客户情绪分数。"
+        },
+        {
+          "text": "The agent's self-reported confidence.",
+          "correct": true,
+          "explain": "正解。較正されていない自己申告は判断材料にならない。",
+          "textZh": "智能体自报的置信度。"
+        },
+        {
+          "text": "An explicit customer request for a human.",
+          "correct": false,
+          "explain": "不適。正当で重要なトリガー。",
+          "textZh": "客户明确要求转人工。"
+        },
+        {
+          "text": "A policy that does not cover the request.",
+          "correct": false,
+          "explain": "不適。方針が想定していない依頼は正当なトリガー。",
+          "textZh": "政策未覆盖该请求。"
+        },
+        {
+          "text": "Repeated failed attempts to make progress.",
+          "correct": false,
+          "explain": "不適。進展できない状態は正当なトリガー。",
+          "textZh": "多次尝试仍无法推进。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项是判断客服智能体何时升级的不可靠代理指标？（选 2 项）",
+      "commentaryZh": "情绪分数和自报置信度都不能准确反映案件复杂度。可靠的触发是：明确要求、政策空白、无法推进。"
+    },
+    {
+      "id": "ar5-022",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "A customer says, \"Just process the refund, I don't need a human.\" The refund is $650 and the agent's policy limit is $500. What is the correct behavior?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Explain that this amount needs manager approval and escalate with a structured summary, even though the customer did not ask for a human.",
+          "correct": true,
+          "explain": "正解。方針の上限を超える件は、顧客の希望に関係なく人の判断が必要。",
+          "textZh": "说明该金额需要经理批准，并附上结构化摘要转人工处理，尽管客户没有要求人工。"
+        },
+        {
+          "text": "Process $650 because the customer insisted.",
+          "correct": false,
+          "explain": "不適。上限を超える返金は方針違反。顧客の希望でも変わらない。",
+          "textZh": "因为客户坚持，就退 650 美元。"
+        },
+        {
+          "text": "Process $500 silently and close the case.",
+          "correct": false,
+          "explain": "不適。顧客の依頼と違い、説明もない。",
+          "textZh": "悄悄退 500 美元，然后结案。"
+        },
+        {
+          "text": "Refuse and end the conversation.",
+          "correct": false,
+          "explain": "不適。代わりの解決の道を示していない。",
+          "textZh": "拒绝并结束对话。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位客户说：「直接退款就行，我不需要人工。」退款金额是 650 美元，而智能体的政策上限是 500 美元。正确的做法是什么？",
+      "commentaryZh": "政策例外（超出权限）是升级的触发条件之一，与客户是否要求人工无关；同时要向客户说明原因。"
+    },
+    {
+      "id": "ar5-023",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "When a customer's issue is straightforward and they have not asked for a human, what should the agent generally do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Resolve it autonomously.",
+          "correct": true,
+          "explain": "正解。対応できる範囲の問題はエージェントが解決する。",
+          "textZh": "自主解决。"
+        },
+        {
+          "text": "Escalate to be safe.",
+          "correct": false,
+          "explain": "不適。一次解決率の目標に反する。",
+          "textZh": "为保险起见转人工。"
+        },
+        {
+          "text": "Ask the customer whether they want a human.",
+          "correct": false,
+          "explain": "不適。不要な確認で手間を増やす。",
+          "textZh": "问客户是否想要人工。"
+        },
+        {
+          "text": "Wait for the customer to give up.",
+          "correct": false,
+          "explain": "不適。顧客が諦めるのを待つのは論外。",
+          "textZh": "等客户放弃。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "当客户的问题很简单、也没有要求人工时，智能体一般应该怎么做？",
+      "commentaryZh": "目标是首次接触解决率高，同时在需要时升级。能解决的就自主解决。"
+    },
+    {
+      "id": "ar5-024",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "An invoice's vendor name could match two suppliers in the master data with similar names. What should the extraction pipeline do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Flag the ambiguity (for example with both candidates) and route it for clarification or review instead of picking one heuristically.",
+          "correct": true,
+          "explain": "正解。複数一致は推測で決めず、明示して判断を仰ぐ。",
+          "textZh": "标出这种歧义（例如列出两个候选），转去澄清或复核，而不是凭启发式挑一个。"
+        },
+        {
+          "text": "Pick the supplier with the larger order volume, since it is statistically more likely and causes fewer exceptions.",
+          "correct": false,
+          "explain": "不適。根拠のないヒューリスティック。",
+          "textZh": "选订单量更大的供应商，因为统计上可能性更大，例外也更少。"
+        },
+        {
+          "text": "Pick the alphabetically first supplier.",
+          "correct": false,
+          "explain": "不適。名前の順で選ぶのは根拠がない。",
+          "textZh": "选按字母排序靠前的供应商。"
+        },
+        {
+          "text": "Create a new supplier record.",
+          "correct": false,
+          "explain": "不適。マスタデータを汚す。",
+          "textZh": "新建一个供应商记录。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一张发票上的供应商名称可能与主数据中两个名字相近的供应商都匹配。抽取流水线应该怎么做？",
+      "commentaryZh": "多个匹配要求澄清而不是启发式选择——在客服与抽取场景中原则相同。"
+    },
+    {
+      "id": "ar5-025",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "The extraction pipeline's rules say to process \"standard invoices.\" A document arrives that is half invoice, half credit note. The rules do not address mixed documents. What is the best behavior?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Treat it as a policy gap: mark the document type as unclear and route it to human review rather than forcing it into one category.",
+          "correct": true,
+          "explain": "正解。規則が想定していないケースは人に回す。",
+          "textZh": "把它当作规则空白：将文档类型标为不明确并转人工复核，而不是强行归入某一类。"
+        },
+        {
+          "text": "Process it as a standard invoice.",
+          "correct": false,
+          "explain": "不適。半分の内容を誤って扱う。",
+          "textZh": "按标准发票处理。"
+        },
+        {
+          "text": "Discard it silently.",
+          "correct": false,
+          "explain": "不適。データが失われ、誰も気づかない。",
+          "textZh": "悄悄丢弃。"
+        },
+        {
+          "text": "Split it randomly into two documents.",
+          "correct": false,
+          "explain": "不適。無作為に分けるのは根拠のない処理。",
+          "textZh": "随机拆成两份文档。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "抽取流水线的规则写着处理「标准发票」。来了一份一半是发票、一半是贷项通知单的文档。规则没有涉及这种混合文档。最好的做法是什么？",
+      "commentaryZh": "规则空白（policy gap）是升级/人工复核的正当触发。不要强行套用现有类别。"
+    },
+    {
+      "id": "ar5-026",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Why is \"escalate when the customer sounds angry\" a weak escalation rule?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Sentiment does not reliably indicate case complexity; many angry customers have simple issues the agent can resolve.",
+          "correct": true,
+          "explain": "正解。感情と難しさは別物。",
+          "textZh": "情绪并不能可靠地反映案件复杂度；很多生气的客户遇到的是智能体能解决的简单问题。"
+        },
+        {
+          "text": "Anger cannot be detected by language models reliably, so the rule cannot be applied consistently.",
+          "correct": false,
+          "explain": "不適。検出はできるが、基準として不適切。",
+          "textZh": "语言模型无法识别愤怒，所以这条规则无法被一致地执行。"
+        },
+        {
+          "text": "Escalation is never appropriate.",
+          "correct": false,
+          "explain": "不適。正当な場面はある。",
+          "textZh": "升级从来都不合适。"
+        },
+        {
+          "text": "It makes responses too short.",
+          "correct": false,
+          "explain": "不適。応答の長さとは無関係。感情と複雑さは別物という点が問題。",
+          "textZh": "它会让回复太短。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么「客户听起来生气就升级」是一条薄弱的升级规则？",
+      "commentaryZh": "情绪 ≠ 复杂度。升级应基于明确标准：客户要求、政策空白、无法推进。"
+    },
+    {
+      "id": "ar5-027",
+      "domain": "D5",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO are appropriate escalation triggers according to the guidance? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The customer explicitly asks for a human agent.",
+          "correct": true,
+          "explain": "正解。明示的に人間を求められたら、すぐに引き継ぐ。",
+          "textZh": "客户明确要求人工客服。"
+        },
+        {
+          "text": "The request falls into a gap or exception the policy does not cover.",
+          "correct": true,
+          "explain": "正解。方針に穴がある依頼は、エージェントが勝手に判断しない。",
+          "textZh": "请求落入政策未覆盖的空白或例外。"
+        },
+        {
+          "text": "The conversation is long.",
+          "correct": false,
+          "explain": "不適。長さは基準ではない。",
+          "textZh": "对话很长。"
+        },
+        {
+          "text": "The agent reports low confidence.",
+          "correct": false,
+          "explain": "不適。自己申告は当てにならない。",
+          "textZh": "智能体报告置信度低。"
+        },
+        {
+          "text": "The customer used capital letters.",
+          "correct": false,
+          "explain": "不適。感情の表れにすぎない。",
+          "textZh": "客户用了大写字母。"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "根据指引，下列哪两项是恰当的升级触发条件？（选 2 项）",
+      "commentaryZh": "三类恰当触发：明确要求人工、政策例外/空白、无法取得有意义的进展。"
+    },
+    {
+      "id": "ar5-028",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An agent's prompt says \"Escalate complex cases.\" Escalations are inconsistent. Which rewrite is best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "List specific triggers (explicit request for a human, policy gaps or exceptions, no progress after two attempts) and add short examples of escalate vs resolve.",
+          "correct": true,
+          "explain": "正解。「複雑」を判定可能な条件と例に置き換える。",
+          "textZh": "列出具体的触发条件（明确要求人工、政策空白或例外、两次尝试后仍无进展），并加上「升级 vs 自主解决」的简短示例。"
+        },
+        {
+          "text": "\"Escalate very complex cases only.\"",
+          "correct": false,
+          "explain": "不適。「とても複雑」も依然として曖昧で判定できない。",
+          "textZh": "「只升级非常复杂的案件。」"
+        },
+        {
+          "text": "\"Escalate when unsure.\" That keeps the rule short and lets the model decide when a case is complex enough to hand over.",
+          "correct": false,
+          "explain": "不適。自己申告の確信度に依存している。",
+          "textZh": "「不确定时就升级。」这样规则简短，并让模型自己判断案件何时复杂到需要转交。"
+        },
+        {
+          "text": "\"Use your best judgment.\"",
+          "correct": false,
+          "explain": "不適。基準が無く、判断が毎回ぶれる。",
+          "textZh": "「凭你的最佳判断。」"
+        }
+      ],
+      "objective": "Design effective escalation and ambiguity resolution patterns",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个智能体的提示词写着「复杂的案件要升级」。升级判断很不一致。哪种改写最好？",
+      "commentaryZh": "把「复杂」换成可判定的触发条件，并配上示例，是提高升级一致性的标准做法。"
+    },
+    {
+      "id": "ar5-029",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The web-search subagent fails, and it reports to the coordinator only \"search unavailable.\" Why is this a problem?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It hides the context the coordinator needs to recover: failure type, what was attempted, partial results, and possible alternatives.",
+          "correct": true,
+          "explain": "正解。一般的なステータスでは、コーディネーターが次の手を決められない。",
+          "textZh": "它隐藏了协调者恢复所需的信息：失败类型、尝试过什么、部分结果以及可能的替代方案。"
+        },
+        {
+          "text": "The message is too long.",
+          "correct": false,
+          "explain": "不適。逆に短すぎて、必要な情報が入っていない。",
+          "textZh": "消息太长。"
+        },
+        {
+          "text": "The coordinator cannot read text.",
+          "correct": false,
+          "explain": "不適。テキストは読める。情報が足りないことが問題。",
+          "textZh": "协调者无法读取文本。"
+        },
+        {
+          "text": "It reveals too much information.",
+          "correct": false,
+          "explain": "不適。逆。情報が少なすぎる。",
+          "textZh": "它透露了太多信息。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "网络搜索子智能体失败了，它只向协调者报告了「搜索不可用」。为什么这是个问题？",
+      "commentaryZh": "笼统的错误状态会隐藏有价值的上下文。结构化错误上下文（类型、尝试、部分结果、替代方案）才能支持智能恢复。"
+    },
+    {
+      "id": "ar5-030",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "A subagent searching a niche database finds zero matching papers. It reports this to the coordinator as an error. What is wrong?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A successful query with no matches is a valid empty result, not a failure; reporting it as an error may trigger needless retries.",
+          "correct": true,
+          "explain": "正解。アクセス失敗と「該当なし」を区別して伝える。",
+          "textZh": "查询成功但没有匹配是有效的空结果，不是失败；把它当错误报告可能引发不必要的重试。"
+        },
+        {
+          "text": "Zero results should always be retried five times, because niche databases are often slow to index new papers before anything is reported.",
+          "correct": false,
+          "explain": "不適。結果は変わらない。",
+          "textZh": "零结果应总是重试五次，因为小众数据库收录新论文往往较慢，然后才报告。"
+        },
+        {
+          "text": "Empty results should be hidden.",
+          "correct": false,
+          "explain": "不適。「無い」こと自体が調査結果として重要。",
+          "textZh": "空结果应该被隐藏。"
+        },
+        {
+          "text": "The subagent should invent papers to fill the gap.",
+          "correct": false,
+          "explain": "不適。存在しない論文を作り出す捏造で、レポートの信頼を壊す。",
+          "textZh": "子智能体应编造论文来填补空缺。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某个子智能体在一个小众数据库中检索，没有找到匹配的论文。它把这一情况作为错误报告给了协调者。哪里不对？",
+      "commentaryZh": "区分访问失败（需要重试决策）与有效空结果（查询成功、无匹配），协调者才能正确决策。"
+    },
+    {
+      "id": "ar5-031",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "One of four search subagents times out permanently. Which coordinator behavior best follows the guidance?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Proceed with the available results and annotate the final report with the coverage gap caused by the unavailable source.",
+          "correct": true,
+          "explain": "正解。1つの失敗で全体を止めず、欠落は明示する。",
+          "textZh": "用已有结果继续，并在最终报告中注明因来源不可用而造成的覆盖缺口。"
+        },
+        {
+          "text": "Terminate the whole research job.",
+          "correct": false,
+          "explain": "不適。1か所の失敗で全体を止めるのはアンチパターン。",
+          "textZh": "终止整个调研任务。"
+        },
+        {
+          "text": "Publish the report as if coverage were complete.",
+          "correct": false,
+          "explain": "不適。エラーを握りつぶしている。",
+          "textZh": "当作覆盖完整一样发布报告。"
+        },
+        {
+          "text": "Retry forever until it succeeds.",
+          "correct": false,
+          "explain": "不適。永遠に再試行しても終わらない。",
+          "textZh": "无限重试直到成功。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "四个搜索子智能体中有一个彻底超时。哪种协调者行为最符合指引？",
+      "commentaryZh": "两种反模式：悄悄吞掉错误（假装成功）和因单个失败终止整个流程。正确做法是带着覆盖注记继续。"
+    },
+    {
+      "id": "ar5-032",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "Which information should a subagent's structured error include so the coordinator can make an intelligent recovery decision?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Failure type, the query attempted, any partial results, and potential alternative approaches.",
+          "correct": true,
+          "explain": "正解。回復判断に必要な材料一式。",
+          "textZh": "失败类型、尝试过的查询、已有的部分结果以及可能的替代方案。"
+        },
+        {
+          "text": "Only an HTTP status code, which is the standard way services report errors to each other.",
+          "correct": false,
+          "explain": "不適。経緯や部分結果が分からない。",
+          "textZh": "只有一个 HTTP 状态码，这是服务之间报告错误的标准方式。"
+        },
+        {
+          "text": "The subagent's full system prompt.",
+          "correct": false,
+          "explain": "不適。回復判断には不要。",
+          "textZh": "子智能体完整的系统提示词。"
+        },
+        {
+          "text": "An apology.",
+          "correct": false,
+          "explain": "不適。謝罪には回復判断の情報が無い。",
+          "textZh": "一句道歉。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "子智能体的结构化错误应包含哪些信息，协调者才能做出明智的恢复决定？",
+      "commentaryZh": "结构化错误上下文四要素：失败类型、尝试内容、部分结果、替代方案。"
+    },
+    {
+      "id": "ar5-033",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "A subagent hits a rate-limit-style transient failure on one source. What is the best division of responsibility between the subagent and the coordinator?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The subagent retries locally (for example with a short backoff); only if it still fails does it propagate a structured error with what it attempted and any partial results.",
+          "correct": true,
+          "explain": "正解。一時的な失敗は局所で回復を試み、解決できないものだけを上げる。",
+          "textZh": "子智能体先在本地重试（例如短暂退避后再试）；仍失败时才上报结构化错误，附上尝试内容和部分结果。"
+        },
+        {
+          "text": "The subagent immediately escalates every transient error.",
+          "correct": false,
+          "explain": "不適。コーディネーターが細かな失敗の処理で埋まる。",
+          "textZh": "子智能体立即上报每一个临时性错误。"
+        },
+        {
+          "text": "The subagent hides the error and returns nothing.",
+          "correct": false,
+          "explain": "不適。エラーの握りつぶし。コーディネーターが欠落に気づけない。",
+          "textZh": "子智能体隐藏错误、什么都不返回。"
+        },
+        {
+          "text": "The coordinator retries on behalf of every subagent without information.",
+          "correct": false,
+          "explain": "不適。経緯が分からず無駄な試行になる。",
+          "textZh": "协调者在没有任何信息的情况下替每个子智能体重试。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某个子智能体在一个来源上遇到了类似限流的临时性故障。子智能体与协调者之间最好的职责划分是什么？",
+      "commentaryZh": "本地恢复 + 有选择地上报：子智能体处理能自行解决的临时故障，只上报无法解决的，并附上下文。"
+    },
+    {
+      "id": "ar5-034",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "How should the synthesis output reflect that one subtopic had little usable source material because a database was unavailable?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Include coverage annotations that mark which findings are well supported and which areas have gaps due to unavailable sources.",
+          "correct": true,
+          "explain": "正解。読み手が結論の確かさを判断できる。",
+          "textZh": "加入覆盖注记，标明哪些发现有充分支持、哪些方面因来源不可用而存在缺口。"
+        },
+        {
+          "text": "Omit the subtopic without comment.",
+          "correct": false,
+          "explain": "不適。欠落に気づけない。",
+          "textZh": "不加说明地略去这个子主题。"
+        },
+        {
+          "text": "Fill the gap with general knowledge.",
+          "correct": false,
+          "explain": "不適。出典のない記述になる。",
+          "textZh": "用常识填补空缺。"
+        },
+        {
+          "text": "Mark every finding in the report as uncertain, to be safe, because a single missing database undermines the whole report.",
+          "correct": false,
+          "explain": "不適。十分に裏付けのある部分まで価値が下がる。",
+          "textZh": "为保险起见，把报告中的每条发现都标为不确定，因为缺少一个数据库就会动摇整份报告。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "由于某个数据库不可用，某个子主题几乎没有可用的来源材料。综合输出应如何体现这一点？",
+      "commentaryZh": "覆盖注记让报告诚实地区分「有据」与「有缺口」，是错误传播策略的最后一环。"
+    },
+    {
+      "id": "ar5-035",
+      "domain": "D5",
+      "type": "multi",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "Which TWO are anti-patterns in error propagation across a multi-agent system? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Returning empty results as success when a source actually failed.",
+          "correct": true,
+          "explain": "正解。エラーの握りつぶし。",
+          "textZh": "来源实际上失败了，却把空结果当作成功返回。"
+        },
+        {
+          "text": "Terminating the entire workflow because a single subagent failed.",
+          "correct": true,
+          "explain": "正解。1つの失敗で全体を止めるのは過剰な停止。",
+          "textZh": "因为单个子智能体失败就终止整个工作流。"
+        },
+        {
+          "text": "Returning structured error context with partial results.",
+          "correct": false,
+          "explain": "不適。推奨される方法で、アンチパターンではない。",
+          "textZh": "返回带部分结果的结构化错误上下文。"
+        },
+        {
+          "text": "Retrying transient failures locally before propagating.",
+          "correct": false,
+          "explain": "不適。推奨される方法で、アンチパターンではない。",
+          "textZh": "在上报前先在本地重试临时性故障。"
+        },
+        {
+          "text": "Annotating coverage gaps in the final report.",
+          "correct": false,
+          "explain": "不適。推奨される方法で、アンチパターンではない。",
+          "textZh": "在最终报告中注明覆盖缺口。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在多智能体系统的错误传播中，下列哪两项是反模式？（选 2 项）",
+      "commentaryZh": "错误传播的两个反模式：静默吞掉错误（把失败当成成功的空结果）与单个子智能体失败就终止整个流程。"
+    },
+    {
+      "id": "ar5-036",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "What is the main difference between an access failure and a valid empty result?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An access failure means the query could not be completed (for example a timeout); a valid empty result means the query ran successfully and found nothing.",
+          "correct": true,
+          "explain": "正解。前者は再試行の判断が必要、後者は「無い」という答え。",
+          "textZh": "访问失败表示查询没能完成（例如超时）；有效空结果表示查询成功执行但没有找到内容。"
+        },
+        {
+          "text": "They are the same thing.",
+          "correct": false,
+          "explain": "不適。扱い方が違う。片方は再試行の判断、片方は有効な答え。",
+          "textZh": "两者是一回事。"
+        },
+        {
+          "text": "An empty result is always an error.",
+          "correct": false,
+          "explain": "不適。正当な結果であり得る。",
+          "textZh": "空结果总是错误。"
+        },
+        {
+          "text": "An access failure means the data was deleted, while an empty result means it was never collected, so both should be retried.",
+          "correct": false,
+          "explain": "不適。定義が誤っており、空の結果まで再試行することになる。",
+          "textZh": "访问失败意味着数据被删除了，而空结果意味着数据从未被收集过，所以两者都应该重试。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "访问失败与有效空结果的主要区别是什么？",
+      "commentaryZh": "访问失败 → 需要重试/替代决策；有效空结果 → 是一个有效答案，不应重试。"
+    },
+    {
+      "id": "ar5-037",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "In the extraction pipeline, the OCR step fails on 3 pages of a 20-page contract. What should be passed downstream?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The extraction from the 17 readable pages plus a structured note of which pages failed and why, so downstream steps can flag missing fields instead of treating them as absent.",
+          "correct": true,
+          "explain": "正解。部分結果と失敗の情報を合わせて渡すと、下流が「読めなかった」と「書かれていない」を区別できる。",
+          "textZh": "17 个可读页面的抽取结果，再加上一条结构化说明：哪些页失败、原因是什么，让下游能把相关字段标为「缺失待查」而不是视为不存在。"
+        },
+        {
+          "text": "Nothing; the whole contract has failed.",
+          "correct": false,
+          "explain": "不適。読めた部分まで捨てている。",
+          "textZh": "什么都不传；整个合同算失败。"
+        },
+        {
+          "text": "Only the 17 pages, with no mention of the failure.",
+          "correct": false,
+          "explain": "不適。欠落した項目が「元々無い」と誤解される。",
+          "textZh": "只传 17 页，不提失败。"
+        },
+        {
+          "text": "An invented summary of the missing pages.",
+          "correct": false,
+          "explain": "不適。読めなかったページの内容を捏造している。",
+          "textZh": "编造缺失页面的摘要。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在抽取流水线中，OCR 步骤在一份 20 页合同中的 3 页上失败了。应该把什么传给下游？",
+      "commentaryZh": "部分成功时要同时传递结果与失败信息，避免下游把「没读到」误当成「没有」。"
+    },
+    {
+      "id": "ar5-038",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "A downstream system receives an extracted record with an empty \"penalty_clause\" field. Engineers cannot tell whether the contract has no penalty clause or the extraction failed. What design prevents this ambiguity?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Distinguish the cases explicitly — for example null with a status of \"not_present\" versus an error status such as \"extraction_failed\" with a reason.",
+          "correct": true,
+          "explain": "正解。「無い」と「取れなかった」を別の値で表す。",
+          "textZh": "明确区分两种情况——例如 null 配合状态 \"not_present\"，与带原因的错误状态 \"extraction_failed\" 分开表示。"
+        },
+        {
+          "text": "Always return an empty string.",
+          "correct": false,
+          "explain": "不適。空文字では「無い」と「取れなかった」を区別できない。",
+          "textZh": "总是返回空字符串。"
+        },
+        {
+          "text": "Fill the field with \"N/A\" in both cases.",
+          "correct": false,
+          "explain": "不適。同じく区別できない。",
+          "textZh": "两种情况都填 \"N/A\"。"
+        },
+        {
+          "text": "Retry the extraction until the field is non-empty, which proves the clause was found in the contract.",
+          "correct": false,
+          "explain": "不適。条項が無い契約で捏造を招く。",
+          "textZh": "一直重试抽取直到字段非空，这能证明找到了该条款在合同中。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下游系统收到一条 \"penalty_clause\" 字段为空的抽取记录。工程师无法判断是合同本来就没有违约条款，还是抽取失败了。哪种设计能避免这种歧义？",
+      "commentaryZh": "访问/处理失败与有效空值必须在数据中可区分，这与多智能体错误传播的原则一致。"
+    },
+    {
+      "id": "ar5-039",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Why should a coordinator receive partial results along with an error, rather than an error alone?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "So it can use what was already found and decide whether the remaining gap needs a retry, an alternative, or just an annotation.",
+          "correct": true,
+          "explain": "正解。得られた成果を無駄にせず、残りの対応を選べる。",
+          "textZh": "这样它可以利用已经找到的内容，并决定剩下的缺口需要重试、替代方案，还是只需加注说明。"
+        },
+        {
+          "text": "Partial results are required by the MCP specification.",
+          "correct": false,
+          "explain": "不適。仕様の要件ではない。",
+          "textZh": "MCP 规范要求必须提供部分结果。"
+        },
+        {
+          "text": "Errors without results crash the coordinator.",
+          "correct": false,
+          "explain": "不適。クラッシュの問題ではない。部分結果を活かすことが目的。",
+          "textZh": "没有结果的错误会让协调者崩溃。"
+        },
+        {
+          "text": "To make the error message longer.",
+          "correct": false,
+          "explain": "不適。長さが目的ではない。部分結果が回復判断の材料になる。",
+          "textZh": "为了让错误消息更长。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么协调者应在收到错误的同时收到部分结果，而不是只收到错误？",
+      "commentaryZh": "部分结果 + 失败上下文 = 协调者能「带着已有成果继续」，而不是全盘重来。"
+    },
+    {
+      "id": "ar5-040",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which error report gives a coordinator the most useful information?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Timeout querying journal DB for 'grid storage 2025' after 2 retries; 4 of 10 results retrieved; suggest the preprint server as an alternative.\"",
+          "correct": true,
+          "explain": "正解。種類・試行・部分結果・代替案がそろっている。",
+          "textZh": "「查询期刊数据库『grid storage 2025』超时，已重试 2 次；10 条结果中取回 4 条；建议改用预印本服务器。」"
+        },
+        {
+          "text": "\"Error.\"",
+          "correct": false,
+          "explain": "不適。何が起きたのか何も分からない。",
+          "textZh": "「错误。」"
+        },
+        {
+          "text": "\"Search unavailable.\"",
+          "correct": false,
+          "explain": "不適。回復の判断材料が無い。",
+          "textZh": "「搜索不可用。」"
+        },
+        {
+          "text": "\"Something went wrong, please try later.\" That message is friendly for end users and avoids exposing internal details.",
+          "correct": false,
+          "explain": "不適。利用者向けの文言で、回復判断の情報が無い。",
+          "textZh": "「出了点问题，请稍后再试。」这条消息对最终用户友好，也不会暴露内部细节。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "哪一份错误报告能给协调者提供最有用的信息？",
+      "commentaryZh": "好的错误报告包含：失败类型、尝试的查询、部分结果、替代建议。"
+    },
+    {
+      "id": "ar5-041",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A coordinator receives a structured error from the analysis subagent: \"type: permission, attempted: open internal_report.pdf, partial: none, alternative: request access or use public summary.\" What is the best coordinator action?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Do not retry the same call; use the public summary if it meets the need (noting the limitation), or route an access request to a human.",
+          "correct": true,
+          "explain": "正解。権限エラーは再試行で解決しない。代替案を使うか、人に依頼する。",
+          "textZh": "不要重试同一调用；如果公开摘要能满足需要就使用它（并注明局限），否则把权限申请转给人处理。"
+        },
+        {
+          "text": "Retry the same call ten times.",
+          "correct": false,
+          "explain": "不適。権限は変わらない。",
+          "textZh": "把同一调用重试十次。"
+        },
+        {
+          "text": "Terminate the research job.",
+          "correct": false,
+          "explain": "不適。代替の道があるのに全体を止めている。",
+          "textZh": "终止调研任务。"
+        },
+        {
+          "text": "Ignore the document and say nothing in the report.",
+          "correct": false,
+          "explain": "不適。欠落を隠している。",
+          "textZh": "忽略这份文档，报告里也只字不提。"
+        }
+      ],
+      "objective": "Implement error propagation strategies across multi-agent systems",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "协调者收到分析子智能体的结构化错误：「类型：权限；尝试：打开 internal_report.pdf；部分结果：无；替代方案：申请权限或使用公开摘要」。协调者最好的做法是什么？",
+      "commentaryZh": "结构化错误让协调者做出合适的决定：权限类不重试，选择替代方案或交给人，并在报告中注明。"
+    },
+    {
+      "id": "ar5-042",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "After two hours exploring a large codebase, Claude Code starts answering questions with \"typically, services like this use…\" instead of naming the specific classes it found earlier. What is happening?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Context degradation in an extended session: earlier specific findings are no longer being used reliably.",
+          "correct": true,
+          "explain": "正解。長いセッションでは、具体的な発見の代わりに一般論で答え始める。",
+          "textZh": "长会话中的上下文退化：之前发现的具体信息已无法被可靠地利用。"
+        },
+        {
+          "text": "The repository was deleted.",
+          "correct": false,
+          "explain": "不適。無関係。長いセッションでの文脈の劣化が原因。",
+          "textZh": "代码库被删除了。"
+        },
+        {
+          "text": "Claude Code switched to plan mode.",
+          "correct": false,
+          "explain": "不適。モードの問題ではなく、文脈の劣化。",
+          "textZh": "Claude Code 切换到了计划模式。"
+        },
+        {
+          "text": "The answers are correct; typical patterns always apply, so the answers are as good as before.",
+          "correct": false,
+          "explain": "不適。このリポジトリ固有の事実に基づいていない。",
+          "textZh": "回答是正确的；典型模式总是适用，所以回答和以前一样好。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在大型代码库中探索了两个小时后，Claude Code 开始用「这类服务通常会……」来回答问题，而不再说出它之前发现的具体类名。发生了什么？",
+      "commentaryZh": "上下文退化的典型症状：回答变得前后不一，并引用「典型模式」而不是之前发现的具体类。"
+    },
+    {
+      "id": "ar5-043",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Which practice best counteracts context degradation during a long codebase investigation?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Have the agent keep a scratchpad file of key findings (classes, file paths, decisions) and consult it for later questions.",
+          "correct": true,
+          "explain": "正解。要点を文脈の外に保存し、必要なときに読み返す。",
+          "textZh": "让智能体维护一个记录关键发现（类、文件路径、决定）的草稿文件（scratchpad），之后回答问题时查阅它。"
+        },
+        {
+          "text": "Re-read the entire repository every hour.",
+          "correct": false,
+          "explain": "不適。文脈をさらに消費する。",
+          "textZh": "每小时重新读取整个代码库。"
+        },
+        {
+          "text": "Rely on the model to remember everything.",
+          "correct": false,
+          "explain": "不適。劣化が起きる前提を無視している。",
+          "textZh": "依靠模型记住所有内容。"
+        },
+        {
+          "text": "Ask shorter questions.",
+          "correct": false,
+          "explain": "不適。根本的な対策ではない。",
+          "textZh": "提更短的问题。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在长时间的代码库调查中，哪种做法最能对抗上下文退化？",
+      "commentaryZh": "scratchpad 文件可以跨越上下文边界保存关键发现，是对抗长会话退化的明确技能。"
+    },
+    {
+      "id": "ar5-044",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "Which Claude Code command reduces context usage by summarizing the conversation when the context fills up during long exploration?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "/compact",
+          "correct": true,
+          "explain": "正解。会話を要約して文脈を空ける。",
+          "textZh": "/compact"
+        },
+        {
+          "text": "/memory",
+          "correct": false,
+          "explain": "不適。メモリファイルの確認・編集。",
+          "textZh": "/memory"
+        },
+        {
+          "text": "/resume",
+          "correct": false,
+          "explain": "不適。セッションの再開。",
+          "textZh": "/resume"
+        },
+        {
+          "text": "/review",
+          "correct": false,
+          "explain": "不適。文脈の圧縮ではない。",
+          "textZh": "/review"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://code.claude.com/docs/en/costs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在长时间探索中上下文快满时，哪个 Claude Code 命令可以通过总结对话来减少上下文占用？",
+      "commentaryZh": "/compact 对对话进行总结以释放上下文空间。注意：总结前把关键事实记到 scratchpad，避免细节丢失。"
+    },
+    {
+      "id": "ar5-045",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "The main session needs to know \"where are all the test files and which ones touch the payments module?\" Answering it would dump hundreds of paths into the conversation. What is the best approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Spawn a subagent to investigate that specific question and return a concise summary, while the main agent keeps the high-level picture.",
+          "correct": true,
+          "explain": "正解。冗長な探索はサブエージェントに隔離し、要点だけ戻す。",
+          "textZh": "启动一个子智能体专门调查这个问题，返回简洁的摘要，主智能体保持高层面的全局把握。"
+        },
+        {
+          "text": "Run the search in the main session and scroll past the output.",
+          "correct": false,
+          "explain": "不適。出力は文脈に残り続ける。",
+          "textZh": "在主会话中搜索，然后滚动跳过输出。"
+        },
+        {
+          "text": "Skip the question.",
+          "correct": false,
+          "explain": "不適。必要な情報が得られない。",
+          "textZh": "跳过这个问题。"
+        },
+        {
+          "text": "Paste the output into CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。毎回読み込まれる。",
+          "textZh": "把输出粘贴进 CLAUDE.md。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "主会话需要知道「所有测试文件在哪里，哪些涉及支付模块？」直接回答会把几百条路径倒进对话里。最好的做法是什么？",
+      "commentaryZh": "用子智能体隔离冗长的探索输出，主智能体负责高层协调。这是 5.4 的核心技能之一。"
+    },
+    {
+      "id": "ar5-046",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "A three-phase investigation (map the architecture, trace the refund flow, propose fixes) is planned with subagents for each phase. How should context flow between phases?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Summarize the key findings of each phase and inject that summary into the initial context of the next phase's subagents.",
+          "correct": true,
+          "explain": "正解。前段の要点を次段の入力として明示的に渡す。",
+          "textZh": "总结每个阶段的关键发现，并把摘要注入下一阶段子智能体的初始上下文。"
+        },
+        {
+          "text": "Let the next phase's subagents discover everything again.",
+          "correct": false,
+          "explain": "不適。同じ探索の繰り返し。",
+          "textZh": "让下一阶段的子智能体重新发现一切。"
+        },
+        {
+          "text": "Pass the raw transcripts of all earlier subagents, so nothing is lost between phases.",
+          "correct": false,
+          "explain": "不適。量が多く、文脈を圧迫する。",
+          "textZh": "传递之前所有子智能体的原始记录，这样阶段之间不会丢失任何信息。"
+        },
+        {
+          "text": "Assume the subagents share memory.",
+          "correct": false,
+          "explain": "不適。サブエージェントは記憶を共有しない。",
+          "textZh": "假设子智能体共享记忆。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个三阶段的调查（梳理架构、追踪退款流程、提出修复方案）计划为每个阶段使用子智能体。阶段之间的上下文应如何传递？",
+      "commentaryZh": "阶段间传递：先总结、再注入下一阶段的初始上下文。子智能体不会自动继承前一阶段的发现。"
+    },
+    {
+      "id": "ar5-047",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "A long-running multi-agent code migration crashed overnight. The team wants to resume without redoing completed work. Which design supports this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Each agent exports its state (completed files, decisions, pending work) to a known location, and on resume the coordinator loads a manifest and injects it into the agents' prompts.",
+          "correct": true,
+          "explain": "正解。構造化された状態の書き出しで、クラッシュからの再開ができる。",
+          "textZh": "每个智能体把自己的状态（已完成文件、决定、待办工作）导出到已知位置；恢复时协调者加载清单（manifest）并注入到各智能体的提示词中。"
+        },
+        {
+          "text": "Restart the migration from the beginning every time.",
+          "correct": false,
+          "explain": "不適。完了分の作業を無駄にする。",
+          "textZh": "每次都从头开始迁移。"
+        },
+        {
+          "text": "Hope the model remembers what it did.",
+          "correct": false,
+          "explain": "不適。新しいプロセスでは何も覚えていない。",
+          "textZh": "希望模型记得自己做了什么。"
+        },
+        {
+          "text": "Keep state only in each agent's context window.",
+          "correct": false,
+          "explain": "不適。クラッシュで消える。",
+          "textZh": "状态只保存在各智能体的上下文窗口中。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个长时间运行的多智能体代码迁移在夜里崩溃了。团队希望恢复时不必重做已完成的工作。哪种设计支持这一点？",
+      "commentaryZh": "崩溃恢复：结构化状态导出（manifest）+ 协调者恢复时加载并注入。"
+    },
+    {
+      "id": "ar5-048",
+      "domain": "D5",
+      "type": "multi",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Which TWO techniques help Claude Code stay accurate during an extended exploration of a large codebase? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Delegating focused questions to subagents that return summaries.",
+          "correct": true,
+          "explain": "正解。冗長な出力を隔離する。",
+          "textZh": "把聚焦的问题交给返回摘要的子智能体。"
+        },
+        {
+          "text": "Recording key findings in a scratchpad file and referring back to it.",
+          "correct": true,
+          "explain": "正解。発見を文脈の外に保存する。",
+          "textZh": "把关键发现记录在 scratchpad 文件中，并随时回看。"
+        },
+        {
+          "text": "Reading every file into the main session first.",
+          "correct": false,
+          "explain": "不適。最初に全部読むと文脈が溢れる。",
+          "textZh": "先把每个文件都读进主会话。"
+        },
+        {
+          "text": "Never summarizing anything.",
+          "correct": false,
+          "explain": "不適。文脈が限界に達する。",
+          "textZh": "从不做任何总结。"
+        },
+        {
+          "text": "Repeating the same question until the answer changes.",
+          "correct": false,
+          "explain": "不適。劣化への対策にならない。",
+          "textZh": "反复问同一个问题直到答案改变。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项技巧能帮助 Claude Code 在大型代码库的长时间探索中保持准确？（选 2 项）",
+      "commentaryZh": "大型代码库探索的上下文管理：子智能体隔离 + scratchpad 持久化 + 必要时 /compact。"
+    },
+    {
+      "id": "ar5-049",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "What is the purpose of a scratchpad file in a long Claude Code session?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "To persist key findings outside the context window so they can be re-read later.",
+          "correct": true,
+          "explain": "正解。文脈が入れ替わっても要点を失わない。",
+          "textZh": "在上下文窗口之外持久保存关键发现，便于之后重新读取。"
+        },
+        {
+          "text": "To store API keys.",
+          "correct": false,
+          "explain": "不適。秘密を書く場所ではない。",
+          "textZh": "存放 API 密钥。"
+        },
+        {
+          "text": "To replace version control.",
+          "correct": false,
+          "explain": "不適。バージョン管理の代わりにはならない。",
+          "textZh": "替代版本控制。"
+        },
+        {
+          "text": "To speed up the model.",
+          "correct": false,
+          "explain": "不適。速度向上の仕組みではない。",
+          "textZh": "让模型变快。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在长时间的 Claude Code 会话中，scratchpad 文件的用途是什么？",
+      "commentaryZh": "scratchpad 文件就是跨越上下文边界的「外部笔记」：把关键发现写进去，之后需要时再读回来。"
+    },
+    {
+      "id": "ar5-050",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Before running /compact in a long investigation, what should the developer make sure of?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "That key findings needed later (file paths, class names, decisions) are captured, for example in a scratchpad or the summary instructions.",
+          "correct": true,
+          "explain": "正解。要約で細部が落ちる前に、必要な事実を確保する。",
+          "textZh": "之后需要的关键发现（文件路径、类名、决定）已被保存下来，例如写进 scratchpad 或作为总结的要求。"
+        },
+        {
+          "text": "That plan mode is off.",
+          "correct": false,
+          "explain": "不適。計画モードとは無関係。要約で細部が落ちることへの備えが必要。",
+          "textZh": "计划模式已关闭。"
+        },
+        {
+          "text": "That all MCP servers are disconnected.",
+          "correct": false,
+          "explain": "不適。MCP サーバーとは無関係。",
+          "textZh": "所有 MCP 服务器都已断开。"
+        },
+        {
+          "text": "Nothing; /compact keeps every message verbatim and only removes duplicates, so nothing needs to be saved first.",
+          "correct": false,
+          "explain": "不適。要約なので細部は失われ得る。",
+          "textZh": "什么都不用；/compact 会原样保留每条消息，只去掉重复内容，所以不需要事先保存任何东西。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://code.claude.com/docs/en/costs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在长时间调查中执行 /compact 之前，开发者应该确保什么？",
+      "commentaryZh": "/compact 是摘要，会丢失细节。先把关键事实持久化，再压缩。"
+    },
+    {
+      "id": "ar5-051",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "The main agent is coordinating a refactor and spawns a subagent to \"trace all dependencies of the refund flow.\" The subagent's report is 2,000 lines long and floods the main context. What should change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask the subagent to return a concise, structured summary (key modules, entry points, risks) and write details to a file the main agent can consult if needed.",
+          "correct": true,
+          "explain": "正解。サブエージェントの価値は「要点だけを返す」こと。詳細はファイルに逃がす。",
+          "textZh": "要求子智能体返回简洁的结构化摘要（关键模块、入口、风险），并把细节写入文件，主智能体需要时再查阅。"
+        },
+        {
+          "text": "Paste the full report into CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。毎回読み込まれる。",
+          "textZh": "把完整报告粘贴进 CLAUDE.md。"
+        },
+        {
+          "text": "Stop using subagents.",
+          "correct": false,
+          "explain": "不適。隔離の利点を失う。",
+          "textZh": "不再使用子智能体。"
+        },
+        {
+          "text": "Increase the main agent's max_tokens.",
+          "correct": false,
+          "explain": "不適。入力側の肥大化は解決しない。",
+          "textZh": "增大主智能体的 max_tokens。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "主智能体在协调一次重构，启动了一个子智能体去「追踪退款流程的所有依赖」。子智能体的报告长达 2000 行，淹没了主上下文。应如何调整？",
+      "commentaryZh": "子智能体隔离探索的前提是「返回精简结果」。返回原样的冗长输出等于没有隔离。"
+    },
+    {
+      "id": "ar5-052",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Claude Code's answers about a module have become inconsistent late in a session. The developer starts a new session. What makes the new session most effective?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Start it with a structured summary of the verified findings (or point it to the scratchpad file) rather than an empty context.",
+          "correct": true,
+          "explain": "正解。確かな要点を持ち込み、劣化した文脈は持ち込まない。",
+          "textZh": "用一份经过核实的发现的结构化摘要开始新会话（或让它读取 scratchpad 文件），而不是从空白上下文开始。"
+        },
+        {
+          "text": "Paste the entire previous transcript.",
+          "correct": false,
+          "explain": "不適。劣化の原因も一緒に持ち込む。",
+          "textZh": "粘贴之前的全部对话记录。"
+        },
+        {
+          "text": "Ask the same questions without any context.",
+          "correct": false,
+          "explain": "不適。探索をやり直すことになる。",
+          "textZh": "不提供任何上下文，问同样的问题。"
+        },
+        {
+          "text": "Fork the degraded session so the new branch keeps all findings from the earlier exploration.",
+          "correct": false,
+          "explain": "不適。劣化した文脈を引き継ぐ。",
+          "textZh": "分叉已退化的会话，让新分支保留所有发现（来自之前的探索）。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "会话后期，Claude Code 对某个模块的回答变得前后不一致。开发者开了一个新会话。怎样让新会话最有效？",
+      "commentaryZh": "新会话 + 结构化摘要（或 scratchpad）是从上下文退化中恢复的有效方式。"
+    },
+    {
+      "id": "ar5-053",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "Why are subagents useful for exploration in a large codebase?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "They isolate verbose exploration output, so the main agent's context keeps only the high-level results.",
+          "correct": true,
+          "explain": "正解。冗長な探索の出力を隔離し、本体には要点だけを残す。",
+          "textZh": "它们隔离冗长的探索输出，让主智能体的上下文只保留高层次的结果。"
+        },
+        {
+          "text": "They have unlimited context.",
+          "correct": false,
+          "explain": "不適。サブエージェントにも文脈の上限はある。",
+          "textZh": "它们的上下文没有上限。"
+        },
+        {
+          "text": "They share the main agent's full history.",
+          "correct": false,
+          "explain": "不適。親の履歴は共有されない。",
+          "textZh": "它们共享主智能体的完整历史。"
+        },
+        {
+          "text": "They can only read one file.",
+          "correct": false,
+          "explain": "不適。読めるファイルの数に制限はない。",
+          "textZh": "它们只能读一个文件。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么子智能体在大型代码库的探索中很有用？",
+      "commentaryZh": "子智能体的核心价值之一是隔离冗长的探索输出，只把精简结果交回，从而保护主智能体的上下文。"
+    },
+    {
+      "id": "ar5-054",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "In a crash-recovery design for a multi-agent system, what is a manifest?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A structured record of each agent's exported state (what is done, what is pending, where outputs are) that the coordinator loads on resume.",
+          "correct": true,
+          "explain": "正解。再開時にどこから続けるかを決める材料。",
+          "textZh": "一份结构化记录，汇总各智能体导出的状态（已完成什么、还剩什么、输出在哪里），协调者在恢复时加载它。"
+        },
+        {
+          "text": "A list of installed npm packages.",
+          "correct": false,
+          "explain": "不適。依存パッケージの一覧はエージェントの状態ではない。",
+          "textZh": "已安装的 npm 包列表。"
+        },
+        {
+          "text": "The system prompt of the coordinator, which lists the agents it may start and the order in which to restart them.",
+          "correct": false,
+          "explain": "不適。プロンプトは設定であって、何が終わったかという状態ではない。",
+          "textZh": "协调者的系统提示词，其中列出了它可以启动的智能体以及重启它们的顺序。"
+        },
+        {
+          "text": "A log of every token generated.",
+          "correct": false,
+          "explain": "不適。トークンのログは状態の記録として使えない。",
+          "textZh": "生成的每个 token 的日志。"
+        }
+      ],
+      "objective": "Manage context effectively in large codebase exploration",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在多智能体系统的崩溃恢复设计中，manifest（清单）是什么？",
+      "commentaryZh": "manifest = 状态导出的索引。恢复时由协调者加载并注入各智能体提示词。"
+    },
+    {
+      "id": "ar5-055",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "The extraction pipeline reports 97% overall accuracy, and the team wants to stop human review entirely. Why is this risky?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Aggregate accuracy can hide poor performance on specific document types or fields, which must be checked before reducing review.",
+          "correct": true,
+          "explain": "正解。全体の数字が良くても、特定の種類やフィールドで弱いことがある。",
+          "textZh": "整体准确率可能掩盖某些文档类型或字段上的糟糕表现，减少复核之前必须先检查这些细分情况。"
+        },
+        {
+          "text": "97% is too low for any automation.",
+          "correct": false,
+          "explain": "不適。数字の高低ではなく、内訳を見ていないことが問題。",
+          "textZh": "97% 对任何自动化来说都太低。"
+        },
+        {
+          "text": "Human review never finds errors.",
+          "correct": false,
+          "explain": "不適。人手の確認は誤りを見つける。極端な主張。",
+          "textZh": "人工复核从来发现不了错误。"
+        },
+        {
+          "text": "Accuracy cannot be measured.",
+          "correct": false,
+          "explain": "不適。精度は測定できる。問題は内訳を見ていないこと。",
+          "textZh": "准确率无法衡量。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "抽取流水线报告整体准确率 97%，团队想完全取消人工复核。为什么这样做有风险？",
+      "commentaryZh": "汇总指标会掩盖细分领域的问题。按文档类型和字段分析准确率后，才能决定减少人工复核。"
+    },
+    {
+      "id": "ar5-056",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "How should the team measure the ongoing error rate of extractions the model marks as high confidence?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Review a stratified random sample of high-confidence extractions (across document types and fields) on an ongoing basis.",
+          "correct": true,
+          "explain": "正解。層別の無作為抽出で誤り率と新しい誤りパターンを見つける。",
+          "textZh": "持续对高置信度抽取结果进行分层随机抽样复核（覆盖各种文档类型和字段）。"
+        },
+        {
+          "text": "Trust them all, because high confidence means they are correct and only low-confidence results need checking.",
+          "correct": false,
+          "explain": "不適。較正されているか分からない。",
+          "textZh": "全部信任，因为高置信度就意味着正确，只有低置信度的结果需要检查。"
+        },
+        {
+          "text": "Review only the first 10 each month.",
+          "correct": false,
+          "explain": "不適。最初の10件だけでは偏ったサンプルになる。",
+          "textZh": "每月只复核前 10 条。"
+        },
+        {
+          "text": "Review only documents customers complain about.",
+          "correct": false,
+          "explain": "不適。見つかる誤りが偏る。",
+          "textZh": "只复核客户投诉过的文档。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队应如何持续衡量模型标为高置信度的抽取结果的错误率？",
+      "commentaryZh": "分层随机抽样用于持续测量高置信度结果的错误率，并发现新的错误模式。"
+    },
+    {
+      "id": "ar5-057",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "The model outputs a confidence score for each field. How should review thresholds be set?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Calibrate them against a labeled validation set, checking how often each confidence level is actually correct.",
+          "correct": true,
+          "explain": "正解。確信度は実績と照合して初めてしきい値として使える。",
+          "textZh": "用带标注的验证集进行校准，检查每个置信度水平实际正确的比例。"
+        },
+        {
+          "text": "Use 0.5 for every field.",
+          "correct": false,
+          "explain": "不適。根拠のない一律のしきい値。",
+          "textZh": "所有字段都用 0.5。"
+        },
+        {
+          "text": "Ask the model which threshold it prefers.",
+          "correct": false,
+          "explain": "不適。モデルの好みでしきい値は決められない。較正が必要。",
+          "textZh": "问模型喜欢哪个阈值。"
+        },
+        {
+          "text": "Never use confidence scores.",
+          "correct": false,
+          "explain": "不適。較正すれば確信度は振り分けに有用。",
+          "textZh": "永远不用置信度分数。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "模型为每个字段输出置信度分数。复核阈值应如何设定？",
+      "commentaryZh": "字段级置信度要先用带标注的验证集校准，看各个置信度水平实际有多准，再据此设定合理的复核路由阈值。"
+    },
+    {
+      "id": "ar5-058",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Reviewers can check only 200 documents a day out of 5,000. Which documents should be prioritized for human review?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Extractions with low model confidence and documents whose source content is ambiguous or contradictory.",
+          "correct": true,
+          "explain": "正解。限られた人手を誤りの可能性が高いところに回す。",
+          "textZh": "模型置信度低的抽取结果，以及源内容含糊或相互矛盾的文档。"
+        },
+        {
+          "text": "The 200 longest documents.",
+          "correct": false,
+          "explain": "不適。長さは誤りの指標ではない。",
+          "textZh": "最长的 200 份文档。"
+        },
+        {
+          "text": "The first 200 received each day.",
+          "correct": false,
+          "explain": "不適。リスクに基づいていない。",
+          "textZh": "每天最先收到的 200 份。"
+        },
+        {
+          "text": "A random 200 with no other criteria, which keeps the review completely unbiased.",
+          "correct": false,
+          "explain": "不適。抽出による品質測定には役立つが、優先度付けにはならない。",
+          "textZh": "不加其他标准随机挑 200 份，这能让复核完全没有偏向。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "复核人员每天只能检查 5000 份中的 200 份。应优先把哪些文档交给人工复核？",
+      "commentaryZh": "复核人力有限时，应优先投入低置信度的抽取以及源文档含糊或相互矛盾的案例，而不是按长度或到达顺序挑选。"
+    },
+    {
+      "id": "ar5-059",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Before automating high-confidence extractions for a new document type (customs declarations), what should the team verify?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Accuracy for that document type and its key fields specifically, using a labeled sample.",
+          "correct": true,
+          "explain": "正解。種類ごと・フィールドごとの精度を確かめてから自動化する。",
+          "textZh": "用一份带标注的样本，专门验证该文档类型及其关键字段的准确率。"
+        },
+        {
+          "text": "Only the overall accuracy across all document types.",
+          "correct": false,
+          "explain": "不適。新しい種類の弱さが隠れる。",
+          "textZh": "只验证所有文档类型的整体准确率。"
+        },
+        {
+          "text": "That the documents are in PDF format.",
+          "correct": false,
+          "explain": "不適。形式は精度を保証しない。",
+          "textZh": "文档是否为 PDF 格式。"
+        },
+        {
+          "text": "Nothing; confidence scores are enough.",
+          "correct": false,
+          "explain": "不適。確信度だけでは不十分。種類ごとの検証が必要。",
+          "textZh": "什么都不用；置信度分数就够了。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在对一种新的文档类型（报关单）的高置信度抽取实现自动化之前，团队应验证什么？",
+      "commentaryZh": "对新文档类型实现自动化之前，要用标注样本按文档类型和关键字段分段验证准确率，不要只看整体指标。"
+    },
+    {
+      "id": "ar5-060",
+      "domain": "D5",
+      "type": "multi",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "Which TWO practices belong in a sound human review workflow for the extraction pipeline? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Stratified random sampling of high-confidence extractions to measure error rates and catch new error patterns.",
+          "correct": true,
+          "explain": "正解。層別の無作為抽出で誤り率と新しい誤りの傾向を測る。",
+          "textZh": "对高置信度抽取结果进行分层随机抽样，以衡量错误率并发现新的错误模式。"
+        },
+        {
+          "text": "Analyzing accuracy by document type and field before reducing human review.",
+          "correct": true,
+          "explain": "正解。種類別・フィールド別に確かめてから人手を減らす。",
+          "textZh": "在减少人工复核之前，按文档类型和字段分析准确率。"
+        },
+        {
+          "text": "Removing review once overall accuracy passes 95%.",
+          "correct": false,
+          "explain": "不適。内訳を見ていない。",
+          "textZh": "一旦整体准确率超过 95% 就取消复核。"
+        },
+        {
+          "text": "Routing only high-confidence cases to humans.",
+          "correct": false,
+          "explain": "不適。逆。確信度の低いものを人に回す。",
+          "textZh": "只把高置信度的案例交给人工。"
+        },
+        {
+          "text": "Using uncalibrated confidence scores as hard thresholds.",
+          "correct": false,
+          "explain": "不適。較正していない確信度は当てにならない。",
+          "textZh": "把未经校准的置信度分数当作硬阈值。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项做法属于抽取流水线中健全的人工复核工作流？（选 2 项）",
+      "commentaryZh": "健全的人工复核：分层抽样 + 分段准确率分析 + 校准后的置信度路由。"
+    },
+    {
+      "id": "ar5-061",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "What does \"stratified\" mean in stratified random sampling of extractions?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Sampling separately within groups such as document type or field, so every segment is represented.",
+          "correct": true,
+          "explain": "正解。種類ごとに抽出するので、少数派の種類も見落とさない。",
+          "textZh": "在文档类型或字段等分组内分别抽样，让每个细分部分都有代表。"
+        },
+        {
+          "text": "Sampling only the top layer of each PDF.",
+          "correct": false,
+          "explain": "不適。「層」は PDF の構造ではなく、種類などのグループのこと。",
+          "textZh": "只抽取每个 PDF 的顶层内容。"
+        },
+        {
+          "text": "Sampling in order of file size.",
+          "correct": false,
+          "explain": "不適。ファイルの大きさ順では層別にならない。",
+          "textZh": "按文件大小顺序抽样。"
+        },
+        {
+          "text": "Sampling once per year.",
+          "correct": false,
+          "explain": "不適。年1回では継続的な測定にならない。",
+          "textZh": "每年抽样一次。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在对抽取结果做分层随机抽样时，「分层」是什么意思？",
+      "commentaryZh": "分层抽样确保各类文档/字段都被覆盖，避免整体样本被大类主导。"
+    },
+    {
+      "id": "ar5-062",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Invoices from one supplier have 18% field errors, while all other suppliers are near 1%. The overall rate is 2%. What does this show?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Aggregate metrics can mask segment-level problems; this supplier's documents need targeted review and prompt or example improvements.",
+          "correct": true,
+          "explain": "正解。全体の 2% の陰に、特定の区分の大きな問題が隠れている。",
+          "textZh": "汇总指标会掩盖细分层面的问题；这个供应商的文档需要针对性复核，并改进提示词或示例。"
+        },
+        {
+          "text": "The overall rate is fine, so nothing needs to change in the pipeline, because 2% is within the accepted target.",
+          "correct": false,
+          "explain": "不適。特定の区分で問題が大きい。",
+          "textZh": "整体错误率没问题，所以流水线什么都不用改，因为 2% 在可接受的目标之内。"
+        },
+        {
+          "text": "The supplier should be dropped.",
+          "correct": false,
+          "explain": "不適。業務上の解決ではない。",
+          "textZh": "应该放弃这个供应商。"
+        },
+        {
+          "text": "Errors are random noise.",
+          "correct": false,
+          "explain": "不適。偏りがはっきりしている。",
+          "textZh": "错误只是随机噪声。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某个供应商的发票有 18% 的字段错误，而其他所有供应商都接近 1%。整体错误率是 2%。这说明了什么？",
+      "commentaryZh": "按细分（供应商、文档类型、字段）分析准确率，才能发现被整体指标掩盖的问题。"
+    },
+    {
+      "id": "ar5-063",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "The model marks a field \"high confidence\" 90% of the time, but on a labeled set those high-confidence values are correct only 85% of the time. What should the team conclude?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The confidence scores are not well calibrated for this field; adjust thresholds (or routing) based on the labeled results rather than taking the labels at face value.",
+          "correct": true,
+          "explain": "正解。自己申告と実際の正答率のずれを、ラベル付きデータで補正する。",
+          "textZh": "该字段的置信度分数校准不佳；应根据标注结果调整阈值（或路由），而不是照单全收。"
+        },
+        {
+          "text": "The labeled set must be wrong.",
+          "correct": false,
+          "explain": "不適。根拠なく検証を否定している。",
+          "textZh": "标注数据集一定是错的。"
+        },
+        {
+          "text": "85% is good enough to skip review.",
+          "correct": false,
+          "explain": "不適。要件に照らした判断ではない。",
+          "textZh": "85% 已足够好，可以跳过复核。"
+        },
+        {
+          "text": "Confidence scores are always perfectly calibrated.",
+          "correct": false,
+          "explain": "不適。確信度は完全に較正されているとは限らない。極端な主張。",
+          "textZh": "置信度分数总是校准完美的。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "模型有 90% 的时候把某字段标为「高置信度」，但在带标注的数据集上，这些高置信度值只有 85% 是正确的。团队应得出什么结论？",
+      "commentaryZh": "置信度必须用标注验证集校准；自报的「高置信度」不等于高准确率。"
+    },
+    {
+      "id": "ar5-064",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "An extraction comes from a scan where two pages contradict each other about the contract value. Confidence is high for the extracted value. How should it be routed?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Route it to human review because the source itself is contradictory, regardless of the model's confidence.",
+          "correct": true,
+          "explain": "正解。原本の矛盾は、モデルの確信度とは別に人の判断が必要。",
+          "textZh": "因为源文档本身存在矛盾，不论模型置信度如何，都应转人工复核。"
+        },
+        {
+          "text": "Auto-approve because confidence is high, since the model has already resolved the conflict.",
+          "correct": false,
+          "explain": "不適。矛盾した原本を見落とす。",
+          "textZh": "因为置信度高，自动通过，因为模型已经解决了冲突。"
+        },
+        {
+          "text": "Discard the document.",
+          "correct": false,
+          "explain": "不適。文書を捨てるとデータが欠ける。",
+          "textZh": "丢弃这份文档。"
+        },
+        {
+          "text": "Average the two values.",
+          "correct": false,
+          "explain": "不適。平均は根拠のない処理で、どちらの記載とも違う値になる。",
+          "textZh": "取两个值的平均。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某个抽取结果来自一份扫描件，其中两页关于合同金额的说法相互矛盾，而抽取值的置信度很高。应该如何路由？",
+      "commentaryZh": "源文档本身含糊或自相矛盾时应转人工复核，这与模型给出的置信度高低无关；取平均或丢弃都不可取。"
+    },
+    {
+      "id": "ar5-065",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "Why should human review attention be routed by confidence and document risk rather than spread evenly?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Reviewer capacity is limited, so it should go where errors are most likely or most costly.",
+          "correct": true,
+          "explain": "正解。限られた人手を誤りの可能性が高い所に回す。",
+          "textZh": "复核能力有限，应投入到最可能出错或出错代价最大的地方。"
+        },
+        {
+          "text": "Even distribution is impossible.",
+          "correct": false,
+          "explain": "不適。均等配分は可能。効率が悪いことが問題。",
+          "textZh": "平均分配是不可能的。"
+        },
+        {
+          "text": "Reviewers prefer short documents.",
+          "correct": false,
+          "explain": "不適。担当者の好みは理由ではない。",
+          "textZh": "复核人员更喜欢短文档。"
+        },
+        {
+          "text": "It makes the model faster.",
+          "correct": false,
+          "explain": "不適。モデルの速度とは無関係。",
+          "textZh": "这样模型会更快。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么人工复核的精力应按置信度和文档风险来分配，而不是平均分配？",
+      "commentaryZh": "有限的人工能力 → 优先低置信度、高风险、源数据矛盾的案例。"
+    },
+    {
+      "id": "ar5-066",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "The team calibrated confidence thresholds six months ago. New supplier formats have appeared since. What ongoing practice keeps the thresholds trustworthy?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Continue stratified sampling of high-confidence extractions to detect novel error patterns and recalibrate when needed.",
+          "correct": true,
+          "explain": "正解。入力の変化で誤りの傾向は変わるので、継続的に測る。",
+          "textZh": "持续对高置信度抽取结果进行分层抽样，发现新的错误模式，并在需要时重新校准。"
+        },
+        {
+          "text": "Never change thresholds once set.",
+          "correct": false,
+          "explain": "不適。入力の変化で誤りの傾向が変わるので、見直しが必要。",
+          "textZh": "阈值一旦设定就永不改变。"
+        },
+        {
+          "text": "Raise all thresholds to 0.99 permanently, so that no new error pattern can slip through.",
+          "correct": false,
+          "explain": "不適。全部を 0.99 にすると人手が溢れる。",
+          "textZh": "永久把所有阈值提高到 0.99，这样任何新的错误模式都无法漏过。"
+        },
+        {
+          "text": "Stop processing new suppliers.",
+          "correct": false,
+          "explain": "不適。新しい取引先を止めるのは業務上の解決ではない。",
+          "textZh": "停止处理新供应商。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队在六个月前校准了置信度阈值。此后出现了新的供应商格式。哪种持续性做法能让阈值保持可信？",
+      "commentaryZh": "分层抽样不仅测错误率，还能发现「新的错误模式」，是持续校准的基础。"
+    },
+    {
+      "id": "ar5-067",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The synthesis subagent compresses ten findings into a paragraph, and the final report can no longer say which source supports which claim. What should the subagents produce instead?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Structured claim-source mappings (claim, source URL or document name, relevant excerpt) that downstream agents preserve and merge.",
+          "correct": true,
+          "explain": "正解。要約で出典の対応が失われないよう、構造で保持する。",
+          "textZh": "结构化的「论断—来源」映射（论断、来源 URL 或文档名、相关摘录），由下游智能体保留并合并。"
+        },
+        {
+          "text": "A longer paragraph with more adjectives.",
+          "correct": false,
+          "explain": "不適。形容詞を増やしても出典の対応は戻らない。",
+          "textZh": "一段更长、形容词更多的文字。"
+        },
+        {
+          "text": "A list of URLs at the end without mapping.",
+          "correct": false,
+          "explain": "不適。どの主張の出典か分からない。",
+          "textZh": "在末尾列出 URL，但不对应到论断。"
+        },
+        {
+          "text": "No sources, to keep the report readable.",
+          "correct": false,
+          "explain": "不適。引用付きレポートの要件に反する。",
+          "textZh": "为了报告易读，不列来源。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/citations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "综合子智能体把十条发现压缩成一段话，最终报告已经说不清哪个论断由哪个来源支持。子智能体应该产出什么？",
+      "commentaryZh": "摘要会丢失来源归属。用结构化的论断—来源映射在整个流水线中保留出处。"
+    },
+    {
+      "id": "ar5-068",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "Two credible sources report different market sizes for the same year. How should the report handle this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Present both values with their sources and note the conflict, rather than arbitrarily choosing one.",
+          "correct": true,
+          "explain": "正解。食い違いは出典付きで示し、読者が判断できるようにする。",
+          "textZh": "同时列出两个值及其来源，并注明存在冲突，而不是随意选一个。"
+        },
+        {
+          "text": "Average the two numbers, which balances the two credible sources fairly without favoring either one.",
+          "correct": false,
+          "explain": "不適。どちらの出典にも無い値を作っている。",
+          "textZh": "取两个数字的平均，公平地兼顾两个可信来源，不偏向任何一方。"
+        },
+        {
+          "text": "Use the larger number.",
+          "correct": false,
+          "explain": "不適。大きい方を選ぶのは根拠のない選択。",
+          "textZh": "用较大的数字。"
+        },
+        {
+          "text": "Omit the statistic entirely.",
+          "correct": false,
+          "explain": "不適。重要な情報を失う。",
+          "textZh": "完全省略这项统计。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/citations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "两个可信的来源对同一年的市场规模给出了不同的数字。报告应如何处理？",
+      "commentaryZh": "可信来源之间的冲突要标注并保留来源，而不是随意选一个或取平均。"
+    },
+    {
+      "id": "ar5-069",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "A report says a technology's adoption \"fell from 40% to 25%,\" but the two figures come from studies in 2019 and 2024 with different methods. What practice would have prevented this misleading claim?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Requiring subagents to include publication/collection dates and methodological context in their structured outputs, so synthesis interprets differences correctly.",
+          "correct": true,
+          "explain": "正解。時期と方法が分かれば、単純な比較や「矛盾」と誤解するのを防げる。",
+          "textZh": "要求子智能体在结构化输出中包含发表/采集日期和研究方法背景，让综合环节能正确解读差异。"
+        },
+        {
+          "text": "Using only the newest number.",
+          "correct": false,
+          "explain": "不適。時系列の情報を失う。",
+          "textZh": "只用最新的数字。"
+        },
+        {
+          "text": "Removing dates to simplify.",
+          "correct": false,
+          "explain": "不適。誤解の原因を増やす。",
+          "textZh": "为了简化而删除日期。"
+        },
+        {
+          "text": "Asking the synthesis agent to guess the methods.",
+          "correct": false,
+          "explain": "不適。推測は誤りやすい。",
+          "textZh": "让综合智能体猜测研究方法。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一份报告称某技术的采用率「从 40% 降到了 25%」，但这两个数字来自 2019 年和 2024 年方法不同的两项研究。哪种做法本可以避免这一误导性说法？",
+      "commentaryZh": "时间数据：要求输出中包含日期，避免把时间差异误判为矛盾或趋势；同时保留方法背景。"
+    },
+    {
+      "id": "ar5-070",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "How should a research report distinguish findings that are well established from those that are contested?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use explicit sections (for example \"Well-established\" and \"Contested\"), preserving each source's original characterization and methodological context.",
+          "correct": true,
+          "explain": "正解。確度の違いを構造で示す。",
+          "textZh": "使用明确的章节（例如「已确立」与「存在争议」），保留每个来源的原始表述和方法背景。"
+        },
+        {
+          "text": "Present everything with the same certainty.",
+          "correct": false,
+          "explain": "不適。読者が確度を判断できない。",
+          "textZh": "所有内容都用同样的确定性来表述。"
+        },
+        {
+          "text": "Remove contested findings.",
+          "correct": false,
+          "explain": "不適。重要な情報を失う。",
+          "textZh": "删除有争议的发现。"
+        },
+        {
+          "text": "Mark every finding as contested, so readers are never misled by false certainty, and let readers decide for themselves.",
+          "correct": false,
+          "explain": "不適。確かな知見の価値まで下がる。",
+          "textZh": "把每条发现都标为有争议，让读者永远不会被虚假的确定性误导，让读者自己判断。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/citations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研报告应如何区分已被充分证实的发现与存在争议的发现？",
+      "commentaryZh": "结构化地区分「确立」与「争议」，并保留原始表述，是 5.6 的技能点。"
+    },
+    {
+      "id": "ar5-071",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "The document-analysis subagent finds that two reports give conflicting figures. What should it do before passing results to synthesis?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Complete the analysis with both values included and explicitly annotated as conflicting, and let the coordinator decide how to reconcile them.",
+          "correct": true,
+          "explain": "正解。下位のエージェントは矛盾を隠さず報告し、調整はコーディネーターが判断する。",
+          "textZh": "在分析结果中同时包含两个值并明确标注为冲突，由协调者决定如何调和。"
+        },
+        {
+          "text": "Pick the value that appears more often online.",
+          "correct": false,
+          "explain": "不適。ネット上の出現回数で選ぶのは勝手な選択。",
+          "textZh": "选网上出现次数更多的那个值。"
+        },
+        {
+          "text": "Stop the analysis and report failure.",
+          "correct": false,
+          "explain": "不適。矛盾は失敗ではない。",
+          "textZh": "停止分析并报告失败。"
+        },
+        {
+          "text": "Delete both values.",
+          "correct": false,
+          "explain": "不適。両方消すと重要な情報まで失う。",
+          "textZh": "删除两个值。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "文档分析子智能体发现两份报告给出了相互矛盾的数字。在把结果交给综合之前，它应该怎么做？",
+      "commentaryZh": "文档分析阶段遇到冲突值时要完整保留并明确标注，由协调者决定如何调和，然后再交给综合步骤。"
+    },
+    {
+      "id": "ar5-072",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "Why do structured claim-source mappings matter in a multi-agent research pipeline?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Source attribution is otherwise lost when findings are summarized or combined across agents.",
+          "correct": true,
+          "explain": "正解。要約や統合のたびに出典の対応が失われるのを防ぐ。",
+          "textZh": "否则在跨智能体做摘要或合并时，来源归属会丢失。"
+        },
+        {
+          "text": "They make reports shorter.",
+          "correct": false,
+          "explain": "不適。目的は短くすることではなく、出典を保つこと。",
+          "textZh": "它们让报告更短。"
+        },
+        {
+          "text": "They are required by the batch API.",
+          "correct": false,
+          "explain": "不適。バッチ API とは無関係。",
+          "textZh": "批处理 API 要求使用它们。"
+        },
+        {
+          "text": "They replace the need for sources, because the synthesis agent can cite the mapping itself.",
+          "correct": false,
+          "explain": "不適。対応表は出典を保つためのもので、出典を不要にするものではない。",
+          "textZh": "它们让来源变得不必要，因为综合智能体可以直接引用这个映射。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/citations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么结构化的论断—来源映射在多智能体调研流水线中很重要？",
+      "commentaryZh": "每经过一次压缩/合并，出处都可能丢失。结构化映射让出处一路保留到最终报告。"
+    },
+    {
+      "id": "ar5-073",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The final research report renders quarterly revenue data, breaking news, and technical findings all as bullet points. What does the guidance recommend?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Render each content type appropriately: financial data as tables, news as prose, technical findings as structured lists.",
+          "correct": true,
+          "explain": "正解。内容に合った形式で示すと読み手が理解しやすい。",
+          "textZh": "按内容类型恰当呈现：财务数据用表格、新闻用叙述、技术发现用结构化列表。"
+        },
+        {
+          "text": "Convert everything to one uniform format for consistency.",
+          "correct": false,
+          "explain": "不適。内容によって最適な形が違う。",
+          "textZh": "为了一致，全部转成统一格式。"
+        },
+        {
+          "text": "Put everything in one paragraph.",
+          "correct": false,
+          "explain": "不適。一段落にまとめると、内容ごとの読みやすさが失われる。",
+          "textZh": "全部写成一段话。"
+        },
+        {
+          "text": "Remove the financial data.",
+          "correct": false,
+          "explain": "不適。必要な情報を削っている。",
+          "textZh": "删除财务数据。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "最终调研报告把季度营收数据、突发新闻和技术发现全都写成了要点列表。指引建议怎么做？",
+      "commentaryZh": "综合输出应根据内容类型选择呈现方式：财务数据用表格、新闻用叙述、技术发现用结构化列表，而不是一刀切。"
+    },
+    {
+      "id": "ar5-074",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "The extraction pipeline merges data from a contract and its later amendment, which changes the payment term. How should the output preserve provenance?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Record each value with its source document and date (for example \"net 30 — contract, 2025-01\" superseded by \"net 45 — amendment, 2025-06\").",
+          "correct": true,
+          "explain": "正解。値ごとに出典と日付を持たせれば、どちらが有効か追跡できる。",
+          "textZh": "为每个值记录来源文档和日期（例如「net 30——合同，2025-01」被「net 45——修订，2025-06」取代）。"
+        },
+        {
+          "text": "Keep only the newest value, without noting where it came from, since the amendment is the only value that matters now.",
+          "correct": false,
+          "explain": "不適。経緯が分からなくなる。",
+          "textZh": "只保留最新值，不注明它来自哪里，因为现在只有修订后的值才重要。"
+        },
+        {
+          "text": "Average the two terms.",
+          "correct": false,
+          "explain": "不適。条件の平均は意味をなさない。",
+          "textZh": "取两个条件的平均。"
+        },
+        {
+          "text": "Keep only the original contract's value.",
+          "correct": false,
+          "explain": "不適。修正を無視している。",
+          "textZh": "只保留原合同的值。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/citations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "抽取流水线要合并一份合同及其后续修订的数据，修订改变了付款条件。输出应如何保留出处？",
+      "commentaryZh": "多来源合并时，每个值都应带上来源与日期，才能正确解释「取代」与「冲突」。"
+    },
+    {
+      "id": "ar5-075",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "An invoice and its purchase order disagree on the unit price. The pipeline currently overwrites the PO price with the invoice price. What is the better design?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep both values with their sources, set a conflict flag, and route the discrepancy to review instead of silently overwriting.",
+          "correct": true,
+          "explain": "正解。食い違いは隠さず、出典付きで残して人に判断させる。",
+          "textZh": "保留两个值及其来源，设置冲突标志，并把差异转去复核，而不是悄悄覆盖。"
+        },
+        {
+          "text": "Always trust the invoice.",
+          "correct": false,
+          "explain": "不適。根拠のない優先順位。",
+          "textZh": "总是相信发票。"
+        },
+        {
+          "text": "Always trust the purchase order.",
+          "correct": false,
+          "explain": "不適。根拠のない優先順位で、食い違いが隠れる。",
+          "textZh": "总是相信采购订单。"
+        },
+        {
+          "text": "Delete the unit price field.",
+          "correct": false,
+          "explain": "不適。単価を消すと必要な情報を失う。",
+          "textZh": "删除单价字段。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一张发票与其采购订单的单价不一致。流水线目前会用发票价格覆盖采购订单价格。更好的设计是什么？",
+      "commentaryZh": "冲突数据应标注并保留来源，交给合适的环节调和——这与多来源调研中的处理原则相同。"
+    },
+    {
+      "id": "ar5-076",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 2,
+      "stem": "Extracted records feed a dashboard. Users ask, \"Where did this number come from?\" Which field design answers this best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Store, for each key value, the source document ID, page or section, and the relevant excerpt.",
+          "correct": true,
+          "explain": "正解。値から原文まで遡れるようにする。",
+          "textZh": "为每个关键值保存来源文档 ID、页码或章节，以及相关摘录。"
+        },
+        {
+          "text": "Store only the final value.",
+          "correct": false,
+          "explain": "不適。最終値だけでは元の文書にたどれない。",
+          "textZh": "只保存最终值。"
+        },
+        {
+          "text": "Store the model's confidence only, which tells users how reliable each number is.",
+          "correct": false,
+          "explain": "不適。出典の代わりにならない。",
+          "textZh": "只保存模型的置信度，它能告诉用户每个数字有多可靠。"
+        },
+        {
+          "text": "Store the time the dashboard was built.",
+          "correct": false,
+          "explain": "不適。ダッシュボードの作成時刻は出典ではない。",
+          "textZh": "保存仪表盘的构建时间。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/citations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "抽取出的记录会进入一个仪表盘。用户问：「这个数字是从哪里来的？」哪种字段设计最能回答这个问题？",
+      "commentaryZh": "信息溯源（provenance）：值 → 来源文档 → 位置 → 摘录。"
+    },
+    {
+      "id": "ar5-077",
+      "domain": "D5",
+      "type": "multi",
+      "scenario": "S6",
+      "difficulty": 3,
+      "stem": "Which TWO practices best preserve provenance and handle uncertainty when combining extracted data from several documents? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Attach source document, location, and date to each extracted value.",
+          "correct": true,
+          "explain": "正解。値ごとに出典・位置・日付を持たせれば追跡できる。",
+          "textZh": "为每个抽取值附上来源文档、位置和日期。"
+        },
+        {
+          "text": "Keep conflicting values side by side with a conflict flag instead of choosing one silently.",
+          "correct": true,
+          "explain": "正解。食い違いを隠さず、判断できる工程に回す。",
+          "textZh": "把相互冲突的值并列保留并加冲突标志，而不是悄悄选择其中一个。"
+        },
+        {
+          "text": "Average numeric conflicts.",
+          "correct": false,
+          "explain": "不適。平均はどの文書にも無い値を作る。",
+          "textZh": "对数值冲突取平均。"
+        },
+        {
+          "text": "Drop dates to simplify merging.",
+          "correct": false,
+          "explain": "不適。時期の違いを矛盾と誤解する原因。",
+          "textZh": "为简化合并去掉日期。"
+        },
+        {
+          "text": "Keep only the value from the longest document.",
+          "correct": false,
+          "explain": "不適。文書の長さは正しさと無関係。",
+          "textZh": "只保留最长文档中的值。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/citations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "合并多份文档的抽取数据时，下列哪两项做法最能保留出处并处理不确定性？（选 2 项）",
+      "commentaryZh": "溯源与不确定性：值带来源与日期；冲突并列标注；不随意选择或平均。"
+    },
+    {
+      "id": "ar5-078",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "Why should extracted records include the date of the source document?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "So differences caused by time are not misread as contradictions, and the newest applicable value can be identified.",
+          "correct": true,
+          "explain": "正解。時期の違いを矛盾と誤解せず、有効な値を判断できる。",
+          "textZh": "这样由时间造成的差异不会被误读为矛盾，也能识别出最新的有效值。"
+        },
+        {
+          "text": "Dates make JSON valid, because JSON schemas require a date field in every record.",
+          "correct": false,
+          "explain": "不適。JSON の有効性やスキーマの要件とは無関係。",
+          "textZh": "日期能让 JSON 有效，因为 JSON schema 要求每条记录都有日期字段。"
+        },
+        {
+          "text": "Dates are required for every field by law.",
+          "correct": false,
+          "explain": "不適。そのような法律上の一般的な要件はない。",
+          "textZh": "法律要求每个字段都有日期。"
+        },
+        {
+          "text": "Dates reduce token usage.",
+          "correct": false,
+          "explain": "不適。トークンの節約とは無関係。",
+          "textZh": "日期能减少 token 用量。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/citations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么抽取记录应包含源文档的日期？",
+      "commentaryZh": "时间数据：保留日期，避免把「时间差异」当成「冲突」，也便于判断哪个值有效。"
+    },
+    {
+      "id": "ar5-079",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A synthesis agent writes \"Studies show X\" for a claim supported by only one blog post. What practice would make the report more accurate?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Preserve each source's original characterization and strength of evidence, and place weakly supported claims in a contested or limited-evidence section.",
+          "correct": true,
+          "explain": "正解。証拠の強さを誇張せず、出典の性質をそのまま伝える。",
+          "textZh": "保留每个来源的原始表述与证据强度，并把证据薄弱的论断放到「有争议/证据有限」部分。"
+        },
+        {
+          "text": "Remove all citations to keep the tone confident.",
+          "correct": false,
+          "explain": "不適。出典を消すと根拠が分からなくなる。",
+          "textZh": "删除所有引用，让语气更笃定。"
+        },
+        {
+          "text": "Add more adjectives.",
+          "correct": false,
+          "explain": "不適。形容詞を足すと誇張になるだけ。",
+          "textZh": "加更多形容词。"
+        },
+        {
+          "text": "Present it as a well-established finding.",
+          "correct": false,
+          "explain": "不適。証拠の弱い主張を確立した知見として示すのは誇張。",
+          "textZh": "把它作为已确立的发现来呈现。"
+        }
+      ],
+      "objective": "Preserve information provenance and handle uncertainty in multi-source synthesis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/citations",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "综合智能体对一个只有一篇博客支持的论断写了「研究表明 X」。哪种做法能让报告更准确？",
+      "commentaryZh": "综合时要保留来源的原始表述和证据强度，区分已确立与有争议的结论。"
+    },
+    {
+      "id": "ar5-080",
+      "domain": "D5",
+      "type": "scenario",
+      "scenario": "S6",
+      "difficulty": 1,
+      "stem": "What is a field-level confidence score used for in the extraction pipeline?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "To route individual fields (not whole documents) to human review when the model is less certain, after the scores are calibrated.",
+          "correct": true,
+          "explain": "正解。フィールド単位で振り分けると、人手を必要な箇所に集中できる。",
+          "textZh": "在分数经过校准后，把模型较不确定的单个字段（而非整份文档）路由给人工复核。"
+        },
+        {
+          "text": "To decide the price of the API call.",
+          "correct": false,
+          "explain": "不適。API の料金とは無関係。確信度は確認の振り分けに使う。",
+          "textZh": "决定 API 调用的价格。"
+        },
+        {
+          "text": "To replace schema validation for fields that are well formatted, so validation only runs on low-confidence fields.",
+          "correct": false,
+          "explain": "不適。確信度はスキーマ検証の代わりにならない。",
+          "textZh": "对格式规范的字段替代 schema 校验，这样校验只在低置信度字段上运行。"
+        },
+        {
+          "text": "To prove a value is correct.",
+          "correct": false,
+          "explain": "不適。確信度は正しさの証明ではない。",
+          "textZh": "证明某个值是正确的。"
+        }
+      ],
+      "objective": "Design human review workflows and confidence calibration",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在抽取流水线中，字段级置信度分数有什么用途？",
+      "commentaryZh": "字段级置信度（经校准）用于精细化的复核路由，而不是正确性的证明。"
+    }
+  ]
+}

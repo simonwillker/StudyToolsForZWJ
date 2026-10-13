@@ -1,12 +1,13 @@
 import React, { useState, Suspense, lazy } from "react";
 import { LEARNERS, getLearner, setLearner, clearLearner, getLastLearner } from "./learner";
 import { migrateActiveApp } from "./sapixStorage";
+import { migrateClaudeCertApp } from "./claudeCert/certs";
 
 /* アプリ本体は選んだほうだけ読む。
    きょうのドリルを使う日に英検の問題まで読み込む必要はない。 */
 const DailyDrill = lazy(() => import("./DailyDrill.jsx"));
 const EikenApp = lazy(() => import("./EikenApp.jsx"));
-const CcaofApp = lazy(() => import("./CcaofApp.jsx"));
+const ClaudeCertApp = lazy(() => import("./claudeCert/ClaudeCertApp.jsx"));
 const SapixApp = lazy(() => import("./SapixApp.jsx"));
 const StudyHistory = lazy(() => import("./StudyHistory.jsx"));
 
@@ -23,15 +24,17 @@ const APP_STORAGE_KEY = "studyToolsActiveApp";
 /**
  * 最後に開いたアプリ。v1.28.0 までの Sapix の科目別の値（"sapixMath" など）は
  * "sapix" に直して保存し直し、その科目（4年）を開く。
+ * v1.31.0 までの "ccaof"（CCAO-F 対策）は "claudeCert"（Claude 認定）に直し、CCAO-F を開く。
  */
 function loadInitialApp() {
   try {
     const stored = window.localStorage.getItem(APP_STORAGE_KEY);
-    const m = migrateActiveApp(stored);
+    const c = migrateClaudeCertApp(stored);
+    const m = { ...migrateActiveApp(c.app), cert: c.cert };
     if (stored && m.app !== stored) window.localStorage.setItem(APP_STORAGE_KEY, m.app);
     return m;
   } catch (e) {
-    return { app: "menu", course: null };
+    return { app: "menu", course: null, cert: null };
   }
 }
 
@@ -88,6 +91,7 @@ export default function App() {
   const [active, setActive] = useState(initial.app);
   // 旧形式から移したときだけ、開いていた科目をそのまま開く（最初の 1 回だけ）
   const [sapixCourse, setSapixCourse] = useState(initial.course);
+  const [initialCert, setInitialCert] = useState(initial.cert);
   const [learner, setLearnerState] = useState(getLearner);
 
   const pickLearner = (id) => {
@@ -103,6 +107,7 @@ export default function App() {
   const choose = (id) => {
     setActive(id);
     setSapixCourse(null);
+    setInitialCert(null);
     // 勉強履歴は次に開いたときの最初の画面にはしない
     if (id === "history") return;
     try {
@@ -131,10 +136,10 @@ export default function App() {
         <LearnerBadge learner={learner} />
       </Suspense>
     );
-  if (active === "ccaof")
+  if (active === "claudeCert")
     return (
       <Suspense fallback={<AppLoading />}>
-        <CcaofApp onExitApp={backToMenu} />
+        <ClaudeCertApp initialCert={initialCert} onExitApp={backToMenu} />
         <LearnerBadge learner={learner} />
       </Suspense>
     );
@@ -194,9 +199,9 @@ export default function App() {
             <div className="label">英検マスター</div>
             <div className="desc">英検5級〜1級対応。単語・文法穴うめ・長文読解・リスニング・会話文・発音練習、学習記録つき</div>
           </button>
-          <button className="app-switcher-card" style={{ "--c": "#C8743D" }} onClick={() => choose("ccaof")}>
-            <div className="label">CCAO-F 対策</div>
-            <div className="desc">Claude Certified Associate – Foundations の練習問題。公式ブループリントの7ドメイン別、ドメイン別正答率つき</div>
+          <button className="app-switcher-card" style={{ "--c": "#C8743D" }} onClick={() => choose("claudeCert")}>
+            <div className="label">Claude 認定</div>
+            <div className="desc">Claude 認定資格の対策。CCAO-F（Associate）・CCAR-F（Architect）から選ぶ。ドメイン別練習・模擬試験・考点讲义・錯題本・合格予測・頻出単語つき</div>
           </button>
           <button className="app-switcher-card" style={{ "--c": "#2F7A8A" }} onClick={() => choose("sapix")}>
             <div className="label">Sapix</div>

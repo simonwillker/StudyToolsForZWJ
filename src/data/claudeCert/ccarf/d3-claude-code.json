@@ -1,0 +1,3251 @@
+{
+  "domain": "D3",
+  "items": [
+    {
+      "id": "ar3-001",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "A tech lead put the team's coding standards in ~/.claude/CLAUDE.md on their own laptop. A new teammate's Claude Code does not follow them. Why?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "~/.claude/CLAUDE.md is user-level: it applies only to that user and is not shared through version control.",
+          "correct": true,
+          "explain": "正解。ユーザー単位の設定は本人だけに効く。チームの規約はプロジェクトの CLAUDE.md に置く。",
+          "textZh": "~/.claude/CLAUDE.md 是用户级的：只对该用户生效，不会通过版本控制共享。"
+        },
+        {
+          "text": "New teammates must wait 24 hours for settings to sync.",
+          "correct": false,
+          "explain": "不適。同期の仕組みはない。",
+          "textZh": "新同事要等 24 小时设置才会同步。"
+        },
+        {
+          "text": "CLAUDE.md files are ignored unless they are under 10 lines, so long files are skipped without warning.",
+          "correct": false,
+          "explain": "不適。そのような制限はない。",
+          "textZh": "超过 10 行的 CLAUDE.md 会被忽略，所以长文件会被悄悄跳过。"
+        },
+        {
+          "text": "The teammate needs to run /compact first.",
+          "correct": false,
+          "explain": "不適。/compact は会話の要約で、設定の読み込みとは無関係。",
+          "textZh": "新同事需要先执行 /compact。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "技术负责人把团队的编码规范写在了自己电脑上的 ~/.claude/CLAUDE.md 中。新同事的 Claude Code 并不遵守这些规范。为什么？",
+      "commentaryZh": "CLAUDE.md 层级：用户级（~/.claude/CLAUDE.md，仅自己）→ 项目级（./CLAUDE.md 或 ./.claude/CLAUDE.md，团队共享）→ 子目录级。团队规范必须放在项目级。"
+    },
+    {
+      "id": "ar3-002",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "Where should team-wide coding standards for Claude Code live so that everyone who clones the repository gets them?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In a project-level CLAUDE.md (repository root or .claude/CLAUDE.md), committed to version control.",
+          "correct": true,
+          "explain": "正解。プロジェクトの CLAUDE.md はリポジトリと一緒に共有される。",
+          "textZh": "放在项目级 CLAUDE.md（仓库根目录或 .claude/CLAUDE.md）中，并提交到版本控制。"
+        },
+        {
+          "text": "In each developer's ~/.claude/CLAUDE.md, copied from a shared template during onboarding.",
+          "correct": false,
+          "explain": "不適。各自がコピーする必要があり、ずれが生じる。",
+          "textZh": "放在每位开发者的 ~/.claude/CLAUDE.md 中，入职时从共享模板复制过去。"
+        },
+        {
+          "text": "In CLAUDE.local.md.",
+          "correct": false,
+          "explain": "不適。個人用で、通常はコミットしない。",
+          "textZh": "放在 CLAUDE.local.md 中。"
+        },
+        {
+          "text": "In the README only.",
+          "correct": false,
+          "explain": "不適。README は自動では指示として読み込まれない。",
+          "textZh": "只写在 README 里。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队范围的 Claude Code 编码规范应该放在哪里，才能让每个克隆仓库的人都能获得？",
+      "commentaryZh": "团队共享 → 项目级 CLAUDE.md；个人偏好 → 用户级或 CLAUDE.local.md。这是 3.1 最基础的考点。"
+    },
+    {
+      "id": "ar3-003",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "The repository's CLAUDE.md has grown to 900 lines covering testing, API conventions, deployment, and style. What reorganization does the guidance suggest?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Split it into focused topic files under .claude/rules/ (for example testing.md, api-conventions.md, deployment.md).",
+          "correct": true,
+          "explain": "正解。テーマ別のルールファイルに分けると管理しやすく、パス指定で必要なときだけ読ませることもできる。",
+          "textZh": "把它拆分成 .claude/rules/ 下按主题划分的文件（例如 testing.md、api-conventions.md、deployment.md）。"
+        },
+        {
+          "text": "Delete everything except the first 100 lines.",
+          "correct": false,
+          "explain": "不適。必要な規約を失う。",
+          "textZh": "只保留前 100 行，其余全部删除。"
+        },
+        {
+          "text": "Move all of it into the system prompt of each session, so the rules are always visible to the model.",
+          "correct": false,
+          "explain": "不適。管理が分散し、共有もしにくい。",
+          "textZh": "把全部内容移到每个会话的系统提示词里，让规则始终对模型可见。"
+        },
+        {
+          "text": "Convert it into one long paragraph.",
+          "correct": false,
+          "explain": "不適。読みにくくなるだけ。",
+          "textZh": "把它改成一大段文字。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "仓库的 CLAUDE.md 已经长到 900 行，涵盖测试、API 规范、部署和代码风格。指引建议如何重新组织？",
+      "commentaryZh": ".claude/rules/ 目录可以按主题拆分规则文件，替代臃肿的单一 CLAUDE.md。配合 paths 前置信息还能按需加载。"
+    },
+    {
+      "id": "ar3-004",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "The monorepo has packages for payments, search, and mobile. Each package should include only the standards files relevant to it. What CLAUDE.md feature supports this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "@import syntax (for example @docs/standards/payments.md) in each package's CLAUDE.md to pull in the relevant standards.",
+          "correct": true,
+          "explain": "正解。@ でファイルを取り込めば、CLAUDE.md をモジュール化し、パッケージごとに必要なものだけ選べる。",
+          "textZh": "在每个包的 CLAUDE.md 中使用 @import 语法（例如 @docs/standards/payments.md）引入相关的规范。"
+        },
+        {
+          "text": "Copy every standards file into every package's CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。重複して保守が難しくなり、無関係な規約も読み込む。",
+          "textZh": "把每份规范文件都复制到每个包的 CLAUDE.md 中。"
+        },
+        {
+          "text": "Use ~/.claude/CLAUDE.md for package-specific standards, with one heading per package so Claude knows which section applies.",
+          "correct": false,
+          "explain": "不適。個人設定でチームに共有されず、パッケージの区別もない。",
+          "textZh": "用 ~/.claude/CLAUDE.md 存放各包特有的规范，每个包一个标题，让 Claude 知道适用哪一节。"
+        },
+        {
+          "text": "Rename each package directory to include the standard's name.",
+          "correct": false,
+          "explain": "不適。読み込みの仕組みとは関係ない。",
+          "textZh": "把每个包的目录改名，加上规范的名字。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "monorepo 中有 payments、search、mobile 等包。每个包只应包含与自己相关的规范文件。哪种 CLAUDE.md 功能支持这一点？",
+      "commentaryZh": "@path 导入让 CLAUDE.md 保持模块化：每个包按维护者的判断选择性地引入相关规范文件。"
+    },
+    {
+      "id": "ar3-005",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Claude Code follows the team's testing conventions in some sessions but not others. What is the best first diagnostic step?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run /memory to see which memory files are loaded in the problematic session.",
+          "correct": true,
+          "explain": "正解。/memory でどの CLAUDE.md やルールが読み込まれているかを確認できる。",
+          "textZh": "执行 /memory，查看有问题的会话中加载了哪些记忆文件。"
+        },
+        {
+          "text": "Reinstall Claude Code.",
+          "correct": false,
+          "explain": "不適。設定の読み込みの問題を確かめずに環境を変えている。",
+          "textZh": "重新安装 Claude Code。"
+        },
+        {
+          "text": "Add \"ALWAYS\" in front of every testing rule and putting the most important rule first.",
+          "correct": false,
+          "explain": "不適。読み込まれていなければ強調しても効かない。",
+          "textZh": "在每条测试规则前面加上「ALWAYS」，并把最重要的规则放在最前面。"
+        },
+        {
+          "text": "Switch to plan mode.",
+          "correct": false,
+          "explain": "不適。読み込み状況の確認にはならない。",
+          "textZh": "切换到计划模式。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "Claude Code 在有些会话中遵守团队的测试规范，有些会话中却不遵守。最好的第一步诊断是什么？",
+      "commentaryZh": "/memory 命令用来确认当前加载了哪些记忆文件，是排查「行为不一致」的首选工具。"
+    },
+    {
+      "id": "ar3-006",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "A developer wants personal shortcuts (their preferred local URLs and test data) for this project only, without committing them for the team. Where should these go?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "CLAUDE.local.md in the project, which is personal to them.",
+          "correct": true,
+          "explain": "正解。プロジェクト単位の個人用メモ。チームには共有しない。",
+          "textZh": "项目中的 CLAUDE.local.md，它只属于本人。"
+        },
+        {
+          "text": "The project's CLAUDE.md, under a \"Personal\" heading.",
+          "correct": false,
+          "explain": "不適。コミットすればチーム全員に影響する。",
+          "textZh": "项目的 CLAUDE.md 中的「个人」标题下。"
+        },
+        {
+          "text": ".mcp.json.",
+          "correct": false,
+          "explain": "不適。MCP サーバーの設定ファイル。",
+          "textZh": ".mcp.json。"
+        },
+        {
+          "text": ".claude/commands/personal.md.",
+          "correct": false,
+          "explain": "不適。プロジェクトのコマンドとして共有されてしまう。",
+          "textZh": ".claude/commands/personal.md。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位开发者想为这个项目添加自己的个人偏好（常用的本地 URL 和测试数据），只对本项目有效，且不提交给团队。应该放在哪里？",
+      "commentaryZh": "个人且仅限本项目的偏好用 CLAUDE.local.md；个人且跨项目用 ~/.claude/CLAUDE.md；团队共享用项目 CLAUDE.md。"
+    },
+    {
+      "id": "ar3-007",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "The frontend/ directory has its own CLAUDE.md with React conventions. When does Claude Code load it?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When Claude works with files in that subdirectory (it is loaded on demand, not necessarily at launch).",
+          "correct": true,
+          "explain": "正解。サブディレクトリの CLAUDE.md は、そのディレクトリのファイルを扱うときに読み込まれる。",
+          "textZh": "当 Claude 处理该子目录中的文件时（按需加载，不一定在启动时加载）。"
+        },
+        {
+          "text": "Never; only the root CLAUDE.md is read.",
+          "correct": false,
+          "explain": "不適。サブディレクトリのものも使われる。",
+          "textZh": "永远不会；只读取根目录的 CLAUDE.md。"
+        },
+        {
+          "text": "Only when the user types @frontend.",
+          "correct": false,
+          "explain": "不適。そのような手動の操作は必須ではない。",
+          "textZh": "只有用户输入 @frontend 时。"
+        },
+        {
+          "text": "At launch, replacing the root CLAUDE.md so the most specific file wins.",
+          "correct": false,
+          "explain": "不適。置き換えではなく追加で読み込まれる。",
+          "textZh": "在启动时加载，并替换根目录的 CLAUDE.md，让最具体的文件生效。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "frontend/ 目录下有自己的 CLAUDE.md，写着 React 规范。Claude Code 什么时候会加载它？",
+      "commentaryZh": "目录级 CLAUDE.md 用于特定目录的约定，按需加载。它补充而不是替代上层的 CLAUDE.md。"
+    },
+    {
+      "id": "ar3-008",
+      "domain": "D3",
+      "type": "multi",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "Which TWO statements about CLAUDE.md imports are correct? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A CLAUDE.md can import another file with @path/to/file, and relative paths resolve from the importing file.",
+          "correct": true,
+          "explain": "正解。インポートは @ 記法で、相対パスはそのファイル自身の位置から解決される。",
+          "textZh": "CLAUDE.md 可以用 @path/to/file 导入其他文件，相对路径以发起导入的文件为基准解析。"
+        },
+        {
+          "text": "Imports help organize content but do not by themselves reduce context use, because imported files are loaded too.",
+          "correct": true,
+          "explain": "正解。整理には役立つが、読み込まれる量は減らない。必要なときだけ読ませたいならパス指定のルールなどを使う。",
+          "textZh": "导入有助于组织内容，但本身并不减少上下文占用，因为被导入的文件同样会被加载。"
+        },
+        {
+          "text": "Imports are only allowed in ~/.claude/CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。プロジェクトの CLAUDE.md でも使える。",
+          "textZh": "只有 ~/.claude/CLAUDE.md 中允许导入。"
+        },
+        {
+          "text": "An import inside a code block is always followed.",
+          "correct": false,
+          "explain": "不適。コードスパンやコードブロック内は取り込まれない。",
+          "textZh": "写在代码块里的导入总会被执行。"
+        },
+        {
+          "text": "Imported files are never loaded until the user asks.",
+          "correct": false,
+          "explain": "不適。インポートした CLAUDE.md と一緒に読み込まれる。",
+          "textZh": "被导入的文件在用户要求之前永远不会加载。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于 CLAUDE.md 的导入（import），下列哪两项说法正确？（选 2 项）",
+      "commentaryZh": "@导入 = 模块化组织，不等于按需加载。想要「只在编辑某类文件时加载」，应使用带 paths 的 .claude/rules/ 文件。"
+    },
+    {
+      "id": "ar3-009",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent built on the Agent SDK should follow the repository's CLAUDE.md conventions. A developer notices it ignores them. What should they check?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the SDK is configured to load project settings and memory (setting sources), since the agent only uses the configuration it is set up to load.",
+          "correct": true,
+          "explain": "正解。SDK ではどの設定ソースを読むかを指定できる。読まれていなければ CLAUDE.md は効かない。",
+          "textZh": "检查 SDK 是否被配置为加载项目设置与记忆文件（setting sources），因为智能体只会使用被配置加载的那些配置。"
+        },
+        {
+          "text": "Whether CLAUDE.md is written in Markdown tables.",
+          "correct": false,
+          "explain": "不適。形式の問題ではない。",
+          "textZh": "检查 CLAUDE.md 是否用 Markdown 表格编写。"
+        },
+        {
+          "text": "Whether the model is large enough to read CLAUDE.md without being truncated.",
+          "correct": false,
+          "explain": "不適。モデルの大きさとは関係ない。",
+          "textZh": "检查模型是否大到能读取 CLAUDE.md而不被截断。"
+        },
+        {
+          "text": "Whether CLAUDE.md is longer than the system prompt.",
+          "correct": false,
+          "explain": "不適。長さは読み込みの可否を決めない。",
+          "textZh": "检查 CLAUDE.md 是否比系统提示词更长。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "基于 Agent SDK 构建的效率智能体应遵守仓库 CLAUDE.md 中的约定。开发者发现它忽略了这些约定。应该检查什么？",
+      "commentaryZh": "在 SDK 中使用 Claude Code 的项目配置（包括 CLAUDE.md），需要通过设置来源等选项明确加载。先确认「是否被加载」，再看内容。"
+    },
+    {
+      "id": "ar3-010",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Claude Code runs in CI to generate tests. Where should the team document the testing standards, available fixtures, and what counts as a valuable test?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In the project's CLAUDE.md (or rules it loads), so CI-invoked Claude Code gets this context on every run.",
+          "correct": true,
+          "explain": "正解。CI で動く Claude Code にもプロジェクトの文脈を与える仕組みが CLAUDE.md。",
+          "textZh": "写在项目的 CLAUDE.md（或它加载的规则文件）中，这样每次在 CI 中调用 Claude Code 时都能获得这些上下文。"
+        },
+        {
+          "text": "In a Slack channel.",
+          "correct": false,
+          "explain": "不適。CI の実行には読み込まれない。",
+          "textZh": "写在 Slack 频道里。"
+        },
+        {
+          "text": "In each developer's ~/.claude/CLAUDE.md, so the standards follow whoever triggers the pipeline.",
+          "correct": false,
+          "explain": "不適。CI のランナーには存在しない。",
+          "textZh": "写在每位开发者的 ~/.claude/CLAUDE.md 中，让规范跟着触发流水线的人走。"
+        },
+        {
+          "text": "Nowhere; Claude infers standards from the code.",
+          "correct": false,
+          "explain": "不適。推測では基準がぶれる。",
+          "textZh": "哪里都不写；Claude 会从代码中推断规范。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "Claude Code 在 CI 中运行以生成测试。团队应把测试规范、可用的 fixture 以及「什么样的测试有价值」写在哪里？",
+      "commentaryZh": "CLAUDE.md 是向 CI 中的 Claude Code 提供项目上下文的机制：测试规范、fixture 约定、审查标准等都应写在这里。"
+    },
+    {
+      "id": "ar3-011",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which list correctly orders CLAUDE.md files from broadest to most specific scope?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "User-level (~/.claude/CLAUDE.md) → project-level (./CLAUDE.md or ./.claude/CLAUDE.md) → directory-level (subdirectory CLAUDE.md).",
+          "correct": true,
+          "explain": "正解。本人の全プロジェクト → そのプロジェクト → 特定のディレクトリ。",
+          "textZh": "用户级（~/.claude/CLAUDE.md）→ 项目级（./CLAUDE.md 或 ./.claude/CLAUDE.md）→ 目录级（子目录的 CLAUDE.md）。"
+        },
+        {
+          "text": "Directory-level → user-level → project-level, since directories are the most general level.",
+          "correct": false,
+          "explain": "不適。順序が逆転している。",
+          "textZh": "目录级 → 用户级 → 项目级，因为目录是最宽泛的层级。"
+        },
+        {
+          "text": "Project-level → directory-level → user-level.",
+          "correct": false,
+          "explain": "不適。ユーザー単位が最も狭いわけではない。",
+          "textZh": "项目级 → 目录级 → 用户级。"
+        },
+        {
+          "text": "There is only one CLAUDE.md per machine.",
+          "correct": false,
+          "explain": "不適。複数の階層がある。",
+          "textZh": "每台机器只有一个 CLAUDE.md。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪一项正确地把 CLAUDE.md 文件按作用范围从宽到窄排列？",
+      "commentaryZh": "三层结构：用户级（个人，所有项目）、项目级（团队共享）、目录级（特定目录）。"
+    },
+    {
+      "id": "ar3-012",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A rule in .claude/rules/style.md has no paths frontmatter. When is it loaded?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "At launch, with the same priority as the project's .claude/CLAUDE.md.",
+          "correct": true,
+          "explain": "正解。paths の無いルールは常に読み込まれる。",
+          "textZh": "在启动时加载，优先级与项目的 .claude/CLAUDE.md 相同。"
+        },
+        {
+          "text": "Only when editing files whose names start with style, such as style.md.",
+          "correct": false,
+          "explain": "不適。ファイル名からは推測されない。条件は paths で指定する。",
+          "textZh": "只在编辑文件名以 style 开头的文件时，例如 style.md。"
+        },
+        {
+          "text": "Never, because paths is required.",
+          "correct": false,
+          "explain": "不適。paths は省略可能。省略したルールは起動時に読み込まれる。",
+          "textZh": "永远不会，因为 paths 是必填项。"
+        },
+        {
+          "text": "Only after running /compact.",
+          "correct": false,
+          "explain": "不適。/compact は会話を要約するコマンドで、ルールの読み込みとは関係ない。",
+          "textZh": "只在执行 /compact 之后。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": ".claude/rules/style.md 中的规则没有 paths 前置信息。它什么时候加载？",
+      "commentaryZh": ".claude/rules/ 中没有 paths 的规则在启动时加载；带 paths 的规则只在处理匹配文件时加载。"
+    },
+    {
+      "id": "ar3-013",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO situations indicate a CLAUDE.md hierarchy problem rather than a prompt-wording problem? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Only the tech lead's sessions follow the conventions; everyone else's do not.",
+          "correct": true,
+          "explain": "正解。本人のユーザー単位の設定にしか書かれていない可能性が高い。",
+          "textZh": "只有技术负责人的会话遵守规范，其他人的都不遵守。"
+        },
+        {
+          "text": "/memory in a teammate's session does not list the file that contains the conventions.",
+          "correct": true,
+          "explain": "正解。読み込まれていないことが直接確認できる。",
+          "textZh": "在同事的会话中执行 /memory，看不到包含这些规范的文件。"
+        },
+        {
+          "text": "Every session follows the convention but phrases comments awkwardly.",
+          "correct": false,
+          "explain": "不適。読み込みは成功している。文言の問題。",
+          "textZh": "所有会话都遵守规范，只是注释写得别扭。"
+        },
+        {
+          "text": "The convention is followed but too verbosely.",
+          "correct": false,
+          "explain": "不適。同じく読み込みの問題ではない。",
+          "textZh": "规范被遵守了，只是过于啰嗦。"
+        },
+        {
+          "text": "Claude follows the conventions in every session but sometimes picks the wrong tool.",
+          "correct": false,
+          "explain": "不適。ツール選択の問題。",
+          "textZh": "Claude 在每个会话中都遵守规范，但有时选错工具。"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两种情况说明是 CLAUDE.md 层级配置的问题，而不是提示词措辞的问题？（选 2 项）",
+      "commentaryZh": "「有的人生效、有的人不生效」或 /memory 里看不到文件，都是层级/加载问题。措辞问题的特征是「加载了但效果不理想」。"
+    },
+    {
+      "id": "ar3-014",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "The team wants a /review-pr command available to everyone who clones the repository. Where should it be created?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In the project's .claude/commands/ (or as a project skill in .claude/skills/), committed to version control.",
+          "correct": true,
+          "explain": "正解。プロジェクトスコープに置けばリポジトリと一緒に共有される。",
+          "textZh": "在项目的 .claude/commands/ 中（或作为 .claude/skills/ 中的项目技能），并提交到版本控制。"
+        },
+        {
+          "text": "In ~/.claude/commands/ on the lead's laptop, which syncs to teammates through their accounts.",
+          "correct": false,
+          "explain": "不適。本人だけのコマンドになる。",
+          "textZh": "在负责人电脑上的 ~/.claude/commands/ 中，它会通过账号同步给队友。"
+        },
+        {
+          "text": "In .mcp.json.",
+          "correct": false,
+          "explain": "不適。MCP サーバーの設定。",
+          "textZh": "在 .mcp.json 中。"
+        },
+        {
+          "text": "In CLAUDE.local.md.",
+          "correct": false,
+          "explain": "不適。個人用のメモファイル。",
+          "textZh": "在 CLAUDE.local.md 中。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队希望每个克隆仓库的人都能使用 /review-pr 命令。应该在哪里创建？",
+      "commentaryZh": "项目级命令/技能（.claude/commands/、.claude/skills/）通过版本控制共享；用户级（~/.claude/...）只属于个人。"
+    },
+    {
+      "id": "ar3-015",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "A /analyze-codebase skill prints thousands of lines of exploration output, which fills the main conversation and degrades later answers. Which frontmatter option addresses this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "context: fork, so the skill runs in an isolated subagent context and returns a summary instead of polluting the main session.",
+          "correct": true,
+          "explain": "正解。冗長な出力を出すスキルは fork で隔離する。",
+          "textZh": "context: fork，让技能在隔离的子智能体上下文中运行，只返回摘要，不污染主会话。"
+        },
+        {
+          "text": "argument-hint, so the user knows what to type and the skill can return only the requested section of its output.",
+          "correct": false,
+          "explain": "不適。引数のヒントで、出力の隔離とは無関係。",
+          "textZh": "argument-hint，让用户知道该输入什么，技能就能只返回所需的部分（输出中的相应部分）。"
+        },
+        {
+          "text": "allowed-tools: Read, so it reads faster.",
+          "correct": false,
+          "explain": "不適。速度や出力量の隔離とは関係ない。",
+          "textZh": "allowed-tools: Read，让它读得更快。"
+        },
+        {
+          "text": "disable-model-invocation: true.",
+          "correct": false,
+          "explain": "不適。モデルが自動で呼ぶのを防ぐだけで、出力は同じように会話に入る。",
+          "textZh": "disable-model-invocation: true。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "/analyze-codebase 技能会输出成千上万行探索结果，占满主对话，使后续回答变差。哪个前置信息选项能解决？",
+      "commentaryZh": "context: fork 让技能在独立的子智能体上下文中运行，适合输出冗长的分析或探索性的头脑风暴，避免污染主对话。"
+    },
+    {
+      "id": "ar3-016",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Developers keep invoking /new-migration without the migration name, and the skill produces a generic result. What frontmatter option helps?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "argument-hint (for example \"[migration-name]\"), which shows the expected argument during autocomplete.",
+          "correct": true,
+          "explain": "正解。必要な引数を利用者に示せる。",
+          "textZh": "argument-hint（例如 \"[migration-name]\"），在自动补全时提示应输入的参数。"
+        },
+        {
+          "text": "context: fork.",
+          "correct": false,
+          "explain": "不適。実行環境の隔離で、引数の入力を促すものではない。",
+          "textZh": "context: fork。"
+        },
+        {
+          "text": "allowed-tools: Bash, so the skill can ask the developer for the missing name.",
+          "correct": false,
+          "explain": "不適。ツールの許可設定。",
+          "textZh": "allowed-tools: Bash，让技能可以向开发者询问缺少的名称。"
+        },
+        {
+          "text": "A longer skill name.",
+          "correct": false,
+          "explain": "不適。どの引数が要るかは伝わらない。",
+          "textZh": "更长的技能名称。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "开发者调用 /new-migration 时经常不带迁移名称，技能于是产出泛泛的结果。哪个前置信息选项能帮上忙？",
+      "commentaryZh": "argument-hint 用于提示调用者该技能需要什么参数，减少因缺少参数而产生的泛化输出。"
+    },
+    {
+      "id": "ar3-017",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "When should a convention go into CLAUDE.md rather than a skill?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When it is a universal standard that should always be in effect; skills suit on-demand, task-specific workflows.",
+          "correct": true,
+          "explain": "正解。常に効かせたい規約は CLAUDE.md、特定の作業手順はスキル。",
+          "textZh": "当它是应当始终生效的通用规范时；技能适合按需调用的、特定任务的工作流。"
+        },
+        {
+          "text": "When it is longer than 50 lines.",
+          "correct": false,
+          "explain": "不適。長さではなく、常時必要かどうかで決める。",
+          "textZh": "当它超过 50 行时。"
+        },
+        {
+          "text": "When only one developer needs it, because skills are always shared with the whole team through the repository.",
+          "correct": false,
+          "explain": "不適。それは個人設定の話。",
+          "textZh": "当只有一位开发者需要它时，因为技能总是会与整个团队共享，通过仓库共享。"
+        },
+        {
+          "text": "Never; everything should be a skill.",
+          "correct": false,
+          "explain": "不適。常に守るべき規約は CLAUDE.md が適する。",
+          "textZh": "永远不要；所有内容都应做成技能。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "什么时候应该把一条约定写进 CLAUDE.md，而不是做成技能（skill）？",
+      "commentaryZh": "选择标准：始终加载的通用规范 → CLAUDE.md；按需调用的任务流程 → 技能。两者分工明确。"
+    },
+    {
+      "id": "ar3-018",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "A teammate wants a variation of the shared /release skill with their own extra steps, without changing what the rest of the team gets. What is the recommended approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Create a personal skill in ~/.claude/skills/ with a different name (for example release-mine).",
+          "correct": true,
+          "explain": "正解。個人用の別名スキルにすれば、共有版に影響しない。",
+          "textZh": "在 ~/.claude/skills/ 中以不同名称（例如 release-mine）创建个人技能。"
+        },
+        {
+          "text": "Edit the project's .claude/skills/release/SKILL.md directly and tell the team about the new steps.",
+          "correct": false,
+          "explain": "不適。チーム全員の挙動が変わる。",
+          "textZh": "直接修改项目的 .claude/skills/release/SKILL.md，并告诉团队这些新步骤。"
+        },
+        {
+          "text": "Add the steps to the project CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。全員に常時読み込まれる。",
+          "textZh": "把这些步骤加到项目 CLAUDE.md 中。"
+        },
+        {
+          "text": "Create a personal skill with the same name \"release\".",
+          "correct": false,
+          "explain": "不適。同名だとどちらが使われるか紛らわしく、意図しない影響が出得る。",
+          "textZh": "创建同名为 \"release\" 的个人技能。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位同事想要一个带有自己额外步骤的 /release 技能变体，同时不改变团队其他人使用的版本。推荐的做法是什么？",
+      "commentaryZh": "个人定制技能：放在 ~/.claude/skills/，并使用不同名称，避免影响或混淆团队的共享技能。"
+    },
+    {
+      "id": "ar3-019",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "Where does a project skill's definition file live?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": ".claude/skills/<skill-name>/SKILL.md",
+          "correct": true,
+          "explain": "正解。スキルはディレクトリと SKILL.md で定義する。",
+          "textZh": ".claude/skills/<技能名>/SKILL.md"
+        },
+        {
+          "text": ".claude/rules/<skill-name>.json",
+          "correct": false,
+          "explain": "不適。rules はルール（指示）用。",
+          "textZh": ".claude/rules/<技能名>.json"
+        },
+        {
+          "text": ".mcp.json under a \"skills\" key",
+          "correct": false,
+          "explain": "不適。MCP の設定ファイル。",
+          "textZh": ".mcp.json 中的 \"skills\" 键下"
+        },
+        {
+          "text": "~/.claude.json",
+          "correct": false,
+          "explain": "不適。ユーザー単位の設定ファイル。",
+          "textZh": "~/.claude.json"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "项目技能的定义文件放在哪里？",
+      "commentaryZh": "技能 = 目录 + SKILL.md（可附带支持文件）。项目级在 .claude/skills/，个人级在 ~/.claude/skills/。"
+    },
+    {
+      "id": "ar3-020",
+      "domain": "D3",
+      "type": "multi",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "Which TWO frontmatter fields in SKILL.md are matched correctly with their purpose? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "context: fork — run the skill in an isolated subagent context.",
+          "correct": true,
+          "explain": "正解。出力を本体の会話から隔離する。",
+          "textZh": "context: fork —— 在隔离的子智能体上下文中运行技能。"
+        },
+        {
+          "text": "argument-hint — show users what argument the skill expects.",
+          "correct": true,
+          "explain": "正解。補完時に必要な引数を示す。",
+          "textZh": "argument-hint —— 向用户提示技能需要的参数。"
+        },
+        {
+          "text": "allowed-tools — choose which model runs the skill.",
+          "correct": false,
+          "explain": "不適。モデルではなく、ツールに関する設定。",
+          "textZh": "allowed-tools —— 选择由哪个模型运行技能。"
+        },
+        {
+          "text": "argument-hint — restrict which files the skill may edit.",
+          "correct": false,
+          "explain": "不適。引数のヒントにすぎない。",
+          "textZh": "argument-hint —— 限制技能可以编辑哪些文件。"
+        },
+        {
+          "text": "context: fork — share the skill with the team.",
+          "correct": false,
+          "explain": "不適。共有はスコープ（置き場所）で決まる。",
+          "textZh": "context: fork —— 把技能分享给团队。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "SKILL.md 前置信息中的下列哪两个字段与其用途对应正确？（选 2 项）",
+      "commentaryZh": "记住常见前置信息：context: fork（隔离执行）、argument-hint（参数提示）、allowed-tools（技能执行时的工具设置）。"
+    },
+    {
+      "id": "ar3-021",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity team wants a /scaffold-service skill that only creates new files and never runs shell commands. Which frontmatter field is designed to configure tool access while the skill runs?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "allowed-tools",
+          "correct": true,
+          "explain": "正解。スキル実行中に使うツールを指定する欄。書き込み系だけを挙げ、Bash を含めない。",
+          "textZh": "allowed-tools"
+        },
+        {
+          "text": "argument-hint",
+          "correct": false,
+          "explain": "不適。argument-hint は引数のヒントで、ツールの設定ではない。",
+          "textZh": "argument-hint"
+        },
+        {
+          "text": "context",
+          "correct": false,
+          "explain": "不適。実行コンテキスト（fork など）の指定。",
+          "textZh": "context"
+        },
+        {
+          "text": "description",
+          "correct": false,
+          "explain": "不適。description はスキルの説明で、使えるツールは決めない。",
+          "textZh": "description"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率团队想要一个 /scaffold-service 技能，只创建新文件、从不运行 shell 命令。哪个前置信息字段用于配置技能运行期间的工具访问？",
+      "commentaryZh": "allowed-tools 用于在技能前置信息中声明技能执行时可用的工具（例如只给写文件相关工具）。考试指南把它作为限制技能工具访问的手段。"
+    },
+    {
+      "id": "ar3-022",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "A developer created ~/.claude/commands/standup.md. Who can use /standup?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Only that developer, in any of their projects.",
+          "correct": true,
+          "explain": "正解。ユーザースコープのコマンドは本人用。",
+          "textZh": "只有这位开发者本人，可以在其所有项目中使用。"
+        },
+        {
+          "text": "Everyone on the team, after they pull the repository.",
+          "correct": false,
+          "explain": "不適。ホームディレクトリはリポジトリに含まれない。",
+          "textZh": "团队所有人，只要拉取了仓库。"
+        },
+        {
+          "text": "Nobody, because commands must be in .claude/skills/.",
+          "correct": false,
+          "explain": "不適。commands のファイルも引き続き使える。",
+          "textZh": "没有人，因为命令必须放在 .claude/skills/ 中。"
+        },
+        {
+          "text": "Only CI jobs.",
+          "correct": false,
+          "explain": "不適。ユーザースコープのコマンドは本人の対話セッションで使うもので、CI 専用ではない。",
+          "textZh": "只有 CI 任务。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/slash-commands",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位开发者创建了 ~/.claude/commands/standup.md。谁能使用 /standup？",
+      "commentaryZh": "~/.claude/commands/ 与 ~/.claude/skills/ 都是个人作用域；项目的 .claude/commands/、.claude/skills/ 才是团队共享。"
+    },
+    {
+      "id": "ar3-023",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "A /explore-alternatives skill brainstorms five redesign options with long reasoning. The developer wants only the final comparison table in the main session. What configuration fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Set context: fork so the brainstorming happens in an isolated context and only the result returns to the main session.",
+          "correct": true,
+          "explain": "正解。探索的な思考の過程を隔離し、結論だけを持ち帰る。",
+          "textZh": "设置 context: fork，让头脑风暴在隔离的上下文中进行，只把结果返回主会话。"
+        },
+        {
+          "text": "Ask Claude to \"think less\" in the skill.",
+          "correct": false,
+          "explain": "不適。品質が下がるおそれがあり、出力の隔離にはならない。",
+          "textZh": "在技能里让 Claude「少想一点」。"
+        },
+        {
+          "text": "Run the skill twice and keep the shorter output.",
+          "correct": false,
+          "explain": "不適。無駄が増えるだけ。",
+          "textZh": "把技能运行两次，保留较短的输出。"
+        },
+        {
+          "text": "Move the skill into CLAUDE.md so its instructions are always loaded and Claude summarizes automatically at the end.",
+          "correct": false,
+          "explain": "不適。常に読み込まれ、文脈をさらに圧迫する。",
+          "textZh": "把技能移到 CLAUDE.md 中，让其指令始终加载，Claude 就会自动做总结（在最后）。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "/explore-alternatives 技能会用很长的推理头脑风暴出五个重新设计方案。开发者希望主会话里只出现最终的对比表。哪种配置最合适？",
+      "commentaryZh": "探索性/头脑风暴类技能用 context: fork 隔离过程、只返回结论，是考试指南中明确的使用场景。"
+    },
+    {
+      "id": "ar3-024",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "What is the difference between .claude/commands/ and ~/.claude/commands/?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The project directory's commands are shared through version control; the home directory's commands are personal.",
+          "correct": true,
+          "explain": "正解。置き場所で共有範囲が決まる。",
+          "textZh": "项目目录下的命令通过版本控制共享；用户主目录下的命令是个人的。"
+        },
+        {
+          "text": "The first runs in CI only; the second runs locally only, because CI cannot read home directories.",
+          "correct": false,
+          "explain": "不適。実行場所の区別ではない。",
+          "textZh": "前者只在 CI 中运行；后者只在本地运行，因为 CI 读取不了用户主目录。"
+        },
+        {
+          "text": "The first is for Python; the second is for JavaScript.",
+          "correct": false,
+          "explain": "不適。言語とは無関係。違いは共有されるかどうか（スコープ）。",
+          "textZh": "前者用于 Python；后者用于 JavaScript。"
+        },
+        {
+          "text": "There is no difference.",
+          "correct": false,
+          "explain": "不適。置き場所によって共有範囲（スコープ）が違う。",
+          "textZh": "没有区别。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/slash-commands",
+      "reviewedAt": "2026-10-13",
+      "stemZh": ".claude/commands/ 和 ~/.claude/commands/ 有什么区别？",
+      "commentaryZh": "项目级（仓库中的 .claude/）= 团队共享；用户级（~/.claude/）= 个人。这一规律同样适用于 CLAUDE.md、技能和命令。"
+    },
+    {
+      "id": "ar3-025",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO are good reasons to make something a skill rather than adding it to CLAUDE.md? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "It is a multi-step workflow used only for specific tasks, such as preparing a release.",
+          "correct": true,
+          "explain": "正解。必要なときだけ呼び出すほうが文脈を節約できる。",
+          "textZh": "它是只在特定任务中使用的多步骤流程，例如准备发布。"
+        },
+        {
+          "text": "It produces verbose output that should be isolated from the main conversation with context: fork.",
+          "correct": true,
+          "explain": "正解。スキルなら隔離実行の設定ができる。",
+          "textZh": "它会产生冗长的输出，应该用 context: fork 与主对话隔离。"
+        },
+        {
+          "text": "It is a coding standard that must apply to every change.",
+          "correct": false,
+          "explain": "不適。常に効かせるべきものは CLAUDE.md。",
+          "textZh": "它是必须应用于每次改动的编码规范。"
+        },
+        {
+          "text": "It is a one-line naming convention.",
+          "correct": false,
+          "explain": "不適。常時の規約なので CLAUDE.md やルール向き。",
+          "textZh": "它是一条一行的命名约定。"
+        },
+        {
+          "text": "It must be followed even when the user forgets to invoke anything.",
+          "correct": false,
+          "explain": "不適。呼び出し不要で常に効く必要があるなら CLAUDE.md。",
+          "textZh": "即使用户忘了调用任何东西也必须遵守。"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项是把某项内容做成技能而不是写进 CLAUDE.md 的好理由？（选 2 项）",
+      "commentaryZh": "技能 = 按需、特定任务、可隔离执行；CLAUDE.md = 始终生效的通用规范。"
+    },
+    {
+      "id": "ar3-026",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "The team wants Terraform conventions to load only when Claude edits files under terraform/. Which configuration achieves this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A file in .claude/rules/ with YAML frontmatter such as paths: [\"terraform/**/*\"].",
+          "correct": true,
+          "explain": "正解。パス指定のルールは、該当するファイルを扱うときだけ読み込まれる。",
+          "textZh": "在 .claude/rules/ 中放一个文件，YAML 前置信息写 paths: [\"terraform/**/*\"] 之类的内容。"
+        },
+        {
+          "text": "A note in the root CLAUDE.md saying \"only for terraform.\", which Claude reads and applies selectively.",
+          "correct": false,
+          "explain": "不適。常に読み込まれ、文脈を消費する。",
+          "textZh": "在根目录 CLAUDE.md 中注明「仅用于 terraform」，Claude 会读取并有选择地应用。"
+        },
+        {
+          "text": "A skill called terraform.",
+          "correct": false,
+          "explain": "不適。呼び出さなければ効かない。",
+          "textZh": "一个叫 terraform 的技能。"
+        },
+        {
+          "text": "An environment variable TERRAFORM_RULES=1.",
+          "correct": false,
+          "explain": "不適。そのような仕組みはない。",
+          "textZh": "设置环境变量 TERRAFORM_RULES=1。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队希望 Terraform 约定只在 Claude 编辑 terraform/ 下的文件时加载。哪种配置能做到？",
+      "commentaryZh": "带 paths 前置信息的规则文件实现「按文件路径条件加载」，减少无关上下文和 token 消耗。"
+    },
+    {
+      "id": "ar3-027",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Test files are spread throughout the codebase (src/**/__tests__/, packages/*/test/, and files ending in .test.tsx). Why are path-specific rules better than directory-level CLAUDE.md files for test conventions?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A glob pattern can target test files by type regardless of directory, while directory CLAUDE.md files would need copies in many places.",
+          "correct": true,
+          "explain": "正解。ディレクトリをまたぐ規約は、種類で指定できるパス指定ルールが向く。",
+          "textZh": "glob 模式可以不论目录、按类型匹配测试文件；而目录级 CLAUDE.md 则需要在很多地方放副本。"
+        },
+        {
+          "text": "Directory CLAUDE.md files cannot contain testing rules.",
+          "correct": false,
+          "explain": "不適。書くことはできるが、散在するファイルには不向き。",
+          "textZh": "目录级 CLAUDE.md 不能包含测试规则。"
+        },
+        {
+          "text": "Path rules load for every file regardless of pattern.",
+          "correct": false,
+          "explain": "不適。一致したときだけ読み込まれる。",
+          "textZh": "路径规则无论模式如何都会对每个文件加载。"
+        },
+        {
+          "text": "Glob patterns are evaluated faster than directory lookups, which noticeably shortens Claude Code's startup on large repositories.",
+          "correct": false,
+          "explain": "不適。本質的な理由ではない。",
+          "textZh": "glob 模式比目录查找求值更快，能明显缩短 Claude Code 的启动时间，在大型仓库中尤其明显。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "测试文件分散在整个代码库中（src/**/__tests__/、packages/*/test/ 以及以 .test.tsx 结尾的文件）。为什么对测试约定来说，路径特定规则比目录级 CLAUDE.md 更好？",
+      "commentaryZh": "跨目录分布的约定（如测试文件）用带 glob 的路径规则最合适；目录级 CLAUDE.md 适合集中在某个目录的约定。"
+    },
+    {
+      "id": "ar3-028",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Which paths value applies a rule to every test file named like *.test.tsx anywhere in the repository?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "[\"**/*.test.tsx\"]",
+          "correct": true,
+          "explain": "正解。** で任意の深さのディレクトリにマッチする。",
+          "textZh": "[\"**/*.test.tsx\"]"
+        },
+        {
+          "text": "[\"*.test.tsx\"]",
+          "correct": false,
+          "explain": "不適。ルート直下のファイルしか対象にならない可能性がある。",
+          "textZh": "[\"*.test.tsx\"]"
+        },
+        {
+          "text": "[\"test\"]",
+          "correct": false,
+          "explain": "不適。パターンになっていない。",
+          "textZh": "[\"test\"]"
+        },
+        {
+          "text": "[\"src/test.tsx\"]",
+          "correct": false,
+          "explain": "不適。特定の1ファイルだけ。",
+          "textZh": "[\"src/test.tsx\"]"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪个 paths 取值能把规则应用到仓库中任意位置、命名形如 *.test.tsx 的所有测试文件？",
+      "commentaryZh": "** 匹配任意层级的目录，**/*.test.tsx 可覆盖整个仓库中的该类文件。"
+    },
+    {
+      "id": "ar3-029",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "After moving API conventions into .claude/rules/api.md with paths: [\"src/api/**/*.ts\"], a developer notices the conventions are not applied while discussing an API design with no files open. Is this expected?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Yes; path-scoped rules load when Claude works with matching files, so a design discussion without those files may not include them.",
+          "correct": true,
+          "explain": "正解。条件付き読み込みの裏返し。常に必要な規約なら paths を付けないか CLAUDE.md に置く。",
+          "textZh": "符合；路径作用域规则在 Claude 处理匹配文件时才加载，所以不涉及这些文件的设计讨论可能不包含它们。"
+        },
+        {
+          "text": "No; path-scoped rules should load at launch for every session, and paths only sets their priority relative to the root CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。それは paths の無いルールの挙動。",
+          "textZh": "不符合；路径作用域规则应在每个会话启动时加载，paths 只决定其优先级，相对于根目录的 CLAUDE.md。"
+        },
+        {
+          "text": "No; the paths field is ignored for .ts files.",
+          "correct": false,
+          "explain": "不適。拡張子に制限はない。",
+          "textZh": "不符合；paths 字段对 .ts 文件无效。"
+        },
+        {
+          "text": "Yes, because rules only work in CI.",
+          "correct": false,
+          "explain": "不適。理由が誤っている。",
+          "textZh": "符合，因为规则只在 CI 中生效。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "把 API 约定移到带 paths: [\"src/api/**/*.ts\"] 的 .claude/rules/api.md 后，一位开发者发现在没有打开任何文件、只讨论 API 设计时，约定没有生效。这符合预期吗？",
+      "commentaryZh": "路径规则是「按需加载」：节省上下文的代价是不处理匹配文件时不会加载。需要始终生效的内容不要加 paths。"
+    },
+    {
+      "id": "ar3-030",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "What is the main benefit of path-scoped rules in .claude/rules/?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "They load only when Claude works with matching files, reducing irrelevant context and token use.",
+          "correct": true,
+          "explain": "正解。必要なときだけ読み込む。",
+          "textZh": "只在 Claude 处理匹配文件时加载，减少无关上下文和 token 消耗。"
+        },
+        {
+          "text": "They make Claude run faster on every file by caching their contents.",
+          "correct": false,
+          "explain": "不適。速度向上の機能ではない。",
+          "textZh": "让 Claude 处理每个文件都更快（通过缓存其内容）。"
+        },
+        {
+          "text": "They replace the need for any CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。常時の規約は CLAUDE.md や paths の無いルールで扱う。",
+          "textZh": "完全取代 CLAUDE.md 的需要。"
+        },
+        {
+          "text": "They encrypt rules.",
+          "correct": false,
+          "explain": "不適。ルールを暗号化する機能ではない。利点は条件付きの読み込み。",
+          "textZh": "对规则进行加密。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": ".claude/rules/ 中路径作用域规则的主要好处是什么？",
+      "commentaryZh": "路径规则 = 条件加载。减少不相关的约定占用上下文，也降低互相干扰的可能。"
+    },
+    {
+      "id": "ar3-031",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "In the CI review job, the team wants SQL migration rules applied only when a pull request touches db/migrations/. Which setup fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A .claude/rules/migrations.md file with paths: [\"db/migrations/**/*\"].",
+          "correct": true,
+          "explain": "正解。該当ファイルを扱うときだけ規約が読み込まれる。",
+          "textZh": "一个 .claude/rules/migrations.md 文件，前置信息为 paths: [\"db/migrations/**/*\"]。"
+        },
+        {
+          "text": "Add the migration rules to the CI job's command line every time.",
+          "correct": false,
+          "explain": "不適。PR の内容に関係なく毎回入る。",
+          "textZh": "每次都把迁移规则加到 CI 任务的命令行里。"
+        },
+        {
+          "text": "Put them in ~/.claude/CLAUDE.md on the CI runner image.",
+          "correct": false,
+          "explain": "不適。リポジトリで管理されず、条件付きにもならない。",
+          "textZh": "写进 CI 运行镜像的 ~/.claude/CLAUDE.md。"
+        },
+        {
+          "text": "Write them in the PR template.",
+          "correct": false,
+          "explain": "不適。Claude Code の設定として読み込まれない。",
+          "textZh": "写在 PR 模板里。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在 CI 审查任务中，团队希望只在拉取请求涉及 db/migrations/ 时才应用 SQL 迁移规则。哪种配置最合适？",
+      "commentaryZh": "路径规则在 CI 中同样有效：只有改动匹配文件时，相关规范才进入上下文。"
+    },
+    {
+      "id": "ar3-032",
+      "domain": "D3",
+      "type": "multi",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "Which TWO are advantages of path-specific rules over a single large CLAUDE.md in a CI review setup? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Reviews of frontend changes do not load backend conventions that are irrelevant to them.",
+          "correct": true,
+          "explain": "正解。関係のない規約で文脈が埋まらない。",
+          "textZh": "审查前端改动时不会加载无关的后端约定。"
+        },
+        {
+          "text": "Conventions for file types spread across directories (such as tests) can be targeted with one glob pattern.",
+          "correct": true,
+          "explain": "正解。種類で一括指定できる。",
+          "textZh": "分布在多个目录中的文件类型（如测试）的约定可以用一个 glob 模式统一指定。"
+        },
+        {
+          "text": "Rules with paths are loaded for every review regardless of changed files.",
+          "correct": false,
+          "explain": "不適。条件付きで読み込まれるのが利点。",
+          "textZh": "带 paths 的规则无论改了哪些文件都会在每次审查时加载。"
+        },
+        {
+          "text": "Path rules let CI skip the -p flag.",
+          "correct": false,
+          "explain": "不適。-p は非対話実行のためのフラグで、ルールとは無関係。",
+          "textZh": "路径规则让 CI 可以不用 -p 参数。"
+        },
+        {
+          "text": "Path rules remove the need for review criteria.",
+          "correct": false,
+          "explain": "不適。基準は引き続き必要。",
+          "textZh": "路径规则让审查不再需要审查标准。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在 CI 审查场景中，相比单一的大型 CLAUDE.md，路径特定规则有哪两项优势？（选 2 项）",
+      "commentaryZh": "路径规则的两大优势：减少无关上下文；用 glob 覆盖跨目录的文件类型。"
+    },
+    {
+      "id": "ar3-033",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent generates boilerplate for both Python services and Go services in the same repo. How should language-specific conventions be organized?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Separate rule files such as python.md with paths: [\"**/*.py\"] and go.md with paths: [\"**/*.go\"].",
+          "correct": true,
+          "explain": "正解。言語ごとに必要なときだけ読み込まれる。",
+          "textZh": "分成独立的规则文件，例如 python.md 的 paths 为 [\"**/*.py\"]，go.md 的 paths 为 [\"**/*.go\"]。"
+        },
+        {
+          "text": "One CLAUDE.md that mixes both languages' rules, with a heading per language so the agent can find the right section.",
+          "correct": false,
+          "explain": "不適。どちらの作業でも両方が読み込まれ、混乱や文脈の無駄になる。",
+          "textZh": "用一个 CLAUDE.md 混写两种语言的规则，每种语言一个标题，让智能体能找到对应章节。"
+        },
+        {
+          "text": "Ask engineers to state the language each time.",
+          "correct": false,
+          "explain": "不適。設定で解決できることを人に頼っている。",
+          "textZh": "每次都让工程师说明是哪种语言。"
+        },
+        {
+          "text": "Put Go rules in ~/.claude/CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。チームに共有されない。",
+          "textZh": "把 Go 规则放进 ~/.claude/CLAUDE.md。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体在同一个仓库里为 Python 服务和 Go 服务生成样板代码。语言特定的约定应如何组织？",
+      "commentaryZh": "按文件类型的约定用 glob 路径规则拆分，既减少无关上下文，又避免不同语言规则互相干扰。"
+    },
+    {
+      "id": "ar3-034",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "A rule file has paths: [\"services/billing/**/*\"]. The agent edits services/billing/handler.go and then a shared library file lib/money.go. Which statement is correct?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The rule applies while working on handler.go; lib/money.go does not match the pattern, so conventions it needs must come from another rule or CLAUDE.md.",
+          "correct": true,
+          "explain": "正解。パターンに一致するファイルにだけ条件が成り立つ。",
+          "textZh": "处理 handler.go 时规则生效；lib/money.go 不匹配该模式，所以它需要的约定必须来自其他规则或 CLAUDE.md。"
+        },
+        {
+          "text": "The rule applies to every file once it has loaded.",
+          "correct": false,
+          "explain": "不適。範囲を意図したパターンに限るための仕組み。",
+          "textZh": "规则一旦加载就适用于所有文件。"
+        },
+        {
+          "text": "The rule never applies because Go files are excluded by default in .claude/rules/ files.",
+          "correct": false,
+          "explain": "不適。既定の除外はない。",
+          "textZh": "规则永远不会生效，因为 Go 文件默认被排除（在 .claude/rules/ 文件中）。"
+        },
+        {
+          "text": "The rule applies only to lib/money.go.",
+          "correct": false,
+          "explain": "不適。逆。lib/money.go はパターンに一致しない。",
+          "textZh": "规则只适用于 lib/money.go。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某规则文件的 paths 为 [\"services/billing/**/*\"]。智能体先编辑 services/billing/handler.go，然后编辑共享库文件 lib/money.go。下列哪种说法正确？",
+      "commentaryZh": "路径规则只在处理与 glob 匹配的文件时成立。跨模块共享的约定要另行放在合适的规则或 CLAUDE.md 中。"
+    },
+    {
+      "id": "ar3-035",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Where is the paths field for a conditional rule written?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In YAML frontmatter at the top of the rule's Markdown file in .claude/rules/.",
+          "correct": true,
+          "explain": "正解。ルールファイル先頭の --- で囲んだ部分に書く。",
+          "textZh": "写在 .claude/rules/ 中规则 Markdown 文件顶部的 YAML 前置信息里。"
+        },
+        {
+          "text": "In .mcp.json.",
+          "correct": false,
+          "explain": "不適。.mcp.json は MCP サーバーの設定ファイルで、ルールの条件は書かない。",
+          "textZh": "写在 .mcp.json 中。"
+        },
+        {
+          "text": "In package.json.",
+          "correct": false,
+          "explain": "不適。Claude Code のルールとは無関係。",
+          "textZh": "写在 package.json 中。"
+        },
+        {
+          "text": "As a command-line flag passed at the start of each session, such as --paths.",
+          "correct": false,
+          "explain": "不適。ファイルに書いておく仕組み。",
+          "textZh": "作为每次会话开始时传入的命令行参数，例如 --paths。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "条件规则的 paths 字段写在哪里？",
+      "commentaryZh": "规则文件格式：顶部 --- 包裹的 YAML 前置信息（paths: [...]），下面是 Markdown 正文。"
+    },
+    {
+      "id": "ar3-036",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team has a monorepo with a docs/ folder and many *.md files elsewhere. They want writing-style rules for every Markdown file. Which is the best choice?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A rule with paths: [\"**/*.md\"].",
+          "correct": true,
+          "explain": "正解。場所を問わず種類で指定できる。",
+          "textZh": "一条 paths 为 [\"**/*.md\"] 的规则。"
+        },
+        {
+          "text": "A CLAUDE.md inside docs/ only.",
+          "correct": false,
+          "explain": "不適。docs 以外の Markdown に効かない。",
+          "textZh": "只在 docs/ 中放一个 CLAUDE.md。"
+        },
+        {
+          "text": "A skill that must be invoked before every edit.",
+          "correct": false,
+          "explain": "不適。呼び忘れると効かない。",
+          "textZh": "一个每次编辑前都必须调用的技能。"
+        },
+        {
+          "text": "A note in the README.",
+          "correct": false,
+          "explain": "不適。設定として読み込まれない。",
+          "textZh": "在 README 里写一条说明。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队的 monorepo 有一个 docs/ 文件夹，其他地方也有很多 *.md 文件。他们想对所有 Markdown 文件应用写作风格规则。最好的选择是什么？",
+      "commentaryZh": "文件类型分散在各处时，路径规则（**/*.md）优于目录级 CLAUDE.md。"
+    },
+    {
+      "id": "ar3-037",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "Which command shows which CLAUDE.md and rule files are loaded in the current Claude Code session?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "/memory",
+          "correct": true,
+          "explain": "正解。読み込まれているメモリファイルを確認・編集できる。",
+          "textZh": "/memory"
+        },
+        {
+          "text": "/compact",
+          "correct": false,
+          "explain": "不適。会話を要約して文脈を空けるコマンド。",
+          "textZh": "/compact"
+        },
+        {
+          "text": "/resume",
+          "correct": false,
+          "explain": "不適。過去のセッションを再開するコマンド。",
+          "textZh": "/resume"
+        },
+        {
+          "text": "/mcp",
+          "correct": false,
+          "explain": "不適。MCP サーバーの状態を見るコマンド。",
+          "textZh": "/mcp"
+        }
+      ],
+      "objective": "Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "哪个命令可以显示当前 Claude Code 会话中加载了哪些 CLAUDE.md 和规则文件？",
+      "commentaryZh": "/memory 用来查看和编辑当前加载的记忆文件，是排查配置层级问题的标准手段。"
+    },
+    {
+      "id": "ar3-038",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "A project skill is meant to be run only when a developer explicitly types /deploy, never on Claude's own initiative. Which frontmatter setting fits?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "disable-model-invocation: true",
+          "correct": true,
+          "explain": "正解。モデルが自動で呼び出すことを防ぎ、利用者の明示的な呼び出しに限る。",
+          "textZh": "disable-model-invocation: true"
+        },
+        {
+          "text": "context: fork",
+          "correct": false,
+          "explain": "不適。実行環境の隔離で、誰が呼ぶかは制御しない。",
+          "textZh": "context: fork"
+        },
+        {
+          "text": "argument-hint: [env]",
+          "correct": false,
+          "explain": "不適。argument-hint は引数のヒントで、誰が呼び出すかは制御しない。",
+          "textZh": "argument-hint: [env]"
+        },
+        {
+          "text": "paths: [\"deploy/**\"]",
+          "correct": false,
+          "explain": "不適。特定ファイルの作業時に自動で使われやすくする方向の設定。",
+          "textZh": "paths: [\"deploy/**\"]"
+        }
+      ],
+      "objective": "Create and configure custom slash commands and skills",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个项目技能只应在开发者明确输入 /deploy 时运行，绝不能由 Claude 自行决定调用。哪种前置信息设置合适？",
+      "commentaryZh": "部署等有副作用的流程，应禁止模型自动调用（disable-model-invocation: true），只允许用户显式触发。"
+    },
+    {
+      "id": "ar3-039",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The CI reviewer applies frontend accessibility rules to backend Go files, producing irrelevant comments. The rules currently live in the root CLAUDE.md. What is the best fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Move them into a .claude/rules/ file with paths matching the frontend files (for example [\"web/**/*.tsx\"]).",
+          "correct": true,
+          "explain": "正解。対象ファイルのときだけ読み込まれ、無関係な指摘が減る。",
+          "textZh": "把它们移到 .claude/rules/ 中的一个文件，paths 匹配前端文件（例如 [\"web/**/*.tsx\"]）。"
+        },
+        {
+          "text": "Add \"do not apply to Go\" to the root CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。常に読み込まれたままで、例外の列挙が増え続ける。",
+          "textZh": "在根目录 CLAUDE.md 中加一句「不要应用到 Go」。"
+        },
+        {
+          "text": "Remove the accessibility rules entirely.",
+          "correct": false,
+          "explain": "不適。必要なレビュー観点を失う。",
+          "textZh": "完全删除无障碍规则。"
+        },
+        {
+          "text": "Run two separate CI jobs with different models, one for frontend files and one for backend files.",
+          "correct": false,
+          "explain": "不適。規約の読み込み範囲という原因は変わらない。",
+          "textZh": "用不同模型分别跑两个 CI 任务，一个审前端文件、一个审后端文件。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 审查器把前端无障碍规则套用到了后端 Go 文件上，产生了无关的评论。这些规则目前写在根目录的 CLAUDE.md 中。最好的修正是什么？",
+      "commentaryZh": "只适用于部分文件的约定，用路径规则限定范围，比在全局 CLAUDE.md 里写例外更可靠。"
+    },
+    {
+      "id": "ar3-040",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which statement about rules in .claude/rules/ is correct?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Rules can be organized into subdirectories, and rules with a paths field load only for matching files.",
+          "correct": true,
+          "explain": "正解。サブディレクトリでの整理も可能で、paths による条件付き読み込みができる。",
+          "textZh": "规则可以分子目录组织；带 paths 字段的规则只对匹配的文件加载。"
+        },
+        {
+          "text": "Only one rule file is allowed per project, so all rules must share a single paths field.",
+          "correct": false,
+          "explain": "不適。ルールファイルは複数置け、それぞれに別の paths を書ける。",
+          "textZh": "每个项目只允许一个规则文件，所以所有规则必须共用一个 paths 字段。"
+        },
+        {
+          "text": "Rule files must be JSON.",
+          "correct": false,
+          "explain": "不適。Markdown（必要に応じて YAML の前置き）で書く。",
+          "textZh": "规则文件必须是 JSON。"
+        },
+        {
+          "text": "Rules apply only in CI.",
+          "correct": false,
+          "explain": "不適。対話的なセッションでも使われる。",
+          "textZh": "规则只在 CI 中生效。"
+        }
+      ],
+      "objective": "Apply path-specific rules for conditional convention loading",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于 .claude/rules/ 中的规则，下列哪种说法正确？",
+      "commentaryZh": ".claude/rules/ 下的 .md 文件会被递归发现；有 paths 的条件加载，没有 paths 的启动时加载。"
+    },
+    {
+      "id": "ar3-041",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "A developer needs to add a null check to one function, with a clear stack trace pointing to the exact line. Which approach fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Direct execution — make the small, well-scoped change.",
+          "correct": true,
+          "explain": "正解。範囲が明確な小さな修正は、そのまま実行すればよい。",
+          "textZh": "直接执行——做这个范围明确的小改动。"
+        },
+        {
+          "text": "Plan mode with a multi-page design document first.",
+          "correct": false,
+          "explain": "不適。単純な修正に計画の手間をかけすぎ。",
+          "textZh": "先进入计划模式，写一份多页的设计文档。"
+        },
+        {
+          "text": "Spawn five subagents to explore the codebase.",
+          "correct": false,
+          "explain": "不適。原因箇所は既に分かっている。",
+          "textZh": "启动五个子智能体探索代码库。"
+        },
+        {
+          "text": "Refuse until a full test suite exists.",
+          "correct": false,
+          "explain": "不適。小さな修正に過剰な前提条件を課している。",
+          "textZh": "在完整的测试套件建好之前拒绝修改。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "开发者需要在一个函数里加一个空值检查，堆栈跟踪已经清楚地指向具体的那一行。哪种方式最合适？",
+      "commentaryZh": "计划模式适合大规模、多方案、架构性的改动；单文件、范围清楚的修复适合直接执行。"
+    },
+    {
+      "id": "ar3-042",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "The team must migrate from one HTTP client library to another; the change affects about 45 files and there are two plausible migration strategies. Which approach fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use plan mode to explore the codebase and decide on an approach before editing, then execute the agreed plan.",
+          "correct": true,
+          "explain": "正解。影響範囲が広く方針が複数ある変更は、先に計画してから実行すると手戻りを防げる。",
+          "textZh": "先用计划模式探索代码库、在修改之前确定方案，再执行商定的计划。"
+        },
+        {
+          "text": "Start editing the first file immediately and adjust as you go.",
+          "correct": false,
+          "explain": "不適。途中で方針が変わると大量の手戻りが出る。",
+          "textZh": "立即开始修改第一个文件，边改边调整。"
+        },
+        {
+          "text": "Ask Claude to pick a strategy at random.",
+          "correct": false,
+          "explain": "不適。判断の根拠がない。",
+          "textZh": "让 Claude 随机选一种策略。"
+        },
+        {
+          "text": "Make all 45 changes in one direct-execution message without reviewing, since mechanical changes do not need a plan.",
+          "correct": false,
+          "explain": "不適。確認なしの大規模変更はリスクが高い。",
+          "textZh": "用一条直接执行的指令一次改完 45 个文件，不做审阅，因为机械性的改动不需要计划。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队必须把一个 HTTP 客户端库迁移到另一个；改动涉及约 45 个文件，而且有两种可行的迁移策略。哪种方式最合适？",
+      "commentaryZh": "库迁移（多文件、多方案）是计划模式的典型场景：先计划，再直接执行实现。"
+    },
+    {
+      "id": "ar3-043",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "What does Claude Code do differently while plan mode is on?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It reads files and proposes a plan but makes no edits until the developer approves.",
+          "correct": true,
+          "explain": "正解。安全に調べて設計してから、承認後に変更に進む。",
+          "textZh": "它会读取文件并提出计划，但在开发者批准前不做任何修改。"
+        },
+        {
+          "text": "It edits files faster without asking.",
+          "correct": false,
+          "explain": "不適。逆。計画モードでは承認まで変更しない。",
+          "textZh": "不经询问就更快地修改文件。"
+        },
+        {
+          "text": "It disables all tools, including Read.",
+          "correct": false,
+          "explain": "不適。調査のための読み取りは行う。",
+          "textZh": "禁用包括 Read 在内的所有工具。"
+        },
+        {
+          "text": "It can only answer questions about planning, and it hides file contents from the model.",
+          "correct": false,
+          "explain": "不適。話題の制限ではない。",
+          "textZh": "它只能回答与规划有关的问题，并且会对模型隐藏文件内容。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "计划模式开启时，Claude Code 的行为有什么不同？",
+      "commentaryZh": "计划模式 = 只读探索 + 提出计划，批准后才改动。这样可以在投入修改前发现方案问题，避免返工。"
+    },
+    {
+      "id": "ar3-044",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "The team is choosing between event-driven and request-response integration with a new partner API; each option needs different infrastructure. What is the best workflow?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Plan mode: have Claude investigate both options, lay out the trade-offs, and agree on one before any code is written.",
+          "correct": true,
+          "explain": "正解。インフラまで変わる選択は、実装前の比較と合意が重要。",
+          "textZh": "计划模式：让 Claude 调查两种方案、列出取舍，在写任何代码之前先确定一种。"
+        },
+        {
+          "text": "Direct execution of the event-driven option because it is more modern, adjusting later if the infrastructure turns out to be a problem.",
+          "correct": false,
+          "explain": "不適。比較せずに決め打ちしている。",
+          "textZh": "直接执行事件驱动方案，因为它更现代，如果之后基础设施出问题再调整。"
+        },
+        {
+          "text": "Implement both fully, then delete one.",
+          "correct": false,
+          "explain": "不適。両方を作り込んでから片方を捨てるのは大きな無駄。",
+          "textZh": "两种都完整实现，再删掉一种。"
+        },
+        {
+          "text": "Let each developer implement whichever they prefer.",
+          "correct": false,
+          "explain": "不適。各自が好きな方式を実装すると設計が分裂する。",
+          "textZh": "让每位开发者实现自己喜欢的方案。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队要在「事件驱动」和「请求-响应」两种方式中选择与新合作方 API 的集成方案，两种方案需要不同的基础设施。最好的工作流是什么？",
+      "commentaryZh": "存在多个合理方案、且影响基础设施的决策，正是计划模式的用武之地。"
+    },
+    {
+      "id": "ar3-045",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "A multi-phase refactor starts with a broad discovery step that will produce a lot of output (listing every caller and dependency). How can the main conversation's context be protected?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use the Explore subagent for the discovery phase so the verbose output stays isolated and only a summary returns.",
+          "correct": true,
+          "explain": "正解。調査の詳細は隔離し、要点だけを本体に持ち帰る。",
+          "textZh": "在探查阶段使用 Explore 子智能体，让冗长输出留在隔离环境中，只返回摘要。"
+        },
+        {
+          "text": "Paste all discovery output into CLAUDE.md so it is available to every later phase of the refactor, including the final review.",
+          "correct": false,
+          "explain": "不適。毎回読み込まれ、文脈をさらに圧迫する。",
+          "textZh": "把所有探查输出粘贴进 CLAUDE.md，让重构的每个后续阶段都能用到，包括最后的审查。"
+        },
+        {
+          "text": "Skip discovery and start editing.",
+          "correct": false,
+          "explain": "不適。影響範囲が分からないまま変更することになる。",
+          "textZh": "跳过探查，直接开始修改。"
+        },
+        {
+          "text": "Run discovery twice to be sure.",
+          "correct": false,
+          "explain": "不適。出力がさらに増える。",
+          "textZh": "为保险起见把探查跑两遍。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一次多阶段重构以范围很广的探查步骤开始，会产生大量输出（列出所有调用方和依赖）。怎样保护主对话的上下文？",
+      "commentaryZh": "Explore 子智能体用于隔离冗长的发现阶段，防止主对话上下文耗尽。适合多阶段任务的前期调查。"
+    },
+    {
+      "id": "ar3-046",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 1,
+      "stem": "Which change is the best candidate for direct execution rather than plan mode?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Adding a date-format validation to a single input handler.",
+          "correct": true,
+          "explain": "正解。範囲が明確で小さい変更。",
+          "textZh": "给单个输入处理函数增加一个日期格式校验。"
+        },
+        {
+          "text": "Splitting a monolith into microservices.",
+          "correct": false,
+          "explain": "不適。アーキテクチャに関わる大規模な変更。",
+          "textZh": "把单体应用拆分成微服务。"
+        },
+        {
+          "text": "Choosing between two caching architectures for the session store.",
+          "correct": false,
+          "explain": "不適。方針の比較が必要。",
+          "textZh": "在两种缓存架构之间做选择（用于会话存储）。"
+        },
+        {
+          "text": "Upgrading a framework across 60 files.",
+          "correct": false,
+          "explain": "不適。多ファイルの大規模変更。",
+          "textZh": "在 60 个文件中升级框架。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪项改动最适合直接执行，而不是计划模式？",
+      "commentaryZh": "直接执行：范围清楚、改动小、方案唯一。计划模式：多文件、架构性、多方案。"
+    },
+    {
+      "id": "ar3-047",
+      "domain": "D3",
+      "type": "multi",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "Which TWO describe effective use of plan mode with direct execution? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Plan a large library migration in plan mode, then switch to direct execution to implement the approved plan.",
+          "correct": true,
+          "explain": "正解。調査と設計は計画モード、実装は直接実行という組み合わせ。",
+          "textZh": "在计划模式中规划大型库迁移，然后切换到直接执行来实施已批准的计划。"
+        },
+        {
+          "text": "Use plan mode to compare architectural options before committing to one.",
+          "correct": true,
+          "explain": "正解。方針決定の前に安全に調べられる。",
+          "textZh": "在确定之前，用计划模式比较几种架构方案。"
+        },
+        {
+          "text": "Use plan mode for every one-line typo fix.",
+          "correct": false,
+          "explain": "不適。一行の修正に計画モードを使うのは過剰な手順。",
+          "textZh": "每个一行的拼写修正都用计划模式。"
+        },
+        {
+          "text": "Stay in plan mode forever so nothing is ever changed.",
+          "correct": false,
+          "explain": "不適。実装に進まなければ意味がない。",
+          "textZh": "永远停留在计划模式，什么都不改。"
+        },
+        {
+          "text": "Skip planning for a 45-file migration because it is just mechanical.",
+          "correct": false,
+          "explain": "不適。影響範囲が広く、手戻りのリスクが大きい。",
+          "textZh": "45 个文件的迁移只是机械操作，所以跳过计划。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项描述了计划模式与直接执行的有效配合？（选 2 项）",
+      "commentaryZh": "组合拳：计划模式做调查与设计，批准后直接执行完成实现。小改动不必计划，大改动不应跳过计划。"
+    },
+    {
+      "id": "ar3-048",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "An engineer asks the productivity agent to \"understand how authentication works across our five services\" before proposing any change. What is the best setup?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Start in plan mode and delegate the verbose per-service exploration to subagents (for example the Explore subagent), keeping only summaries in the main context.",
+          "correct": true,
+          "explain": "正解。変更前の調査は計画モードで、詳細な探索は隔離して要点だけ残す。",
+          "textZh": "以计划模式开始，把冗长的逐服务探索交给子智能体（例如 Explore 子智能体），主上下文只保留摘要。"
+        },
+        {
+          "text": "Direct execution, editing files as they are read.",
+          "correct": false,
+          "explain": "不適。理解する前に変更を始めている。",
+          "textZh": "直接执行，边读文件边修改。"
+        },
+        {
+          "text": "Read all five services into the main context at once, so it can compare them side by side.",
+          "correct": false,
+          "explain": "不適。文脈が溢れ、回答の具体性が落ちる。",
+          "textZh": "一次性把五个服务全部读入主上下文，以便并排比较它们。"
+        },
+        {
+          "text": "Ask the engineer to draw a diagram first.",
+          "correct": false,
+          "explain": "不適。調査はエージェントに任せられる。",
+          "textZh": "先让工程师画一张图。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "工程师让效率智能体在提出任何修改之前，先「弄清认证在我们五个服务之间是怎么运作的」。最好的配置是什么？",
+      "commentaryZh": "「先理解、后修改」的大范围调查：计划模式 + 子智能体隔离冗长探索，主上下文保持高层理解。"
+    },
+    {
+      "id": "ar3-049",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "How can a developer start Claude Code directly in plan mode from the command line?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "claude --permission-mode plan",
+          "correct": true,
+          "explain": "正解。権限モードとして plan を指定して起動できる。",
+          "textZh": "claude --permission-mode plan"
+        },
+        {
+          "text": "claude --plan-only-forever",
+          "correct": false,
+          "explain": "不適。存在しないオプション。",
+          "textZh": "claude --plan-only-forever"
+        },
+        {
+          "text": "claude -p plan",
+          "correct": false,
+          "explain": "不適。-p は非対話モードで、\"plan\" はプロンプトとして扱われる。",
+          "textZh": "claude -p plan"
+        },
+        {
+          "text": "claude /plan.md",
+          "correct": false,
+          "explain": "不適。そのような起動方法ではない。",
+          "textZh": "claude /plan.md"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "开发者如何从命令行直接以计划模式启动 Claude Code？",
+      "commentaryZh": "计划模式可通过 --permission-mode plan 启动，也可在会话中切换。考试更看重「何时用」，但基本用法也要知道。"
+    },
+    {
+      "id": "ar3-050",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent is asked to rename a single private helper function used in one file. Which mode is most appropriate?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Direct execution.",
+          "correct": true,
+          "explain": "正解。影響範囲が1ファイルに収まる小さな変更。",
+          "textZh": "直接执行。"
+        },
+        {
+          "text": "Plan mode with stakeholder review.",
+          "correct": false,
+          "explain": "不適。手間が見合わない。",
+          "textZh": "计划模式加上相关方评审。"
+        },
+        {
+          "text": "A multi-agent research pipeline.",
+          "correct": false,
+          "explain": "不適。1ファイルの名前変更に多エージェントの仕組みは過剰。",
+          "textZh": "多智能体调研流水线。"
+        },
+        {
+          "text": "Batch processing overnight.",
+          "correct": false,
+          "explain": "不適。即時にできる小さな作業。",
+          "textZh": "夜间批处理。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体被要求重命名一个只在一个文件中使用的私有辅助函数。哪种模式最合适？",
+      "commentaryZh": "判断依据是改动的范围与不确定性。单文件、无歧义 → 直接执行。"
+    },
+    {
+      "id": "ar3-051",
+      "domain": "D3",
+      "type": "multi",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "During a long migration, the main session's context is filling with search results from earlier phases, and answers are getting less precise. Which TWO actions help? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Delegate further discovery to subagents so only summaries return to the main session.",
+          "correct": true,
+          "explain": "正解。詳細を隔離して本体の文脈を守る。",
+          "textZh": "把后续的探查工作交给子智能体，只把摘要带回主会话。"
+        },
+        {
+          "text": "Use /compact to summarize the conversation and free context.",
+          "correct": true,
+          "explain": "正解。長いセッションで文脈が埋まったときの手段。",
+          "textZh": "使用 /compact 总结对话、释放上下文。"
+        },
+        {
+          "text": "Paste the full search results again so they are fresh.",
+          "correct": false,
+          "explain": "不適。さらに文脈を消費する。",
+          "textZh": "再把完整的搜索结果粘贴一遍，让它们「新鲜」。"
+        },
+        {
+          "text": "Switch off plan mode and edit faster.",
+          "correct": false,
+          "explain": "不適。文脈の問題は解決しない。",
+          "textZh": "关闭计划模式，加快修改。"
+        },
+        {
+          "text": "Add all findings to the root CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。毎回読み込まれる分が増える。",
+          "textZh": "把所有发现加进根目录 CLAUDE.md。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/costs",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在一次漫长的迁移中，主会话的上下文被前几个阶段的搜索结果填满，回答越来越不精确。下列哪两项操作有帮助？（选 2 项）",
+      "commentaryZh": "长会话的上下文管理：子智能体隔离冗长输出、/compact 压缩历史。往 CLAUDE.md 里堆内容会适得其反。"
+    },
+    {
+      "id": "ar3-052",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which task is most suitable for plan mode?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Restructuring a monolith's payment module into a separate service.",
+          "correct": true,
+          "explain": "正解。アーキテクチャに関わる大きな変更。",
+          "textZh": "把单体应用中的支付模块重构为独立服务。"
+        },
+        {
+          "text": "Fixing a typo in a log message.",
+          "correct": false,
+          "explain": "不適。範囲が明確な小さな修正で、直接実行で十分。",
+          "textZh": "修正日志消息中的一个拼写错误。"
+        },
+        {
+          "text": "Updating a version number in one file and its changelog.",
+          "correct": false,
+          "explain": "不適。範囲が明確で小さい。",
+          "textZh": "更新一个文件中的版本号（及其变更日志）。"
+        },
+        {
+          "text": "Adding a missing semicolon.",
+          "correct": false,
+          "explain": "不適。範囲が明確な小さな修正で、直接実行で十分。",
+          "textZh": "补一个漏掉的分号。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪项任务最适合使用计划模式？",
+      "commentaryZh": "架构重组、多方案、多文件的改动适合计划模式；拼写、版本号这类范围明确的小改动直接执行即可。"
+    },
+    {
+      "id": "ar3-053",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "What is the main risk of using direct execution for a large change with several valid approaches?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Committing to an approach before exploring the trade-offs, leading to costly rework if it turns out to be the wrong one.",
+          "correct": true,
+          "explain": "正解。計画なしで大規模変更を始めると、方針転換のコストが大きい。",
+          "textZh": "在没有探索取舍之前就投入某个方案，如果方案不对，会造成代价高昂的返工。"
+        },
+        {
+          "text": "Direct execution cannot edit more than one file at a time.",
+          "correct": false,
+          "explain": "不適。技術的な制限ではない。",
+          "textZh": "直接执行不能修改多个文件（一次一个）。"
+        },
+        {
+          "text": "Direct execution disables version control.",
+          "correct": false,
+          "explain": "不適。直接実行がバージョン管理を無効にすることはない。",
+          "textZh": "直接执行会禁用版本控制。"
+        },
+        {
+          "text": "There is no risk.",
+          "correct": false,
+          "explain": "不適。手戻りのリスクがある。",
+          "textZh": "没有任何风险。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "对有多种可行方案的大型改动使用直接执行，主要风险是什么？",
+      "commentaryZh": "计划模式的价值是「在投入修改前安全探索和设计」，从而避免大规模返工。"
+    },
+    {
+      "id": "ar3-054",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "What is the purpose of the built-in Explore subagent in Claude Code?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "To run verbose, read-only discovery in an isolated context and return a summary, preserving the main conversation's context.",
+          "correct": true,
+          "explain": "正解。調査の詳細を隔離し、要点だけを持ち帰る。",
+          "textZh": "在隔离的上下文中进行冗长的只读探查，并返回摘要，从而保护主对话的上下文。"
+        },
+        {
+          "text": "To deploy code to production.",
+          "correct": false,
+          "explain": "不適。Explore はデプロイのためのものではなく、調査用のサブエージェント。",
+          "textZh": "把代码部署到生产环境。"
+        },
+        {
+          "text": "To edit files faster than the main agent by working on several files in parallel, each with its own copy of the repository.",
+          "correct": false,
+          "explain": "不適。Explore は読み取り専用の調査用で、ファイルを変更する役割ではない。",
+          "textZh": "通过并行处理多个文件，比主智能体更快地修改文件，每个都有自己的仓库副本。"
+        },
+        {
+          "text": "To replace CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。CLAUDE.md の代わりになるものではない。調査の出力を隔離するためのもの。",
+          "textZh": "取代 CLAUDE.md。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "Claude Code 内置的 Explore 子智能体有什么用途？",
+      "commentaryZh": "Explore 子智能体用于隔离探索性输出，防止多阶段任务中主上下文被耗尽。"
+    },
+    {
+      "id": "ar3-055",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A developer uses plan mode for a feature with two valid designs. Claude's plan picks design A, but the developer prefers design B for operational reasons. What is the best next step?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Give feedback on the plan with the operational constraint, have Claude revise it toward design B, and approve before execution.",
+          "correct": true,
+          "explain": "正解。計画段階で修正できるのが計画モードの利点。制約を伝えて計画を直す。",
+          "textZh": "带着运维上的约束对计划给出反馈，让 Claude 朝设计 B 修改计划，批准后再执行。"
+        },
+        {
+          "text": "Approve plan A anyway to save time.",
+          "correct": false,
+          "explain": "不適。後で作り直す可能性が高い。",
+          "textZh": "为了节省时间，照样批准计划 A。"
+        },
+        {
+          "text": "Leave plan mode and implement design B without telling Claude why, so the plan does not slow the work down.",
+          "correct": false,
+          "explain": "不適。制約が共有されず、以降の判断に活かされない。",
+          "textZh": "退出计划模式，不说明原因直接实现设计 B，免得计划拖慢工作。"
+        },
+        {
+          "text": "Restart the session and hope for design B.",
+          "correct": false,
+          "explain": "不適。理由を伝えなければ同じ結果になり得る。",
+          "textZh": "重开会话，期待它这次选设计 B。"
+        }
+      ],
+      "objective": "Determine when to use plan mode vs direct execution",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "开发者对一个有两种可行设计的功能使用了计划模式。Claude 的计划选了设计 A，但开发者出于运维原因更倾向设计 B。最好的下一步是什么？",
+      "commentaryZh": "计划模式的意义在于「在动手前对齐方案」。把约束告诉 Claude 并修订计划，比事后返工便宜得多。"
+    },
+    {
+      "id": "ar3-056",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 2,
+      "stem": "Claude keeps formatting dates inconsistently in a data-transformation function despite a prose description of the desired output. What is the most effective next step?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Provide 2–3 concrete input/output examples showing exactly how each date should be transformed.",
+          "correct": true,
+          "explain": "正解。言葉の説明が解釈ぶれを起こすときは、具体的な入出力例が最も伝わる。",
+          "textZh": "提供 2–3 个具体的输入/输出示例，准确展示每种日期应如何转换。"
+        },
+        {
+          "text": "Repeat the same prose description in capital letters.",
+          "correct": false,
+          "explain": "不適。情報が増えていない。",
+          "textZh": "用大写字母重复同样的文字描述。"
+        },
+        {
+          "text": "Ask Claude to try harder.",
+          "correct": false,
+          "explain": "不適。「頑張って」は具体的な情報を何も足していない。",
+          "textZh": "让 Claude 再努力一点。"
+        },
+        {
+          "text": "Switch to plan mode so Claude writes out its understanding of the format first, in detail.",
+          "correct": false,
+          "explain": "不適。変換仕様の曖昧さは解消しない。",
+          "textZh": "切换到计划模式，让 Claude 先写出它对格式的理解，写得很详细。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "尽管用文字描述了期望的输出，Claude 在一个数据转换函数中仍然不一致地格式化日期。最有效的下一步是什么？",
+      "commentaryZh": "文字描述被不一致地理解时，2–3 个具体输入/输出示例是传达转换要求最有效的方式。"
+    },
+    {
+      "id": "ar3-057",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S2",
+      "difficulty": 3,
+      "stem": "A developer is building a caching layer in an unfamiliar domain and is not sure what could go wrong. Which iterative refinement technique fits best before implementation?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The interview pattern: ask Claude to question the developer about requirements such as invalidation strategy and failure modes before writing code.",
+          "correct": true,
+          "explain": "正解。開発者が想定していない論点を、実装前に引き出せる。",
+          "textZh": "访谈模式：让 Claude 在写代码前就失效策略、故障模式等需求向开发者提问。"
+        },
+        {
+          "text": "Ask Claude to implement immediately and fix issues later, since bugs are easier to see in working code.",
+          "correct": false,
+          "explain": "不適。設計上の見落としが後で大きな手戻りになる。",
+          "textZh": "让 Claude 立即实现，问题以后再修，因为在能运行的代码里更容易看出 bug。"
+        },
+        {
+          "text": "Provide one vague sentence and accept the first result.",
+          "correct": false,
+          "explain": "不適。前提が曖昧なまま。",
+          "textZh": "只给一句模糊的话，接受第一个结果。"
+        },
+        {
+          "text": "Copy a caching library's README into CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。この案件の要件は明らかにならない。",
+          "textZh": "把某个缓存库的 README 复制进 CLAUDE.md。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位开发者要在不熟悉的领域里构建缓存层，不确定会遇到什么问题。在实现之前，哪种迭代改进技巧最合适？",
+      "commentaryZh": "访谈模式：让 Claude 先提问，暴露开发者未预料到的考虑点（缓存失效、故障模式等）。适合陌生领域的设计。"
+    },
+    {
+      "id": "ar3-058",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "A migration script mishandles null values in one column. What is the most effective way to get Claude to fix this edge case?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Give a specific test case: an example input row containing null and the exact expected output.",
+          "correct": true,
+          "explain": "正解。具体的な入力と期待出力があれば、修正の目標が明確になる。",
+          "textZh": "给出具体的测试用例：一行包含 null 的示例输入，以及准确的期望输出。"
+        },
+        {
+          "text": "Say \"handle nulls better.\"",
+          "correct": false,
+          "explain": "不適。何が正しい挙動か伝わらない。",
+          "textZh": "说一句「把 null 处理得更好些」。"
+        },
+        {
+          "text": "Rewrite the entire script from scratch with more defensive checks everywhere and better logging.",
+          "correct": false,
+          "explain": "不適。局所的な問題に過剰な対応。",
+          "textZh": "从头重写整个脚本，到处加上更多防御性检查，并加上更好的日志记录。"
+        },
+        {
+          "text": "Ignore null rows during migration.",
+          "correct": false,
+          "explain": "不適。データが欠落する。",
+          "textZh": "迁移时忽略含 null 的行。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个迁移脚本对某一列的 null 值处理有误。让 Claude 修复这个边界情况的最有效方式是什么？",
+      "commentaryZh": "用具体的输入与期望输出来修复边界情况，是 3.5 中明确列出的技能。"
+    },
+    {
+      "id": "ar3-059",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "What is test-driven iteration when working with Claude Code?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Writing tests for expected behavior and edge cases first, then iterating by sharing the test failures with Claude until they pass.",
+          "correct": true,
+          "explain": "正解。テストが「完成の基準」になり、失敗内容が具体的なフィードバックになる。",
+          "textZh": "先为期望行为和边界情况编写测试，然后把测试失败结果反馈给 Claude，反复迭代直到测试通过。"
+        },
+        {
+          "text": "Asking Claude to write tests after the code is in production, when real usage reveals the edge cases.",
+          "correct": false,
+          "explain": "不適。順序が逆。テストを先に書いて基準にするのがテスト駆動。",
+          "textZh": "在代码上线后再让 Claude 写测试，那时真实使用会暴露边界情况。"
+        },
+        {
+          "text": "Running tests only once at the end.",
+          "correct": false,
+          "explain": "不適。反復の材料にならない。",
+          "textZh": "只在最后运行一次测试。"
+        },
+        {
+          "text": "Deleting failing tests.",
+          "correct": false,
+          "explain": "不適。問題を隠している。",
+          "textZh": "删除失败的测试。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在使用 Claude Code 时，什么是「测试驱动的迭代」？",
+      "commentaryZh": "测试先行 + 用失败信息引导修改，是让 Claude 渐进改进的可靠方式。"
+    },
+    {
+      "id": "ar3-060",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Three bugs were found in a function: two of them interact (fixing one changes the other), and one is independent. How should they be communicated to Claude?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Describe the two interacting bugs together in one detailed message, and handle the independent one separately.",
+          "correct": true,
+          "explain": "正解。相互に影響する問題はまとめて、独立した問題は順番に扱う。",
+          "textZh": "把两个相互关联的 bug 放在一条详细的消息里一起说明，独立的那个单独处理。"
+        },
+        {
+          "text": "Send each bug in a separate message in random order.",
+          "correct": false,
+          "explain": "不適。相互作用する修正が噛み合わなくなる。",
+          "textZh": "按随机顺序分别发送每个 bug。"
+        },
+        {
+          "text": "Mention only the most severe bug.",
+          "correct": false,
+          "explain": "不適。残りが放置される。",
+          "textZh": "只提最严重的那个 bug。"
+        },
+        {
+          "text": "Ask Claude to find the bugs on its own without mentioning them, to avoid biasing its review in any way.",
+          "correct": false,
+          "explain": "不適。既知の情報を渡していない。",
+          "textZh": "不提这些 bug，让 Claude 自己去找，以免影响它的判断（无论以何种方式）。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在一个函数中发现了三个 bug：其中两个相互关联（修一个会影响另一个），另一个是独立的。应该如何告诉 Claude？",
+      "commentaryZh": "相互影响的问题要在一条消息中一起处理；彼此独立的问题适合逐个迭代。这是 3.5 的判断点。"
+    },
+    {
+      "id": "ar3-061",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "In CI, Claude Code generates tests that keep covering the same happy path the existing suite already covers. What is the most effective fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Provide the existing test files in context so generation avoids duplicate scenarios and targets gaps.",
+          "correct": true,
+          "explain": "正解。既存のテストを見せれば、重複を避けて足りない部分に集中できる。",
+          "textZh": "把现有测试文件放进上下文，让生成过程避开重复场景、针对空白处。"
+        },
+        {
+          "text": "Ask for \"more creative tests.\" and more edge cases in general.",
+          "correct": false,
+          "explain": "不適。何が既にあるか分からないまま。",
+          "textZh": "要求「更有创意的测试」，以及更多的边界情况。"
+        },
+        {
+          "text": "Generate twice as many tests.",
+          "correct": false,
+          "explain": "不適。重複が増えるだけ。",
+          "textZh": "生成两倍数量的测试。"
+        },
+        {
+          "text": "Delete the existing tests.",
+          "correct": false,
+          "explain": "不適。カバレッジを失う。",
+          "textZh": "删除现有测试。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在 CI 中，Claude Code 生成的测试总是覆盖现有测试套件已经覆盖的同一条正常路径。最有效的修正是什么？",
+      "commentaryZh": "把已有测试作为上下文提供，能避免重复生成已覆盖的场景。考试指南中有这个技能点。"
+    },
+    {
+      "id": "ar3-062",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The CI test-generation job produces many low-value tests (trivial getters, duplicated assertions). Which change most improves quality over time?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Document in CLAUDE.md what makes a test valuable, the testing standards, and the available fixtures, and include examples of good tests.",
+          "correct": true,
+          "explain": "正解。基準と材料を明文化すると、生成されるテストの質が安定する。",
+          "textZh": "在 CLAUDE.md 中写明什么样的测试有价值、测试规范和可用的 fixture，并附上好测试的示例。"
+        },
+        {
+          "text": "Reject every generated test manually.",
+          "correct": false,
+          "explain": "不適。原因が改善されない。",
+          "textZh": "手动拒绝每一个生成的测试。"
+        },
+        {
+          "text": "Generate tests only on Fridays.",
+          "correct": false,
+          "explain": "不適。曜日を限っても、テストの質の基準は改善しない。",
+          "textZh": "只在周五生成测试。"
+        },
+        {
+          "text": "Ask for at least 50 tests per PR so the important cases are statistically likely to be included in the output somewhere.",
+          "correct": false,
+          "explain": "不適。量を求めると低価値のテストが増える。",
+          "textZh": "要求每个 PR 至少 50 个测试，让重要的用例在统计上更可能被包含进去（在输出中的某处）。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 中的测试生成任务产出了大量价值低的测试（琐碎的 getter、重复的断言）。哪种改动最能持续提升质量？",
+      "commentaryZh": "在 CLAUDE.md 中记录测试标准、有价值测试的判据和 fixture，是提升 CI 测试生成质量的标准做法。"
+    },
+    {
+      "id": "ar3-063",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "The CI reviewer's comments on code style are interpreted inconsistently: \"prefer early returns\" sometimes produces suggestions that change behavior. What refinement is most effective?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add 2–3 concrete before/after code examples of the intended transformation, including one where early return must not be applied.",
+          "correct": true,
+          "explain": "正解。具体例は言葉より正確に意図を伝え、適用してはいけない場合も示せる。",
+          "textZh": "加入 2–3 个预期改写的具体前后代码示例，其中包括一个不应使用提前返回的例子。"
+        },
+        {
+          "text": "Repeat \"prefer early returns\" three times in different words.",
+          "correct": false,
+          "explain": "不適。曖昧さはそのまま。",
+          "textZh": "把「优先使用提前返回」重复三遍（用不同的说法）。"
+        },
+        {
+          "text": "Disable the reviewer.",
+          "correct": false,
+          "explain": "不適。有用な指摘まで失う。",
+          "textZh": "停用审查器。"
+        },
+        {
+          "text": "Ask developers to ignore style comments.",
+          "correct": false,
+          "explain": "不適。問題を放置している。",
+          "textZh": "让开发者忽略风格方面的评论。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 审查器对代码风格的评论理解不一致：「优先使用提前返回」有时会产生改变行为的建议。哪种改进最有效？",
+      "commentaryZh": "文字规则被不一致执行时，用具体的输入/输出（前后对比）示例来澄清，包括反例。"
+    },
+    {
+      "id": "ar3-064",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "A flaky integration test keeps failing in CI, and Claude's first fix did not work. What is the most productive next iteration?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Share the exact failure output from the latest run and what changed, so Claude can refine the fix based on concrete evidence.",
+          "correct": true,
+          "explain": "正解。具体的な失敗情報が、次の修正の手がかりになる。",
+          "textZh": "提供最近一次运行的确切失败输出以及改动内容，让 Claude 基于具体证据改进修复。"
+        },
+        {
+          "text": "Tell Claude \"it still fails\" with no details.",
+          "correct": false,
+          "explain": "不適。新しい情報が無い。",
+          "textZh": "只告诉 Claude「还是失败」，不给细节。"
+        },
+        {
+          "text": "Mark the test as skipped.",
+          "correct": false,
+          "explain": "不適。問題を隠している。",
+          "textZh": "把测试标记为跳过。"
+        },
+        {
+          "text": "Revert all recent commits to find the one that made the test flaky.",
+          "correct": false,
+          "explain": "不適。無関係な変更まで失う。",
+          "textZh": "撤销所有最近的提交，找出让测试变得不稳定的那一个。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个不稳定的集成测试在 CI 中反复失败，Claude 的第一次修复没有生效。最有成效的下一轮迭代是什么？",
+      "commentaryZh": "迭代改进依赖具体反馈：测试失败的输出、日志、差异。只说「还是不行」无法推进。"
+    },
+    {
+      "id": "ar3-065",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "Before generating tests for a new rate limiter, the team wants Claude to surface edge cases they may have missed (burst traffic, clock skew, distributed counters). Which technique fits?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The interview pattern: have Claude ask clarifying questions about requirements and failure modes before writing tests.",
+          "correct": true,
+          "explain": "正解。実装やテストの前に論点を洗い出せる。",
+          "textZh": "访谈模式：让 Claude 在写测试之前就需求和故障模式提出澄清问题。"
+        },
+        {
+          "text": "Generate tests immediately and see what fails, then add the missing cases one by one.",
+          "correct": false,
+          "explain": "不適。想定していない論点は最初のテストにも入らない。",
+          "textZh": "立即生成测试，看哪些失败，再一个个补上缺失的用例。"
+        },
+        {
+          "text": "Copy tests from another project.",
+          "correct": false,
+          "explain": "不適。この仕様に合わない可能性が高い。",
+          "textZh": "从另一个项目复制测试。"
+        },
+        {
+          "text": "Only test the happy path.",
+          "correct": false,
+          "explain": "不適。限流器の重要な振る舞いが抜ける。",
+          "textZh": "只测试正常路径。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在为新的限流器生成测试之前，团队希望 Claude 指出他们可能遗漏的边界情况（突发流量、时钟偏差、分布式计数器）。哪种技巧合适？",
+      "commentaryZh": "访谈模式能在实现/测试前发掘开发者没有预料到的考虑点，适合陌生或复杂的领域。"
+    },
+    {
+      "id": "ar3-066",
+      "domain": "D3",
+      "type": "multi",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Which TWO are examples of test-driven iteration in a CI workflow with Claude Code? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Writing tests that capture expected behavior and performance requirements before implementation.",
+          "correct": true,
+          "explain": "正解。テストを先に書いて完成の基準にする。",
+          "textZh": "在实现之前编写体现期望行为和性能要求的测试。"
+        },
+        {
+          "text": "Feeding failing test output back to Claude to guide the next fix.",
+          "correct": true,
+          "explain": "正解。失敗内容が次の改善の材料になる。",
+          "textZh": "把失败的测试输出反馈给 Claude，引导下一次修复。"
+        },
+        {
+          "text": "Disabling tests that fail.",
+          "correct": false,
+          "explain": "不適。失敗するテストを止めるのは問題を隠すだけ。",
+          "textZh": "禁用失败的测试。"
+        },
+        {
+          "text": "Asking Claude to guess whether code works without running tests.",
+          "correct": false,
+          "explain": "不適。検証になっていない。",
+          "textZh": "不运行测试，让 Claude 猜代码是否能用。"
+        },
+        {
+          "text": "Writing tests only after release.",
+          "correct": false,
+          "explain": "不適。反復の基準にならない。",
+          "textZh": "只在发布后编写测试。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项是在 CI 工作流中与 Claude Code 进行测试驱动迭代的例子？（选 2 项）",
+      "commentaryZh": "测试驱动迭代 = 先写测试（含边界与性能要求）→ 实现 → 把失败反馈给 Claude → 重复。"
+    },
+    {
+      "id": "ar3-067",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 1,
+      "stem": "When prose instructions for a code transformation are being interpreted inconsistently, what is the recommended remedy?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Provide concrete input/output examples.",
+          "correct": true,
+          "explain": "正解。具体例は解釈のぶれを減らす。",
+          "textZh": "提供具体的输入/输出示例。"
+        },
+        {
+          "text": "Make the prose longer and more abstract.",
+          "correct": false,
+          "explain": "不適。抽象的にするほど解釈のぶれが増える。",
+          "textZh": "把文字说明写得更长、更抽象。"
+        },
+        {
+          "text": "Stop giving instructions.",
+          "correct": false,
+          "explain": "不適。指示をやめれば基準がなくなり、結果はさらにぶれる。",
+          "textZh": "不再给出任何指令。"
+        },
+        {
+          "text": "Switch to a different programming language.",
+          "correct": false,
+          "explain": "不適。言語を変えても、指示の曖昧さという原因は変わらない。",
+          "textZh": "换一种编程语言。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "当关于代码改写的文字说明被不一致地理解时，推荐的补救方法是什么？",
+      "commentaryZh": "具体的输入/输出示例是消除歧义的最有效方式（与 4.2 的少样本思路相通）。"
+    },
+    {
+      "id": "ar3-068",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "The CI reviewer flagged three issues on a PR. The developer fixed them, but two fixes interact with each other and the reviewer now reports a new problem caused by their combination. How should the developer iterate with Claude?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Describe the two interacting fixes and the new problem together in one detailed message so Claude can resolve them as a whole.",
+          "correct": true,
+          "explain": "正解。相互作用する問題はまとめて扱わないと、片方を直すたびにもう片方が壊れる。",
+          "textZh": "在一条详细的消息中一起说明这两个相互影响的修复和新问题，让 Claude 整体解决。"
+        },
+        {
+          "text": "Fix each issue in a separate session without mentioning the others, so each fix stays small and easy to review.",
+          "correct": false,
+          "explain": "不適。相互作用が見えず、同じ衝突を繰り返す。",
+          "textZh": "在不同会话中分别修复每个问题，不提其他问题，让每个修复都保持小而易审查。"
+        },
+        {
+          "text": "Revert all three fixes.",
+          "correct": false,
+          "explain": "不適。正しい修正まで失う。",
+          "textZh": "撤销全部三个修复。"
+        },
+        {
+          "text": "Ignore the new problem.",
+          "correct": false,
+          "explain": "不適。新しい問題を放置すれば不具合が残る。",
+          "textZh": "忽略新问题。"
+        }
+      ],
+      "objective": "Apply iterative refinement techniques for progressive improvement",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 审查器在一个 PR 上标出了三个问题。开发者修复后，其中两个修复相互影响，审查器又报告了由它们组合引起的新问题。开发者应如何与 Claude 迭代？",
+      "commentaryZh": "相互影响的问题应在一条消息中整体处理；互不相关的问题可以逐个迭代。"
+    },
+    {
+      "id": "ar3-069",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity team wants a nightly job that runs Claude Code non-interactively to update boilerplate docs. Which flag prevents the job from hanging while waiting for interactive input?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "-p (--print)",
+          "correct": true,
+          "explain": "正解。非対話モードで実行し、結果を出力して終了する。",
+          "textZh": "-p（--print）"
+        },
+        {
+          "text": "--permission-mode plan",
+          "correct": false,
+          "explain": "不適。計画モードで、変更が行われない。",
+          "textZh": "--permission-mode plan"
+        },
+        {
+          "text": "/compact",
+          "correct": false,
+          "explain": "不適。対話中のコマンド。",
+          "textZh": "/compact"
+        },
+        {
+          "text": "--resume",
+          "correct": false,
+          "explain": "不適。セッションの再開で、非対話化ではない。",
+          "textZh": "--resume"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率团队想要一个夜间任务，非交互地运行 Claude Code 来更新样板文档。哪个参数能防止任务因等待交互输入而卡住？",
+      "commentaryZh": "在自动化流水线中用 -p（--print）以非交互模式运行 Claude Code，避免等待输入而挂起。"
+    },
+    {
+      "id": "ar3-070",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 1,
+      "stem": "Which command-line flag runs Claude Code non-interactively in a CI pipeline?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "-p (or --print)",
+          "correct": true,
+          "explain": "正解。CI での実行の基本。",
+          "textZh": "-p（或 --print）"
+        },
+        {
+          "text": "--interactive",
+          "correct": false,
+          "explain": "不適。存在しない／目的と逆。",
+          "textZh": "--interactive"
+        },
+        {
+          "text": "--watch",
+          "correct": false,
+          "explain": "不適。非対話化のフラグではない。",
+          "textZh": "--watch"
+        },
+        {
+          "text": "--debug-only",
+          "correct": false,
+          "explain": "不適。非対話化のフラグではない。",
+          "textZh": "--debug-only"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "哪个命令行参数可以在 CI 流水线中以非交互方式运行 Claude Code？",
+      "commentaryZh": "-p / --print 是 CI 中运行 Claude Code 的基础参数。"
+    },
+    {
+      "id": "ar3-071",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The CI job must post Claude Code's review findings as inline PR comments, which requires machine-parseable output matching a fixed structure. Which flags fit best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "--output-format json together with --json-schema describing the findings structure.",
+          "correct": true,
+          "explain": "正解。JSON で出力し、スキーマで構造を検証できる。",
+          "textZh": "--output-format json 配合描述发现结构的 --json-schema。"
+        },
+        {
+          "text": "--verbose only.",
+          "correct": false,
+          "explain": "不適。ログが増えるだけ。",
+          "textZh": "只用 --verbose。"
+        },
+        {
+          "text": "Ask in the prompt for \"neat formatting.\" and a consistent tone.",
+          "correct": false,
+          "explain": "不適。機械処理に耐える構造は保証されない。",
+          "textZh": "在提示词里要求「格式整齐」以及一致的语气。"
+        },
+        {
+          "text": "--permission-mode plan.",
+          "correct": false,
+          "explain": "不適。出力形式とは無関係。",
+          "textZh": "--permission-mode plan。"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 任务需要把 Claude Code 的审查发现发布为 PR 行内评论，这需要符合固定结构、可被机器解析的输出。哪组参数最合适？",
+      "commentaryZh": "CI 中要获得机器可解析的结构化结果：--output-format json + --json-schema。"
+    },
+    {
+      "id": "ar3-072",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Why is it more effective for a separate Claude Code instance to review code that another session generated, rather than asking the generating session to review its own work?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The generating session retains its own reasoning and is less likely to question its earlier decisions; an independent instance reviews without that bias.",
+          "correct": true,
+          "explain": "正解。生成時の文脈を持たない独立したレビューのほうが見落としに気づきやすい。",
+          "textZh": "生成代码的会话保留了自己的推理过程，不太会质疑自己之前的决定；独立实例没有这种偏向。"
+        },
+        {
+          "text": "A separate instance has a larger context window, so it can hold the full diff plus the requirements at once.",
+          "correct": false,
+          "explain": "不適。文脈の大きさの問題ではない。",
+          "textZh": "独立实例的上下文窗口更大，可以同时容纳完整的 diff 和需求。"
+        },
+        {
+          "text": "The same session is not allowed to read its own files.",
+          "correct": false,
+          "explain": "不適。技術的な制限ではない。",
+          "textZh": "同一会话不允许读取自己的文件。"
+        },
+        {
+          "text": "Separate instances are always cheaper.",
+          "correct": false,
+          "explain": "不適。費用は理由ではない。",
+          "textZh": "独立实例总是更便宜。"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么让另一个独立的 Claude Code 实例来审查由某个会话生成的代码，比让生成代码的会话自审更有效？",
+      "commentaryZh": "会话上下文隔离：生成者带着自己的推理，审查自己时容易「自圆其说」。独立实例更能发现细微问题（4.6 也会考）。"
+    },
+    {
+      "id": "ar3-073",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "After a developer pushes new commits, the CI reviewer runs again and reposts many comments that were already addressed or already posted. What is the best fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Include the prior review findings in the context and instruct Claude to report only new or still-unaddressed issues.",
+          "correct": true,
+          "explain": "正解。前回の指摘を渡せば、重複を避けて差分だけを報告できる。",
+          "textZh": "把之前的审查发现放进上下文，并要求 Claude 只报告新出现的或仍未处理的问题。"
+        },
+        {
+          "text": "Run the reviewer only on the first commit of every PR, since later commits are usually small.",
+          "correct": false,
+          "explain": "不適。新しい変更の問題を見逃す。",
+          "textZh": "每个 PR 只在第一次提交时运行审查器，因为之后的提交通常都很小。"
+        },
+        {
+          "text": "Delete all previous comments before each run.",
+          "correct": false,
+          "explain": "不適。議論の履歴が消える。",
+          "textZh": "每次运行前删除所有之前的评论。"
+        },
+        {
+          "text": "Ask developers to ignore duplicate comments.",
+          "correct": false,
+          "explain": "不適。重複コメントを放置すると、レビューへの信頼を損なう。",
+          "textZh": "让开发者忽略重复的评论。"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "开发者推送新提交后，CI 审查器再次运行，又重复发布了许多已经处理过或已经发过的评论。最好的修正是什么？",
+      "commentaryZh": "重新审查时提供之前的发现，并要求只报告新的或未解决的问题，可以避免重复评论。"
+    },
+    {
+      "id": "ar3-074",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Where should CI-invoked Claude Code get project context such as review criteria, testing standards, and fixture conventions?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "From the repository's CLAUDE.md (and the rules it loads).",
+          "correct": true,
+          "explain": "正解。リポジトリに含まれるので CI でも同じ文脈が使われる。",
+          "textZh": "从仓库的 CLAUDE.md（及其加载的规则）中获取。"
+        },
+        {
+          "text": "From the developer's ~/.claude/CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。CI のランナーには存在しない。",
+          "textZh": "从开发者的 ~/.claude/CLAUDE.md 中获取。"
+        },
+        {
+          "text": "From a hard-coded string in the CI log.",
+          "correct": false,
+          "explain": "不適。ログに埋め込んだ文字列は管理も共有もできない。",
+          "textZh": "从 CI 日志中硬编码的字符串获取。"
+        },
+        {
+          "text": "It cannot receive project context.",
+          "correct": false,
+          "explain": "不適。CLAUDE.md で渡せる。",
+          "textZh": "它无法获得项目上下文。"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在 CI 中被调用的 Claude Code 应从哪里获取审查标准、测试规范和 fixture 约定等项目上下文？",
+      "commentaryZh": "CLAUDE.md 是向 CI 中的 Claude Code 提供项目上下文的机制。"
+    },
+    {
+      "id": "ar3-075",
+      "domain": "D3",
+      "type": "multi",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "Which TWO practices reduce noise from a CI code reviewer powered by Claude Code? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Passing prior findings and asking only for new or unresolved issues on re-runs.",
+          "correct": true,
+          "explain": "正解。重複コメントを防ぐ。",
+          "textZh": "重新运行时传入之前的发现，只要求新的或未解决的问题。"
+        },
+        {
+          "text": "Using --output-format json with --json-schema so only well-formed findings are posted.",
+          "correct": true,
+          "explain": "正解。構造化された結果だけを機械的に投稿できる。",
+          "textZh": "使用 --output-format json 和 --json-schema，只发布格式正确的发现。"
+        },
+        {
+          "text": "Asking the same session that wrote the code to review it.",
+          "correct": false,
+          "explain": "不適。自己レビューは見落としが増える。",
+          "textZh": "让写代码的同一个会话来审查。"
+        },
+        {
+          "text": "Posting raw free-text output as one large comment.",
+          "correct": false,
+          "explain": "不適。行ごとの指摘にならず、読みにくい。",
+          "textZh": "把原始自由文本输出作为一条大评论发布。"
+        },
+        {
+          "text": "Running the reviewer in interactive mode.",
+          "correct": false,
+          "explain": "不適。CI では入力待ちで止まる。",
+          "textZh": "以交互模式运行审查器。"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项做法能减少由 Claude Code 驱动的 CI 代码审查器产生的噪音？（选 2 项）",
+      "commentaryZh": "CI 审查降噪：去重（传入历史发现）+ 结构化输出（json + schema）+ 独立实例审查。"
+    },
+    {
+      "id": "ar3-076",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 1,
+      "stem": "Why can a CI job using Claude Code without -p hang?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Without -p, Claude Code starts an interactive session and waits for input that never arrives in CI.",
+          "correct": true,
+          "explain": "正解。非対話モードでなければ入力待ちになる。",
+          "textZh": "不带 -p 时，Claude Code 会启动交互式会话并等待输入，而在 CI 中永远不会有输入。"
+        },
+        {
+          "text": "-p is required to authenticate with the API from a CI runner.",
+          "correct": false,
+          "explain": "不適。認証とは関係ない。",
+          "textZh": "在 CI 运行器上需要 -p 才能完成 API 认证。"
+        },
+        {
+          "text": "Without -p, the model refuses to run.",
+          "correct": false,
+          "explain": "不適。拒否ではなく待機。",
+          "textZh": "不带 -p 时模型拒绝运行。"
+        },
+        {
+          "text": "CI runners cannot run Node.js.",
+          "correct": false,
+          "explain": "不適。Node.js の問題ではない。非対話モードでないため入力待ちになっている。",
+          "textZh": "CI 运行器无法运行 Node.js。"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么不带 -p 运行 Claude Code 的 CI 任务可能会挂起？",
+      "commentaryZh": "CI 的关键是用 -p 以非交互模式运行；否则 Claude Code 会启动交互会话并一直等待永远不会到来的输入。"
+    },
+    {
+      "id": "ar3-077",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "The CI pipeline needs to fail the build if the review output does not include a \"severity\" field for each finding. Which approach supports this most directly?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use --json-schema with severity as a required field so the output is validated against the schema.",
+          "correct": true,
+          "explain": "正解。スキーマで必須項目を指定すれば、構造を検証できる。",
+          "textZh": "使用 --json-schema，并把 severity 设为必填字段，让输出按 schema 校验。"
+        },
+        {
+          "text": "Ask Claude to \"always include severity.\"",
+          "correct": false,
+          "explain": "不適。プロンプトのお願いでは、項目が必ず含まれる保証にならない。",
+          "textZh": "让 Claude「总是包含 severity」。"
+        },
+        {
+          "text": "Grep the free-text output for the word severity and fail when it is missing.",
+          "correct": false,
+          "explain": "不適。形式が揺れると壊れる。",
+          "textZh": "在自由文本输出中用 grep 搜索 severity 一词，缺失就让构建失败。"
+        },
+        {
+          "text": "Run the job twice and compare.",
+          "correct": false,
+          "explain": "不適。構造の検証にならない。",
+          "textZh": "把任务跑两遍再比较。"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "如果审查输出中的每条发现没有 \"severity\" 字段，CI 流水线就需要让构建失败。哪种做法最直接地支持这一点？",
+      "commentaryZh": "--json-schema 在 print 模式下对输出进行校验，适合 CI 对结构化结果有硬性要求的场景。"
+    },
+    {
+      "id": "ar3-078",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 3,
+      "stem": "The review step and the code-generation step currently run in the same Claude Code session in CI. Reviews rarely find problems even when bugs slip through. What change follows the guidance?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run the review in a separate, independent Claude Code invocation that does not carry the generation session's context.",
+          "correct": true,
+          "explain": "正解。生成時の推理を持たない独立したインスタンスのほうが問題に気づきやすい。",
+          "textZh": "让审查在一个独立的 Claude Code 调用中运行，不带生成会话的上下文。"
+        },
+        {
+          "text": "Tell the same session to \"review more critically.\"",
+          "correct": false,
+          "explain": "不適。同じ文脈の偏りは残る。",
+          "textZh": "告诉同一个会话「更严格地审查」。"
+        },
+        {
+          "text": "Increase max turns for the same session so it has more room to re-examine the code.",
+          "correct": false,
+          "explain": "不適。偏りは解消しない。",
+          "textZh": "增加同一会话的最大回合数，让它有更多空间重新检查代码。"
+        },
+        {
+          "text": "Skip the review step.",
+          "correct": false,
+          "explain": "不適。レビューを省けば品質が下がる。",
+          "textZh": "跳过审查步骤。"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "目前在 CI 中，审查步骤和代码生成步骤在同一个 Claude Code 会话中运行。即使有 bug 漏过去，审查也很少发现问题。哪种改动符合指引？",
+      "commentaryZh": "会话上下文隔离：同一会话自审效果差，独立实例审查更有效。这是 3.6 与 4.6 的交叉考点。"
+    },
+    {
+      "id": "ar3-079",
+      "domain": "D3",
+      "type": "scenario",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "A CI job should stop after a bounded number of agentic turns so a confused run cannot loop for a long time. Which print-mode flag supports this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "--max-turns",
+          "correct": true,
+          "explain": "正解。非対話モードでの回数上限。暴走を防ぐ安全装置として使う。",
+          "textZh": "--max-turns"
+        },
+        {
+          "text": "--resume",
+          "correct": false,
+          "explain": "不適。セッションの再開。",
+          "textZh": "--resume"
+        },
+        {
+          "text": "--fork-session",
+          "correct": false,
+          "explain": "不適。セッションの分岐。",
+          "textZh": "--fork-session"
+        },
+        {
+          "text": "--permission-mode plan",
+          "correct": false,
+          "explain": "不適。計画モードの指定で、回数の上限ではない。",
+          "textZh": "--permission-mode plan"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/cli-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "CI 任务应在有限的智能体回合数后停止，以免出问题的运行长时间循环。哪个 print 模式参数支持这一点？",
+      "commentaryZh": "--max-turns 用作 CI 中的安全护栏。注意它是防失控的保险，而不是正常的完成判断。"
+    },
+    {
+      "id": "ar3-080",
+      "domain": "D3",
+      "type": "multi",
+      "scenario": "S5",
+      "difficulty": 2,
+      "stem": "Which TWO belong in CLAUDE.md to improve Claude Code's test generation in CI? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The team's testing standards and what makes a test valuable.",
+          "correct": true,
+          "explain": "正解。生成の基準になる。",
+          "textZh": "团队的测试规范以及什么样的测试有价值。"
+        },
+        {
+          "text": "The available fixtures and how to use them.",
+          "correct": true,
+          "explain": "正解。既存の道具を使ったテストが書けるようになる。",
+          "textZh": "可用的 fixture 及其用法。"
+        },
+        {
+          "text": "The CI runner's API keys.",
+          "correct": false,
+          "explain": "不適。秘密を書いてはいけない。",
+          "textZh": "CI 运行器的 API 密钥。"
+        },
+        {
+          "text": "A list of every developer's vacation dates.",
+          "correct": false,
+          "explain": "不適。休暇の予定はテスト生成とは無関係。",
+          "textZh": "每位开发者的假期日期列表。"
+        },
+        {
+          "text": "The full text of every test file.",
+          "correct": false,
+          "explain": "不適。毎回読み込まれて文脈を圧迫する。必要なテストは個別に渡す。",
+          "textZh": "每个测试文件的全文。"
+        }
+      ],
+      "objective": "Integrate Claude Code into CI/CD pipelines",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为了改进 Claude Code 在 CI 中生成的测试，下列哪两项应写进 CLAUDE.md？（选 2 项）",
+      "commentaryZh": "CLAUDE.md 应记录测试规范、有价值测试的判据、可用 fixture。机密和大段原文不应放进去。"
+    }
+  ]
+}

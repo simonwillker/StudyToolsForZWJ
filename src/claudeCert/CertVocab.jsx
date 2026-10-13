@@ -1,17 +1,17 @@
 /* ============================================================
-   CCAO-F 頻出単語（勉強・復習・テスト）
+   Claude 認定 頻出単語（勉強・復習・テスト。資格ごと）
 
-   単語データは scripts/buildCcaofVocab.mjs が全問題から数えて作る
-   src/data/ccaofVocab/vocab.json。問題データと同じく import() で
+   単語データは scripts/buildClaudeCertVocab.mjs が全問題から数えて作る
+   src/data/claudeCert/<資格>/vocab.json。問題データと同じく import() で
    遅延読み込みする（英検だけ使う人に読ませないため）。
    コード分割したチャンクは asset-manifest.json に載るので、
    Service Worker がほかのチャンクと一緒にオフライン用に入れる。
    ============================================================ */
 
 import React, { useEffect, useMemo, useState } from "react";
-import { newStudySession } from "./studyLog";
-import { DOMAINS, findDomain } from "./ccaofDomains";
-import { isSpeechSynthesisSupported, speak } from "./eikenSpeech";
+import { newStudySession } from "../studyLog";
+import { DOMAINS, findDomain, loadVocab as loadCertVocab } from "./domains";
+import { isSpeechSynthesisSupported, speak } from "../eikenSpeech";
 import {
   recordVocabAnswer,
   markStudied,
@@ -20,7 +20,7 @@ import {
   getVocabSummary,
   loadVocabStore,
   isMastered,
-} from "./ccaofVocabProgress";
+} from "./vocabProgress";
 
 const UNIT_SIZE = 20;
 const COLOR = "#7A5C2E";
@@ -75,13 +75,9 @@ const VocabStyle = () => <style>{`
         .ccaof-v-wronglist { text-align: left; background: #fff; border: 1px solid #E4E2DA; border-radius: 10px; padding: 10px 14px; margin: 0 0 20px; font-size: 13px; line-height: 1.9; }
 `}</style>;
 
-let vocabCache = null;
+/* キャッシュは domains.js が資格ごとに持つ */
 function loadVocab() {
-  if (vocabCache) return Promise.resolve(vocabCache);
-  return import("./data/ccaofVocab/vocab.json").then((mod) => {
-    vocabCache = (mod.default || mod).words || [];
-    return vocabCache;
-  });
+  return loadCertVocab().then((data) => data.words || []);
 }
 
 function shuffle(arr) {
@@ -351,8 +347,8 @@ function VocabQuiz({ questions, label, showZh, onExit }) {
 
 /* ---------- 頻出単語のトップ ---------- */
 
-export default function CcaofVocab({ showZh, onToggleZh, onExit }) {
-  const [all, setAll] = useState(vocabCache);
+export default function CertVocab({ showZh, onToggleZh, onExit }) {
+  const [all, setAll] = useState(null);
   const [loadError, setLoadError] = useState(false);
   const [nonce, setNonce] = useState(0);
   const [domainFilter, setDomainFilter] = useState("all");

@@ -1,0 +1,7935 @@
+{
+  "_note": "scripts/buildClaudeCertVocab.mjs が生成。手で直さず glossary.json を直して作り直すこと。",
+  "minQuestions": 4,
+  "totalQuestions": 400,
+  "words": [
+    {
+      "id": "agent",
+      "word": "agent",
+      "pos": "名詞",
+      "ja": "エージェント（自律的にツールを使うAI）",
+      "zh": "智能体",
+      "count": 201,
+      "questionCount": 125,
+      "domains": {
+        "D1": 46,
+        "D2": 40,
+        "D3": 6,
+        "D4": 2,
+        "D5": 31
+      },
+      "forms": [
+        "agent",
+        "agents"
+      ],
+      "examples": [
+        {
+          "en": "Source attribution is otherwise lost when findings are summarized or combined across agents.",
+          "zh": "否则在跨智能体做摘要或合并时，来源归属会丢失。",
+          "itemId": "ar5-072"
+        },
+        {
+          "en": "Remove the admin tools from the support agent so it has only the tools its role needs.",
+          "zh": "从客服智能体中移除管理工具，只保留其角色需要的工具。",
+          "itemId": "ar2-029"
+        }
+      ],
+      "itemIds": [
+        "ar1-001",
+        "ar1-002",
+        "ar1-003",
+        "ar1-004",
+        "ar1-006",
+        "ar1-007",
+        "ar1-010",
+        "ar1-011",
+        "ar1-017",
+        "ar1-019",
+        "ar1-020",
+        "ar1-021",
+        "ar1-024",
+        "ar1-026",
+        "ar1-027",
+        "ar1-029",
+        "ar1-030",
+        "ar1-031",
+        "ar1-032",
+        "ar1-033",
+        "ar1-035",
+        "ar1-036",
+        "ar1-039",
+        "ar1-040",
+        "ar1-041",
+        "ar1-043",
+        "ar1-044",
+        "ar1-047",
+        "ar1-048",
+        "ar1-049",
+        "ar1-051",
+        "ar1-052",
+        "ar1-055",
+        "ar1-057",
+        "ar1-060",
+        "ar1-061",
+        "ar1-064",
+        "ar1-066",
+        "ar1-069",
+        "ar1-070",
+        "ar1-071",
+        "ar1-072",
+        "ar1-074",
+        "ar1-077",
+        "ar1-079",
+        "ar1-080",
+        "ar2-003",
+        "ar2-004",
+        "ar2-008",
+        "ar2-010",
+        "ar2-011",
+        "ar2-012",
+        "ar2-013",
+        "ar2-014",
+        "ar2-015",
+        "ar2-016",
+        "ar2-020",
+        "ar2-022",
+        "ar2-023",
+        "ar2-024",
+        "ar2-028",
+        "ar2-029",
+        "ar2-030",
+        "ar2-031",
+        "ar2-033",
+        "ar2-037",
+        "ar2-038",
+        "ar2-039",
+        "ar2-040",
+        "ar2-041",
+        "ar2-043",
+        "ar2-046",
+        "ar2-047",
+        "ar2-048",
+        "ar2-051",
+        "ar2-053",
+        "ar2-055",
+        "ar2-059",
+        "ar2-064",
+        "ar2-065",
+        "ar2-067",
+        "ar2-069",
+        "ar2-070",
+        "ar2-078",
+        "ar2-079",
+        "ar2-080",
+        "ar3-009",
+        "ar3-033",
+        "ar3-034",
+        "ar3-048",
+        "ar3-050",
+        "ar3-054",
+        "ar4-024",
+        "ar4-065",
+        "ar5-001",
+        "ar5-002",
+        "ar5-004",
+        "ar5-005",
+        "ar5-007",
+        "ar5-008",
+        "ar5-013",
+        "ar5-014",
+        "ar5-015",
+        "ar5-016",
+        "ar5-017",
+        "ar5-018",
+        "ar5-019",
+        "ar5-020",
+        "ar5-021",
+        "ar5-022",
+        "ar5-023",
+        "ar5-026",
+        "ar5-027",
+        "ar5-028",
+        "ar5-035",
+        "ar5-043",
+        "ar5-045",
+        "ar5-047",
+        "ar5-051",
+        "ar5-053",
+        "ar5-054",
+        "ar5-067",
+        "ar5-069",
+        "ar5-072",
+        "ar5-079"
+      ]
+    },
+    {
+      "id": "tool",
+      "word": "tool",
+      "pos": "名詞",
+      "ja": "ツール（モデルが呼び出せる機能）",
+      "zh": "工具",
+      "count": 311,
+      "questionCount": 118,
+      "domains": {
+        "D1": 29,
+        "D2": 62,
+        "D3": 6,
+        "D4": 16,
+        "D5": 5
+      },
+      "forms": [
+        "tool",
+        "tools"
+      ],
+      "examples": [
+        {
+          "en": "Reduce tool outputs to the fields relevant to the task before adding them to the context.",
+          "zh": "在把工具输出加入上下文之前，把它们精简为与任务相关的字段。",
+          "itemId": "ar5-013"
+        },
+        {
+          "en": "Branch on stop_reason: continue when it is \"tool_use\" and finish when it is \"end_turn\".",
+          "zh": "依据 stop_reason 分支：\"tool_use\" 时继续，\"end_turn\" 时结束。",
+          "itemId": "ar1-008"
+        }
+      ],
+      "itemIds": [
+        "ar1-001",
+        "ar1-003",
+        "ar1-004",
+        "ar1-005",
+        "ar1-006",
+        "ar1-007",
+        "ar1-008",
+        "ar1-009",
+        "ar1-010",
+        "ar1-011",
+        "ar1-014",
+        "ar1-017",
+        "ar1-020",
+        "ar1-021",
+        "ar1-023",
+        "ar1-024",
+        "ar1-027",
+        "ar1-028",
+        "ar1-030",
+        "ar1-032",
+        "ar1-034",
+        "ar1-045",
+        "ar1-048",
+        "ar1-051",
+        "ar1-052",
+        "ar1-054",
+        "ar1-057",
+        "ar1-070",
+        "ar1-072",
+        "ar2-001",
+        "ar2-002",
+        "ar2-003",
+        "ar2-004",
+        "ar2-005",
+        "ar2-006",
+        "ar2-007",
+        "ar2-008",
+        "ar2-009",
+        "ar2-010",
+        "ar2-012",
+        "ar2-013",
+        "ar2-014",
+        "ar2-015",
+        "ar2-016",
+        "ar2-019",
+        "ar2-020",
+        "ar2-021",
+        "ar2-022",
+        "ar2-023",
+        "ar2-024",
+        "ar2-025",
+        "ar2-026",
+        "ar2-027",
+        "ar2-028",
+        "ar2-029",
+        "ar2-030",
+        "ar2-031",
+        "ar2-032",
+        "ar2-033",
+        "ar2-037",
+        "ar2-038",
+        "ar2-039",
+        "ar2-040",
+        "ar2-042",
+        "ar2-043",
+        "ar2-044",
+        "ar2-045",
+        "ar2-046",
+        "ar2-047",
+        "ar2-048",
+        "ar2-050",
+        "ar2-051",
+        "ar2-052",
+        "ar2-053",
+        "ar2-054",
+        "ar2-055",
+        "ar2-056",
+        "ar2-057",
+        "ar2-059",
+        "ar2-061",
+        "ar2-064",
+        "ar2-065",
+        "ar2-066",
+        "ar2-069",
+        "ar2-071",
+        "ar2-073",
+        "ar2-074",
+        "ar2-075",
+        "ar2-076",
+        "ar2-078",
+        "ar2-080",
+        "ar3-013",
+        "ar3-015",
+        "ar3-016",
+        "ar3-020",
+        "ar3-021",
+        "ar3-043",
+        "ar4-002",
+        "ar4-024",
+        "ar4-027",
+        "ar4-028",
+        "ar4-031",
+        "ar4-032",
+        "ar4-033",
+        "ar4-035",
+        "ar4-036",
+        "ar4-038",
+        "ar4-039",
+        "ar4-040",
+        "ar4-048",
+        "ar4-060",
+        "ar4-063",
+        "ar4-065",
+        "ar5-002",
+        "ar5-003",
+        "ar5-006",
+        "ar5-008",
+        "ar5-013"
+      ]
+    },
+    {
+      "id": "file",
+      "word": "file",
+      "pos": "名詞",
+      "ja": "ファイル",
+      "zh": "文件",
+      "count": 194,
+      "questionCount": 94,
+      "domains": {
+        "D1": 12,
+        "D2": 25,
+        "D3": 38,
+        "D4": 8,
+        "D5": 11
+      },
+      "forms": [
+        "file",
+        "files"
+      ],
+      "examples": [
+        {
+          "en": "Attention dilution, where some files get shallow review when too much is examined at once.",
+          "zh": "注意力稀释：一次审查太多内容时，部分文件只得到浅显的审查。",
+          "itemId": "ar4-075"
+        },
+        {
+          "en": "Per-file passes for local issues plus a separate integration pass for cross-file data flow.",
+          "zh": "逐文件审查局部问题，再单独做一次跨文件数据流的集成审查。",
+          "itemId": "ar4-071"
+        }
+      ],
+      "itemIds": [
+        "ar1-004",
+        "ar1-010",
+        "ar1-024",
+        "ar1-035",
+        "ar1-043",
+        "ar1-055",
+        "ar1-060",
+        "ar1-061",
+        "ar1-063",
+        "ar1-066",
+        "ar1-069",
+        "ar1-072",
+        "ar2-004",
+        "ar2-008",
+        "ar2-015",
+        "ar2-018",
+        "ar2-020",
+        "ar2-030",
+        "ar2-038",
+        "ar2-048",
+        "ar2-058",
+        "ar2-063",
+        "ar2-064",
+        "ar2-065",
+        "ar2-066",
+        "ar2-067",
+        "ar2-068",
+        "ar2-069",
+        "ar2-070",
+        "ar2-071",
+        "ar2-072",
+        "ar2-073",
+        "ar2-074",
+        "ar2-075",
+        "ar2-076",
+        "ar2-077",
+        "ar2-079",
+        "ar3-001",
+        "ar3-003",
+        "ar3-004",
+        "ar3-005",
+        "ar3-007",
+        "ar3-008",
+        "ar3-011",
+        "ar3-012",
+        "ar3-013",
+        "ar3-019",
+        "ar3-020",
+        "ar3-021",
+        "ar3-026",
+        "ar3-027",
+        "ar3-028",
+        "ar3-029",
+        "ar3-030",
+        "ar3-031",
+        "ar3-032",
+        "ar3-033",
+        "ar3-034",
+        "ar3-035",
+        "ar3-036",
+        "ar3-037",
+        "ar3-039",
+        "ar3-040",
+        "ar3-042",
+        "ar3-043",
+        "ar3-046",
+        "ar3-047",
+        "ar3-048",
+        "ar3-050",
+        "ar3-052",
+        "ar3-053",
+        "ar3-054",
+        "ar3-061",
+        "ar3-072",
+        "ar3-080",
+        "ar4-008",
+        "ar4-009",
+        "ar4-015",
+        "ar4-071",
+        "ar4-072",
+        "ar4-075",
+        "ar4-077",
+        "ar4-080",
+        "ar5-012",
+        "ar5-043",
+        "ar5-045",
+        "ar5-047",
+        "ar5-048",
+        "ar5-049",
+        "ar5-050",
+        "ar5-051",
+        "ar5-052",
+        "ar5-053",
+        "ar5-061"
+      ]
+    },
+    {
+      "id": "code",
+      "word": "code",
+      "pos": "名詞",
+      "ja": "コード",
+      "zh": "代码",
+      "count": 100,
+      "questionCount": 67,
+      "domains": {
+        "D1": 7,
+        "D2": 10,
+        "D3": 31,
+        "D4": 12,
+        "D5": 7
+      },
+      "forms": [
+        "code",
+        "coded",
+        "codes",
+        "coding"
+      ],
+      "examples": [
+        {
+          "en": "\"Flag a comment only when the behavior it claims contradicts what the code actually does.\"",
+          "zh": "「只有当注释所声称的行为与代码实际行为相矛盾时，才标出该注释。」",
+          "itemId": "ar4-001"
+        },
+        {
+          "en": "A second, independent Claude instance reviews generated code without the generator's reasoning.",
+          "zh": "由第二个独立的 Claude 实例审查生成的代码，不带生成者的推理。",
+          "itemId": "ar4-077"
+        }
+      ],
+      "itemIds": [
+        "ar1-010",
+        "ar1-024",
+        "ar1-027",
+        "ar1-034",
+        "ar1-046",
+        "ar1-047",
+        "ar1-068",
+        "ar2-008",
+        "ar2-014",
+        "ar2-030",
+        "ar2-034",
+        "ar2-041",
+        "ar2-043",
+        "ar2-057",
+        "ar2-059",
+        "ar2-060",
+        "ar2-061",
+        "ar3-001",
+        "ar3-002",
+        "ar3-005",
+        "ar3-007",
+        "ar3-008",
+        "ar3-009",
+        "ar3-010",
+        "ar3-025",
+        "ar3-027",
+        "ar3-031",
+        "ar3-035",
+        "ar3-037",
+        "ar3-043",
+        "ar3-044",
+        "ar3-049",
+        "ar3-054",
+        "ar3-057",
+        "ar3-059",
+        "ar3-061",
+        "ar3-063",
+        "ar3-066",
+        "ar3-067",
+        "ar3-069",
+        "ar3-070",
+        "ar3-071",
+        "ar3-072",
+        "ar3-074",
+        "ar3-075",
+        "ar3-076",
+        "ar3-078",
+        "ar3-080",
+        "ar4-001",
+        "ar4-004",
+        "ar4-006",
+        "ar4-009",
+        "ar4-014",
+        "ar4-017",
+        "ar4-056",
+        "ar4-070",
+        "ar4-072",
+        "ar4-073",
+        "ar4-076",
+        "ar4-077",
+        "ar5-032",
+        "ar5-042",
+        "ar5-044",
+        "ar5-047",
+        "ar5-048",
+        "ar5-049",
+        "ar5-052"
+      ]
+    },
+    {
+      "id": "example",
+      "word": "example",
+      "pos": "名詞",
+      "ja": "例",
+      "zh": "示例",
+      "count": 83,
+      "questionCount": 63,
+      "domains": {
+        "D1": 6,
+        "D2": 12,
+        "D3": 12,
+        "D4": 23,
+        "D5": 10
+      },
+      "forms": [
+        "example",
+        "examples"
+      ],
+      "examples": [
+        {
+          "en": "Create a personal skill in ~/.claude/skills/ with a different name (for example release-mine).",
+          "zh": "在 ~/.claude/skills/ 中以不同名称（例如 release-mine）创建个人技能。",
+          "itemId": "ar3-018"
+        },
+        {
+          "en": "Give a specific test case: an example input row containing null and the exact expected output.",
+          "zh": "给出具体的测试用例：一行包含 null 的示例输入，以及准确的期望输出。",
+          "itemId": "ar3-058"
+        }
+      ],
+      "itemIds": [
+        "ar1-011",
+        "ar1-014",
+        "ar1-028",
+        "ar1-032",
+        "ar1-033",
+        "ar1-038",
+        "ar2-003",
+        "ar2-006",
+        "ar2-011",
+        "ar2-017",
+        "ar2-023",
+        "ar2-040",
+        "ar2-041",
+        "ar2-043",
+        "ar2-062",
+        "ar2-067",
+        "ar2-068",
+        "ar2-077",
+        "ar3-003",
+        "ar3-004",
+        "ar3-016",
+        "ar3-018",
+        "ar3-039",
+        "ar3-048",
+        "ar3-056",
+        "ar3-058",
+        "ar3-062",
+        "ar3-063",
+        "ar3-066",
+        "ar3-067",
+        "ar4-004",
+        "ar4-006",
+        "ar4-009",
+        "ar4-011",
+        "ar4-014",
+        "ar4-015",
+        "ar4-016",
+        "ar4-017",
+        "ar4-018",
+        "ar4-019",
+        "ar4-020",
+        "ar4-021",
+        "ar4-022",
+        "ar4-023",
+        "ar4-024",
+        "ar4-025",
+        "ar4-026",
+        "ar4-030",
+        "ar4-034",
+        "ar4-037",
+        "ar4-042",
+        "ar4-047",
+        "ar4-074",
+        "ar5-020",
+        "ar5-024",
+        "ar5-028",
+        "ar5-033",
+        "ar5-036",
+        "ar5-038",
+        "ar5-050",
+        "ar5-062",
+        "ar5-070",
+        "ar5-074"
+      ]
+    },
+    {
+      "id": "subagent",
+      "word": "subagent",
+      "pos": "名詞",
+      "ja": "サブエージェント（委任先のエージェント）",
+      "zh": "子智能体",
+      "count": 175,
+      "questionCount": 62,
+      "domains": {
+        "D1": 26,
+        "D2": 11,
+        "D3": 7,
+        "D5": 18
+      },
+      "forms": [
+        "subagent",
+        "subagents"
+      ],
+      "examples": [
+        {
+          "en": "Put a summary of key findings from all subagents at the beginning of the aggregated input.",
+          "zh": "在汇总输入的开头放上所有子智能体关键发现的摘要。",
+          "itemId": "ar5-011"
+        },
+        {
+          "en": "The coordinator, based on structured error information returned by the failing subagent.",
+          "zh": "协调者，依据失败的子智能体返回的结构化错误信息来决定。",
+          "itemId": "ar1-037"
+        }
+      ],
+      "itemIds": [
+        "ar1-012",
+        "ar1-013",
+        "ar1-014",
+        "ar1-015",
+        "ar1-016",
+        "ar1-017",
+        "ar1-018",
+        "ar1-019",
+        "ar1-020",
+        "ar1-021",
+        "ar1-022",
+        "ar1-023",
+        "ar1-024",
+        "ar1-025",
+        "ar1-037",
+        "ar1-038",
+        "ar1-039",
+        "ar1-040",
+        "ar1-041",
+        "ar1-043",
+        "ar1-044",
+        "ar1-045",
+        "ar1-058",
+        "ar1-059",
+        "ar1-074",
+        "ar1-080",
+        "ar2-017",
+        "ar2-018",
+        "ar2-023",
+        "ar2-025",
+        "ar2-026",
+        "ar2-030",
+        "ar2-049",
+        "ar2-051",
+        "ar2-071",
+        "ar2-072",
+        "ar2-073",
+        "ar3-015",
+        "ar3-020",
+        "ar3-041",
+        "ar3-045",
+        "ar3-048",
+        "ar3-051",
+        "ar3-054",
+        "ar5-009",
+        "ar5-010",
+        "ar5-011",
+        "ar5-029",
+        "ar5-030",
+        "ar5-031",
+        "ar5-032",
+        "ar5-033",
+        "ar5-035",
+        "ar5-041",
+        "ar5-045",
+        "ar5-046",
+        "ar5-048",
+        "ar5-051",
+        "ar5-053",
+        "ar5-067",
+        "ar5-069",
+        "ar5-071"
+      ]
+    },
+    {
+      "id": "team",
+      "word": "team",
+      "pos": "名詞",
+      "ja": "チーム",
+      "zh": "团队",
+      "count": 66,
+      "questionCount": 59,
+      "domains": {
+        "D1": 10,
+        "D2": 10,
+        "D3": 19,
+        "D4": 13,
+        "D5": 7
+      },
+      "forms": [
+        "team"
+      ],
+      "examples": [
+        {
+          "en": "Use the existing community server for the standard integration, and reserve custom servers for team-specific workflows.",
+          "zh": "标准集成使用现有的社区服务器，自定义服务器留给团队特有的工作流程。",
+          "itemId": "ar2-039"
+        },
+        {
+          "en": "The team's testing standards and what makes a test valuable.",
+          "zh": "团队的测试规范以及什么样的测试有价值。",
+          "itemId": "ar3-080"
+        }
+      ],
+      "itemIds": [
+        "ar1-006",
+        "ar1-027",
+        "ar1-033",
+        "ar1-035",
+        "ar1-042",
+        "ar1-054",
+        "ar1-056",
+        "ar1-067",
+        "ar1-073",
+        "ar1-074",
+        "ar2-025",
+        "ar2-034",
+        "ar2-035",
+        "ar2-039",
+        "ar2-051",
+        "ar2-057",
+        "ar2-058",
+        "ar2-061",
+        "ar2-062",
+        "ar2-080",
+        "ar3-001",
+        "ar3-002",
+        "ar3-005",
+        "ar3-006",
+        "ar3-010",
+        "ar3-014",
+        "ar3-017",
+        "ar3-018",
+        "ar3-020",
+        "ar3-021",
+        "ar3-022",
+        "ar3-026",
+        "ar3-031",
+        "ar3-036",
+        "ar3-042",
+        "ar3-044",
+        "ar3-065",
+        "ar3-069",
+        "ar3-080",
+        "ar4-009",
+        "ar4-014",
+        "ar4-028",
+        "ar4-031",
+        "ar4-036",
+        "ar4-042",
+        "ar4-051",
+        "ar4-061",
+        "ar4-063",
+        "ar4-067",
+        "ar4-073",
+        "ar4-078",
+        "ar4-079",
+        "ar5-020",
+        "ar5-047",
+        "ar5-055",
+        "ar5-056",
+        "ar5-059",
+        "ar5-063",
+        "ar5-066"
+      ]
+    },
+    {
+      "id": "session",
+      "word": "session",
+      "pos": "名詞",
+      "ja": "セッション（一続きの会話）",
+      "zh": "会话",
+      "count": 100,
+      "questionCount": 48,
+      "domains": {
+        "D1": 15,
+        "D2": 1,
+        "D3": 17,
+        "D4": 8,
+        "D5": 7
+      },
+      "forms": [
+        "session",
+        "sessions"
+      ],
+      "examples": [
+        {
+          "en": "Start a new session and inject a structured summary of the conclusions that still hold.",
+          "zh": "开一个新会话，注入一份结构化摘要，只包含仍然成立的结论。",
+          "itemId": "ar1-070"
+        },
+        {
+          "en": "/memory in a teammate's session does not list the file that contains the conventions.",
+          "zh": "在同事的会话中执行 /memory，看不到包含这些规范的文件。",
+          "itemId": "ar3-013"
+        }
+      ],
+      "itemIds": [
+        "ar1-026",
+        "ar1-028",
+        "ar1-041",
+        "ar1-042",
+        "ar1-068",
+        "ar1-069",
+        "ar1-070",
+        "ar1-071",
+        "ar1-072",
+        "ar1-073",
+        "ar1-075",
+        "ar1-076",
+        "ar1-077",
+        "ar1-078",
+        "ar1-079",
+        "ar2-034",
+        "ar3-003",
+        "ar3-005",
+        "ar3-013",
+        "ar3-015",
+        "ar3-023",
+        "ar3-029",
+        "ar3-035",
+        "ar3-037",
+        "ar3-046",
+        "ar3-051",
+        "ar3-055",
+        "ar3-068",
+        "ar3-072",
+        "ar3-075",
+        "ar3-076",
+        "ar3-078",
+        "ar3-079",
+        "ar4-056",
+        "ar4-062",
+        "ar4-070",
+        "ar4-071",
+        "ar4-072",
+        "ar4-077",
+        "ar4-078",
+        "ar4-080",
+        "ar5-004",
+        "ar5-008",
+        "ar5-042",
+        "ar5-045",
+        "ar5-048",
+        "ar5-049",
+        "ar5-052"
+      ]
+    },
+    {
+      "id": "field",
+      "word": "field",
+      "pos": "名詞",
+      "ja": "フィールド、項目",
+      "zh": "字段",
+      "count": 77,
+      "questionCount": 48,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D3": 6,
+        "D4": 20,
+        "D5": 18
+      },
+      "forms": [
+        "field",
+        "fields"
+      ],
+      "examples": [
+        {
+          "en": "Reduce tool outputs to the fields relevant to the task before adding them to the context.",
+          "zh": "在把工具输出加入上下文之前，把它们精简为与任务相关的字段。",
+          "itemId": "ar5-013"
+        },
+        {
+          "en": "Accuracy for that document type and its key fields specifically, using a labeled sample.",
+          "zh": "用一份带标注的样本，专门验证该文档类型及其关键字段的准确率。",
+          "itemId": "ar5-059"
+        }
+      ],
+      "itemIds": [
+        "ar1-053",
+        "ar2-014",
+        "ar2-016",
+        "ar2-041",
+        "ar3-020",
+        "ar3-021",
+        "ar3-029",
+        "ar3-035",
+        "ar3-040",
+        "ar3-077",
+        "ar4-004",
+        "ar4-019",
+        "ar4-021",
+        "ar4-029",
+        "ar4-030",
+        "ar4-033",
+        "ar4-035",
+        "ar4-037",
+        "ar4-038",
+        "ar4-041",
+        "ar4-044",
+        "ar4-047",
+        "ar4-048",
+        "ar4-050",
+        "ar4-051",
+        "ar4-052",
+        "ar4-053",
+        "ar4-055",
+        "ar4-068",
+        "ar4-069",
+        "ar5-002",
+        "ar5-006",
+        "ar5-008",
+        "ar5-013",
+        "ar5-037",
+        "ar5-038",
+        "ar5-055",
+        "ar5-056",
+        "ar5-057",
+        "ar5-059",
+        "ar5-060",
+        "ar5-061",
+        "ar5-062",
+        "ar5-063",
+        "ar5-075",
+        "ar5-076",
+        "ar5-078",
+        "ar5-080"
+      ]
+    },
+    {
+      "id": "search",
+      "word": "search",
+      "pos": "名詞",
+      "ja": "検索",
+      "zh": "搜索",
+      "count": 93,
+      "questionCount": 47,
+      "domains": {
+        "D1": 19,
+        "D2": 20,
+        "D3": 2,
+        "D5": 6
+      },
+      "forms": [
+        "search",
+        "searches",
+        "searching"
+      ],
+      "examples": [
+        {
+          "en": "Grep searches inside file contents for patterns; Glob finds files whose paths match a name pattern.",
+          "zh": "Grep 在文件内容中搜索模式；Glob 查找路径符合名称模式的文件。",
+          "itemId": "ar2-074"
+        },
+        {
+          "en": "Include the complete findings from the search and analysis subagents directly in the synthesis subagent's prompt.",
+          "zh": "把搜索和分析子智能体的完整发现直接写进综合子智能体的提示词。",
+          "itemId": "ar1-021"
+        }
+      ],
+      "itemIds": [
+        "ar1-004",
+        "ar1-007",
+        "ar1-008",
+        "ar1-012",
+        "ar1-013",
+        "ar1-014",
+        "ar1-015",
+        "ar1-016",
+        "ar1-021",
+        "ar1-023",
+        "ar1-037",
+        "ar1-038",
+        "ar1-039",
+        "ar1-041",
+        "ar1-042",
+        "ar1-043",
+        "ar1-058",
+        "ar1-059",
+        "ar1-080",
+        "ar2-002",
+        "ar2-004",
+        "ar2-008",
+        "ar2-017",
+        "ar2-019",
+        "ar2-023",
+        "ar2-024",
+        "ar2-025",
+        "ar2-038",
+        "ar2-042",
+        "ar2-043",
+        "ar2-051",
+        "ar2-055",
+        "ar2-059",
+        "ar2-064",
+        "ar2-072",
+        "ar2-073",
+        "ar2-074",
+        "ar2-075",
+        "ar2-076",
+        "ar3-004",
+        "ar3-051",
+        "ar5-009",
+        "ar5-029",
+        "ar5-030",
+        "ar5-031",
+        "ar5-040",
+        "ar5-045"
+      ]
+    },
+    {
+      "id": "finding",
+      "word": "finding",
+      "pos": "名詞",
+      "ja": "発見、指摘事項",
+      "zh": "发现",
+      "count": 71,
+      "questionCount": 47,
+      "domains": {
+        "D1": 11,
+        "D2": 2,
+        "D3": 5,
+        "D4": 13,
+        "D5": 16
+      },
+      "forms": [
+        "finding",
+        "findings"
+      ],
+      "examples": [
+        {
+          "en": "Put a summary of key findings from all subagents at the beginning of the aggregated input.",
+          "zh": "在汇总输入的开头放上所有子智能体关键发现的摘要。",
+          "itemId": "ar5-011"
+        },
+        {
+          "en": "Source attribution is otherwise lost when findings are summarized or combined across agents.",
+          "zh": "否则在跨智能体做摘要或合并时，来源归属会丢失。",
+          "itemId": "ar5-072"
+        }
+      ],
+      "itemIds": [
+        "ar1-016",
+        "ar1-019",
+        "ar1-021",
+        "ar1-022",
+        "ar1-041",
+        "ar1-042",
+        "ar1-045",
+        "ar1-064",
+        "ar1-065",
+        "ar1-070",
+        "ar1-080",
+        "ar2-018",
+        "ar2-030",
+        "ar3-051",
+        "ar3-071",
+        "ar3-073",
+        "ar3-075",
+        "ar3-077",
+        "ar4-001",
+        "ar4-002",
+        "ar4-005",
+        "ar4-006",
+        "ar4-007",
+        "ar4-013",
+        "ar4-014",
+        "ar4-015",
+        "ar4-042",
+        "ar4-051",
+        "ar4-052",
+        "ar4-074",
+        "ar4-077",
+        "ar5-005",
+        "ar5-010",
+        "ar5-011",
+        "ar5-034",
+        "ar5-042",
+        "ar5-043",
+        "ar5-046",
+        "ar5-048",
+        "ar5-049",
+        "ar5-050",
+        "ar5-052",
+        "ar5-067",
+        "ar5-070",
+        "ar5-072",
+        "ar5-073",
+        "ar5-079"
+      ]
+    },
+    {
+      "id": "system",
+      "word": "system",
+      "pos": "名詞",
+      "ja": "システム",
+      "zh": "系统",
+      "count": 55,
+      "questionCount": 46,
+      "domains": {
+        "D1": 24,
+        "D2": 9,
+        "D3": 2,
+        "D4": 5,
+        "D5": 6
+      },
+      "forms": [
+        "system",
+        "systems"
+      ],
+      "examples": [
+        {
+          "en": "Add explicit escalation criteria to the system prompt, with few-shot examples showing when to escalate and when to resolve autonomously.",
+          "zh": "在系统提示词中加入明确的升级标准，并用少样本示例展示何时升级、何时自主解决。",
+          "itemId": "ar5-020"
+        },
+        {
+          "en": "A keyword-sensitive instruction in the system prompt is creating an unintended association that overrides otherwise clear tool descriptions.",
+          "zh": "系统提示词中一条对关键词敏感的指令造成了意外的关联，压过了原本清楚的工具描述。",
+          "itemId": "ar2-004"
+        }
+      ],
+      "itemIds": [
+        "ar1-006",
+        "ar1-012",
+        "ar1-017",
+        "ar1-019",
+        "ar1-020",
+        "ar1-024",
+        "ar1-027",
+        "ar1-028",
+        "ar1-033",
+        "ar1-034",
+        "ar1-035",
+        "ar1-037",
+        "ar1-039",
+        "ar1-040",
+        "ar1-041",
+        "ar1-046",
+        "ar1-052",
+        "ar1-053",
+        "ar1-056",
+        "ar1-057",
+        "ar1-058",
+        "ar1-064",
+        "ar1-078",
+        "ar1-080",
+        "ar2-004",
+        "ar2-011",
+        "ar2-023",
+        "ar2-026",
+        "ar2-034",
+        "ar2-042",
+        "ar2-046",
+        "ar2-057",
+        "ar2-071",
+        "ar3-003",
+        "ar3-009",
+        "ar4-025",
+        "ar4-030",
+        "ar4-038",
+        "ar4-047",
+        "ar4-063",
+        "ar5-013",
+        "ar5-020",
+        "ar5-032",
+        "ar5-035",
+        "ar5-038",
+        "ar5-054"
+      ]
+    },
+    {
+      "id": "coordinator",
+      "word": "coordinator",
+      "pos": "名詞",
+      "ja": "コーディネーター（指揮役のエージェント）",
+      "zh": "协调者",
+      "count": 78,
+      "questionCount": 45,
+      "domains": {
+        "D1": 24,
+        "D2": 9,
+        "D5": 12
+      },
+      "forms": [
+        "coordinator"
+      ],
+      "examples": [
+        {
+          "en": "The coordinator, based on structured error information returned by the failing subagent.",
+          "zh": "协调者，依据失败的子智能体返回的结构化错误信息来决定。",
+          "itemId": "ar1-037"
+        },
+        {
+          "en": "Emit three subagent-spawning tool calls in a single coordinator response so they run in parallel.",
+          "zh": "在协调者的同一个响应中发出三个启动子智能体的工具调用，让它们并行运行。",
+          "itemId": "ar1-023"
+        }
+      ],
+      "itemIds": [
+        "ar1-012",
+        "ar1-013",
+        "ar1-014",
+        "ar1-015",
+        "ar1-016",
+        "ar1-017",
+        "ar1-018",
+        "ar1-019",
+        "ar1-020",
+        "ar1-021",
+        "ar1-022",
+        "ar1-023",
+        "ar1-024",
+        "ar1-025",
+        "ar1-037",
+        "ar1-038",
+        "ar1-039",
+        "ar1-040",
+        "ar1-041",
+        "ar1-045",
+        "ar1-065",
+        "ar1-074",
+        "ar1-075",
+        "ar1-080",
+        "ar2-001",
+        "ar2-017",
+        "ar2-018",
+        "ar2-019",
+        "ar2-025",
+        "ar2-027",
+        "ar2-042",
+        "ar2-049",
+        "ar2-051",
+        "ar5-011",
+        "ar5-029",
+        "ar5-030",
+        "ar5-031",
+        "ar5-032",
+        "ar5-033",
+        "ar5-039",
+        "ar5-040",
+        "ar5-041",
+        "ar5-047",
+        "ar5-054",
+        "ar5-071"
+      ]
+    },
+    {
+      "id": "extraction",
+      "word": "extraction",
+      "pos": "名詞",
+      "ja": "抽出",
+      "zh": "抽取",
+      "count": 58,
+      "questionCount": 44,
+      "domains": {
+        "D2": 1,
+        "D4": 29,
+        "D5": 14
+      },
+      "forms": [
+        "extraction",
+        "extractions"
+      ],
+      "examples": [
+        {
+          "en": "Few-shot examples demonstrating correct extraction from both inline citations and bibliographies.",
+          "zh": "用少样本示例展示如何从行内引用和参考文献列表两种形式中正确抽取。",
+          "itemId": "ar4-020"
+        },
+        {
+          "en": "\"any\", so Claude must call one of the extraction tools and chooses the one matching the document.",
+          "zh": "设为 \"any\"，这样 Claude 必须调用某个抽取工具，并选择与文档相符的那个。",
+          "itemId": "ar4-031"
+        }
+      ],
+      "itemIds": [
+        "ar2-027",
+        "ar4-010",
+        "ar4-011",
+        "ar4-019",
+        "ar4-020",
+        "ar4-021",
+        "ar4-022",
+        "ar4-023",
+        "ar4-027",
+        "ar4-028",
+        "ar4-030",
+        "ar4-031",
+        "ar4-035",
+        "ar4-037",
+        "ar4-038",
+        "ar4-039",
+        "ar4-040",
+        "ar4-043",
+        "ar4-044",
+        "ar4-046",
+        "ar4-047",
+        "ar4-048",
+        "ar4-049",
+        "ar4-050",
+        "ar4-051",
+        "ar4-053",
+        "ar4-055",
+        "ar4-066",
+        "ar4-068",
+        "ar4-069",
+        "ar5-024",
+        "ar5-025",
+        "ar5-037",
+        "ar5-038",
+        "ar5-055",
+        "ar5-056",
+        "ar5-058",
+        "ar5-059",
+        "ar5-060",
+        "ar5-061",
+        "ar5-064",
+        "ar5-066",
+        "ar5-074",
+        "ar5-080"
+      ]
+    },
+    {
+      "id": "message",
+      "word": "message",
+      "pos": "名詞",
+      "ja": "メッセージ",
+      "zh": "消息",
+      "count": 53,
+      "questionCount": 44,
+      "domains": {
+        "D1": 14,
+        "D2": 6,
+        "D3": 4,
+        "D4": 9,
+        "D5": 11
+      },
+      "forms": [
+        "message",
+        "messages"
+      ],
+      "examples": [
+        {
+          "en": "The Message Batches API, which costs less and suits latency-tolerant, non-blocking work.",
+          "zh": "Message Batches API：成本更低，适合能容忍延迟、非阻塞的工作。",
+          "itemId": "ar4-056"
+        },
+        {
+          "en": "Grep for the message, Read the matching file around that location, then Edit the faulty condition.",
+          "zh": "用 Grep 搜索该信息，Read 匹配到的文件的相关部分，再用 Edit 修改有问题的条件。",
+          "itemId": "ar2-070"
+        }
+      ],
+      "itemIds": [
+        "ar1-001",
+        "ar1-003",
+        "ar1-004",
+        "ar1-009",
+        "ar1-011",
+        "ar1-012",
+        "ar1-024",
+        "ar1-027",
+        "ar1-029",
+        "ar1-030",
+        "ar1-036",
+        "ar1-040",
+        "ar1-049",
+        "ar1-077",
+        "ar2-012",
+        "ar2-013",
+        "ar2-026",
+        "ar2-046",
+        "ar2-055",
+        "ar2-070",
+        "ar3-042",
+        "ar3-052",
+        "ar3-060",
+        "ar3-068",
+        "ar4-050",
+        "ar4-053",
+        "ar4-056",
+        "ar4-060",
+        "ar4-061",
+        "ar4-062",
+        "ar4-064",
+        "ar4-065",
+        "ar4-079",
+        "ar5-001",
+        "ar5-003",
+        "ar5-005",
+        "ar5-006",
+        "ar5-013",
+        "ar5-014",
+        "ar5-019",
+        "ar5-029",
+        "ar5-039",
+        "ar5-040",
+        "ar5-050"
+      ]
+    },
+    {
+      "id": "text",
+      "word": "text",
+      "pos": "名詞",
+      "ja": "テキスト、文章",
+      "zh": "文本",
+      "count": 54,
+      "questionCount": 40,
+      "domains": {
+        "D1": 11,
+        "D2": 17,
+        "D3": 3,
+        "D4": 7,
+        "D5": 2
+      },
+      "forms": [
+        "text"
+      ],
+      "examples": [
+        {
+          "en": "Decide whether to call a tool at all, and which one, or respond with text instead.",
+          "zh": "自行决定是否调用工具、调用哪个，或者改为直接用文本回答。",
+          "itemId": "ar2-032"
+        },
+        {
+          "en": "The model may answer with plain text instead of calling the extraction tool.",
+          "zh": "模型可能直接用纯文本回答，而不调用抽取工具。",
+          "itemId": "ar4-039"
+        }
+      ],
+      "itemIds": [
+        "ar1-001",
+        "ar1-002",
+        "ar1-003",
+        "ar1-006",
+        "ar1-007",
+        "ar1-008",
+        "ar1-009",
+        "ar1-011",
+        "ar1-022",
+        "ar1-040",
+        "ar1-041",
+        "ar2-006",
+        "ar2-010",
+        "ar2-019",
+        "ar2-022",
+        "ar2-028",
+        "ar2-032",
+        "ar2-038",
+        "ar2-043",
+        "ar2-051",
+        "ar2-052",
+        "ar2-053",
+        "ar2-054",
+        "ar2-066",
+        "ar2-069",
+        "ar2-071",
+        "ar2-073",
+        "ar2-076",
+        "ar3-075",
+        "ar3-077",
+        "ar3-080",
+        "ar4-027",
+        "ar4-030",
+        "ar4-031",
+        "ar4-035",
+        "ar4-036",
+        "ar4-039",
+        "ar4-051",
+        "ar5-010",
+        "ar5-029"
+      ]
+    },
+    {
+      "id": "rule",
+      "word": "rule",
+      "pos": "名詞",
+      "ja": "ルール、規則",
+      "zh": "规则",
+      "count": 87,
+      "questionCount": 39,
+      "domains": {
+        "D1": 6,
+        "D2": 4,
+        "D3": 21,
+        "D4": 5,
+        "D5": 3
+      },
+      "forms": [
+        "rule",
+        "ruled",
+        "rules"
+      ],
+      "examples": [
+        {
+          "en": "Separate rule files such as python.md with paths: [\"**/*.py\"] and go.md with paths: [\"**/*.go\"].",
+          "zh": "分成独立的规则文件，例如 python.md 的 paths 为 [\"**/*.py\"]，go.md 的 paths 为 [\"**/*.go\"]。",
+          "itemId": "ar3-033"
+        },
+        {
+          "en": "Marking business-rule and permission errors as not retryable in the error metadata.",
+          "zh": "在错误元数据中把业务规则错误和权限错误标记为不可重试。",
+          "itemId": "ar2-022"
+        }
+      ],
+      "itemIds": [
+        "ar1-016",
+        "ar1-028",
+        "ar1-043",
+        "ar1-054",
+        "ar1-056",
+        "ar1-065",
+        "ar2-011",
+        "ar2-016",
+        "ar2-022",
+        "ar2-036",
+        "ar3-003",
+        "ar3-005",
+        "ar3-008",
+        "ar3-010",
+        "ar3-012",
+        "ar3-019",
+        "ar3-026",
+        "ar3-027",
+        "ar3-028",
+        "ar3-029",
+        "ar3-030",
+        "ar3-031",
+        "ar3-032",
+        "ar3-033",
+        "ar3-034",
+        "ar3-035",
+        "ar3-036",
+        "ar3-037",
+        "ar3-039",
+        "ar3-040",
+        "ar3-074",
+        "ar4-017",
+        "ar4-034",
+        "ar4-051",
+        "ar4-052",
+        "ar4-075",
+        "ar5-025",
+        "ar5-026",
+        "ar5-028"
+      ]
+    },
+    {
+      "id": "developer",
+      "word": "developer",
+      "pos": "名詞",
+      "ja": "開発者",
+      "zh": "开发者",
+      "count": 49,
+      "questionCount": 38,
+      "domains": {
+        "D1": 2,
+        "D2": 5,
+        "D3": 21,
+        "D4": 7,
+        "D5": 3
+      },
+      "forms": [
+        "developer",
+        "developers"
+      ],
+      "examples": [
+        {
+          "en": "It reads files and proposes a plan but makes no edits until the developer approves.",
+          "zh": "它会读取文件并提出计划，但在开发者批准前不做任何修改。",
+          "itemId": "ar3-043"
+        },
+        {
+          "en": "Developers lose trust and start ignoring all findings, including accurate ones.",
+          "zh": "开发者会失去信任，开始忽视所有发现，包括准确的那些。",
+          "itemId": "ar4-007"
+        }
+      ],
+      "itemIds": [
+        "ar1-003",
+        "ar1-004",
+        "ar2-034",
+        "ar2-035",
+        "ar2-036",
+        "ar2-060",
+        "ar2-063",
+        "ar3-002",
+        "ar3-006",
+        "ar3-009",
+        "ar3-010",
+        "ar3-016",
+        "ar3-017",
+        "ar3-022",
+        "ar3-023",
+        "ar3-029",
+        "ar3-038",
+        "ar3-041",
+        "ar3-043",
+        "ar3-044",
+        "ar3-049",
+        "ar3-055",
+        "ar3-057",
+        "ar3-063",
+        "ar3-068",
+        "ar3-073",
+        "ar3-074",
+        "ar3-080",
+        "ar4-002",
+        "ar4-007",
+        "ar4-014",
+        "ar4-051",
+        "ar4-052",
+        "ar4-062",
+        "ar4-065",
+        "ar5-013",
+        "ar5-050",
+        "ar5-052"
+      ]
+    },
+    {
+      "id": "retry",
+      "word": "retry",
+      "pos": "動詞",
+      "ja": "再試行する",
+      "zh": "重试",
+      "count": 55,
+      "questionCount": 36,
+      "domains": {
+        "D1": 5,
+        "D2": 12,
+        "D4": 10,
+        "D5": 9
+      },
+      "forms": [
+        "retried",
+        "retries",
+        "retry",
+        "retrying"
+      ],
+      "examples": [
+        {
+          "en": "Retries cannot recover information that exists only in a document that was not provided.",
+          "zh": "只存在于未提供文档中的信息，重试无法找回。",
+          "itemId": "ar4-054"
+        },
+        {
+          "en": "A permission error, not retryable; the agent should tell the engineer which access is missing rather than retrying.",
+          "zh": "权限错误，不可重试；智能体应告诉工程师缺少哪项权限，而不是重试。",
+          "itemId": "ar2-020"
+        }
+      ],
+      "itemIds": [
+        "ar1-001",
+        "ar1-010",
+        "ar1-036",
+        "ar1-037",
+        "ar1-048",
+        "ar2-011",
+        "ar2-012",
+        "ar2-013",
+        "ar2-014",
+        "ar2-016",
+        "ar2-017",
+        "ar2-018",
+        "ar2-020",
+        "ar2-022",
+        "ar2-041",
+        "ar2-049",
+        "ar2-066",
+        "ar4-036",
+        "ar4-037",
+        "ar4-043",
+        "ar4-044",
+        "ar4-045",
+        "ar4-049",
+        "ar4-050",
+        "ar4-053",
+        "ar4-054",
+        "ar4-055",
+        "ar5-030",
+        "ar5-031",
+        "ar5-033",
+        "ar5-035",
+        "ar5-036",
+        "ar5-038",
+        "ar5-039",
+        "ar5-040",
+        "ar5-041"
+      ]
+    },
+    {
+      "id": "schema",
+      "word": "schema",
+      "pos": "名詞",
+      "ja": "スキーマ（データ構造の定義）",
+      "zh": "schema（数据结构定义）",
+      "count": 70,
+      "questionCount": 33,
+      "domains": {
+        "D2": 9,
+        "D3": 3,
+        "D4": 19,
+        "D5": 2
+      },
+      "forms": [
+        "schema",
+        "schemas"
+      ],
+      "examples": [
+        {
+          "en": "\"any\", with one tool per schema, so Claude must call one of them and picks the matching type.",
+          "zh": "设为 \"any\"，每种 schema 对应一个工具，这样 Claude 必须调用其中之一，并选择匹配的类型。",
+          "itemId": "ar2-031"
+        },
+        {
+          "en": "Using --output-format json with --json-schema so only well-formed findings are posted.",
+          "zh": "使用 --output-format json 和 --json-schema，只发布格式正确的发现。",
+          "itemId": "ar3-075"
+        }
+      ],
+      "itemIds": [
+        "ar2-003",
+        "ar2-009",
+        "ar2-031",
+        "ar2-041",
+        "ar2-052",
+        "ar2-054",
+        "ar2-055",
+        "ar2-056",
+        "ar2-080",
+        "ar3-071",
+        "ar3-075",
+        "ar3-077",
+        "ar4-022",
+        "ar4-027",
+        "ar4-028",
+        "ar4-029",
+        "ar4-030",
+        "ar4-031",
+        "ar4-033",
+        "ar4-034",
+        "ar4-035",
+        "ar4-036",
+        "ar4-037",
+        "ar4-038",
+        "ar4-039",
+        "ar4-041",
+        "ar4-045",
+        "ar4-046",
+        "ar4-048",
+        "ar4-054",
+        "ar4-055",
+        "ar5-078",
+        "ar5-080"
+      ]
+    },
+    {
+      "id": "test",
+      "word": "test",
+      "pos": "名詞",
+      "ja": "テスト",
+      "zh": "测试",
+      "count": 88,
+      "questionCount": 32,
+      "domains": {
+        "D1": 6,
+        "D2": 5,
+        "D3": 17,
+        "D4": 3,
+        "D5": 1
+      },
+      "forms": [
+        "test",
+        "testing",
+        "tests"
+      ],
+      "examples": [
+        {
+          "en": "Give a specific test case: an example input row containing null and the exact expected output.",
+          "zh": "给出具体的测试用例：一行包含 null 的示例输入，以及准确的期望输出。",
+          "itemId": "ar3-058"
+        },
+        {
+          "en": "A nightly job that generates test suggestions for all modules changed during the day.",
+          "zh": "一个夜间任务，为当天改动过的所有模块生成测试建议。",
+          "itemId": "ar4-062"
+        }
+      ],
+      "itemIds": [
+        "ar1-007",
+        "ar1-024",
+        "ar1-026",
+        "ar1-054",
+        "ar1-060",
+        "ar1-066",
+        "ar2-030",
+        "ar2-065",
+        "ar2-070",
+        "ar2-074",
+        "ar2-078",
+        "ar3-003",
+        "ar3-005",
+        "ar3-006",
+        "ar3-010",
+        "ar3-027",
+        "ar3-028",
+        "ar3-032",
+        "ar3-041",
+        "ar3-058",
+        "ar3-059",
+        "ar3-061",
+        "ar3-062",
+        "ar3-064",
+        "ar3-065",
+        "ar3-066",
+        "ar3-074",
+        "ar3-080",
+        "ar4-014",
+        "ar4-016",
+        "ar4-062",
+        "ar5-045"
+      ]
+    },
+    {
+      "id": "data",
+      "word": "data",
+      "pos": "名詞",
+      "ja": "データ",
+      "zh": "数据",
+      "count": 35,
+      "questionCount": 32,
+      "domains": {
+        "D1": 9,
+        "D2": 4,
+        "D3": 2,
+        "D4": 10,
+        "D5": 7
+      },
+      "forms": [
+        "data"
+      ],
+      "examples": [
+        {
+          "en": "Per-file passes for local issues plus a separate integration pass for cross-file data flow.",
+          "zh": "逐文件审查局部问题，再单独做一次跨文件数据流的集成审查。",
+          "itemId": "ar4-071"
+        },
+        {
+          "en": "The cross-file integration pass, which examines interfaces and data flow between files.",
+          "zh": "跨文件集成审查，它专门检查文件之间的接口和数据流。",
+          "itemId": "ar4-080"
+        }
+      ],
+      "itemIds": [
+        "ar1-001",
+        "ar1-012",
+        "ar1-016",
+        "ar1-049",
+        "ar1-053",
+        "ar1-061",
+        "ar1-067",
+        "ar1-075",
+        "ar1-076",
+        "ar2-006",
+        "ar2-015",
+        "ar2-028",
+        "ar2-056",
+        "ar3-006",
+        "ar3-056",
+        "ar4-003",
+        "ar4-022",
+        "ar4-027",
+        "ar4-038",
+        "ar4-039",
+        "ar4-067",
+        "ar4-069",
+        "ar4-071",
+        "ar4-072",
+        "ar4-080",
+        "ar5-008",
+        "ar5-009",
+        "ar5-024",
+        "ar5-036",
+        "ar5-073",
+        "ar5-074",
+        "ar5-077"
+      ]
+    },
+    {
+      "id": "token",
+      "word": "token",
+      "pos": "名詞",
+      "ja": "トークン（テキストの処理単位）",
+      "zh": "token",
+      "count": 39,
+      "questionCount": 31,
+      "domains": {
+        "D1": 12,
+        "D2": 6,
+        "D3": 2,
+        "D4": 3,
+        "D5": 8
+      },
+      "forms": [
+        "token",
+        "tokens"
+      ],
+      "examples": [
+        {
+          "en": "They load only when Claude works with matching files, reducing irrelevant context and token use.",
+          "zh": "只在 Claude 处理匹配文件时加载，减少无关上下文和 token 消耗。",
+          "itemId": "ar3-030"
+        },
+        {
+          "en": "Reference the token with environment variable expansion, such as ${GITHUB_TOKEN}, and have each developer set the variable locally.",
+          "zh": "用环境变量展开来引用 token，例如 ${GITHUB_TOKEN}，由每位开发者在本地设置该变量。",
+          "itemId": "ar2-035"
+        }
+      ],
+      "itemIds": [
+        "ar1-003",
+        "ar1-004",
+        "ar1-006",
+        "ar1-007",
+        "ar1-008",
+        "ar1-011",
+        "ar1-017",
+        "ar1-022",
+        "ar1-041",
+        "ar1-055",
+        "ar1-061",
+        "ar1-063",
+        "ar2-012",
+        "ar2-035",
+        "ar2-057",
+        "ar2-061",
+        "ar2-063",
+        "ar2-070",
+        "ar3-026",
+        "ar3-030",
+        "ar4-015",
+        "ar4-050",
+        "ar4-054",
+        "ar5-001",
+        "ar5-002",
+        "ar5-008",
+        "ar5-012",
+        "ar5-013",
+        "ar5-051",
+        "ar5-054",
+        "ar5-078"
+      ]
+    },
+    {
+      "id": "pipeline",
+      "word": "pipeline",
+      "pos": "名詞",
+      "ja": "パイプライン（処理の流れ）",
+      "zh": "流水线",
+      "count": 32,
+      "questionCount": 31,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 4,
+        "D4": 13,
+        "D5": 10
+      },
+      "forms": [
+        "pipeline"
+      ],
+      "examples": [
+        {
+          "en": "A fixed sequential pipeline (prompt chaining), because the steps are predictable and the same every time.",
+          "zh": "固定的顺序流水线（提示词链），因为步骤可预测且每次相同。",
+          "itemId": "ar1-058"
+        },
+        {
+          "en": "In each developer's ~/.claude/CLAUDE.md, so the standards follow whoever triggers the pipeline.",
+          "zh": "写在每位开发者的 ~/.claude/CLAUDE.md 中，让规范跟着触发流水线的人走。",
+          "itemId": "ar3-010"
+        }
+      ],
+      "itemIds": [
+        "ar1-013",
+        "ar1-058",
+        "ar1-059",
+        "ar2-027",
+        "ar3-010",
+        "ar3-050",
+        "ar3-070",
+        "ar3-077",
+        "ar4-010",
+        "ar4-019",
+        "ar4-020",
+        "ar4-031",
+        "ar4-032",
+        "ar4-039",
+        "ar4-048",
+        "ar4-050",
+        "ar4-056",
+        "ar4-057",
+        "ar4-066",
+        "ar4-068",
+        "ar4-069",
+        "ar5-024",
+        "ar5-025",
+        "ar5-037",
+        "ar5-055",
+        "ar5-060",
+        "ar5-062",
+        "ar5-072",
+        "ar5-074",
+        "ar5-075",
+        "ar5-080"
+      ]
+    },
+    {
+      "id": "reviewer",
+      "word": "reviewer",
+      "pos": "名詞",
+      "ja": "レビュアー",
+      "zh": "审查者",
+      "count": 46,
+      "questionCount": 30,
+      "domains": {
+        "D3": 5,
+        "D4": 23,
+        "D5": 2
+      },
+      "forms": [
+        "reviewer",
+        "reviewers"
+      ],
+      "examples": [
+        {
+          "en": "Reviewer capacity is limited, so it should go where errors are most likely or most costly.",
+          "zh": "复核能力有限，应投入到最可能出错或出错代价最大的地方。",
+          "itemId": "ar5-065"
+        },
+        {
+          "en": "Fewer false positives sent to human reviewers.",
+          "zh": "送去人工复核的误报更少。",
+          "itemId": "ar4-011"
+        }
+      ],
+      "itemIds": [
+        "ar3-039",
+        "ar3-063",
+        "ar3-068",
+        "ar3-073",
+        "ar3-075",
+        "ar4-001",
+        "ar4-002",
+        "ar4-003",
+        "ar4-004",
+        "ar4-005",
+        "ar4-007",
+        "ar4-008",
+        "ar4-009",
+        "ar4-010",
+        "ar4-011",
+        "ar4-013",
+        "ar4-014",
+        "ar4-015",
+        "ar4-016",
+        "ar4-017",
+        "ar4-042",
+        "ar4-051",
+        "ar4-052",
+        "ar4-069",
+        "ar4-073",
+        "ar4-074",
+        "ar4-076",
+        "ar4-080",
+        "ar5-058",
+        "ar5-065"
+      ]
+    },
+    {
+      "id": "path",
+      "word": "path",
+      "pos": "名詞",
+      "ja": "パス（ファイルの場所）",
+      "zh": "路径",
+      "count": 59,
+      "questionCount": 29,
+      "domains": {
+        "D1": 3,
+        "D2": 3,
+        "D3": 20,
+        "D5": 3
+      },
+      "forms": [
+        "path",
+        "paths"
+      ],
+      "examples": [
+        {
+          "en": "Separate rule files such as python.md with paths: [\"**/*.py\"] and go.md with paths: [\"**/*.go\"].",
+          "zh": "分成独立的规则文件，例如 python.md 的 paths 为 [\"**/*.py\"]，go.md 的 paths 为 [\"**/*.go\"]。",
+          "itemId": "ar3-033"
+        },
+        {
+          "en": "Grep searches inside file contents for patterns; Glob finds files whose paths match a name pattern.",
+          "zh": "Grep 在文件内容中搜索模式；Glob 查找路径符合名称模式的文件。",
+          "itemId": "ar2-074"
+        }
+      ],
+      "itemIds": [
+        "ar1-010",
+        "ar1-043",
+        "ar1-057",
+        "ar2-004",
+        "ar2-048",
+        "ar2-074",
+        "ar3-003",
+        "ar3-004",
+        "ar3-008",
+        "ar3-012",
+        "ar3-026",
+        "ar3-027",
+        "ar3-028",
+        "ar3-029",
+        "ar3-030",
+        "ar3-031",
+        "ar3-032",
+        "ar3-033",
+        "ar3-034",
+        "ar3-035",
+        "ar3-036",
+        "ar3-038",
+        "ar3-039",
+        "ar3-040",
+        "ar3-061",
+        "ar3-065",
+        "ar5-043",
+        "ar5-045",
+        "ar5-050"
+      ]
+    },
+    {
+      "id": "mode",
+      "word": "mode",
+      "pos": "名詞",
+      "ja": "モード",
+      "zh": "模式",
+      "count": 38,
+      "questionCount": 29,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 20,
+        "D4": 3,
+        "D5": 2
+      },
+      "forms": [
+        "mode",
+        "modes"
+      ],
+      "examples": [
+        {
+          "en": "Plan a large library migration in plan mode, then switch to direct execution to implement the approved plan.",
+          "zh": "在计划模式中规划大型库迁移，然后切换到直接执行来实施已批准的计划。",
+          "itemId": "ar3-047"
+        },
+        {
+          "en": "Use plan mode to explore the codebase and decide on an approach before editing, then execute the agreed plan.",
+          "zh": "先用计划模式探索代码库、在修改之前确定方案，再执行商定的计划。",
+          "itemId": "ar3-042"
+        }
+      ],
+      "itemIds": [
+        "ar1-011",
+        "ar1-050",
+        "ar1-079",
+        "ar2-006",
+        "ar3-005",
+        "ar3-041",
+        "ar3-042",
+        "ar3-043",
+        "ar3-044",
+        "ar3-046",
+        "ar3-047",
+        "ar3-048",
+        "ar3-049",
+        "ar3-050",
+        "ar3-051",
+        "ar3-052",
+        "ar3-055",
+        "ar3-056",
+        "ar3-057",
+        "ar3-065",
+        "ar3-069",
+        "ar3-071",
+        "ar3-075",
+        "ar3-079",
+        "ar4-028",
+        "ar4-037",
+        "ar4-063",
+        "ar5-042",
+        "ar5-050"
+      ]
+    },
+    {
+      "id": "description",
+      "word": "description",
+      "pos": "名詞",
+      "ja": "説明",
+      "zh": "描述",
+      "count": 43,
+      "questionCount": 28,
+      "domains": {
+        "D1": 5,
+        "D2": 20,
+        "D3": 2,
+        "D4": 1
+      },
+      "forms": [
+        "description",
+        "descriptions"
+      ],
+      "examples": [
+        {
+          "en": "In an AgentDefinition for each subagent type, with its own description, prompt, and allowed tools.",
+          "zh": "在每种子智能体各自的 AgentDefinition 中，分别设置描述、提示词和允许的工具。",
+          "itemId": "ar1-024"
+        },
+        {
+          "en": "Write MCP tool descriptions that explain capabilities and outputs in detail.",
+          "zh": "把 MCP 工具描述写得详细，说明其能力和输出。",
+          "itemId": "ar2-061"
+        }
+      ],
+      "itemIds": [
+        "ar1-006",
+        "ar1-014",
+        "ar1-020",
+        "ar1-024",
+        "ar1-062",
+        "ar2-001",
+        "ar2-002",
+        "ar2-003",
+        "ar2-004",
+        "ar2-005",
+        "ar2-006",
+        "ar2-007",
+        "ar2-008",
+        "ar2-009",
+        "ar2-010",
+        "ar2-023",
+        "ar2-038",
+        "ar2-040",
+        "ar2-041",
+        "ar2-042",
+        "ar2-043",
+        "ar2-044",
+        "ar2-045",
+        "ar2-061",
+        "ar2-080",
+        "ar3-021",
+        "ar3-056",
+        "ar4-032"
+      ]
+    },
+    {
+      "id": "plan",
+      "word": "plan",
+      "pos": "名詞",
+      "ja": "計画",
+      "zh": "计划",
+      "count": 53,
+      "questionCount": 27,
+      "domains": {
+        "D1": 5,
+        "D2": 1,
+        "D3": 17,
+        "D4": 1,
+        "D5": 3
+      },
+      "forms": [
+        "plan",
+        "planned",
+        "planning",
+        "plans"
+      ],
+      "examples": [
+        {
+          "en": "It reads files and proposes a plan but makes no edits until the developer approves.",
+          "zh": "它会读取文件并提出计划，但在开发者批准前不做任何修改。",
+          "itemId": "ar3-043"
+        },
+        {
+          "en": "Plan a large library migration in plan mode, then switch to direct execution to implement the approved plan.",
+          "zh": "在计划模式中规划大型库迁移，然后切换到直接执行来实施已批准的计划。",
+          "itemId": "ar3-047"
+        }
+      ],
+      "itemIds": [
+        "ar1-038",
+        "ar1-060",
+        "ar1-064",
+        "ar1-065",
+        "ar1-066",
+        "ar2-027",
+        "ar3-005",
+        "ar3-041",
+        "ar3-042",
+        "ar3-043",
+        "ar3-044",
+        "ar3-046",
+        "ar3-047",
+        "ar3-048",
+        "ar3-049",
+        "ar3-050",
+        "ar3-051",
+        "ar3-052",
+        "ar3-055",
+        "ar3-056",
+        "ar3-069",
+        "ar3-071",
+        "ar3-079",
+        "ar4-014",
+        "ar5-042",
+        "ar5-046",
+        "ar5-050"
+      ]
+    },
+    {
+      "id": "confidence",
+      "word": "confidence",
+      "pos": "名詞",
+      "ja": "確信度",
+      "zh": "置信度",
+      "count": 48,
+      "questionCount": 27,
+      "domains": {
+        "D1": 2,
+        "D4": 9,
+        "D5": 16
+      },
+      "forms": [
+        "confidence"
+      ],
+      "examples": [
+        {
+          "en": "Extractions with low model confidence and documents whose source content is ambiguous or contradictory.",
+          "zh": "模型置信度低的抽取结果，以及源内容含糊或相互矛盾的文档。",
+          "itemId": "ar5-058"
+        },
+        {
+          "en": "Route it to human review because the source itself is contradictory, regardless of the model's confidence.",
+          "zh": "因为源文档本身存在矛盾，不论模型置信度如何，都应转人工复核。",
+          "itemId": "ar5-064"
+        }
+      ],
+      "itemIds": [
+        "ar1-038",
+        "ar1-051",
+        "ar4-001",
+        "ar4-004",
+        "ar4-005",
+        "ar4-013",
+        "ar4-014",
+        "ar4-035",
+        "ar4-042",
+        "ar4-069",
+        "ar4-074",
+        "ar5-010",
+        "ar5-019",
+        "ar5-020",
+        "ar5-021",
+        "ar5-027",
+        "ar5-056",
+        "ar5-057",
+        "ar5-058",
+        "ar5-059",
+        "ar5-060",
+        "ar5-063",
+        "ar5-064",
+        "ar5-065",
+        "ar5-066",
+        "ar5-076",
+        "ar5-080"
+      ]
+    },
+    {
+      "id": "repository",
+      "word": "repository",
+      "pos": "名詞",
+      "ja": "リポジトリ",
+      "zh": "代码仓库",
+      "count": 33,
+      "questionCount": 27,
+      "domains": {
+        "D1": 5,
+        "D2": 8,
+        "D3": 10,
+        "D4": 2,
+        "D5": 2
+      },
+      "forms": [
+        "repositories",
+        "repository"
+      ],
+      "examples": [
+        {
+          "en": "In a project-level CLAUDE.md (repository root or .claude/CLAUDE.md), committed to version control.",
+          "zh": "放在项目级 CLAUDE.md（仓库根目录或 .claude/CLAUDE.md）中，并提交到版本控制。",
+          "itemId": "ar3-002"
+        },
+        {
+          "en": "From the repository's CLAUDE.md (and the rules it loads).",
+          "zh": "从仓库的 CLAUDE.md（及其加载的规则）中获取。",
+          "itemId": "ar3-074"
+        }
+      ],
+      "itemIds": [
+        "ar1-004",
+        "ar1-025",
+        "ar1-066",
+        "ar1-069",
+        "ar1-072",
+        "ar2-020",
+        "ar2-031",
+        "ar2-034",
+        "ar2-035",
+        "ar2-064",
+        "ar2-067",
+        "ar2-075",
+        "ar2-076",
+        "ar3-002",
+        "ar3-003",
+        "ar3-009",
+        "ar3-014",
+        "ar3-017",
+        "ar3-022",
+        "ar3-027",
+        "ar3-028",
+        "ar3-054",
+        "ar3-074",
+        "ar4-042",
+        "ar4-080",
+        "ar5-042",
+        "ar5-043"
+      ]
+    },
+    {
+      "id": "issue",
+      "word": "issue",
+      "pos": "名詞",
+      "ja": "問題、課題",
+      "zh": "问题",
+      "count": 32,
+      "questionCount": 25,
+      "domains": {
+        "D1": 5,
+        "D2": 1,
+        "D3": 4,
+        "D4": 9,
+        "D5": 6
+      },
+      "forms": [
+        "issue",
+        "issues",
+        "issuing"
+      ],
+      "examples": [
+        {
+          "en": "Per-file passes for local issues plus a separate integration pass for cross-file data flow.",
+          "zh": "逐文件审查局部问题，再单独做一次跨文件数据流的集成审查。",
+          "itemId": "ar4-071"
+        },
+        {
+          "en": "Add a few examples of correctly formatted findings (location, issue, severity, suggested fix).",
+          "zh": "加入几个格式正确的发现示例（位置、问题、严重程度、建议修复）。",
+          "itemId": "ar4-015"
+        }
+      ],
+      "itemIds": [
+        "ar1-027",
+        "ar1-029",
+        "ar1-030",
+        "ar1-061",
+        "ar1-063",
+        "ar2-080",
+        "ar3-057",
+        "ar3-068",
+        "ar3-073",
+        "ar3-075",
+        "ar4-003",
+        "ar4-004",
+        "ar4-005",
+        "ar4-006",
+        "ar4-015",
+        "ar4-042",
+        "ar4-071",
+        "ar4-072",
+        "ar4-080",
+        "ar5-004",
+        "ar5-005",
+        "ar5-015",
+        "ar5-016",
+        "ar5-023",
+        "ar5-026"
+      ]
+    },
+    {
+      "id": "productivity",
+      "word": "productivity",
+      "pos": "名詞",
+      "ja": "生産性",
+      "zh": "效率、生产力",
+      "count": 26,
+      "questionCount": 24,
+      "domains": {
+        "D1": 9,
+        "D2": 9,
+        "D3": 6
+      },
+      "forms": [
+        "productivity"
+      ],
+      "examples": [
+        {
+          "en": "Overly narrow decomposition; the coordinator should partition the topic into distinct subtopics (for example productivity, wellbeing, cost, hiring) so coverage is broad.",
+          "zh": "过窄的任务分解；协调者应把题目划分为不同的子主题（如生产力、员工身心健康、成本、招聘），以保证覆盖面。",
+          "itemId": "ar1-014"
+        },
+        {
+          "en": "An engineer asks the productivity agent to \"add comprehensive tests to this legacy codebase.\" What is the best first move?",
+          "zh": "工程师让效率智能体「给这个遗留代码库补上完整的测试」。最好的第一步是什么？",
+          "itemId": "ar1-060"
+        }
+      ],
+      "itemIds": [
+        "ar1-004",
+        "ar1-007",
+        "ar1-010",
+        "ar1-014",
+        "ar1-024",
+        "ar1-035",
+        "ar1-043",
+        "ar1-055",
+        "ar1-060",
+        "ar2-004",
+        "ar2-008",
+        "ar2-020",
+        "ar2-030",
+        "ar2-037",
+        "ar2-039",
+        "ar2-048",
+        "ar2-059",
+        "ar2-064",
+        "ar3-009",
+        "ar3-021",
+        "ar3-033",
+        "ar3-048",
+        "ar3-050",
+        "ar3-069"
+      ]
+    },
+    {
+      "id": "pattern",
+      "word": "pattern",
+      "pos": "名詞",
+      "ja": "パターン、型",
+      "zh": "模式（写法）",
+      "count": 40,
+      "questionCount": 23,
+      "domains": {
+        "D1": 1,
+        "D2": 5,
+        "D3": 5,
+        "D4": 8,
+        "D5": 4
+      },
+      "forms": [
+        "pattern",
+        "patterns"
+      ],
+      "examples": [
+        {
+          "en": "Include a detected_pattern field in each finding and track dismissals per pattern.",
+          "zh": "在每条发现中加入 detected_pattern 字段，并按模式统计驳回情况。",
+          "itemId": "ar4-052"
+        },
+        {
+          "en": "Grep searches inside file contents for patterns; Glob finds files whose paths match a name pattern.",
+          "zh": "Grep 在文件内容中搜索模式；Glob 查找路径符合名称模式的文件。",
+          "itemId": "ar2-074"
+        }
+      ],
+      "itemIds": [
+        "ar1-058",
+        "ar2-065",
+        "ar2-074",
+        "ar2-076",
+        "ar2-077",
+        "ar2-079",
+        "ar3-027",
+        "ar3-032",
+        "ar3-034",
+        "ar3-057",
+        "ar3-065",
+        "ar4-003",
+        "ar4-006",
+        "ar4-009",
+        "ar4-017",
+        "ar4-042",
+        "ar4-051",
+        "ar4-052",
+        "ar4-078",
+        "ar5-035",
+        "ar5-042",
+        "ar5-060",
+        "ar5-066"
+      ]
+    },
+    {
+      "id": "stop",
+      "word": "stop",
+      "pos": "動詞",
+      "ja": "止まる、止める",
+      "zh": "停止",
+      "count": 39,
+      "questionCount": 23,
+      "domains": {
+        "D1": 9,
+        "D2": 3,
+        "D3": 2,
+        "D4": 4,
+        "D5": 5
+      },
+      "forms": [
+        "stop",
+        "stopping",
+        "stops"
+      ],
+      "examples": [
+        {
+          "en": "Branch on stop_reason: continue when it is \"tool_use\" and finish when it is \"end_turn\".",
+          "zh": "依据 stop_reason 分支：\"tool_use\" 时继续，\"end_turn\" 时结束。",
+          "itemId": "ar1-008"
+        },
+        {
+          "en": "Text presence is not a completion indicator; a response can contain both text and tool_use blocks, so the loop must branch on stop_reason.",
+          "zh": "是否有文本并不是完成的标志；一个响应可以同时包含文本和 tool_use 块，所以循环必须依据 stop_reason 来分支。",
+          "itemId": "ar1-007"
+        }
+      ],
+      "itemIds": [
+        "ar1-001",
+        "ar1-002",
+        "ar1-003",
+        "ar1-006",
+        "ar1-007",
+        "ar1-008",
+        "ar1-011",
+        "ar1-025",
+        "ar1-065",
+        "ar2-015",
+        "ar2-023",
+        "ar2-045",
+        "ar3-067",
+        "ar3-079",
+        "ar4-009",
+        "ar4-038",
+        "ar4-050",
+        "ar4-052",
+        "ar5-001",
+        "ar5-051",
+        "ar5-055",
+        "ar5-066",
+        "ar5-071"
+      ]
+    },
+    {
+      "id": "escalate",
+      "word": "escalate",
+      "pos": "動詞",
+      "ja": "エスカレーションする",
+      "zh": "升级处理",
+      "count": 34,
+      "questionCount": 23,
+      "domains": {
+        "D1": 6,
+        "D2": 6,
+        "D5": 11
+      },
+      "forms": [
+        "escalate",
+        "escalated",
+        "escalates"
+      ],
+      "examples": [
+        {
+          "en": "Honor the request immediately and escalate, without first trying to investigate or resolve.",
+          "zh": "立即尊重这一请求并转人工，不要先尝试调查或解决。",
+          "itemId": "ar5-015"
+        },
+        {
+          "en": "Blocking refunds above the company's approval threshold and routing them to escalate_to_human.",
+          "zh": "拦截超过公司审批阈值的退款，并转给 escalate_to_human。",
+          "itemId": "ar1-031"
+        }
+      ],
+      "itemIds": [
+        "ar1-029",
+        "ar1-030",
+        "ar1-031",
+        "ar1-036",
+        "ar1-048",
+        "ar1-049",
+        "ar2-007",
+        "ar2-012",
+        "ar2-029",
+        "ar2-040",
+        "ar2-047",
+        "ar2-050",
+        "ar5-015",
+        "ar5-016",
+        "ar5-017",
+        "ar5-019",
+        "ar5-020",
+        "ar5-021",
+        "ar5-022",
+        "ar5-023",
+        "ar5-026",
+        "ar5-028",
+        "ar5-033"
+      ]
+    },
+    {
+      "id": "load",
+      "word": "load",
+      "pos": "動詞",
+      "ja": "読み込む",
+      "zh": "加载",
+      "count": 31,
+      "questionCount": 23,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D3": 16,
+        "D5": 2
+      },
+      "forms": [
+        "load",
+        "loaded",
+        "loading",
+        "loads"
+      ],
+      "examples": [
+        {
+          "en": "Reviews of frontend changes do not load backend conventions that are irrelevant to them.",
+          "zh": "审查前端改动时不会加载无关的后端约定。",
+          "itemId": "ar3-032"
+        },
+        {
+          "en": "They load only when Claude works with matching files, reducing irrelevant context and token use.",
+          "zh": "只在 Claude 处理匹配文件时加载，减少无关上下文和 token 消耗。",
+          "itemId": "ar3-030"
+        }
+      ],
+      "itemIds": [
+        "ar1-074",
+        "ar2-026",
+        "ar2-045",
+        "ar2-048",
+        "ar2-071",
+        "ar3-005",
+        "ar3-007",
+        "ar3-008",
+        "ar3-009",
+        "ar3-010",
+        "ar3-012",
+        "ar3-023",
+        "ar3-026",
+        "ar3-027",
+        "ar3-029",
+        "ar3-030",
+        "ar3-032",
+        "ar3-034",
+        "ar3-037",
+        "ar3-040",
+        "ar3-074",
+        "ar5-047",
+        "ar5-054"
+      ]
+    },
+    {
+      "id": "engineer",
+      "word": "engineer",
+      "pos": "名詞",
+      "ja": "エンジニア",
+      "zh": "工程师",
+      "count": 28,
+      "questionCount": 23,
+      "domains": {
+        "D1": 9,
+        "D2": 11,
+        "D3": 2,
+        "D5": 1
+      },
+      "forms": [
+        "engineer",
+        "engineering",
+        "engineers"
+      ],
+      "examples": [
+        {
+          "en": "A permission error, not retryable; the agent should tell the engineer which access is missing rather than retrying.",
+          "zh": "权限错误，不可重试；智能体应告诉工程师缺少哪项权限，而不是重试。",
+          "itemId": "ar2-020"
+        },
+        {
+          "en": "\"Searches the internal engineering wiki (design docs, runbooks, onboarding guides). Use for questions about process or intent. For source code, use search_code.\"",
+          "zh": "「搜索内部工程 wiki（设计文档、运维手册、入职指南）。用于流程或设计意图方面的问题。搜索源代码请用 search_code。」",
+          "itemId": "ar2-008"
+        }
+      ],
+      "itemIds": [
+        "ar1-010",
+        "ar1-026",
+        "ar1-035",
+        "ar1-043",
+        "ar1-060",
+        "ar1-066",
+        "ar1-068",
+        "ar1-069",
+        "ar1-076",
+        "ar2-007",
+        "ar2-008",
+        "ar2-018",
+        "ar2-020",
+        "ar2-038",
+        "ar2-043",
+        "ar2-064",
+        "ar2-067",
+        "ar2-068",
+        "ar2-077",
+        "ar2-079",
+        "ar3-033",
+        "ar3-048",
+        "ar5-038"
+      ]
+    },
+    {
+      "id": "guidance",
+      "word": "guidance",
+      "pos": "名詞",
+      "ja": "指針、指示",
+      "zh": "指引",
+      "count": 25,
+      "questionCount": 23,
+      "domains": {
+        "D1": 5,
+        "D2": 9,
+        "D3": 2,
+        "D4": 4,
+        "D5": 3
+      },
+      "forms": [
+        "guidance"
+      ],
+      "examples": [
+        {
+          "en": "Programmatic enforcement (hooks, prerequisite gates) guarantees the order is followed; prompt guidance only makes the desired order more likely.",
+          "zh": "程序化强制（钩子、前置闸门）能保证顺序被遵守；提示词引导只能让期望的顺序更可能发生。",
+          "itemId": "ar1-050"
+        },
+        {
+          "en": "Which TWO coordinator behaviors match the guidance for multi-agent research systems? (Select 2)",
+          "zh": "下列哪两项协调者的行为符合多智能体调研系统的设计指引？（选 2 项）",
+          "itemId": "ar1-019"
+        }
+      ],
+      "itemIds": [
+        "ar1-019",
+        "ar1-031",
+        "ar1-035",
+        "ar1-038",
+        "ar1-050",
+        "ar2-005",
+        "ar2-006",
+        "ar2-010",
+        "ar2-021",
+        "ar2-023",
+        "ar2-024",
+        "ar2-026",
+        "ar2-039",
+        "ar2-067",
+        "ar3-003",
+        "ar3-078",
+        "ar4-018",
+        "ar4-025",
+        "ar4-027",
+        "ar4-068",
+        "ar5-027",
+        "ar5-031",
+        "ar5-073"
+      ]
+    },
+    {
+      "id": "batch",
+      "word": "batch",
+      "pos": "名詞",
+      "ja": "バッチ（まとめて処理する単位）",
+      "zh": "批次",
+      "count": 36,
+      "questionCount": 22,
+      "domains": {
+        "D1": 4,
+        "D2": 1,
+        "D3": 1,
+        "D4": 14,
+        "D5": 2
+      },
+      "forms": [
+        "batch",
+        "batches"
+      ],
+      "examples": [
+        {
+          "en": "The Message Batches API, which costs less and suits latency-tolerant, non-blocking work.",
+          "zh": "Message Batches API：成本更低，适合能容忍延迟、非阻塞的工作。",
+          "itemId": "ar4-056"
+        },
+        {
+          "en": "It reduces cost compared with standard requests, and a batch can take up to 24 hours to complete.",
+          "zh": "与标准请求相比可降低成本，一个批次最长可能需要 24 小时才能完成。",
+          "itemId": "ar4-064"
+        }
+      ],
+      "itemIds": [
+        "ar1-011",
+        "ar1-050",
+        "ar1-078",
+        "ar1-079",
+        "ar2-018",
+        "ar3-050",
+        "ar4-056",
+        "ar4-057",
+        "ar4-058",
+        "ar4-059",
+        "ar4-060",
+        "ar4-061",
+        "ar4-062",
+        "ar4-063",
+        "ar4-064",
+        "ar4-065",
+        "ar4-066",
+        "ar4-067",
+        "ar4-078",
+        "ar4-079",
+        "ar5-005",
+        "ar5-072"
+      ]
+    },
+    {
+      "id": "instruction",
+      "word": "instruction",
+      "pos": "名詞",
+      "ja": "指示",
+      "zh": "指令",
+      "count": 26,
+      "questionCount": 22,
+      "domains": {
+        "D1": 6,
+        "D2": 4,
+        "D3": 2,
+        "D4": 9,
+        "D5": 1
+      },
+      "forms": [
+        "instruction",
+        "instructions"
+      ],
+      "examples": [
+        {
+          "en": "That key findings needed later (file paths, class names, decisions) are captured, for example in a scratchpad or the summary instructions.",
+          "zh": "之后需要的关键发现（文件路径、类名、决定）已被保存下来，例如写进 scratchpad 或作为总结的要求。",
+          "itemId": "ar5-050"
+        },
+        {
+          "en": "A keyword-sensitive instruction in the system prompt is creating an unintended association that overrides otherwise clear tool descriptions.",
+          "zh": "系统提示词中一条对关键词敏感的指令造成了意外的关联，压过了原本清楚的工具描述。",
+          "itemId": "ar2-004"
+        }
+      ],
+      "itemIds": [
+        "ar1-019",
+        "ar1-025",
+        "ar1-027",
+        "ar1-038",
+        "ar1-056",
+        "ar1-067",
+        "ar2-004",
+        "ar2-026",
+        "ar2-046",
+        "ar2-053",
+        "ar3-023",
+        "ar3-067",
+        "ar4-003",
+        "ar4-005",
+        "ar4-008",
+        "ar4-011",
+        "ar4-012",
+        "ar4-015",
+        "ar4-020",
+        "ar4-022",
+        "ar4-025",
+        "ar5-050"
+      ]
+    },
+    {
+      "id": "refund",
+      "word": "refund",
+      "pos": "名詞",
+      "ja": "返金",
+      "zh": "退款",
+      "count": 45,
+      "questionCount": 21,
+      "domains": {
+        "D1": 10,
+        "D2": 6,
+        "D5": 5
+      },
+      "forms": [
+        "refund",
+        "refunds"
+      ],
+      "examples": [
+        {
+          "en": "Blocking refunds above the company's approval threshold and routing them to escalate_to_human.",
+          "zh": "拦截超过公司审批阈值的退款，并转给 escalate_to_human。",
+          "itemId": "ar1-031"
+        },
+        {
+          "en": "The boundary: partial refunds and exchanges are out of scope and should be escalated.",
+          "zh": "边界：部分退款和换货不在其范围内，应转人工。",
+          "itemId": "ar2-007"
+        }
+      ],
+      "itemIds": [
+        "ar1-011",
+        "ar1-027",
+        "ar1-028",
+        "ar1-031",
+        "ar1-033",
+        "ar1-036",
+        "ar1-046",
+        "ar1-047",
+        "ar1-052",
+        "ar1-054",
+        "ar2-007",
+        "ar2-011",
+        "ar2-016",
+        "ar2-029",
+        "ar2-047",
+        "ar2-055",
+        "ar5-001",
+        "ar5-005",
+        "ar5-022",
+        "ar5-046",
+        "ar5-051"
+      ]
+    },
+    {
+      "id": "synthesis",
+      "word": "synthesis",
+      "pos": "名詞",
+      "ja": "統合、合成（結果をまとめること）",
+      "zh": "综合",
+      "count": 40,
+      "questionCount": 21,
+      "domains": {
+        "D1": 9,
+        "D2": 3,
+        "D5": 9
+      },
+      "forms": [
+        "synthesis"
+      ],
+      "examples": [
+        {
+          "en": "Fork the session after the findings are collected, and run each synthesis strategy in its own branch.",
+          "zh": "在收集完发现之后分叉会话，让两种综合策略各自在独立分支里运行。",
+          "itemId": "ar1-042"
+        },
+        {
+          "en": "Evaluate the synthesis for gaps and re-delegate targeted follow-up queries.",
+          "zh": "评估综合结果中的缺口，并派发有针对性的后续查询。",
+          "itemId": "ar1-019"
+        }
+      ],
+      "itemIds": [
+        "ar1-013",
+        "ar1-014",
+        "ar1-016",
+        "ar1-019",
+        "ar1-021",
+        "ar1-022",
+        "ar1-038",
+        "ar1-042",
+        "ar1-059",
+        "ar2-023",
+        "ar2-025",
+        "ar2-051",
+        "ar5-009",
+        "ar5-010",
+        "ar5-011",
+        "ar5-034",
+        "ar5-067",
+        "ar5-069",
+        "ar5-071",
+        "ar5-072",
+        "ar5-079"
+      ]
+    },
+    {
+      "id": "choice",
+      "word": "choice",
+      "pos": "名詞",
+      "ja": "選択",
+      "zh": "选择",
+      "count": 25,
+      "questionCount": 21,
+      "domains": {
+        "D2": 13,
+        "D3": 1,
+        "D4": 7
+      },
+      "forms": [
+        "choice",
+        "choices"
+      ],
+      "examples": [
+        {
+          "en": "Need: guarantee a tool call, model chooses among several schemas → tool_choice \"any\".",
+          "zh": "需求：保证调用工具，由模型在多个 schema 中选择 → tool_choice \"any\"。",
+          "itemId": "ar2-054"
+        },
+        {
+          "en": "Force tool_choice to {\"type\": \"tool\", \"name\": \"extract_metadata\"}, then run enrichment in later turns.",
+          "zh": "把 tool_choice 强制设为 {\"type\": \"tool\", \"name\": \"extract_metadata\"}，之后的回合再运行增强步骤。",
+          "itemId": "ar4-032"
+        }
+      ],
+      "itemIds": [
+        "ar2-024",
+        "ar2-027",
+        "ar2-028",
+        "ar2-029",
+        "ar2-031",
+        "ar2-032",
+        "ar2-046",
+        "ar2-050",
+        "ar2-052",
+        "ar2-053",
+        "ar2-054",
+        "ar2-073",
+        "ar2-074",
+        "ar3-036",
+        "ar4-026",
+        "ar4-031",
+        "ar4-032",
+        "ar4-035",
+        "ar4-039",
+        "ar4-040",
+        "ar4-079"
+      ]
+    },
+    {
+      "id": "skip",
+      "word": "skip",
+      "pos": "動詞",
+      "ja": "飛ばす、省く",
+      "zh": "跳过",
+      "count": 22,
+      "questionCount": 21,
+      "domains": {
+        "D1": 5,
+        "D3": 6,
+        "D4": 8,
+        "D5": 2
+      },
+      "forms": [
+        "skip",
+        "skipped",
+        "skipping"
+      ],
+      "examples": [
+        {
+          "en": "They do not tell the model which categories of issues to report or skip, so its judgment about what counts stays vague.",
+          "zh": "它们没有告诉模型应报告或跳过哪些类别的问题，所以模型对「什么算问题」的判断依然模糊。",
+          "itemId": "ar4-005"
+        },
+        {
+          "en": "Listing concrete categories to report and to skip.",
+          "zh": "列出具体的报告类别和跳过类别。",
+          "itemId": "ar4-006"
+        }
+      ],
+      "itemIds": [
+        "ar1-005",
+        "ar1-015",
+        "ar1-038",
+        "ar1-054",
+        "ar1-060",
+        "ar3-001",
+        "ar3-032",
+        "ar3-045",
+        "ar3-047",
+        "ar3-064",
+        "ar3-078",
+        "ar4-001",
+        "ar4-003",
+        "ar4-005",
+        "ar4-006",
+        "ar4-040",
+        "ar4-057",
+        "ar4-068",
+        "ar4-072",
+        "ar5-045",
+        "ar5-063"
+      ]
+    },
+    {
+      "id": "fork",
+      "word": "fork",
+      "pos": "動詞",
+      "ja": "分岐させる",
+      "zh": "分叉",
+      "count": 35,
+      "questionCount": 20,
+      "domains": {
+        "D1": 10,
+        "D3": 8,
+        "D4": 1,
+        "D5": 1
+      },
+      "forms": [
+        "fork",
+        "forked",
+        "forking"
+      ],
+      "examples": [
+        {
+          "en": "It produces verbose output that should be isolated from the main conversation with context: fork.",
+          "zh": "它会产生冗长的输出，应该用 context: fork 与主对话隔离。",
+          "itemId": "ar3-025"
+        },
+        {
+          "en": "Fork the session from the shared analysis so each strategy is explored in its own independent branch.",
+          "zh": "从这份共享分析处分叉（fork）会话，让两种策略各自在独立分支中探索。",
+          "itemId": "ar1-026"
+        }
+      ],
+      "itemIds": [
+        "ar1-026",
+        "ar1-042",
+        "ar1-070",
+        "ar1-071",
+        "ar1-073",
+        "ar1-075",
+        "ar1-076",
+        "ar1-077",
+        "ar1-078",
+        "ar1-079",
+        "ar3-015",
+        "ar3-016",
+        "ar3-020",
+        "ar3-021",
+        "ar3-023",
+        "ar3-025",
+        "ar3-038",
+        "ar3-079",
+        "ar4-078",
+        "ar5-052"
+      ]
+    },
+    {
+      "id": "server",
+      "word": "server",
+      "pos": "名詞",
+      "ja": "サーバー",
+      "zh": "服务器",
+      "count": 41,
+      "questionCount": 19,
+      "domains": {
+        "D1": 2,
+        "D2": 13,
+        "D4": 1,
+        "D5": 3
+      },
+      "forms": [
+        "server",
+        "servers"
+      ],
+      "examples": [
+        {
+          "en": "Put shared servers in the project's .mcp.json and reference credentials with environment variables.",
+          "zh": "把共享服务器放在项目的 .mcp.json 中，并用环境变量引用凭据。",
+          "itemId": "ar2-061"
+        },
+        {
+          "en": "Tools from all configured servers are discovered at connection time and are available at the same time.",
+          "zh": "所有已配置服务器的工具都会在连接时被发现，并同时可用。",
+          "itemId": "ar2-037"
+        }
+      ],
+      "itemIds": [
+        "ar1-004",
+        "ar1-055",
+        "ar2-014",
+        "ar2-034",
+        "ar2-036",
+        "ar2-037",
+        "ar2-039",
+        "ar2-043",
+        "ar2-057",
+        "ar2-058",
+        "ar2-059",
+        "ar2-060",
+        "ar2-061",
+        "ar2-063",
+        "ar2-080",
+        "ar4-038",
+        "ar5-003",
+        "ar5-040",
+        "ar5-050"
+      ]
+    },
+    {
+      "id": "query",
+      "word": "query",
+      "pos": "名詞",
+      "ja": "クエリ、問い合わせ",
+      "zh": "查询语句",
+      "count": 30,
+      "questionCount": 19,
+      "domains": {
+        "D1": 6,
+        "D2": 9,
+        "D5": 4
+      },
+      "forms": [
+        "queries",
+        "query",
+        "querying"
+      ],
+      "examples": [
+        {
+          "en": "Failure type, the query attempted, any partial results, and potential alternative approaches.",
+          "zh": "失败类型、尝试过的查询、已有的部分结果以及可能的替代方案。",
+          "itemId": "ar5-032"
+        },
+        {
+          "en": "Evaluate the synthesis for gaps and re-delegate targeted follow-up queries.",
+          "zh": "评估综合结果中的缺口，并派发有针对性的后续查询。",
+          "itemId": "ar1-019"
+        }
+      ],
+      "itemIds": [
+        "ar1-013",
+        "ar1-016",
+        "ar1-019",
+        "ar1-020",
+        "ar1-038",
+        "ar1-039",
+        "ar2-003",
+        "ar2-013",
+        "ar2-017",
+        "ar2-019",
+        "ar2-020",
+        "ar2-043",
+        "ar2-051",
+        "ar2-056",
+        "ar2-080",
+        "ar5-030",
+        "ar5-032",
+        "ar5-036",
+        "ar5-040"
+      ]
+    },
+    {
+      "id": "validation",
+      "word": "validation",
+      "pos": "名詞",
+      "ja": "検証",
+      "zh": "校验",
+      "count": 28,
+      "questionCount": 19,
+      "domains": {
+        "D1": 1,
+        "D2": 5,
+        "D3": 1,
+        "D4": 10,
+        "D5": 2
+      },
+      "forms": [
+        "validation"
+      ],
+      "examples": [
+        {
+          "en": "Appending specific validation errors to the retry request helps the model correct its output.",
+          "zh": "在重试请求中附上具体的校验错误，有助于模型修正输出。",
+          "itemId": "ar4-054"
+        },
+        {
+          "en": "The original document, the failed extraction, and the specific validation errors.",
+          "zh": "原始文档、失败的抽取结果以及具体的校验错误。",
+          "itemId": "ar4-049"
+        }
+      ],
+      "itemIds": [
+        "ar1-067",
+        "ar2-014",
+        "ar2-016",
+        "ar2-020",
+        "ar2-021",
+        "ar2-048",
+        "ar3-046",
+        "ar4-037",
+        "ar4-043",
+        "ar4-044",
+        "ar4-045",
+        "ar4-048",
+        "ar4-049",
+        "ar4-054",
+        "ar4-055",
+        "ar4-059",
+        "ar4-073",
+        "ar5-057",
+        "ar5-080"
+      ]
+    },
+    {
+      "id": "codebase",
+      "word": "codebase",
+      "pos": "名詞",
+      "ja": "コードベース（コード一式）",
+      "zh": "代码库",
+      "count": 21,
+      "questionCount": 19,
+      "domains": {
+        "D1": 6,
+        "D2": 3,
+        "D3": 4,
+        "D4": 2,
+        "D5": 4
+      },
+      "forms": [
+        "codebase"
+      ],
+      "examples": [
+        {
+          "en": "The investigation was interrupted yesterday and nothing in the codebase has changed since.",
+          "zh": "调查昨天被中断，此后代码库没有任何变化。",
+          "itemId": "ar1-072"
+        },
+        {
+          "en": "First identify all names the module exports, then Grep for each exported name across the codebase.",
+          "zh": "先找出该模块导出的所有名字，再用 Grep 在整个代码库中逐个搜索这些导出名。",
+          "itemId": "ar2-068"
+        }
+      ],
+      "itemIds": [
+        "ar1-026",
+        "ar1-060",
+        "ar1-062",
+        "ar1-070",
+        "ar1-072",
+        "ar1-076",
+        "ar2-068",
+        "ar2-075",
+        "ar2-079",
+        "ar3-015",
+        "ar3-027",
+        "ar3-041",
+        "ar3-042",
+        "ar4-016",
+        "ar4-070",
+        "ar5-042",
+        "ar5-043",
+        "ar5-048",
+        "ar5-053"
+      ]
+    },
+    {
+      "id": "lookup",
+      "word": "lookup",
+      "pos": "名詞",
+      "ja": "照会、検索",
+      "zh": "查询",
+      "count": 28,
+      "questionCount": 18,
+      "domains": {
+        "D1": 8,
+        "D2": 7,
+        "D3": 1,
+        "D5": 2
+      },
+      "forms": [
+        "lookup",
+        "lookups"
+      ],
+      "examples": [
+        {
+          "en": "The preconditions: it requires a verified customer ID and an order ID from lookup_order.",
+          "zh": "前置条件：需要已验证的客户 ID 和来自 lookup_order 的订单 ID。",
+          "itemId": "ar2-007"
+        },
+        {
+          "en": "Execute lookup_order, append the result as a tool_result block in a new user message, and send the updated conversation back to Claude.",
+          "zh": "执行 lookup_order，把结果作为 tool_result 块放进新的 user 消息里追加到对话中，再把更新后的对话发回给 Claude。",
+          "itemId": "ar1-001"
+        }
+      ],
+      "itemIds": [
+        "ar1-001",
+        "ar1-006",
+        "ar1-009",
+        "ar1-028",
+        "ar1-030",
+        "ar1-034",
+        "ar1-047",
+        "ar1-053",
+        "ar2-003",
+        "ar2-007",
+        "ar2-010",
+        "ar2-013",
+        "ar2-029",
+        "ar2-041",
+        "ar2-047",
+        "ar3-027",
+        "ar5-002",
+        "ar5-008"
+      ]
+    },
+    {
+      "id": "glob",
+      "word": "glob",
+      "pos": "名詞",
+      "ja": "グロブ（ファイル名のパターン）",
+      "zh": "glob 模式",
+      "count": 34,
+      "questionCount": 17,
+      "domains": {
+        "D1": 1,
+        "D2": 12,
+        "D3": 4
+      },
+      "forms": [
+        "glob"
+      ],
+      "examples": [
+        {
+          "en": "code-explorer: Read, Grep, Glob. refactor: Read, Edit, Write, plus Bash only if it must run tests.",
+          "zh": "code-explorer：Read、Grep、Glob。refactor：Read、Edit、Write，只有在需要跑测试时才加 Bash。",
+          "itemId": "ar2-030"
+        },
+        {
+          "en": "Grep searches inside file contents for patterns; Glob finds files whose paths match a name pattern.",
+          "zh": "Grep 在文件内容中搜索模式；Glob 查找路径符合名称模式的文件。",
+          "itemId": "ar2-074"
+        }
+      ],
+      "itemIds": [
+        "ar1-010",
+        "ar2-030",
+        "ar2-064",
+        "ar2-065",
+        "ar2-067",
+        "ar2-068",
+        "ar2-070",
+        "ar2-071",
+        "ar2-072",
+        "ar2-073",
+        "ar2-074",
+        "ar2-077",
+        "ar2-078",
+        "ar3-027",
+        "ar3-032",
+        "ar3-033",
+        "ar3-034"
+      ]
+    },
+    {
+      "id": "statement",
+      "word": "statement",
+      "pos": "名詞",
+      "ja": "記述、文",
+      "zh": "陈述",
+      "count": 17,
+      "questionCount": 17,
+      "domains": {
+        "D1": 5,
+        "D2": 5,
+        "D3": 3,
+        "D4": 4
+      },
+      "forms": [
+        "statement",
+        "statements"
+      ],
+      "examples": [
+        {
+          "en": "Grep with a pattern that matches both forms (for example the package name in import or require statements), then Read the hits as needed.",
+          "zh": "用能同时匹配两种写法的模式进行 Grep（例如在 import 或 require 语句中出现的包名），再按需 Read 命中的文件。",
+          "itemId": "ar2-077"
+        },
+        {
+          "en": "Make the instruction specific about which kinds of statements need verification, and check that the wording does not unintentionally map to the tool's name.",
+          "zh": "把指令改得具体，说明哪类陈述需要核实，并检查措辞是否无意中与工具名称形成了映射。",
+          "itemId": "ar2-046"
+        }
+      ],
+      "itemIds": [
+        "ar1-018",
+        "ar1-039",
+        "ar1-044",
+        "ar1-052",
+        "ar1-064",
+        "ar2-033",
+        "ar2-046",
+        "ar2-052",
+        "ar2-076",
+        "ar2-077",
+        "ar3-008",
+        "ar3-034",
+        "ar3-040",
+        "ar4-030",
+        "ar4-040",
+        "ar4-054",
+        "ar4-064"
+      ]
+    },
+    {
+      "id": "policy",
+      "word": "policy",
+      "pos": "名詞",
+      "ja": "方針、規定",
+      "zh": "政策",
+      "count": 26,
+      "questionCount": 16,
+      "domains": {
+        "D1": 3,
+        "D2": 6,
+        "D5": 7
+      },
+      "forms": [
+        "policies",
+        "policy"
+      ],
+      "examples": [
+        {
+          "en": "Denying a tool call that violates policy and returning the reason so the agent can take an alternative path.",
+          "zh": "拒绝违反政策的工具调用，并返回原因，让智能体走替代路径。",
+          "itemId": "ar1-057"
+        },
+        {
+          "en": "The request falls into a gap or exception the policy does not cover.",
+          "zh": "请求落入政策未覆盖的空白或例外。",
+          "itemId": "ar5-027"
+        }
+      ],
+      "itemIds": [
+        "ar1-033",
+        "ar1-049",
+        "ar1-057",
+        "ar2-011",
+        "ar2-012",
+        "ar2-020",
+        "ar2-021",
+        "ar2-040",
+        "ar2-055",
+        "ar5-016",
+        "ar5-017",
+        "ar5-021",
+        "ar5-022",
+        "ar5-025",
+        "ar5-027",
+        "ar5-028"
+      ]
+    },
+    {
+      "id": "memory",
+      "word": "memory",
+      "pos": "名詞",
+      "ja": "メモリ、記憶",
+      "zh": "记忆",
+      "count": 21,
+      "questionCount": 16,
+      "domains": {
+        "D1": 7,
+        "D2": 2,
+        "D3": 4,
+        "D5": 3
+      },
+      "forms": [
+        "memory"
+      ],
+      "examples": [
+        {
+          "en": "/memory in a teammate's session does not list the file that contains the conventions.",
+          "zh": "在同事的会话中执行 /memory，看不到包含这些规范的文件。",
+          "itemId": "ar3-013"
+        },
+        {
+          "en": "Run /memory to see which memory files are loaded in the problematic session.",
+          "zh": "执行 /memory，查看有问题的会话中加载了哪些记忆文件。",
+          "itemId": "ar3-005"
+        }
+      ],
+      "itemIds": [
+        "ar1-010",
+        "ar1-018",
+        "ar1-026",
+        "ar1-041",
+        "ar1-044",
+        "ar1-068",
+        "ar1-074",
+        "ar2-066",
+        "ar2-080",
+        "ar3-005",
+        "ar3-009",
+        "ar3-013",
+        "ar3-037",
+        "ar5-004",
+        "ar5-044",
+        "ar5-046"
+      ]
+    },
+    {
+      "id": "resume",
+      "word": "resume",
+      "pos": "動詞",
+      "ja": "再開する",
+      "zh": "恢复",
+      "count": 30,
+      "questionCount": 15,
+      "domains": {
+        "D1": 9,
+        "D3": 3,
+        "D5": 3
+      },
+      "forms": [
+        "resume",
+        "resumed",
+        "resumes",
+        "resuming"
+      ],
+      "examples": [
+        {
+          "en": "Resume that session by its ID (or name), rather than \"continue,\" which picks up the most recent session.",
+          "zh": "用该会话的 ID（或名称）恢复它，而不是用「continue」，后者只会接上最近的会话。",
+          "itemId": "ar1-073"
+        },
+        {
+          "en": "Continue picks up the most recent session in the current directory; resume picks up a specific session by its ID.",
+          "zh": "continue 接上当前目录中最近的会话；resume 按会话 ID 接上指定的会话。",
+          "itemId": "ar1-079"
+        }
+      ],
+      "itemIds": [
+        "ar1-068",
+        "ar1-069",
+        "ar1-070",
+        "ar1-072",
+        "ar1-073",
+        "ar1-075",
+        "ar1-076",
+        "ar1-077",
+        "ar1-079",
+        "ar3-037",
+        "ar3-069",
+        "ar3-079",
+        "ar5-044",
+        "ar5-047",
+        "ar5-054"
+      ]
+    },
+    {
+      "id": "loop",
+      "word": "loop",
+      "pos": "名詞",
+      "ja": "ループ（繰り返し）",
+      "zh": "循环",
+      "count": 27,
+      "questionCount": 15,
+      "domains": {
+        "D1": 11,
+        "D2": 1,
+        "D3": 1,
+        "D4": 2
+      },
+      "forms": [
+        "loop",
+        "looping",
+        "loops"
+      ],
+      "examples": [
+        {
+          "en": "Text presence is not a completion indicator; a response can contain both text and tool_use blocks, so the loop must branch on stop_reason.",
+          "zh": "是否有文本并不是完成的标志；一个响应可以同时包含文本和 tool_use 块，所以循环必须依据 stop_reason 来分支。",
+          "itemId": "ar1-007"
+        },
+        {
+          "en": "In the agentic loop, Claude decides which tool to call next based on the current context, instead of following a fixed sequence chosen in advance.",
+          "zh": "在智能体循环中，Claude 根据当前上下文决定下一步调用哪个工具，而不是按事先定好的固定顺序执行。",
+          "itemId": "ar1-005"
+        }
+      ],
+      "itemIds": [
+        "ar1-001",
+        "ar1-002",
+        "ar1-003",
+        "ar1-005",
+        "ar1-006",
+        "ar1-007",
+        "ar1-008",
+        "ar1-009",
+        "ar1-010",
+        "ar1-011",
+        "ar1-016",
+        "ar2-041",
+        "ar3-079",
+        "ar4-054",
+        "ar4-065"
+      ]
+    },
+    {
+      "id": "empty",
+      "word": "empty",
+      "pos": "形容詞",
+      "ja": "空の",
+      "zh": "空的",
+      "count": 23,
+      "questionCount": 15,
+      "domains": {
+        "D2": 9,
+        "D4": 1,
+        "D5": 5
+      },
+      "forms": [
+        "empty"
+      ],
+      "examples": [
+        {
+          "en": "Returning \"no matches\" as a successful empty result rather than as an error.",
+          "zh": "把「没有匹配」作为成功的空结果返回，而不是作为错误。",
+          "itemId": "ar2-022"
+        },
+        {
+          "en": "get_customer, no account for the email: success with an empty result and a note that no account matched.",
+          "zh": "get_customer 查不到该邮箱的账户：返回成功的空结果，并说明没有匹配的账户。",
+          "itemId": "ar2-047"
+        }
+      ],
+      "itemIds": [
+        "ar2-010",
+        "ar2-015",
+        "ar2-017",
+        "ar2-019",
+        "ar2-020",
+        "ar2-022",
+        "ar2-047",
+        "ar2-048",
+        "ar2-062",
+        "ar4-020",
+        "ar5-030",
+        "ar5-035",
+        "ar5-036",
+        "ar5-038",
+        "ar5-052"
+      ]
+    },
+    {
+      "id": "convention",
+      "word": "convention",
+      "pos": "名詞",
+      "ja": "慣習、規約",
+      "zh": "约定",
+      "count": 22,
+      "questionCount": 15,
+      "domains": {
+        "D3": 14,
+        "D4": 1
+      },
+      "forms": [
+        "convention",
+        "conventions"
+      ],
+      "examples": [
+        {
+          "en": "Reviews of frontend changes do not load backend conventions that are irrelevant to them.",
+          "zh": "审查前端改动时不会加载无关的后端约定。",
+          "itemId": "ar3-032"
+        },
+        {
+          "en": "/memory in a teammate's session does not list the file that contains the conventions.",
+          "zh": "在同事的会话中执行 /memory，看不到包含这些规范的文件。",
+          "itemId": "ar3-013"
+        }
+      ],
+      "itemIds": [
+        "ar3-003",
+        "ar3-005",
+        "ar3-007",
+        "ar3-009",
+        "ar3-013",
+        "ar3-017",
+        "ar3-025",
+        "ar3-026",
+        "ar3-027",
+        "ar3-029",
+        "ar3-032",
+        "ar3-033",
+        "ar3-034",
+        "ar3-074",
+        "ar4-003"
+      ]
+    },
+    {
+      "id": "scope",
+      "word": "scope",
+      "pos": "名詞",
+      "ja": "範囲、スコープ",
+      "zh": "作用域、范围",
+      "count": 20,
+      "questionCount": 15,
+      "domains": {
+        "D1": 4,
+        "D2": 7,
+        "D3": 4
+      },
+      "forms": [
+        "scope",
+        "scoped",
+        "scopes"
+      ],
+      "examples": [
+        {
+          "en": "The boundary: partial refunds and exchanges are out of scope and should be escalated.",
+          "zh": "边界：部分退款和换货不在其范围内，应转人工。",
+          "itemId": "ar2-007"
+        },
+        {
+          "en": "Assigning overlapping scopes, which makes subagents duplicate each other's work.",
+          "zh": "分配的范围相互重叠，导致子智能体重复劳动。",
+          "itemId": "ar1-040"
+        }
+      ],
+      "itemIds": [
+        "ar1-015",
+        "ar1-016",
+        "ar1-038",
+        "ar1-040",
+        "ar2-007",
+        "ar2-025",
+        "ar2-034",
+        "ar2-036",
+        "ar2-051",
+        "ar2-057",
+        "ar2-060",
+        "ar3-011",
+        "ar3-029",
+        "ar3-030",
+        "ar3-041"
+      ]
+    },
+    {
+      "id": "guarantee",
+      "word": "guarantee",
+      "pos": "動詞",
+      "ja": "保証する",
+      "zh": "保证",
+      "count": 18,
+      "questionCount": 15,
+      "domains": {
+        "D1": 5,
+        "D2": 3,
+        "D4": 7
+      },
+      "forms": [
+        "guarantee",
+        "guaranteed",
+        "guarantees"
+      ],
+      "examples": [
+        {
+          "en": "Need: guarantee a tool call, model chooses among several schemas → tool_choice \"any\".",
+          "zh": "需求：保证调用工具，由模型在多个 schema 中选择 → tool_choice \"any\"。",
+          "itemId": "ar2-054"
+        },
+        {
+          "en": "\"any\" guarantees a tool call but lets the model choose which extraction tool.",
+          "zh": "\"any\" 保证会调用工具，但由模型选择用哪个抽取工具。",
+          "itemId": "ar4-040"
+        }
+      ],
+      "itemIds": [
+        "ar1-005",
+        "ar1-028",
+        "ar1-033",
+        "ar1-050",
+        "ar1-056",
+        "ar2-027",
+        "ar2-028",
+        "ar2-054",
+        "ar4-027",
+        "ar4-028",
+        "ar4-031",
+        "ar4-033",
+        "ar4-040",
+        "ar4-054",
+        "ar4-064"
+      ]
+    },
+    {
+      "id": "skill",
+      "word": "skill",
+      "pos": "名詞",
+      "ja": "スキル（呼び出せる手順）",
+      "zh": "技能",
+      "count": 49,
+      "questionCount": 14,
+      "domains": {
+        "D3": 14
+      },
+      "forms": [
+        "skill",
+        "skills"
+      ],
+      "examples": [
+        {
+          "en": "Create a personal skill in ~/.claude/skills/ with a different name (for example release-mine).",
+          "zh": "在 ~/.claude/skills/ 中以不同名称（例如 release-mine）创建个人技能。",
+          "itemId": "ar3-018"
+        },
+        {
+          "en": "In the project's .claude/commands/ (or as a project skill in .claude/skills/), committed to version control.",
+          "zh": "在项目的 .claude/commands/ 中（或作为 .claude/skills/ 中的项目技能），并提交到版本控制。",
+          "itemId": "ar3-014"
+        }
+      ],
+      "itemIds": [
+        "ar3-014",
+        "ar3-015",
+        "ar3-016",
+        "ar3-017",
+        "ar3-018",
+        "ar3-019",
+        "ar3-020",
+        "ar3-021",
+        "ar3-022",
+        "ar3-023",
+        "ar3-025",
+        "ar3-026",
+        "ar3-036",
+        "ar3-038"
+      ]
+    },
+    {
+      "id": "command",
+      "word": "command",
+      "pos": "名詞",
+      "ja": "コマンド",
+      "zh": "命令",
+      "count": 26,
+      "questionCount": 14,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D3": 10,
+        "D5": 1
+      },
+      "forms": [
+        "command",
+        "commands"
+      ],
+      "examples": [
+        {
+          "en": "In the project's .claude/commands/ (or as a project skill in .claude/skills/), committed to version control.",
+          "zh": "在项目的 .claude/commands/ 中（或作为 .claude/skills/ 中的项目技能），并提交到版本控制。",
+          "itemId": "ar3-014"
+        },
+        {
+          "en": "The project directory's commands are shared through version control; the home directory's commands are personal.",
+          "zh": "项目目录下的命令通过版本控制共享；用户主目录下的命令是个人的。",
+          "itemId": "ar3-024"
+        }
+      ],
+      "itemIds": [
+        "ar1-035",
+        "ar2-037",
+        "ar2-058",
+        "ar3-006",
+        "ar3-014",
+        "ar3-021",
+        "ar3-022",
+        "ar3-024",
+        "ar3-031",
+        "ar3-035",
+        "ar3-037",
+        "ar3-049",
+        "ar3-070",
+        "ar5-044"
+      ]
+    },
+    {
+      "id": "directory",
+      "word": "directory",
+      "pos": "名詞",
+      "ja": "ディレクトリ",
+      "zh": "目录",
+      "count": 24,
+      "questionCount": 14,
+      "domains": {
+        "D1": 5,
+        "D2": 3,
+        "D3": 6
+      },
+      "forms": [
+        "directories",
+        "directory"
+      ],
+      "examples": [
+        {
+          "en": "Grep for the phrase across the report directory, then Read only the matching files.",
+          "zh": "在报告目录中用 Grep 搜索该短语，然后只 Read 匹配到的文件。",
+          "itemId": "ar2-072"
+        },
+        {
+          "en": "Conventions for file types spread across directories (such as tests) can be targeted with one glob pattern.",
+          "zh": "分布在多个目录中的文件类型（如测试）的约定可以用一个 glob 模式统一指定。",
+          "itemId": "ar3-032"
+        }
+      ],
+      "itemIds": [
+        "ar1-004",
+        "ar1-035",
+        "ar1-043",
+        "ar1-073",
+        "ar1-079",
+        "ar2-065",
+        "ar2-072",
+        "ar2-076",
+        "ar3-004",
+        "ar3-007",
+        "ar3-011",
+        "ar3-024",
+        "ar3-027",
+        "ar3-032"
+      ]
+    },
+    {
+      "id": "history",
+      "word": "history",
+      "pos": "名詞",
+      "ja": "履歴",
+      "zh": "历史",
+      "count": 18,
+      "questionCount": 14,
+      "domains": {
+        "D1": 9,
+        "D5": 5
+      },
+      "forms": [
+        "history"
+      ],
+      "examples": [
+        {
+          "en": "Keeping a persistent case-facts block (amounts, dates, order IDs) outside the summarized history.",
+          "zh": "在被摘要的历史之外，保留一个持久的案件事实块（金额、日期、订单号）。",
+          "itemId": "ar5-006"
+        },
+        {
+          "en": "The API does not remember previous requests, so coherence depends on the history the application sends.",
+          "zh": "API 不会记住之前的请求，所以对话的连贯性取决于应用发送的历史。",
+          "itemId": "ar5-003"
+        }
+      ],
+      "itemIds": [
+        "ar1-018",
+        "ar1-040",
+        "ar1-043",
+        "ar1-044",
+        "ar1-069",
+        "ar1-071",
+        "ar1-075",
+        "ar1-077",
+        "ar1-079",
+        "ar5-001",
+        "ar5-003",
+        "ar5-006",
+        "ar5-014",
+        "ar5-053"
+      ]
+    },
+    {
+      "id": "merge",
+      "word": "merge",
+      "pos": "動詞",
+      "ja": "統合する",
+      "zh": "合并",
+      "count": 15,
+      "questionCount": 14,
+      "domains": {
+        "D1": 4,
+        "D2": 2,
+        "D4": 4,
+        "D5": 4
+      },
+      "forms": [
+        "merge",
+        "merges",
+        "merging"
+      ],
+      "examples": [
+        {
+          "en": "Structured claim-source mappings (claim, source URL or document name, relevant excerpt) that downstream agents preserve and merge.",
+          "zh": "结构化的「论断—来源」映射（论断、来源 URL 或文档名、相关摘录），由下游智能体保留并合并。",
+          "itemId": "ar5-067"
+        },
+        {
+          "en": "Merge both outputs into one plain-text message without tool_result blocks.",
+          "zh": "把两个输出合并成一段纯文本消息，不用 tool_result 块。",
+          "itemId": "ar1-009"
+        }
+      ],
+      "itemIds": [
+        "ar1-004",
+        "ar1-009",
+        "ar1-028",
+        "ar1-071",
+        "ar2-002",
+        "ar2-042",
+        "ar4-061",
+        "ar4-062",
+        "ar4-065",
+        "ar4-074",
+        "ar5-018",
+        "ar5-067",
+        "ar5-074",
+        "ar5-077"
+      ]
+    },
+    {
+      "id": "permission",
+      "word": "permission",
+      "pos": "名詞",
+      "ja": "権限",
+      "zh": "权限",
+      "count": 15,
+      "questionCount": 14,
+      "domains": {
+        "D2": 7,
+        "D3": 4,
+        "D4": 1,
+        "D5": 2
+      },
+      "forms": [
+        "permission",
+        "permissions"
+      ],
+      "examples": [
+        {
+          "en": "Marking business-rule and permission errors as not retryable in the error metadata.",
+          "zh": "在错误元数据中把业务规则错误和权限错误标记为不可重试。",
+          "itemId": "ar2-022"
+        },
+        {
+          "en": "An error category such as transient, validation, business, or permission.",
+          "zh": "错误类别，例如临时性、校验、业务规则或权限。",
+          "itemId": "ar2-014"
+        }
+      ],
+      "itemIds": [
+        "ar2-011",
+        "ar2-014",
+        "ar2-016",
+        "ar2-020",
+        "ar2-021",
+        "ar2-022",
+        "ar2-048",
+        "ar3-049",
+        "ar3-069",
+        "ar3-071",
+        "ar3-079",
+        "ar4-037",
+        "ar5-005",
+        "ar5-041"
+      ]
+    },
+    {
+      "id": "required",
+      "word": "required",
+      "pos": "形容詞",
+      "ja": "必須の",
+      "zh": "必填的",
+      "count": 15,
+      "questionCount": 14,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D3": 3,
+        "D4": 5,
+        "D5": 3
+      },
+      "forms": [
+        "required"
+      ],
+      "examples": [
+        {
+          "en": "Use --json-schema with severity as a required field so the output is validated against the schema.",
+          "zh": "使用 --json-schema，并把 severity 设为必填字段，让输出按 schema 校验。",
+          "itemId": "ar3-077"
+        },
+        {
+          "en": "Claude Code asks for approval before using project-scoped servers from .mcp.json, so the new member must approve them (and set any required environment variables such as tokens).",
+          "zh": "Claude Code 在使用 .mcp.json 中的项目级服务器之前会请求批准，所以新成员需要批准（并设置所需的环境变量，例如 token）。",
+          "itemId": "ar2-057"
+        }
+      ],
+      "itemIds": [
+        "ar1-028",
+        "ar1-049",
+        "ar2-057",
+        "ar3-012",
+        "ar3-076",
+        "ar3-077",
+        "ar4-019",
+        "ar4-021",
+        "ar4-029",
+        "ar4-033",
+        "ar4-035",
+        "ar5-039",
+        "ar5-072",
+        "ar5-078"
+      ]
+    },
+    {
+      "id": "criteria",
+      "word": "criteria",
+      "pos": "名詞",
+      "ja": "基準",
+      "zh": "标准",
+      "count": 14,
+      "questionCount": 14,
+      "domains": {
+        "D1": 2,
+        "D3": 2,
+        "D4": 8,
+        "D5": 2
+      },
+      "forms": [
+        "criteria"
+      ],
+      "examples": [
+        {
+          "en": "State the goal and the quality criteria for the result, and let the subagent adapt how it gets there.",
+          "zh": "写清目标和结果的质量标准，让子智能体自行调整达成方式。",
+          "itemId": "ar1-025"
+        },
+        {
+          "en": "Define explicit criteria for each severity level, with a concrete code example illustrating each level.",
+          "zh": "为每个严重程度级别定义明确的标准，并为每个级别配上具体的代码示例。",
+          "itemId": "ar4-004"
+        }
+      ],
+      "itemIds": [
+        "ar1-025",
+        "ar1-038",
+        "ar3-032",
+        "ar3-074",
+        "ar4-002",
+        "ar4-004",
+        "ar4-009",
+        "ar4-010",
+        "ar4-011",
+        "ar4-013",
+        "ar4-014",
+        "ar4-069",
+        "ar5-020",
+        "ar5-058"
+      ]
+    },
+    {
+      "id": "invoice",
+      "word": "invoice",
+      "pos": "名詞",
+      "ja": "請求書",
+      "zh": "发票",
+      "count": 25,
+      "questionCount": 13,
+      "domains": {
+        "D4": 9,
+        "D5": 4
+      },
+      "forms": [
+        "invoice",
+        "invoices"
+      ],
+      "examples": [
+        {
+          "en": "Replace some examples with representative hard cases (a handwritten scan, a multi-currency invoice) that show the correct handling.",
+          "zh": "把部分示例替换成有代表性的难例（手写扫描件、多币种发票），展示正确的处理方式。",
+          "itemId": "ar4-023"
+        },
+        {
+          "en": "A supplier's invoice shows two different invoice dates on different pages. How should the extraction handle this?",
+          "zh": "某供应商的发票在不同页上显示了两个不同的开票日期。抽取应如何处理？",
+          "itemId": "ar4-047"
+        }
+      ],
+      "itemIds": [
+        "ar4-010",
+        "ar4-023",
+        "ar4-028",
+        "ar4-030",
+        "ar4-031",
+        "ar4-034",
+        "ar4-043",
+        "ar4-046",
+        "ar4-047",
+        "ar5-024",
+        "ar5-025",
+        "ar5-062",
+        "ar5-075"
+      ]
+    },
+    {
+      "id": "hook",
+      "word": "hook",
+      "pos": "名詞",
+      "ja": "フック（処理に割り込む仕組み）",
+      "zh": "钩子",
+      "count": 23,
+      "questionCount": 13,
+      "domains": {
+        "D1": 13
+      },
+      "forms": [
+        "hook",
+        "hooks"
+      ],
+      "examples": [
+        {
+          "en": "A PostToolUse hook that trims the result to the return-relevant fields before Claude sees it.",
+          "zh": "用 PostToolUse 钩子，在 Claude 看到之前把结果裁剪为与退货相关的字段。",
+          "itemId": "ar1-053"
+        },
+        {
+          "en": "Normalize all size values to one unit in a PostToolUse hook before Claude sees them.",
+          "zh": "在 PostToolUse 钩子中把所有大小统一成同一单位，再交给 Claude。",
+          "itemId": "ar1-055"
+        }
+      ],
+      "itemIds": [
+        "ar1-027",
+        "ar1-032",
+        "ar1-033",
+        "ar1-034",
+        "ar1-035",
+        "ar1-036",
+        "ar1-050",
+        "ar1-052",
+        "ar1-053",
+        "ar1-054",
+        "ar1-055",
+        "ar1-056",
+        "ar1-057"
+      ]
+    },
+    {
+      "id": "compact",
+      "word": "compact",
+      "pos": "動詞",
+      "ja": "圧縮する、要約して詰める",
+      "zh": "压缩",
+      "count": 20,
+      "questionCount": 13,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 5,
+        "D5": 4
+      },
+      "forms": [
+        "compact"
+      ],
+      "examples": [
+        {
+          "en": "Keep only the fields each step needs from tool results and carry key facts forward in a compact structured block.",
+          "zh": "只保留每一步所需的工具结果字段，并用紧凑的结构化块延续关键事实。",
+          "itemId": "ar5-008"
+        },
+        {
+          "en": "Use /compact to summarize the conversation and free context.",
+          "zh": "使用 /compact 总结对话、释放上下文。",
+          "itemId": "ar3-051"
+        }
+      ],
+      "itemIds": [
+        "ar1-068",
+        "ar1-070",
+        "ar1-076",
+        "ar2-008",
+        "ar3-001",
+        "ar3-012",
+        "ar3-037",
+        "ar3-051",
+        "ar3-069",
+        "ar5-008",
+        "ar5-044",
+        "ar5-048",
+        "ar5-050"
+      ]
+    },
+    {
+      "id": "independent",
+      "word": "independent",
+      "pos": "形容詞",
+      "ja": "独立した",
+      "zh": "独立的",
+      "count": 18,
+      "questionCount": 13,
+      "domains": {
+        "D1": 4,
+        "D3": 3,
+        "D4": 6
+      },
+      "forms": [
+        "independent"
+      ],
+      "examples": [
+        {
+          "en": "A second, independent Claude instance reviews generated code without the generator's reasoning.",
+          "zh": "由第二个独立的 Claude 实例审查生成的代码，不带生成者的推理。",
+          "itemId": "ar4-077"
+        },
+        {
+          "en": "Emitting several subagent calls in one response when their tasks are independent.",
+          "zh": "任务相互独立时，在一个响应中发出多个子智能体调用。",
+          "itemId": "ar1-045"
+        }
+      ],
+      "itemIds": [
+        "ar1-023",
+        "ar1-026",
+        "ar1-042",
+        "ar1-045",
+        "ar3-060",
+        "ar3-072",
+        "ar3-078",
+        "ar4-068",
+        "ar4-070",
+        "ar4-073",
+        "ar4-076",
+        "ar4-077",
+        "ar4-078"
+      ]
+    },
+    {
+      "id": "gap",
+      "word": "gap",
+      "pos": "名詞",
+      "ja": "欠落、すき間",
+      "zh": "缺口",
+      "count": 15,
+      "questionCount": 13,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D3": 1,
+        "D4": 1,
+        "D5": 8
+      },
+      "forms": [
+        "gap",
+        "gaps"
+      ],
+      "examples": [
+        {
+          "en": "Provide the existing test files in context so generation avoids duplicate scenarios and targets gaps.",
+          "zh": "把现有测试文件放进上下文，让生成过程避开重复场景、针对空白处。",
+          "itemId": "ar3-061"
+        },
+        {
+          "en": "Evaluate the synthesis for gaps and re-delegate targeted follow-up queries.",
+          "zh": "评估综合结果中的缺口，并派发有针对性的后续查询。",
+          "itemId": "ar1-019"
+        }
+      ],
+      "itemIds": [
+        "ar1-016",
+        "ar1-019",
+        "ar2-040",
+        "ar3-061",
+        "ar4-016",
+        "ar5-025",
+        "ar5-027",
+        "ar5-028",
+        "ar5-030",
+        "ar5-031",
+        "ar5-034",
+        "ar5-035",
+        "ar5-039"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "word": "reasoning",
+      "pos": "名詞",
+      "ja": "推論",
+      "zh": "推理",
+      "count": 15,
+      "questionCount": 13,
+      "domains": {
+        "D1": 2,
+        "D3": 2,
+        "D4": 8,
+        "D5": 1
+      },
+      "forms": [
+        "reasoning"
+      ],
+      "examples": [
+        {
+          "en": "The generating session keeps its earlier reasoning and tends not to question its own decisions.",
+          "zh": "生成代码的会话保留了之前的推理，往往不会质疑自己的决定。",
+          "itemId": "ar4-070"
+        },
+        {
+          "en": "A second, independent Claude instance reviews generated code without the generator's reasoning.",
+          "zh": "由第二个独立的 Claude 实例审查生成的代码，不带生成者的推理。",
+          "itemId": "ar4-077"
+        }
+      ],
+      "itemIds": [
+        "ar1-003",
+        "ar1-004",
+        "ar3-023",
+        "ar3-072",
+        "ar4-016",
+        "ar4-024",
+        "ar4-026",
+        "ar4-063",
+        "ar4-068",
+        "ar4-070",
+        "ar4-073",
+        "ar4-077",
+        "ar5-009"
+      ]
+    },
+    {
+      "id": "fact",
+      "word": "fact",
+      "pos": "名詞",
+      "ja": "事実",
+      "zh": "事实",
+      "count": 20,
+      "questionCount": 12,
+      "domains": {
+        "D1": 4,
+        "D2": 2,
+        "D5": 6
+      },
+      "forms": [
+        "fact",
+        "facts"
+      ],
+      "examples": [
+        {
+          "en": "The root cause the agent identified, with the supporting facts (IDs, amounts, dates).",
+          "zh": "智能体判断出的根本原因，以及支撑它的事实（ID、金额、日期）。",
+          "itemId": "ar1-051"
+        },
+        {
+          "en": "Keeping a persistent case-facts block (amounts, dates, order IDs) outside the summarized history.",
+          "zh": "在被摘要的历史之外，保留一个持久的案件事实块（金额、日期、订单号）。",
+          "itemId": "ar5-006"
+        }
+      ],
+      "itemIds": [
+        "ar1-043",
+        "ar1-049",
+        "ar1-051",
+        "ar1-077",
+        "ar2-025",
+        "ar2-051",
+        "ar5-001",
+        "ar5-005",
+        "ar5-006",
+        "ar5-008",
+        "ar5-009",
+        "ar5-014"
+      ]
+    },
+    {
+      "id": "transient",
+      "word": "transient",
+      "pos": "形容詞",
+      "ja": "一時的な",
+      "zh": "临时性的",
+      "count": 13,
+      "questionCount": 12,
+      "domains": {
+        "D2": 9,
+        "D4": 1,
+        "D5": 2
+      },
+      "forms": [
+        "transient"
+      ],
+      "examples": [
+        {
+          "en": "An error category such as transient, validation, business, or permission.",
+          "zh": "错误类别，例如临时性、校验、业务规则或权限。",
+          "itemId": "ar2-014"
+        },
+        {
+          "en": "An error result with isError and a transient category for the outage, versus a successful result with an empty list for no matches.",
+          "zh": "服务中断时返回带 isError、类别为临时性的错误结果；没有匹配时返回空列表的成功结果。",
+          "itemId": "ar2-019"
+        }
+      ],
+      "itemIds": [
+        "ar2-010",
+        "ar2-011",
+        "ar2-013",
+        "ar2-014",
+        "ar2-016",
+        "ar2-019",
+        "ar2-020",
+        "ar2-021",
+        "ar2-048",
+        "ar4-037",
+        "ar5-033",
+        "ar5-035"
+      ]
+    },
+    {
+      "id": "behavior",
+      "word": "behavior",
+      "pos": "名詞",
+      "ja": "振る舞い",
+      "zh": "行为",
+      "count": 12,
+      "questionCount": 12,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D3": 3,
+        "D4": 2,
+        "D5": 3
+      },
+      "forms": [
+        "behavior",
+        "behaviors"
+      ],
+      "examples": [
+        {
+          "en": "\"Flag a comment only when the behavior it claims contradicts what the code actually does.\"",
+          "zh": "「只有当注释所声称的行为与代码实际行为相矛盾时，才标出该注释。」",
+          "itemId": "ar4-001"
+        },
+        {
+          "en": "Writing tests that capture expected behavior and performance requirements before implementation.",
+          "zh": "在实现之前编写体现期望行为和性能要求的测试。",
+          "itemId": "ar3-066"
+        }
+      ],
+      "itemIds": [
+        "ar1-004",
+        "ar1-019",
+        "ar2-009",
+        "ar2-033",
+        "ar3-059",
+        "ar3-063",
+        "ar3-066",
+        "ar4-001",
+        "ar4-003",
+        "ar5-022",
+        "ar5-025",
+        "ar5-031"
+      ]
+    },
+    {
+      "id": "explicit",
+      "word": "explicit",
+      "pos": "形容詞",
+      "ja": "明示的な",
+      "zh": "明确的",
+      "count": 12,
+      "questionCount": 12,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D4": 5,
+        "D5": 5
+      },
+      "forms": [
+        "explicit"
+      ],
+      "examples": [
+        {
+          "en": "Define explicit criteria for each severity level, with a concrete code example illustrating each level.",
+          "zh": "为每个严重程度级别定义明确的标准，并为每个级别配上具体的代码示例。",
+          "itemId": "ar4-004"
+        },
+        {
+          "en": "Organize each subagent's detailed results under explicit section headers.",
+          "zh": "用明确的小标题组织每个子智能体的详细结果。",
+          "itemId": "ar5-011"
+        }
+      ],
+      "itemIds": [
+        "ar1-003",
+        "ar2-040",
+        "ar4-004",
+        "ar4-008",
+        "ar4-010",
+        "ar4-011",
+        "ar4-034",
+        "ar5-011",
+        "ar5-020",
+        "ar5-021",
+        "ar5-028",
+        "ar5-070"
+      ]
+    },
+    {
+      "id": "resolve",
+      "word": "resolve",
+      "pos": "動詞",
+      "ja": "解決する",
+      "zh": "解决",
+      "count": 12,
+      "questionCount": 12,
+      "domains": {
+        "D2": 3,
+        "D3": 2,
+        "D5": 7
+      },
+      "forms": [
+        "resolve",
+        "resolved",
+        "resolves"
+      ],
+      "examples": [
+        {
+          "en": "Honor the request immediately and escalate, without first trying to investigate or resolve.",
+          "zh": "立即尊重这一请求并转人工，不要先尝试调查或解决。",
+          "itemId": "ar5-015"
+        },
+        {
+          "en": "A CLAUDE.md can import another file with @path/to/file, and relative paths resolve from the importing file.",
+          "zh": "CLAUDE.md 可以用 @path/to/file 导入其他文件，相对路径以发起导入的文件为基准解析。",
+          "itemId": "ar3-008"
+        }
+      ],
+      "itemIds": [
+        "ar2-002",
+        "ar2-017",
+        "ar2-068",
+        "ar3-008",
+        "ar3-068",
+        "ar5-015",
+        "ar5-016",
+        "ar5-020",
+        "ar5-023",
+        "ar5-026",
+        "ar5-028",
+        "ar5-064"
+      ]
+    },
+    {
+      "id": "category",
+      "word": "category",
+      "pos": "名詞",
+      "ja": "カテゴリ、分類",
+      "zh": "类别",
+      "count": 15,
+      "questionCount": 11,
+      "domains": {
+        "D2": 4,
+        "D4": 6,
+        "D5": 1
+      },
+      "forms": [
+        "categories",
+        "category"
+      ],
+      "examples": [
+        {
+          "en": "Using an enum with \"other\" plus a detail string for categories that may grow.",
+          "zh": "对可能扩展的类别，使用带 \"other\" 加说明字符串的枚举。",
+          "itemId": "ar4-035"
+        },
+        {
+          "en": "An error category such as transient, validation, business, or permission.",
+          "zh": "错误类别，例如临时性、校验、业务规则或权限。",
+          "itemId": "ar2-014"
+        }
+      ],
+      "itemIds": [
+        "ar2-014",
+        "ar2-019",
+        "ar2-020",
+        "ar2-047",
+        "ar4-002",
+        "ar4-005",
+        "ar4-006",
+        "ar4-012",
+        "ar4-014",
+        "ar4-035",
+        "ar5-025"
+      ]
+    },
+    {
+      "id": "attempt",
+      "word": "attempt",
+      "pos": "動詞",
+      "ja": "試みる",
+      "zh": "尝试",
+      "count": 13,
+      "questionCount": 11,
+      "domains": {
+        "D2": 3,
+        "D4": 1,
+        "D5": 7
+      },
+      "forms": [
+        "attempt",
+        "attempted",
+        "attempts"
+      ],
+      "examples": [
+        {
+          "en": "Failure type, the query attempted, any partial results, and potential alternative approaches.",
+          "zh": "失败类型、尝试过的查询、已有的部分结果以及可能的替代方案。",
+          "itemId": "ar5-032"
+        },
+        {
+          "en": "The agent cannot make meaningful progress after reasonable attempts.",
+          "zh": "智能体在合理尝试之后仍无法取得实质进展。",
+          "itemId": "ar5-019"
+        }
+      ],
+      "itemIds": [
+        "ar2-017",
+        "ar2-048",
+        "ar2-049",
+        "ar4-050",
+        "ar5-019",
+        "ar5-021",
+        "ar5-028",
+        "ar5-029",
+        "ar5-032",
+        "ar5-033",
+        "ar5-041"
+      ]
+    },
+    {
+      "id": "window",
+      "word": "window",
+      "pos": "名詞",
+      "ja": "ウィンドウ（文脈の枠）",
+      "zh": "窗口",
+      "count": 12,
+      "questionCount": 11,
+      "domains": {
+        "D1": 3,
+        "D2": 4,
+        "D3": 1,
+        "D4": 1,
+        "D5": 2
+      },
+      "forms": [
+        "window"
+      ],
+      "examples": [
+        {
+          "en": "To persist key findings outside the context window so they can be re-read later.",
+          "zh": "在上下文窗口之外持久保存关键发现，便于之后重新读取。",
+          "itemId": "ar5-049"
+        },
+        {
+          "en": "process_refund, order outside the refund window: isError with category business, retryable false, and a customer-friendly reason.",
+          "zh": "process_refund 遇到超出退款期限的订单：返回 isError，类别为业务规则，不可重试，并附上可告诉客户的原因。",
+          "itemId": "ar2-047"
+        }
+      ],
+      "itemIds": [
+        "ar1-014",
+        "ar1-020",
+        "ar1-064",
+        "ar2-001",
+        "ar2-011",
+        "ar2-047",
+        "ar2-075",
+        "ar3-072",
+        "ar4-070",
+        "ar5-047",
+        "ar5-049"
+      ]
+    },
+    {
+      "id": "execution",
+      "word": "execution",
+      "pos": "名詞",
+      "ja": "実行",
+      "zh": "执行",
+      "count": 13,
+      "questionCount": 10,
+      "domains": {
+        "D2": 1,
+        "D3": 9
+      },
+      "forms": [
+        "execution"
+      ],
+      "examples": [
+        {
+          "en": "Plan a large library migration in plan mode, then switch to direct execution to implement the approved plan.",
+          "zh": "在计划模式中规划大型库迁移，然后切换到直接执行来实施已批准的计划。",
+          "itemId": "ar3-047"
+        },
+        {
+          "en": "Direct execution — make the small, well-scoped change.",
+          "zh": "直接执行——做这个范围明确的小改动。",
+          "itemId": "ar3-041"
+        }
+      ],
+      "itemIds": [
+        "ar2-005",
+        "ar3-041",
+        "ar3-042",
+        "ar3-044",
+        "ar3-046",
+        "ar3-047",
+        "ar3-048",
+        "ar3-050",
+        "ar3-053",
+        "ar3-055"
+      ]
+    },
+    {
+      "id": "integration",
+      "word": "integration",
+      "pos": "名詞",
+      "ja": "統合、連携",
+      "zh": "集成",
+      "count": 13,
+      "questionCount": 10,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D3": 2,
+        "D4": 4
+      },
+      "forms": [
+        "integration"
+      ],
+      "examples": [
+        {
+          "en": "Per-file passes for local issues plus a separate integration pass for cross-file data flow.",
+          "zh": "逐文件审查局部问题，再单独做一次跨文件数据流的集成审查。",
+          "itemId": "ar4-071"
+        },
+        {
+          "en": "Large multi-file reviews are split into local passes plus a cross-file integration pass.",
+          "zh": "大型多文件审查被拆分为局部轮次加跨文件集成轮次。",
+          "itemId": "ar4-077"
+        }
+      ],
+      "itemIds": [
+        "ar1-061",
+        "ar1-063",
+        "ar2-039",
+        "ar2-061",
+        "ar3-044",
+        "ar3-064",
+        "ar4-071",
+        "ar4-072",
+        "ar4-077",
+        "ar4-080"
+      ]
+    },
+    {
+      "id": "partial",
+      "word": "partial",
+      "pos": "形容詞",
+      "ja": "部分的な",
+      "zh": "部分的",
+      "count": 11,
+      "questionCount": 10,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D5": 6
+      },
+      "forms": [
+        "partial"
+      ],
+      "examples": [
+        {
+          "en": "Failure type, the query attempted, any partial results, and potential alternative approaches.",
+          "zh": "失败类型、尝试过的查询、已有的部分结果以及可能的替代方案。",
+          "itemId": "ar5-032"
+        },
+        {
+          "en": "The boundary: partial refunds and exchanges are out of scope and should be escalated.",
+          "zh": "边界：部分退款和换货不在其范围内，应转人工。",
+          "itemId": "ar2-007"
+        }
+      ],
+      "itemIds": [
+        "ar1-037",
+        "ar2-007",
+        "ar2-017",
+        "ar2-049",
+        "ar5-029",
+        "ar5-032",
+        "ar5-033",
+        "ar5-035",
+        "ar5-039",
+        "ar5-041"
+      ]
+    },
+    {
+      "id": "alternative",
+      "word": "alternative",
+      "pos": "名詞",
+      "ja": "代替案",
+      "zh": "替代方案",
+      "count": 10,
+      "questionCount": 10,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D3": 1,
+        "D4": 1,
+        "D5": 5
+      },
+      "forms": [
+        "alternative",
+        "alternatives"
+      ],
+      "examples": [
+        {
+          "en": "Failure type, the query attempted, any partial results, and potential alternative approaches.",
+          "zh": "失败类型、尝试过的查询、已有的部分结果以及可能的替代方案。",
+          "itemId": "ar5-032"
+        },
+        {
+          "en": "Show the reasoning for why one choice was made over a plausible alternative.",
+          "zh": "说明为什么在几个看似合理的选项中选了这一个。",
+          "itemId": "ar4-026"
+        }
+      ],
+      "itemIds": [
+        "ar1-057",
+        "ar2-017",
+        "ar2-018",
+        "ar3-023",
+        "ar4-026",
+        "ar5-029",
+        "ar5-032",
+        "ar5-039",
+        "ar5-040",
+        "ar5-041"
+      ]
+    },
+    {
+      "id": "contract",
+      "word": "contract",
+      "pos": "名詞",
+      "ja": "契約",
+      "zh": "合同",
+      "count": 15,
+      "questionCount": 9,
+      "domains": {
+        "D2": 1,
+        "D4": 4,
+        "D5": 4
+      },
+      "forms": [
+        "contract",
+        "contracts"
+      ],
+      "examples": [
+        {
+          "en": "Record each value with its source document and date (for example \"net 30 — contract, 2025-01\" superseded by \"net 45 — amendment, 2025-06\").",
+          "zh": "为每个值记录来源文档和日期（例如「net 30——合同，2025-01」被「net 45——修订，2025-06」取代）。",
+          "itemId": "ar5-074"
+        },
+        {
+          "en": "Split it into purpose-specific tools — for example extract_data_points, summarize_content, and verify_claim_against_source — each with a defined input/output contract.",
+          "zh": "拆成目的明确的工具——例如 extract_data_points、summarize_content、verify_claim_against_source——每个都有明确的输入/输出约定。",
+          "itemId": "ar2-006"
+        }
+      ],
+      "itemIds": [
+        "ar2-006",
+        "ar4-021",
+        "ar4-031",
+        "ar4-044",
+        "ar4-058",
+        "ar5-037",
+        "ar5-038",
+        "ar5-064",
+        "ar5-074"
+      ]
+    },
+    {
+      "id": "false",
+      "word": "false",
+      "pos": "形容詞",
+      "ja": "誤った",
+      "zh": "错误的、误报的",
+      "count": 13,
+      "questionCount": 9,
+      "domains": {
+        "D2": 1,
+        "D4": 7,
+        "D5": 1
+      },
+      "forms": [
+        "false"
+      ],
+      "examples": [
+        {
+          "en": "process_refund, order outside the refund window: isError with category business, retryable false, and a customer-friendly reason.",
+          "zh": "process_refund 遇到超出退款期限的订单：返回 isError，类别为业务规则，不可重试，并附上可告诉客户的原因。",
+          "itemId": "ar2-047"
+        },
+        {
+          "en": "Temporarily disable the high-false-positive naming category to restore trust, while improving that category's criteria separately.",
+          "zh": "暂时停用误报率高的命名类别以恢复信任，同时另行改进该类别的判定标准。",
+          "itemId": "ar4-002"
+        }
+      ],
+      "itemIds": [
+        "ar2-047",
+        "ar4-002",
+        "ar4-006",
+        "ar4-007",
+        "ar4-011",
+        "ar4-014",
+        "ar4-042",
+        "ar4-051",
+        "ar5-070"
+      ]
+    },
+    {
+      "id": "score",
+      "word": "score",
+      "pos": "名詞",
+      "ja": "スコア",
+      "zh": "分数",
+      "count": 12,
+      "questionCount": 9,
+      "domains": {
+        "D1": 1,
+        "D5": 8
+      },
+      "forms": [
+        "score",
+        "scores"
+      ],
+      "examples": [
+        {
+          "en": "To route individual fields (not whole documents) to human review when the model is less certain, after the scores are calibrated.",
+          "zh": "在分数经过校准后，把模型较不确定的单个字段（而非整份文档）路由给人工复核。",
+          "itemId": "ar5-080"
+        },
+        {
+          "en": "Have the search subagent return structured data — key facts, citations, and relevance scores — instead of verbose content and reasoning chains.",
+          "zh": "让搜索子智能体返回结构化数据——关键事实、引用和相关度评分——而不是冗长的内容和推理链。",
+          "itemId": "ar5-009"
+        }
+      ],
+      "itemIds": [
+        "ar1-051",
+        "ar5-009",
+        "ar5-010",
+        "ar5-021",
+        "ar5-057",
+        "ar5-059",
+        "ar5-060",
+        "ar5-063",
+        "ar5-080"
+      ]
+    },
+    {
+      "id": "ambiguous",
+      "word": "ambiguous",
+      "pos": "形容詞",
+      "ja": "曖昧な",
+      "zh": "模糊的",
+      "count": 11,
+      "questionCount": 9,
+      "domains": {
+        "D2": 1,
+        "D4": 7,
+        "D5": 1
+      },
+      "forms": [
+        "ambiguous"
+      ],
+      "examples": [
+        {
+          "en": "Add an \"unclear\" value so ambiguous cases are labeled honestly rather than forced into a level.",
+          "zh": "增加 \"unclear\" 值，让模糊情况被如实标注，而不是被强行归入某一级。",
+          "itemId": "ar4-041"
+        },
+        {
+          "en": "Extractions with low model confidence and documents whose source content is ambiguous or contradictory.",
+          "zh": "模型置信度低的抽取结果，以及源内容含糊或相互矛盾的文档。",
+          "itemId": "ar5-058"
+        }
+      ],
+      "itemIds": [
+        "ar2-043",
+        "ar4-016",
+        "ar4-018",
+        "ar4-024",
+        "ar4-026",
+        "ar4-030",
+        "ar4-034",
+        "ar4-041",
+        "ar5-058"
+      ]
+    },
+    {
+      "id": "requirement",
+      "word": "requirement",
+      "pos": "名詞",
+      "ja": "要件",
+      "zh": "需求",
+      "count": 9,
+      "questionCount": 9,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 4,
+        "D4": 3
+      },
+      "forms": [
+        "requirement",
+        "requirements"
+      ],
+      "examples": [
+        {
+          "en": "Writing tests that capture expected behavior and performance requirements before implementation.",
+          "zh": "在实现之前编写体现期望行为和性能要求的测试。",
+          "itemId": "ar3-066"
+        },
+        {
+          "en": "Have the coordinator analyze each query's requirements and invoke only the subagents the query actually needs.",
+          "zh": "让协调者分析每个查询的需求，只调用该查询真正需要的子智能体。",
+          "itemId": "ar1-013"
+        }
+      ],
+      "itemIds": [
+        "ar1-013",
+        "ar2-054",
+        "ar3-057",
+        "ar3-065",
+        "ar3-066",
+        "ar3-072",
+        "ar4-034",
+        "ar4-073",
+        "ar4-078"
+      ]
+    },
+    {
+      "id": "import",
+      "word": "import",
+      "pos": "名詞",
+      "ja": "インポート（取り込み）",
+      "zh": "导入",
+      "count": 19,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 5,
+        "D3": 2
+      },
+      "forms": [
+        "import",
+        "imported",
+        "importing",
+        "imports"
+      ],
+      "examples": [
+        {
+          "en": "A CLAUDE.md can import another file with @path/to/file, and relative paths resolve from the importing file.",
+          "zh": "CLAUDE.md 可以用 @path/to/file 导入其他文件，相对路径以发起导入的文件为基准解析。",
+          "itemId": "ar3-008"
+        },
+        {
+          "en": "@import syntax (for example @docs/standards/payments.md) in each package's CLAUDE.md to pull in the relevant standards.",
+          "zh": "在每个包的 CLAUDE.md 中使用 @import 语法（例如 @docs/standards/payments.md）引入相关的规范。",
+          "itemId": "ar3-004"
+        }
+      ],
+      "itemIds": [
+        "ar1-010",
+        "ar2-064",
+        "ar2-067",
+        "ar2-074",
+        "ar2-077",
+        "ar2-079",
+        "ar3-004",
+        "ar3-008"
+      ]
+    },
+    {
+      "id": "argument",
+      "word": "argument",
+      "pos": "名詞",
+      "ja": "引数",
+      "zh": "参数",
+      "count": 16,
+      "questionCount": 8,
+      "domains": {
+        "D2": 1,
+        "D3": 5,
+        "D4": 2
+      },
+      "forms": [
+        "argument",
+        "arguments"
+      ],
+      "examples": [
+        {
+          "en": "argument-hint (for example \"[migration-name]\"), which shows the expected argument during autocomplete.",
+          "zh": "argument-hint（例如 \"[migration-name]\"），在自动补全时提示应输入的参数。",
+          "itemId": "ar3-016"
+        },
+        {
+          "en": "From the input arguments of the tool_use block in Claude's response.",
+          "zh": "从 Claude 响应中 tool_use 块的输入参数里获得。",
+          "itemId": "ar4-038"
+        }
+      ],
+      "itemIds": [
+        "ar2-009",
+        "ar3-015",
+        "ar3-016",
+        "ar3-020",
+        "ar3-021",
+        "ar3-038",
+        "ar4-038",
+        "ar4-042"
+      ]
+    },
+    {
+      "id": "decomposition",
+      "word": "decomposition",
+      "pos": "名詞",
+      "ja": "分解",
+      "zh": "分解",
+      "count": 14,
+      "questionCount": 8,
+      "domains": {
+        "D1": 8
+      },
+      "forms": [
+        "decomposition"
+      ],
+      "examples": [
+        {
+          "en": "Dynamic decomposition suits open-ended investigation where later subtasks depend on earlier findings.",
+          "zh": "动态分解适合开放式调查，即后面的子任务取决于前面的发现。",
+          "itemId": "ar1-064"
+        },
+        {
+          "en": "Dynamic, adaptive decomposition: start with broad investigation and generate the next subtasks based on what each step uncovers.",
+          "zh": "动态、自适应的分解：先做较宽的调查，再根据每一步的发现生成下一批子任务。",
+          "itemId": "ar1-059"
+        }
+      ],
+      "itemIds": [
+        "ar1-014",
+        "ar1-058",
+        "ar1-059",
+        "ar1-061",
+        "ar1-064",
+        "ar1-066",
+        "ar1-067",
+        "ar1-078"
+      ]
+    },
+    {
+      "id": "conflict",
+      "word": "conflict",
+      "pos": "名詞",
+      "ja": "食い違い、矛盾",
+      "zh": "冲突",
+      "count": 13,
+      "questionCount": 8,
+      "domains": {
+        "D4": 3,
+        "D5": 5
+      },
+      "forms": [
+        "conflict",
+        "conflicting",
+        "conflicts"
+      ],
+      "examples": [
+        {
+          "en": "Keep conflicting values side by side with a conflict flag instead of choosing one silently.",
+          "zh": "把相互冲突的值并列保留并加冲突标志，而不是悄悄选择其中一个。",
+          "itemId": "ar5-077"
+        },
+        {
+          "en": "Present both values with their sources and note the conflict, rather than arbitrarily choosing one.",
+          "zh": "同时列出两个值及其来源，并注明存在冲突，而不是随意选一个。",
+          "itemId": "ar5-068"
+        }
+      ],
+      "itemIds": [
+        "ar4-046",
+        "ar4-047",
+        "ar4-055",
+        "ar5-064",
+        "ar5-068",
+        "ar5-071",
+        "ar5-075",
+        "ar5-077"
+      ]
+    },
+    {
+      "id": "function",
+      "word": "function",
+      "pos": "名詞",
+      "ja": "関数",
+      "zh": "函数",
+      "count": 12,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D3": 4,
+        "D4": 1
+      },
+      "forms": [
+        "function",
+        "functions"
+      ],
+      "examples": [
+        {
+          "en": "Grep, to search file contents for the function name.",
+          "zh": "Grep，在文件内容中搜索这个函数名。",
+          "itemId": "ar2-064"
+        },
+        {
+          "en": "Grep only for the original function names, since aliases resolve to them automatically at runtime.",
+          "zh": "只用 Grep 搜索原始函数名，因为别名最终都指向它们，在运行时会自动解析。",
+          "itemId": "ar2-068"
+        }
+      ],
+      "itemIds": [
+        "ar1-060",
+        "ar2-064",
+        "ar2-068",
+        "ar3-041",
+        "ar3-050",
+        "ar3-056",
+        "ar3-060",
+        "ar4-078"
+      ]
+    },
+    {
+      "id": "positive",
+      "word": "positive",
+      "pos": "名詞",
+      "ja": "陽性（誤検知の「検知」）",
+      "zh": "阳性（误报中的「报」）",
+      "count": 12,
+      "questionCount": 8,
+      "domains": {
+        "D2": 1,
+        "D4": 7
+      },
+      "forms": [
+        "positive",
+        "positives"
+      ],
+      "examples": [
+        {
+          "en": "A validation error that names the invalid field and the rule (\"amount must be a positive number\"), marked not retryable as-is.",
+          "zh": "返回校验错误，指出无效字段及规则（「amount 必须为正数」），并标明原样重试无效。",
+          "itemId": "ar2-016"
+        },
+        {
+          "en": "Temporarily disable the high-false-positive naming category to restore trust, while improving that category's criteria separately.",
+          "zh": "暂时停用误报率高的命名类别以恢复信任，同时另行改进该类别的判定标准。",
+          "itemId": "ar4-002"
+        }
+      ],
+      "itemIds": [
+        "ar2-016",
+        "ar4-002",
+        "ar4-006",
+        "ar4-007",
+        "ar4-011",
+        "ar4-014",
+        "ar4-042",
+        "ar4-051"
+      ]
+    },
+    {
+      "id": "status",
+      "word": "status",
+      "pos": "名詞",
+      "ja": "状態",
+      "zh": "状态",
+      "count": 11,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D5": 5
+      },
+      "forms": [
+        "status",
+        "statuses"
+      ],
+      "examples": [
+        {
+          "en": "Maintain a separate structured layer listing each issue with its order ID, amount, and status, and include it in every prompt.",
+          "zh": "维护一个独立的结构化层，逐条列出每个问题的订单 ID、金额和状态，并在每次请求中附上。",
+          "itemId": "ar5-004"
+        },
+        {
+          "en": "Distinguish the cases explicitly — for example null with a status of \"not_present\" versus an error status such as \"extraction_failed\" with a reason.",
+          "zh": "明确区分两种情况——例如 null 配合状态 \"not_present\"，与带原因的错误状态 \"extraction_failed\" 分开表示。",
+          "itemId": "ar5-038"
+        }
+      ],
+      "itemIds": [
+        "ar1-034",
+        "ar2-015",
+        "ar2-038",
+        "ar5-001",
+        "ar5-002",
+        "ar5-004",
+        "ar5-032",
+        "ar5-038"
+      ]
+    },
+    {
+      "id": "billing",
+      "word": "billing",
+      "pos": "名詞",
+      "ja": "請求、課金",
+      "zh": "账单",
+      "count": 10,
+      "questionCount": 8,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 1,
+        "D4": 2,
+        "D5": 1
+      },
+      "forms": [
+        "billing"
+      ],
+      "examples": [
+        {
+          "en": "\"Classify each ticket as billing, technical, or account. Use 'other' only if none apply, and add a one-sentence reason.\"",
+          "zh": "「把每张工单归类为 billing、technical 或 account。只有都不适用时才用 'other'，并附一句理由。」",
+          "itemId": "ar4-012"
+        },
+        {
+          "en": "\"Customer is upset about billing. Please help.\" The human agent can then open the transcript to find the details they need.",
+          "zh": "「客户对账单不满，请协助。」人工客服之后可以打开对话记录，找到所需细节。",
+          "itemId": "ar1-048"
+        }
+      ],
+      "itemIds": [
+        "ar1-030",
+        "ar1-034",
+        "ar1-048",
+        "ar2-011",
+        "ar3-034",
+        "ar4-012",
+        "ar4-037",
+        "ar5-008"
+      ]
+    },
+    {
+      "id": "consistent",
+      "word": "consistent",
+      "pos": "形容詞",
+      "ja": "一貫した",
+      "zh": "一致的",
+      "count": 9,
+      "questionCount": 8,
+      "domains": {
+        "D1": 3,
+        "D3": 1,
+        "D4": 4
+      },
+      "forms": [
+        "consistent"
+      ],
+      "examples": [
+        {
+          "en": "That the extracted values are factually correct and consistent with each other.",
+          "zh": "抽取出的值在事实上正确且彼此一致。",
+          "itemId": "ar4-033"
+        },
+        {
+          "en": "Use PostToolUse hooks to normalize all tool results into one consistent format before Claude sees them.",
+          "zh": "用 PostToolUse 钩子，在 Claude 看到之前把所有工具结果统一成一致的格式。",
+          "itemId": "ar1-034"
+        }
+      ],
+      "itemIds": [
+        "ar1-017",
+        "ar1-034",
+        "ar1-039",
+        "ar3-071",
+        "ar4-004",
+        "ar4-011",
+        "ar4-012",
+        "ar4-033"
+      ]
+    },
+    {
+      "id": "escalation",
+      "word": "escalation",
+      "pos": "名詞",
+      "ja": "エスカレーション（上位への引き継ぎ）",
+      "zh": "升级（转交处理）",
+      "count": 9,
+      "questionCount": 8,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D5": 4
+      },
+      "forms": [
+        "escalation",
+        "escalations"
+      ],
+      "examples": [
+        {
+          "en": "A hook that intercepts outgoing process_refund calls, blocks any amount over $500, and redirects the case to human escalation.",
+          "zh": "用钩子拦截发出的 process_refund 调用，阻止任何超过 500 美元的金额，并把案件转为人工处理。",
+          "itemId": "ar1-033"
+        },
+        {
+          "en": "Add explicit escalation criteria to the system prompt, with few-shot examples showing when to escalate and when to resolve autonomously.",
+          "zh": "在系统提示词中加入明确的升级标准，并用少样本示例展示何时升级、何时自主解决。",
+          "itemId": "ar5-020"
+        }
+      ],
+      "itemIds": [
+        "ar1-030",
+        "ar1-033",
+        "ar1-051",
+        "ar2-029",
+        "ar5-020",
+        "ar5-026",
+        "ar5-027",
+        "ar5-028"
+      ]
+    },
+    {
+      "id": "internal",
+      "word": "internal",
+      "pos": "形容詞",
+      "ja": "内部の",
+      "zh": "内部的",
+      "count": 9,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 5,
+        "D5": 2
+      },
+      "forms": [
+        "internal"
+      ],
+      "examples": [
+        {
+          "en": "\"Searches the internal engineering wiki (design docs, runbooks, onboarding guides). Use for questions about process or intent. For source code, use search_code.\"",
+          "zh": "「搜索内部工程 wiki（设计文档、运维手册、入职指南）。用于流程或设计意图方面的问题。搜索源代码请用 search_code。」",
+          "itemId": "ar2-008"
+        },
+        {
+          "en": "\"Something went wrong, please try later.\" That message is friendly for end users and avoids exposing internal details.",
+          "zh": "「出了点问题，请稍后再试。」这条消息对最终用户友好，也不会暴露内部细节。",
+          "itemId": "ar5-040"
+        }
+      ],
+      "itemIds": [
+        "ar1-051",
+        "ar2-003",
+        "ar2-008",
+        "ar2-029",
+        "ar2-037",
+        "ar2-059",
+        "ar5-040",
+        "ar5-041"
+      ]
+    },
+    {
+      "id": "restart",
+      "word": "restart",
+      "pos": "動詞",
+      "ja": "再起動する",
+      "zh": "重启",
+      "count": 9,
+      "questionCount": 8,
+      "domains": {
+        "D1": 4,
+        "D2": 1,
+        "D3": 1,
+        "D5": 2
+      },
+      "forms": [
+        "restart",
+        "restarted"
+      ],
+      "examples": [
+        {
+          "en": "Each agent exports its state to a known location, and on restart the coordinator loads a manifest of completed work and injects it into the agents' prompts.",
+          "zh": "每个智能体把状态导出到已知位置；重启时，协调者加载记录已完成工作的清单（manifest），并注入到各智能体的提示词中。",
+          "itemId": "ar1-074"
+        },
+        {
+          "en": "The system prompt of the coordinator, which lists the agents it may start and the order in which to restart them.",
+          "zh": "协调者的系统提示词，其中列出了它可以启动的智能体以及重启它们的顺序。",
+          "itemId": "ar5-054"
+        }
+      ],
+      "itemIds": [
+        "ar1-016",
+        "ar1-037",
+        "ar1-065",
+        "ar1-074",
+        "ar2-060",
+        "ar3-055",
+        "ar5-047",
+        "ar5-054"
+      ]
+    },
+    {
+      "id": "business",
+      "word": "business",
+      "pos": "名詞",
+      "ja": "業務",
+      "zh": "业务",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 2,
+        "D2": 6
+      },
+      "forms": [
+        "business"
+      ],
+      "examples": [
+        {
+          "en": "Marking business-rule and permission errors as not retryable in the error metadata.",
+          "zh": "在错误元数据中把业务规则错误和权限错误标记为不可重试。",
+          "itemId": "ar2-022"
+        },
+        {
+          "en": "When the business rule requires guaranteed compliance, such as financial limits or security restrictions.",
+          "zh": "当业务规则要求保证遵守时，例如金额上限或安全限制。",
+          "itemId": "ar1-056"
+        }
+      ],
+      "itemIds": [
+        "ar1-054",
+        "ar1-056",
+        "ar2-007",
+        "ar2-011",
+        "ar2-014",
+        "ar2-021",
+        "ar2-022",
+        "ar2-047"
+      ]
+    },
+    {
+      "id": "concrete",
+      "word": "concrete",
+      "pos": "形容詞",
+      "ja": "具体的な",
+      "zh": "具体的",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D3": 4,
+        "D4": 4
+      },
+      "forms": [
+        "concrete"
+      ],
+      "examples": [
+        {
+          "en": "Provide 2–3 concrete input/output examples showing exactly how each date should be transformed.",
+          "zh": "提供 2–3 个具体的输入/输出示例，准确展示每种日期应如何转换。",
+          "itemId": "ar3-056"
+        },
+        {
+          "en": "To show, through concrete cases, how varied inputs should map to the expected output.",
+          "zh": "通过具体案例，展示各种不同的输入应如何映射到期望的输出。",
+          "itemId": "ar4-022"
+        }
+      ],
+      "itemIds": [
+        "ar3-056",
+        "ar3-063",
+        "ar3-064",
+        "ar3-067",
+        "ar4-004",
+        "ar4-006",
+        "ar4-014",
+        "ar4-022"
+      ]
+    },
+    {
+      "id": "frontmatter",
+      "word": "frontmatter",
+      "pos": "名詞",
+      "ja": "フロントマター（ファイル先頭の設定）",
+      "zh": "前置信息",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D3": 8
+      },
+      "forms": [
+        "frontmatter"
+      ],
+      "examples": [
+        {
+          "en": "A file in .claude/rules/ with YAML frontmatter such as paths: [\"terraform/**/*\"].",
+          "zh": "在 .claude/rules/ 中放一个文件，YAML 前置信息写 paths: [\"terraform/**/*\"] 之类的内容。",
+          "itemId": "ar3-026"
+        },
+        {
+          "en": "In YAML frontmatter at the top of the rule's Markdown file in .claude/rules/.",
+          "zh": "写在 .claude/rules/ 中规则 Markdown 文件顶部的 YAML 前置信息里。",
+          "itemId": "ar3-035"
+        }
+      ],
+      "itemIds": [
+        "ar3-012",
+        "ar3-015",
+        "ar3-016",
+        "ar3-020",
+        "ar3-021",
+        "ar3-026",
+        "ar3-035",
+        "ar3-038"
+      ]
+    },
+    {
+      "id": "silently",
+      "word": "silently",
+      "pos": "副詞",
+      "ja": "黙って、通知せずに",
+      "zh": "悄悄地",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D4": 1,
+        "D5": 4
+      },
+      "forms": [
+        "silently"
+      ],
+      "examples": [
+        {
+          "en": "Keep conflicting values side by side with a conflict flag instead of choosing one silently.",
+          "zh": "把相互冲突的值并列保留并加冲突标志，而不是悄悄选择其中一个。",
+          "itemId": "ar5-077"
+        },
+        {
+          "en": "Keep both values with their sources, set a conflict flag, and route the discrepancy to review instead of silently overwriting.",
+          "zh": "保留两个值及其来源，设置冲突标志，并把差异转去复核，而不是悄悄覆盖。",
+          "itemId": "ar5-075"
+        }
+      ],
+      "itemIds": [
+        "ar1-036",
+        "ar2-001",
+        "ar2-016",
+        "ar4-047",
+        "ar5-022",
+        "ar5-025",
+        "ar5-075",
+        "ar5-077"
+      ]
+    },
+    {
+      "id": "targeted",
+      "word": "targeted",
+      "pos": "形容詞",
+      "ja": "的を絞った",
+      "zh": "有针对性的",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D3": 1,
+        "D4": 1,
+        "D5": 2
+      },
+      "forms": [
+        "targeted"
+      ],
+      "examples": [
+        {
+          "en": "Evaluate the synthesis for gaps and re-delegate targeted follow-up queries.",
+          "zh": "评估综合结果中的缺口，并派发有针对性的后续查询。",
+          "itemId": "ar1-019"
+        },
+        {
+          "en": "Conventions for file types spread across directories (such as tests) can be targeted with one glob pattern.",
+          "zh": "分布在多个目录中的文件类型（如测试）的约定可以用一个 glob 模式统一指定。",
+          "itemId": "ar3-032"
+        }
+      ],
+      "itemIds": [
+        "ar1-016",
+        "ar1-019",
+        "ar2-075",
+        "ar2-076",
+        "ar3-032",
+        "ar4-018",
+        "ar5-013",
+        "ar5-062"
+      ]
+    },
+    {
+      "id": "verbose",
+      "word": "verbose",
+      "pos": "形容詞",
+      "ja": "冗長な",
+      "zh": "冗长的",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D3": 5,
+        "D5": 3
+      },
+      "forms": [
+        "verbose"
+      ],
+      "examples": [
+        {
+          "en": "It produces verbose output that should be isolated from the main conversation with context: fork.",
+          "zh": "它会产生冗长的输出，应该用 context: fork 与主对话隔离。",
+          "itemId": "ar3-025"
+        },
+        {
+          "en": "Trimming verbose tool results to the fields the task needs before they accumulate.",
+          "zh": "在冗长的工具结果累积之前，把它们裁剪为任务需要的字段。",
+          "itemId": "ar5-006"
+        }
+      ],
+      "itemIds": [
+        "ar3-025",
+        "ar3-045",
+        "ar3-048",
+        "ar3-054",
+        "ar3-071",
+        "ar5-006",
+        "ar5-009",
+        "ar5-053"
+      ]
+    },
+    {
+      "id": "strategy",
+      "word": "strategy",
+      "pos": "名詞",
+      "ja": "戦略",
+      "zh": "策略",
+      "count": 17,
+      "questionCount": 7,
+      "domains": {
+        "D1": 3,
+        "D2": 2,
+        "D3": 2
+      },
+      "forms": [
+        "strategies",
+        "strategy"
+      ],
+      "examples": [
+        {
+          "en": "Fork the session from the shared analysis so each strategy is explored in its own independent branch.",
+          "zh": "从这份共享分析处分叉（fork）会话，让两种策略各自在独立分支中探索。",
+          "itemId": "ar1-026"
+        },
+        {
+          "en": "Fork the session after the findings are collected, and run each synthesis strategy in its own branch.",
+          "zh": "在收集完发现之后分叉会话，让两种综合策略各自在独立分支里运行。",
+          "itemId": "ar1-042"
+        }
+      ],
+      "itemIds": [
+        "ar1-026",
+        "ar1-042",
+        "ar1-064",
+        "ar2-075",
+        "ar2-079",
+        "ar3-042",
+        "ar3-057"
+      ]
+    },
+    {
+      "id": "migration",
+      "word": "migration",
+      "pos": "名詞",
+      "ja": "移行",
+      "zh": "迁移",
+      "count": 16,
+      "questionCount": 7,
+      "domains": {
+        "D3": 6,
+        "D5": 1
+      },
+      "forms": [
+        "migration",
+        "migrations"
+      ],
+      "examples": [
+        {
+          "en": "argument-hint (for example \"[migration-name]\"), which shows the expected argument during autocomplete.",
+          "zh": "argument-hint（例如 \"[migration-name]\"），在自动补全时提示应输入的参数。",
+          "itemId": "ar3-016"
+        },
+        {
+          "en": "Plan a large library migration in plan mode, then switch to direct execution to implement the approved plan.",
+          "zh": "在计划模式中规划大型库迁移，然后切换到直接执行来实施已批准的计划。",
+          "itemId": "ar3-047"
+        }
+      ],
+      "itemIds": [
+        "ar3-016",
+        "ar3-031",
+        "ar3-042",
+        "ar3-047",
+        "ar3-051",
+        "ar3-058",
+        "ar5-047"
+      ]
+    },
+    {
+      "id": "metadata",
+      "word": "metadata",
+      "pos": "名詞",
+      "ja": "メタデータ（付帯情報）",
+      "zh": "元数据",
+      "count": 14,
+      "questionCount": 7,
+      "domains": {
+        "D1": 2,
+        "D2": 3,
+        "D4": 1,
+        "D5": 1
+      },
+      "forms": [
+        "metadata"
+      ],
+      "examples": [
+        {
+          "en": "Marking business-rule and permission errors as not retryable in the error metadata.",
+          "zh": "在错误元数据中把业务规则错误和权限错误标记为不可重试。",
+          "itemId": "ar2-022"
+        },
+        {
+          "en": "Force tool_choice to {\"type\": \"tool\", \"name\": \"extract_metadata\"}, then run enrichment in later turns.",
+          "zh": "把 tool_choice 强制设为 {\"type\": \"tool\", \"name\": \"extract_metadata\"}，之后的回合再运行增强步骤。",
+          "itemId": "ar4-032"
+        }
+      ],
+      "itemIds": [
+        "ar1-022",
+        "ar1-041",
+        "ar2-022",
+        "ar2-027",
+        "ar2-054",
+        "ar4-032",
+        "ar5-010"
+      ]
+    },
+    {
+      "id": "spawn",
+      "word": "spawn",
+      "pos": "動詞",
+      "ja": "起動する、生み出す",
+      "zh": "启动（子任务）",
+      "count": 13,
+      "questionCount": 7,
+      "domains": {
+        "D1": 4,
+        "D3": 1,
+        "D5": 2
+      },
+      "forms": [
+        "spawn",
+        "spawned",
+        "spawning",
+        "spawns"
+      ],
+      "examples": [
+        {
+          "en": "Emit three subagent-spawning tool calls in a single coordinator response so they run in parallel.",
+          "zh": "在协调者的同一个响应中发出三个启动子智能体的工具调用，让它们并行运行。",
+          "itemId": "ar1-023"
+        },
+        {
+          "en": "Spawn a subagent to investigate that specific question and return a concise summary, while the main agent keeps the high-level picture.",
+          "zh": "启动一个子智能体专门调查这个问题，返回简洁的摘要，主智能体保持高层面的全局把握。",
+          "itemId": "ar5-045"
+        }
+      ],
+      "itemIds": [
+        "ar1-020",
+        "ar1-023",
+        "ar1-043",
+        "ar1-045",
+        "ar3-041",
+        "ar5-045",
+        "ar5-051"
+      ]
+    },
+    {
+      "id": "instance",
+      "word": "instance",
+      "pos": "名詞",
+      "ja": "インスタンス",
+      "zh": "实例",
+      "count": 12,
+      "questionCount": 7,
+      "domains": {
+        "D3": 1,
+        "D4": 6
+      },
+      "forms": [
+        "instance",
+        "instances"
+      ],
+      "examples": [
+        {
+          "en": "A second, independent Claude instance reviews generated code without the generator's reasoning.",
+          "zh": "由第二个独立的 Claude 实例审查生成的代码，不带生成者的推理。",
+          "itemId": "ar4-077"
+        },
+        {
+          "en": "Use a separate, independent review instance that checks the extraction without the generator's reasoning context.",
+          "zh": "使用一个独立的审查实例，在不带生成者推理上下文的情况下检查抽取结果。",
+          "itemId": "ar4-068"
+        }
+      ],
+      "itemIds": [
+        "ar3-072",
+        "ar4-068",
+        "ar4-070",
+        "ar4-073",
+        "ar4-076",
+        "ar4-077",
+        "ar4-078"
+      ]
+    },
+    {
+      "id": "sample",
+      "word": "sample",
+      "pos": "名詞",
+      "ja": "標本、サンプル",
+      "zh": "样本",
+      "count": 11,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D4": 1,
+        "D5": 5
+      },
+      "forms": [
+        "sample",
+        "sampling"
+      ],
+      "examples": [
+        {
+          "en": "Accuracy for that document type and its key fields specifically, using a labeled sample.",
+          "zh": "用一份带标注的样本，专门验证该文档类型及其关键字段的准确率。",
+          "itemId": "ar5-059"
+        },
+        {
+          "en": "Refine the prompt on a representative sample set first, to maximize first-pass success.",
+          "zh": "先在有代表性的样本集上打磨提示词，以提高首次通过率。",
+          "itemId": "ar4-059"
+        }
+      ],
+      "itemIds": [
+        "ar1-054",
+        "ar4-059",
+        "ar5-056",
+        "ar5-059",
+        "ar5-060",
+        "ar5-061",
+        "ar5-066"
+      ]
+    },
+    {
+      "id": "threshold",
+      "word": "threshold",
+      "pos": "名詞",
+      "ja": "しきい値",
+      "zh": "阈值",
+      "count": 11,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D4": 2,
+        "D5": 4
+      },
+      "forms": [
+        "threshold",
+        "thresholds"
+      ],
+      "examples": [
+        {
+          "en": "Blocking refunds above the company's approval threshold and routing them to escalate_to_human.",
+          "zh": "拦截超过公司审批阈值的退款，并转给 escalate_to_human。",
+          "itemId": "ar1-031"
+        },
+        {
+          "en": "The confidence scores are not well calibrated for this field; adjust thresholds (or routing) based on the labeled results rather than taking the labels at face value.",
+          "zh": "该字段的置信度分数校准不佳；应根据标注结果调整阈值（或路由），而不是照单全收。",
+          "itemId": "ar5-063"
+        }
+      ],
+      "itemIds": [
+        "ar1-031",
+        "ar4-042",
+        "ar4-069",
+        "ar5-057",
+        "ar5-060",
+        "ar5-063",
+        "ar5-066"
+      ]
+    },
+    {
+      "id": "generic",
+      "word": "generic",
+      "pos": "形容詞",
+      "ja": "汎用的な",
+      "zh": "通用的",
+      "count": 10,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 5,
+        "D3": 1
+      },
+      "forms": [
+        "generic"
+      ],
+      "examples": [
+        {
+          "en": "The MCP protocol forbids generic error messages, so the tool must always return a detailed stack trace.",
+          "zh": "MCP 协议禁止笼统的错误消息，所以工具必须总是返回详细的堆栈跟踪。",
+          "itemId": "ar2-012"
+        },
+        {
+          "en": "Answer all three with one generic apology and a link to the help center.",
+          "zh": "用一句笼统的道歉和帮助中心链接回复全部三个问题。",
+          "itemId": "ar1-029"
+        }
+      ],
+      "itemIds": [
+        "ar1-029",
+        "ar2-006",
+        "ar2-011",
+        "ar2-012",
+        "ar2-022",
+        "ar2-026",
+        "ar3-016"
+      ]
+    },
+    {
+      "id": "iteration",
+      "word": "iteration",
+      "pos": "名詞",
+      "ja": "反復",
+      "zh": "迭代",
+      "count": 10,
+      "questionCount": 7,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 3
+      },
+      "forms": [
+        "iteration",
+        "iterations"
+      ],
+      "examples": [
+        {
+          "en": "Three iterations is too many and wastes tokens; one iteration is enough for any tool task.",
+          "zh": "三次太多，浪费 token；任何工具任务一次就够了。",
+          "itemId": "ar1-003"
+        },
+        {
+          "en": "Which TWO are examples of test-driven iteration in a CI workflow with Claude Code? (Select 2)",
+          "zh": "下列哪两项是在 CI 工作流中与 Claude Code 进行测试驱动迭代的例子？（选 2 项）",
+          "itemId": "ar3-066"
+        }
+      ],
+      "itemIds": [
+        "ar1-002",
+        "ar1-003",
+        "ar1-008",
+        "ar2-055",
+        "ar3-059",
+        "ar3-064",
+        "ar3-066"
+      ]
+    },
+    {
+      "id": "security",
+      "word": "security",
+      "pos": "名詞",
+      "ja": "セキュリティ",
+      "zh": "安全",
+      "count": 10,
+      "questionCount": 7,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D4": 4
+      },
+      "forms": [
+        "security"
+      ],
+      "examples": [
+        {
+          "en": "When the business rule requires guaranteed compliance, such as financial limits or security restrictions.",
+          "zh": "当业务规则要求保证遵守时，例如金额上限或安全限制。",
+          "itemId": "ar1-056"
+        },
+        {
+          "en": "\"Report: bugs that change behavior, security vulnerabilities, data loss risks. Skip: minor style preferences and patterns that match existing local conventions.\"",
+          "zh": "「报告：会改变行为的 bug、安全漏洞、数据丢失风险。跳过：细微的风格偏好，以及符合现有本地惯例的写法。」",
+          "itemId": "ar4-003"
+        }
+      ],
+      "itemIds": [
+        "ar1-035",
+        "ar1-056",
+        "ar2-033",
+        "ar4-002",
+        "ar4-003",
+        "ar4-008",
+        "ar4-065"
+      ]
+    },
+    {
+      "id": "coverage",
+      "word": "coverage",
+      "pos": "名詞",
+      "ja": "網羅、カバー範囲",
+      "zh": "覆盖",
+      "count": 8,
+      "questionCount": 7,
+      "domains": {
+        "D1": 3,
+        "D4": 1,
+        "D5": 3
+      },
+      "forms": [
+        "coverage"
+      ],
+      "examples": [
+        {
+          "en": "Proceed with the available results and annotate the final report with the coverage gap caused by the unavailable source.",
+          "zh": "用已有结果继续，并在最终报告中注明因来源不可用而造成的覆盖缺口。",
+          "itemId": "ar5-031"
+        },
+        {
+          "en": "Include coverage annotations that mark which findings are well supported and which areas have gaps due to unavailable sources.",
+          "zh": "加入覆盖注记，标明哪些发现有充分支持、哪些方面因来源不可用而存在缺口。",
+          "itemId": "ar5-034"
+        }
+      ],
+      "itemIds": [
+        "ar1-014",
+        "ar1-060",
+        "ar1-080",
+        "ar4-016",
+        "ar5-031",
+        "ar5-034",
+        "ar5-035"
+      ]
+    },
+    {
+      "id": "unavailable",
+      "word": "unavailable",
+      "pos": "形容詞",
+      "ja": "利用できない",
+      "zh": "不可用的",
+      "count": 8,
+      "questionCount": 7,
+      "domains": {
+        "D2": 3,
+        "D5": 4
+      },
+      "forms": [
+        "unavailable"
+      ],
+      "examples": [
+        {
+          "en": "Proceed with the available results and annotate the final report with the coverage gap caused by the unavailable source.",
+          "zh": "用已有结果继续，并在最终报告中注明因来源不可用而造成的覆盖缺口。",
+          "itemId": "ar5-031"
+        },
+        {
+          "en": "Include coverage annotations that mark which findings are well supported and which areas have gaps due to unavailable sources.",
+          "zh": "加入覆盖注记，标明哪些发现有充分支持、哪些方面因来源不可用而存在缺口。",
+          "itemId": "ar5-034"
+        }
+      ],
+      "itemIds": [
+        "ar2-010",
+        "ar2-017",
+        "ar2-021",
+        "ar5-029",
+        "ar5-031",
+        "ar5-034",
+        "ar5-040"
+      ]
+    },
+    {
+      "id": "duplicate",
+      "word": "duplicate",
+      "pos": "形容詞",
+      "ja": "重複した",
+      "zh": "重复的",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 2,
+        "D3": 3,
+        "D5": 2
+      },
+      "forms": [
+        "duplicate",
+        "duplicated",
+        "duplicates"
+      ],
+      "examples": [
+        {
+          "en": "Assigning overlapping scopes, which makes subagents duplicate each other's work.",
+          "zh": "分配的范围相互重叠，导致子智能体重复劳动。",
+          "itemId": "ar1-040"
+        },
+        {
+          "en": "Provide the existing test files in context so generation avoids duplicate scenarios and targets gaps.",
+          "zh": "把现有测试文件放进上下文，让生成过程避开重复场景、针对空白处。",
+          "itemId": "ar3-061"
+        }
+      ],
+      "itemIds": [
+        "ar1-040",
+        "ar1-048",
+        "ar3-061",
+        "ar3-062",
+        "ar3-073",
+        "ar5-004",
+        "ar5-050"
+      ]
+    },
+    {
+      "id": "environment",
+      "word": "environment",
+      "pos": "名詞",
+      "ja": "環境",
+      "zh": "环境",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 5,
+        "D3": 1
+      },
+      "forms": [
+        "environment"
+      ],
+      "examples": [
+        {
+          "en": "Put shared servers in the project's .mcp.json and reference credentials with environment variables.",
+          "zh": "把共享服务器放在项目的 .mcp.json 中，并用环境变量引用凭据。",
+          "itemId": "ar2-061"
+        },
+        {
+          "en": "It uses the JIRA_URL environment variable if it is set, and falls back to the given default otherwise.",
+          "zh": "如果设置了 JIRA_URL 环境变量就使用它，否则使用给出的默认值。",
+          "itemId": "ar2-062"
+        }
+      ],
+      "itemIds": [
+        "ar1-044",
+        "ar2-035",
+        "ar2-057",
+        "ar2-061",
+        "ar2-062",
+        "ar2-063",
+        "ar3-026"
+      ]
+    },
+    {
+      "id": "inconsistent",
+      "word": "inconsistent",
+      "pos": "形容詞",
+      "ja": "一貫しない",
+      "zh": "不一致的",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D4": 2,
+        "D5": 2
+      },
+      "forms": [
+        "inconsistent"
+      ],
+      "examples": [
+        {
+          "en": "Schemas guarantee structure and syntax, not semantic correctness; values can still be wrong or inconsistent.",
+          "zh": "schema 只保证结构和语法，不保证语义正确；值本身仍可能错误或不一致。",
+          "itemId": "ar4-028"
+        },
+        {
+          "en": "Tool selection becomes inconsistent between similar requests.",
+          "zh": "对相似的请求，工具选择变得前后不一致。",
+          "itemId": "ar2-045"
+        }
+      ],
+      "itemIds": [
+        "ar1-067",
+        "ar2-006",
+        "ar2-045",
+        "ar4-028",
+        "ar4-071",
+        "ar5-028",
+        "ar5-052"
+      ]
+    },
+    {
+      "id": "interactive",
+      "word": "interactive",
+      "pos": "形容詞",
+      "ja": "対話的な",
+      "zh": "交互式的",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D2": 1,
+        "D3": 4,
+        "D4": 2
+      },
+      "forms": [
+        "interactive"
+      ],
+      "examples": [
+        {
+          "en": "Without -p, Claude Code starts an interactive session and waits for input that never arrives in CI.",
+          "zh": "不带 -p 时，Claude Code 会启动交互式会话并等待输入，而在 CI 中永远不会有输入。",
+          "itemId": "ar3-076"
+        },
+        {
+          "en": "Running the reviewer in interactive mode.",
+          "zh": "以交互模式运行审查器。",
+          "itemId": "ar3-075"
+        }
+      ],
+      "itemIds": [
+        "ar2-069",
+        "ar3-069",
+        "ar3-070",
+        "ar3-075",
+        "ar3-076",
+        "ar4-056",
+        "ar4-062"
+      ]
+    },
+    {
+      "id": "investigation",
+      "word": "investigation",
+      "pos": "名詞",
+      "ja": "調査",
+      "zh": "调查",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D5": 3
+      },
+      "forms": [
+        "investigation"
+      ],
+      "examples": [
+        {
+          "en": "The investigation was interrupted yesterday and nothing in the codebase has changed since.",
+          "zh": "调查昨天被中断，此后代码库没有任何变化。",
+          "itemId": "ar1-072"
+        },
+        {
+          "en": "Dynamic decomposition suits open-ended investigation where later subtasks depend on earlier findings.",
+          "zh": "动态分解适合开放式调查，即后面的子任务取决于前面的发现。",
+          "itemId": "ar1-064"
+        }
+      ],
+      "itemIds": [
+        "ar1-059",
+        "ar1-064",
+        "ar1-072",
+        "ar2-030",
+        "ar5-043",
+        "ar5-046",
+        "ar5-050"
+      ]
+    },
+    {
+      "id": "isolated",
+      "word": "isolated",
+      "pos": "形容詞",
+      "ja": "隔離された",
+      "zh": "隔离的",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D3": 6
+      },
+      "forms": [
+        "isolated"
+      ],
+      "examples": [
+        {
+          "en": "It produces verbose output that should be isolated from the main conversation with context: fork.",
+          "zh": "它会产生冗长的输出，应该用 context: fork 与主对话隔离。",
+          "itemId": "ar3-025"
+        },
+        {
+          "en": "Use the Explore subagent for the discovery phase so the verbose output stays isolated and only a summary returns.",
+          "zh": "在探查阶段使用 Explore 子智能体，让冗长输出留在隔离环境中，只返回摘要。",
+          "itemId": "ar3-045"
+        }
+      ],
+      "itemIds": [
+        "ar1-018",
+        "ar3-015",
+        "ar3-020",
+        "ar3-023",
+        "ar3-025",
+        "ar3-045",
+        "ar3-054"
+      ]
+    },
+    {
+      "id": "sequence",
+      "word": "sequence",
+      "pos": "名詞",
+      "ja": "順序",
+      "zh": "顺序",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 6,
+        "D2": 1
+      },
+      "forms": [
+        "sequence"
+      ],
+      "examples": [
+        {
+          "en": "Prompt chaining — a fixed sequence of focused steps, each using the previous step's output.",
+          "zh": "提示词链——一串固定的、聚焦的步骤，每一步使用上一步的输出。",
+          "itemId": "ar1-078"
+        },
+        {
+          "en": "In the agentic loop, Claude decides which tool to call next based on the current context, instead of following a fixed sequence chosen in advance.",
+          "zh": "在智能体循环中，Claude 根据当前上下文决定下一步调用哪个工具，而不是按事先定好的固定顺序执行。",
+          "itemId": "ar1-005"
+        }
+      ],
+      "itemIds": [
+        "ar1-005",
+        "ar1-010",
+        "ar1-023",
+        "ar1-028",
+        "ar1-062",
+        "ar1-078",
+        "ar2-070"
+      ]
+    },
+    {
+      "id": "null",
+      "word": "null",
+      "pos": "名詞",
+      "ja": "ヌル（値が無いこと）",
+      "zh": "空值（null）",
+      "count": 10,
+      "questionCount": 6,
+      "domains": {
+        "D3": 2,
+        "D4": 3,
+        "D5": 1
+      },
+      "forms": [
+        "null",
+        "nulls"
+      ],
+      "examples": [
+        {
+          "en": "Give a specific test case: an example input row containing null and the exact expected output.",
+          "zh": "给出具体的测试用例：一行包含 null 的示例输入，以及准确的期望输出。",
+          "itemId": "ar3-058"
+        },
+        {
+          "en": "Make the field nullable so documents that truly lack a renewal term return null instead of a guess.",
+          "zh": "把字段设为可为空（nullable），让确实没有续约期限的文档返回 null 而不是猜测值。",
+          "itemId": "ar4-021"
+        }
+      ],
+      "itemIds": [
+        "ar3-041",
+        "ar3-058",
+        "ar4-019",
+        "ar4-021",
+        "ar4-029",
+        "ar5-038"
+      ]
+    },
+    {
+      "id": "scratchpad",
+      "word": "scratchpad",
+      "pos": "名詞",
+      "ja": "スクラッチパッド（作業メモ）",
+      "zh": "草稿文件",
+      "count": 10,
+      "questionCount": 6,
+      "domains": {
+        "D5": 6
+      },
+      "forms": [
+        "scratchpad"
+      ],
+      "examples": [
+        {
+          "en": "Recording key findings in a scratchpad file and referring back to it.",
+          "zh": "把关键发现记录在 scratchpad 文件中，并随时回看。",
+          "itemId": "ar5-048"
+        },
+        {
+          "en": "Have the agent keep a scratchpad file of key findings (classes, file paths, decisions) and consult it for later questions.",
+          "zh": "让智能体维护一个记录关键发现（类、文件路径、决定）的草稿文件（scratchpad），之后回答问题时查阅它。",
+          "itemId": "ar5-043"
+        }
+      ],
+      "itemIds": [
+        "ar5-043",
+        "ar5-044",
+        "ar5-048",
+        "ar5-049",
+        "ar5-050",
+        "ar5-052"
+      ]
+    },
+    {
+      "id": "labeled",
+      "word": "labeled",
+      "pos": "形容詞",
+      "ja": "ラベル付きの",
+      "zh": "带标注的",
+      "count": 8,
+      "questionCount": 6,
+      "domains": {
+        "D4": 3,
+        "D5": 3
+      },
+      "forms": [
+        "labeled"
+      ],
+      "examples": [
+        {
+          "en": "Accuracy for that document type and its key fields specifically, using a labeled sample.",
+          "zh": "用一份带标注的样本，专门验证该文档类型及其关键字段的准确率。",
+          "itemId": "ar5-059"
+        },
+        {
+          "en": "Add an \"unclear\" value so ambiguous cases are labeled honestly rather than forced into a level.",
+          "zh": "增加 \"unclear\" 值，让模糊情况被如实标注，而不是被强行归入某一级。",
+          "itemId": "ar4-041"
+        }
+      ],
+      "itemIds": [
+        "ar4-037",
+        "ar4-041",
+        "ar4-069",
+        "ar5-057",
+        "ar5-059",
+        "ar5-063"
+      ]
+    },
+    {
+      "id": "attention",
+      "word": "attention",
+      "pos": "名詞",
+      "ja": "注意",
+      "zh": "注意力",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D1": 2,
+        "D4": 3,
+        "D5": 1
+      },
+      "forms": [
+        "attention"
+      ],
+      "examples": [
+        {
+          "en": "Attention dilution, where some files get shallow review when too much is examined at once.",
+          "zh": "注意力稀释：一次审查太多内容时，部分文件只得到浅显的审查。",
+          "itemId": "ar4-075"
+        },
+        {
+          "en": "Each pass has a narrow focus, which avoids attention being spread thin across too much material, and the integration pass handles cross-file issues explicitly.",
+          "zh": "每次审查的关注点都很窄，避免注意力被过多材料稀释；集成审查则专门处理跨文件的问题。",
+          "itemId": "ar1-063"
+        }
+      ],
+      "itemIds": [
+        "ar1-061",
+        "ar1-063",
+        "ar4-022",
+        "ar4-074",
+        "ar4-075",
+        "ar5-065"
+      ]
+    },
+    {
+      "id": "calibrate",
+      "word": "calibrate",
+      "pos": "動詞",
+      "ja": "較正する",
+      "zh": "校准",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D4": 2,
+        "D5": 4
+      },
+      "forms": [
+        "calibrate",
+        "calibrated"
+      ],
+      "examples": [
+        {
+          "en": "Calibrate them against a labeled validation set, checking how often each confidence level is actually correct.",
+          "zh": "用带标注的验证集进行校准，检查每个置信度水平实际正确的比例。",
+          "itemId": "ar5-057"
+        },
+        {
+          "en": "To route individual fields (not whole documents) to human review when the model is less certain, after the scores are calibrated.",
+          "zh": "在分数经过校准后，把模型较不确定的单个字段（而非整份文档）路由给人工复核。",
+          "itemId": "ar5-080"
+        }
+      ],
+      "itemIds": [
+        "ar4-069",
+        "ar4-074",
+        "ar5-057",
+        "ar5-063",
+        "ar5-066",
+        "ar5-080"
+      ]
+    },
+    {
+      "id": "syntax",
+      "word": "syntax",
+      "pos": "名詞",
+      "ja": "構文",
+      "zh": "语法",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D2": 2,
+        "D3": 1,
+        "D4": 3
+      },
+      "forms": [
+        "syntax"
+      ],
+      "examples": [
+        {
+          "en": "Schemas guarantee structure and syntax, not semantic correctness; values can still be wrong or inconsistent.",
+          "zh": "schema 只保证结构和语法，不保证语义正确；值本身仍可能错误或不一致。",
+          "itemId": "ar4-028"
+        },
+        {
+          "en": "@import syntax (for example @docs/standards/payments.md) in each package's CLAUDE.md to pull in the relevant standards.",
+          "zh": "在每个包的 CLAUDE.md 中使用 @import 语法（例如 @docs/standards/payments.md）引入相关的规范。",
+          "itemId": "ar3-004"
+        }
+      ],
+      "itemIds": [
+        "ar2-062",
+        "ar2-077",
+        "ar3-004",
+        "ar4-028",
+        "ar4-037",
+        "ar4-048"
+      ]
+    },
+    {
+      "id": "vague",
+      "word": "vague",
+      "pos": "形容詞",
+      "ja": "漠然とした",
+      "zh": "含糊的",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D3": 1,
+        "D4": 2
+      },
+      "forms": [
+        "vague"
+      ],
+      "examples": [
+        {
+          "en": "They do not tell the model which categories of issues to report or skip, so its judgment about what counts stays vague.",
+          "zh": "它们没有告诉模型应报告或跳过哪些类别的问题，所以模型对「什么算问题」的判断依然模糊。",
+          "itemId": "ar4-005"
+        },
+        {
+          "en": "Ask the engineer to accept vague answers, since the agent has done its best with the available context.",
+          "zh": "让工程师接受含糊的回答，因为智能体已经在现有上下文中尽力了。",
+          "itemId": "ar2-079"
+        }
+      ],
+      "itemIds": [
+        "ar1-031",
+        "ar1-060",
+        "ar2-079",
+        "ar3-057",
+        "ar4-005",
+        "ar4-011"
+      ]
+    },
+    {
+      "id": "architecture",
+      "word": "architecture",
+      "pos": "名詞",
+      "ja": "アーキテクチャ、構成",
+      "zh": "架构",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 1,
+        "D3": 1,
+        "D4": 3,
+        "D5": 1
+      },
+      "forms": [
+        "architecture",
+        "architectures"
+      ],
+      "examples": [
+        {
+          "en": "In a coordinator-subagent architecture, which statement about subagent context is correct?",
+          "zh": "在协调者—子智能体架构中，关于子智能体的上下文，下列哪种说法正确？",
+          "itemId": "ar1-018"
+        },
+        {
+          "en": "Choosing between two caching architectures for the session store.",
+          "zh": "在两种缓存架构之间做选择（用于会话存储）。",
+          "itemId": "ar3-046"
+        }
+      ],
+      "itemIds": [
+        "ar1-018",
+        "ar3-046",
+        "ar4-071",
+        "ar4-077",
+        "ar4-080",
+        "ar5-046"
+      ]
+    },
+    {
+      "id": "delegate",
+      "word": "delegate",
+      "pos": "動詞",
+      "ja": "委任する",
+      "zh": "委派",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 3,
+        "D3": 2,
+        "D5": 1
+      },
+      "forms": [
+        "delegate",
+        "delegating"
+      ],
+      "examples": [
+        {
+          "en": "Delegate further discovery to subagents so only summaries return to the main session.",
+          "zh": "把后续的探查工作交给子智能体，只把摘要带回主会话。",
+          "itemId": "ar3-051"
+        },
+        {
+          "en": "Evaluate the synthesis for gaps and re-delegate targeted follow-up queries.",
+          "zh": "评估综合结果中的缺口，并派发有针对性的后续查询。",
+          "itemId": "ar1-019"
+        }
+      ],
+      "itemIds": [
+        "ar1-016",
+        "ar1-019",
+        "ar1-039",
+        "ar3-048",
+        "ar3-051",
+        "ar5-048"
+      ]
+    },
+    {
+      "id": "enforce",
+      "word": "enforce",
+      "pos": "動詞",
+      "ja": "強制する",
+      "zh": "强制执行",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 3,
+        "D4": 3
+      },
+      "forms": [
+        "enforce",
+        "enforced",
+        "enforcing"
+      ],
+      "examples": [
+        {
+          "en": "Switch to tool use with a JSON schema (or schema-enforced structured output) so the response is always schema-compliant.",
+          "zh": "改用带 JSON schema 的工具调用（或 schema 强制的结构化输出），让响应始终符合 schema。",
+          "itemId": "ar4-036"
+        },
+        {
+          "en": "Enforce the ordering in code: gate lookup_order and process_refund on a verified customer ID, and check that the order belongs to that customer.",
+          "zh": "在代码中强制顺序：以已验证的客户 ID 作为 lookup_order 和 process_refund 的前置条件，并检查订单是否属于该客户。",
+          "itemId": "ar1-047"
+        }
+      ],
+      "itemIds": [
+        "ar1-027",
+        "ar1-047",
+        "ar1-056",
+        "ar4-036",
+        "ar4-048",
+        "ar4-054"
+      ]
+    },
+    {
+      "id": "parallel",
+      "word": "parallel",
+      "pos": "形容詞",
+      "ja": "並列の",
+      "zh": "并行的",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 5,
+        "D3": 1
+      },
+      "forms": [
+        "parallel"
+      ],
+      "examples": [
+        {
+          "en": "Emit three subagent-spawning tool calls in a single coordinator response so they run in parallel.",
+          "zh": "在协调者的同一个响应中发出三个启动子智能体的工具调用，让它们并行运行。",
+          "itemId": "ar1-023"
+        },
+        {
+          "en": "Split it into three distinct issues, investigate each (in parallel where possible) using the shared customer context, then give one unified resolution.",
+          "zh": "把它拆成三个独立的问题，利用共享的客户上下文分别调查（能并行就并行），最后给出一个统一的解决方案。",
+          "itemId": "ar1-029"
+        }
+      ],
+      "itemIds": [
+        "ar1-013",
+        "ar1-023",
+        "ar1-029",
+        "ar1-059",
+        "ar1-071",
+        "ar3-054"
+      ]
+    },
+    {
+      "id": "retryable",
+      "word": "retryable",
+      "pos": "形容詞",
+      "ja": "再試行できる",
+      "zh": "可重试的",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D2": 6
+      },
+      "forms": [
+        "retryable"
+      ],
+      "examples": [
+        {
+          "en": "Marking business-rule and permission errors as not retryable in the error metadata.",
+          "zh": "在错误元数据中把业务规则错误和权限错误标记为不可重试。",
+          "itemId": "ar2-022"
+        },
+        {
+          "en": "A permission error, not retryable; the agent should tell the engineer which access is missing rather than retrying.",
+          "zh": "权限错误，不可重试；智能体应告诉工程师缺少哪项权限，而不是重试。",
+          "itemId": "ar2-020"
+        }
+      ],
+      "itemIds": [
+        "ar2-011",
+        "ar2-016",
+        "ar2-018",
+        "ar2-020",
+        "ar2-022",
+        "ar2-047"
+      ]
+    },
+    {
+      "id": "subtask",
+      "word": "subtask",
+      "pos": "名詞",
+      "ja": "サブタスク",
+      "zh": "子任务",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 6
+      },
+      "forms": [
+        "subtasks"
+      ],
+      "examples": [
+        {
+          "en": "Dynamic decomposition suits open-ended investigation where later subtasks depend on earlier findings.",
+          "zh": "动态分解适合开放式调查，即后面的子任务取决于前面的发现。",
+          "itemId": "ar1-064"
+        },
+        {
+          "en": "Dynamic, adaptive decomposition: start with broad investigation and generate the next subtasks based on what each step uncovers.",
+          "zh": "动态、自适应的分解：先做较宽的调查，再根据每一步的发现生成下一批子任务。",
+          "itemId": "ar1-059"
+        }
+      ],
+      "itemIds": [
+        "ar1-014",
+        "ar1-058",
+        "ar1-059",
+        "ar1-064",
+        "ar1-065",
+        "ar1-078"
+      ]
+    },
+    {
+      "id": "temperature",
+      "word": "temperature",
+      "pos": "名詞",
+      "ja": "温度（出力のばらつきの設定）",
+      "zh": "温度（控制随机性的参数）",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D4": 4
+      },
+      "forms": [
+        "temperature"
+      ],
+      "examples": [
+        {
+          "en": "Lower the temperature of both subagents.",
+          "zh": "降低两个子智能体的 temperature。",
+          "itemId": "ar1-015"
+        },
+        {
+          "en": "Raising the temperature for creativity.",
+          "zh": "提高 temperature 以增加创造性。",
+          "itemId": "ar4-006"
+        }
+      ],
+      "itemIds": [
+        "ar1-015",
+        "ar2-029",
+        "ar4-006",
+        "ar4-025",
+        "ar4-044",
+        "ar4-060"
+      ]
+    },
+    {
+      "id": "accuracy",
+      "word": "accuracy",
+      "pos": "名詞",
+      "ja": "正確さ、精度",
+      "zh": "准确率",
+      "count": 9,
+      "questionCount": 5,
+      "domains": {
+        "D4": 2,
+        "D5": 3
+      },
+      "forms": [
+        "accuracy"
+      ],
+      "examples": [
+        {
+          "en": "Accuracy for that document type and its key fields specifically, using a labeled sample.",
+          "zh": "用一份带标注的样本，专门验证该文档类型及其关键字段的准确率。",
+          "itemId": "ar5-059"
+        },
+        {
+          "en": "Analyzing accuracy by document type and field before reducing human review.",
+          "zh": "在减少人工复核之前，按文档类型和字段分析准确率。",
+          "itemId": "ar5-060"
+        }
+      ],
+      "itemIds": [
+        "ar4-023",
+        "ar4-069",
+        "ar5-055",
+        "ar5-059",
+        "ar5-060"
+      ]
+    },
+    {
+      "id": "refactor",
+      "word": "refactor",
+      "pos": "動詞",
+      "ja": "リファクタリングする",
+      "zh": "重构",
+      "count": 8,
+      "questionCount": 5,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D3": 1,
+        "D5": 1
+      },
+      "forms": [
+        "refactor",
+        "refactors"
+      ],
+      "examples": [
+        {
+          "en": "code-explorer: Read, Grep, Glob. refactor: Read, Edit, Write, plus Bash only if it must run tests.",
+          "zh": "code-explorer：Read、Grep、Glob。refactor：Read、Edit、Write，只有在需要跑测试时才加 Bash。",
+          "itemId": "ar2-030"
+        },
+        {
+          "en": "A major refactor touched most of the files the agent analyzed.",
+          "zh": "一次大规模重构改动了智能体分析过的大部分文件。",
+          "itemId": "ar1-072"
+        }
+      ],
+      "itemIds": [
+        "ar1-069",
+        "ar1-072",
+        "ar2-030",
+        "ar3-045",
+        "ar5-051"
+      ]
+    },
+    {
+      "id": "semantic",
+      "word": "semantic",
+      "pos": "形容詞",
+      "ja": "意味的な",
+      "zh": "语义的",
+      "count": 7,
+      "questionCount": 5,
+      "domains": {
+        "D4": 5
+      },
+      "forms": [
+        "semantic"
+      ],
+      "examples": [
+        {
+          "en": "Schemas guarantee structure and syntax, not semantic correctness; values can still be wrong or inconsistent.",
+          "zh": "schema 只保证结构和语法，不保证语义正确；值本身仍可能错误或不一致。",
+          "itemId": "ar4-028"
+        },
+        {
+          "en": "Add a semantic check that recomputes each line, then retry with the specific mismatches as feedback, and flag lines that still conflict for review.",
+          "zh": "增加一个重新计算每行的语义校验，再把具体的不符之处作为反馈进行重试，仍然冲突的行标出供复核。",
+          "itemId": "ar4-055"
+        }
+      ],
+      "itemIds": [
+        "ar4-028",
+        "ar4-037",
+        "ar4-048",
+        "ar4-054",
+        "ar4-055"
+      ]
+    },
+    {
+      "id": "crash",
+      "word": "crash",
+      "pos": "名詞",
+      "ja": "クラッシュ（異常終了）",
+      "zh": "崩溃",
+      "count": 6,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D5": 3
+      },
+      "forms": [
+        "crash",
+        "crashed",
+        "crashes"
+      ],
+      "examples": [
+        {
+          "en": "In a crash-recovery design for a multi-agent system, what is a manifest?",
+          "zh": "在多智能体系统的崩溃恢复设计中，manifest（清单）是什么？",
+          "itemId": "ar5-054"
+        },
+        {
+          "en": "Rely on the model to remember what was completed before the crash, since it can reread its own earlier outputs.",
+          "zh": "依靠模型记住崩溃前完成了什么，因为它可以重新读取自己之前的输出。",
+          "itemId": "ar1-074"
+        }
+      ],
+      "itemIds": [
+        "ar1-074",
+        "ar2-010",
+        "ar5-039",
+        "ar5-047",
+        "ar5-054"
+      ]
+    },
+    {
+      "id": "handoff",
+      "word": "handoff",
+      "pos": "名詞",
+      "ja": "引き継ぎ",
+      "zh": "交接",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 5
+      },
+      "forms": [
+        "handoff",
+        "handoffs"
+      ],
+      "examples": [
+        {
+          "en": "A structured handoff summary: customer ID, the issue and its root cause, amounts involved, what has been tried, and the recommended action.",
+          "zh": "结构化的交接摘要：客户 ID、问题及根本原因、涉及金额、已尝试的处理、建议的下一步行动。",
+          "itemId": "ar1-030"
+        },
+        {
+          "en": "Why is a structured handoff summary preferred over forwarding the full transcript when the agent escalates mid-process?",
+          "zh": "智能体在流程中途转人工时，为什么更推荐结构化交接摘要，而不是直接转发完整对话记录？",
+          "itemId": "ar1-049"
+        }
+      ],
+      "itemIds": [
+        "ar1-030",
+        "ar1-039",
+        "ar1-048",
+        "ar1-049",
+        "ar1-051"
+      ]
+    },
+    {
+      "id": "nullable",
+      "word": "nullable",
+      "pos": "形容詞",
+      "ja": "ヌル許容の",
+      "zh": "可为空的",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D4": 5
+      },
+      "forms": [
+        "nullable"
+      ],
+      "examples": [
+        {
+          "en": "Making fields optional or nullable when the source may not contain the information.",
+          "zh": "当源文档可能不包含该信息时，把字段设为可选或可为空。",
+          "itemId": "ar4-035"
+        },
+        {
+          "en": "Make the field nullable so documents that truly lack a renewal term return null instead of a guess.",
+          "zh": "把字段设为可为空（nullable），让确实没有续约期限的文档返回 null 而不是猜测值。",
+          "itemId": "ar4-021"
+        }
+      ],
+      "itemIds": [
+        "ar4-021",
+        "ar4-029",
+        "ar4-035",
+        "ar4-044",
+        "ar4-050"
+      ]
+    },
+    {
+      "id": "terminate",
+      "word": "terminate",
+      "pos": "動詞",
+      "ja": "終了させる",
+      "zh": "终止",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D5": 3
+      },
+      "forms": [
+        "terminate",
+        "terminating"
+      ],
+      "examples": [
+        {
+          "en": "Terminating the entire workflow because a single subagent failed.",
+          "zh": "因为单个子智能体失败就终止整个工作流。",
+          "itemId": "ar5-035"
+        },
+        {
+          "en": "Nobody; the whole workflow should terminate on any failure.",
+          "zh": "谁都不用决定；任何失败都应终止整个工作流。",
+          "itemId": "ar1-037"
+        }
+      ],
+      "itemIds": [
+        "ar1-037",
+        "ar2-017",
+        "ar5-031",
+        "ar5-035",
+        "ar5-041"
+      ]
+    },
+    {
+      "id": "resource",
+      "word": "resource",
+      "pos": "名詞",
+      "ja": "リソース",
+      "zh": "资源",
+      "count": 10,
+      "questionCount": 4,
+      "domains": {
+        "D2": 4
+      },
+      "forms": [
+        "resource",
+        "resources"
+      ],
+      "examples": [
+        {
+          "en": "Expose the policy catalog as MCP resources so the agent can see what policies are available without searching for them.",
+          "zh": "把政策目录作为 MCP 资源（resources）暴露出来，让智能体无需搜索就能看到有哪些政策。",
+          "itemId": "ar2-055"
+        },
+        {
+          "en": "Tools perform actions or queries the model invokes; resources expose content (such as documents or catalogs) that can be provided as context.",
+          "zh": "工具执行模型调用的操作或查询；资源用于暴露内容（如文档或目录），可作为上下文提供。",
+          "itemId": "ar2-056"
+        }
+      ],
+      "itemIds": [
+        "ar2-055",
+        "ar2-056",
+        "ar2-059",
+        "ar2-080"
+      ]
+    },
+    {
+      "id": "citation",
+      "word": "citation",
+      "pos": "名詞",
+      "ja": "引用",
+      "zh": "引用",
+      "count": 7,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D4": 1,
+        "D5": 2
+      },
+      "forms": [
+        "citations"
+      ],
+      "examples": [
+        {
+          "en": "Few-shot examples demonstrating correct extraction from both inline citations and bibliographies.",
+          "zh": "用少样本示例展示如何从行内引用和参考文献列表两种形式中正确抽取。",
+          "itemId": "ar4-020"
+        },
+        {
+          "en": "Have the search subagent return structured data — key facts, citations, and relevance scores — instead of verbose content and reasoning chains.",
+          "zh": "让搜索子智能体返回结构化数据——关键事实、引用和相关度评分——而不是冗长的内容和推理链。",
+          "itemId": "ar5-009"
+        }
+      ],
+      "itemIds": [
+        "ar1-041",
+        "ar4-020",
+        "ar5-009",
+        "ar5-079"
+      ]
+    },
+    {
+      "id": "enum",
+      "word": "enum",
+      "pos": "名詞",
+      "ja": "列挙型",
+      "zh": "枚举",
+      "count": 7,
+      "questionCount": 4,
+      "domains": {
+        "D4": 4
+      },
+      "forms": [
+        "enum"
+      ],
+      "examples": [
+        {
+          "en": "Using an enum with \"other\" plus a detail string for categories that may grow.",
+          "zh": "对可能扩展的类别，使用带 \"other\" 加说明字符串的枚举。",
+          "itemId": "ar4-035"
+        },
+        {
+          "en": "Create 200 enum values for every possible type.",
+          "zh": "为每种可能的类型创建 200 个枚举值。",
+          "itemId": "ar4-030"
+        }
+      ],
+      "itemIds": [
+        "ar4-030",
+        "ar4-033",
+        "ar4-035",
+        "ar4-041"
+      ]
+    },
+    {
+      "id": "fixture",
+      "word": "fixture",
+      "pos": "名詞",
+      "ja": "フィクスチャ（テスト用の固定データ）",
+      "zh": "测试夹具",
+      "count": 7,
+      "questionCount": 4,
+      "domains": {
+        "D3": 4
+      },
+      "forms": [
+        "fixture",
+        "fixtures"
+      ],
+      "examples": [
+        {
+          "en": "Document in CLAUDE.md what makes a test valuable, the testing standards, and the available fixtures, and include examples of good tests.",
+          "zh": "在 CLAUDE.md 中写明什么样的测试有价值、测试规范和可用的 fixture，并附上好测试的示例。",
+          "itemId": "ar3-062"
+        },
+        {
+          "en": "The available fixtures and how to use them.",
+          "zh": "可用的 fixture 及其用法。",
+          "itemId": "ar3-080"
+        }
+      ],
+      "itemIds": [
+        "ar3-010",
+        "ar3-062",
+        "ar3-074",
+        "ar3-080"
+      ]
+    },
+    {
+      "id": "blocking",
+      "word": "blocking",
+      "pos": "形容詞",
+      "ja": "待ちを生じさせる、ブロッキングの",
+      "zh": "阻塞的",
+      "count": 6,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D4": 3
+      },
+      "forms": [
+        "blocking"
+      ],
+      "examples": [
+        {
+          "en": "The Message Batches API, which costs less and suits latency-tolerant, non-blocking work.",
+          "zh": "Message Batches API：成本更低，适合能容忍延迟、非阻塞的工作。",
+          "itemId": "ar4-056"
+        },
+        {
+          "en": "Blocking refunds above the company's approval threshold and routing them to escalate_to_human.",
+          "zh": "拦截超过公司审批阈值的退款，并转给 escalate_to_human。",
+          "itemId": "ar1-031"
+        }
+      ],
+      "itemIds": [
+        "ar1-031",
+        "ar4-056",
+        "ar4-061",
+        "ar4-079"
+      ]
+    },
+    {
+      "id": "aggregate",
+      "word": "aggregate",
+      "pos": "動詞",
+      "ja": "集約する",
+      "zh": "汇总",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D5": 3
+      },
+      "forms": [
+        "aggregate",
+        "aggregated",
+        "aggregates",
+        "aggregating"
+      ],
+      "examples": [
+        {
+          "en": "Put a summary of key findings from all subagents at the beginning of the aggregated input.",
+          "zh": "在汇总输入的开头放上所有子智能体关键发现的摘要。",
+          "itemId": "ar5-011"
+        },
+        {
+          "en": "Decomposing the task, delegating to subagents, aggregating their results, and routing information and errors between them.",
+          "zh": "分解任务、委派给子智能体、汇总结果，并在它们之间路由信息与错误。",
+          "itemId": "ar1-039"
+        }
+      ],
+      "itemIds": [
+        "ar1-039",
+        "ar5-011",
+        "ar5-055",
+        "ar5-062"
+      ]
+    },
+    {
+      "id": "stratified",
+      "word": "stratified",
+      "pos": "形容詞",
+      "ja": "層別の",
+      "zh": "分层的",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D5": 4
+      },
+      "forms": [
+        "stratified"
+      ],
+      "examples": [
+        {
+          "en": "Stratified random sampling of high-confidence extractions to measure error rates and catch new error patterns.",
+          "zh": "对高置信度抽取结果进行分层随机抽样，以衡量错误率并发现新的错误模式。",
+          "itemId": "ar5-060"
+        },
+        {
+          "en": "Continue stratified sampling of high-confidence extractions to detect novel error patterns and recalibrate when needed.",
+          "zh": "持续对高置信度抽取结果进行分层抽样，发现新的错误模式，并在需要时重新校准。",
+          "itemId": "ar5-066"
+        }
+      ],
+      "itemIds": [
+        "ar5-056",
+        "ar5-060",
+        "ar5-061",
+        "ar5-066"
+      ]
+    },
+    {
+      "id": "entry",
+      "word": "entry",
+      "pos": "名詞",
+      "ja": "入口",
+      "zh": "入口",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D2": 2,
+        "D4": 1,
+        "D5": 1
+      },
+      "forms": [
+        "entries",
+        "entry"
+      ],
+      "examples": [
+        {
+          "en": "Use Grep to find the entry point (for example the route handler), then Read that file and follow its imports step by step.",
+          "zh": "先用 Grep 找到入口（例如路由处理函数），再 Read 该文件，逐步顺着 import 追踪。",
+          "itemId": "ar2-067"
+        },
+        {
+          "en": "Explore incrementally: Grep for entry points relevant to the question, Read only those files, and follow imports as needed.",
+          "zh": "逐步探索：针对问题用 Grep 找相关入口，只 Read 这些文件，再按需顺着 import 追踪。",
+          "itemId": "ar2-079"
+        }
+      ],
+      "itemIds": [
+        "ar2-067",
+        "ar2-079",
+        "ar4-020",
+        "ar5-051"
+      ]
+    }
+  ]
+}

@@ -1,19 +1,20 @@
 /* ============================================================
-   CCAO-F：学習記録と復習リスト
+   Claude 認定：学習記録と復習リスト（資格ごとに別キー。CCAO-F は以前の ccaofProgressV1 のまま）
 
    英検側（eikenProgress.js / eikenReview.js）と同じ考え方だが、
    軸が「級 × モード」ではなく「ドメイン」だけなので作り直した。
    保存先も別キーにして、英検の記録と混ざらないようにしてある。
    ============================================================ */
 
-import { learnerKey } from "./learner";
-import { DOMAINS } from "./ccaofDomains";
-import { recordStudy } from "./studyLog";
-import { resetVocabProgress } from "./ccaofVocabProgress";
-import { resetMistakes } from "./ccaofMistakes";
+import { learnerKey } from "../learner";
+import { certKey, activeCert } from "./certState";
+import { DOMAINS } from "./domains";
+import { recordStudy } from "../studyLog";
+import { resetVocabProgress } from "./vocabProgress";
+import { resetMistakes } from "./mistakes";
 
-const PROGRESS_KEY = "ccaofProgressV1";
-const REVIEW_KEY = "ccaofReviewV1";
+const PROGRESS_KEY = () => certKey("ProgressV1");
+const REVIEW_KEY = () => certKey("ReviewV1");
 
 function read(key, fallback) {
   try {
@@ -43,13 +44,13 @@ export function localDateKey(d = new Date()) {
 }
 
 export function loadProgress() {
-  return read(PROGRESS_KEY, { domains: {}, daily: {} });
+  return read(PROGRESS_KEY(), { domains: {}, daily: {} });
 }
 
 /** studyLabel：勉強履歴に出す内容。省くとドメイン名（模擬試験・重点演習ではドメインが混ざるので渡す） */
 export function recordAnswer(domainId, itemId, isCorrect, studyLabel) {
   const domain = DOMAINS.find((d) => d.id === domainId);
-  recordStudy("CCAO-F 対策", studyLabel || (domain ? `${domainId} ${domain.label}` : domainId), isCorrect);
+  recordStudy(activeCert().studyApp, studyLabel || (domain ? `${domainId} ${domain.label}` : domainId), isCorrect);
   const store = loadProgress();
   const d = store.domains[domainId] || { attempted: 0, correct: 0, items: {} };
   d.attempted += 1;
@@ -66,7 +67,7 @@ export function recordAnswer(domainId, itemId, isCorrect, studyLabel) {
   if (isCorrect) day.correct += 1;
   store.daily[key] = day;
 
-  write(PROGRESS_KEY, store);
+  write(PROGRESS_KEY(), store);
 }
 
 export function getDomainStats(domainId) {
@@ -109,8 +110,8 @@ export function getTodayStats() {
 }
 
 export function resetProgress() {
-  write(PROGRESS_KEY, { domains: {}, daily: {} });
-  write(REVIEW_KEY, {});
+  write(PROGRESS_KEY(), { domains: {}, daily: {} });
+  write(REVIEW_KEY(), {});
   resetVocabProgress();
   resetMistakes();
 }
@@ -118,7 +119,7 @@ export function resetProgress() {
 /* ---------- 復習リスト（間違えた問題だけ集める） ---------- */
 
 export function loadReview() {
-  return read(REVIEW_KEY, {});
+  return read(REVIEW_KEY(), {});
 }
 
 export function recordReviewResult(domainId, itemId, isCorrect) {
@@ -133,7 +134,7 @@ export function recordReviewResult(domainId, itemId, isCorrect) {
     list.push(itemId);
   }
   store[domainId] = list;
-  write(REVIEW_KEY, store);
+  write(REVIEW_KEY(), store);
 }
 
 export function getReviewIds(domainId) {
@@ -152,5 +153,5 @@ export function getTotalReviewCount() {
 export function clearDomainReview(domainId) {
   const store = loadReview();
   delete store[domainId];
-  write(REVIEW_KEY, store);
+  write(REVIEW_KEY(), store);
 }

@@ -1,12 +1,13 @@
 /* ============================================================
-   CCAO-F：考点（objective）・錯題本・合格予測の計算
+   Claude 認定：考点（objective）・錯題本・合格予測・模試の組み立ての計算
 
    画面や localStorage から切り離した純粋な関数だけを置く。
    JSON も window も読まないので、node のテスト
-   （scripts/testCcaofStudy.mjs）からそのまま呼べる。
+   （scripts/testClaudeCertStudy.mjs）からそのまま呼べる。
 
    - 考点：meta.json の 30 objectives。id は "D1-1" のように
      ドメイン内の並び順から作る（文章を id にすると長すぎる）。
+     CCAO-F は 30、CCAR-F は 30（task statement）。
    - 錯題本：まちがえた問題を間隔をあけて出し直す。
    - 合格予測：模擬試験と考点別の正答率から目安の点数を出す。
    ============================================================ */
@@ -209,6 +210,77 @@ export function migrateMistakes(store, oldReview, today) {
   });
   next.migratedReview = true;
   return next;
+}
+
+/* ---------- 模擬試験の組み立て ---------- */
+
+/** 配点比率から total 問の内訳を決める（最大剰余法で合計を total に合わせる） */
+export function blueprintCounts(domains, total) {
+  const raw = domains.map((d) => ({ id: d.id, exact: (total * d.weight) / 100 }));
+  const counts = {};
+  let assigned = 0;
+  raw.forEach((r) => {
+    counts[r.id] = Math.floor(r.exact);
+    assigned += counts[r.id];
+  });
+  const byRemainder = [...raw].sort((a, b) => (b.exact - Math.floor(b.exact)) - (a.exact - Math.floor(a.exact)));
+  let i = 0;
+  while (assigned < total && byRemainder.length) {
+    counts[byRemainder[i % byRemainder.length].id] += 1;
+    assigned += 1;
+    i += 1;
+  }
+  return counts;
+}
+
+/**
+ * シナリオ形式の模試（CCAR-F）。本番は「6 シナリオから 4 つを抽選し、
+ * 各シナリオに複数の問題」。シナリオあたりの問題数は公表されていないので
+ * total を均等に割る（60 ÷ 4 = 15）。
+ * 各シナリオの中では、配点比率に対して足りていないドメインから順に取る
+ * （シナリオを交互に回して 1 問ずつ取るので、偏りが 1 か所に寄らない）。
+ * 返り値はシナリオごとにまとまった並び（シナリオの中だけ混ぜる）。
+ */
+export function pickScenarioExam(items, { scenarios, domains, scenariosPerExam, total, shuffle = (a) => a }) {
+  const byScenario = new Map();
+  items.forEach((it) => {
+    if (!it.scenario) return;
+    if (!byScenario.has(it.scenario)) byScenario.set(it.scenario, []);
+    byScenario.get(it.scenario).push(it);
+  });
+  const n = Math.max(1, scenariosPerExam);
+  const quota = Math.floor(total / n);
+  const usable = scenarios.filter((s) => (byScenario.get(s.id) || []).length >= quota).map((s) => s.id);
+  const chosen = shuffle(usable).slice(0, n);
+  const quotas = chosen.map((_, i) => quota + (i < total - quota * chosen.length ? 1 : 0));
+  const target = blueprintCounts(domains, total);
+  const weight = Object.fromEntries(domains.map((d) => [d.id, d.weight]));
+  const got = Object.fromEntries(domains.map((d) => [d.id, 0]));
+  const pools = chosen.map((sid) => {
+    const m = new Map();
+    shuffle(byScenario.get(sid)).forEach((it) => {
+      if (!m.has(it.domain)) m.set(it.domain, []);
+      m.get(it.domain).push(it);
+    });
+    return m;
+  });
+  const picked = chosen.map(() => []);
+  let progress = true;
+  while (progress) {
+    progress = false;
+    chosen.forEach((_, si) => {
+      if (picked[si].length >= quotas[si]) return;
+      const pool = pools[si];
+      const doms = [...pool.keys()].filter((d) => pool.get(d).length);
+      if (!doms.length) return;
+      doms.sort((a, b) => ((target[b] || 0) - (got[b] || 0)) - ((target[a] || 0) - (got[a] || 0)) || (weight[b] || 0) - (weight[a] || 0) || a.localeCompare(b));
+      const d = doms[0];
+      picked[si].push(pool.get(d).pop());
+      got[d] = (got[d] || 0) + 1;
+      progress = true;
+    });
+  }
+  return picked.flatMap((list) => shuffle(list));
 }
 
 /* ---------- 合格予測 ---------- */

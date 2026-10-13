@@ -1,0 +1,3241 @@
+{
+  "domain": "D1",
+  "items": [
+    {
+      "id": "ar1-001",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "The support agent's loop sends the conversation to Claude, and the response comes back with stop_reason set to \"tool_use\" and a tool_use block calling lookup_order. What should the loop do next?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Execute lookup_order, append the result as a tool_result block in a new user message, and send the updated conversation back to Claude.",
+          "correct": true,
+          "explain": "正解。\"tool_use\" は「ツールを実行して結果を返してほしい」という合図。結果を会話履歴に追加して次のリクエストを送るのがエージェントループの基本の1周。",
+          "textZh": "执行 lookup_order，把结果作为 tool_result 块放进新的 user 消息里追加到对话中，再把更新后的对话发回给 Claude。"
+        },
+        {
+          "text": "End the loop and show the customer the assistant text that came with the tool call.",
+          "correct": false,
+          "explain": "不適。\"tool_use\" で終わった応答はまだ途中。ここで止めると注文情報を見ないまま回答してしまう。",
+          "textZh": "结束循环，把随工具调用一起返回的助手文本展示给客户。"
+        },
+        {
+          "text": "Execute lookup_order and show its raw output directly to the customer without calling Claude again, which saves a round trip and gives the customer the exact data.",
+          "correct": false,
+          "explain": "不適。ツール結果をモデルに返さないと、結果を踏まえた判断（返金できるか等）が行われない。",
+          "textZh": "执行 lookup_order，不再调用 Claude，直接把原始输出展示给客户，这样能省去一次往返，并把准确的数据交给客户。"
+        },
+        {
+          "text": "Retry the same request until stop_reason becomes \"end_turn\".",
+          "correct": false,
+          "explain": "不適。ツールを実行しないまま同じリクエストを送っても状況は変わらず、無駄な呼び出しになる。",
+          "textZh": "重复发送同一个请求，直到 stop_reason 变成 \"end_turn\"。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服智能体的循环把对话发给 Claude，返回的响应 stop_reason 为 \"tool_use\"，并包含一个调用 lookup_order 的 tool_use 块。循环下一步应该做什么？",
+      "commentaryZh": "考点是智能体循环的生命周期：发送请求 → 检查 stop_reason → 若为 \"tool_use\" 就执行工具、把 tool_result 追加进历史 → 再发送。只有 \"end_turn\" 才表示模型认为本轮任务完成。"
+    },
+    {
+      "id": "ar1-002",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "Which condition should the support agent's loop use as its normal signal that Claude has finished the task and the final answer can be delivered?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The response's stop_reason is \"end_turn\".",
+          "correct": true,
+          "explain": "正解。モデル自身が「このターンは終わり」と判断したことを示す構造化された値で、ループ終了の正規の条件。",
+          "textZh": "响应的 stop_reason 为 \"end_turn\"。"
+        },
+        {
+          "text": "The response contains any assistant text content.",
+          "correct": false,
+          "explain": "不適。ツール呼び出しの前に説明文が付くこともあり、テキストの有無は完了の指標にならない。",
+          "textZh": "响应中包含任何助手文本内容。"
+        },
+        {
+          "text": "The assistant text includes a phrase such as \"I'm done\" or \"Let me know if you need anything else.\"",
+          "correct": false,
+          "explain": "不適。自然言語の言い回しを解析して終了判定するのはアンチパターン。言い方が変われば壊れる。",
+          "textZh": "助手文本里出现「我完成了」或「还有什么需要请告诉我」之类的句子。"
+        },
+        {
+          "text": "The loop has run five iterations.",
+          "correct": false,
+          "explain": "不適。回数上限は安全装置であって、正常な終了条件ではない。",
+          "textZh": "循环已经运行了五次。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服智能体的循环应把哪个条件作为「Claude 已完成任务、可以给出最终回答」的正常信号？",
+      "commentaryZh": "终止循环要看结构化的 stop_reason，而不是去「读」模型说了什么。凡是选项里出现「解析自然语言」「看有没有文本」「固定次数」作为主要停止机制的，都是考试常见的反模式。"
+    },
+    {
+      "id": "ar1-003",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A developer sets max iterations to 3 as the main way their agent loop stops, reasoning that \"most tasks need about three tool calls.\" What is the main problem with this design?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tasks that legitimately need more steps are cut off mid-work, while the real completion signal (stop_reason) is ignored; a cap should only be a safety guard.",
+          "correct": true,
+          "explain": "正解。反復上限は暴走防止のガードとしては有用だが、主たる停止条件にすると必要な作業を途中で切ってしまう。",
+          "textZh": "确实需要更多步骤的任务会在中途被截断，而真正的完成信号（stop_reason）却被忽略了；次数上限只应作为安全护栏。"
+        },
+        {
+          "text": "Three iterations is too many and wastes tokens; one iteration is enough for any tool task.",
+          "correct": false,
+          "explain": "不適。複数のツールを順に使う作業は1回では終わらない。回数を減らしても問題は解決しない。",
+          "textZh": "三次太多，浪费 token；任何工具任务一次就够了。"
+        },
+        {
+          "text": "Iteration caps are not supported by the Messages API.",
+          "correct": false,
+          "explain": "不適。上限はアプリ側のループで自由に設けられる。問題は「主たる停止条件」にしている点。",
+          "textZh": "Messages API 不支持循环次数上限。"
+        },
+        {
+          "text": "The loop should instead stop when the model's text contains the word \"complete\", because that phrase is an explicit signal from Claude that is easier to audit than a counter.",
+          "correct": false,
+          "explain": "不適。自然言語のシグナルで判定するのも同じくアンチパターン。",
+          "textZh": "循环应改为在模型文本中出现「complete」一词时停止，因为这个词是 Claude 发出的明确信号，比计数器更容易审计。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/agent-loop",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "某开发者把「最多循环 3 次」作为智能体循环的主要停止方式，理由是「大多数任务大约需要三次工具调用」。这种设计的主要问题是什么？",
+      "commentaryZh": "考试反复强调：循环靠 stop_reason 驱动，\"tool_use\" 继续、\"end_turn\" 结束。次数上限可以作为防止失控的保险，但不能当成主要停止机制。"
+    },
+    {
+      "id": "ar1-004",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent explores a repository with Grep and Read. After each tool runs, a developer stores the result in a log file but does not add it to the messages sent to Claude. What behavior will they most likely see?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Claude keeps requesting the same searches or reasons as if the information were missing, because it never sees the tool results.",
+          "correct": true,
+          "explain": "正解。モデルは送られてきた会話しか見ない。tool_result を履歴に追加しなければ、次の判断に新しい情報が反映されない。",
+          "textZh": "Claude 会反复请求同样的搜索，或像缺少信息一样进行推理，因为它从未看到工具结果。"
+        },
+        {
+          "text": "Claude reads the log file automatically because it is in the working directory and merges it into its reasoning.",
+          "correct": false,
+          "explain": "不適。ファイルに書いただけではモデルの文脈には入らない。",
+          "textZh": "因为日志文件在工作目录里，Claude 会自动读取它，并把它纳入推理之中。"
+        },
+        {
+          "text": "Nothing changes; tool results are stored server-side between requests.",
+          "correct": false,
+          "explain": "不適。Messages API はステートレスで、毎回会話全体を送る必要がある。",
+          "textZh": "不会有变化；工具结果会在服务器端跨请求保存。"
+        },
+        {
+          "text": "Answers get more accurate, because fewer tokens are sent on each request.",
+          "correct": false,
+          "explain": "不適。トークンが減っても、必要な情報が無ければ精度は上がらない。むしろ同じ検索を繰り返す。",
+          "textZh": "回答会更准确，因为每次请求发送的 token 更少。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体用 Grep 和 Read 探索代码库。每次工具运行后，开发者把结果写入日志文件，却没有加到发给 Claude 的消息里。最可能出现什么现象？",
+      "commentaryZh": "关键点：工具结果必须作为 tool_result 追加进对话历史，模型才能基于新信息决定下一步。API 本身不保存状态，每次都要发送完整历史。"
+    },
+    {
+      "id": "ar1-005",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "What best distinguishes a model-driven agentic loop from a pre-configured decision tree?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In the agentic loop, Claude decides which tool to call next based on the current context, instead of following a fixed sequence chosen in advance.",
+          "correct": true,
+          "explain": "正解。途中で分かったことに応じて次の行動を変えられるのがモデル駆動の利点。",
+          "textZh": "在智能体循环中，Claude 根据当前上下文决定下一步调用哪个工具，而不是按事先定好的固定顺序执行。"
+        },
+        {
+          "text": "The agentic loop always calls every available tool exactly once per task, which guarantees that no relevant information source is skipped before the answer is written.",
+          "correct": false,
+          "explain": "不適。必要なツールだけを選んで呼ぶのがモデル駆動。全部を順に呼ぶのはむしろ固定手順。",
+          "textZh": "智能体循环在每个任务中总会把所有可用工具各调用一次，以保证在写出答案前不会漏掉任何相关的信息来源。"
+        },
+        {
+          "text": "A decision tree cannot call external APIs.",
+          "correct": false,
+          "explain": "不適。決定木でも API は呼べる。違いは「誰が次の手を決めるか」。",
+          "textZh": "决策树不能调用外部 API。"
+        },
+        {
+          "text": "The agentic loop does not need tool definitions.",
+          "correct": false,
+          "explain": "不適。ツールを使うには定義（名前・説明・入力スキーマ）が必要。",
+          "textZh": "智能体循环不需要工具定义。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "「由模型驱动的智能体循环」与「预先配置好的决策树」最本质的区别是什么？",
+      "commentaryZh": "模型驱动 = 由 Claude 推理下一步该做什么；固定流程 = 开发者事先写死顺序。前者适合开放式任务，后者适合可预测的步骤。考试会让你判断哪种场景适合哪种方式。"
+    },
+    {
+      "id": "ar1-006",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "The support agent sometimes returns a final answer in which Claude says \"I will check your order now\" but no tool was called and stop_reason is \"end_turn\". The team proposes adding logic that keeps looping whenever the text mentions checking or looking something up. What is the better fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep stop_reason as the control signal and improve the system prompt and tool descriptions so Claude actually calls lookup_order when order details are needed.",
+          "correct": true,
+          "explain": "正解。問題はツールを呼ぶべき場面を判断できていないこと。終了判定を言葉の解析に変えるのではなく、ツールを選ぶ材料（説明・指示）を直す。",
+          "textZh": "继续以 stop_reason 作为控制信号，同时改进系统提示词和工具描述，让 Claude 在需要订单详情时真正调用 lookup_order。"
+        },
+        {
+          "text": "Implement the keyword-based continuation as proposed.",
+          "correct": false,
+          "explain": "不適。自然言語で終了判定するアンチパターン。言い回しが変わるたびに誤動作する。",
+          "textZh": "按提议实现基于关键词的继续逻辑。"
+        },
+        {
+          "text": "Remove end_turn handling and always loop until a tool is called, so that Claude can never stop before it has looked something up.",
+          "correct": false,
+          "explain": "不適。ツールが不要な質問でも止まらなくなる。",
+          "textZh": "去掉对 end_turn 的处理，一直循环直到调用工具为止，这样 Claude 在查到资料之前就永远不会停下来。"
+        },
+        {
+          "text": "Lower max_tokens so the model has less room to write text.",
+          "correct": false,
+          "explain": "不適。出力が途中で切れるだけで、ツール選択の問題は解決しない。",
+          "textZh": "调低 max_tokens，让模型没有空间写文字。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服智能体有时给出的最终回答里写着「我现在去查一下您的订单」，但其实没有调用任何工具，stop_reason 是 \"end_turn\"。团队提议：只要文本里提到「查一下」「看一看」就继续循环。更好的修正是什么？",
+      "commentaryZh": "不要用「读文字」的方式修补循环控制。模型该调用工具却没调用，说明它缺少判断依据——去改提示词里的指引和工具描述。"
+    },
+    {
+      "id": "ar1-007",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "The productivity agent's loop treats any response without text content as \"still working\" and any response with text as \"finished.\" In testing, it often stops right after Claude writes \"Let me search for the config loader\" and emits a Grep call in the same response. What is the root cause?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Text presence is not a completion indicator; a response can contain both text and tool_use blocks, so the loop must branch on stop_reason.",
+          "correct": true,
+          "explain": "正解。ツール呼び出しの前に説明文が付くのは普通のこと。テキストの有無で判定すると途中停止する。",
+          "textZh": "是否有文本并不是完成的标志；一个响应可以同时包含文本和 tool_use 块，所以循环必须依据 stop_reason 来分支。"
+        },
+        {
+          "text": "Grep should never be called in the same response as text.",
+          "correct": false,
+          "explain": "不適。テキストとツール呼び出しが同じ応答に含まれるのは正常な挙動。",
+          "textZh": "Grep 不应与文本出现在同一个响应中。"
+        },
+        {
+          "text": "The model needs a larger max_tokens value.",
+          "correct": false,
+          "explain": "不適。出力が切れているわけではない。",
+          "textZh": "模型需要更大的 max_tokens。"
+        },
+        {
+          "text": "The loop should wait for a second response from Claude before deciding, because the first response in a turn is often only a draft that gets revised.",
+          "correct": false,
+          "explain": "不適。次の応答はツール結果を送らない限り来ない。判定材料は stop_reason にある。",
+          "textZh": "循环应等待 Claude 的第二个响应再做判断，因为一个回合里的第一个响应往往只是会被修改的草稿。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体的循环把「没有文本内容」的响应视为「仍在工作」，把「有文本」的响应视为「已完成」。测试中，它常常在 Claude 写下「我来搜索一下配置加载器」并在同一响应中发出 Grep 调用时就停止了。根本原因是什么？",
+      "commentaryZh": "「检查有没有助手文本」是考试点名的反模式之一。响应里文本与工具调用可以并存，唯一可靠的分支依据是 stop_reason。"
+    },
+    {
+      "id": "ar1-008",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO practices belong in a robust agentic loop implementation? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Branch on stop_reason: continue when it is \"tool_use\" and finish when it is \"end_turn\".",
+          "correct": true,
+          "explain": "正解。ループ制御の中心。",
+          "textZh": "依据 stop_reason 分支：\"tool_use\" 时继续，\"end_turn\" 时结束。"
+        },
+        {
+          "text": "Append each tool's result to the conversation before the next request so Claude can reason about it.",
+          "correct": true,
+          "explain": "正解。結果を履歴に入れることでモデルが次の行動を決められる。",
+          "textZh": "在下一次请求之前，把每个工具的结果追加进对话，让 Claude 能据此推理。"
+        },
+        {
+          "text": "Detect completion by searching the assistant text for words like \"finished\".",
+          "correct": false,
+          "explain": "不適。自然言語の解析による終了判定はアンチパターン。",
+          "textZh": "通过在助手文本中搜索「finished」等词来判断是否完成。"
+        },
+        {
+          "text": "Use a fixed iteration count as the primary stopping condition.",
+          "correct": false,
+          "explain": "不適。上限は安全装置として補助的に使うもの。",
+          "textZh": "把固定的循环次数作为主要停止条件。"
+        },
+        {
+          "text": "Send only the newest tool result instead of the whole conversation to save tokens.",
+          "correct": false,
+          "explain": "不適。API はステートレス。履歴を削ると前の情報を踏まえた判断ができない。",
+          "textZh": "为了节省 token，只发送最新的工具结果而不是整个对话。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/agent-loop",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项属于健壮的智能体循环实现？（选 2 项）",
+      "commentaryZh": "两个正确做法组合起来就是标准的循环：stop_reason 驱动分支 + 工具结果写回历史。其余三项都是考试指南明确点名的反模式或错误理解。"
+    },
+    {
+      "id": "ar1-009",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "Claude's response in the support loop contains two tool_use blocks: get_customer and lookup_order. How should the loop return the results?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run both tools and return both tool_result blocks, each matched to its tool_use id, in the next user message.",
+          "correct": true,
+          "explain": "正解。1つの応答に複数のツール呼び出しがあれば、すべての結果を対応する id 付きでまとめて返す。",
+          "textZh": "执行两个工具，并在下一条 user 消息中返回两个 tool_result 块，各自对应其 tool_use 的 id。"
+        },
+        {
+          "text": "Run only the first tool and ignore the second; Claude will ask again.",
+          "correct": false,
+          "explain": "不適。呼び出しに対応する結果が欠けると、会話の整合性が崩れる。",
+          "textZh": "只执行第一个工具，忽略第二个；Claude 会再要一次。"
+        },
+        {
+          "text": "Run both tools but send each result in its own separate API request, so Claude can reason about one result at a time.",
+          "correct": false,
+          "explain": "不適。同じ応答の呼び出しへの結果は1つの user メッセージにまとめるのが正しい形。",
+          "textZh": "两个工具都执行，但把每个结果分别放在单独的 API 请求中发送，让 Claude 一次只推理一个结果。"
+        },
+        {
+          "text": "Merge both outputs into one plain-text message without tool_result blocks.",
+          "correct": false,
+          "explain": "不適。どの結果がどの呼び出しのものか分からなくなる。",
+          "textZh": "把两个输出合并成一段纯文本消息，不用 tool_result 块。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服循环中，Claude 的响应包含两个 tool_use 块：get_customer 和 lookup_order。循环应该如何返回结果？",
+      "commentaryZh": "并行工具调用时，每个 tool_use 都要有对应 id 的 tool_result，且放在同一条 user 消息里返回。这保证模型能把结果和请求一一对应起来。"
+    },
+    {
+      "id": "ar1-010",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "An engineer asks the productivity agent, \"Where is the retry logic for HTTP calls implemented?\" Which sequence best reflects a model-driven loop?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Claude decides to Grep for retry-related names, reads the files it finds, follows an import it discovers, and answers when it has enough evidence.",
+          "correct": true,
+          "explain": "正解。途中の発見に応じて次の手を選ぶのがモデル駆動のループ。",
+          "textZh": "Claude 自己决定先用 Grep 搜索与重试相关的名字，再读取找到的文件，顺着发现的 import 继续查，证据足够时再回答。"
+        },
+        {
+          "text": "The code always runs Glob, then Read on every file, then Grep, in that fixed order, which makes every run reproducible and easy to debug.",
+          "correct": false,
+          "explain": "不適。決め打ちの手順で、全ファイルを読む無駄も大きい。",
+          "textZh": "代码总是按固定顺序执行：先 Glob，再 Read 每个文件，然后 Grep，这样每次运行都可复现、易于调试。"
+        },
+        {
+          "text": "Claude answers from memory without using tools to save time.",
+          "correct": false,
+          "explain": "不適。リポジトリ固有の情報は記憶にない。推測で答えることになる。",
+          "textZh": "为了节省时间，Claude 不使用工具，凭记忆回答。"
+        },
+        {
+          "text": "The engineer must specify every file path for Claude to open.",
+          "correct": false,
+          "explain": "不適。それではエージェントを使う意味が薄い。探索はエージェントに任せられる。",
+          "textZh": "工程师必须指定 Claude 要打开的每个文件路径。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/agent-loop",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "工程师问效率智能体：「HTTP 调用的重试逻辑在哪里实现？」下列哪个流程最能体现「模型驱动」的循环？",
+      "commentaryZh": "模型驱动循环的特点是「根据中间发现调整下一步」。固定顺序或不用工具都不符合这个考点。"
+    },
+    {
+      "id": "ar1-011",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "The support agent occasionally returns a response with stop_reason \"max_tokens\" partway through drafting a refund explanation. How should the loop treat this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Treat it as an incomplete response rather than a finished turn, and handle it explicitly (for example, raise the limit or continue the generation) instead of sending the truncated text as final.",
+          "correct": true,
+          "explain": "正解。\"max_tokens\" は出力上限で切れたことを示す。完了の合図ではないので、切れた文をそのまま顧客に送ってはいけない。",
+          "textZh": "把它当作「不完整的响应」而不是已完成的回合，并明确处理（例如提高上限或让生成继续），而不是把被截断的文本当作最终回答发出。"
+        },
+        {
+          "text": "Treat it the same as \"end_turn\" and deliver the text, since the model has already produced the most important part of the explanation before stopping and the rest is usually boilerplate.",
+          "correct": false,
+          "explain": "不適。途中で切れた説明を顧客に渡すことになる。",
+          "textZh": "与 \"end_turn\" 同样对待并交付文本，因为模型在停止前已经写出了说明中最重要的部分，剩下的通常只是套话。"
+        },
+        {
+          "text": "Treat it the same as \"tool_use\" and look for a tool call to execute.",
+          "correct": false,
+          "explain": "不適。ツール呼び出しが要求されたわけではない。",
+          "textZh": "与 \"tool_use\" 同样对待，去找要执行的工具调用。"
+        },
+        {
+          "text": "Ignore it, because max_tokens can only happen in batch mode.",
+          "correct": false,
+          "explain": "不適。通常の Messages API でも起こる。",
+          "textZh": "忽略它，因为 max_tokens 只会在批处理模式下出现。"
+        }
+      ],
+      "objective": "Design and implement agentic loops for autonomous task execution",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服智能体偶尔在撰写退款说明的途中返回 stop_reason 为 \"max_tokens\" 的响应。循环应如何处理？",
+      "commentaryZh": "除了 \"tool_use\" 和 \"end_turn\"，循环还要能识别其他 stop_reason。\"max_tokens\" 表示被截断，绝不能当作正常完成。"
+    },
+    {
+      "id": "ar1-012",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "In the research system, the web-search subagent needs a document the analysis subagent produced. How should this information flow in a hub-and-spoke design?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The analysis subagent returns its output to the coordinator, which decides what to pass to the search subagent in that subagent's prompt.",
+          "correct": true,
+          "explain": "正解。サブエージェント間のやりとりはすべてコーディネーターを経由させる。観測性・一貫したエラー処理・情報の流れの管理がしやすい。",
+          "textZh": "文档分析子智能体把产出返回给协调者，由协调者决定把哪些内容写进搜索子智能体的提示词。"
+        },
+        {
+          "text": "The subagents message each other directly through a shared channel.",
+          "correct": false,
+          "explain": "不適。直接通信は流れが見えなくなり、エラー処理もばらばらになる。",
+          "textZh": "子智能体之间通过共享通道直接互发消息。"
+        },
+        {
+          "text": "The search subagent automatically inherits the analysis subagent's context.",
+          "correct": false,
+          "explain": "不適。サブエージェントは他のエージェントの文脈を自動では受け継がない。",
+          "textZh": "搜索子智能体会自动继承分析子智能体的上下文。"
+        },
+        {
+          "text": "The analysis subagent writes to a global variable the search subagent reads, which avoids sending the same data through the coordinator twice.",
+          "correct": false,
+          "explain": "不適。経路が見えない共有状態で、どの情報がいつ渡ったか追えない。",
+          "textZh": "分析子智能体写入一个全局变量，搜索子智能体再去读取，避免同样的数据经过协调者传两次。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在调研系统中，网络搜索子智能体需要文档分析子智能体产出的一份内容。在 hub-and-spoke（中心辐射）设计中，这些信息应该怎样流动？",
+      "commentaryZh": "hub-and-spoke 的核心：协调者负责所有子智能体之间的通信、错误处理和信息路由。子智能体彼此不直接对话，也不会自动共享上下文。"
+    },
+    {
+      "id": "ar1-013",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "For the question \"What is the current price of a single product?\", the coordinator still runs all four subagents (search, analysis, synthesis, report). What design change best addresses this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Have the coordinator analyze each query's requirements and invoke only the subagents the query actually needs.",
+          "correct": true,
+          "explain": "正解。問いの複雑さに応じて呼ぶサブエージェントを選ぶのがコーディネーターの役割。",
+          "textZh": "让协调者分析每个查询的需求，只调用该查询真正需要的子智能体。"
+        },
+        {
+          "text": "Always run the full pipeline so that every answer has the same format and the same level of verification, regardless of the query.",
+          "correct": false,
+          "explain": "不適。単純な質問にも全工程を走らせるのは時間とコストの無駄。",
+          "textZh": "不论查询是什么，始终运行完整流水线，让每个回答都有相同的格式和相同程度的核查。"
+        },
+        {
+          "text": "Remove the coordinator and let the user pick subagents manually.",
+          "correct": false,
+          "explain": "不適。判断を利用者に押しつけるだけで、設計の改善になっていない。",
+          "textZh": "去掉协调者，让用户手动挑选子智能体。"
+        },
+        {
+          "text": "Run the subagents sequentially instead of in parallel.",
+          "correct": false,
+          "explain": "不適。順番を変えても不要な処理は減らない。",
+          "textZh": "让子智能体串行而不是并行运行。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "对于「某个单一产品现在的价格是多少？」这样的问题，协调者仍然启动了全部四个子智能体（搜索、分析、综合、报告）。哪个设计改动最合适？",
+      "commentaryZh": "协调者要按查询复杂度动态选择子智能体，而不是每次都走完整条流水线。这是 1.2 的核心技能之一。"
+    },
+    {
+      "id": "ar1-014",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "A report on \"the impact of remote work\" covers only productivity, because the coordinator split the topic into three subtasks all about productivity metrics. What is this failure called and how should it be addressed?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Overly narrow decomposition; the coordinator should partition the topic into distinct subtopics (for example productivity, wellbeing, cost, hiring) so coverage is broad.",
+          "correct": true,
+          "explain": "正解。分解が狭すぎると広いテーマの一部しか調べられない。重複しない別々のサブトピックに割り振る。",
+          "textZh": "过窄的任务分解；协调者应把题目划分为不同的子主题（如生产力、员工身心健康、成本、招聘），以保证覆盖面。"
+        },
+        {
+          "text": "A context window overflow; increase the window size.",
+          "correct": false,
+          "explain": "不適。文脈の量ではなく、分解の仕方の問題。",
+          "textZh": "上下文窗口溢出；应增大窗口。"
+        },
+        {
+          "text": "A tool description problem; rename the search tool.",
+          "correct": false,
+          "explain": "不適。ツールは正しく動いている。調べる範囲の割り振りが偏っている。",
+          "textZh": "工具描述的问题；重命名搜索工具。"
+        },
+        {
+          "text": "A synthesis error; ask the synthesis subagent to write more and to cover the remaining aspects of remote work from general knowledge.",
+          "correct": false,
+          "explain": "不適。材料が偏っていれば、長く書いても偏ったまま。",
+          "textZh": "综合环节出错；让综合子智能体多写一些，并凭一般常识补充远程办公的其他方面。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一份关于「远程办公的影响」的报告只谈到了生产力，因为协调者把题目拆成了三个都与生产力指标有关的子任务。这属于什么问题，应当如何解决？",
+      "commentaryZh": "考试指南明确提到「协调者分解过窄导致广泛主题覆盖不全」的风险。正确做法是按不同子主题或来源类型分工，既减少重复又保证覆盖。"
+    },
+    {
+      "id": "ar1-015",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "Two search subagents keep returning nearly identical sources. What is the most effective way to reduce this duplication?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Have the coordinator assign each subagent a distinct scope, such as different subtopics or different source types.",
+          "correct": true,
+          "explain": "正解。調査範囲を重ならないように分割するのがコーディネーターの仕事。",
+          "textZh": "让协调者给每个子智能体分配不同的范围，例如不同的子主题或不同的来源类型。"
+        },
+        {
+          "text": "Let the subagents read each other's results in real time, so each one can skip sources the other has already covered.",
+          "correct": false,
+          "explain": "不適。直接共有は hub-and-spoke の原則に反し、流れの管理が難しくなる。",
+          "textZh": "让子智能体实时读取彼此的结果，这样每个子智能体都能跳过对方已经覆盖的来源。"
+        },
+        {
+          "text": "Lower the temperature of both subagents.",
+          "correct": false,
+          "explain": "不適。同じ問いを与えれば同じ情報源にたどり着く。範囲の指定が必要。",
+          "textZh": "降低两个子智能体的 temperature。"
+        },
+        {
+          "text": "Deduplicate only at the report stage and keep the same assignments.",
+          "correct": false,
+          "explain": "不適。重複した調査にかかった時間とコストは戻らない。",
+          "textZh": "只在报告阶段去重，分工保持不变。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "两个搜索子智能体总是返回几乎相同的来源。减少这种重复最有效的方法是什么？",
+      "commentaryZh": "重复的根源在任务分配。按子主题或来源类型给每个子智能体划清边界，是 1.2 的关键技能。"
+    },
+    {
+      "id": "ar1-016",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "After synthesis, the coordinator notices the draft has no data on regulation in the EU. What is the best next step in an iterative refinement loop?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Re-delegate targeted queries about EU regulation to the search and analysis subagents, then re-run synthesis with the new findings.",
+          "correct": true,
+          "explain": "正解。合成結果のギャップを評価し、狙いを絞って再委任し、再合成する。これが反復的な改善ループ。",
+          "textZh": "针对欧盟监管向搜索和分析子智能体重新派发有针对性的查询，再用新发现重新运行综合。"
+        },
+        {
+          "text": "Publish the report and add a note that EU regulation was out of scope.",
+          "correct": false,
+          "explain": "不適。範囲内のはずの欠落を「対象外」と言い換えているだけ。",
+          "textZh": "直接发布报告，并注明欧盟监管不在范围内。"
+        },
+        {
+          "text": "Ask the synthesis subagent to fill the gap from its own general knowledge, since it already knows the main EU rules.",
+          "correct": false,
+          "explain": "不適。出典のない記述が混ざり、引用付きレポートの要件を満たさない。",
+          "textZh": "让综合子智能体用自己的常识补上空缺，因为它本来就了解主要的欧盟规则。"
+        },
+        {
+          "text": "Restart the entire research process from scratch.",
+          "correct": false,
+          "explain": "不適。既にある成果を捨てる必要はない。足りない部分だけ追加で調べればよい。",
+          "textZh": "从头重新开始整个调研流程。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "综合完成后，协调者发现草稿里完全没有关于欧盟监管的数据。在迭代改进循环中，下一步最好怎么做？",
+      "commentaryZh": "迭代改进循环 = 协调者评估综合结果的缺口 → 针对性地重新派发给搜索/分析 → 再综合，直到覆盖充分。考试喜欢考「补缺口」而不是「重来」或「凭常识补」。"
+    },
+    {
+      "id": "ar1-017",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "Why does the research system route every subagent's results and errors back through the coordinator instead of letting subagents call one another?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It gives one place for observability, consistent error handling, and control over what information reaches each agent.",
+          "correct": true,
+          "explain": "正解。経路をコーディネーターに集めると、何が起きたか追え、エラーへの対応も統一できる。",
+          "textZh": "这样可观测性、统一的错误处理以及「哪些信息传给哪个智能体」的控制都集中在一处。"
+        },
+        {
+          "text": "Subagents are technically unable to make tool calls.",
+          "correct": false,
+          "explain": "不適。サブエージェントも自分のツールは呼べる。理由は設計上の管理のしやすさ。",
+          "textZh": "子智能体在技术上无法调用工具。"
+        },
+        {
+          "text": "It reduces the total number of tokens to zero.",
+          "correct": false,
+          "explain": "不適。トークンがゼロになることはない。",
+          "textZh": "这样能把 token 总量降为零。"
+        },
+        {
+          "text": "The coordinator must rewrite every result in its own words so that the final report has a consistent voice across subagents.",
+          "correct": false,
+          "explain": "不適。中継の目的は管理であって、言い換えではない。",
+          "textZh": "协调者必须用自己的话改写每一个结果，让最终报告在各子智能体之间保持一致的口吻。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么调研系统要把每个子智能体的结果和错误都汇回协调者，而不是让子智能体互相调用？",
+      "commentaryZh": "所有通信经由协调者，是为了可观测性、一致的错误处理和受控的信息流。这也是后面错误传播（5.3）的前提。"
+    },
+    {
+      "id": "ar1-018",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "In a coordinator-subagent architecture, which statement about subagent context is correct?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A subagent starts with its own isolated context and does not automatically inherit the coordinator's conversation history.",
+          "correct": true,
+          "explain": "正解。必要な情報はプロンプトで明示的に渡す必要がある。",
+          "textZh": "子智能体从自己独立的上下文开始，不会自动继承协调者的对话历史。"
+        },
+        {
+          "text": "A subagent can see everything the coordinator has seen.",
+          "correct": false,
+          "explain": "不適。自動で共有されると思い込むのが典型的な誤解。",
+          "textZh": "子智能体能看到协调者看过的所有内容。"
+        },
+        {
+          "text": "Subagents share one memory that persists across all invocations, so each subagent can build on the coordinator's earlier work.",
+          "correct": false,
+          "explain": "不適。呼び出し間で記憶を共有する仕組みは自動では無い。",
+          "textZh": "所有子智能体共享一份在所有调用之间持续存在的记忆，让每个子智能体都能在协调者之前的工作基础上继续。"
+        },
+        {
+          "text": "A subagent inherits context only if it uses the same model.",
+          "correct": false,
+          "explain": "不適。モデルが同じでも文脈は受け継がれない。",
+          "textZh": "只有使用同一模型时，子智能体才会继承上下文。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在协调者—子智能体架构中，关于子智能体的上下文，下列哪种说法正确？",
+      "commentaryZh": "子智能体的上下文是隔离的。这既是优点（不会被无关内容污染），也是要求（必须把需要的信息写进它的提示词）。"
+    },
+    {
+      "id": "ar1-019",
+      "domain": "D1",
+      "type": "multi",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "Which TWO coordinator behaviors match the guidance for multi-agent research systems? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Decide which subagents to invoke based on how complex the query is.",
+          "correct": true,
+          "explain": "正解。毎回すべてを呼ぶのではなく、問いに合わせて選ぶ。",
+          "textZh": "根据查询的复杂程度决定调用哪些子智能体。"
+        },
+        {
+          "text": "Evaluate the synthesis for gaps and re-delegate targeted follow-up queries.",
+          "correct": true,
+          "explain": "正解。反復的な改善ループの中心となる動き。",
+          "textZh": "评估综合结果中的缺口，并派发有针对性的后续查询。"
+        },
+        {
+          "text": "Let subagents exchange findings directly to save a round trip.",
+          "correct": false,
+          "explain": "不適。通信はコーディネーター経由が原則。",
+          "textZh": "让子智能体直接交换发现，省去一次往返。"
+        },
+        {
+          "text": "Give every subagent the same broad instruction to \"research the whole topic.\"",
+          "correct": false,
+          "explain": "不適。範囲が重なり、重複した調査になる。",
+          "textZh": "给每个子智能体相同的宽泛指令：「研究整个题目」。"
+        },
+        {
+          "text": "Hide subagent errors from the final report to keep it clean.",
+          "correct": false,
+          "explain": "不適。欠落は明示すべき（カバレッジの注記）。",
+          "textZh": "为了报告整洁，把子智能体的错误从最终报告中隐藏。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项协调者的行为符合多智能体调研系统的设计指引？（选 2 项）",
+      "commentaryZh": "正确的协调者：按复杂度选择子智能体，并通过「评估缺口 → 针对性再派发」迭代提升覆盖。直接通信、相同的宽泛分工、隐藏错误都是反面做法。"
+    },
+    {
+      "id": "ar1-020",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "The coordinator in the research system is configured, but it never spawns any subagents even though AgentDefinitions exist for all four. What is the most likely configuration problem?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The coordinator's allowedTools does not include the subagent-spawning tool (named \"Task\" in the exam guide; current SDK versions call it \"Agent\").",
+          "correct": true,
+          "explain": "正解。サブエージェントは専用のツール呼び出しで起動する。コーディネーターがそのツールを使えなければ委任できない。",
+          "textZh": "协调者的 allowedTools 中没有包含用于启动子智能体的工具（考试指南中称为 \"Task\"，新版 SDK 中叫 \"Agent\"）。"
+        },
+        {
+          "text": "The subagents' system prompts are too short, so the coordinator cannot tell from their descriptions which of them is worth starting for a query.",
+          "correct": false,
+          "explain": "不適。プロンプトが短くても起動はされる。起動そのものが起きない原因にはならない。",
+          "textZh": "子智能体的系统提示词太短，所以协调者无法从描述中判断某个查询值得启动哪一个。"
+        },
+        {
+          "text": "Subagents can only be spawned by the user, not by an agent.",
+          "correct": false,
+          "explain": "不適。コーディネーターがツール経由で起動するのが標準の形。",
+          "textZh": "子智能体只能由用户启动，不能由智能体启动。"
+        },
+        {
+          "text": "The coordinator needs a larger context window.",
+          "correct": false,
+          "explain": "不適。文脈の大きさは起動の可否と関係ない。",
+          "textZh": "协调者需要更大的上下文窗口。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研系统的协调者已经配置好，四个子智能体也都有 AgentDefinition，但协调者从不启动任何子智能体。最可能的配置问题是什么？",
+      "commentaryZh": "子智能体是通过「启动子智能体的工具」来调用的（考试资料里叫 Task 工具）。协调者的 allowedTools 必须包含它，否则只能自己干活。"
+    },
+    {
+      "id": "ar1-021",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The synthesis subagent keeps writing summaries that ignore the web results the search subagent found earlier. How should the coordinator fix this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Include the complete findings from the search and analysis subagents directly in the synthesis subagent's prompt.",
+          "correct": true,
+          "explain": "正解。サブエージェントは過去のやりとりを自動では見られない。必要な材料はプロンプトに入れて渡す。",
+          "textZh": "把搜索和分析子智能体的完整发现直接写进综合子智能体的提示词。"
+        },
+        {
+          "text": "Tell the synthesis subagent to \"remember what the search agent found.\"",
+          "correct": false,
+          "explain": "不適。見ていない情報は思い出せない。",
+          "textZh": "告诉综合子智能体「记住搜索智能体找到的内容」。"
+        },
+        {
+          "text": "Run the synthesis subagent first so it can guide the search.",
+          "correct": false,
+          "explain": "不適。合成する材料が無い段階で合成しても意味がない。",
+          "textZh": "先运行综合子智能体，让它来指导搜索。"
+        },
+        {
+          "text": "Give the synthesis subagent the web search tool so it can repeat the searches whenever results seem incomplete.",
+          "correct": false,
+          "explain": "不適。重複作業になるうえ、役割外のツールを持たせると誤用の原因になる。",
+          "textZh": "给综合子智能体网络搜索工具，让它重新搜索一遍（每当结果看起来不完整时）。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "综合子智能体写的总结总是忽略搜索子智能体之前找到的网络结果。协调者应如何修正？",
+      "commentaryZh": "子智能体不继承父级上下文，也不在调用之间共享记忆。正确做法是把前面智能体的完整产出放进下一个智能体的提示词。"
+    },
+    {
+      "id": "ar1-022",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "When the coordinator passes findings to the synthesis subagent, the final report loses track of which claim came from which page. Which way of passing context best preserves attribution?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Pass a structured format that separates each finding's content from its metadata, such as source URL, document name, and page number.",
+          "correct": true,
+          "explain": "正解。内容とメタデータを分けた構造で渡すと、合成段階でも出典の対応が保たれる。",
+          "textZh": "用结构化格式传递，把每条发现的内容与元数据（来源 URL、文档名、页码等）分开。"
+        },
+        {
+          "text": "Concatenate all findings into one paragraph to save tokens.",
+          "correct": false,
+          "explain": "不適。どの主張がどこから来たか分からなくなる。",
+          "textZh": "为节省 token，把所有发现拼成一段文字。"
+        },
+        {
+          "text": "Pass only the URLs and let the synthesis subagent fetch the pages again, so it always works from the original text instead of a copy.",
+          "correct": false,
+          "explain": "不適。重複作業になり、役割外のツールも必要になる。",
+          "textZh": "只传 URL，让综合子智能体重新抓取页面，这样它总是基于原文而不是副本来工作。"
+        },
+        {
+          "text": "Ask the synthesis subagent to guess sources after writing.",
+          "correct": false,
+          "explain": "不適。後から推測した出典は誤りやすい。",
+          "textZh": "让综合子智能体写完后再猜来源。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "协调者把发现交给综合子智能体后，最终报告分不清哪个论断来自哪个网页。哪种传递上下文的方式最能保留出处？",
+      "commentaryZh": "在智能体之间传递上下文时，把内容和元数据（URL、文档名、页码）结构化分开，是保留出处的关键技巧。"
+    },
+    {
+      "id": "ar1-023",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The coordinator needs results from three independent search subagents. How should it spawn them to minimize total latency?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Emit three subagent-spawning tool calls in a single coordinator response so they run in parallel.",
+          "correct": true,
+          "explain": "正解。1つの応答に複数の起動呼び出しを並べると並列で実行される。",
+          "textZh": "在协调者的同一个响应中发出三个启动子智能体的工具调用，让它们并行运行。"
+        },
+        {
+          "text": "Spawn one subagent per coordinator turn, waiting for each to finish, so results arrive in a predictable order.",
+          "correct": false,
+          "explain": "不適。順番待ちになり、待ち時間が3倍近くになる。",
+          "textZh": "每个协调者回合只启动一个，等它完成再启动下一个，让结果按可预测的顺序到达。"
+        },
+        {
+          "text": "Spawn one subagent and ask it to do all three searches in sequence.",
+          "correct": false,
+          "explain": "不適。並列化の利点を捨てている。",
+          "textZh": "只启动一个子智能体，让它依次完成三项搜索。"
+        },
+        {
+          "text": "Ask the user to start the three subagents manually.",
+          "correct": false,
+          "explain": "不適。自動化の目的に反する。",
+          "textZh": "让用户手动启动三个子智能体。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "协调者需要三个彼此独立的搜索子智能体的结果。为了让总耗时最短，应该如何启动它们？",
+      "commentaryZh": "并行启动子智能体的方法：在同一个协调者响应里发出多个子智能体调用，而不是分散在多个回合中。"
+    },
+    {
+      "id": "ar1-024",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent has two subagent types: \"code-explorer\" (read-only) and \"test-writer\" (can create files). Where should each subagent's description, system prompt, and tool restrictions be defined in the Agent SDK?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In an AgentDefinition for each subagent type, with its own description, prompt, and allowed tools.",
+          "correct": true,
+          "explain": "正解。AgentDefinition でサブエージェントごとの説明・プロンプト・使えるツールを決める。",
+          "textZh": "在每种子智能体各自的 AgentDefinition 中，分别设置描述、提示词和允许的工具。"
+        },
+        {
+          "text": "In the coordinator's system prompt only, as a paragraph that lists both roles and says which tools each may use.",
+          "correct": false,
+          "explain": "不適。文章で役割を書くだけでは、ツールの制限は強制されない。",
+          "textZh": "只写在协调者的系统提示词里，用一段话列出两个角色以及各自可以使用哪些工具。"
+        },
+        {
+          "text": "In the user's message each time a task is requested.",
+          "correct": false,
+          "explain": "不適。毎回書くのは手間で、設定として一貫しない。",
+          "textZh": "每次请求任务时写在用户消息里。"
+        },
+        {
+          "text": "They cannot be configured; all subagents get the same tools.",
+          "correct": false,
+          "explain": "不適。サブエージェントごとにツールを絞れる。",
+          "textZh": "无法配置；所有子智能体拿到的工具都一样。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体有两种子智能体：「code-explorer」（只读）和「test-writer」（可以创建文件）。在 Agent SDK 中，每个子智能体的描述、系统提示词和工具限制应定义在哪里？",
+      "commentaryZh": "AgentDefinition 是子智能体的配置单位：description（何时用它）、prompt（系统提示词）、tools（工具限制）。"
+    },
+    {
+      "id": "ar1-025",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "A coordinator prompt lists twelve numbered steps the subagent must follow exactly (\"1. Open README. 2. Open package.json. 3. ...\"). The subagent fails whenever a repository is structured differently. What is the better approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "State the goal and the quality criteria for the result, and let the subagent adapt how it gets there.",
+          "correct": true,
+          "explain": "正解。手順ではなく目的と品質基準を伝えると、状況が違っても対応できる。",
+          "textZh": "写清目标和结果的质量标准，让子智能体自行调整达成方式。"
+        },
+        {
+          "text": "Add more steps covering every possible repository layout, so the subagent always knows exactly what to do.",
+          "correct": false,
+          "explain": "不適。すべての構成を列挙するのは不可能で、指示がさらに硬直する。",
+          "textZh": "增加更多步骤，覆盖所有可能的代码库结构，让子智能体总是清楚该做什么。"
+        },
+        {
+          "text": "Remove the instructions entirely.",
+          "correct": false,
+          "explain": "不適。目的も基準も無ければ、何を返せばよいか分からない。",
+          "textZh": "完全删除指令。"
+        },
+        {
+          "text": "Force the subagent to stop when any step fails.",
+          "correct": false,
+          "explain": "不適。失敗が増えるだけで適応力は上がらない。",
+          "textZh": "只要有任何一步失败，就强制子智能体停止。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "协调者的提示词列出了子智能体必须严格遵守的十二个步骤（「1. 打开 README。2. 打开 package.json。3. ……」）。只要代码库结构不同，子智能体就会失败。更好的做法是什么？",
+      "commentaryZh": "给子智能体写提示词时，应说明研究/任务目标和质量标准，而不是逐步的操作说明。这样子智能体才能适应不同情况。"
+    },
+    {
+      "id": "ar1-026",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "Two engineers want to compare a \"mock the database\" testing strategy with a \"use an in-memory database\" strategy, both starting from the same codebase analysis the agent has already done. What is the most efficient approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Fork the session from the shared analysis so each strategy is explored in its own independent branch.",
+          "correct": true,
+          "explain": "正解。共通の分析を土台に分岐させれば、分析をやり直さずに別々の方向を試せる。元のセッションは変わらない。",
+          "textZh": "从这份共享分析处分叉（fork）会话，让两种策略各自在独立分支中探索。"
+        },
+        {
+          "text": "Explore both strategies in the same session, one after the other.",
+          "correct": false,
+          "explain": "不適。一方の試行の内容が他方の判断に混ざる。",
+          "textZh": "在同一个会话里先后探索两种策略。"
+        },
+        {
+          "text": "Start two brand-new sessions and redo the analysis in each, so that neither strategy is influenced by the other.",
+          "correct": false,
+          "explain": "不適。同じ分析を二度行う無駄がある。",
+          "textZh": "新开两个会话并各自重做分析，这样两种策略都不会受到对方的影响。"
+        },
+        {
+          "text": "Ask the agent to pick the better strategy without trying either.",
+          "correct": false,
+          "explain": "不適。比較のための材料が無い。",
+          "textZh": "让智能体在不尝试任何一种的情况下直接选出更好的策略。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "两位工程师想比较「mock 数据库」和「使用内存数据库」两种测试策略，二者都从智能体已经完成的同一份代码库分析出发。最有效率的做法是什么？",
+      "commentaryZh": "fork 会创建一个从原会话历史复制出来的新会话，原会话保持不变。适合「从同一基线出发尝试不同方向」。"
+    },
+    {
+      "id": "ar1-027",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "The support agent must verify the customer's identity with get_customer before process_refund can run. The team currently relies on a system prompt line: \"Always call get_customer before issuing a refund.\" Why is this insufficient?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Prompt instructions have a non-zero failure rate, and identity verification before a financial operation needs deterministic enforcement in code.",
+          "correct": true,
+          "explain": "正解。金銭が動く操作の前提条件は、プロンプトの「お願い」ではなく、プログラムで必ず守らせる。",
+          "textZh": "提示词指令存在非零的失败率，而金融操作前的身份验证需要在代码层面做确定性的强制。"
+        },
+        {
+          "text": "Claude cannot read system prompts during tool use.",
+          "correct": false,
+          "explain": "不適。システムプロンプトは常に読まれる。問題は「必ず守られる」保証がないこと。",
+          "textZh": "Claude 在使用工具时读不到系统提示词。"
+        },
+        {
+          "text": "get_customer and process_refund cannot be in the same conversation, so the order of calls cannot be enforced by any mechanism.",
+          "correct": false,
+          "explain": "不適。同じ会話で順に使うのが普通の流れ。",
+          "textZh": "get_customer 和 process_refund 不能出现在同一个对话里，所以调用顺序无法通过任何机制强制。"
+        },
+        {
+          "text": "The instruction should be in the user message instead.",
+          "correct": false,
+          "explain": "不適。置き場所を変えても確率的な遵守であることは同じ。",
+          "textZh": "这条指令应该写在用户消息里。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "客服智能体必须先用 get_customer 验证客户身份，之后 process_refund 才能执行。团队目前只靠系统提示词里的一句话：「发起退款前务必先调用 get_customer」。为什么这样不够？",
+      "commentaryZh": "需要「确定性合规」的场景（如身份验证后才能退款），只靠提示词是概率性的。考试的正解是程序化的前置检查（hooks、前置条件闸门）。"
+    },
+    {
+      "id": "ar1-028",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "What is the most reliable way to guarantee that process_refund never runs before get_customer has returned a verified customer ID?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add a programmatic prerequisite check that blocks process_refund calls until a verified customer ID has been recorded for the session.",
+          "correct": true,
+          "explain": "正解。前提が満たされるまで後続のツール呼び出しを機械的に止める。確実に守られる。",
+          "textZh": "增加程序化的前置检查：在会话中记录到已验证的客户 ID 之前，拦截所有 process_refund 调用。"
+        },
+        {
+          "text": "Write the rule in capital letters in the system prompt.",
+          "correct": false,
+          "explain": "不適。強調しても確率的な遵守のまま。",
+          "textZh": "在系统提示词里用大写字母写这条规则。"
+        },
+        {
+          "text": "Add a few-shot example showing the correct order of get_customer, lookup_order, and process_refund calls, so Claude learns the required sequence from a demonstration.",
+          "correct": false,
+          "explain": "不適。例は傾向を良くするが保証にはならない。",
+          "textZh": "加一个少样本示例，展示 get_customer、lookup_order 和 process_refund 的正确调用顺序，让 Claude 通过示范学会必需的顺序。"
+        },
+        {
+          "text": "Merge get_customer and process_refund into one tool.",
+          "correct": false,
+          "explain": "不適。検証と返金を混ぜると、検証失敗時の扱いが曖昧になり、ツールの責務もぼやける。",
+          "textZh": "把 get_customer 和 process_refund 合并成一个工具。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "怎样最可靠地保证：在 get_customer 返回已验证的客户 ID 之前，process_refund 绝不会执行？",
+      "commentaryZh": "程序化前置条件（prerequisite gate）= 在下游工具被调用前检查前置步骤是否完成，未完成就拦截。这是 1.4 的核心技能。"
+    },
+    {
+      "id": "ar1-029",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "A customer writes: \"My last order arrived damaged, I was charged twice this month, and I can't log in.\" How should the support agent handle this message?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Split it into three distinct issues, investigate each (in parallel where possible) using the shared customer context, then give one unified resolution.",
+          "correct": true,
+          "explain": "正解。複数の懸念を個別の項目に分け、共通の顧客情報を使って調べ、最後にまとめて回答する。",
+          "textZh": "把它拆成三个独立的问题，利用共享的客户上下文分别调查（能并行就并行），最后给出一个统一的解决方案。"
+        },
+        {
+          "text": "Handle only the first issue and ask the customer to open new tickets for the others, which keeps each ticket focused on a single problem.",
+          "correct": false,
+          "explain": "不適。一次解決率の目標に反し、顧客の手間も増える。",
+          "textZh": "只处理第一个问题，让客户为其他问题另开工单，让每张工单只聚焦一个问题。"
+        },
+        {
+          "text": "Escalate immediately because there is more than one issue.",
+          "correct": false,
+          "explain": "不適。問題が複数あること自体はエスカレーションの理由にならない。",
+          "textZh": "因为问题不止一个，立即转人工。"
+        },
+        {
+          "text": "Answer all three with one generic apology and a link to the help center.",
+          "correct": false,
+          "explain": "不適。どの問題も解決していない。",
+          "textZh": "用一句笼统的道歉和帮助中心链接回复全部三个问题。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一位客户写道：「我上一单到货时坏了，这个月被扣了两次款，而且我登录不了。」客服智能体应如何处理这条消息？",
+      "commentaryZh": "多诉求请求的正确处理：拆分成独立项 → 用共享上下文分别调查 → 综合成统一答复。这是 1.4 中明确列出的技能。"
+    },
+    {
+      "id": "ar1-030",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "The agent escalates a billing dispute to a human. The human agent cannot see the conversation transcript. What should the escalation include?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A structured handoff summary: customer ID, the issue and its root cause, amounts involved, what has been tried, and the recommended action.",
+          "correct": true,
+          "explain": "正解。会話記録を見られない相手には、判断に必要な事実と推奨対応を構造化して渡す。",
+          "textZh": "结构化的交接摘要：客户 ID、问题及根本原因、涉及金额、已尝试的处理、建议的下一步行动。"
+        },
+        {
+          "text": "Only the message \"Customer needs help with billing.\"",
+          "correct": false,
+          "explain": "不適。人間がゼロから聞き直すことになり、顧客体験が悪化する。",
+          "textZh": "只写一句「客户需要账单方面的帮助」。"
+        },
+        {
+          "text": "The full raw tool output from every call, unsorted, so the human has exactly the same information the agent had, including the IDs and timestamps from each lookup.",
+          "correct": false,
+          "explain": "不適。量が多すぎて要点が埋もれる。",
+          "textZh": "所有调用的完整原始工具输出，不加整理，让人工客服拥有与智能体完全相同的信息，包括每次查询的 ID 和时间戳。"
+        },
+        {
+          "text": "Nothing; the human should ask the customer to repeat everything.",
+          "correct": false,
+          "explain": "不適。顧客に同じ説明を繰り返させるのは避けるべき。",
+          "textZh": "什么都不用写；让人工客服请客户把情况再讲一遍。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体把一起账单争议转给人工处理。人工客服看不到对话记录。转交时应该包含什么？",
+      "commentaryZh": "中途转人工时要提供结构化交接：客户信息、根因分析、金额、建议动作。接手的人看不到对话，摘要就是他们唯一的依据。"
+    },
+    {
+      "id": "ar1-031",
+      "domain": "D1",
+      "type": "multi",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "Which TWO are appropriate uses of programmatic enforcement rather than prompt guidance in the support agent? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Blocking process_refund until identity has been verified with get_customer.",
+          "correct": true,
+          "explain": "正解。金銭操作の前提条件は確実に守らせる必要がある。",
+          "textZh": "在通过 get_customer 验证身份之前，拦截 process_refund。"
+        },
+        {
+          "text": "Blocking refunds above the company's approval threshold and routing them to escalate_to_human.",
+          "correct": true,
+          "explain": "正解。金額上限のような業務ルールは決定的に守らせる。",
+          "textZh": "拦截超过公司审批阈值的退款，并转给 escalate_to_human。"
+        },
+        {
+          "text": "Choosing a warm, apologetic tone when a customer is upset.",
+          "correct": false,
+          "explain": "不適。口調はプロンプトで導けば十分で、コードで強制するものではない。",
+          "textZh": "客户不满时使用温和、致歉的语气。"
+        },
+        {
+          "text": "Deciding how many follow-up questions to ask about a vague request.",
+          "correct": false,
+          "explain": "不適。状況に応じた判断なので、モデルに任せる領域。",
+          "textZh": "对于含糊的请求，决定追问几个问题。"
+        },
+        {
+          "text": "Choosing which order to mention first in the reply.",
+          "correct": false,
+          "explain": "不適。文章構成の判断であり、強制が必要な規則ではない。",
+          "textZh": "决定回复中先提哪一个订单。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在客服智能体中，下列哪两项适合用程序化强制而不是提示词引导来实现？（选 2 项）",
+      "commentaryZh": "区分标准：业务规则或合规要求必须百分之百遵守 → 程序化强制；语气、措辞、追问策略等需要判断的事项 → 提示词引导。"
+    },
+    {
+      "id": "ar1-032",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "In the Agent SDK, which hook is designed to transform a tool's result before Claude processes it — for example, to normalize timestamps returned by different MCP tools?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "PostToolUse",
+          "correct": true,
+          "explain": "正解。ツールの実行後、結果がモデルに渡る前に介入できるフック。",
+          "textZh": "PostToolUse"
+        },
+        {
+          "text": "PreToolUse",
+          "correct": false,
+          "explain": "不適。PreToolUse はツール実行前の呼び出しを検査・ブロックするためのもの。",
+          "textZh": "PreToolUse"
+        },
+        {
+          "text": "UserPromptSubmit",
+          "correct": false,
+          "explain": "不適。利用者の入力が送られたときに動くフックで、ツール結果とは関係ない。",
+          "textZh": "UserPromptSubmit"
+        },
+        {
+          "text": "SessionStart",
+          "correct": false,
+          "explain": "不適。セッション開始時に一度動くフック。",
+          "textZh": "SessionStart"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在 Agent SDK 中，哪种钩子是用来在 Claude 处理之前转换工具结果的——例如统一不同 MCP 工具返回的时间戳格式？",
+      "commentaryZh": "PostToolUse 在工具执行之后触发，可以对结果做转换；PreToolUse 在工具执行之前触发，适合拦截违规调用。两者的分工是 1.5 的必考点。"
+    },
+    {
+      "id": "ar1-033",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "Company policy forbids refunds above $500 without a manager. The team wants a guarantee, not a best effort. Which design meets this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A hook that intercepts outgoing process_refund calls, blocks any amount over $500, and redirects the case to human escalation.",
+          "correct": true,
+          "explain": "正解。ツール呼び出しを横取りして規則違反を止め、別の流れ（エスカレーション）に回す。確実に守られる。",
+          "textZh": "用钩子拦截发出的 process_refund 调用，阻止任何超过 500 美元的金额，并把案件转为人工处理。"
+        },
+        {
+          "text": "A system prompt sentence: \"Never refund more than $500.\"",
+          "correct": false,
+          "explain": "不適。確率的な遵守にとどまる。",
+          "textZh": "在系统提示词中加一句：「退款绝不能超过 500 美元。」"
+        },
+        {
+          "text": "A few-shot example in the system prompt showing the agent politely declining a $600 refund, so the agent learns to refuse amounts above the limit.",
+          "correct": false,
+          "explain": "不適。例示は傾向を作るが保証ではない。",
+          "textZh": "在系统提示词中加一个少样本示例，展示智能体礼貌地拒绝一笔 600 美元的退款，让智能体学会拒绝超过上限的金额。"
+        },
+        {
+          "text": "Asking the customer to confirm the amount is below $500.",
+          "correct": false,
+          "explain": "不適。顧客の申告に規則の遵守を委ねている。",
+          "textZh": "让客户确认金额低于 500 美元。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "公司政策规定，超过 500 美元的退款必须经过经理。团队需要的是「保证」，而不是「尽量做到」。哪种设计满足要求？",
+      "commentaryZh": "「必须保证」= 用钩子做确定性控制；「希望遵守」= 提示词。这道题考的就是两者的区别。"
+    },
+    {
+      "id": "ar1-034",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "get_customer returns account creation time as a Unix timestamp, lookup_order returns ISO 8601 strings, and the billing tool returns numeric status codes. Claude sometimes misreads dates and statuses. What is the cleanest fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use PostToolUse hooks to normalize all tool results into one consistent format before Claude sees them.",
+          "correct": true,
+          "explain": "正解。形式のばらつきをモデルに解釈させず、フックで機械的にそろえる。",
+          "textZh": "用 PostToolUse 钩子，在 Claude 看到之前把所有工具结果统一成一致的格式。"
+        },
+        {
+          "text": "Add a paragraph to the system prompt explaining every format and asking Claude to convert each value before using it.",
+          "correct": false,
+          "explain": "不適。毎回の解釈をモデルに任せることになり、誤読は残る。",
+          "textZh": "在系统提示词里加一段话，解释每一种格式，并要求 Claude 在使用前转换每个值。"
+        },
+        {
+          "text": "Ask Claude to convert the formats itself before answering.",
+          "correct": false,
+          "explain": "不適。変換を確率的な処理に任せている。",
+          "textZh": "让 Claude 在回答前自己转换格式。"
+        },
+        {
+          "text": "Remove dates and statuses from the tools' outputs.",
+          "correct": false,
+          "explain": "不適。判断に必要な情報まで消してしまう。",
+          "textZh": "从工具输出中删除日期和状态。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "get_customer 返回的开户时间是 Unix 时间戳，lookup_order 返回的是 ISO 8601 字符串，账单工具返回的是数字状态码。Claude 有时会读错日期和状态。最干净的修正方式是什么？",
+      "commentaryZh": "用 PostToolUse 做数据规范化（时间戳、状态码等），是考试指南里明确列出的技能。确定性的格式转换不该交给模型去猜。"
+    },
+    {
+      "id": "ar1-035",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "The productivity agent can run Bash. Security requires that commands which delete files outside the project directory are never executed. Which approach fits the guidance on hooks?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A PreToolUse hook that inspects each Bash command and denies those that delete files outside the project, returning a reason to the agent.",
+          "correct": true,
+          "explain": "正解。実行前に呼び出しを検査して拒否する。理由を返せばエージェントは別の手段を考えられる。",
+          "textZh": "用 PreToolUse 钩子检查每条 Bash 命令，拒绝删除项目外文件的命令，并把原因返回给智能体。"
+        },
+        {
+          "text": "A PostToolUse hook that logs every deletion after it happens and alerts the security team, so the deletion can be reversed from backups afterward.",
+          "correct": false,
+          "explain": "不適。実行後では手遅れ。記録しても防げない。",
+          "textZh": "用 PostToolUse 钩子在每次删除发生后记录日志，并通知安全团队，这样事后可以从备份中恢复被删除的文件。"
+        },
+        {
+          "text": "A system prompt line asking Claude to be careful with rm.",
+          "correct": false,
+          "explain": "不適。「必ず」を保証できない。",
+          "textZh": "在系统提示词里加一句，提醒 Claude 谨慎使用 rm。"
+        },
+        {
+          "text": "Removing Bash and asking engineers to run every command themselves.",
+          "correct": false,
+          "explain": "不適。危険な一部の操作のために、必要な機能まで全部失う。",
+          "textZh": "去掉 Bash，让工程师自己运行每一条命令。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体可以运行 Bash。安全要求是：删除项目目录以外文件的命令绝不能被执行。哪种做法符合关于钩子的指引？",
+      "commentaryZh": "需要在执行前阻止的动作用 PreToolUse；需要在执行后加工结果的用 PostToolUse。安全规则属于必须确定性保证的范畴。"
+    },
+    {
+      "id": "ar1-036",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "When a PreToolUse hook blocks a $700 refund, what should happen next for the best customer outcome?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The hook returns a clear reason, and the workflow redirects to escalate_to_human with a structured summary so a manager can approve it.",
+          "correct": true,
+          "explain": "正解。ブロックして終わりではなく、代わりの流れ（人間の承認）につなげる。",
+          "textZh": "钩子返回清楚的原因，流程转向 escalate_to_human，并附上结构化摘要，方便经理审批。"
+        },
+        {
+          "text": "The hook silently drops the call, and the agent tells the customer the refund succeeded, to avoid upsetting them.",
+          "correct": false,
+          "explain": "不適。事実と異なる回答になる。最悪のパターン。",
+          "textZh": "钩子悄悄丢弃这次调用，智能体告诉客户退款成功了，以免惹客户不高兴。"
+        },
+        {
+          "text": "The agent retries process_refund with $499 without asking.",
+          "correct": false,
+          "explain": "不適。規則の抜け道を探しており、顧客の要求とも違う。",
+          "textZh": "智能体不经询问就用 499 美元重试 process_refund。"
+        },
+        {
+          "text": "The conversation ends with an error message.",
+          "correct": false,
+          "explain": "不適。顧客は何をすればよいか分からない。",
+          "textZh": "对话以一条错误消息结束。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "当 PreToolUse 钩子拦截了一笔 700 美元的退款后，接下来怎样做客户体验最好？",
+      "commentaryZh": "钩子不只是「拦截」，还要「重定向」到合适的替代流程（如人工升级），并让智能体知道原因，能如实告诉客户。"
+    },
+    {
+      "id": "ar1-037",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The document-analysis subagent times out while the search subagent succeeds. In a hub-and-spoke design, who should decide whether to retry, use partial results, or proceed without the analysis?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The coordinator, based on structured error information returned by the failing subagent.",
+          "correct": true,
+          "explain": "正解。エラー処理を一か所に集めるのがハブ構成の利点。判断材料として構造化されたエラー情報を受け取る。",
+          "textZh": "协调者，依据失败的子智能体返回的结构化错误信息来决定。"
+        },
+        {
+          "text": "The search subagent, because it finished first and already has a working connection.",
+          "correct": false,
+          "explain": "不適。他のサブエージェントの失敗を扱うのは役割外。",
+          "textZh": "搜索子智能体，因为它先完成，而且已有可用的连接。"
+        },
+        {
+          "text": "The end user, who must restart the system manually.",
+          "correct": false,
+          "explain": "不適。自動で回復できる判断を利用者に押しつけている。",
+          "textZh": "最终用户，必须手动重启系统。"
+        },
+        {
+          "text": "Nobody; the whole workflow should terminate on any failure.",
+          "correct": false,
+          "explain": "不適。1か所の失敗で全体を止めるのはアンチパターン。",
+          "textZh": "谁都不用决定；任何失败都应终止整个工作流。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "文档分析子智能体超时了，而搜索子智能体成功完成。在 hub-and-spoke 设计中，应由谁来决定是重试、使用部分结果，还是不带分析结果继续？",
+      "commentaryZh": "错误处理集中在协调者，是 hub-and-spoke 的好处之一。子智能体要返回结构化的错误上下文，协调者据此决定恢复策略。"
+    },
+    {
+      "id": "ar1-038",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "A research query is broad (\"compare battery technologies for grid storage\"). The coordinator's first plan sends one search subagent to \"find information about batteries.\" Which revision best follows the coordinator guidance?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Split the scope across several search subagents by technology (for example lithium-ion, flow, sodium-ion) or by source type, with clear boundaries and the criteria each result must meet.",
+          "correct": true,
+          "explain": "正解。範囲を重ならないように分け、各サブエージェントに求める成果の基準を示す。",
+          "textZh": "按技术类别（如锂离子、液流、钠离子）或来源类型把范围分给多个搜索子智能体，划清边界，并说明每份结果需满足的标准。"
+        },
+        {
+          "text": "Keep one subagent but tell it to \"be thorough.\"",
+          "correct": false,
+          "explain": "不適。「徹底的に」は検証できる条件ではなく、範囲の偏りも防げない。",
+          "textZh": "保留一个子智能体，但告诉它「要全面」。"
+        },
+        {
+          "text": "Send five subagents the same instruction to increase confidence, then keep only the sources that all five subagents agree on.",
+          "correct": false,
+          "explain": "不適。同じ範囲を重複して調べるだけ。",
+          "textZh": "给五个子智能体相同的指令，以提高可信度，再只保留五个子智能体都认同的来源。"
+        },
+        {
+          "text": "Skip search and go straight to synthesis from model knowledge.",
+          "correct": false,
+          "explain": "不適。引用付きの調査という目的に合わない。",
+          "textZh": "跳过搜索，直接用模型已有知识做综合。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个调研问题范围很广（「比较用于电网储能的各种电池技术」）。协调者的初始计划是派一个搜索子智能体去「查找电池相关信息」。哪个修改最符合对协调者的指引？",
+      "commentaryZh": "广泛主题的分解：按子主题或来源类型划分，彼此不重叠，并给出质量标准。「要全面」「多派几个做同样的事」都不是有效分解。"
+    },
+    {
+      "id": "ar1-039",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which statement best describes the coordinator's responsibilities in a coordinator-subagent system?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Decomposing the task, delegating to subagents, aggregating their results, and routing information and errors between them.",
+          "correct": true,
+          "explain": "正解。分解・委任・集約・情報とエラーの中継がコーディネーターの役割。",
+          "textZh": "分解任务、委派给子智能体、汇总结果，并在它们之间路由信息与错误。"
+        },
+        {
+          "text": "Performing every search and analysis itself, so that results are consistent and nothing is lost in handoffs between agents.",
+          "correct": false,
+          "explain": "不適。それでは分担の意味がなく、文脈も肥大化する。",
+          "textZh": "自己完成所有搜索和分析，这样结果一致，也不会在交接中丢失信息（尤其是在智能体之间）。"
+        },
+        {
+          "text": "Only formatting the final report.",
+          "correct": false,
+          "explain": "不適。それは報告担当の一部の仕事にすぎない。",
+          "textZh": "只负责格式化最终报告。"
+        },
+        {
+          "text": "Running subagents in a fixed order regardless of the query.",
+          "correct": false,
+          "explain": "不適。問いに応じた選択が求められる。",
+          "textZh": "不管查询是什么，都按固定顺序运行子智能体。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪种说法最能描述协调者—子智能体系统中协调者的职责？",
+      "commentaryZh": "协调者 = 分解 + 委派 + 汇总 + 路由。它不亲自做所有细活，也不机械地跑固定流水线。"
+    },
+    {
+      "id": "ar1-040",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO are risks the coordinator must actively manage in a multi-agent research system? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Decomposing a broad topic too narrowly, which leaves parts of the topic uncovered.",
+          "correct": true,
+          "explain": "正解。分解の狭さは網羅性の欠落に直結する。",
+          "textZh": "把宽泛主题分解得过窄，导致部分内容没有覆盖。"
+        },
+        {
+          "text": "Assigning overlapping scopes, which makes subagents duplicate each other's work.",
+          "correct": true,
+          "explain": "正解。範囲の重なりは時間とコストの無駄。",
+          "textZh": "分配的范围相互重叠，导致子智能体重复劳动。"
+        },
+        {
+          "text": "Subagents automatically overwriting the coordinator's history.",
+          "correct": false,
+          "explain": "不適。サブエージェントは親の履歴を書き換えない。文脈は分離されている。",
+          "textZh": "子智能体自动覆盖协调者的历史。"
+        },
+        {
+          "text": "The Messages API refusing more than two subagents.",
+          "correct": false,
+          "explain": "不適。そのような制限はない。",
+          "textZh": "Messages API 拒绝超过两个子智能体。"
+        },
+        {
+          "text": "Subagents being unable to return text.",
+          "correct": false,
+          "explain": "不適。結果を返すのが通常の動作。",
+          "textZh": "子智能体无法返回文本。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在多智能体调研系统中，下列哪两项是协调者必须主动管理的风险？（选 2 项）",
+      "commentaryZh": "协调者分解任务时有两个方向的风险：过窄（覆盖不全）和重叠（重复劳动）。好的分解是互不重叠且合起来覆盖完整。"
+    },
+    {
+      "id": "ar1-041",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The report-writing subagent produces a report that cites \"Source 3\" but has no way to know what Source 3 is. What went wrong in context passing?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The coordinator passed the synthesized text without the source metadata; it should pass structured findings with URLs, titles, and dates attached to each claim.",
+          "correct": true,
+          "explain": "正解。サブエージェントは渡されたものしか知らない。出典情報も構造化して一緒に渡す。",
+          "textZh": "协调者只传了综合后的文本，没传来源元数据；应该传递结构化的发现，并把 URL、标题、日期附在每个论断上。"
+        },
+        {
+          "text": "The report subagent should have read the search subagent's memory, which holds the source list for every finding in the session, shared across all agents in the system.",
+          "correct": false,
+          "explain": "不適。サブエージェント同士で記憶は共有されない。",
+          "textZh": "报告子智能体本应读取搜索子智能体的记忆，那里保存着本会话中每条发现的来源列表，并在系统中所有智能体之间共享。"
+        },
+        {
+          "text": "The report subagent needs a larger max_tokens value.",
+          "correct": false,
+          "explain": "不適。出力の長さではなく、入力に情報が無いのが原因。",
+          "textZh": "报告子智能体需要更大的 max_tokens。"
+        },
+        {
+          "text": "Citations are not possible in multi-agent systems.",
+          "correct": false,
+          "explain": "不適。メタデータを渡せば引用は保てる。",
+          "textZh": "多智能体系统中不可能做引用。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "报告撰写子智能体写的报告里引用了「来源 3」，但它根本不知道来源 3 是什么。上下文传递哪里出了问题？",
+      "commentaryZh": "子智能体只知道提示词里给它的内容。要保留出处，就要以结构化形式把内容与来源元数据一起传下去。"
+    },
+    {
+      "id": "ar1-042",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "The team wants to try two different synthesis strategies — a chronological narrative and a thematic comparison — on the same set of findings, without re-running the searches. What fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Fork the session after the findings are collected, and run each synthesis strategy in its own branch.",
+          "correct": true,
+          "explain": "正解。共通の土台から分岐させれば、検索をやり直さずに別のアプローチを比較できる。",
+          "textZh": "在收集完发现之后分叉会话，让两种综合策略各自在独立分支里运行。"
+        },
+        {
+          "text": "Run both strategies in one session, asking for the second after the first, which keeps everything in one place.",
+          "correct": false,
+          "explain": "不適。一つ目の結果が二つ目の判断に影響する。",
+          "textZh": "在一个会话里先跑第一种，再要求第二种，让所有内容都在一处。"
+        },
+        {
+          "text": "Delete the first session's results before trying the second strategy.",
+          "correct": false,
+          "explain": "不適。比較したい片方の結果を自分で消してしまい、比べられなくなる。",
+          "textZh": "尝试第二种策略之前，先删除第一个会话的结果。"
+        },
+        {
+          "text": "Re-run all searches for each strategy to keep them independent.",
+          "correct": false,
+          "explain": "不適。同じ調査を繰り返す無駄。",
+          "textZh": "为保持独立，每种策略都重新跑一遍全部搜索。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队想在同一组调研发现上尝试两种综合策略——按时间顺序叙述与按主题对比——而且不想重新搜索。哪种做法最合适？",
+      "commentaryZh": "「从共享的分析基线出发、探索不同方向」正是 fork 的用途。原会话不受影响，两条分支互不干扰。"
+    },
+    {
+      "id": "ar1-043",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "The productivity agent spawns a subagent to \"find where the payment webhook is validated,\" but the subagent wastes time because it doesn't know the engineer already ruled out the api/ directory. What is the fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Include the relevant facts already established — such as the excluded directory and any known file paths — directly in the subagent's prompt.",
+          "correct": true,
+          "explain": "正解。サブエージェントは親の会話を見られない。分かっていることはプロンプトで渡す。",
+          "textZh": "把已经确认的相关事实——例如已排除的目录、已知的文件路径——直接写进子智能体的提示词。"
+        },
+        {
+          "text": "Nothing; subagents automatically see the parent conversation.",
+          "correct": false,
+          "explain": "不適。文脈は自動では継承されない。",
+          "textZh": "不用改；子智能体会自动看到父级对话。"
+        },
+        {
+          "text": "Tell the subagent to ask the engineer directly.",
+          "correct": false,
+          "explain": "不適。既に分かっている情報を渡せば済む。",
+          "textZh": "让子智能体直接去问工程师。"
+        },
+        {
+          "text": "Run the search in the main agent instead of using subagents at all, so the engineer's notes are visible to it, since the main agent already has the full history.",
+          "correct": false,
+          "explain": "不適。冗長な探索出力をメインの文脈から隔離する利点を失う。",
+          "textZh": "干脆不用子智能体，在主智能体里搜索，这样工程师的说明对它可见，因为主智能体已经拥有完整的历史。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "效率智能体启动了一个子智能体去「找出支付 webhook 在哪里做校验」，但子智能体浪费了很多时间，因为它不知道工程师已经排除了 api/ 目录。应如何修正？",
+      "commentaryZh": "父级传给子智能体的唯一内容就是提示词。已知的文件路径、排除项、决定等，都要明确写进去。"
+    },
+    {
+      "id": "ar1-044",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which statement about passing context to subagents in the Agent SDK is correct?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whatever the subagent needs must be included in the prompt it receives; it does not share memory with other invocations.",
+          "correct": true,
+          "explain": "正解。サブエージェントへの入力は渡したプロンプトだけ。",
+          "textZh": "子智能体需要的一切都必须包含在它收到的提示词中；它不会与其他调用共享记忆。"
+        },
+        {
+          "text": "Subagents read the parent's full history unless explicitly blocked by a setting in the AgentDefinition.",
+          "correct": false,
+          "explain": "不適。逆。明示的に渡さない限り見えない。",
+          "textZh": "除非明确禁止，子智能体会读取父级的完整历史（通过 AgentDefinition 中的设置）。"
+        },
+        {
+          "text": "Each subagent remembers everything from its previous invocations.",
+          "correct": false,
+          "explain": "不適。呼び出しごとに新しい文脈から始まる。",
+          "textZh": "每个子智能体都记得之前每次调用的全部内容。"
+        },
+        {
+          "text": "Context can only be passed through environment variables.",
+          "correct": false,
+          "explain": "不適。プロンプトで渡すのが基本。",
+          "textZh": "上下文只能通过环境变量传递。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于在 Agent SDK 中向子智能体传递上下文，下列哪种说法正确？",
+      "commentaryZh": "子智能体的上下文是全新的，只包含你给它的提示词（加上它自己的系统提示词等配置）。这是 1.3 的基础知识。"
+    },
+    {
+      "id": "ar1-045",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO practices improve how a coordinator spawns and briefs subagents? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Emitting several subagent calls in one response when their tasks are independent.",
+          "correct": true,
+          "explain": "正解。独立した作業は並列に起動して待ち時間を減らす。",
+          "textZh": "任务相互独立时，在一个响应中发出多个子智能体调用。"
+        },
+        {
+          "text": "Describing the goal and what a good result looks like, rather than prescribing every step.",
+          "correct": true,
+          "explain": "正解。目的と品質基準を伝えると、サブエージェントが状況に合わせて動ける。",
+          "textZh": "描述目标以及好的结果是什么样，而不是规定每一个步骤。"
+        },
+        {
+          "text": "Spawning each subagent in a separate coordinator turn to keep things simple.",
+          "correct": false,
+          "explain": "不適。独立した作業まで直列になり遅くなる。",
+          "textZh": "为简单起见，每个子智能体都在单独的协调者回合中启动。"
+        },
+        {
+          "text": "Relying on subagents to recall earlier findings without passing them.",
+          "correct": false,
+          "explain": "不適。サブエージェントは過去の発見を知らない。",
+          "textZh": "不传递之前的发现，指望子智能体自己想起来。"
+        },
+        {
+          "text": "Giving all subagents every available tool so they never get stuck.",
+          "correct": false,
+          "explain": "不適。役割外のツールは選択の精度を下げ、誤用を招く。",
+          "textZh": "把所有可用工具都给每个子智能体，免得卡住。"
+        }
+      ],
+      "objective": "Configure subagent invocation, context passing, and spawning",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项做法能改进协调者启动和交代子智能体的方式？（选 2 项）",
+      "commentaryZh": "好的委派 = 并行启动独立任务 + 用目标与质量标准而非步骤清单来交代。其他三项分别违反了并行、上下文传递和工具分配的原则。"
+    },
+    {
+      "id": "ar1-046",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 1,
+      "stem": "Which situation most clearly requires deterministic, code-level enforcement instead of relying on Claude to follow the system prompt?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Verifying a customer's identity before any refund or account change is executed.",
+          "correct": true,
+          "explain": "正解。金銭・アカウントに関わる前提条件は、例外なく守らせる必要がある。",
+          "textZh": "在执行任何退款或账户变更之前，验证客户身份。"
+        },
+        {
+          "text": "Using the customer's first name in greetings and signing off politely.",
+          "correct": false,
+          "explain": "不適。守られなくても重大な問題にはならない。プロンプトで十分。",
+          "textZh": "问候时使用客户的名字，并礼貌地结束对话。"
+        },
+        {
+          "text": "Keeping replies under about 150 words.",
+          "correct": false,
+          "explain": "不適。文体の指示であり、確率的な遵守で許容できる。",
+          "textZh": "回复控制在 150 词左右。"
+        },
+        {
+          "text": "Suggesting related help articles.",
+          "correct": false,
+          "explain": "不適。判断に任せてよい補助的な動作。",
+          "textZh": "推荐相关的帮助文章。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪种情况最明确地需要在代码层面做确定性强制，而不是依赖 Claude 遵守系统提示词？",
+      "commentaryZh": "判断标准：违反后果严重、需要 100% 遵守（身份验证、金额上限、合规）→ 程序化强制。风格、措辞类 → 提示词即可。"
+    },
+    {
+      "id": "ar1-047",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "A refund flow should go: get_customer → lookup_order → process_refund. In logs, Claude occasionally calls lookup_order with an order ID the customer typed before get_customer confirms the account owns that order. What is the strongest fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Enforce the ordering in code: gate lookup_order and process_refund on a verified customer ID, and check that the order belongs to that customer.",
+          "correct": true,
+          "explain": "正解。順序と所有確認は機械的に保証する。他人の注文を参照する事故を防げる。",
+          "textZh": "在代码中强制顺序：以已验证的客户 ID 作为 lookup_order 和 process_refund 的前置条件，并检查订单是否属于该客户。"
+        },
+        {
+          "text": "Add \"please follow the order strictly\" to the prompt.",
+          "correct": false,
+          "explain": "不適。確率的な改善にとどまる。",
+          "textZh": "在提示词里加上「请严格按顺序执行」。"
+        },
+        {
+          "text": "Remove lookup_order so the agent cannot look up orders.",
+          "correct": false,
+          "explain": "不適。必要な機能まで失う。",
+          "textZh": "去掉 lookup_order，让智能体查不了订单。"
+        },
+        {
+          "text": "Ask customers to always provide their account email first, before mentioning any order number, and refuse to look up orders until they comply with that order.",
+          "correct": false,
+          "explain": "不適。顧客の行動に頼っており、エージェント側の順序は保証されない。",
+          "textZh": "要求客户在提到任何订单号之前，总是先提供账户邮箱，在客户照做之前拒绝查询订单。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "退款流程应为：get_customer → lookup_order → process_refund。日志显示，Claude 偶尔会在 get_customer 确认账户拥有该订单之前，就用客户输入的订单号调用 lookup_order。最有力的修正是什么？",
+      "commentaryZh": "工作流顺序和数据归属检查属于「必须保证」的规则，应以程序化前置条件实现。提示词只能提高概率。"
+    },
+    {
+      "id": "ar1-048",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "The agent decides to escalate a disputed charge. Which handoff summary is most useful to a human agent who has no access to the transcript?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Customer C-4471 (verified). Charged $89.00 twice on 3 May for order 5521; second charge appears to be a gateway retry. Customer requests reversal of the duplicate. Recommended: reverse $89.00 and confirm by email.\"",
+          "correct": true,
+          "explain": "正解。顧客 ID・金額・日付・推定原因・顧客の要望・推奨対応がそろっており、そのまま判断できる。",
+          "textZh": "「客户 C-4471（已验证）。5 月 3 日订单 5521 被扣款两次，每次 89.00 美元；第二笔疑似支付网关重试所致。客户要求撤销重复扣款。建议：撤回 89.00 美元并邮件确认。」"
+        },
+        {
+          "text": "\"Customer is upset about billing. Please help.\" The human agent can then open the transcript to find the details they need.",
+          "correct": false,
+          "explain": "不適。何を確認すればよいか分からない。",
+          "textZh": "「客户对账单不满，请协助。」人工客服之后可以打开对话记录，找到所需细节。"
+        },
+        {
+          "text": "\"See attached JSON from all 14 tool calls.\"",
+          "correct": false,
+          "explain": "不適。要点の抽出を人間に押しつけている。",
+          "textZh": "「见附件中全部 14 次工具调用的 JSON。」"
+        },
+        {
+          "text": "\"Possible fraud. Customer may be lying.\"",
+          "correct": false,
+          "explain": "不適。根拠のない推測で、判断材料にならない。",
+          "textZh": "「可能有欺诈。客户可能在撒谎。」"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体决定把一笔有争议的扣款转人工。对于看不到对话记录的人工客服，哪份交接摘要最有用？",
+      "commentaryZh": "结构化交接要包含：客户 ID、金额与日期等事实、根因分析、客户诉求、建议动作。让接手的人不需要回看对话就能处理。"
+    },
+    {
+      "id": "ar1-049",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "Why is a structured handoff summary preferred over forwarding the full transcript when the agent escalates mid-process?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The human may not have the transcript at all, and even when they do, a summary of key facts, root cause, and recommended action lets them act immediately.",
+          "correct": true,
+          "explain": "正解。必要な事実と提案をまとめることで、引き継いだ人がすぐ動ける。",
+          "textZh": "人工客服可能根本拿不到记录；即使拿得到，包含关键事实、根因和建议行动的摘要也能让他们立刻处理。"
+        },
+        {
+          "text": "Transcripts are always too large to store.",
+          "correct": false,
+          "explain": "不適。保存の問題ではなく、引き継ぎの効率の問題。",
+          "textZh": "对话记录总是太大，无法保存。"
+        },
+        {
+          "text": "Summaries are required by the Messages API.",
+          "correct": false,
+          "explain": "不適。API の要件ではない。",
+          "textZh": "Messages API 要求必须使用摘要。"
+        },
+        {
+          "text": "Humans are not allowed to read AI conversations under most data-protection policies, so the transcript cannot be forwarded, and a summary would violate the same policy.",
+          "correct": false,
+          "explain": "不適。そのような一般的な規則はない。",
+          "textZh": "在大多数数据保护政策下，人工不允许阅读 AI 对话，所以记录无法转发，摘要同样会违反该政策。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "智能体在流程中途转人工时，为什么更推荐结构化交接摘要，而不是直接转发完整对话记录？",
+      "commentaryZh": "交接摘要的价值在于「对方能直接行动」。考试题干常写明「人工客服看不到对话记录」，正解就是结构化摘要。"
+    },
+    {
+      "id": "ar1-050",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "What is the key difference between programmatic enforcement and prompt-based guidance for workflow ordering?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Programmatic enforcement (hooks, prerequisite gates) guarantees the order is followed; prompt guidance only makes the desired order more likely.",
+          "correct": true,
+          "explain": "正解。決定的か確率的か、が本質的な違い。",
+          "textZh": "程序化强制（钩子、前置闸门）能保证顺序被遵守；提示词引导只能让期望的顺序更可能发生。"
+        },
+        {
+          "text": "Prompt guidance is always more reliable because the model understands intent, while hooks only add maintenance cost.",
+          "correct": false,
+          "explain": "不適。理解していても一定の確率で外れる。",
+          "textZh": "提示词引导总是更可靠，因为模型理解意图，而钩子只会增加维护成本。"
+        },
+        {
+          "text": "Programmatic enforcement only works in batch mode.",
+          "correct": false,
+          "explain": "不適。対話型のエージェントで使うのが主な用途。",
+          "textZh": "程序化强制只能在批处理模式下使用。"
+        },
+        {
+          "text": "There is no difference if the prompt is long enough.",
+          "correct": false,
+          "explain": "不適。長さは保証の有無を変えない。",
+          "textZh": "只要提示词足够长，两者没有区别。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在工作流顺序控制上，程序化强制与提示词引导的关键区别是什么？",
+      "commentaryZh": "「确定性 vs 概率性」是 1.4 和 1.5 共同的核心概念。考试中凡是要求「保证」「绝不」的，都指向程序化强制。"
+    },
+    {
+      "id": "ar1-051",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO elements should a mid-process escalation handoff include so the receiving human can act without re-investigating? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The root cause the agent identified, with the supporting facts (IDs, amounts, dates).",
+          "correct": true,
+          "explain": "正解。原因と根拠となる事実があれば、人間は検証して判断できる。",
+          "textZh": "智能体判断出的根本原因，以及支撑它的事实（ID、金额、日期）。"
+        },
+        {
+          "text": "A recommended next action.",
+          "correct": true,
+          "explain": "正解。推奨対応があれば、承認するか修正するかを決めるだけで済む。",
+          "textZh": "建议的下一步行动。"
+        },
+        {
+          "text": "The agent's internal confidence score for each sentence.",
+          "correct": false,
+          "explain": "不適。自己申告の確信度は判断材料として当てにならない。",
+          "textZh": "智能体对每句话的内部置信度分数。"
+        },
+        {
+          "text": "A request for the customer to repeat their story.",
+          "correct": false,
+          "explain": "不適。引き継ぎの目的に反する。",
+          "textZh": "请客户把情况再讲一遍的请求。"
+        },
+        {
+          "text": "Every raw tool response in full.",
+          "correct": false,
+          "explain": "不適。量が多く要点が埋もれる。",
+          "textZh": "所有原始工具响应的完整内容。"
+        }
+      ],
+      "objective": "Implement multi-step workflows with enforcement and handoff patterns",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "流程中途转人工时，交接内容应包含下列哪两项，才能让接手的人无需重新调查就能处理？（选 2 项）",
+      "commentaryZh": "有效交接 = 事实 + 根因 + 建议行动。自报置信度、原始数据堆砌、让客户重复，都不能帮助接手者行动。"
+    },
+    {
+      "id": "ar1-052",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "Which statement correctly contrasts PreToolUse and PostToolUse hooks in the support agent?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "PreToolUse can inspect and block a tool call before it runs; PostToolUse can transform a tool's result before Claude processes it.",
+          "correct": true,
+          "explain": "正解。実行前の検査・拒否と、実行後の結果の加工という分担。",
+          "textZh": "PreToolUse 可以在工具运行前检查并拦截调用；PostToolUse 可以在 Claude 处理前转换工具结果。"
+        },
+        {
+          "text": "PreToolUse runs after the tool and can only log results.",
+          "correct": false,
+          "explain": "不適。名前のとおり実行前に動く。",
+          "textZh": "PreToolUse 在工具运行之后执行，只能记录结果。"
+        },
+        {
+          "text": "PostToolUse can prevent a refund from being processed by returning an error before the payment provider is called, and report it to the agent.",
+          "correct": false,
+          "explain": "不適。実行後では返金は既に行われている。",
+          "textZh": "PostToolUse 可以在调用支付服务之前返回错误，从而阻止退款被执行，并把错误返回给智能体。"
+        },
+        {
+          "text": "Both hooks can only modify the system prompt.",
+          "correct": false,
+          "explain": "不適。ツール呼び出しと結果に介入するためのもの。",
+          "textZh": "两种钩子都只能修改系统提示词。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于客服智能体中的 PreToolUse 和 PostToolUse 钩子，下列哪种对比是正确的？",
+      "commentaryZh": "记住：Pre = 执行前（检查、拦截、改写参数）；Post = 执行后（加工结果、补充上下文）。阻止危险操作必须用 Pre。"
+    },
+    {
+      "id": "ar1-053",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 3,
+      "stem": "lookup_order returns 40+ fields per order, but only five matter for returns. The extra fields fill the context and sometimes distract Claude. Which hook-based approach fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A PostToolUse hook that trims the result to the return-relevant fields before Claude sees it.",
+          "correct": true,
+          "explain": "正解。結果がモデルに届く前に必要な項目だけ残す。文脈の節約と判断の安定の両方に効く。",
+          "textZh": "用 PostToolUse 钩子，在 Claude 看到之前把结果裁剪为与退货相关的字段。"
+        },
+        {
+          "text": "A PreToolUse hook that blocks lookup_order entirely.",
+          "correct": false,
+          "explain": "不適。必要な情報まで得られなくなる。",
+          "textZh": "用 PreToolUse 钩子完全拦截 lookup_order。"
+        },
+        {
+          "text": "Asking Claude to ignore irrelevant fields in the system prompt and to focus on return data.",
+          "correct": false,
+          "explain": "不適。不要な項目は文脈に入ったままで、トークンも消費する。",
+          "textZh": "在系统提示词中让 Claude 忽略无关字段，并专注于退货数据。"
+        },
+        {
+          "text": "Calling lookup_order five times, once per field.",
+          "correct": false,
+          "explain": "不適。呼び出しが増えるだけで、余分な項目は毎回返ってくる。",
+          "textZh": "调用 lookup_order 五次，每次取一个字段。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "lookup_order 每个订单返回 40 多个字段，但与退货相关的只有 5 个。多余的字段占满上下文，有时还会分散 Claude 的注意力。哪种基于钩子的做法最合适？",
+      "commentaryZh": "冗长工具输出的裁剪既是 1.5（PostToolUse 加工结果）也是 5.1（上下文管理）的考点。在结果进入上下文之前处理最有效。"
+    },
+    {
+      "id": "ar1-054",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "The team argues: \"We wrote 'never refund over $500' in the prompt and it worked in 200 test conversations, so hooks are unnecessary.\" What is the best response?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Passing tests shows the rule is usually followed, not that it always will be; a business rule that must hold every time still needs hook-based enforcement.",
+          "correct": true,
+          "explain": "正解。プロンプトの遵守率はゼロにならない失敗率を持つ。保証が必要なら決定的な仕組みを使う。",
+          "textZh": "测试通过说明规则通常会被遵守，而不是永远会被遵守；必须每次都成立的业务规则仍需用钩子强制。"
+        },
+        {
+          "text": "Agree; 200 passing tests prove the prompt is deterministic.",
+          "correct": false,
+          "explain": "不適。テストの合格は確率的な挙動の「保証」にはならない。",
+          "textZh": "同意；200 次测试通过证明提示词是确定性的。"
+        },
+        {
+          "text": "Run 2,000 more tests, and skip hooks if they all pass, since that sample is large enough to rule out failures and to prove the prompt is effectively deterministic.",
+          "correct": false,
+          "explain": "不適。件数を増やしても保証にはならない。",
+          "textZh": "再跑 2000 次测试，如果全部通过就不用钩子，因为这样的样本量足以排除失败，并证明提示词实际上是确定性的。"
+        },
+        {
+          "text": "Remove the refund tool to be safe.",
+          "correct": false,
+          "explain": "不適。正当な返金までできなくなる。",
+          "textZh": "为保险起见，去掉退款工具。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队主张：「我们在提示词里写了『退款绝不超过 500 美元』，在 200 次测试对话中都有效，所以不需要钩子。」最好的回应是什么？",
+      "commentaryZh": "测试只能估计遵守率，不能把概率变成保证。考试中「必须保证」= 钩子/程序化控制。"
+    },
+    {
+      "id": "ar1-055",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "Different MCP servers connected to the productivity agent report file sizes in bytes, kilobytes, and human-readable strings (\"2.3 MB\"). Claude occasionally compares them incorrectly. What is the most reliable fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Normalize all size values to one unit in a PostToolUse hook before Claude sees them.",
+          "correct": true,
+          "explain": "正解。異なる形式は機械的にそろえてから渡す。モデルに換算させない。",
+          "textZh": "在 PostToolUse 钩子中把所有大小统一成同一单位，再交给 Claude。"
+        },
+        {
+          "text": "Ask Claude to be careful when comparing sizes.",
+          "correct": false,
+          "explain": "不適。注意喚起では換算の誤りはなくならない。",
+          "textZh": "提醒 Claude 比较大小时要小心。"
+        },
+        {
+          "text": "Disconnect all but one MCP server.",
+          "correct": false,
+          "explain": "不適。必要な機能を失う。",
+          "textZh": "只保留一个 MCP 服务器，其余全部断开。"
+        },
+        {
+          "text": "Increase max_tokens so Claude can reason longer before deciding whether to delete.",
+          "correct": false,
+          "explain": "不適。形式の不一致という根本原因は残る。",
+          "textZh": "增大 max_tokens，让 Claude 推理得更久，再决定是否删除。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "连接到效率智能体的不同 MCP 服务器分别用字节、KB 和可读字符串（「2.3 MB」）报告文件大小。Claude 偶尔会比较错。最可靠的修正是什么？",
+      "commentaryZh": "异构数据格式的规范化应该在 PostToolUse 钩子中确定性地完成。这类「让模型自己换算」的做法容易出错。"
+    },
+    {
+      "id": "ar1-056",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "When should a team choose hooks over prompt instructions for enforcing a rule?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When the business rule requires guaranteed compliance, such as financial limits or security restrictions.",
+          "correct": true,
+          "explain": "正解。保証が必要な規則は決定的な仕組みで守らせる。",
+          "textZh": "当业务规则要求保证遵守时，例如金额上限或安全限制。"
+        },
+        {
+          "text": "When the rule concerns writing style.",
+          "correct": false,
+          "explain": "不適。文体は確率的な遵守で十分。",
+          "textZh": "当规则涉及写作风格时。"
+        },
+        {
+          "text": "Whenever the system prompt is longer than one page and rules might be overlooked by the model in later turns.",
+          "correct": false,
+          "explain": "不適。長さは選択の基準ではない。",
+          "textZh": "只要系统提示词超过一页、规则可能被忽视时就用钩子（尤其是在后续回合中）。"
+        },
+        {
+          "text": "Only when the model is small.",
+          "correct": false,
+          "explain": "不適。モデルの大きさに関係なく、保証が必要かどうかで決まる。",
+          "textZh": "只有在模型较小时才用。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队在什么情况下应该选择钩子而不是提示词来执行一条规则？",
+      "commentaryZh": "选钩子的唯一标准是「是否需要保证遵守」。这一判断在考试里会以各种场景反复出现。"
+    },
+    {
+      "id": "ar1-057",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO are good uses of Agent SDK hooks? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Converting Unix timestamps and ISO 8601 strings from different tools into one format before Claude reads them.",
+          "correct": true,
+          "explain": "正解。PostToolUse によるデータ正規化の典型例。",
+          "textZh": "在 Claude 读取之前，把不同工具返回的 Unix 时间戳和 ISO 8601 字符串转换成同一种格式。"
+        },
+        {
+          "text": "Denying a tool call that violates policy and returning the reason so the agent can take an alternative path.",
+          "correct": true,
+          "explain": "正解。PreToolUse による規則違反のブロックとリダイレクト。",
+          "textZh": "拒绝违反政策的工具调用，并返回原因，让智能体走替代路径。"
+        },
+        {
+          "text": "Making Claude's replies sound friendlier.",
+          "correct": false,
+          "explain": "不適。口調はプロンプトの領域。",
+          "textZh": "让 Claude 的回复听起来更友好。"
+        },
+        {
+          "text": "Replacing the system prompt with a longer one at every turn.",
+          "correct": false,
+          "explain": "不適。フックの目的ではなく、文脈を無駄に消費する。",
+          "textZh": "每个回合都把系统提示词换成更长的版本。"
+        },
+        {
+          "text": "Guessing which customer the user meant when there are multiple matches.",
+          "correct": false,
+          "explain": "不適。複数一致は追加の識別情報を求めるべきで、推測してはいけない。",
+          "textZh": "匹配到多个客户时，猜测用户指的是哪一个。"
+        }
+      ],
+      "objective": "Apply Agent SDK hooks for tool call interception and data normalization",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两项是 Agent SDK 钩子的恰当用法？（选 2 项）",
+      "commentaryZh": "钩子的两大用途：PostToolUse 规范化数据；PreToolUse 拦截违规调用并重定向。风格、推测类问题不属于钩子的职责。"
+    },
+    {
+      "id": "ar1-058",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The research system must produce a weekly competitor digest with the same four sections every time (pricing, product launches, hiring, press). Which decomposition pattern fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A fixed sequential pipeline (prompt chaining), because the steps are predictable and the same every time.",
+          "correct": true,
+          "explain": "正解。毎回同じ構成で予測可能な作業は、決まった手順の連鎖が向いている。",
+          "textZh": "固定的顺序流水线（提示词链），因为步骤可预测且每次相同。"
+        },
+        {
+          "text": "Fully dynamic decomposition that invents new subtasks each week based on what was found last time.",
+          "correct": false,
+          "explain": "不適。構成が決まっているのに毎回計画し直すのは無駄で、出力も不安定になる。",
+          "textZh": "完全动态的分解，每周根据上次的发现重新发明子任务。"
+        },
+        {
+          "text": "A single prompt asking for \"everything about competitors.\"",
+          "correct": false,
+          "explain": "不適。範囲が曖昧で、四つのセクションがそろう保証がない。",
+          "textZh": "用一个提示词要求「关于竞争对手的一切」。"
+        },
+        {
+          "text": "No decomposition; let the report subagent search the web itself.",
+          "correct": false,
+          "explain": "不適。役割外のツール使用になり、構成も安定しない。",
+          "textZh": "不做分解，让报告子智能体自己上网搜索。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研系统每周都要生成一份竞品简报，每次都包含相同的四个部分（定价、产品发布、招聘、媒体报道）。哪种分解模式最合适？",
+      "commentaryZh": "可预测、结构固定的任务 → 提示词链（固定流水线）；开放式、需要根据中间发现调整的任务 → 动态分解。这是 1.6 的核心判断。"
+    },
+    {
+      "id": "ar1-059",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "A user asks, \"Why did our product's market share drop last quarter?\" The cause is unknown in advance. Which decomposition approach is most appropriate?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Dynamic, adaptive decomposition: start with broad investigation and generate the next subtasks based on what each step uncovers.",
+          "correct": true,
+          "explain": "正解。原因が分からない調査では、途中の発見に合わせて次の作業を決める。",
+          "textZh": "动态、自适应的分解：先做较宽的调查，再根据每一步的发现生成下一批子任务。"
+        },
+        {
+          "text": "A fixed pipeline of the same four steps used for the weekly digest, because reusing a proven pipeline keeps results comparable.",
+          "correct": false,
+          "explain": "不適。決まった枠では、想定外の原因を見落とす。",
+          "textZh": "沿用每周简报的四步固定流水线，因为沿用经过验证的流水线能让结果具有可比性。"
+        },
+        {
+          "text": "Ask the synthesis subagent to answer without any research.",
+          "correct": false,
+          "explain": "不適。根拠のない推測になる。",
+          "textZh": "让综合子智能体不做调研直接回答。"
+        },
+        {
+          "text": "Split the question into 50 parallel searches decided up front.",
+          "correct": false,
+          "explain": "不適。原因が分からない段階で決め打ちの大量検索をしても焦点が定まらない。",
+          "textZh": "事先决定把问题拆成 50 个并行搜索。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "用户问：「我们产品上季度的市场份额为什么下降了？」原因事先并不清楚。哪种分解方式最合适？",
+      "commentaryZh": "开放式调查（原因未知）适合动态分解：每一步的发现决定下一步做什么。固定流水线适合可预测的任务。"
+    },
+    {
+      "id": "ar1-060",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "An engineer asks the productivity agent to \"add comprehensive tests to this legacy codebase.\" What is the best first move?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Map the codebase structure, identify high-impact and high-risk areas, then build a prioritized plan that is updated as dependencies are discovered.",
+          "correct": true,
+          "explain": "正解。開放的な大仕事は、まず全体を把握し、優先度付きの計画を作り、発見に応じて更新する。",
+          "textZh": "先摸清代码库结构，找出影响大、风险高的部分，再制定按优先级排序的计划，并在发现依赖关系时随时调整。"
+        },
+        {
+          "text": "Start writing tests for the first file alphabetically and continue in order, so that coverage grows steadily and nothing is skipped.",
+          "correct": false,
+          "explain": "不適。重要度と無関係な順番で、価値の低いテストに時間を使う。",
+          "textZh": "从按字母排序的第一个文件开始写测试并依次往下，让覆盖率稳步增长、不漏掉任何文件。"
+        },
+        {
+          "text": "Generate one large test file covering every function at once.",
+          "correct": false,
+          "explain": "不適。依存関係や重要度を無視し、品質も確認しにくい。",
+          "textZh": "一次性生成一个覆盖所有函数的大测试文件。"
+        },
+        {
+          "text": "Refuse because the task is too vague.",
+          "correct": false,
+          "explain": "不適。分解すれば進められる。",
+          "textZh": "因为任务太模糊而拒绝。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "工程师让效率智能体「给这个遗留代码库补上完整的测试」。最好的第一步是什么？",
+      "commentaryZh": "开放式大任务的分解顺序：先建立结构认识 → 找高影响区域 → 生成优先级计划 → 随发现调整。这是考试指南中的原例类型。"
+    },
+    {
+      "id": "ar1-061",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "A pull request touches 25 files. When the agent reviews all of them in one pass, it gives detailed comments on some files, shallow comments on others, and contradicts itself about a shared interface. Which decomposition fixes this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Review each file in its own focused pass for local issues, then run a separate cross-file integration pass for interfaces and data flow.",
+          "correct": true,
+          "explain": "正解。ファイルごとの局所レビューとファイル横断の統合レビューに分けると、注意の分散と矛盾を防げる。",
+          "textZh": "每个文件单独做一次聚焦审查以发现局部问题，再单独做一次跨文件的集成审查，检查接口和数据流。"
+        },
+        {
+          "text": "Increase max_tokens so the single pass can write more, and ask it to give every file equal space.",
+          "correct": false,
+          "explain": "不適。出力量の問題ではなく、注意の分散の問題。",
+          "textZh": "增大 max_tokens，让单次审查能写更多，并要求它给每个文件同样的篇幅。"
+        },
+        {
+          "text": "Review only the five largest files.",
+          "correct": false,
+          "explain": "不適。小さな変更に重大な問題があることもある。",
+          "textZh": "只审查最大的五个文件。"
+        },
+        {
+          "text": "Ask the model to \"pay equal attention to every file.\"",
+          "correct": false,
+          "explain": "不適。指示だけでは注意の希釈は解消しない。",
+          "textZh": "要求模型「对每个文件给予同等注意」。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个拉取请求改动了 25 个文件。智能体一次性审查全部文件时，对一些文件评论详细、对另一些很浅，对共享接口的说法还前后矛盾。哪种分解能解决？",
+      "commentaryZh": "大型审查的经典分解：逐文件局部审查 + 跨文件集成审查。可以避免注意力稀释和自相矛盾的结论。"
+    },
+    {
+      "id": "ar1-062",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which task is the best fit for prompt chaining (a fixed sequence of focused steps)?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Translating a product description, then checking the translation against a glossary, then formatting it for the website — the same steps every time.",
+          "correct": true,
+          "explain": "正解。毎回同じ手順で進む予測可能な作業。",
+          "textZh": "先翻译产品说明，再对照术语表检查译文，最后排版成网站格式——每次步骤都一样。"
+        },
+        {
+          "text": "Investigating an unexplained production outage.",
+          "correct": false,
+          "explain": "不適。原因が分からない調査は動的な分解が向く。",
+          "textZh": "调查一次原因不明的生产事故。"
+        },
+        {
+          "text": "Exploring an unfamiliar codebase to answer an open question about how a request travels between services in a large monorepo.",
+          "correct": false,
+          "explain": "不適。発見に応じて次の手を変える必要がある。",
+          "textZh": "探索一个陌生的代码库，以回答「请求如何在服务之间流转」这一开放性问题（在一个大型 monorepo 中）。"
+        },
+        {
+          "text": "Researching an emerging topic with unknown subtopics.",
+          "correct": false,
+          "explain": "不適。サブトピックが分からないなら固定の手順は組めない。",
+          "textZh": "调研一个子主题尚不明确的新兴话题。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪项任务最适合用提示词链（一串固定的、各自聚焦的步骤）？",
+      "commentaryZh": "提示词链适合「步骤可预测、每次相同」的任务。凡是题干强调「未知」「开放」「需要调查」的，正解一般是动态分解。"
+    },
+    {
+      "id": "ar1-063",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Why does splitting a large multi-file review into per-file passes plus an integration pass usually improve results?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Each pass has a narrow focus, which avoids attention being spread thin across too much material, and the integration pass handles cross-file issues explicitly.",
+          "correct": true,
+          "explain": "正解。焦点を絞ることで注意の希釈を防ぎ、横断的な問題は専用のパスで見る。",
+          "textZh": "每次审查的关注点都很窄，避免注意力被过多材料稀释；集成审查则专门处理跨文件的问题。"
+        },
+        {
+          "text": "It is cheaper because each pass uses no tokens.",
+          "correct": false,
+          "explain": "不適。トークンは消費する。",
+          "textZh": "因为每次审查都不消耗 token，所以更便宜。"
+        },
+        {
+          "text": "The model cannot read more than one file per request, so splitting is the only way to review several files at all.",
+          "correct": false,
+          "explain": "不適。そのような制限はない。",
+          "textZh": "模型每次请求只能读一个文件，所以拆分是审查多个文件的唯一办法。"
+        },
+        {
+          "text": "It removes the need for any final summary.",
+          "correct": false,
+          "explain": "不適。分割しても、結果をまとめる工程は必要。",
+          "textZh": "这样就完全不需要最终总结了。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "为什么把大型多文件审查拆成「逐文件审查 + 集成审查」通常能改善结果？",
+      "commentaryZh": "「注意力稀释（attention dilution）」是关键词。分而治之 + 专门的跨文件集成审查，是 1.6 与 4.6 共同考的模式。"
+    },
+    {
+      "id": "ar1-064",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO statements about choosing a decomposition strategy are correct? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Prompt chaining suits predictable, multi-aspect work such as a review that always checks the same aspects.",
+          "correct": true,
+          "explain": "正解。手順が決まっているなら固定の連鎖が安定する。",
+          "textZh": "提示词链适合可预测、多方面的工作，例如每次都检查相同方面的审查。"
+        },
+        {
+          "text": "Dynamic decomposition suits open-ended investigation where later subtasks depend on earlier findings.",
+          "correct": true,
+          "explain": "正解。途中の発見で次の作業が変わる場合に向く。",
+          "textZh": "动态分解适合开放式调查，即后面的子任务取决于前面的发现。"
+        },
+        {
+          "text": "Dynamic decomposition is always better because it is more flexible and can adapt to any task without upfront planning.",
+          "correct": false,
+          "explain": "不適。予測可能な作業では、柔軟さが不安定さになる。",
+          "textZh": "动态分解总是更好，因为它更灵活，并且无需事先规划就能适应任何任务。"
+        },
+        {
+          "text": "Prompt chaining requires a multi-agent system.",
+          "correct": false,
+          "explain": "不適。単一のエージェントでも順に呼び出せば実現できる。",
+          "textZh": "提示词链必须依赖多智能体系统。"
+        },
+        {
+          "text": "Decomposition is only useful when the context window is full.",
+          "correct": false,
+          "explain": "不適。品質と制御のための手段で、文脈の大きさだけが理由ではない。",
+          "textZh": "只有在上下文窗口满了的时候分解才有用。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "关于选择任务分解策略，下列哪两项说法正确？（选 2 项）",
+      "commentaryZh": "两种分解模式没有绝对优劣，关键看任务是否可预测。考试会给出场景让你匹配模式。"
+    },
+    {
+      "id": "ar1-065",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "The research coordinator's first pass on \"AI regulation in healthcare\" reveals that most relevant rules come from device regulators rather than privacy law. What should happen to the plan?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Adapt the plan: generate new subtasks focused on device regulators based on this finding, rather than continuing the original privacy-heavy split unchanged.",
+          "correct": true,
+          "explain": "正解。途中の発見に応じて計画を作り直すのが適応的な分解。",
+          "textZh": "调整计划：根据这一发现，生成聚焦于器械监管机构的新子任务，而不是原封不动地继续以隐私为主的分工。"
+        },
+        {
+          "text": "Continue the original plan exactly; plans should never change mid-task, because changing direction mid-task wastes the work already done.",
+          "correct": false,
+          "explain": "不適。新しい情報を無視している。",
+          "textZh": "完全按原计划继续；计划在任务中途绝不应改变，因为中途改变方向会浪费已经完成的工作。"
+        },
+        {
+          "text": "Stop and report only the privacy findings.",
+          "correct": false,
+          "explain": "不適。重要な部分が抜け落ちる。",
+          "textZh": "停下来，只报告隐私方面的发现。"
+        },
+        {
+          "text": "Restart with a completely new topic.",
+          "correct": false,
+          "explain": "不適。問いは変わっていない。",
+          "textZh": "换一个全新的题目重新开始。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研协调者在「医疗领域的 AI 监管」第一轮调查中发现，大多数相关规定来自医疗器械监管机构而非隐私法。计划应该怎么调整？",
+      "commentaryZh": "自适应调查计划的价值在于「根据每一步的发现生成后续子任务」。死守原计划是这类题的错误选项。"
+    },
+    {
+      "id": "ar1-066",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "An engineer asks the agent to rename a configuration option used throughout a large monorepo. Which first step reflects good decomposition?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "First find every place the option is defined, read, or documented, group the occurrences by package, and then plan the changes package by package.",
+          "correct": true,
+          "explain": "正解。影響範囲を洗い出して分けてから計画する。大きな変更を管理できる単位にする。",
+          "textZh": "先找出该配置项被定义、读取或写进文档的所有位置，按包（package）分组，再逐个包规划修改。"
+        },
+        {
+          "text": "Run a global find-and-replace immediately.",
+          "correct": false,
+          "explain": "不適。文字列が他の意味で使われている箇所まで壊すおそれがある。",
+          "textZh": "立即执行全局查找替换。"
+        },
+        {
+          "text": "Change only the definition, then let the type checker and the test suite reveal every other place that needs updating, which is the fastest way to find usages in a large repository.",
+          "correct": false,
+          "explain": "不適。テストで捕まらない箇所（ドキュメント・設定）が残る。",
+          "textZh": "只修改定义，再让类型检查器和测试套件暴露其他所有需要更新的地方，这是在大型仓库中找到用法的最快方法。"
+        },
+        {
+          "text": "Ask the engineer to list every file manually.",
+          "correct": false,
+          "explain": "不適。探索はエージェントに任せられる。",
+          "textZh": "让工程师手动列出所有文件。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "工程师让智能体重命名一个在大型 monorepo 中到处使用的配置项。哪个第一步体现了良好的任务分解？",
+      "commentaryZh": "大范围改动先「摸清影响范围并分组」，再分步执行。这是对开放任务做结构化分解的具体体现。"
+    },
+    {
+      "id": "ar1-067",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team uses one giant prompt to extract data, validate it, and write a customer email in a single call. Output quality is inconsistent. What decomposition change is most likely to help?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Chain the work into separate focused steps — extract, validate, then draft the email — passing each step's output to the next.",
+          "correct": true,
+          "explain": "正解。各ステップの焦点を絞り、間で検証もできる。",
+          "textZh": "把工作拆成串联的独立步骤——抽取、校验、再起草邮件——把每一步的输出交给下一步。"
+        },
+        {
+          "text": "Add more instructions to the same prompt.",
+          "correct": false,
+          "explain": "不適。焦点がさらに分散する。",
+          "textZh": "往同一个提示词里继续加指令。"
+        },
+        {
+          "text": "Run the same giant prompt three times and pick one at random.",
+          "correct": false,
+          "explain": "不適。構造的な問題はそのまま。",
+          "textZh": "把同一个大提示词跑三遍，挑一个（随机挑选）。"
+        },
+        {
+          "text": "Remove the validation step to simplify.",
+          "correct": false,
+          "explain": "不適。品質が下がるだけ。",
+          "textZh": "为了简化，去掉校验步骤。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "团队用一个巨大的提示词，在一次调用里完成抽取数据、校验数据和撰写客户邮件。输出质量时好时坏。哪种分解改动最可能有帮助？",
+      "commentaryZh": "多个不同性质的子任务塞进一个提示词，容易顾此失彼。提示词链把它们拆开，每步只做一件事，还能在中间检查。"
+    },
+    {
+      "id": "ar1-068",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 1,
+      "stem": "An engineer spent yesterday afternoon investigating a memory leak in a session named \"leak-hunt\". Today they want to continue with that exact conversation in Claude Code. What should they run?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "claude --resume leak-hunt",
+          "correct": true,
+          "explain": "正解。名前を付けたセッションは --resume <名前> で再開できる。",
+          "textZh": "claude --resume leak-hunt"
+        },
+        {
+          "text": "claude --new leak-hunt",
+          "correct": false,
+          "explain": "不適。そのようなオプションで過去の会話は再開されない。",
+          "textZh": "claude --new leak-hunt"
+        },
+        {
+          "text": "claude -p \"continue leak-hunt\"",
+          "correct": false,
+          "explain": "不適。新しい非対話の実行になり、過去の会話は読み込まれない。",
+          "textZh": "claude -p \"continue leak-hunt\""
+        },
+        {
+          "text": "claude /compact leak-hunt",
+          "correct": false,
+          "explain": "不適。/compact は今の会話を要約して文脈を空けるコマンド。",
+          "textZh": "claude /compact leak-hunt"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/cli-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "工程师昨天下午在一个名为「leak-hunt」的会话里排查内存泄漏。今天想在 Claude Code 中继续那段会话。应该运行什么？",
+      "commentaryZh": "命名会话可以用 --resume <会话名> 精确恢复。考试也会考「继续最近一次会话」与「恢复特定会话」的区别。"
+    },
+    {
+      "id": "ar1-069",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "After a long analysis session, an engineer refactors three of the files that were analyzed and then resumes the session. What should they tell the agent first?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Which files changed and how, so the agent re-analyzes just those files instead of relying on stale results or re-exploring everything.",
+          "correct": true,
+          "explain": "正解。変更点を伝えれば、古いツール結果に頼らず、必要な部分だけ再分析できる。",
+          "textZh": "哪些文件改了、怎么改的，让智能体只重新分析这些文件，而不是依赖过期结果或全部重新探索。"
+        },
+        {
+          "text": "Nothing; the agent detects file changes automatically from its history.",
+          "correct": false,
+          "explain": "不適。履歴に残っているのは変更前の内容。",
+          "textZh": "什么都不用说；智能体会从历史中自动发现文件变化。"
+        },
+        {
+          "text": "Ask the agent to re-read the entire repository so that its analysis is fully up to date, rather than relying on any earlier results.",
+          "correct": false,
+          "explain": "不適。変わっていない部分まで読み直す無駄。",
+          "textZh": "让智能体重新读取整个代码库，让分析完全保持最新，而不是依赖任何之前的结果。"
+        },
+        {
+          "text": "Delete the session and start over without any summary.",
+          "correct": false,
+          "explain": "不適。有効な分析まで捨てている。",
+          "textZh": "删除会话，从头开始，也不提供任何摘要。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一次长时间的分析会话之后，工程师重构了其中三个已分析过的文件，然后恢复会话。他首先应该告诉智能体什么？",
+      "commentaryZh": "恢复会话前文件有改动时，要明确告诉智能体改了哪些文件，进行有针对性的重新分析。这是 1.7 的具体技能。"
+    },
+    {
+      "id": "ar1-070",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 2,
+      "stem": "Most of an earlier session's tool results are now stale because the codebase changed substantially over a week. What is the more reliable way to continue the work?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Start a new session and inject a structured summary of the conclusions that still hold.",
+          "correct": true,
+          "explain": "正解。古いツール結果を抱えたまま再開するより、有効な結論だけを要約して新しく始めるほうが確実。",
+          "textZh": "开一个新会话，注入一份结构化摘要，只包含仍然成立的结论。"
+        },
+        {
+          "text": "Resume the old session and trust its earlier findings.",
+          "correct": false,
+          "explain": "不適。古い結果に基づいて誤った判断をするおそれがある。",
+          "textZh": "恢复旧会话，相信之前的发现。"
+        },
+        {
+          "text": "Fork the old session so the stale results are preserved twice, so the agent can compare the old and new results.",
+          "correct": false,
+          "explain": "不適。分岐しても古い内容はそのまま。",
+          "textZh": "分叉旧会话，让过期结果保留两份，让智能体能对比新旧结果。"
+        },
+        {
+          "text": "Resume the old session and run /compact immediately.",
+          "correct": false,
+          "explain": "不適。要約されても古い前提が残る。",
+          "textZh": "恢复旧会话后立刻执行 /compact。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "由于代码库在一周内大幅变化，之前会话中的大部分工具结果都已过期。继续工作的更可靠方式是什么？",
+      "commentaryZh": "选择标准：之前的上下文大多仍有效 → 恢复会话；工具结果大多过期 → 新会话 + 注入结构化摘要。"
+    },
+    {
+      "id": "ar1-071",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "In the Agent SDK, what does forking a session do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It creates a new session that starts with a copy of the original's history, leaving the original unchanged.",
+          "correct": true,
+          "explain": "正解。共通の履歴から独立した枝を作る。元のセッションには影響しない。",
+          "textZh": "创建一个以原会话历史副本为起点的新会话，原会话保持不变。"
+        },
+        {
+          "text": "It merges two sessions into one.",
+          "correct": false,
+          "explain": "不適。分岐であって統合ではない。",
+          "textZh": "把两个会话合并成一个。"
+        },
+        {
+          "text": "It deletes the original session after copying it.",
+          "correct": false,
+          "explain": "不適。fork は元のセッションを残したまま新しいセッションを作る。削除はしない。",
+          "textZh": "复制后删除原会话。"
+        },
+        {
+          "text": "It runs the same prompt twice in parallel and keeps whichever result is better, which is why the original is left unchanged.",
+          "correct": false,
+          "explain": "不適。会話の分岐とは別のこと。",
+          "textZh": "它会并行地把同一个提示词运行两次，并保留效果更好的那个结果，这也是原会话保持不变的原因。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在 Agent SDK 中，分叉（fork）会话会做什么？",
+      "commentaryZh": "fork = 复制历史 + 新会话 ID，原会话不变。适合从同一个基线尝试不同方向。"
+    },
+    {
+      "id": "ar1-072",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO situations favor resuming an existing session rather than starting fresh with an injected summary? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The investigation was interrupted yesterday and nothing in the codebase has changed since.",
+          "correct": true,
+          "explain": "正解。以前の文脈がほぼそのまま有効なら再開が効率的。",
+          "textZh": "调查昨天被中断，此后代码库没有任何变化。"
+        },
+        {
+          "text": "Only one small file changed, and you can tell the agent exactly what changed.",
+          "correct": true,
+          "explain": "正解。変更点を伝えれば、残りの文脈はそのまま使える。",
+          "textZh": "只有一个小文件有改动，而且你可以准确告诉智能体改了什么。"
+        },
+        {
+          "text": "A major refactor touched most of the files the agent analyzed.",
+          "correct": false,
+          "explain": "不適。古い結果が多すぎる。要約を入れて新しく始めるほうが確実。",
+          "textZh": "一次大规模重构改动了智能体分析过的大部分文件。"
+        },
+        {
+          "text": "The previous session was dominated by failed experiments and dead ends.",
+          "correct": false,
+          "explain": "不適。不要な試行が文脈を圧迫している。要点だけ持って新しく始めたほうがよい。",
+          "textZh": "之前的会话里充满了失败的尝试和死胡同。"
+        },
+        {
+          "text": "The prior tool results came from a different repository.",
+          "correct": false,
+          "explain": "不適。前提がまったく違う。",
+          "textZh": "之前的工具结果来自另一个代码库。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "下列哪两种情况更适合恢复已有会话，而不是新开会话并注入摘要？（选 2 项）",
+      "commentaryZh": "判断依据是「之前的上下文还有多少有效」。大部分有效 → 恢复；大部分过期或噪声多 → 新会话 + 摘要。"
+    },
+    {
+      "id": "ar1-073",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "A long research job runs overnight across several sessions. The team wants to return later to the specific session that investigated EU regulation, not just the most recent one. What should they use?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Resume that session by its ID (or name), rather than \"continue,\" which picks up the most recent session.",
+          "correct": true,
+          "explain": "正解。continue は最新のセッション、resume は指定したセッションを再開する。",
+          "textZh": "用该会话的 ID（或名称）恢复它，而不是用「continue」，后者只会接上最近的会话。"
+        },
+        {
+          "text": "Continue, because it always finds the most relevant session for the current directory.",
+          "correct": false,
+          "explain": "不適。continue が見つけるのは「最新」であって「最も関連する」ではない。",
+          "textZh": "用 continue，因为它总能为当前目录找到最相关的会话。"
+        },
+        {
+          "text": "Fork the most recent session.",
+          "correct": false,
+          "explain": "不適。目的のセッションとは別の会話から分岐することになる。",
+          "textZh": "分叉最近的会话。"
+        },
+        {
+          "text": "Start a new session and ask Claude what it did last night.",
+          "correct": false,
+          "explain": "不適。新しいセッションは過去の会話を知らない。",
+          "textZh": "新开会话，问 Claude 昨晚做了什么。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一个长时间的调研任务在夜里跨多个会话运行。团队之后想回到专门调查欧盟监管的那个会话，而不只是最近的一个。应该用什么？",
+      "commentaryZh": "SDK 中 continue = 当前目录最近的会话；resume = 指定会话 ID。多会话场景下必须追踪 ID 并用 resume。"
+    },
+    {
+      "id": "ar1-074",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 3,
+      "stem": "The research coordinator crashed halfway through a job. The team wants to restart without losing completed subagent work. Which design supports this best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Each agent exports its state to a known location, and on restart the coordinator loads a manifest of completed work and injects it into the agents' prompts.",
+          "correct": true,
+          "explain": "正解。構造化された状態の書き出しとマニフェストの読み込みで、クラッシュから回復できる。",
+          "textZh": "每个智能体把状态导出到已知位置；重启时，协调者加载记录已完成工作的清单（manifest），并注入到各智能体的提示词中。"
+        },
+        {
+          "text": "Rely on the model to remember what was completed before the crash, since it can reread its own earlier outputs.",
+          "correct": false,
+          "explain": "不適。新しいプロセスのモデルは何も覚えていない。",
+          "textZh": "依靠模型记住崩溃前完成了什么，因为它可以重新读取自己之前的输出。"
+        },
+        {
+          "text": "Re-run everything from scratch every time.",
+          "correct": false,
+          "explain": "不適。完了した作業を無駄にする。",
+          "textZh": "每次都从头全部重跑。"
+        },
+        {
+          "text": "Keep all state only in the coordinator's in-memory variables.",
+          "correct": false,
+          "explain": "不適。クラッシュで一緒に消える。",
+          "textZh": "所有状态只保存在协调者的内存变量里。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研协调者在任务进行到一半时崩溃了。团队希望重启时不丢失已完成的子智能体工作。哪种设计最能支持这一点？",
+      "commentaryZh": "崩溃恢复：结构化的状态导出 + 协调者在恢复时加载清单。这个模式与 1.7（会话管理）和 5.4（上下文管理）都相关。"
+    },
+    {
+      "id": "ar1-075",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 2,
+      "stem": "After resuming a research session from two days ago, the coordinator starts citing statistics that were superseded by a report published yesterday. What practice would have prevented this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tell the resumed session what has changed since (the new report), or start fresh with a summary when key earlier results are stale.",
+          "correct": true,
+          "explain": "正解。再開時には変化点を伝えるか、古い結果が多ければ要約を入れて新しく始める。",
+          "textZh": "告诉恢复后的会话此后发生了什么变化（新报告），或者在关键旧结果已过期时，用摘要开新会话。"
+        },
+        {
+          "text": "Always resume sessions without comment; history is authoritative.",
+          "correct": false,
+          "explain": "不適。履歴は当時の情報で、現在の正しさは保証しない。",
+          "textZh": "总是直接恢复会话、不作说明；历史就是权威。"
+        },
+        {
+          "text": "Delete all statistics from reports.",
+          "correct": false,
+          "explain": "不適。必要な情報まで消す。",
+          "textZh": "从报告中删除所有统计数据。"
+        },
+        {
+          "text": "Use fork instead of resume, so that the original session with the older statistics is kept unchanged while the new branch picks up the latest data.",
+          "correct": false,
+          "explain": "不適。分岐しても古い結果はそのまま引き継がれる。",
+          "textZh": "用 fork 代替 resume，这样包含旧统计数据的原会话可以保持不变，而新分支会获取最新数据。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "恢复两天前的调研会话后，协调者开始引用一些已被昨天发布的报告取代的统计数据。哪种做法本可以避免这种情况？",
+      "commentaryZh": "恢复的会话里保存的是「当时」的工具结果。外部信息变化后，要么明确告知变化，要么新开会话注入仍有效的摘要。"
+    },
+    {
+      "id": "ar1-076",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S4",
+      "difficulty": 3,
+      "stem": "Two engineers want to compare a \"rewrite with the new ORM\" approach and a \"wrap the old data layer\" approach, starting from the same 40-minute codebase analysis. Which CLI usage matches this need?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Resume the analysis session with --fork-session so each approach continues in a new session branched from the shared analysis.",
+          "correct": true,
+          "explain": "正解。--fork-session は再開時に新しいセッション ID を作り、元のセッションを変えずに分岐できる。",
+          "textZh": "用 --resume 加 --fork-session 恢复该分析会话，让每种方案都在从共享分析分叉出的新会话中继续。"
+        },
+        {
+          "text": "Resume the same session twice without forking and work in both terminals, each picking up where the other left off.",
+          "correct": false,
+          "explain": "不適。同じ会話に二つの方向の作業が混ざる。",
+          "textZh": "不分叉，在两个终端里各恢复一次同一个会话并同时工作，各自接着对方停下的地方继续。"
+        },
+        {
+          "text": "Run /compact before each approach.",
+          "correct": false,
+          "explain": "不適。要約は分岐の手段ではない。",
+          "textZh": "在每种方案开始前执行 /compact。"
+        },
+        {
+          "text": "Start two new sessions and redo the analysis.",
+          "correct": false,
+          "explain": "不適。40 分の分析を二度繰り返す。",
+          "textZh": "新开两个会话，重做分析。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/cli-reference",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "两位工程师想从同一份耗时 40 分钟的代码库分析出发，比较「用新 ORM 重写」和「包装旧数据层」两种方案。哪种命令行用法符合需求？",
+      "commentaryZh": "命令行中 --fork-session 与 --resume/--continue 搭配，用于从已有会话分叉出新会话。对应 SDK 中的 fork 选项。"
+    },
+    {
+      "id": "ar1-077",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S1",
+      "difficulty": 2,
+      "stem": "A support conversation spans two days because the customer had to find a receipt. When the customer returns, how should the application continue the case?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Resume the same session (or reload its saved history) so the agent has the earlier facts, and add the new information the customer provides.",
+          "correct": true,
+          "explain": "正解。前回の事実を引き継いだ上で新情報を足せば、顧客に同じ説明を繰り返させずに済む。",
+          "textZh": "恢复同一个会话（或重新加载其保存的历史），让智能体拥有之前的事实，再加入客户提供的新信息。"
+        },
+        {
+          "text": "Start a fresh session and ask the customer to explain everything again.",
+          "correct": false,
+          "explain": "不適。顧客体験を損なう。",
+          "textZh": "开新会话，让客户把情况从头再讲一遍。"
+        },
+        {
+          "text": "Fork the session for every new message.",
+          "correct": false,
+          "explain": "不適。分岐は別方向の探索のためのもの。",
+          "textZh": "每条新消息都分叉一次会话。"
+        },
+        {
+          "text": "Send only the receipt to the model without history, which keeps the request small and focused on the new evidence without repeating the case details.",
+          "correct": false,
+          "explain": "不適。何の件の領収書か分からない。",
+          "textZh": "只把收据发给模型、不带历史，让请求更小、更聚焦于新证据，无需重复案件细节。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "一段客服对话持续了两天，因为客户需要去找收据。客户回来时，应用应如何继续处理这个案件？",
+      "commentaryZh": "跨时间的同一案件，应恢复会话（或重新发送完整历史）以保持连贯。API 本身无状态，连贯性靠应用传递完整历史。"
+    },
+    {
+      "id": "ar1-078",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "Every Monday the research system produces the same market summary: gather news, extract key figures, then write a one-page brief. The steps never change. What is this kind of design called?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Prompt chaining — a fixed sequence of focused steps, each using the previous step's output.",
+          "correct": true,
+          "explain": "正解。決まった順番で、前の出力を次の入力にする連鎖。",
+          "textZh": "提示词链——一串固定的、聚焦的步骤，每一步使用上一步的输出。"
+        },
+        {
+          "text": "Dynamic decomposition — subtasks are invented at run time.",
+          "correct": false,
+          "explain": "不適。手順が毎回同じなので動的ではない。",
+          "textZh": "动态分解——子任务在运行时临时生成。"
+        },
+        {
+          "text": "Session forking — each step runs in a forked branch.",
+          "correct": false,
+          "explain": "不適。分岐は別方向の探索のためで、手順の連鎖とは別物。",
+          "textZh": "会话分叉——每一步在分叉的分支中运行。"
+        },
+        {
+          "text": "Batch processing — all steps run in one asynchronous batch to save cost.",
+          "correct": false,
+          "explain": "不適。バッチは大量の独立リクエストの処理方法で、手順の連鎖ではない。",
+          "textZh": "批处理——所有步骤在一个异步批次里运行以节省成本。"
+        }
+      ],
+      "objective": "Design task decomposition strategies for complex workflows",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#chain-complex-prompts",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "调研系统每周一都会生成同样的市场摘要：收集新闻、提取关键数据、再写一页简报，步骤从不改变。这种设计叫什么？",
+      "commentaryZh": "固定步骤、每步以前一步输出为输入 = 提示词链（prompt chaining）。适合可预测的工作流。"
+    },
+    {
+      "id": "ar1-079",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "What is the difference between \"continue\" and \"resume\" for Agent SDK sessions?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Continue picks up the most recent session in the current directory; resume picks up a specific session by its ID.",
+          "correct": true,
+          "explain": "正解。どのセッションを再開するかの見つけ方が違う。",
+          "textZh": "continue 接上当前目录中最近的会话；resume 按会话 ID 接上指定的会话。"
+        },
+        {
+          "text": "Continue creates a copy of the session for safety, while resume overwrites the original with the restored history.",
+          "correct": false,
+          "explain": "不適。コピーを作るのは fork。どちらも元を削除しない。",
+          "textZh": "continue 出于安全会复制一份会话，而 resume 会覆盖原会话（针对恢复后的历史）。"
+        },
+        {
+          "text": "Continue works only in batch mode.",
+          "correct": false,
+          "explain": "不適。バッチとは関係がない。",
+          "textZh": "continue 只能在批处理模式下使用。"
+        },
+        {
+          "text": "There is no difference.",
+          "correct": false,
+          "explain": "不適。複数のセッションがある場合に違いが重要になる。",
+          "textZh": "两者没有区别。"
+        }
+      ],
+      "objective": "Manage session state, resumption, and forking",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/sessions",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "Agent SDK 会话中的「continue」和「resume」有什么区别？",
+      "commentaryZh": "continue = 最近一次；resume = 指定 ID；fork = 复制历史开新分支。三者的区别是 1.7 的基础知识。"
+    },
+    {
+      "id": "ar1-080",
+      "domain": "D1",
+      "type": "scenario",
+      "scenario": "S3",
+      "difficulty": 1,
+      "stem": "In the research system, which agent should combine the outputs of the search and analysis subagents and decide whether coverage is sufficient?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The coordinator.",
+          "correct": true,
+          "explain": "正解。結果の集約と十分さの判断はコーディネーターの役割。",
+          "textZh": "协调者。"
+        },
+        {
+          "text": "The web-search subagent.",
+          "correct": false,
+          "explain": "不適。検索担当は自分の範囲の結果を返すのが役割。",
+          "textZh": "网络搜索子智能体。"
+        },
+        {
+          "text": "The report-writing subagent, before it has received any findings.",
+          "correct": false,
+          "explain": "不適。材料が無い段階では判断できない。",
+          "textZh": "在还没有收到任何发现之前的报告撰写子智能体。"
+        },
+        {
+          "text": "Whichever subagent finishes last.",
+          "correct": false,
+          "explain": "不適。終了順で役割を決めるのは設計ではない。",
+          "textZh": "最后完成的那个子智能体。"
+        }
+      ],
+      "objective": "Orchestrate multi-agent systems with coordinator-subagent patterns",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-13",
+      "stemZh": "在调研系统中，应由哪个智能体汇总搜索和分析子智能体的输出，并判断覆盖是否充分？",
+      "commentaryZh": "协调者负责任务分解、委派、结果汇总和覆盖评估。子智能体各管一段，不负责全局判断。"
+    }
+  ]
+}

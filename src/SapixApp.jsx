@@ -33,7 +33,7 @@ import { downloadBackup, parseBackup, applyBackup, describeBackup } from "./sapi
    あるもの）→ 科目（算数・国語・理科・社会・英語のうちデータがあるもの）
    を選び、科目の画面（SapixCourse）で単元一覧 → 単元を選んで20問 →
    1問ずつ答え合わせと解説 → 結果 → まちがえた問題だけもう一度、の流れ。
-   見た目と操作は CCAO-F 対策（CcaofApp.jsx）にそろえてある。
+   見た目と操作は Claude 認定（claudeCert/CertApp.jsx）にそろえてある。
    問題データは src/data/sapix/g<学年>/<科目>/（スキーマは各フォルダの README.md）。
    ============================================================ */
 

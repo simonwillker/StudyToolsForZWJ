@@ -1,5 +1,8 @@
 /* ============================================================
-   CCAO-F 問題データの検査
+   Claude 認定（CCAO-F / CCAR-F …）問題データの検査
+
+     node scripts/validateClaudeCert.mjs            … 全資格
+     node scripts/validateClaudeCert.mjs ccarf      … 指定した資格だけ
 
    英検側（validateEikenApp.mjs）と同じ役割だが、この資格特有の
    チェックがふたつある。
@@ -11,18 +14,33 @@
       放っておくと、古い仕様のまま正解として教え続けることになる。
    3. 中国語（設問訳・選択肢訳・解答後の注解）が全問にあるか。
       ユーザーの指示で、問題は中国語訳つき・解答後に中文注解を出す。
-   4. 考点讲义（lessons.json）が 30 objectives すべてにあるか。
+   4. 考点讲义（lessons.json）がすべての objectives にあるか。
       必須項目・本文の長さ・公式ドキュメントへのリンクの形式も見る。
+   5. meta.json に scenarios がある資格（CCAR-F）だけ：
+      各ドメインの問題数・難易度の偏り・シナリオ id・シナリオごとの
+      問題数（模擬試験を組めるか）・reference が https か。
    ============================================================ */
 
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(here, "..", "src", "data", "ccaof");
+const certRoot = join(here, "..", "src", "data", "claudeCert");
 const STALE_DAYS = 180;
 
+const args = process.argv.slice(2);
+const certIds = args.length ? args : readdirSync(certRoot).filter((d) => existsSync(join(certRoot, d, "meta.json"))).sort();
+let allOk = true;
+/* 資格をまたいで同じ設問文が無いか（CCAR-F が CCAO-F の問題を使い回していないか） */
+const stemOwner = new Map();
+for (const id of certIds) {
+  if (!validate(id)) allOk = false;
+}
+if (!allOk) process.exit(1);
+
+function validate(certId) {
+const dataDir = join(certRoot, certId);
 const errors = [];
 const warnings = [];
 
@@ -78,6 +96,9 @@ for (const file of files) {
     if (key) {
       if (seenStems.has(key)) errors.push(`${at}: 設問文が ${seenStems.get(key)} と同じ`);
       else seenStems.set(key, it.id);
+      if (stemOwner.has(key) && stemOwner.get(key) !== certId)
+        errors.push(`${at}: 設問文が ${stemOwner.get(key)} の問題と同じ（資格をまたいだ重複）`);
+      else stemOwner.set(key, certId);
     }
 
     const choices = it.choices || [];
@@ -131,6 +152,8 @@ const LESSON_HOSTS = new Set([
   "support.anthropic.com",
   "www.anthropic.com",
   "claude.com",
+  "platform.claude.com",
+  "code.claude.com",
 ]);
 /* 本文（中国語＋用語）の文字数。依頼は 1本 600〜1000字程度 */
 const LESSON_MIN = 500;
@@ -230,11 +253,60 @@ if (lessonsDoc) {
   });
 }
 
+/* ---------- シナリオ形式の資格（CCAR-F）だけの検査 ---------- */
+const MIN_PER_DOMAIN = 75;
+if (meta.scenarios) {
+  const scenarioIds = new Set(meta.scenarios.map((sc) => sc.id));
+  if (meta.scenarios.length !== meta.examFormat.scenarioBank)
+    errors.push(`meta.json: scenarios が ${meta.scenarios.length} 個（scenarioBank は ${meta.examFormat.scenarioBank}）`);
+  meta.scenarios.forEach((sc) => {
+    ["title", "titleZh", "description", "descriptionZh"].forEach((k) => {
+      if (!sc[k] || sc[k].length < 5) errors.push(`meta.json scenario ${sc.id}: ${k} が無い`);
+    });
+    (sc.primaryDomains || []).forEach((d) => { if (!domainIds.has(d)) errors.push(`meta.json scenario ${sc.id}: primaryDomains に不明な ${d}`); });
+  });
+  (meta.sources || []).forEach((src, i) => {
+    if (!/^https:\/\//.test(src.url || "")) errors.push(`meta.json sources[${i}]: url が https でない`);
+    if (!["official", "unofficial"].includes(src.kind)) errors.push(`meta.json sources[${i}]: kind は official / unofficial`);
+  });
+  const perScenario = {};
+  const diff = {};
+  let total = 0;
+  for (const file of files) {
+    (JSON.parse(readFileSync(join(dataDir, file), "utf8")).items || []).forEach((it) => {
+      total += 1;
+      if (!/^https:\/\//.test(it.reference || "")) errors.push(`${it.id}: reference が https でない`);
+      if (![1, 2, 3].includes(it.difficulty)) errors.push(`${it.id}: difficulty は 1〜3`);
+      diff[it.difficulty] = (diff[it.difficulty] || 0) + 1;
+      if (it.scenario !== undefined) {
+        if (!scenarioIds.has(it.scenario)) errors.push(`${it.id}: scenario "${it.scenario}" は meta.json に無い`);
+        perScenario[it.scenario] = (perScenario[it.scenario] || 0) + 1;
+      }
+      if (!["scenario", "mcq", "multi"].includes(it.type)) errors.push(`${it.id}: type は scenario / mcq / multi`);
+      if (it.type === "scenario" && !it.scenario) errors.push(`${it.id}: type が scenario なのに scenario が無い`);
+    });
+  }
+  meta.domains.forEach((d) => {
+    if ((counts[d.id] || 0) < MIN_PER_DOMAIN) errors.push(`${d.id}: 問題が ${counts[d.id] || 0} 問（${MIN_PER_DOMAIN} 問以上）`);
+  });
+  const need = Math.ceil(meta.examFormat.items / meta.examFormat.scenariosPerExam);
+  meta.scenarios.forEach((sc) => {
+    if ((perScenario[sc.id] || 0) < need * 2)
+      errors.push(`scenario ${sc.id}: 問題が ${perScenario[sc.id] || 0} 問（模擬試験を何回か組むには ${need * 2} 問以上）`);
+  });
+  [1, 2, 3].forEach((lv) => {
+    const share = (diff[lv] || 0) / total;
+    if (share < 0.15 || share > 0.6) errors.push(`難易度 ${lv} が ${Math.round(share * 100)}%（15〜60% にする）`);
+  });
+  console.log(`\nシナリオ別の問題数：${meta.scenarios.map((sc) => `${sc.id} ${perScenario[sc.id] || 0}`).join(" / ")}`);
+  console.log(`難易度：${[1, 2, 3].map((lv) => `L${lv} ${diff[lv] || 0}`).join(" / ")}`);
+}
+
 // 本番60問の配点どおりに出すには各ドメインに何問必要か
 const target = {};
 meta.domains.forEach((d) => { target[d.id] = Math.round((meta.examFormat.items * d.weight) / 100); });
 
-console.log(`\nCCAO-F 問題データ（ブループリント v${meta.blueprintVersion} / ${meta.blueprintEffective}）\n`);
+console.log(`\n${meta.examCode} 問題データ（ブループリント v${meta.blueprintVersion} / ${meta.blueprintEffective}）\n`);
 console.table(
   meta.domains.map((d) => ({
     ドメイン: `${d.id} ${d.label}`,
@@ -244,7 +316,7 @@ console.table(
     "目標60問まで": Math.max(0, 60 - (counts[d.id] ?? 0)),
   }))
 );
-console.log(`合計 ${Object.values(counts).reduce((a, b) => a + b, 0)} 問 / 目標 420 問`);
+console.log(`合計 ${Object.values(counts).reduce((a, b) => a + b, 0)} 問`);
 if (stale) console.log(`⚠ ${STALE_DAYS}日以上見直していない問題が ${stale} 件あります`);
 console.log(`考点讲义 ${lessonCount} / ${meta.domains.reduce((n, d) => n + d.objectives.length, 0)} 考点`);
 
@@ -257,6 +329,8 @@ if (warnings.length) {
 if (errors.length) {
   console.log(`\n❌ エラー ${errors.length}件`);
   errors.slice(0, 40).forEach((e) => console.log("  - " + e));
-  process.exit(1);
+  return false;
 }
 console.log("\n✅ エラーはありません。\n");
+return true;
+}

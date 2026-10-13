@@ -1,0 +1,1217 @@
+{
+  "_note": "CCAR-F 頻出単語の意味（手で書く元データ）。出現回数・例文・出現問題は scripts/buildClaudeCertVocab.mjs が問題データから数えて vocab.json に書き出す。forms は自動で作れない活用形（不規則変化など）だけ書く。",
+  "words": [
+    {
+      "word": "agent",
+      "pos": "名詞",
+      "ja": "エージェント（自律的にツールを使うAI）",
+      "zh": "智能体"
+    },
+    {
+      "word": "tool",
+      "pos": "名詞",
+      "ja": "ツール（モデルが呼び出せる機能）",
+      "zh": "工具"
+    },
+    {
+      "word": "file",
+      "pos": "名詞",
+      "ja": "ファイル",
+      "zh": "文件"
+    },
+    {
+      "word": "code",
+      "pos": "名詞",
+      "ja": "コード",
+      "zh": "代码"
+    },
+    {
+      "word": "team",
+      "pos": "名詞",
+      "ja": "チーム",
+      "zh": "团队"
+    },
+    {
+      "word": "subagent",
+      "pos": "名詞",
+      "ja": "サブエージェント（委任先のエージェント）",
+      "zh": "子智能体"
+    },
+    {
+      "word": "coordinator",
+      "pos": "名詞",
+      "ja": "コーディネーター（指揮役のエージェント）",
+      "zh": "协调者"
+    },
+    {
+      "word": "session",
+      "pos": "名詞",
+      "ja": "セッション（一続きの会話）",
+      "zh": "会话"
+    },
+    {
+      "word": "finding",
+      "pos": "名詞",
+      "ja": "発見、指摘事項",
+      "zh": "发现"
+    },
+    {
+      "word": "example",
+      "pos": "名詞",
+      "ja": "例",
+      "zh": "示例"
+    },
+    {
+      "word": "system",
+      "pos": "名詞",
+      "ja": "システム",
+      "zh": "系统"
+    },
+    {
+      "word": "text",
+      "pos": "名詞",
+      "ja": "テキスト、文章",
+      "zh": "文本"
+    },
+    {
+      "word": "search",
+      "pos": "名詞",
+      "ja": "検索",
+      "zh": "搜索"
+    },
+    {
+      "word": "extraction",
+      "pos": "名詞",
+      "ja": "抽出",
+      "zh": "抽取"
+    },
+    {
+      "word": "message",
+      "pos": "名詞",
+      "ja": "メッセージ",
+      "zh": "消息"
+    },
+    {
+      "word": "field",
+      "pos": "名詞",
+      "ja": "フィールド、項目",
+      "zh": "字段"
+    },
+    {
+      "word": "data",
+      "pos": "名詞",
+      "ja": "データ",
+      "zh": "数据"
+    },
+    {
+      "word": "pipeline",
+      "pos": "名詞",
+      "ja": "パイプライン（処理の流れ）",
+      "zh": "流水线"
+    },
+    {
+      "word": "developer",
+      "pos": "名詞",
+      "ja": "開発者",
+      "zh": "开发者"
+    },
+    {
+      "word": "mode",
+      "pos": "名詞",
+      "ja": "モード",
+      "zh": "模式"
+    },
+    {
+      "word": "confidence",
+      "pos": "名詞",
+      "ja": "確信度",
+      "zh": "置信度"
+    },
+    {
+      "word": "rule",
+      "pos": "名詞",
+      "ja": "ルール、規則",
+      "zh": "规则"
+    },
+    {
+      "word": "schema",
+      "pos": "名詞",
+      "ja": "スキーマ（データ構造の定義）",
+      "zh": "schema（数据结构定义）"
+    },
+    {
+      "word": "retry",
+      "pos": "動詞",
+      "ja": "再試行する",
+      "zh": "重试"
+    },
+    {
+      "word": "repository",
+      "pos": "名詞",
+      "ja": "リポジトリ",
+      "zh": "代码仓库"
+    },
+    {
+      "word": "productivity",
+      "pos": "名詞",
+      "ja": "生産性",
+      "zh": "效率、生产力"
+    },
+    {
+      "word": "test",
+      "pos": "名詞",
+      "ja": "テスト",
+      "zh": "测试"
+    },
+    {
+      "word": "plan",
+      "pos": "名詞",
+      "ja": "計画",
+      "zh": "计划"
+    },
+    {
+      "word": "guidance",
+      "pos": "名詞",
+      "ja": "指針、指示",
+      "zh": "指引"
+    },
+    {
+      "word": "token",
+      "pos": "名詞",
+      "ja": "トークン（テキストの処理単位）",
+      "zh": "token"
+    },
+    {
+      "word": "refund",
+      "pos": "名詞",
+      "ja": "返金",
+      "zh": "退款"
+    },
+    {
+      "word": "synthesis",
+      "pos": "名詞",
+      "ja": "統合、合成（結果をまとめること）",
+      "zh": "综合"
+    },
+    {
+      "word": "path",
+      "pos": "名詞",
+      "ja": "パス（ファイルの場所）",
+      "zh": "路径"
+    },
+    {
+      "word": "codebase",
+      "pos": "名詞",
+      "ja": "コードベース（コード一式）",
+      "zh": "代码库"
+    },
+    {
+      "word": "validation",
+      "pos": "名詞",
+      "ja": "検証",
+      "zh": "校验"
+    },
+    {
+      "word": "choice",
+      "pos": "名詞",
+      "ja": "選択",
+      "zh": "选择"
+    },
+    {
+      "word": "batch",
+      "pos": "名詞",
+      "ja": "バッチ（まとめて処理する単位）",
+      "zh": "批次"
+    },
+    {
+      "word": "fork",
+      "pos": "動詞",
+      "ja": "分岐させる",
+      "zh": "分叉"
+    },
+    {
+      "word": "issue",
+      "pos": "名詞",
+      "ja": "問題、課題",
+      "zh": "问题"
+    },
+    {
+      "word": "lookup",
+      "pos": "名詞",
+      "ja": "照会、検索",
+      "zh": "查询"
+    },
+    {
+      "word": "server",
+      "pos": "名詞",
+      "ja": "サーバー",
+      "zh": "服务器"
+    },
+    {
+      "word": "memory",
+      "pos": "名詞",
+      "ja": "メモリ、記憶",
+      "zh": "记忆"
+    },
+    {
+      "word": "pattern",
+      "pos": "名詞",
+      "ja": "パターン、型",
+      "zh": "模式（写法）"
+    },
+    {
+      "word": "skip",
+      "pos": "動詞",
+      "ja": "飛ばす、省く",
+      "zh": "跳过"
+    },
+    {
+      "word": "loop",
+      "pos": "名詞",
+      "ja": "ループ（繰り返し）",
+      "zh": "循环"
+    },
+    {
+      "word": "query",
+      "pos": "名詞",
+      "ja": "クエリ、問い合わせ",
+      "zh": "查询语句"
+    },
+    {
+      "word": "policy",
+      "pos": "名詞",
+      "ja": "方針、規定",
+      "zh": "政策"
+    },
+    {
+      "word": "empty",
+      "pos": "形容詞",
+      "ja": "空の",
+      "zh": "空的"
+    },
+    {
+      "word": "engineer",
+      "pos": "名詞",
+      "ja": "エンジニア",
+      "zh": "工程师"
+    },
+    {
+      "word": "history",
+      "pos": "名詞",
+      "ja": "履歴",
+      "zh": "历史"
+    },
+    {
+      "word": "criteria",
+      "pos": "名詞",
+      "ja": "基準",
+      "zh": "标准"
+    },
+    {
+      "word": "independent",
+      "pos": "形容詞",
+      "ja": "独立した",
+      "zh": "独立的"
+    },
+    {
+      "word": "reasoning",
+      "pos": "名詞",
+      "ja": "推論",
+      "zh": "推理"
+    },
+    {
+      "word": "permission",
+      "pos": "名詞",
+      "ja": "権限",
+      "zh": "权限"
+    },
+    {
+      "word": "convention",
+      "pos": "名詞",
+      "ja": "慣習、規約",
+      "zh": "约定"
+    },
+    {
+      "word": "skill",
+      "pos": "名詞",
+      "ja": "スキル（呼び出せる手順）",
+      "zh": "技能"
+    },
+    {
+      "word": "explicit",
+      "pos": "形容詞",
+      "ja": "明示的な",
+      "zh": "明确的"
+    },
+    {
+      "word": "directory",
+      "pos": "名詞",
+      "ja": "ディレクトリ",
+      "zh": "目录"
+    },
+    {
+      "word": "compact",
+      "pos": "動詞",
+      "ja": "圧縮する、要約して詰める",
+      "zh": "压缩"
+    },
+    {
+      "word": "transient",
+      "pos": "形容詞",
+      "ja": "一時的な",
+      "zh": "临时性的"
+    },
+    {
+      "word": "load",
+      "pos": "動詞",
+      "ja": "読み込む",
+      "zh": "加载"
+    },
+    {
+      "word": "behavior",
+      "pos": "名詞",
+      "ja": "振る舞い",
+      "zh": "行为"
+    },
+    {
+      "word": "window",
+      "pos": "名詞",
+      "ja": "ウィンドウ（文脈の枠）",
+      "zh": "窗口"
+    },
+    {
+      "word": "instruction",
+      "pos": "名詞",
+      "ja": "指示",
+      "zh": "指令"
+    },
+    {
+      "word": "invoice",
+      "pos": "名詞",
+      "ja": "請求書",
+      "zh": "发票"
+    },
+    {
+      "word": "description",
+      "pos": "名詞",
+      "ja": "説明",
+      "zh": "描述"
+    },
+    {
+      "word": "merge",
+      "pos": "動詞",
+      "ja": "統合する",
+      "zh": "合并"
+    },
+    {
+      "word": "partial",
+      "pos": "形容詞",
+      "ja": "部分的な",
+      "zh": "部分的"
+    },
+    {
+      "word": "fact",
+      "pos": "名詞",
+      "ja": "事実",
+      "zh": "事实"
+    },
+    {
+      "word": "integration",
+      "pos": "名詞",
+      "ja": "統合、連携",
+      "zh": "集成"
+    },
+    {
+      "word": "execution",
+      "pos": "名詞",
+      "ja": "実行",
+      "zh": "执行"
+    },
+    {
+      "word": "resolve",
+      "pos": "動詞",
+      "ja": "解決する",
+      "zh": "解决"
+    },
+    {
+      "word": "ambiguous",
+      "pos": "形容詞",
+      "ja": "曖昧な",
+      "zh": "模糊的"
+    },
+    {
+      "word": "false",
+      "pos": "形容詞",
+      "ja": "誤った",
+      "zh": "错误的、误报的"
+    },
+    {
+      "word": "command",
+      "pos": "名詞",
+      "ja": "コマンド",
+      "zh": "命令"
+    },
+    {
+      "word": "statement",
+      "pos": "名詞",
+      "ja": "記述、文",
+      "zh": "陈述"
+    },
+    {
+      "word": "decomposition",
+      "pos": "名詞",
+      "ja": "分解",
+      "zh": "分解"
+    },
+    {
+      "word": "scope",
+      "pos": "名詞",
+      "ja": "範囲、スコープ",
+      "zh": "作用域、范围"
+    },
+    {
+      "word": "targeted",
+      "pos": "形容詞",
+      "ja": "的を絞った",
+      "zh": "有针对性的"
+    },
+    {
+      "word": "gap",
+      "pos": "名詞",
+      "ja": "欠落、すき間",
+      "zh": "缺口"
+    },
+    {
+      "word": "consistent",
+      "pos": "形容詞",
+      "ja": "一貫した",
+      "zh": "一致的"
+    },
+    {
+      "word": "billing",
+      "pos": "名詞",
+      "ja": "請求、課金",
+      "zh": "账单"
+    },
+    {
+      "word": "silently",
+      "pos": "副詞",
+      "ja": "黙って、通知せずに",
+      "zh": "悄悄地"
+    },
+    {
+      "word": "internal",
+      "pos": "形容詞",
+      "ja": "内部の",
+      "zh": "内部的"
+    },
+    {
+      "word": "business",
+      "pos": "名詞",
+      "ja": "業務",
+      "zh": "业务"
+    },
+    {
+      "word": "alternative",
+      "pos": "名詞",
+      "ja": "代替案",
+      "zh": "替代方案"
+    },
+    {
+      "word": "function",
+      "pos": "名詞",
+      "ja": "関数",
+      "zh": "函数"
+    },
+    {
+      "word": "verbose",
+      "pos": "形容詞",
+      "ja": "冗長な",
+      "zh": "冗长的"
+    },
+    {
+      "word": "frontmatter",
+      "pos": "名詞",
+      "ja": "フロントマター（ファイル先頭の設定）",
+      "zh": "前置信息"
+    },
+    {
+      "word": "concrete",
+      "pos": "形容詞",
+      "ja": "具体的な",
+      "zh": "具体的"
+    },
+    {
+      "word": "sequence",
+      "pos": "名詞",
+      "ja": "順序",
+      "zh": "顺序"
+    },
+    {
+      "word": "requirement",
+      "pos": "名詞",
+      "ja": "要件",
+      "zh": "需求"
+    },
+    {
+      "word": "coverage",
+      "pos": "名詞",
+      "ja": "網羅、カバー範囲",
+      "zh": "覆盖"
+    },
+    {
+      "word": "restart",
+      "pos": "動詞",
+      "ja": "再起動する",
+      "zh": "重启"
+    },
+    {
+      "word": "isolated",
+      "pos": "形容詞",
+      "ja": "隔離された",
+      "zh": "隔离的"
+    },
+    {
+      "word": "metadata",
+      "pos": "名詞",
+      "ja": "メタデータ（付帯情報）",
+      "zh": "元数据"
+    },
+    {
+      "word": "strategy",
+      "pos": "名詞",
+      "ja": "戦略",
+      "zh": "策略"
+    },
+    {
+      "word": "guarantee",
+      "pos": "動詞",
+      "ja": "保証する",
+      "zh": "保证"
+    },
+    {
+      "word": "generic",
+      "pos": "形容詞",
+      "ja": "汎用的な",
+      "zh": "通用的"
+    },
+    {
+      "word": "hook",
+      "pos": "名詞",
+      "ja": "フック（処理に割り込む仕組み）",
+      "zh": "钩子"
+    },
+    {
+      "word": "status",
+      "pos": "名詞",
+      "ja": "状態",
+      "zh": "状态"
+    },
+    {
+      "word": "security",
+      "pos": "名詞",
+      "ja": "セキュリティ",
+      "zh": "安全"
+    },
+    {
+      "word": "environment",
+      "pos": "名詞",
+      "ja": "環境",
+      "zh": "环境"
+    },
+    {
+      "word": "investigation",
+      "pos": "名詞",
+      "ja": "調査",
+      "zh": "调查"
+    },
+    {
+      "word": "inconsistent",
+      "pos": "形容詞",
+      "ja": "一貫しない",
+      "zh": "不一致的"
+    },
+    {
+      "word": "contract",
+      "pos": "名詞",
+      "ja": "契約",
+      "zh": "合同"
+    },
+    {
+      "word": "unavailable",
+      "pos": "形容詞",
+      "ja": "利用できない",
+      "zh": "不可用的"
+    },
+    {
+      "word": "category",
+      "pos": "名詞",
+      "ja": "カテゴリ、分類",
+      "zh": "类别"
+    },
+    {
+      "word": "interactive",
+      "pos": "形容詞",
+      "ja": "対話的な",
+      "zh": "交互式的"
+    },
+    {
+      "word": "migration",
+      "pos": "名詞",
+      "ja": "移行",
+      "zh": "迁移"
+    },
+    {
+      "word": "instance",
+      "pos": "名詞",
+      "ja": "インスタンス",
+      "zh": "实例"
+    },
+    {
+      "word": "positive",
+      "pos": "名詞",
+      "ja": "陽性（誤検知の「検知」）",
+      "zh": "阳性（误报中的「报」）"
+    },
+    {
+      "word": "reviewer",
+      "pos": "名詞",
+      "ja": "レビュアー",
+      "zh": "审查者"
+    },
+    {
+      "word": "score",
+      "pos": "名詞",
+      "ja": "スコア",
+      "zh": "分数"
+    },
+    {
+      "word": "iteration",
+      "pos": "名詞",
+      "ja": "反復",
+      "zh": "迭代"
+    },
+    {
+      "word": "parallel",
+      "pos": "形容詞",
+      "ja": "並列の",
+      "zh": "并行的"
+    },
+    {
+      "word": "subtask",
+      "pos": "名詞",
+      "ja": "サブタスク",
+      "zh": "子任务"
+    },
+    {
+      "word": "temperature",
+      "pos": "名詞",
+      "ja": "温度（出力のばらつきの設定）",
+      "zh": "温度（控制随机性的参数）"
+    },
+    {
+      "word": "escalation",
+      "pos": "名詞",
+      "ja": "エスカレーション（上位への引き継ぎ）",
+      "zh": "升级（转交处理）"
+    },
+    {
+      "word": "escalate",
+      "pos": "動詞",
+      "ja": "エスカレーションする",
+      "zh": "升级处理"
+    },
+    {
+      "word": "vague",
+      "pos": "形容詞",
+      "ja": "漠然とした",
+      "zh": "含糊的"
+    },
+    {
+      "word": "attention",
+      "pos": "名詞",
+      "ja": "注意",
+      "zh": "注意力"
+    },
+    {
+      "word": "retryable",
+      "pos": "形容詞",
+      "ja": "再試行できる",
+      "zh": "可重试的"
+    },
+    {
+      "word": "attempt",
+      "pos": "動詞",
+      "ja": "試みる",
+      "zh": "尝试"
+    },
+    {
+      "word": "null",
+      "pos": "名詞",
+      "ja": "ヌル（値が無いこと）",
+      "zh": "空值（null）"
+    },
+    {
+      "word": "syntax",
+      "pos": "名詞",
+      "ja": "構文",
+      "zh": "语法"
+    },
+    {
+      "word": "argument",
+      "pos": "名詞",
+      "ja": "引数",
+      "zh": "参数"
+    },
+    {
+      "word": "labeled",
+      "pos": "形容詞",
+      "ja": "ラベル付きの",
+      "zh": "带标注的"
+    },
+    {
+      "word": "conflict",
+      "pos": "名詞",
+      "ja": "食い違い、矛盾",
+      "zh": "冲突"
+    },
+    {
+      "word": "provenance",
+      "pos": "名詞",
+      "ja": "出所、来歴",
+      "zh": "出处"
+    },
+    {
+      "word": "citation",
+      "pos": "名詞",
+      "ja": "引用",
+      "zh": "引用"
+    },
+    {
+      "word": "annotate",
+      "pos": "動詞",
+      "ja": "注記する",
+      "zh": "标注"
+    },
+    {
+      "word": "handoff",
+      "pos": "名詞",
+      "ja": "引き継ぎ",
+      "zh": "交接"
+    },
+    {
+      "word": "prerequisite",
+      "pos": "名詞",
+      "ja": "前提条件",
+      "zh": "前置条件"
+    },
+    {
+      "word": "enforce",
+      "pos": "動詞",
+      "ja": "強制する",
+      "zh": "强制执行"
+    },
+    {
+      "word": "normalize",
+      "pos": "動詞",
+      "ja": "正規化する、そろえる",
+      "zh": "规范化"
+    },
+    {
+      "word": "intercept",
+      "pos": "動詞",
+      "ja": "横取りする、途中で捕まえる",
+      "zh": "拦截"
+    },
+    {
+      "word": "deterministic",
+      "pos": "形容詞",
+      "ja": "決定的な（毎回同じ結果の）",
+      "zh": "确定性的"
+    },
+    {
+      "word": "probabilistic",
+      "pos": "形容詞",
+      "ja": "確率的な",
+      "zh": "概率性的"
+    },
+    {
+      "word": "delegate",
+      "pos": "動詞",
+      "ja": "委任する",
+      "zh": "委派"
+    },
+    {
+      "word": "spawn",
+      "pos": "動詞",
+      "ja": "起動する、生み出す",
+      "zh": "启动（子任务）"
+    },
+    {
+      "word": "aggregate",
+      "pos": "動詞",
+      "ja": "集約する",
+      "zh": "汇总"
+    },
+    {
+      "word": "duplicate",
+      "pos": "形容詞",
+      "ja": "重複した",
+      "zh": "重复的"
+    },
+    {
+      "word": "overlap",
+      "pos": "名詞",
+      "ja": "重なり",
+      "zh": "重叠"
+    },
+    {
+      "word": "boundary",
+      "pos": "名詞",
+      "ja": "境界",
+      "zh": "边界"
+    },
+    {
+      "word": "misuse",
+      "pos": "動詞",
+      "ja": "誤用する",
+      "zh": "误用"
+    },
+    {
+      "word": "assign",
+      "pos": "動詞",
+      "ja": "割り当てる",
+      "zh": "分配"
+    },
+    {
+      "word": "threshold",
+      "pos": "名詞",
+      "ja": "しきい値",
+      "zh": "阈值"
+    },
+    {
+      "word": "calibrate",
+      "pos": "動詞",
+      "ja": "較正する",
+      "zh": "校准"
+    },
+    {
+      "word": "sample",
+      "pos": "名詞",
+      "ja": "標本、サンプル",
+      "zh": "样本"
+    },
+    {
+      "word": "stratified",
+      "pos": "形容詞",
+      "ja": "層別の",
+      "zh": "分层的"
+    },
+    {
+      "word": "accuracy",
+      "pos": "名詞",
+      "ja": "正確さ、精度",
+      "zh": "准确率"
+    },
+    {
+      "word": "segment",
+      "pos": "名詞",
+      "ja": "区分",
+      "zh": "细分"
+    },
+    {
+      "word": "degrade",
+      "pos": "動詞",
+      "ja": "劣化する",
+      "zh": "退化"
+    },
+    {
+      "word": "scratchpad",
+      "pos": "名詞",
+      "ja": "スクラッチパッド（作業メモ）",
+      "zh": "草稿文件"
+    },
+    {
+      "word": "manifest",
+      "pos": "名詞",
+      "ja": "マニフェスト（状態の一覧表）",
+      "zh": "清单"
+    },
+    {
+      "word": "crash",
+      "pos": "名詞",
+      "ja": "クラッシュ（異常終了）",
+      "zh": "崩溃"
+    },
+    {
+      "word": "precision",
+      "pos": "名詞",
+      "ja": "精度（誤検知の少なさ）",
+      "zh": "精确度"
+    },
+    {
+      "word": "severity",
+      "pos": "名詞",
+      "ja": "重大度",
+      "zh": "严重程度"
+    },
+    {
+      "word": "consistency",
+      "pos": "名詞",
+      "ja": "一貫性",
+      "zh": "一致性"
+    },
+    {
+      "word": "enum",
+      "pos": "名詞",
+      "ja": "列挙型",
+      "zh": "枚举"
+    },
+    {
+      "word": "nullable",
+      "pos": "形容詞",
+      "ja": "ヌル許容の",
+      "zh": "可为空的"
+    },
+    {
+      "word": "optional",
+      "pos": "形容詞",
+      "ja": "任意の、省略可能な",
+      "zh": "可选的"
+    },
+    {
+      "word": "required",
+      "pos": "形容詞",
+      "ja": "必須の",
+      "zh": "必填的"
+    },
+    {
+      "word": "semantic",
+      "pos": "形容詞",
+      "ja": "意味的な",
+      "zh": "语义的"
+    },
+    {
+      "word": "discrepancy",
+      "pos": "名詞",
+      "ja": "不一致",
+      "zh": "差异"
+    },
+    {
+      "word": "latency",
+      "pos": "名詞",
+      "ja": "遅延",
+      "zh": "延迟"
+    },
+    {
+      "word": "blocking",
+      "pos": "形容詞",
+      "ja": "待ちを生じさせる、ブロッキングの",
+      "zh": "阻塞的"
+    },
+    {
+      "word": "resubmit",
+      "pos": "動詞",
+      "ja": "再提出する",
+      "zh": "重新提交"
+    },
+    {
+      "word": "correlate",
+      "pos": "動詞",
+      "ja": "対応づける",
+      "zh": "关联"
+    },
+    {
+      "word": "reproduce",
+      "pos": "動詞",
+      "ja": "再現する",
+      "zh": "复现"
+    },
+    {
+      "word": "generalize",
+      "pos": "動詞",
+      "ja": "一般化する",
+      "zh": "泛化"
+    },
+    {
+      "word": "borderline",
+      "pos": "形容詞",
+      "ja": "境界線上の",
+      "zh": "临界的"
+    },
+    {
+      "word": "hallucination",
+      "pos": "名詞",
+      "ja": "ハルシネーション（もっともらしい誤り）",
+      "zh": "幻觉"
+    },
+    {
+      "word": "fabricate",
+      "pos": "動詞",
+      "ja": "でっち上げる",
+      "zh": "编造"
+    },
+    {
+      "word": "resume",
+      "pos": "動詞",
+      "ja": "再開する",
+      "zh": "恢复"
+    },
+    {
+      "word": "stale",
+      "pos": "形容詞",
+      "ja": "古くなった",
+      "zh": "过期的"
+    },
+    {
+      "word": "baseline",
+      "pos": "名詞",
+      "ja": "基準点",
+      "zh": "基线"
+    },
+    {
+      "word": "diff",
+      "pos": "名詞",
+      "ja": "差分",
+      "zh": "差异（diff）"
+    },
+    {
+      "word": "flaky",
+      "pos": "形容詞",
+      "ja": "不安定な（結果が毎回変わる）",
+      "zh": "不稳定的"
+    },
+    {
+      "word": "fixture",
+      "pos": "名詞",
+      "ja": "フィクスチャ（テスト用の固定データ）",
+      "zh": "测试夹具"
+    },
+    {
+      "word": "headless",
+      "pos": "形容詞",
+      "ja": "ヘッドレスの（画面なしで動く）",
+      "zh": "无界面的"
+    },
+    {
+      "word": "noninteractive",
+      "pos": "形容詞",
+      "ja": "非対話の",
+      "zh": "非交互的"
+    },
+    {
+      "word": "hierarchy",
+      "pos": "名詞",
+      "ja": "階層",
+      "zh": "层级"
+    },
+    {
+      "word": "import",
+      "pos": "名詞",
+      "ja": "インポート（取り込み）",
+      "zh": "导入"
+    },
+    {
+      "word": "glob",
+      "pos": "名詞",
+      "ja": "グロブ（ファイル名のパターン）",
+      "zh": "glob 模式"
+    },
+    {
+      "word": "conditional",
+      "pos": "形容詞",
+      "ja": "条件付きの",
+      "zh": "有条件的"
+    },
+    {
+      "word": "architecture",
+      "pos": "名詞",
+      "ja": "アーキテクチャ、構成",
+      "zh": "架构"
+    },
+    {
+      "word": "refactor",
+      "pos": "動詞",
+      "ja": "リファクタリングする",
+      "zh": "重构"
+    },
+    {
+      "word": "interview",
+      "pos": "名詞",
+      "ja": "面談、聞き取り",
+      "zh": "访谈"
+    },
+    {
+      "word": "credential",
+      "pos": "名詞",
+      "ja": "認証情報",
+      "zh": "凭据"
+    },
+    {
+      "word": "expansion",
+      "pos": "名詞",
+      "ja": "展開",
+      "zh": "展开"
+    },
+    {
+      "word": "resource",
+      "pos": "名詞",
+      "ja": "リソース",
+      "zh": "资源"
+    },
+    {
+      "word": "catalog",
+      "pos": "名詞",
+      "ja": "目録",
+      "zh": "目录（清单）"
+    },
+    {
+      "word": "exploratory",
+      "pos": "形容詞",
+      "ja": "探索的な",
+      "zh": "探索性的"
+    },
+    {
+      "word": "community",
+      "pos": "名詞",
+      "ja": "コミュニティ",
+      "zh": "社区"
+    },
+    {
+      "word": "entry",
+      "pos": "名詞",
+      "ja": "入口",
+      "zh": "入口"
+    },
+    {
+      "word": "wrapper",
+      "pos": "名詞",
+      "ja": "ラッパー（包む層）",
+      "zh": "包装层"
+    },
+    {
+      "word": "anchor",
+      "pos": "名詞",
+      "ja": "目印（一致させる文字列）",
+      "zh": "锚点"
+    },
+    {
+      "word": "incremental",
+      "pos": "形容詞",
+      "ja": "段階的な",
+      "zh": "增量式的"
+    },
+    {
+      "word": "stop",
+      "pos": "動詞",
+      "ja": "止まる、止める",
+      "zh": "停止"
+    },
+    {
+      "word": "terminate",
+      "pos": "動詞",
+      "ja": "終了させる",
+      "zh": "终止"
+    }
+  ]
+}
