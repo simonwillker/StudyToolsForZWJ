@@ -1,5 +1,7 @@
 import React, { useMemo, useState, useCallback, useEffect, useRef } from "react";
 import EikenTest from "./EikenTest.jsx";
+import EikenVocabTest, { VocabTestTrend } from "./EikenVocabTest.jsx";
+import { VOCAB_TEST_LEVELS, hasVocabTest, summarizeVocabTests } from "./eikenVocabTest";
 import { newStudySession } from "./studyLog";
 import { LEVEL_META, findLevelMeta, peekLevel, peekTest, loadLevel, loadTest } from "./eikenLevels";
 import {
@@ -48,6 +50,8 @@ const OFFICIAL_LINKS = [
 
 const MODES = [
   { id: "vocab", label: "単語・熟語", desc: "4択クイズで語彙を覚える", icon: "📘" },
+  // 3級・準2級・2級だけ（eikenVocabTest.js の VOCAB_TEST_LEVELS）
+  { id: "vocabTest", label: "単語テスト", desc: "範囲と問題数をえらび、最後にまとめて採点", icon: "💯", levels: VOCAB_TEST_LEVELS },
   { id: "phrases", label: "常用短句", desc: "会話でそのまま使えるフレーズを覚える", icon: "🗣️" },
   { id: "grammar", label: "文法・穴うめ", desc: "空所に入る正しい語句を選ぶ", icon: "✏️" },
   { id: "reading", label: "長文読解", desc: "英文を読んで内容を答える", icon: "📖" },
@@ -1130,7 +1134,8 @@ function ProgressDashboard({ onBack }) {
         `・解いた問題　${d.attempted}問（正解 ${d.correct}問）\n` +
         `・学習した日数　${d.days}日\n` +
         `・復習リスト　${d.reviewCount}問\n` +
-        `・模擬テスト　${d.tests}回\n\n` +
+        `・模擬テスト　${d.tests}回\n` +
+        `・単語テスト　${d.vocabTests}回\n\n` +
         `今この端末にある記録は、これで置き換えられます。よろしいですか？`
     );
     if (!okToApply) return;
@@ -1251,6 +1256,28 @@ function ProgressDashboard({ onBack }) {
           })}
         </div>
 
+        <div className="eiken-sub-head">単語テストの得点推移（3級・準2級・2級）</div>
+        {VOCAB_TEST_LEVELS.every((lv) => !summarizeVocabTests(lv)) ? (
+          <div className="eiken-empty-note">まだ単語テストを受けていません（級を選んで「単語テスト」から受けられます）。</div>
+        ) : (
+          VOCAB_TEST_LEVELS.map((lv) => {
+            const sum = summarizeVocabTests(lv);
+            if (!sum) return null;
+            const meta = findLevelMeta(lv);
+            return (
+              <div className="eiken-vt-dash" key={lv}>
+                <div className="eiken-mode-stat-top">
+                  <span className="eiken-mode-stat-name" style={{ color: meta.color }}>{meta.levelLabel}</span>
+                  <span className="eiken-mode-stat-num">
+                    {sum.count}回 ／ 最高 {sum.best.percent}% ／ 直近5回の平均 {sum.recentAvg}%
+                  </span>
+                </div>
+                <VocabTestTrend level={lv} color={meta.color} />
+              </div>
+            );
+          })
+        )}
+
         <div className="eiken-sub-head">記録のバックアップ</div>
         <div className="eiken-backup-row">
           <button className="eiken-backup-btn" onClick={handleExport}>
@@ -1302,7 +1329,7 @@ function LevelLoading({ label }) {
    ============================================================ */
 
 export default function EikenApp({ onExitApp }) {
-  const [screen, setScreen] = useState("levelSelect"); // levelSelect | modeSelect | quiz | pronunciation | progress
+  const [screen, setScreen] = useState("levelSelect"); // levelSelect | modeSelect | quiz | pronunciation | test | vocabTest | progress
   const [levelId, setLevelId] = useState(null);
   const [mode, setMode] = useState(null);
   const [vocabDirection, setVocabDirection] = useState("en2ja");
@@ -1438,6 +1465,7 @@ export default function EikenApp({ onExitApp }) {
     setMode(m);
     if (m === "pronunciation") setScreen("pronunciation");
     else if (m === "test") setScreen("test");
+    else if (m === "vocabTest") setScreen("vocabTest");
     else setScreen("quiz");
   }, []);
 
@@ -1711,6 +1739,48 @@ export default function EikenApp({ onExitApp }) {
         .eiken-level-stat-bar-track { height: 8px; background: #EDEBE3; border-radius: 4px; overflow: hidden; }
         .eiken-level-stat-bar-fill { height: 100%; background: var(--c); }
         .eiken-level-stat-num { font-size: 11.5px; color: #6B7280; text-align: right; }
+        /* ── 単語テスト ── */
+        .eiken-vt-lead { font-size: 13px; color: #555F52; line-height: 1.7; }
+        .eiken-word-chip:disabled { opacity: 0.45; cursor: not-allowed; }
+        .eiken-vt-unit { max-width: 130px; }
+        .eiken-vt-tilde { color: #6B7280; }
+        .eiken-vt-summary { text-align: center; font-size: 13.5px; color: #2A2E27; margin-top: 4px; }
+        .eiken-choice-btn.selected { border-color: var(--c); background: #F5F4EE; font-weight: 700; box-shadow: inset 0 0 0 1px var(--c); }
+        .eiken-vt-hint { font-family: 'Space Mono', monospace; letter-spacing: 1px; color: #2A2E27; }
+        .eiken-vt-input {
+          width: 100%; box-sizing: border-box; margin-top: 14px; font: inherit; font-size: 18px;
+          font-family: 'Space Mono', monospace; padding: 12px 14px; border: 2px solid #D8DCD3; border-radius: 8px;
+        }
+        .eiken-vt-input:focus { outline: none; border-color: var(--c); }
+        .eiken-vt-sheet { display: flex; flex-wrap: wrap; gap: 6px; }
+        .eiken-vt-cell {
+          min-width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #D8DCD3; background: #fff;
+          font-size: 12.5px; color: #6B7280; cursor: pointer;
+        }
+        .eiken-vt-cell.done { background: #EDEBE3; color: #2A2E27; font-weight: 700; }
+        .eiken-vt-cell.current { border-color: var(--c); box-shadow: inset 0 0 0 1px var(--c); }
+        .eiken-vt-percent { font-size: 16px; font-weight: 800; color: #2A2E27; margin-top: 2px; }
+        .eiken-vt-words { display: flex; flex-direction: column; gap: 10px; }
+        .eiken-vt-word { border: 1px solid #E4E2DA; border-left: 4px solid #C8323D; border-radius: 8px; padding: 10px 12px; }
+        .eiken-vt-word.ok { border-left-color: #2F7A4F; }
+        .eiken-vt-word-top { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .eiken-vt-word-en { font-size: 17px; font-weight: 800; }
+        .eiken-vt-word-meta { font-size: 12px; color: #6B7280; }
+        .eiken-vt-word-meaning { font-size: 14px; margin-top: 4px; }
+        .eiken-vt-yours { font-size: 12.5px; color: #C8323D; margin-top: 2px; }
+        .eiken-vt-history { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
+        .eiken-vt-history-row { display: flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: #6B7280; }
+        .eiken-vt-history-row b { margin-left: auto; color: #2A2E27; }
+        .eiken-vt-dash { margin-bottom: 14px; }
+        /* 得点推移：1系列の縦棒。グリッドは控えめ、値はキャプションとツールチップで出す */
+        .eiken-vt-chart { position: relative; height: 96px; display: flex; align-items: flex-end; gap: 2px; padding-right: 26px; border-bottom: 1px solid #D8DCD3; }
+        .eiken-vt-grid { position: absolute; left: 0; right: 26px; border-top: 1px dashed #EDEBE3; }
+        .eiken-vt-col { flex: 1; max-width: 28px; height: 100%; display: flex; align-items: flex-end; cursor: pointer; position: relative; z-index: 1; }
+        .eiken-vt-bar { width: 100%; background: var(--c); border-radius: 4px 4px 0 0; opacity: 0.85; }
+        .eiken-vt-col.hover .eiken-vt-bar { opacity: 1; outline: 2px solid #2A2E27; outline-offset: 1px; }
+        .eiken-vt-axis { position: absolute; right: 0; top: -6px; bottom: -6px; display: flex; flex-direction: column; justify-content: space-between; font-size: 9.5px; color: #9AA093; }
+        .eiken-vt-caption { font-size: 11.5px; color: #6B7280; margin-top: 6px; }
+        .eiken-vt-caption b { color: #2A2E27; white-space: nowrap; }
         .eiken-footer-row { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; }
       `}</style>
 
@@ -1799,7 +1869,7 @@ export default function EikenApp({ onExitApp }) {
                 </div>
               </button>
             )}
-            {MODES.map((m) => (
+            {MODES.filter((m) => !m.levels || m.levels.includes(level.level)).map((m) => (
               <button
                 key={m.id}
                 className={`eiken-mode-card ${m.wide ? "wide" : ""}`}
@@ -1949,6 +2019,13 @@ export default function EikenApp({ onExitApp }) {
           ) : (
             <LevelLoading label="模擬テストを読み込んでいます…" />
           )}
+        </>
+      )}
+
+      {screen === "vocabTest" && level && hasVocabTest(level.level) && (
+        <>
+          <button className="eiken-back-link" style={{ marginBottom: 12 }} onClick={backToModeSelect}>← モード選択にもどる</button>
+          <EikenVocabTest key={level.level} level={level} onExit={backToModeSelect} />
         </>
       )}
 

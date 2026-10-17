@@ -12,6 +12,7 @@ import { LEVEL_META } from "./eikenLevels";
 /** 英検マスターのモード名。EikenApp.jsx の MODES と同じ表記 */
 export const EIKEN_MODE_LABELS = {
   vocab: "単語・熟語",
+  vocabTest: "単語テスト",
   phrases: "常用短句",
   grammar: "文法・穴うめ",
   reading: "長文読解",
