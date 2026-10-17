@@ -20,6 +20,7 @@ export const BACKUP_KEYS = [
   "eikenProgressV1", // 学習進捗（日別・モード別・級別）
   "eikenReviewV1", // まちがえた問題の復習リスト
   "eikenTestResultsV1", // 模擬テストの結果
+  "eikenVocabTestResultsV1", // 単語テスト（3級・準2級・2級）の結果
 ];
 
 function readKey(key) {
@@ -65,11 +66,12 @@ export function describeBackup(backup) {
     (s, list) => s + (Array.isArray(list) ? list.length : 0),
     0
   );
-  const tests = Object.values(d.eikenTestResultsV1 || {}).reduce(
-    (s, v) => s + (Array.isArray(v) ? v.length : 0),
-    0
-  );
-  return { attempted, correct, days, reviewCount, tests, exportedAt: backup?.exportedAt || null };
+  // 結果はどちらも { levels: { 級: [...] } } の形
+  const countResults = (store) =>
+    Object.values((store && store.levels) || {}).reduce((s, v) => s + (Array.isArray(v) ? v.length : 0), 0);
+  const tests = countResults(d.eikenTestResultsV1);
+  const vocabTests = countResults(d.eikenVocabTestResultsV1);
+  return { attempted, correct, days, reviewCount, tests, vocabTests, exportedAt: backup?.exportedAt || null };
 }
 
 /** 読み込もうとしているファイルが本当にこのアプリのバックアップか確かめる。 */

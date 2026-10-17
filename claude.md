@@ -30,7 +30,8 @@
 サーバー上にupdateする。Ipad、Iphone、PCどれでも確認とれる
 
 ## 状態
-- 最新バージョン：v1.33.0（2026-10-13）
+- 最新バージョン：v1.34.0（2026-10-17）
+- v1.34.0：英検マスターの 3級・準2級・2級に「💯 単語テスト」。範囲（組〜組／すべて／苦手な単語）・問題数（10・20・50・範囲すべて）・形式（英→日／日→英／スペル入力／まぜる）を選び、回答中は正解を出さず最後に採点。結果に点数・正答率・まちがえた単語（意味・例文・🔊）。まちがえた単語は復習リスト（mode `vocab`）へ、答えは学習記録・勉強履歴（「3級 単語テスト」）へ。結果は `eikenVocabTestResultsV1`（バックアップ対象）、級ごとの得点推移を表示。`src/eikenVocabTest.js`・`src/EikenVocabTest.jsx`、`npm run test:eiken-vocab-test` で確認（PR 作成済み・未マージ）
 - v1.33.0：トップの「CCAO-F 対策」を「Claude 認定」にし、中で資格を選ぶ構成に（`src/claudeCert/`、データは `src/data/claudeCert/<資格>/`）。CCAR-F（Claude Certified Architect – Foundations）を追加：公式 Exam Guide v1.0 の 5 ドメイン・30 task statement・6 シナリオ、400 問（シナリオ型中心、中国語訳・注解つき）、30 讲义、頻出単語 158 語、シナリオ別練習、4 シナリオ抽選の模擬試験。音声読み上げ（v1.32.0）も資格共通にし、CCAR-F のシナリオは変わり目で説明を読み上げる。CCAO-F の保存キーは変えず、旧アプリ id `ccaof` は `claudeCert` に移行。`npm run validate:claude-cert`・`npm run test:ccaof-study` で確認
 - v1.32.0：CCAO-F に音声読み上げ。問題文・選択肢・解説・中文注解・頻出単語・讲义の横に🔊、音声モード（ハンズフリー連続再生：単語→意味→例文／問題→選択肢→考える間→正解→解説／讲义の節ごと）、一時停止・前へ・次へ・速度 0.75〜1.25 倍・間・読む言語（英語／日本語／中文）。Web Speech API のみ（外部 API なし）、非対応端末は表示しない。聞いた分は正答率に入れず `ccaofListenV1`（バックアップ対象）と頻出単語の「学習した単語」に記録。台本は `src/claudeCert/audioCore.js`（v1.33.0 で移動。CCAR-F でも使える）、`npm run test:ccaof-audio` で確認
 - v1.31.0：CCAO-F に 4 機能。考点讲义（30 objectives、中国語、`src/data/ccaof/lessons.json`）→ その考点だけの練習／考点別の成績と「弱い 3 考点だけ練習」／錯題本（1日→3日→7日、2回連続正解で外れる、`ccaofMistakesV1`）と今日の復習／合格予測（模試＋考点別正答率を配点で加重）。計算は `src/ccaofStudyCore.js`、`npm run test:ccaof-study` で確認
