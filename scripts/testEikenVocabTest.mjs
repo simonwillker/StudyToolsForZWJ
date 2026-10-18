@@ -126,11 +126,12 @@ test("スペルの正規化：大小文字・空白・アポストロフィ・�
 
 test("範囲：組（両端を含む）・すべて・苦手な単語", () => {
   const vocab = load("2").vocab;
-  assert.equal(vt.unitCount(vocab), 25);
+  const units = Math.ceil(vocab.length / 20);
+  assert.equal(vt.unitCount(vocab), units);
   assert.deepEqual(vt.wordsInRange(vocab, { type: "units", from: 0, to: 0 }), vocab.slice(0, 20));
   assert.deepEqual(vt.wordsInRange(vocab, { type: "units", from: 2, to: 4 }), vocab.slice(40, 100));
-  assert.equal(vt.wordsInRange(vocab, { type: "units", from: 30, to: 40 }).length, 20, "範囲外は最後の組");
-  assert.equal(vt.wordsInRange(vocab, { type: "all" }).length, 500);
+  assert.deepEqual(vt.wordsInRange(vocab, { type: "units", from: units + 5, to: units + 15 }), vocab.slice((units - 1) * 20), "範囲外は最後の組");
+  assert.equal(vt.wordsInRange(vocab, { type: "all" }).length, vocab.length);
   const weak = new Set([vocab[3].id, vocab[99].id]);
   assert.deepEqual(vt.wordsInRange(vocab, { type: "weak" }, weak).map((w) => w.id), [vocab[3].id, vocab[99].id]);
   assert.equal(vt.rangeLabel({ type: "units", from: 2, to: 4 }), "3〜5組");
