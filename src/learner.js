@@ -9,10 +9,12 @@
    移しかえなしで ZWJ の記録として残る。ほかの人は "<キー>::<名前>"。
    ============================================================ */
 
+/* apps：その人のアプリ選択画面に出すアプリ（勉強履歴はだれでも見られる）。
+   ZY は Claude 認定だけ、ZWJ は Claude 認定以外、Guest はおためしなので全部。 */
 export const LEARNERS = [
-  { id: "ZWJ", label: "ZWJ", color: "#2F7A4F" },
-  { id: "ZY", label: "ZY", color: "#2F5D8A" },
-  { id: "Guest", label: "Guest", color: "#6B7280" },
+  { id: "ZWJ", label: "ZWJ", color: "#2F7A4F", apps: ["drill", "eiken", "sapix"], note: "ドリル・英検・Sapix" },
+  { id: "ZY", label: "ZY", color: "#2F5D8A", apps: ["claudeCert"], note: "Claude 認定" },
+  { id: "Guest", label: "Guest", color: "#6B7280", apps: ["drill", "eiken", "claudeCert", "sapix"], note: "すべて（おためし）" },
 ];
 
 /** これまでの記録の持ち主。この人だけはキーに名前をつけない */
@@ -23,6 +25,13 @@ const LAST_KEY = "studyToolsLastLearner";
 
 function isLearner(id) {
   return LEARNERS.some((l) => l.id === id);
+}
+
+/** その人が開けるアプリか。メニューと勉強履歴はだれでも開ける */
+export function canUseApp(learner, app) {
+  if (app === "menu" || app === "history") return true;
+  const l = LEARNERS.find((x) => x.id === learner);
+  return !!l && l.apps.includes(app);
 }
 
 /** このタブで選ばれている勉強者。まだ選んでいなければ null */
