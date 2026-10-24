@@ -23,6 +23,8 @@ import {
   nextActions,
   pctOf,
   MIN_OBJECTIVE_ATTEMPTS,
+  paceSummary,
+  formatSeconds,
 } from "./studyCore";
 import { recordMistakeAnswer, getMistakeSummary, getDueMistakeIds } from "./mistakes";
 import {
@@ -327,20 +329,44 @@ function Quiz({ domain, questions, onExit, showZh, onToggleZh, studyLabel, exitL
    （本番の score report と同じ形）。
    ============================================================ */
 
-function ExamRunner({ questions, answers, onPick, startedAt, onSubmit, onAbandon, showZh }) {
+/** 1回開いていた時間の上限。画面を開いたまま離れた分で平均が狂わないように */
+const MAX_VISIT_MS = 10 * 60 * 1000;
+
+function ExamRunner({ questions, answers, onPick, startedAt, onSubmit, onAbandon, showZh, englishOnly, onTime }) {
   const [index, setIndex] = useState(0);
   const [left, setLeft] = useState(() => remainingMs(startedAt));
   const [confirming, setConfirming] = useState(false);
+  // 英文のみモードでは、全体の「中文訳」設定に関係なく訳を出さない（本番どおり）
+  const zh = showZh && !englishOnly;
+
+  // いま開いている問題に入った時刻。問題を移るたびにその問題の時間として足す
+  const enteredAt = useRef(Date.now());
+  const indexRef = useRef(0);
+  const flushTime = useCallback(() => {
+    const now = Date.now();
+    onTime(indexRef.current, Math.min(MAX_VISIT_MS, now - enteredAt.current));
+    enteredAt.current = now;
+  }, [onTime]);
+  const goTo = (next) => {
+    if (next === index) return;
+    flushTime();
+    indexRef.current = next;
+    setIndex(next);
+  };
+  const submit = useCallback((timedOut) => {
+    flushTime();
+    onSubmit(timedOut);
+  }, [flushTime, onSubmit]);
 
   useEffect(() => {
     const id = setInterval(() => {
       const ms = remainingMs(startedAt);
       setLeft(ms);
       // 時間切れは自動提出。本番も終了時刻で締め切られる
-      if (ms <= 0) onSubmit(true);
+      if (ms <= 0) submit(true);
     }, 1000);
     return () => clearInterval(id);
-  }, [startedAt, onSubmit]);
+  }, [startedAt, submit]);
 
   const q = questions[index];
   const answered = answers.filter((a) => a && a.length > 0).length;
@@ -360,7 +386,10 @@ function ExamRunner({ questions, answers, onPick, startedAt, onSubmit, onAbandon
     <div className="ccaof-exam">
       <div className="ccaof-exam-bar">
         <span className={"ccaof-clock" + (low ? " low" : "")}>⏱ {formatClock(left)}</span>
-        <span className="ccaof-exam-count">{index + 1} / {questions.length}（解答済み {answered}）</span>
+        <span className="ccaof-exam-count">
+          {englishOnly && <span className="ccaof-en-badge">英文のみ</span>}
+          {index + 1} / {questions.length}（解答済み {answered}）
+        </span>
       </div>
 
       <div className="ccaof-exam-grid">
@@ -372,7 +401,7 @@ function ExamRunner({ questions, answers, onPick, startedAt, onSubmit, onAbandon
               (i === index ? " current" : "") +
               (answers[i] && answers[i].length > 0 ? " done" : "")
             }
-            onClick={() => setIndex(i)}
+            onClick={() => goTo(i)}
           >
             {i + 1}
           </button>
@@ -382,10 +411,10 @@ function ExamRunner({ questions, answers, onPick, startedAt, onSubmit, onAbandon
       {q.scenario && (index === 0 || questions[index - 1].scenario !== q.scenario) && (
         <div className="ccaof-scenario-new">ここから新しいシナリオです</div>
       )}
-      {q.scenario && <ScenarioBox id={q.scenario} showZh={showZh} key={q.id} />}
+      {q.scenario && <ScenarioBox id={q.scenario} showZh={zh} key={q.id} />}
       {q.material && <div className="ccaof-material">{q.material}</div>}
       <div className="ccaof-stem">{q.stem}</div>
-      {q.stemZh && showZh && <div className="ccaof-stem-zh">{q.stemZh}</div>}
+      {q.stemZh && zh && <div className="ccaof-stem-zh">{q.stemZh}</div>}
       {q.selectCount > 1 && (
         <div className="ccaof-select-hint">{q.selectCount}つ選んでください（{picked.length}/{q.selectCount} 選択中）</div>
       )}
@@ -398,15 +427,15 @@ function ExamRunner({ questions, answers, onPick, startedAt, onSubmit, onAbandon
             onClick={() => toggle(i)}
           >
             <div className="ccaof-choice-text">{c.text}</div>
-            {c.textZh && showZh && <div className="ccaof-choice-zh">{c.textZh}</div>}
+            {c.textZh && zh && <div className="ccaof-choice-zh">{c.textZh}</div>}
           </button>
         ))}
       </div>
 
       <div className="ccaof-quiz-foot">
-        <button className="ccaof-btn-ghost" onClick={() => setIndex(Math.max(0, index - 1))} disabled={index === 0}>← 前の問題</button>
+        <button className="ccaof-btn-ghost" onClick={() => goTo(Math.max(0, index - 1))} disabled={index === 0}>← 前の問題</button>
         {index + 1 < questions.length ? (
-          <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => setIndex(index + 1)}>次の問題 →</button>
+          <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => goTo(index + 1)}>次の問題 →</button>
         ) : (
           <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => setConfirming(true)}>提出する</button>
         )}
@@ -428,12 +457,51 @@ function ExamRunner({ questions, answers, onPick, startedAt, onSubmit, onAbandon
             </div>
             <div className="ccaof-delete-actions">
               <button className="ccaof-btn-ghost" onClick={() => setConfirming(false)}>まだ見直す</button>
-              <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => onSubmit(false)}>提出する</button>
+              <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => submit(false)}>提出する</button>
             </div>
           </div>
         </div>
       )}
     </div>
+  );
+}
+
+function PaceReport({ pace }) {
+  if (!pace || !pace.seen) return null;
+  const slow = pace.avgMs > pace.targetMs;
+  return (
+    <>
+      <div className="ccaof-sub-head">解答ペース（1問あたりの目安 {formatSeconds(pace.targetMs)}）</div>
+      <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "left" }} data-testid="pace">
+        <div className={"ccaof-pace-main " + (slow ? "fail" : "pass")}>
+          平均 {formatSeconds(pace.avgMs)} / 問
+          {slow ? "（目安より遅い）" : "（目安以内）"}
+        </div>
+        <div className="ccaof-focus-desc">
+          目安を超えた問題：{pace.overCount}問。
+          {slow
+            ? "英文を読むのに時間がかかっています。問題文の最後の1文（何を聞かれているか）を先に読み、BEST / NOT / FIRST などのキーワードに印をつけてから選択肢を読む練習をしましょう。"
+            : "このペースなら見直しの時間も残せます。"}
+        </div>
+        {DOMAINS.map((d) => {
+          const st = pace.perDomain[d.id];
+          if (!st || !st.count) return null;
+          const ratio = Math.min(1, st.avgMs / (pace.targetMs * 2));
+          return (
+            <div className="ccaof-stat-row" key={d.id} style={{ "--c": st.avgMs > pace.targetMs ? "#C8323D" : d.color }}>
+              <div className="ccaof-stat-name">{d.label}</div>
+              <div className="ccaof-stat-track"><div className="ccaof-stat-fill" style={{ width: `${ratio * 100}%` }} /></div>
+              <div className="ccaof-stat-num">平均 {formatSeconds(st.avgMs)}</div>
+            </div>
+          );
+        })}
+        {pace.slowest.length > 0 && (
+          <div className="ccaof-focus-desc" style={{ marginTop: 8 }}>
+            時間がかかった問題：{pace.slowest.map((r) => `第${r.no}問 ${formatSeconds(r.ms)}`).join("、")}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
@@ -454,6 +522,7 @@ function ExamResult({ result, questions, onReview, onBack }) {
         本番のスケールドスコアの換算方法は公表されていません。ここの点数は
         正答率を 100〜1000 に置き換えた<strong>目安</strong>で、本番の得点の予測ではありません。
         確かなのは「何問正解したか」と、下のドメイン別の正答率です。
+        {result.englishOnly && " この回は中文訳なし（英文のみ・本番どおり）で受けました。"}
       </div>
 
       <div className="ccaof-sub-head">ドメイン別（本番の score report と同じ形）</div>
@@ -471,6 +540,8 @@ function ExamResult({ result, questions, onReview, onBack }) {
         })}
       </div>
 
+      <PaceReport pace={result.pace} />
+
       <div className="ccaof-quiz-foot" style={{ maxWidth: 720, margin: "20px auto 0" }}>
         <button className="ccaof-btn-ghost" onClick={onBack}>もどる</button>
         <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={onReview}>間違えた問題を見る</button>
@@ -479,7 +550,7 @@ function ExamResult({ result, questions, onReview, onBack }) {
   );
 }
 
-function ExamReview({ result, questions, showZh, onBack }) {
+function ExamReview({ result, questions, showZh, timeSpent = [], onBack }) {
   const wrong = result.details
     .map((d, i) => ({ ...d, q: questions[i], no: i + 1 }))
     .filter((d) => !d.correct);
@@ -490,7 +561,10 @@ function ExamReview({ result, questions, showZh, onBack }) {
       {wrong.length === 0 && <div className="ccaof-empty">全問正解です。</div>}
       {wrong.map((w) => (
         <div className="ccaof-review-item" key={w.id}>
-          <div className="ccaof-review-no">第 {w.no} 問 · {findDomain(w.q.domain).label}</div>
+          <div className="ccaof-review-no">
+            第 {w.no} 問 · {findDomain(w.q.domain).label}
+            {timeSpent[w.no - 1] > 0 && ` · ${formatSeconds(timeSpent[w.no - 1])}`}
+          </div>
           {w.q.scenario && <ScenarioBox id={w.q.scenario} showZh={showZh} defaultOpen={false} />}
           <div className="ccaof-stem">{w.q.stem}<SpeakButton text={w.q.stem} label="問題文を読み上げる" /></div>
           {w.q.stemZh && showZh && <div className="ccaof-stem-zh">{w.q.stemZh}<SpeakButton text={w.q.stemZh} lang="zh" /></div>}
@@ -858,13 +932,15 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
     });
   }, []);
 
-  const startExam = useCallback(async (resume) => {
+  const startExam = useCallback(async (resume, englishOnly = false) => {
     setExamBusy(true);
     try {
       const state = resume || {
         questions: await buildExam(),
         answers: [],
         startedAt: Date.now(),
+        englishOnly,
+        timeSpent: [],
       };
       saveInProgress(state);
       setExam(state);
@@ -887,11 +963,25 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
     });
   }, []);
 
+  const recordExamTime = useCallback((index, ms) => {
+    if (!(ms > 0)) return;
+    setExam((prev) => {
+      if (!prev) return prev;
+      const timeSpent = [...(prev.timeSpent || [])];
+      timeSpent[index] = (timeSpent[index] || 0) + ms;
+      const updated = { ...prev, timeSpent };
+      saveInProgress(updated);
+      return updated;
+    });
+  }, []);
+
   const submitExam = useCallback((timedOut) => {
     setExam((prev) => {
       if (!prev) return prev;
       const result = gradeExam(prev.questions, prev.answers);
       result.timedOut = !!timedOut;
+      result.englishOnly = !!prev.englishOnly;
+      result.pace = paceSummary(prev.questions, prev.timeSpent || [], EXAM_FORMAT);
       saveResult(result);
       clearInProgress();
       // 模試の結果はドメイン別の学習記録にも反映する（勉強履歴は「模擬試験」1回として）
@@ -1257,6 +1347,10 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
         .ccaof-exam-history-row { display: flex; justify-content: space-between; font-size: 12px; color: #6B7280; padding: 3px 0; }
         .ccaof-exam-history-row .pass { color: #1F6B45; font-weight: 700; }
         .ccaof-exam-history-row .fail { color: #C8323D; font-weight: 700; }
+        .ccaof-en-badge { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; background: #2F5D8A; border-radius: 4px; padding: 1px 6px; margin-right: 8px; }
+        .ccaof-pace-main { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+        .ccaof-pace-main.pass { color: #1F6B45; }
+        .ccaof-pace-main.fail { color: #C8323D; }
 
         .ccaof-exam { max-width: 720px; margin: 0 auto; }
         .ccaof-exam-bar { display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: #F7F6F2; padding: 8px 0; z-index: 2; border-bottom: 1px solid #E4E2DA; }
@@ -1518,9 +1612,19 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
                 <button className="ccaof-btn-ghost" onClick={() => { clearInProgress(); setResumable(null); }}>破棄する</button>
               </div>
             ) : (
-              <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => startExam(null)} disabled={examBusy}>
-                {examBusy ? "問題を準備しています…" : "模擬試験をはじめる"}
-              </button>
+              <>
+                <div className="ccaof-focus-desc">
+                  本番は英語だけで出題されます。仕上げの模試は「英文のみ」で受け、1問あたりの時間（目安 {formatSeconds((EXAM_FORMAT.minutes * 60 * 1000) / EXAM_FORMAT.items)}）も確かめましょう。
+                </div>
+                <div className="ccaof-delete-actions" style={{ justifyContent: "flex-start" }}>
+                  <button className="ccaof-btn" style={{ "--c": "#C8743D" }} onClick={() => startExam(null, true)} disabled={examBusy}>
+                    {examBusy ? "問題を準備しています…" : "英文のみで受ける（本番どおり）"}
+                  </button>
+                  <button className="ccaof-btn-ghost" onClick={() => startExam(null, false)} disabled={examBusy}>
+                    中文訳つきで受ける（練習）
+                  </button>
+                </div>
+              </>
             )}
             {pastResults.length > 0 && (
               <div className="ccaof-exam-history">
@@ -1528,7 +1632,8 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
                 {pastResults.slice(0, 5).map((r) => (
                   <div className="ccaof-exam-history-row" key={r.finishedAt}>
                     <span>{new Date(r.finishedAt).toLocaleDateString()}</span>
-                    <span>{r.correct} / {r.total}</span>
+                    <span>{r.correct} / {r.total}{r.englishOnly ? "（英文のみ）" : ""}</span>
+                    {r.avgMs > 0 && <span>平均 {formatSeconds(r.avgMs)}/問</span>}
                     <span className={r.passed ? "pass" : "fail"}>目安 {r.scaled}</span>
                   </div>
                 ))}
@@ -1690,6 +1795,8 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
           onSubmit={submitExam}
           onAbandon={abandonExam}
           showZh={showZh}
+          englishOnly={!!exam.englishOnly}
+          onTime={recordExamTime}
         />
       )}
 
@@ -1707,6 +1814,7 @@ export default function CertApp({ onExitApp, onBackToCerts }) {
           result={examResult}
           questions={exam.questions}
           showZh={showZh}
+          timeSpent={exam.timeSpent || []}
           onBack={() => setScreen("examResult")}
         />
       )}
