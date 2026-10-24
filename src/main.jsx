@@ -2,6 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import { installSyncTracking } from "./cloudSync";
+
+// 学習記録が書かれた時刻を覚えて、GitHub への同期を予約する（同期の設定がある端末だけ送る）
+installSyncTracking();
 
 // オフラインでも使えるように Service Worker を登録する。
 // 開発サーバーでは登録しない（ビルド前のファイルをキャッシュしても混乱するだけ）。

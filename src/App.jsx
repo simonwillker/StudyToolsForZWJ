@@ -1,7 +1,9 @@
-import React, { useState, Suspense, lazy } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { LEARNERS, getLearner, setLearner, clearLearner, getLastLearner, learnerKey, canUseApp } from "./learner";
 import { migrateActiveApp } from "./sapixStorage";
 import { copyClaudeRecordsToZY } from "./learnerCopy";
+import { getSyncConfig, syncNow } from "./cloudSync";
+import CloudSyncPanel from "./CloudSyncPanel";
 import { migrateClaudeCertApp } from "./claudeCert/certs";
 
 /* アプリ本体は選んだほうだけ読む。
@@ -12,10 +14,17 @@ const ClaudeCertApp = lazy(() => import("./claudeCert/ClaudeCertApp.jsx"));
 const SapixApp = lazy(() => import("./SapixApp.jsx"));
 const StudyHistory = lazy(() => import("./StudyHistory.jsx"));
 
-function AppLoading() {
+/** 同期を待つのはここまで。電波が弱くても勉強を始められるように */
+const SYNC_WAIT_MS = 10000;
+
+function syncWithTimeout() {
+  return Promise.race([syncNow(), new Promise((resolve) => setTimeout(resolve, SYNC_WAIT_MS))]);
+}
+
+function AppLoading({ text = "読み込んでいます…" }) {
   return (
     <div style={{ minHeight: "100vh", background: "#F7F6F2", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif", color: "#6B7280", fontSize: 14 }}>
-      読み込んでいます…
+      {text}
     </div>
   );
 }
@@ -97,10 +106,23 @@ export default function App() {
   const [sapixCourse, setSapixCourse] = useState(initial.course);
   const [initialCert, setInitialCert] = useState(initial.cert);
   const [learner, setLearnerState] = useState(getLearner);
+  // GitHub と同期している端末では、ほかの端末の記録を取り込んでからアプリを開く
+  const [syncing, setSyncing] = useState(() => !!getLearner() && !!getSyncConfig());
+
+  useEffect(() => {
+    // 開き直したとき（勉強者はもう選んである）
+    if (syncing) syncWithTimeout().finally(() => setSyncing(false));
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // 人によって使うアプリがちがうので、選んだ人が前回開いていたアプリから始める
-  const pickLearner = (id) => {
+  const pickLearner = async (id) => {
+    if (getSyncConfig()) {
+      setSyncing(true);
+      await syncWithTimeout();
+      setSyncing(false);
+    }
     // Claude 認定は ZY だけになったので、ZWJ で解いていた記録を最初の 1 回だけ ZY に写す
+    // （同期のあと。ほかの端末から ZY の記録が来ていれば写さない）
     if (id === "ZY") copyClaudeRecordsToZY();
     setLearner(id);
     setLearnerState(id);
@@ -130,6 +152,7 @@ export default function App() {
 
   const backToMenu = () => choose("menu");
 
+  if (syncing) return <AppLoading text="☁️ 記録を同期しています…" />;
   // 学習記録は勉強者ごとに分けて保存するので、選ぶまではアプリを開かない
   if (!learner) return <LearnerPicker onPick={pickLearner} />;
   // その人が使わないアプリは開かない（念のため。メニューには出していない）
@@ -234,6 +257,7 @@ export default function App() {
             <div className="desc">毎日、何をどれだけ勉強したか（解いた数・正解率・時間帯）を勉強者ごとに見られる</div>
           </button>
         </div>
+        <CloudSyncPanel />
       </div>
     </div>
   );
