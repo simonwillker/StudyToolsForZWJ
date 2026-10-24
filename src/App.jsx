@@ -1,6 +1,7 @@
 import React, { useState, Suspense, lazy } from "react";
-import { LEARNERS, getLearner, setLearner, clearLearner, getLastLearner } from "./learner";
+import { LEARNERS, getLearner, setLearner, clearLearner, getLastLearner, learnerKey, canUseApp } from "./learner";
 import { migrateActiveApp } from "./sapixStorage";
+import { copyClaudeRecordsToZY } from "./learnerCopy";
 import { migrateClaudeCertApp } from "./claudeCert/certs";
 
 /* アプリ本体は選んだほうだけ読む。
@@ -22,16 +23,19 @@ function AppLoading() {
 const APP_STORAGE_KEY = "studyToolsActiveApp";
 
 /**
- * 最後に開いたアプリ。v1.28.0 までの Sapix の科目別の値（"sapixMath" など）は
+ * その勉強者が最後に開いたアプリ（勉強者ごとに覚える。ZWJ は以前からのキー）。
+ * その人が使わないアプリだったときはアプリ選択画面から。v1.28.0 までの Sapix の科目別の値（"sapixMath" など）は
  * "sapix" に直して保存し直し、その科目（4年）を開く。
  * v1.31.0 までの "ccaof"（CCAO-F 対策）は "claudeCert"（Claude 認定）に直し、CCAO-F を開く。
  */
-function loadInitialApp() {
+function loadInitialApp(learner) {
   try {
-    const stored = window.localStorage.getItem(APP_STORAGE_KEY);
+    const key = learnerKey(APP_STORAGE_KEY, learner);
+    const stored = window.localStorage.getItem(key);
     const c = migrateClaudeCertApp(stored);
     const m = { ...migrateActiveApp(c.app), cert: c.cert };
-    if (stored && m.app !== stored) window.localStorage.setItem(APP_STORAGE_KEY, m.app);
+    if (stored && m.app !== stored) window.localStorage.setItem(key, m.app);
+    if (learner && !canUseApp(learner, m.app)) return { app: "menu", course: null, cert: null };
     return m;
   } catch (e) {
     return { app: "menu", course: null, cert: null };
@@ -77,7 +81,7 @@ function LearnerPicker({ onPick }) {
           {LEARNERS.map((l) => (
             <button key={l.id} className="learner-card" style={{ "--c": l.color }} onClick={() => onPick(l.id)}>
               <span>👤 {l.label}</span>
-              {last === l.id && <small>前回</small>}
+              <small>{last === l.id ? "前回・" : ""}{l.note}</small>
             </button>
           ))}
         </div>
@@ -87,16 +91,23 @@ function LearnerPicker({ onPick }) {
 }
 
 export default function App() {
-  const [initial] = useState(loadInitialApp);
-  const [active, setActive] = useState(initial.app);
+  const [initial] = useState(() => loadInitialApp(getLearner()));
+  const [activeApp, setActive] = useState(initial.app);
   // 旧形式から移したときだけ、開いていた科目をそのまま開く（最初の 1 回だけ）
   const [sapixCourse, setSapixCourse] = useState(initial.course);
   const [initialCert, setInitialCert] = useState(initial.cert);
   const [learner, setLearnerState] = useState(getLearner);
 
+  // 人によって使うアプリがちがうので、選んだ人が前回開いていたアプリから始める
   const pickLearner = (id) => {
+    // Claude 認定は ZY だけになったので、ZWJ で解いていた記録を最初の 1 回だけ ZY に写す
+    if (id === "ZY") copyClaudeRecordsToZY();
     setLearner(id);
     setLearnerState(id);
+    const m = loadInitialApp(id);
+    setActive(m.app);
+    setSapixCourse(m.course);
+    setInitialCert(m.cert);
   };
 
   const switchLearner = () => {
@@ -111,7 +122,7 @@ export default function App() {
     // 勉強履歴は次に開いたときの最初の画面にはしない
     if (id === "history") return;
     try {
-      window.localStorage.setItem(APP_STORAGE_KEY, id);
+      window.localStorage.setItem(learnerKey(APP_STORAGE_KEY, learner), id);
     } catch (e) {
       // 無視（localStorageが使えない環境）
     }
@@ -121,6 +132,9 @@ export default function App() {
 
   // 学習記録は勉強者ごとに分けて保存するので、選ぶまではアプリを開かない
   if (!learner) return <LearnerPicker onPick={pickLearner} />;
+  // その人が使わないアプリは開かない（念のため。メニューには出していない）
+  const active = canUseApp(learner, activeApp) ? activeApp : "menu";
+  const show = (app) => canUseApp(learner, app);
 
   if (active === "drill")
     return (
@@ -184,29 +198,37 @@ export default function App() {
         .app-switcher-card .desc { font-size: 13px; color: #6B7280; margin-top: 6px; line-height: 1.6; }
       `}</style>
       <div className="app-switcher-inner">
-        <div className="app-switcher-eyebrow">STUDY TOOLS FOR ZWJ</div>
+        <div className="app-switcher-eyebrow">STUDY TOOLS FOR {learner.toUpperCase()}</div>
         <div className="app-switcher-title">学習アプリを選ぶ</div>
         <div className="app-switcher-learner">
           <span>👤 <b>{learner}</b> さん</span>
           <button onClick={switchLearner}>勉強者を切りかえる</button>
         </div>
         <div className="app-switcher-grid">
-          <button className="app-switcher-card" style={{ "--c": "#2F5D8A" }} onClick={() => choose("drill")}>
-            <div className="label">きょうのドリル</div>
-            <div className="desc">小学生向けの算数・国語・理科・社会ドリル、カスタム単語・漢字テスト</div>
-          </button>
-          <button className="app-switcher-card" style={{ "--c": "#8A3B2F" }} onClick={() => choose("eiken")}>
-            <div className="label">英検マスター</div>
-            <div className="desc">英検5級〜1級対応。単語・文法穴うめ・長文読解・リスニング・会話文・発音練習、学習記録つき</div>
-          </button>
-          <button className="app-switcher-card" style={{ "--c": "#C8743D" }} onClick={() => choose("claudeCert")}>
-            <div className="label">Claude 認定</div>
-            <div className="desc">Claude 認定資格の対策。CCAO-F（Associate）・CCAR-F（Architect）から選ぶ。ドメイン別練習・模擬試験・考点讲义・錯題本・合格予測・頻出単語つき</div>
-          </button>
-          <button className="app-switcher-card" style={{ "--c": "#2F7A8A" }} onClick={() => choose("sapix")}>
-            <div className="label">Sapix</div>
-            <div className="desc">学年 → 科目（算数・国語・理科・社会・英語）→ 単元の順に選ぶ。いまは4年（冬期講習相当、英語は英検5級〜4級程度）。解説・まちがえた問題の復習・単元ごとの正答率つき</div>
-          </button>
+          {show("drill") && (
+            <button className="app-switcher-card" style={{ "--c": "#2F5D8A" }} onClick={() => choose("drill")}>
+              <div className="label">きょうのドリル</div>
+              <div className="desc">小学生向けの算数・国語・理科・社会ドリル、カスタム単語・漢字テスト</div>
+            </button>
+          )}
+          {show("eiken") && (
+            <button className="app-switcher-card" style={{ "--c": "#8A3B2F" }} onClick={() => choose("eiken")}>
+              <div className="label">英検マスター</div>
+              <div className="desc">英検5級〜1級対応。単語・文法穴うめ・長文読解・リスニング・会話文・発音練習、学習記録つき</div>
+            </button>
+          )}
+          {show("claudeCert") && (
+            <button className="app-switcher-card" style={{ "--c": "#C8743D" }} onClick={() => choose("claudeCert")}>
+              <div className="label">Claude 認定</div>
+              <div className="desc">Claude 認定資格の対策。CCAO-F（Associate）・CCDV-F（Developer）・CCAR-F（Architect）から選ぶ。ドメイン別練習・模擬試験・考点讲义・錯題本・合格予測・頻出単語つき</div>
+            </button>
+          )}
+          {show("sapix") && (
+            <button className="app-switcher-card" style={{ "--c": "#2F7A8A" }} onClick={() => choose("sapix")}>
+              <div className="label">Sapix</div>
+              <div className="desc">学年 → 科目（算数・国語・理科・社会・英語）→ 単元の順に選ぶ。いまは4年（冬期講習相当、英語は英検5級〜4級程度）。解説・まちがえた問題の復習・単元ごとの正答率つき</div>
+            </button>
+          )}
           <button className="app-switcher-card" style={{ "--c": "#5A3B8A" }} onClick={() => choose("history")}>
             <div className="label">📅 勉強履歴</div>
             <div className="desc">毎日、何をどれだけ勉強したか（解いた数・正解率・時間帯）を勉強者ごとに見られる</div>
