@@ -30,7 +30,8 @@
 サーバー上にupdateする。Ipad、Iphone、PCどれでも確認とれる
 
 ## 状態
-- 最新バージョン：v1.38.0（2026-10-24）
+- 最新バージョン：v1.39.0（2026-10-24）
+- v1.39.0：Claude 認定の模擬試験に「英文のみで受ける（本番どおり）」と「中文訳つきで受ける（練習）」の 2 つの始め方。英文のみでは中文訳の設定に関係なく訳を出さない。1問ごとの解答時間を記録し（1回の表示は最大10分まで数える）、結果に「解答ペース」（1問あたりの目安 120分÷問数との比較・目安を超えた問題数・ドメイン別の平均・時間がかかった問題）、間違えた問題の見直しに各問の時間、受験履歴に「英文のみ」と平均時間。集計は `src/claudeCert/studyCore.js` の `paceSummary`、`npm run test:ccaof-study` で確認（未マージ）
 - v1.38.0：勉強者ごとに使うアプリを分けた。ZY は Claude 認定だけ、ZWJ は Claude 認定以外（ドリル・英検・Sapix）、Guest は全部。勉強者の選択画面に各人のアプリを表示し、アプリ選択画面にはその人のアプリと📅勉強履歴だけを出す。「最後に開いたアプリ」も勉強者ごと（ZWJ は従来キー）。ZY をはじめて選んだときに ZWJ の Claude 認定の記録と履歴の Claude 回を ZY に 1 回だけコピー（`src/learnerCopy.js`、ZWJ 側は残す）。`src/learner.js` の `canUseApp`、`npm run test:learner-apps` で確認
 - v1.36.0：Claude 認定に CCDV-F（Claude Certified Developer – Foundations）を追加。公式 Exam Guide v1.0 の 8 ドメイン（配点は小数：33.1%・16.8% など）・25 スキルに沿って 171 問（mcq 146・multi 25、中国語訳・中文注解・選択肢ごとの解説・出典つき）、25 讲义、頻出単語 145 語、本番と同じ 53 問・120 分の模擬試験。配点の合計チェックと合格予測を小数の配点に対応。2026-12-07 の範囲改定（新ガイド 11-17 公開予定）は `meta.json` の `updateNote` で画面に表示。`npm run validate:ccdvf`・`npm run test:ccaof-study` で確認
 - v1.34.0：英検マスターの 3級・準2級・2級に「💯 単語テスト」。範囲（組〜組／すべて／苦手な単語）・問題数（10・20・50・範囲すべて）・形式（英→日／日→英／スペル入力／まぜる）を選び、回答中は正解を出さず最後に採点。結果に点数・正答率・まちがえた単語（意味・例文・🔊）。まちがえた単語は復習リスト（mode `vocab`）へ、答えは学習記録・勉強履歴（「3級 単語テスト」）へ。結果は `eikenVocabTestResultsV1`（バックアップ対象）、級ごとの得点推移を表示。`src/eikenVocabTest.js`・`src/EikenVocabTest.jsx`、`npm run test:eiken-vocab-test` で確認（PR #56）

@@ -454,6 +454,32 @@ test("blueprintCounts は合計を必ず total に合わせる", () => {
   assert.deepEqual(c, { D1: 16, D2: 11, D3: 12, D4: 12, D5: 9 });
 });
 
+test("paceSummary：1問あたりの平均・目安超え・遅い問題・ドメイン別", () => {
+  const fmt = { minutes: 120, items: 60 };
+  const qs = [
+    { id: "a", domain: "D1" },
+    { id: "b", domain: "D1" },
+    { id: "c", domain: "D2" },
+    { id: "d", domain: "D2" },
+  ];
+  const p = core.paceSummary(qs, [60000, 180000, 150000], fmt);
+  assert.equal(p.targetMs, 120000, "120分/60問 = 2分");
+  assert.equal(p.totalMs, 390000);
+  assert.equal(p.avgMs, 130000, "開いた問題だけで割る");
+  assert.equal(p.seen, 3);
+  assert.equal(p.overCount, 2);
+  assert.deepEqual(p.slowest.map((r) => r.no), [2, 3, 1]);
+  assert.equal(p.perDomain.D1.avgMs, 120000);
+  assert.equal(p.perDomain.D2.avgMs, 150000, "開いていない d は数えない");
+  assert.equal(p.perDomain.D2.count, 1);
+  // 記録なし（v1.34.0 までの模試の続き）でも落ちない
+  const empty = core.paceSummary(qs, undefined, fmt);
+  assert.equal(empty.seen, 0);
+  assert.deepEqual(empty.slowest, []);
+  assert.equal(core.formatSeconds(65000), "1分05秒");
+  assert.equal(core.formatSeconds(42000), "42秒");
+});
+
 /* ---------- CCDV-F（配点が小数の資格） ---------- */
 const dvDir = join(certRoot, "ccdvf");
 const dvMeta = JSON.parse(readFileSync(join(dvDir, "meta.json"), "utf8"));

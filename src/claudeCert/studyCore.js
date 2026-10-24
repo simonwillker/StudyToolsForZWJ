@@ -283,6 +283,58 @@ export function pickScenarioExam(items, { scenarios, domains, scenariosPerExam, 
   return picked.flatMap((list) => shuffle(list));
 }
 
+/* ---------- 模試の解答ペース ----------
+   本番は英語で 120分。英文を読む速さが足りないと最後まで届かないので、
+   1問ごとにかかった時間を集計して「1問あたりの目安」と比べる。
+   timeSpent[i] は i 問目を開いていた合計ミリ秒（行き来した分も足す）。 */
+
+/** 時間がかかった問題として結果に出す数 */
+export const SLOWEST_COUNT = 5;
+
+export function paceSummary(questions, timeSpent = [], examFormat) {
+  const targetMs = Math.round((examFormat.minutes * 60 * 1000) / examFormat.items);
+  const perDomain = {};
+  let totalMs = 0;
+  let seen = 0;
+  let overCount = 0;
+  const rows = questions.map((q, i) => {
+    const ms = Math.max(0, Number(timeSpent[i]) || 0);
+    totalMs += ms;
+    if (ms > 0) seen += 1;
+    if (ms > targetMs) overCount += 1;
+    const d = perDomain[q.domain] || (perDomain[q.domain] = { count: 0, ms: 0, avgMs: 0 });
+    if (ms > 0) {
+      d.count += 1;
+      d.ms += ms;
+    }
+    return { no: i + 1, id: q.id, domain: q.domain, ms };
+  });
+  Object.values(perDomain).forEach((d) => {
+    d.avgMs = d.count ? Math.round(d.ms / d.count) : 0;
+  });
+  const slowest = rows
+    .filter((r) => r.ms > 0)
+    .sort((a, b) => b.ms - a.ms)
+    .slice(0, SLOWEST_COUNT);
+  return {
+    targetMs,
+    totalMs,
+    // 平均は開いた問題だけで割る（途中で提出・時間切れでも、読む速さそのものを見たい）
+    avgMs: seen ? Math.round(totalMs / seen) : 0,
+    seen,
+    overCount,
+    slowest,
+    perDomain,
+  };
+}
+
+/** 秒数を「1分05秒」の形に（結果画面用） */
+export function formatSeconds(ms) {
+  const s = Math.round(ms / 1000);
+  const m = Math.floor(s / 60);
+  return m > 0 ? `${m}分${String(s % 60).padStart(2, "0")}秒` : `${s}秒`;
+}
+
 /* ---------- 合格予測 ---------- */
 
 export function scaleFromRatio(ratio, examFormat) {

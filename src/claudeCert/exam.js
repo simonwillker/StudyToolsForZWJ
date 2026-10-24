@@ -157,6 +157,8 @@ export function saveResult(result) {
     scaled: result.scaled,
     passed: result.passed,
     perDomain: result.perDomain,
+    englishOnly: !!result.englishOnly,
+    avgMs: result.pace ? result.pace.avgMs : 0,
   });
   try {
     window.localStorage.setItem(learnerKey(RESULTS_KEY()), JSON.stringify(list.slice(0, MAX_RESULTS)));
