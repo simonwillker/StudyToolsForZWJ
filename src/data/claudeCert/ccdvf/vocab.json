@@ -1,0 +1,6440 @@
+{
+  "_note": "scripts/buildClaudeCertVocab.mjs が生成。手で直さず glossary.json を直して作り直すこと。",
+  "minQuestions": 4,
+  "totalQuestions": 171,
+  "words": [
+    {
+      "id": "prompt",
+      "word": "prompt",
+      "pos": "名詞",
+      "ja": "プロンプト（AIへの指示文）",
+      "zh": "提示词",
+      "count": 94,
+      "questionCount": 66,
+      "domains": {
+        "D1": 10,
+        "D2": 19,
+        "D3": 2,
+        "D4": 3,
+        "D5": 12,
+        "D6": 10,
+        "D7": 7,
+        "D8": 3
+      },
+      "forms": [
+        "prompt",
+        "prompting",
+        "prompts"
+      ],
+      "examples": [
+        {
+          "en": "Run the existing eval suite on the new prompt and compare results with the current version.",
+          "zh": "用现有的评估集测试新提示词，并与当前版本对比结果。",
+          "itemId": "dv2-007"
+        },
+        {
+          "en": "Abstraction layers can hide the actual prompts and responses, making debugging harder.",
+          "zh": "抽象层可能隐藏实际的提示词和响应，使调试更困难。",
+          "itemId": "dv1-020"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-008",
+        "dv1-009",
+        "dv1-011",
+        "dv1-013",
+        "dv1-014",
+        "dv1-015",
+        "dv1-018",
+        "dv1-020",
+        "dv1-021",
+        "dv2-003",
+        "dv2-004",
+        "dv2-006",
+        "dv2-007",
+        "dv2-009",
+        "dv2-011",
+        "dv2-012",
+        "dv2-016",
+        "dv2-019",
+        "dv2-020",
+        "dv2-021",
+        "dv2-022",
+        "dv2-024",
+        "dv2-026",
+        "dv2-031",
+        "dv2-033",
+        "dv2-035",
+        "dv2-038",
+        "dv2-042",
+        "dv3-003",
+        "dv3-007",
+        "dv4-002",
+        "dv4-007",
+        "dv4-008",
+        "dv5-003",
+        "dv5-004",
+        "dv5-006",
+        "dv5-008",
+        "dv5-011",
+        "dv5-014",
+        "dv5-015",
+        "dv5-022",
+        "dv5-023",
+        "dv5-024",
+        "dv5-025",
+        "dv5-028",
+        "dv6-001",
+        "dv6-006",
+        "dv6-007",
+        "dv6-008",
+        "dv6-009",
+        "dv6-010",
+        "dv6-012",
+        "dv6-013",
+        "dv6-014",
+        "dv6-018",
+        "dv7-001",
+        "dv7-002",
+        "dv7-003",
+        "dv7-004",
+        "dv7-007",
+        "dv7-010",
+        "dv7-014",
+        "dv8-009",
+        "dv8-015",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "model",
+      "word": "model",
+      "pos": "名詞",
+      "ja": "モデル（AIモデル）",
+      "zh": "模型（AI 模型）",
+      "count": 89,
+      "questionCount": 56,
+      "domains": {
+        "D1": 10,
+        "D2": 12,
+        "D4": 3,
+        "D5": 14,
+        "D6": 3,
+        "D7": 9,
+        "D8": 5
+      },
+      "forms": [
+        "model",
+        "models"
+      ],
+      "examples": [
+        {
+          "en": "The model chooses the right tool more reliably and the tool definitions use less context.",
+          "zh": "模型能更可靠地选对工具，而且工具定义占用的上下文更少。",
+          "itemId": "dv1-024"
+        },
+        {
+          "en": "It is stateless: each request must include the conversation history the model should see.",
+          "zh": "它是无状态的：每次请求都必须带上模型应看到的对话历史。",
+          "itemId": "dv2-019"
+        }
+      ],
+      "itemIds": [
+        "dv1-005",
+        "dv1-008",
+        "dv1-011",
+        "dv1-012",
+        "dv1-016",
+        "dv1-017",
+        "dv1-018",
+        "dv1-019",
+        "dv1-023",
+        "dv1-024",
+        "dv2-001",
+        "dv2-002",
+        "dv2-005",
+        "dv2-008",
+        "dv2-009",
+        "dv2-012",
+        "dv2-018",
+        "dv2-019",
+        "dv2-028",
+        "dv2-033",
+        "dv2-035",
+        "dv2-042",
+        "dv4-002",
+        "dv4-005",
+        "dv4-007",
+        "dv5-002",
+        "dv5-003",
+        "dv5-005",
+        "dv5-006",
+        "dv5-009",
+        "dv5-017",
+        "dv5-018",
+        "dv5-019",
+        "dv5-020",
+        "dv5-021",
+        "dv5-022",
+        "dv5-025",
+        "dv5-026",
+        "dv5-027",
+        "dv6-003",
+        "dv6-006",
+        "dv6-014",
+        "dv7-001",
+        "dv7-002",
+        "dv7-003",
+        "dv7-004",
+        "dv7-005",
+        "dv7-007",
+        "dv7-008",
+        "dv7-010",
+        "dv7-014",
+        "dv8-001",
+        "dv8-008",
+        "dv8-009",
+        "dv8-012",
+        "dv8-014"
+      ]
+    },
+    {
+      "id": "code",
+      "word": "code",
+      "pos": "名詞",
+      "ja": "コード",
+      "zh": "代码",
+      "count": 71,
+      "questionCount": 49,
+      "domains": {
+        "D1": 5,
+        "D2": 16,
+        "D3": 8,
+        "D4": 1,
+        "D5": 2,
+        "D6": 4,
+        "D7": 5,
+        "D8": 8
+      },
+      "forms": [
+        "code",
+        "coded",
+        "codes",
+        "coding"
+      ],
+      "examples": [
+        {
+          "en": "Restrict the field to an enum in the schema and handle unknown values explicitly in code.",
+          "zh": "在 schema 中把该字段限制为枚举，并在代码中显式处理未知值。",
+          "itemId": "dv6-019"
+        },
+        {
+          "en": "The client, running inside a host application such as Claude Code or Claude Desktop.",
+          "zh": "客户端，运行在 Claude Code 或 Claude Desktop 等宿主应用中。",
+          "itemId": "dv8-012"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-008",
+        "dv1-009",
+        "dv1-015",
+        "dv1-016",
+        "dv2-004",
+        "dv2-007",
+        "dv2-024",
+        "dv2-025",
+        "dv2-027",
+        "dv2-029",
+        "dv2-032",
+        "dv2-033",
+        "dv2-035",
+        "dv2-039",
+        "dv2-040",
+        "dv2-041",
+        "dv2-042",
+        "dv2-043",
+        "dv2-044",
+        "dv2-045",
+        "dv3-001",
+        "dv3-002",
+        "dv3-003",
+        "dv3-004",
+        "dv3-005",
+        "dv3-006",
+        "dv3-007",
+        "dv3-008",
+        "dv4-004",
+        "dv5-013",
+        "dv5-014",
+        "dv6-002",
+        "dv6-015",
+        "dv6-018",
+        "dv6-019",
+        "dv7-003",
+        "dv7-011",
+        "dv7-012",
+        "dv7-014",
+        "dv7-016",
+        "dv8-008",
+        "dv8-010",
+        "dv8-011",
+        "dv8-012",
+        "dv8-014",
+        "dv8-016",
+        "dv8-018",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "tool",
+      "word": "tool",
+      "pos": "名詞",
+      "ja": "ツール（モデルが呼び出せる機能）",
+      "zh": "工具",
+      "count": 133,
+      "questionCount": 45,
+      "domains": {
+        "D1": 13,
+        "D2": 5,
+        "D3": 1,
+        "D4": 2,
+        "D5": 3,
+        "D6": 2,
+        "D7": 2,
+        "D8": 17
+      },
+      "forms": [
+        "tool",
+        "tools"
+      ],
+      "examples": [
+        {
+          "en": "The tool does not run, and the reason is fed back to Claude so it can adjust its approach.",
+          "zh": "工具不会执行，原因会反馈给 Claude，让它调整做法。",
+          "itemId": "dv7-012"
+        },
+        {
+          "en": "The model chooses the right tool more reliably and the tool definitions use less context.",
+          "zh": "模型能更可靠地选对工具，而且工具定义占用的上下文更少。",
+          "itemId": "dv1-024"
+        }
+      ],
+      "itemIds": [
+        "dv1-003",
+        "dv1-008",
+        "dv1-009",
+        "dv1-010",
+        "dv1-011",
+        "dv1-013",
+        "dv1-014",
+        "dv1-015",
+        "dv1-016",
+        "dv1-017",
+        "dv1-019",
+        "dv1-023",
+        "dv1-024",
+        "dv2-005",
+        "dv2-015",
+        "dv2-017",
+        "dv2-032",
+        "dv2-033",
+        "dv3-007",
+        "dv4-003",
+        "dv4-005",
+        "dv5-015",
+        "dv5-023",
+        "dv5-027",
+        "dv6-005",
+        "dv6-009",
+        "dv7-012",
+        "dv7-018",
+        "dv8-001",
+        "dv8-002",
+        "dv8-003",
+        "dv8-004",
+        "dv8-005",
+        "dv8-006",
+        "dv8-007",
+        "dv8-008",
+        "dv8-009",
+        "dv8-013",
+        "dv8-014",
+        "dv8-015",
+        "dv8-016",
+        "dv8-017",
+        "dv8-018",
+        "dv8-019",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "request",
+      "word": "request",
+      "pos": "名詞",
+      "ja": "依頼、要求",
+      "zh": "请求、要求",
+      "count": 55,
+      "questionCount": 40,
+      "domains": {
+        "D1": 3,
+        "D2": 13,
+        "D3": 2,
+        "D4": 3,
+        "D5": 13,
+        "D6": 1,
+        "D7": 1,
+        "D8": 4
+      },
+      "forms": [
+        "request",
+        "requested",
+        "requests"
+      ],
+      "examples": [
+        {
+          "en": "It is stateless: each request must include the conversation history the model should see.",
+          "zh": "它是无状态的：每次请求都必须带上模型应看到的对话历史。",
+          "itemId": "dv2-019"
+        },
+        {
+          "en": "Call the model, run any requested tools, send the results back, and repeat until the model finishes.",
+          "zh": "调用模型，执行它请求的工具，把结果送回去，重复直到模型完成。",
+          "itemId": "dv1-019"
+        }
+      ],
+      "itemIds": [
+        "dv1-014",
+        "dv1-019",
+        "dv1-024",
+        "dv2-003",
+        "dv2-006",
+        "dv2-008",
+        "dv2-009",
+        "dv2-013",
+        "dv2-019",
+        "dv2-021",
+        "dv2-022",
+        "dv2-023",
+        "dv2-025",
+        "dv2-027",
+        "dv2-028",
+        "dv2-030",
+        "dv3-005",
+        "dv3-008",
+        "dv4-001",
+        "dv4-002",
+        "dv4-007",
+        "dv5-002",
+        "dv5-003",
+        "dv5-006",
+        "dv5-011",
+        "dv5-012",
+        "dv5-013",
+        "dv5-015",
+        "dv5-016",
+        "dv5-022",
+        "dv5-023",
+        "dv5-025",
+        "dv5-026",
+        "dv5-028",
+        "dv6-003",
+        "dv7-018",
+        "dv8-004",
+        "dv8-008",
+        "dv8-013",
+        "dv8-017"
+      ]
+    },
+    {
+      "id": "system",
+      "word": "system",
+      "pos": "名詞",
+      "ja": "システム",
+      "zh": "系统",
+      "count": 52,
+      "questionCount": 40,
+      "domains": {
+        "D1": 5,
+        "D2": 12,
+        "D3": 2,
+        "D5": 8,
+        "D6": 5,
+        "D7": 4,
+        "D8": 4
+      },
+      "forms": [
+        "system",
+        "systems"
+      ],
+      "examples": [
+        {
+          "en": "Each interface adds its own system prompt, tools, and context, so the model sees different inputs.",
+          "zh": "每种界面都会加入自己的系统提示词、工具和上下文，所以模型看到的输入不同。",
+          "itemId": "dv2-033"
+        },
+        {
+          "en": "The stable content (tools, system prompt, reference documents), with variable user input after it.",
+          "zh": "稳定不变的内容（工具、系统提示词、参考文档），可变的用户输入放在后面。",
+          "itemId": "dv5-023"
+        }
+      ],
+      "itemIds": [
+        "dv1-008",
+        "dv1-009",
+        "dv1-011",
+        "dv1-014",
+        "dv1-016",
+        "dv2-001",
+        "dv2-006",
+        "dv2-007",
+        "dv2-008",
+        "dv2-016",
+        "dv2-019",
+        "dv2-021",
+        "dv2-022",
+        "dv2-031",
+        "dv2-033",
+        "dv2-038",
+        "dv2-040",
+        "dv3-003",
+        "dv3-007",
+        "dv5-006",
+        "dv5-008",
+        "dv5-012",
+        "dv5-014",
+        "dv5-015",
+        "dv5-022",
+        "dv5-023",
+        "dv5-028",
+        "dv6-009",
+        "dv6-013",
+        "dv6-014",
+        "dv6-015",
+        "dv6-019",
+        "dv7-002",
+        "dv7-003",
+        "dv7-007",
+        "dv7-010",
+        "dv8-012",
+        "dv8-015",
+        "dv8-016",
+        "dv8-019"
+      ]
+    },
+    {
+      "id": "developer",
+      "word": "developer",
+      "pos": "名詞",
+      "ja": "開発者",
+      "zh": "开发者",
+      "count": 42,
+      "questionCount": 38,
+      "domains": {
+        "D1": 4,
+        "D2": 16,
+        "D3": 2,
+        "D5": 8,
+        "D6": 3,
+        "D7": 2,
+        "D8": 3
+      },
+      "forms": [
+        "developer",
+        "developers"
+      ],
+      "examples": [
+        {
+          "en": "Why should a developer use async/await (or promises) when calling Claude from a web server?",
+          "zh": "为什么在 Web 服务器中调用 Claude 时应该使用 async/await（或 Promise）？",
+          "itemId": "dv2-030"
+        },
+        {
+          "en": "A developer installs the Python SDK. Where should the API key come from in production code?",
+          "zh": "开发者安装了 Python SDK。生产代码中 API 密钥应从哪里获取？",
+          "itemId": "dv5-014"
+        }
+      ],
+      "itemIds": [
+        "dv1-005",
+        "dv1-009",
+        "dv1-012",
+        "dv1-015",
+        "dv2-001",
+        "dv2-005",
+        "dv2-006",
+        "dv2-012",
+        "dv2-013",
+        "dv2-014",
+        "dv2-016",
+        "dv2-017",
+        "dv2-029",
+        "dv2-030",
+        "dv2-035",
+        "dv2-040",
+        "dv2-041",
+        "dv2-043",
+        "dv2-044",
+        "dv2-045",
+        "dv3-005",
+        "dv3-006",
+        "dv5-006",
+        "dv5-014",
+        "dv5-016",
+        "dv5-018",
+        "dv5-019",
+        "dv5-021",
+        "dv5-024",
+        "dv5-026",
+        "dv6-009",
+        "dv6-010",
+        "dv6-013",
+        "dv7-008",
+        "dv7-015",
+        "dv8-006",
+        "dv8-010",
+        "dv8-011"
+      ]
+    },
+    {
+      "id": "output",
+      "word": "output",
+      "pos": "名詞",
+      "ja": "出力、生成結果",
+      "zh": "输出、生成结果",
+      "count": 49,
+      "questionCount": 36,
+      "domains": {
+        "D1": 5,
+        "D2": 5,
+        "D3": 1,
+        "D4": 2,
+        "D5": 9,
+        "D6": 9,
+        "D7": 4,
+        "D8": 1
+      },
+      "forms": [
+        "output",
+        "outputs"
+      ],
+      "examples": [
+        {
+          "en": "The maximum amount of tokens the model can consider at once, including input and generated output.",
+          "zh": "模型一次能处理的最大 token 量，包括输入和生成的输出。",
+          "itemId": "dv5-002"
+        },
+        {
+          "en": "Headless mode with claude -p and a machine-readable output format such as JSON.",
+          "zh": "使用 claude -p 的无头模式，并选择 JSON 等机器可读的输出格式。",
+          "itemId": "dv3-002"
+        }
+      ],
+      "itemIds": [
+        "dv1-007",
+        "dv1-014",
+        "dv1-017",
+        "dv1-021",
+        "dv1-022",
+        "dv2-008",
+        "dv2-010",
+        "dv2-015",
+        "dv2-032",
+        "dv2-036",
+        "dv3-002",
+        "dv4-002",
+        "dv4-006",
+        "dv5-002",
+        "dv5-003",
+        "dv5-004",
+        "dv5-008",
+        "dv5-010",
+        "dv5-016",
+        "dv5-021",
+        "dv5-022",
+        "dv5-026",
+        "dv6-003",
+        "dv6-005",
+        "dv6-008",
+        "dv6-010",
+        "dv6-012",
+        "dv6-015",
+        "dv6-017",
+        "dv6-018",
+        "dv6-020",
+        "dv7-005",
+        "dv7-007",
+        "dv7-009",
+        "dv7-010",
+        "dv8-010"
+      ]
+    },
+    {
+      "id": "token",
+      "word": "token",
+      "pos": "名詞",
+      "ja": "トークン（テキストの処理単位）",
+      "zh": "token",
+      "count": 67,
+      "questionCount": 31,
+      "domains": {
+        "D1": 3,
+        "D2": 8,
+        "D3": 1,
+        "D4": 2,
+        "D5": 11,
+        "D6": 3,
+        "D7": 2,
+        "D8": 1
+      },
+      "forms": [
+        "token",
+        "tokens"
+      ],
+      "examples": [
+        {
+          "en": "Treat it as incomplete: do not use it, and retry with a higher max_tokens or a smaller task.",
+          "zh": "把它视为不完整：不要使用，提高 max_tokens 或缩小任务后重试。",
+          "itemId": "dv6-016"
+        },
+        {
+          "en": "The maximum amount of tokens the model can consider at once, including input and generated output.",
+          "zh": "模型一次能处理的最大 token 量，包括输入和生成的输出。",
+          "itemId": "dv5-002"
+        }
+      ],
+      "itemIds": [
+        "dv1-004",
+        "dv1-005",
+        "dv1-022",
+        "dv2-013",
+        "dv2-014",
+        "dv2-015",
+        "dv2-017",
+        "dv2-019",
+        "dv2-030",
+        "dv2-031",
+        "dv2-042",
+        "dv3-004",
+        "dv4-002",
+        "dv4-006",
+        "dv5-001",
+        "dv5-002",
+        "dv5-005",
+        "dv5-007",
+        "dv5-008",
+        "dv5-016",
+        "dv5-022",
+        "dv5-024",
+        "dv5-025",
+        "dv5-026",
+        "dv5-027",
+        "dv6-003",
+        "dv6-010",
+        "dv6-016",
+        "dv7-005",
+        "dv7-014",
+        "dv8-001"
+      ]
+    },
+    {
+      "id": "agent",
+      "word": "agent",
+      "pos": "名詞",
+      "ja": "エージェント（自律的にツールを使うAI）",
+      "zh": "智能体",
+      "count": 55,
+      "questionCount": 31,
+      "domains": {
+        "D1": 21,
+        "D2": 1,
+        "D3": 1,
+        "D4": 1,
+        "D5": 1,
+        "D6": 3,
+        "D7": 1,
+        "D8": 2
+      },
+      "forms": [
+        "agent",
+        "agents"
+      ],
+      "examples": [
+        {
+          "en": "In a workflow, code defines the steps; in an agent, the model decides its own steps and tool use.",
+          "zh": "工作流中由代码定义步骤；智能体中由模型自己决定步骤和工具使用。",
+          "itemId": "dv1-008"
+        },
+        {
+          "en": "Let the agent plan and check its progress against the goal between steps.",
+          "zh": "让智能体先做计划，并在步骤之间对照目标检查进度。",
+          "itemId": "dv1-023"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-002",
+        "dv1-003",
+        "dv1-004",
+        "dv1-005",
+        "dv1-006",
+        "dv1-007",
+        "dv1-008",
+        "dv1-009",
+        "dv1-010",
+        "dv1-011",
+        "dv1-012",
+        "dv1-013",
+        "dv1-014",
+        "dv1-015",
+        "dv1-016",
+        "dv1-017",
+        "dv1-018",
+        "dv1-020",
+        "dv1-023",
+        "dv1-024",
+        "dv2-001",
+        "dv3-007",
+        "dv4-005",
+        "dv5-027",
+        "dv6-001",
+        "dv6-004",
+        "dv6-005",
+        "dv7-008",
+        "dv8-004",
+        "dv8-016"
+      ]
+    },
+    {
+      "id": "result",
+      "word": "result",
+      "pos": "名詞",
+      "ja": "結果",
+      "zh": "结果",
+      "count": 44,
+      "questionCount": 25,
+      "domains": {
+        "D1": 8,
+        "D2": 5,
+        "D3": 1,
+        "D4": 1,
+        "D5": 3,
+        "D6": 3,
+        "D8": 4
+      },
+      "forms": [
+        "result",
+        "results"
+      ],
+      "examples": [
+        {
+          "en": "Run the existing eval suite on the new prompt and compare results with the current version.",
+          "zh": "用现有的评估集测试新提示词，并与当前版本对比结果。",
+          "itemId": "dv2-007"
+        },
+        {
+          "en": "Pass the thinking blocks back unchanged with the assistant turn when returning tool results.",
+          "zh": "返回工具结果时，要把思考块原样随 assistant 回合传回。",
+          "itemId": "dv2-017"
+        }
+      ],
+      "itemIds": [
+        "dv1-003",
+        "dv1-004",
+        "dv1-007",
+        "dv1-010",
+        "dv1-014",
+        "dv1-017",
+        "dv1-019",
+        "dv1-023",
+        "dv2-003",
+        "dv2-007",
+        "dv2-013",
+        "dv2-017",
+        "dv2-032",
+        "dv3-002",
+        "dv4-003",
+        "dv5-012",
+        "dv5-015",
+        "dv5-027",
+        "dv6-003",
+        "dv6-004",
+        "dv6-005",
+        "dv8-003",
+        "dv8-005",
+        "dv8-007",
+        "dv8-008"
+      ]
+    },
+    {
+      "id": "server",
+      "word": "server",
+      "pos": "名詞",
+      "ja": "サーバー",
+      "zh": "服务器",
+      "count": 39,
+      "questionCount": 24,
+      "domains": {
+        "D1": 2,
+        "D2": 6,
+        "D4": 1,
+        "D5": 1,
+        "D7": 1,
+        "D8": 13
+      },
+      "forms": [
+        "server",
+        "servers"
+      ],
+      "examples": [
+        {
+          "en": "An MCP server can be reused by many MCP-compatible clients and maintained independently.",
+          "zh": "MCP 服务器可以被许多兼容 MCP 的客户端复用，并独立维护。",
+          "itemId": "dv8-014"
+        },
+        {
+          "en": "As a sequence of server-sent events such as content_block_delta and message_stop.",
+          "zh": "以一系列服务器发送事件的形式，例如 content_block_delta 和 message_stop。",
+          "itemId": "dv5-010"
+        }
+      ],
+      "itemIds": [
+        "dv1-012",
+        "dv1-014",
+        "dv2-014",
+        "dv2-027",
+        "dv2-030",
+        "dv2-041",
+        "dv2-042",
+        "dv2-044",
+        "dv4-007",
+        "dv5-010",
+        "dv7-016",
+        "dv8-003",
+        "dv8-009",
+        "dv8-010",
+        "dv8-011",
+        "dv8-012",
+        "dv8-013",
+        "dv8-014",
+        "dv8-015",
+        "dv8-016",
+        "dv8-017",
+        "dv8-018",
+        "dv8-019",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "file",
+      "word": "file",
+      "pos": "名詞",
+      "ja": "ファイル",
+      "zh": "文件",
+      "count": 31,
+      "questionCount": 24,
+      "domains": {
+        "D1": 5,
+        "D2": 9,
+        "D3": 3,
+        "D5": 2,
+        "D7": 3,
+        "D8": 2
+      },
+      "forms": [
+        "file",
+        "files"
+      ],
+      "examples": [
+        {
+          "en": "Fixing bugs across a codebase, where the number of files and steps cannot be known in advance.",
+          "zh": "在代码库中修复缺陷，需要改多少文件、走多少步事先无法知道。",
+          "itemId": "dv1-002"
+        },
+        {
+          "en": "Write structured notes or a progress file outside the context window and read it at the start of each session.",
+          "zh": "在上下文窗口之外写结构化笔记或进度文件，每次会话开始时读取。",
+          "itemId": "dv1-018"
+        }
+      ],
+      "itemIds": [
+        "dv1-002",
+        "dv1-009",
+        "dv1-011",
+        "dv1-013",
+        "dv1-018",
+        "dv2-016",
+        "dv2-023",
+        "dv2-026",
+        "dv2-029",
+        "dv2-035",
+        "dv2-040",
+        "dv2-041",
+        "dv2-043",
+        "dv2-045",
+        "dv3-003",
+        "dv3-005",
+        "dv3-008",
+        "dv5-010",
+        "dv5-014",
+        "dv7-011",
+        "dv7-013",
+        "dv7-016",
+        "dv8-011",
+        "dv8-016"
+      ]
+    },
+    {
+      "id": "team",
+      "word": "team",
+      "pos": "名詞",
+      "ja": "チーム",
+      "zh": "团队",
+      "count": 25,
+      "questionCount": 23,
+      "domains": {
+        "D1": 3,
+        "D2": 8,
+        "D3": 2,
+        "D4": 1,
+        "D5": 2,
+        "D7": 3,
+        "D8": 4
+      },
+      "forms": [
+        "team",
+        "teams"
+      ],
+      "examples": [
+        {
+          "en": "So the team can test whether the solution works and compare design options objectively.",
+          "zh": "这样团队可以测试方案是否有效，并客观地比较不同设计。",
+          "itemId": "dv2-006"
+        },
+        {
+          "en": "Manage plugin versions explicitly and test the combination before rolling it out to the team.",
+          "zh": "显式管理插件版本，在推广给团队之前测试组合是否正常。",
+          "itemId": "dv2-044"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-006",
+        "dv1-020",
+        "dv2-001",
+        "dv2-006",
+        "dv2-007",
+        "dv2-024",
+        "dv2-035",
+        "dv2-040",
+        "dv2-041",
+        "dv2-044",
+        "dv3-003",
+        "dv3-008",
+        "dv4-008",
+        "dv5-026",
+        "dv5-028",
+        "dv7-009",
+        "dv7-011",
+        "dv7-017",
+        "dv8-011",
+        "dv8-014",
+        "dv8-015",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "input",
+      "word": "input",
+      "pos": "名詞",
+      "ja": "入力（情報）",
+      "zh": "输入",
+      "count": 29,
+      "questionCount": 20,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D5": 7,
+        "D6": 2,
+        "D7": 4,
+        "D8": 3
+      },
+      "forms": [
+        "input",
+        "inputs"
+      ],
+      "examples": [
+        {
+          "en": "Each interface adds its own system prompt, tools, and context, so the model sees different inputs.",
+          "zh": "每种界面都会加入自己的系统提示词、工具和上下文，所以模型看到的输入不同。",
+          "itemId": "dv2-033"
+        },
+        {
+          "en": "The maximum amount of tokens the model can consider at once, including input and generated output.",
+          "zh": "模型一次能处理的最大 token 量，包括输入和生成的输出。",
+          "itemId": "dv5-002"
+        }
+      ],
+      "itemIds": [
+        "dv1-021",
+        "dv2-001",
+        "dv2-032",
+        "dv2-033",
+        "dv5-002",
+        "dv5-004",
+        "dv5-008",
+        "dv5-016",
+        "dv5-023",
+        "dv5-024",
+        "dv5-026",
+        "dv6-009",
+        "dv6-014",
+        "dv7-004",
+        "dv7-007",
+        "dv7-009",
+        "dv7-010",
+        "dv8-001",
+        "dv8-010",
+        "dv8-014"
+      ]
+    },
+    {
+      "id": "text",
+      "word": "text",
+      "pos": "名詞",
+      "ja": "テキスト、文章",
+      "zh": "文本",
+      "count": 22,
+      "questionCount": 20,
+      "domains": {
+        "D1": 1,
+        "D2": 6,
+        "D3": 1,
+        "D4": 1,
+        "D5": 5,
+        "D6": 3,
+        "D7": 1,
+        "D8": 2
+      },
+      "forms": [
+        "text"
+      ],
+      "examples": [
+        {
+          "en": "It generates plausible text from patterns rather than checking facts against a source.",
+          "zh": "它根据模式生成看似合理的文本，而不是对照来源核查事实。",
+          "itemId": "dv5-007"
+        },
+        {
+          "en": "A list of turns with role user or assistant, each with content that can be text or content blocks.",
+          "zh": "由若干回合组成的列表，role 为 user 或 assistant，content 可以是文本或内容块。",
+          "itemId": "dv5-015"
+        }
+      ],
+      "itemIds": [
+        "dv1-010",
+        "dv2-014",
+        "dv2-016",
+        "dv2-017",
+        "dv2-032",
+        "dv2-036",
+        "dv2-039",
+        "dv3-003",
+        "dv4-006",
+        "dv5-001",
+        "dv5-007",
+        "dv5-015",
+        "dv5-023",
+        "dv5-024",
+        "dv6-008",
+        "dv6-014",
+        "dv6-020",
+        "dv7-006",
+        "dv8-005",
+        "dv8-006"
+      ]
+    },
+    {
+      "id": "message",
+      "word": "message",
+      "pos": "名詞",
+      "ja": "メッセージ",
+      "zh": "消息",
+      "count": 30,
+      "questionCount": 18,
+      "domains": {
+        "D1": 4,
+        "D2": 6,
+        "D4": 1,
+        "D5": 3,
+        "D6": 1,
+        "D8": 3
+      },
+      "forms": [
+        "message",
+        "messages"
+      ],
+      "examples": [
+        {
+          "en": "As image content blocks in a user message, for example base64-encoded data or a URL source.",
+          "zh": "作为 user 消息里的图片内容块，例如 base64 编码数据或 URL 来源。",
+          "itemId": "dv2-016"
+        },
+        {
+          "en": "The Message Batches API, which processes large asynchronous workloads at a lower price.",
+          "zh": "Message Batches API：以更低的价格异步处理大批量任务。",
+          "itemId": "dv2-013"
+        }
+      ],
+      "itemIds": [
+        "dv1-002",
+        "dv1-005",
+        "dv1-009",
+        "dv1-010",
+        "dv2-013",
+        "dv2-014",
+        "dv2-016",
+        "dv2-019",
+        "dv2-020",
+        "dv2-038",
+        "dv4-003",
+        "dv5-010",
+        "dv5-015",
+        "dv5-017",
+        "dv6-005",
+        "dv8-005",
+        "dv8-007",
+        "dv8-011"
+      ]
+    },
+    {
+      "id": "context",
+      "word": "context",
+      "pos": "名詞",
+      "ja": "文脈、コンテキスト",
+      "zh": "上下文、语境",
+      "count": 27,
+      "questionCount": 18,
+      "domains": {
+        "D1": 5,
+        "D2": 1,
+        "D3": 3,
+        "D5": 1,
+        "D6": 7,
+        "D8": 1
+      },
+      "forms": [
+        "context"
+      ],
+      "examples": [
+        {
+          "en": "The model chooses the right tool more reliably and the tool definitions use less context.",
+          "zh": "模型能更可靠地选对工具，而且工具定义占用的上下文更少。",
+          "itemId": "dv1-024"
+        },
+        {
+          "en": "Context drift; restate the goal in a compact summary and remove stale or irrelevant context.",
+          "zh": "上下文漂移；用简洁的摘要重申目标，并移除过时或无关的上下文。",
+          "itemId": "dv6-001"
+        }
+      ],
+      "itemIds": [
+        "dv1-004",
+        "dv1-015",
+        "dv1-017",
+        "dv1-018",
+        "dv1-024",
+        "dv2-033",
+        "dv3-004",
+        "dv3-006",
+        "dv3-007",
+        "dv5-002",
+        "dv6-001",
+        "dv6-002",
+        "dv6-003",
+        "dv6-004",
+        "dv6-005",
+        "dv6-006",
+        "dv6-013",
+        "dv8-019"
+      ]
+    },
+    {
+      "id": "instruction",
+      "word": "instruction",
+      "pos": "名詞",
+      "ja": "指示",
+      "zh": "指令",
+      "count": 26,
+      "questionCount": 18,
+      "domains": {
+        "D1": 5,
+        "D2": 2,
+        "D6": 5,
+        "D7": 3,
+        "D8": 3
+      },
+      "forms": [
+        "instruction",
+        "instructions"
+      ],
+      "examples": [
+        {
+          "en": "Break the task into subtasks, delegate them with clear instructions, and combine the results.",
+          "zh": "把任务拆成子任务，带着清晰的指示分派出去，再整合结果。",
+          "itemId": "dv1-003"
+        },
+        {
+          "en": "Skills package instructions, knowledge, and scripts that teach Claude how to do a task.",
+          "zh": "Skills 打包说明、知识和脚本，教 Claude 如何完成任务。",
+          "itemId": "dv8-019"
+        }
+      ],
+      "itemIds": [
+        "dv1-003",
+        "dv1-004",
+        "dv1-007",
+        "dv1-011",
+        "dv1-015",
+        "dv2-033",
+        "dv2-040",
+        "dv6-008",
+        "dv6-009",
+        "dv6-010",
+        "dv6-011",
+        "dv6-014",
+        "dv7-001",
+        "dv7-004",
+        "dv7-014",
+        "dv8-015",
+        "dv8-019",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "remove",
+      "word": "remove",
+      "pos": "動詞",
+      "ja": "取り除く、削除する",
+      "zh": "删除、去掉",
+      "count": 17,
+      "questionCount": 17,
+      "domains": {
+        "D1": 4,
+        "D2": 5,
+        "D4": 1,
+        "D5": 1,
+        "D6": 4,
+        "D8": 2
+      },
+      "forms": [
+        "remove",
+        "removes"
+      ],
+      "examples": [
+        {
+          "en": "Context drift; restate the goal in a compact summary and remove stale or irrelevant context.",
+          "zh": "上下文漂移；用简洁的摘要重申目标，并移除过时或无关的上下文。",
+          "itemId": "dv6-001"
+        },
+        {
+          "en": "Remove all thinking blocks from the history to save tokens.",
+          "zh": "从历史记录中删除所有思考块以节省 token。",
+          "itemId": "dv2-017"
+        }
+      ],
+      "itemIds": [
+        "dv1-004",
+        "dv1-007",
+        "dv1-020",
+        "dv1-023",
+        "dv2-005",
+        "dv2-017",
+        "dv2-028",
+        "dv2-037",
+        "dv2-044",
+        "dv4-005",
+        "dv5-022",
+        "dv6-001",
+        "dv6-008",
+        "dv6-010",
+        "dv6-019",
+        "dv8-002",
+        "dv8-004"
+      ]
+    },
+    {
+      "id": "task",
+      "word": "task",
+      "pos": "名詞",
+      "ja": "タスク、作業",
+      "zh": "任务",
+      "count": 17,
+      "questionCount": 17,
+      "domains": {
+        "D1": 8,
+        "D2": 2,
+        "D3": 1,
+        "D5": 3,
+        "D6": 1,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "task",
+        "tasks"
+      ],
+      "examples": [
+        {
+          "en": "Treat it as incomplete: do not use it, and retry with a higher max_tokens or a smaller task.",
+          "zh": "把它视为不完整：不要使用，提高 max_tokens 或缩小任务后重试。",
+          "itemId": "dv6-016"
+        },
+        {
+          "en": "Break the task into subtasks, delegate them with clear instructions, and combine the results.",
+          "zh": "把任务拆成子任务，带着清晰的指示分派出去，再整合结果。",
+          "itemId": "dv1-003"
+        }
+      ],
+      "itemIds": [
+        "dv1-003",
+        "dv1-004",
+        "dv1-005",
+        "dv1-006",
+        "dv1-013",
+        "dv1-017",
+        "dv1-018",
+        "dv1-023",
+        "dv2-001",
+        "dv2-045",
+        "dv3-006",
+        "dv5-004",
+        "dv5-017",
+        "dv5-025",
+        "dv6-016",
+        "dv7-002",
+        "dv8-019"
+      ]
+    },
+    {
+      "id": "step",
+      "word": "step",
+      "pos": "名詞",
+      "ja": "手順、段階",
+      "zh": "步骤",
+      "count": 23,
+      "questionCount": 16,
+      "domains": {
+        "D1": 7,
+        "D2": 2,
+        "D3": 1,
+        "D4": 1,
+        "D5": 1,
+        "D6": 2,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "step",
+        "steps"
+      ],
+      "examples": [
+        {
+          "en": "Fixing bugs across a codebase, where the number of files and steps cannot be known in advance.",
+          "zh": "在代码库中修复缺陷，需要改多少文件、走多少步事先无法知道。",
+          "itemId": "dv1-002"
+        },
+        {
+          "en": "Deciding what information goes into the model's limited context at each step, and in what form.",
+          "zh": "决定每一步把哪些信息、以什么形式放进模型有限的上下文中。",
+          "itemId": "dv6-006"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-002",
+        "dv1-005",
+        "dv1-006",
+        "dv1-008",
+        "dv1-015",
+        "dv1-023",
+        "dv2-024",
+        "dv2-029",
+        "dv3-003",
+        "dv4-002",
+        "dv5-005",
+        "dv6-006",
+        "dv6-014",
+        "dv7-009",
+        "dv8-004"
+      ]
+    },
+    {
+      "id": "test",
+      "word": "test",
+      "pos": "名詞",
+      "ja": "テスト",
+      "zh": "测试",
+      "count": 21,
+      "questionCount": 16,
+      "domains": {
+        "D1": 2,
+        "D2": 10,
+        "D3": 1,
+        "D4": 1,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "test",
+        "testing",
+        "tests"
+      ],
+      "examples": [
+        {
+          "en": "So the team can test whether the solution works and compare design options objectively.",
+          "zh": "这样团队可以测试方案是否有效，并客观地比较不同设计。",
+          "itemId": "dv2-006"
+        },
+        {
+          "en": "Manage plugin versions explicitly and test the combination before rolling it out to the team.",
+          "zh": "显式管理插件版本，在推广给团队之前测试组合是否正常。",
+          "itemId": "dv2-044"
+        }
+      ],
+      "itemIds": [
+        "dv1-006",
+        "dv1-013",
+        "dv2-002",
+        "dv2-005",
+        "dv2-006",
+        "dv2-008",
+        "dv2-009",
+        "dv2-020",
+        "dv2-024",
+        "dv2-025",
+        "dv2-029",
+        "dv2-044",
+        "dv3-008",
+        "dv4-008",
+        "dv5-018",
+        "dv6-012"
+      ]
+    },
+    {
+      "id": "fix",
+      "word": "fix",
+      "pos": "動詞",
+      "ja": "直す、修正する",
+      "zh": "修正、修复",
+      "count": 18,
+      "questionCount": 16,
+      "domains": {
+        "D1": 6,
+        "D2": 3,
+        "D4": 2,
+        "D5": 2,
+        "D6": 1,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "fix",
+        "fixed",
+        "fixing"
+      ],
+      "examples": [
+        {
+          "en": "Fixing bugs across a codebase, where the number of files and steps cannot be known in advance.",
+          "zh": "在代码库中修复缺陷，需要改多少文件、走多少步事先无法知道。",
+          "itemId": "dv1-002"
+        },
+        {
+          "en": "Fix the request (for example a missing or invalid parameter); retrying the same request will not help.",
+          "zh": "修正请求（例如缺失或无效的参数）；重试同样的请求没有用。",
+          "itemId": "dv2-027"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-002",
+        "dv1-005",
+        "dv1-007",
+        "dv1-015",
+        "dv1-022",
+        "dv2-027",
+        "dv2-032",
+        "dv2-036",
+        "dv4-001",
+        "dv4-008",
+        "dv5-001",
+        "dv5-027",
+        "dv6-019",
+        "dv7-005",
+        "dv8-002"
+      ]
+    },
+    {
+      "id": "response",
+      "word": "response",
+      "pos": "名詞",
+      "ja": "応答、回答",
+      "zh": "回答、回应",
+      "count": 17,
+      "questionCount": 15,
+      "domains": {
+        "D1": 2,
+        "D2": 4,
+        "D4": 3,
+        "D5": 3,
+        "D6": 2,
+        "D8": 1
+      },
+      "forms": [
+        "response",
+        "responses"
+      ],
+      "examples": [
+        {
+          "en": "Verify important facts, numbers, and citations regardless of how certain the response sounds.",
+          "zh": "无论回答听起来多么肯定，都要核实重要的事实、数字和引用。",
+          "itemId": "dv6-017"
+        },
+        {
+          "en": "Abstraction layers can hide the actual prompts and responses, making debugging harder.",
+          "zh": "抽象层可能隐藏实际的提示词和响应，使调试更困难。",
+          "itemId": "dv1-020"
+        }
+      ],
+      "itemIds": [
+        "dv1-010",
+        "dv1-020",
+        "dv2-013",
+        "dv2-015",
+        "dv2-023",
+        "dv2-030",
+        "dv4-001",
+        "dv4-002",
+        "dv4-006",
+        "dv5-010",
+        "dv5-013",
+        "dv5-024",
+        "dv6-016",
+        "dv6-017",
+        "dv8-005"
+      ]
+    },
+    {
+      "id": "design",
+      "word": "design",
+      "pos": "名詞",
+      "ja": "設計",
+      "zh": "设计",
+      "count": 15,
+      "questionCount": 15,
+      "domains": {
+        "D1": 2,
+        "D2": 7,
+        "D5": 2,
+        "D6": 3,
+        "D7": 1
+      },
+      "forms": [
+        "design",
+        "designed"
+      ],
+      "examples": [
+        {
+          "en": "So the team can test whether the solution works and compare design options objectively.",
+          "zh": "这样团队可以测试方案是否有效，并客观地比较不同设计。",
+          "itemId": "dv2-006"
+        },
+        {
+          "en": "Combining several independent controls, such as input screening, prompt design, permission limits, and output checks.",
+          "zh": "组合多个相互独立的控制措施，例如输入筛查、提示词设计、权限限制和输出检查。",
+          "itemId": "dv7-007"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-003",
+        "dv2-006",
+        "dv2-031",
+        "dv2-032",
+        "dv2-034",
+        "dv2-036",
+        "dv2-037",
+        "dv2-039",
+        "dv5-007",
+        "dv5-020",
+        "dv6-005",
+        "dv6-019",
+        "dv6-020",
+        "dv7-007"
+      ]
+    },
+    {
+      "id": "ignore",
+      "word": "ignore",
+      "pos": "動詞",
+      "ja": "無視する",
+      "zh": "忽视",
+      "count": 15,
+      "questionCount": 15,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D4": 1,
+        "D5": 2,
+        "D6": 3,
+        "D7": 2,
+        "D8": 2
+      },
+      "forms": [
+        "ignore",
+        "ignored",
+        "ignores",
+        "ignoring"
+      ],
+      "examples": [
+        {
+          "en": "An input crafted to make the model ignore its safety rules or instructions.",
+          "zh": "精心构造的输入，试图让模型忽略其安全规则或指令。",
+          "itemId": "dv7-004"
+        },
+        {
+          "en": "A CLAUDE.md file has grown to thousands of lines, and Claude Code starts ignoring important rules. What should the developer do?",
+          "zh": "一个 CLAUDE.md 文件增长到几千行，Claude Code 开始忽略重要规则。开发者应该怎么做？",
+          "itemId": "dv2-045"
+        }
+      ],
+      "itemIds": [
+        "dv1-016",
+        "dv2-009",
+        "dv2-029",
+        "dv2-033",
+        "dv2-045",
+        "dv4-002",
+        "dv5-013",
+        "dv5-022",
+        "dv6-003",
+        "dv6-014",
+        "dv6-016",
+        "dv7-001",
+        "dv7-004",
+        "dv8-005",
+        "dv8-008"
+      ]
+    },
+    {
+      "id": "temperature",
+      "word": "temperature",
+      "pos": "名詞",
+      "ja": "温度（出力のばらつきの設定）",
+      "zh": "温度（控制随机性的参数）",
+      "count": 21,
+      "questionCount": 14,
+      "domains": {
+        "D1": 2,
+        "D2": 4,
+        "D4": 1,
+        "D5": 2,
+        "D6": 2,
+        "D7": 1,
+        "D8": 2
+      },
+      "forms": [
+        "temperature"
+      ],
+      "examples": [
+        {
+          "en": "Run the same subagents again with a higher temperature.",
+          "zh": "提高 temperature 再跑一次同样的子智能体。",
+          "itemId": "dv1-007"
+        },
+        {
+          "en": "Set temperature to 0 so it never chooses to delete.",
+          "zh": "把 temperature 设为 0，让它永远不会选择删除。",
+          "itemId": "dv1-013"
+        }
+      ],
+      "itemIds": [
+        "dv1-007",
+        "dv1-013",
+        "dv2-008",
+        "dv2-021",
+        "dv2-039",
+        "dv2-042",
+        "dv4-005",
+        "dv5-003",
+        "dv5-007",
+        "dv6-002",
+        "dv6-018",
+        "dv7-001",
+        "dv8-001",
+        "dv8-006"
+      ]
+    },
+    {
+      "id": "error",
+      "word": "error",
+      "pos": "名詞",
+      "ja": "誤り、エラー",
+      "zh": "错误",
+      "count": 20,
+      "questionCount": 14,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D4": 4,
+        "D5": 2,
+        "D6": 1,
+        "D7": 2,
+        "D8": 1
+      },
+      "forms": [
+        "error",
+        "errors"
+      ],
+      "examples": [
+        {
+          "en": "It provides typed interfaces, streaming helpers, and built-in retries for common errors.",
+          "zh": "它提供类型化接口、流式输出辅助功能，以及对常见错误的内置重试。",
+          "itemId": "dv2-028"
+        },
+        {
+          "en": "Monitoring output quality, errors, latency, and cost in production.",
+          "zh": "在生产环境监控输出质量、错误、延迟和成本。",
+          "itemId": "dv2-010"
+        }
+      ],
+      "itemIds": [
+        "dv1-023",
+        "dv2-010",
+        "dv2-027",
+        "dv2-028",
+        "dv4-001",
+        "dv4-003",
+        "dv4-004",
+        "dv4-007",
+        "dv5-010",
+        "dv5-013",
+        "dv6-019",
+        "dv7-004",
+        "dv7-008",
+        "dv8-007"
+      ]
+    },
+    {
+      "id": "build",
+      "word": "build",
+      "pos": "動詞",
+      "ja": "構築する",
+      "zh": "构建",
+      "count": 16,
+      "questionCount": 14,
+      "domains": {
+        "D1": 3,
+        "D2": 3,
+        "D6": 1,
+        "D8": 7
+      },
+      "forms": [
+        "build",
+        "building",
+        "builds",
+        "built"
+      ],
+      "examples": [
+        {
+          "en": "It provides typed interfaces, streaming helpers, and built-in retries for common errors.",
+          "zh": "它提供类型化接口、流式输出辅助功能，以及对常见错误的内置重试。",
+          "itemId": "dv2-028"
+        },
+        {
+          "en": "A built-in server tool such as web search.",
+          "zh": "网页搜索等内置服务器工具。",
+          "itemId": "dv8-018"
+        }
+      ],
+      "itemIds": [
+        "dv1-009",
+        "dv1-010",
+        "dv1-023",
+        "dv2-006",
+        "dv2-028",
+        "dv2-040",
+        "dv6-006",
+        "dv8-010",
+        "dv8-014",
+        "dv8-015",
+        "dv8-016",
+        "dv8-017",
+        "dv8-018",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "cost",
+      "word": "cost",
+      "pos": "名詞",
+      "ja": "費用、コスト",
+      "zh": "成本、费用",
+      "count": 14,
+      "questionCount": 14,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D5": 7,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "cost",
+        "costs"
+      ],
+      "examples": [
+        {
+          "en": "Irrelevant information competes for the model's attention and can lower accuracy, while also adding cost.",
+          "zh": "无关信息会分散模型的注意力，可能降低准确性，还会增加成本。",
+          "itemId": "dv6-003"
+        },
+        {
+          "en": "Monitoring output quality, errors, latency, and cost in production.",
+          "zh": "在生产环境监控输出质量、错误、延迟和成本。",
+          "itemId": "dv2-010"
+        }
+      ],
+      "itemIds": [
+        "dv1-006",
+        "dv2-010",
+        "dv2-013",
+        "dv2-021",
+        "dv2-031",
+        "dv5-017",
+        "dv5-020",
+        "dv5-021",
+        "dv5-022",
+        "dv5-025",
+        "dv5-026",
+        "dv5-027",
+        "dv6-003",
+        "dv7-005"
+      ]
+    },
+    {
+      "id": "practice",
+      "word": "practice",
+      "pos": "名詞",
+      "ja": "慣行、実践",
+      "zh": "做法、惯例",
+      "count": 14,
+      "questionCount": 14,
+      "domains": {
+        "D1": 1,
+        "D2": 6,
+        "D5": 1,
+        "D6": 3,
+        "D7": 1,
+        "D8": 2
+      },
+      "forms": [
+        "practice",
+        "practices"
+      ],
+      "examples": [
+        {
+          "en": "A billing system parses Claude's output to create invoices. Which TWO practices are essential?",
+          "zh": "一个计费系统解析 Claude 的输出来生成发票。哪两项做法是必需的？",
+          "itemId": "dv6-015"
+        },
+        {
+          "en": "Which TWO practices help integrate Claude-assisted development into an existing SDLC?",
+          "zh": "哪两项做法有助于把 Claude 辅助开发融入现有的软件开发生命周期（SDLC）？",
+          "itemId": "dv2-026"
+        }
+      ],
+      "itemIds": [
+        "dv1-023",
+        "dv2-008",
+        "dv2-011",
+        "dv2-024",
+        "dv2-026",
+        "dv2-042",
+        "dv2-044",
+        "dv5-013",
+        "dv6-012",
+        "dv6-015",
+        "dv6-017",
+        "dv7-017",
+        "dv8-007",
+        "dv8-013"
+      ]
+    },
+    {
+      "id": "reason",
+      "word": "reason",
+      "pos": "名詞",
+      "ja": "理由",
+      "zh": "理由",
+      "count": 22,
+      "questionCount": 13,
+      "domains": {
+        "D1": 3,
+        "D2": 2,
+        "D4": 2,
+        "D5": 2,
+        "D6": 2,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "reason",
+        "reasoning",
+        "reasons"
+      ],
+      "examples": [
+        {
+          "en": "The tool does not run, and the reason is fed back to Claude so it can adjust its approach.",
+          "zh": "工具不会执行，原因会反馈给 Claude，让它调整做法。",
+          "itemId": "dv7-012"
+        },
+        {
+          "en": "Context about the reason lets Claude generalize the rule to situations the rule did not mention.",
+          "zh": "说明原因能让 Claude 把规则推广到规则没有明确提到的情况。",
+          "itemId": "dv6-013"
+        }
+      ],
+      "itemIds": [
+        "dv1-006",
+        "dv1-010",
+        "dv1-019",
+        "dv2-015",
+        "dv2-033",
+        "dv4-002",
+        "dv4-006",
+        "dv5-005",
+        "dv5-022",
+        "dv6-013",
+        "dv6-016",
+        "dv7-012",
+        "dv8-001"
+      ]
+    },
+    {
+      "id": "rule",
+      "word": "rule",
+      "pos": "名詞",
+      "ja": "ルール、規則",
+      "zh": "规则",
+      "count": 20,
+      "questionCount": 13,
+      "domains": {
+        "D2": 4,
+        "D3": 1,
+        "D5": 1,
+        "D6": 2,
+        "D7": 5
+      },
+      "forms": [
+        "rule",
+        "rules"
+      ],
+      "examples": [
+        {
+          "en": ".claude/settings.json for shared rules and .claude/settings.local.json for personal overrides.",
+          "zh": ".claude/settings.json 存放共享规则，.claude/settings.local.json 存放个人覆盖设置。",
+          "itemId": "dv2-041"
+        },
+        {
+          "en": "A PreToolUse hook (or a deny permission rule) that blocks the command before it runs.",
+          "zh": "用 PreToolUse 钩子（或 deny 权限规则）在命令执行前阻止它。",
+          "itemId": "dv7-011"
+        }
+      ],
+      "itemIds": [
+        "dv2-038",
+        "dv2-041",
+        "dv2-043",
+        "dv2-045",
+        "dv3-008",
+        "dv5-001",
+        "dv6-013",
+        "dv6-015",
+        "dv7-004",
+        "dv7-007",
+        "dv7-010",
+        "dv7-011",
+        "dv7-014"
+      ]
+    },
+    {
+      "id": "data",
+      "word": "data",
+      "pos": "名詞",
+      "ja": "データ",
+      "zh": "数据",
+      "count": 17,
+      "questionCount": 13,
+      "domains": {
+        "D2": 3,
+        "D4": 1,
+        "D5": 1,
+        "D6": 3,
+        "D7": 4,
+        "D8": 1
+      },
+      "forms": [
+        "data"
+      ],
+      "examples": [
+        {
+          "en": "As image content blocks in a user message, for example base64-encoded data or a URL source.",
+          "zh": "作为 user 消息里的图片内容块，例如 base64 编码数据或 URL 来源。",
+          "itemId": "dv2-016"
+        },
+        {
+          "en": "Encrypt data in transit and at rest, limit who and what can access it, and log access for auditing.",
+          "zh": "对传输中和静态存储的数据加密，限制谁和什么可以访问，并记录访问以便审计。",
+          "itemId": "dv7-006"
+        }
+      ],
+      "itemIds": [
+        "dv2-003",
+        "dv2-004",
+        "dv2-016",
+        "dv4-003",
+        "dv5-026",
+        "dv6-006",
+        "dv6-014",
+        "dv6-019",
+        "dv7-001",
+        "dv7-002",
+        "dv7-003",
+        "dv7-006",
+        "dv8-019"
+      ]
+    },
+    {
+      "id": "conversation",
+      "word": "conversation",
+      "pos": "名詞",
+      "ja": "会話（チャットのやり取り）",
+      "zh": "对话",
+      "count": 16,
+      "questionCount": 13,
+      "domains": {
+        "D1": 2,
+        "D2": 4,
+        "D3": 2,
+        "D5": 3,
+        "D6": 1,
+        "D8": 1
+      },
+      "forms": [
+        "conversation"
+      ],
+      "examples": [
+        {
+          "en": "It is stateless: each request must include the conversation history the model should see.",
+          "zh": "它是无状态的：每次请求都必须带上模型应看到的对话历史。",
+          "itemId": "dv2-019"
+        },
+        {
+          "en": "Subagents run in a separate context window, keeping the main conversation cleaner.",
+          "zh": "子智能体在独立的上下文窗口中运行，使主对话更干净。",
+          "itemId": "dv3-007"
+        }
+      ],
+      "itemIds": [
+        "dv1-003",
+        "dv1-014",
+        "dv2-017",
+        "dv2-019",
+        "dv2-031",
+        "dv2-038",
+        "dv3-006",
+        "dv3-007",
+        "dv5-002",
+        "dv5-015",
+        "dv5-025",
+        "dv6-002",
+        "dv8-005"
+      ]
+    },
+    {
+      "id": "stop",
+      "word": "stop",
+      "pos": "動詞",
+      "ja": "止まる、止める",
+      "zh": "停止",
+      "count": 23,
+      "questionCount": 12,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D4": 3,
+        "D5": 1,
+        "D6": 1,
+        "D7": 1,
+        "D8": 2
+      },
+      "forms": [
+        "stop"
+      ],
+      "examples": [
+        {
+          "en": "When stop_reason is end_turn, or when a safety limit such as a maximum number of turns is reached.",
+          "zh": "当 stop_reason 为 end_turn，或者达到最大轮数等安全上限时。",
+          "itemId": "dv1-010"
+        },
+        {
+          "en": "As a sequence of server-sent events such as content_block_delta and message_stop.",
+          "zh": "以一系列服务器发送事件的形式，例如 content_block_delta 和 message_stop。",
+          "itemId": "dv5-010"
+        }
+      ],
+      "itemIds": [
+        "dv1-010",
+        "dv1-019",
+        "dv2-014",
+        "dv2-015",
+        "dv4-002",
+        "dv4-006",
+        "dv4-008",
+        "dv5-010",
+        "dv6-016",
+        "dv7-013",
+        "dv8-001",
+        "dv8-006"
+      ]
+    },
+    {
+      "id": "version",
+      "word": "version",
+      "pos": "名詞",
+      "ja": "版、バージョン",
+      "zh": "版本",
+      "count": 21,
+      "questionCount": 12,
+      "domains": {
+        "D2": 9,
+        "D4": 1,
+        "D5": 1,
+        "D8": 1
+      },
+      "forms": [
+        "version",
+        "versions"
+      ],
+      "examples": [
+        {
+          "en": "Run the existing eval suite on the new prompt and compare results with the current version.",
+          "zh": "用现有的评估集测试新提示词，并与当前版本对比结果。",
+          "itemId": "dv2-007"
+        },
+        {
+          "en": "Manage plugin versions explicitly and test the combination before rolling it out to the team.",
+          "zh": "显式管理插件版本，在推广给团队之前测试组合是否正常。",
+          "itemId": "dv2-044"
+        }
+      ],
+      "itemIds": [
+        "dv2-007",
+        "dv2-008",
+        "dv2-011",
+        "dv2-012",
+        "dv2-024",
+        "dv2-026",
+        "dv2-040",
+        "dv2-042",
+        "dv2-044",
+        "dv4-008",
+        "dv5-011",
+        "dv8-013"
+      ]
+    },
+    {
+      "id": "limit",
+      "word": "limit",
+      "pos": "名詞",
+      "ja": "上限、制限",
+      "zh": "限制、上限",
+      "count": 15,
+      "questionCount": 12,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D4": 2,
+        "D6": 3,
+        "D7": 3
+      },
+      "forms": [
+        "limit",
+        "limited",
+        "limiting",
+        "limits"
+      ],
+      "examples": [
+        {
+          "en": "Deciding what information goes into the model's limited context at each step, and in what form.",
+          "zh": "决定每一步把哪些信息、以什么形式放进模型有限的上下文中。",
+          "itemId": "dv6-006"
+        },
+        {
+          "en": "When stop_reason is end_turn, or when a safety limit such as a maximum number of turns is reached.",
+          "zh": "当 stop_reason 为 end_turn，或者达到最大轮数等安全上限时。",
+          "itemId": "dv1-010"
+        }
+      ],
+      "itemIds": [
+        "dv1-010",
+        "dv1-023",
+        "dv2-015",
+        "dv2-022",
+        "dv4-001",
+        "dv4-004",
+        "dv6-001",
+        "dv6-006",
+        "dv6-014",
+        "dv7-006",
+        "dv7-007",
+        "dv7-008"
+      ]
+    },
+    {
+      "id": "require",
+      "word": "require",
+      "pos": "動詞",
+      "ja": "必要とする、要求する",
+      "zh": "需要、要求",
+      "count": 12,
+      "questionCount": 12,
+      "domains": {
+        "D2": 4,
+        "D6": 3,
+        "D7": 1,
+        "D8": 4
+      },
+      "forms": [
+        "require",
+        "required",
+        "requires"
+      ],
+      "examples": [
+        {
+          "en": "In the tool handler, check the amount and require an approval step before executing large refunds.",
+          "zh": "在工具处理代码中检查金额，对大额退款在执行前要求审批步骤。",
+          "itemId": "dv8-004"
+        },
+        {
+          "en": "Require authentication and authorize each request.",
+          "zh": "要求认证，并对每个请求进行授权。",
+          "itemId": "dv8-013"
+        }
+      ],
+      "itemIds": [
+        "dv2-005",
+        "dv2-006",
+        "dv2-018",
+        "dv2-036",
+        "dv6-013",
+        "dv6-018",
+        "dv6-020",
+        "dv7-001",
+        "dv8-004",
+        "dv8-013",
+        "dv8-014",
+        "dv8-018"
+      ]
+    },
+    {
+      "id": "content",
+      "word": "content",
+      "pos": "名詞",
+      "ja": "内容",
+      "zh": "内容",
+      "count": 20,
+      "questionCount": 11,
+      "domains": {
+        "D2": 3,
+        "D5": 4,
+        "D6": 1,
+        "D7": 2,
+        "D8": 1
+      },
+      "forms": [
+        "content"
+      ],
+      "examples": [
+        {
+          "en": "Use more varied examples that differ in wording and content while showing the same format.",
+          "zh": "使用措辞和内容各不相同、但格式一致的更多样的示例。",
+          "itemId": "dv6-010"
+        },
+        {
+          "en": "As image content blocks in a user message, for example base64-encoded data or a URL source.",
+          "zh": "作为 user 消息里的图片内容块，例如 base64 编码数据或 URL 来源。",
+          "itemId": "dv2-016"
+        }
+      ],
+      "itemIds": [
+        "dv2-014",
+        "dv2-016",
+        "dv2-034",
+        "dv5-010",
+        "dv5-015",
+        "dv5-016",
+        "dv5-023",
+        "dv6-010",
+        "dv7-001",
+        "dv7-010",
+        "dv8-001"
+      ]
+    },
+    {
+      "id": "delete",
+      "word": "delete",
+      "pos": "動詞",
+      "ja": "削除する",
+      "zh": "删除",
+      "count": 15,
+      "questionCount": 11,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D4": 1,
+        "D6": 1,
+        "D7": 4
+      },
+      "forms": [
+        "delete",
+        "deleted",
+        "deletes",
+        "deleting"
+      ],
+      "examples": [
+        {
+          "en": "Use a PreToolUse hook that denies delete commands before they run.",
+          "zh": "用 PreToolUse 钩子在删除命令执行前拒绝它。",
+          "itemId": "dv1-013"
+        },
+        {
+          "en": "Delete the tests first so they do not slow things down.",
+          "zh": "先删掉测试，免得拖慢进度。",
+          "itemId": "dv2-024"
+        }
+      ],
+      "itemIds": [
+        "dv1-013",
+        "dv2-007",
+        "dv2-024",
+        "dv2-031",
+        "dv2-045",
+        "dv4-008",
+        "dv6-008",
+        "dv7-006",
+        "dv7-011",
+        "dv7-012",
+        "dv7-015"
+      ]
+    },
+    {
+      "id": "share",
+      "word": "share",
+      "pos": "動詞",
+      "ja": "共有する",
+      "zh": "共享、分享",
+      "count": 12,
+      "questionCount": 11,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D3": 2,
+        "D7": 4,
+        "D8": 1
+      },
+      "forms": [
+        "share",
+        "shared",
+        "shares"
+      ],
+      "examples": [
+        {
+          "en": ".claude/settings.json for shared rules and .claude/settings.local.json for personal overrides.",
+          "zh": ".claude/settings.json 存放共享规则，.claude/settings.local.json 存放个人覆盖设置。",
+          "itemId": "dv2-041"
+        },
+        {
+          "en": "Release to a small share of traffic first and compare metrics with the old version.",
+          "zh": "先发布给一小部分流量，并与旧版本对比指标。",
+          "itemId": "dv2-011"
+        }
+      ],
+      "itemIds": [
+        "dv1-003",
+        "dv2-011",
+        "dv2-040",
+        "dv2-041",
+        "dv3-003",
+        "dv3-007",
+        "dv7-002",
+        "dv7-006",
+        "dv7-008",
+        "dv7-017",
+        "dv8-011"
+      ]
+    },
+    {
+      "id": "stream",
+      "word": "stream",
+      "pos": "動詞",
+      "ja": "ストリーミングする（逐次送る）",
+      "zh": "流式传输",
+      "count": 12,
+      "questionCount": 11,
+      "domains": {
+        "D2": 4,
+        "D3": 1,
+        "D5": 3,
+        "D6": 1,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "stream",
+        "streaming"
+      ],
+      "examples": [
+        {
+          "en": "It provides typed interfaces, streaming helpers, and built-in retries for common errors.",
+          "zh": "它提供类型化接口、流式输出辅助功能，以及对常见错误的内置重试。",
+          "itemId": "dv2-028"
+        },
+        {
+          "en": "Streaming, so text is shown as it is generated through server-sent events.",
+          "zh": "流式输出：通过服务器发送事件（SSE）边生成边显示文字。",
+          "itemId": "dv2-014"
+        }
+      ],
+      "itemIds": [
+        "dv2-013",
+        "dv2-014",
+        "dv2-021",
+        "dv2-028",
+        "dv3-002",
+        "dv5-005",
+        "dv5-010",
+        "dv5-028",
+        "dv6-002",
+        "dv7-005",
+        "dv8-006"
+      ]
+    },
+    {
+      "id": "skill",
+      "word": "skill",
+      "pos": "名詞",
+      "ja": "スキル（呼び出せる手順）",
+      "zh": "技能",
+      "count": 27,
+      "questionCount": 10,
+      "domains": {
+        "D2": 2,
+        "D3": 2,
+        "D8": 6
+      },
+      "forms": [
+        "skill",
+        "skills"
+      ],
+      "examples": [
+        {
+          "en": "Create a custom slash command (or a Skill) in the project's .claude directory and commit it.",
+          "zh": "在项目的 .claude 目录中创建自定义斜杠命令（或 Skill）并提交。",
+          "itemId": "dv3-003"
+        },
+        {
+          "en": "Skills package instructions, knowledge, and scripts that teach Claude how to do a task.",
+          "zh": "Skills 打包说明、知识和脚本，教 Claude 如何完成任务。",
+          "itemId": "dv8-019"
+        }
+      ],
+      "itemIds": [
+        "dv2-035",
+        "dv2-045",
+        "dv3-003",
+        "dv3-004",
+        "dv8-015",
+        "dv8-016",
+        "dv8-017",
+        "dv8-018",
+        "dv8-019",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "example",
+      "word": "example",
+      "pos": "名詞",
+      "ja": "例",
+      "zh": "示例",
+      "count": 17,
+      "questionCount": 10,
+      "domains": {
+        "D2": 3,
+        "D3": 1,
+        "D5": 2,
+        "D6": 3,
+        "D8": 1
+      },
+      "forms": [
+        "example",
+        "examples"
+      ],
+      "examples": [
+        {
+          "en": "Use more varied examples that differ in wording and content while showing the same format.",
+          "zh": "使用措辞和内容各不相同、但格式一致的更多样的示例。",
+          "itemId": "dv6-010"
+        },
+        {
+          "en": "As image content blocks in a user message, for example base64-encoded data or a URL source.",
+          "zh": "作为 user 消息里的图片内容块，例如 base64 编码数据或 URL 来源。",
+          "itemId": "dv2-016"
+        }
+      ],
+      "itemIds": [
+        "dv2-003",
+        "dv2-016",
+        "dv2-027",
+        "dv3-006",
+        "dv5-004",
+        "dv5-006",
+        "dv6-008",
+        "dv6-009",
+        "dv6-010",
+        "dv8-002"
+      ]
+    },
+    {
+      "id": "retry",
+      "word": "retry",
+      "pos": "動詞",
+      "ja": "再試行する",
+      "zh": "重试",
+      "count": 15,
+      "questionCount": 10,
+      "domains": {
+        "D2": 3,
+        "D4": 4,
+        "D5": 1,
+        "D6": 2
+      },
+      "forms": [
+        "retries",
+        "retry",
+        "retrying"
+      ],
+      "examples": [
+        {
+          "en": "It provides typed interfaces, streaming helpers, and built-in retries for common errors.",
+          "zh": "它提供类型化接口、流式输出辅助功能，以及对常见错误的内置重试。",
+          "itemId": "dv2-028"
+        },
+        {
+          "en": "Treat it as incomplete: do not use it, and retry with a higher max_tokens or a smaller task.",
+          "zh": "把它视为不完整：不要使用，提高 max_tokens 或缩小任务后重试。",
+          "itemId": "dv6-016"
+        }
+      ],
+      "itemIds": [
+        "dv2-008",
+        "dv2-027",
+        "dv2-028",
+        "dv4-001",
+        "dv4-003",
+        "dv4-004",
+        "dv4-006",
+        "dv5-013",
+        "dv6-001",
+        "dv6-016"
+      ]
+    },
+    {
+      "id": "feature",
+      "word": "feature",
+      "pos": "名詞",
+      "ja": "機能",
+      "zh": "功能",
+      "count": 11,
+      "questionCount": 10,
+      "domains": {
+        "D2": 5,
+        "D4": 1,
+        "D5": 2,
+        "D7": 2
+      },
+      "forms": [
+        "feature",
+        "features"
+      ],
+      "examples": [
+        {
+          "en": "Red-team the feature with adversarial inputs before launch.",
+          "zh": "上线前用对抗性输入对功能进行红队测试。",
+          "itemId": "dv7-009"
+        },
+        {
+          "en": "Which TWO items belong in the requirements before choosing an architecture for a Claude feature?",
+          "zh": "在为 Claude 功能选定架构之前，哪两项应该写进需求？",
+          "itemId": "dv2-004"
+        }
+      ],
+      "itemIds": [
+        "dv2-002",
+        "dv2-004",
+        "dv2-007",
+        "dv2-020",
+        "dv2-021",
+        "dv4-002",
+        "dv5-018",
+        "dv5-022",
+        "dv7-009",
+        "dv7-016"
+      ]
+    },
+    {
+      "id": "whether",
+      "word": "whether",
+      "pos": "接続詞",
+      "ja": "〜かどうか",
+      "zh": "是否",
+      "count": 10,
+      "questionCount": 10,
+      "domains": {
+        "D1": 2,
+        "D2": 3,
+        "D4": 2,
+        "D5": 3
+      },
+      "forms": [
+        "whether"
+      ],
+      "examples": [
+        {
+          "en": "So the team can test whether the solution works and compare design options objectively.",
+          "zh": "这样团队可以测试方案是否有效，并客观地比较不同设计。",
+          "itemId": "dv2-006"
+        },
+        {
+          "en": "Check whether tool names and descriptions overlap or are ambiguous.",
+          "zh": "检查工具名称和描述是否重叠或含糊。",
+          "itemId": "dv4-005"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-011",
+        "dv2-001",
+        "dv2-006",
+        "dv2-007",
+        "dv4-002",
+        "dv4-005",
+        "dv5-019",
+        "dv5-020",
+        "dv5-024"
+      ]
+    },
+    {
+      "id": "subagent",
+      "word": "subagent",
+      "pos": "名詞",
+      "ja": "サブエージェント（委任先のエージェント）",
+      "zh": "子智能体",
+      "count": 23,
+      "questionCount": 9,
+      "domains": {
+        "D1": 5,
+        "D2": 1,
+        "D3": 1,
+        "D6": 1,
+        "D8": 1
+      },
+      "forms": [
+        "subagent",
+        "subagents"
+      ],
+      "examples": [
+        {
+          "en": "Each subagent works in its own fresh context window, so the main context stays focused.",
+          "zh": "每个子智能体在自己全新的上下文窗口中工作，主上下文保持聚焦。",
+          "itemId": "dv1-004"
+        },
+        {
+          "en": "Subagents run in a separate context window, keeping the main conversation cleaner.",
+          "zh": "子智能体在独立的上下文窗口中运行，使主对话更干净。",
+          "itemId": "dv3-007"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-003",
+        "dv1-004",
+        "dv1-007",
+        "dv1-015",
+        "dv2-035",
+        "dv3-007",
+        "dv6-004",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "schema",
+      "word": "schema",
+      "pos": "名詞",
+      "ja": "スキーマ（データ構造の定義）",
+      "zh": "schema（数据结构定义）",
+      "count": 21,
+      "questionCount": 9,
+      "domains": {
+        "D2": 2,
+        "D4": 1,
+        "D6": 3,
+        "D8": 3
+      },
+      "forms": [
+        "schema"
+      ],
+      "examples": [
+        {
+          "en": "Restrict the field to an enum in the schema and handle unknown values explicitly in code.",
+          "zh": "在 schema 中把该字段限制为枚举，并在代码中显式处理未知值。",
+          "itemId": "dv6-019"
+        },
+        {
+          "en": "Structured outputs (schema-constrained decoding), plus validation in code.",
+          "zh": "结构化输出（受 schema 约束的解码），再加上代码校验。",
+          "itemId": "dv6-018"
+        }
+      ],
+      "itemIds": [
+        "dv2-032",
+        "dv2-036",
+        "dv4-006",
+        "dv6-015",
+        "dv6-018",
+        "dv6-019",
+        "dv8-001",
+        "dv8-002",
+        "dv8-014"
+      ]
+    },
+    {
+      "id": "document",
+      "word": "document",
+      "pos": "名詞",
+      "ja": "文書、資料",
+      "zh": "文档、文件",
+      "count": 13,
+      "questionCount": 9,
+      "domains": {
+        "D2": 6,
+        "D5": 2,
+        "D6": 1
+      },
+      "forms": [
+        "document",
+        "documents"
+      ],
+      "examples": [
+        {
+          "en": "The stable content (tools, system prompt, reference documents), with variable user input after it.",
+          "zh": "稳定不变的内容（工具、系统提示词、参考文档），可变的用户输入放在后面。",
+          "itemId": "dv5-023"
+        },
+        {
+          "en": "At least 95% agreement with human labels on a held-out test set of 500 documents.",
+          "zh": "在 500 份预留测试文档上，与人工标注的一致率至少 95%。",
+          "itemId": "dv2-002"
+        }
+      ],
+      "itemIds": [
+        "dv2-002",
+        "dv2-016",
+        "dv2-020",
+        "dv2-021",
+        "dv2-034",
+        "dv2-039",
+        "dv5-015",
+        "dv5-023",
+        "dv6-003"
+      ]
+    },
+    {
+      "id": "batch",
+      "word": "batch",
+      "pos": "名詞",
+      "ja": "バッチ（まとめて処理する単位）",
+      "zh": "批次",
+      "count": 12,
+      "questionCount": 9,
+      "domains": {
+        "D1": 2,
+        "D2": 5,
+        "D5": 2
+      },
+      "forms": [
+        "batch",
+        "batches"
+      ],
+      "examples": [
+        {
+          "en": "The Message Batches API, which processes large asynchronous workloads at a lower price.",
+          "zh": "Message Batches API：以更低的价格异步处理大批量任务。",
+          "itemId": "dv2-013"
+        },
+        {
+          "en": "Have Claude create a migration plan and checklist, then process files in batches, running tests after each batch.",
+          "zh": "先让 Claude 制定迁移计划和清单，再分批处理文件，每批之后运行测试。",
+          "itemId": "dv2-029"
+        }
+      ],
+      "itemIds": [
+        "dv1-009",
+        "dv1-012",
+        "dv2-013",
+        "dv2-014",
+        "dv2-018",
+        "dv2-020",
+        "dv2-029",
+        "dv5-005",
+        "dv5-025"
+      ]
+    },
+    {
+      "id": "allow",
+      "word": "allow",
+      "pos": "動詞",
+      "ja": "許す、可能にする",
+      "zh": "允许",
+      "count": 11,
+      "questionCount": 9,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 1,
+        "D5": 2,
+        "D6": 1,
+        "D7": 3
+      },
+      "forms": [
+        "allow",
+        "allowed",
+        "allows"
+      ],
+      "examples": [
+        {
+          "en": "Allow null for the date field and instruct Claude to return null when no date appears in the text.",
+          "zh": "允许 date 字段为 null，并指示 Claude 在文本中没有日期时返回 null。",
+          "itemId": "dv6-020"
+        },
+        {
+          "en": "The employee's identity and that their access level allows that action.",
+          "zh": "员工的身份，以及其权限级别是否允许该操作。",
+          "itemId": "dv7-018"
+        }
+      ],
+      "itemIds": [
+        "dv1-013",
+        "dv2-034",
+        "dv3-008",
+        "dv5-002",
+        "dv5-028",
+        "dv6-020",
+        "dv7-003",
+        "dv7-014",
+        "dv7-018"
+      ]
+    },
+    {
+      "id": "approach",
+      "word": "approach",
+      "pos": "名詞",
+      "ja": "やり方、方法",
+      "zh": "方法、做法",
+      "count": 9,
+      "questionCount": 9,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D4": 1,
+        "D6": 2,
+        "D7": 2
+      },
+      "forms": [
+        "approach"
+      ],
+      "examples": [
+        {
+          "en": "The tool does not run, and the reason is fed back to Claude so it can adjust its approach.",
+          "zh": "工具不会执行，原因会反馈给 Claude，让它调整做法。",
+          "itemId": "dv7-012"
+        },
+        {
+          "en": "Return a tool_result with is_error set to true and a clear message, so Claude can retry or choose another approach.",
+          "zh": "返回一个 is_error 为 true、附有清晰信息的 tool_result，让 Claude 可以重试或换一种方法。",
+          "itemId": "dv4-003"
+        }
+      ],
+      "itemIds": [
+        "dv1-015",
+        "dv2-013",
+        "dv2-022",
+        "dv2-029",
+        "dv4-003",
+        "dv6-004",
+        "dv6-018",
+        "dv7-010",
+        "dv7-012"
+      ]
+    },
+    {
+      "id": "directly",
+      "word": "directly",
+      "pos": "副詞",
+      "ja": "直接",
+      "zh": "直接地",
+      "count": 9,
+      "questionCount": 9,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D5": 1,
+        "D6": 1,
+        "D7": 1,
+        "D8": 2
+      },
+      "forms": [
+        "directly"
+      ],
+      "examples": [
+        {
+          "en": "Define a custom tool directly in the app's API requests.",
+          "zh": "直接在应用的 API 请求中定义一个自定义工具。",
+          "itemId": "dv8-017"
+        },
+        {
+          "en": "Let the model run tools directly on the user's computer without the application.",
+          "zh": "让模型绕过应用，直接在用户电脑上运行工具。",
+          "itemId": "dv1-019"
+        }
+      ],
+      "itemIds": [
+        "dv1-019",
+        "dv2-024",
+        "dv2-026",
+        "dv2-042",
+        "dv5-005",
+        "dv6-014",
+        "dv7-005",
+        "dv8-014",
+        "dv8-017"
+      ]
+    },
+    {
+      "id": "separate",
+      "word": "separate",
+      "pos": "形容詞",
+      "ja": "別々の",
+      "zh": "单独的、分开的",
+      "count": 9,
+      "questionCount": 9,
+      "domains": {
+        "D2": 1,
+        "D3": 1,
+        "D5": 1,
+        "D6": 2,
+        "D7": 3,
+        "D8": 1
+      },
+      "forms": [
+        "separate",
+        "separated"
+      ],
+      "examples": [
+        {
+          "en": "Subagents run in a separate context window, keeping the main conversation cleaner.",
+          "zh": "子智能体在独立的上下文窗口中运行，使主对话更干净。",
+          "itemId": "dv3-007"
+        },
+        {
+          "en": "Clearly separated (for example in tags) from trusted instructions, which belong in the system prompt.",
+          "zh": "与可信指令明确分开（例如放在标签中），可信指令应放在系统提示词中。",
+          "itemId": "dv6-009"
+        }
+      ],
+      "itemIds": [
+        "dv2-021",
+        "dv3-007",
+        "dv5-009",
+        "dv6-008",
+        "dv6-009",
+        "dv7-001",
+        "dv7-010",
+        "dv7-017",
+        "dv8-005"
+      ]
+    },
+    {
+      "id": "single",
+      "word": "single",
+      "pos": "形容詞",
+      "ja": "たった一つの、単一の",
+      "zh": "单一的",
+      "count": 9,
+      "questionCount": 9,
+      "domains": {
+        "D1": 4,
+        "D3": 1,
+        "D5": 3,
+        "D6": 1
+      },
+      "forms": [
+        "single"
+      ],
+      "examples": [
+        {
+          "en": "Simplify to a single call or a short fixed workflow, and add complexity only if measurements show it helps.",
+          "zh": "简化成一次调用或一个简短的固定工作流，只有在测量证明有帮助时才增加复杂度。",
+          "itemId": "dv1-005"
+        },
+        {
+          "en": "A single prompt that asks Claude to do all three steps and also decide whether to skip any.",
+          "zh": "用一个提示词让 Claude 完成三步，并自行决定是否跳过某一步。",
+          "itemId": "dv1-001"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-004",
+        "dv1-005",
+        "dv1-022",
+        "dv3-004",
+        "dv5-004",
+        "dv5-012",
+        "dv5-015",
+        "dv6-012"
+      ]
+    },
+    {
+      "id": "cache",
+      "word": "cache",
+      "pos": "名詞",
+      "ja": "キャッシュ",
+      "zh": "缓存",
+      "count": 21,
+      "questionCount": 8,
+      "domains": {
+        "D2": 1,
+        "D5": 5,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "cache",
+        "cached",
+        "caching"
+      ],
+      "examples": [
+        {
+          "en": "Check the usage fields in the response, such as cache_creation_input_tokens and cache_read_input_tokens.",
+          "zh": "查看响应中的 usage 字段，例如 cache_creation_input_tokens 和 cache_read_input_tokens。",
+          "itemId": "dv5-024"
+        },
+        {
+          "en": "The prefix now changes on every request, so no cached prefix can match.",
+          "zh": "前缀在每次请求中都变化了，所以没有任何缓存前缀能匹配。",
+          "itemId": "dv5-028"
+        }
+      ],
+      "itemIds": [
+        "dv2-021",
+        "dv5-004",
+        "dv5-023",
+        "dv5-024",
+        "dv5-025",
+        "dv5-028",
+        "dv6-001",
+        "dv7-005"
+      ]
+    },
+    {
+      "id": "hook",
+      "word": "hook",
+      "pos": "名詞",
+      "ja": "フック（処理に割り込む仕組み）",
+      "zh": "钩子",
+      "count": 17,
+      "questionCount": 8,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D7": 4
+      },
+      "forms": [
+        "hook",
+        "hooks"
+      ],
+      "examples": [
+        {
+          "en": "A PreToolUse hook (or a deny permission rule) that blocks the command before it runs.",
+          "zh": "用 PreToolUse 钩子（或 deny 权限规则）在命令执行前阻止它。",
+          "itemId": "dv7-011"
+        },
+        {
+          "en": "Hooks are executed by code every time, while the model may not always follow a prompt instruction.",
+          "zh": "钩子每次都由代码执行，而模型不一定总会遵守提示词指令。",
+          "itemId": "dv7-014"
+        }
+      ],
+      "itemIds": [
+        "dv1-011",
+        "dv1-013",
+        "dv1-016",
+        "dv2-035",
+        "dv7-011",
+        "dv7-012",
+        "dv7-013",
+        "dv7-014"
+      ]
+    },
+    {
+      "id": "description",
+      "word": "description",
+      "pos": "名詞",
+      "ja": "説明",
+      "zh": "描述",
+      "count": 15,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D3": 2,
+        "D4": 1,
+        "D6": 1,
+        "D8": 3
+      },
+      "forms": [
+        "description",
+        "descriptions"
+      ],
+      "examples": [
+        {
+          "en": "Describe the expected format in the tool description and schema, for example ISO 8601 with an example value.",
+          "zh": "在工具描述和 schema 中说明期望的格式，例如 ISO 8601，并给出示例值。",
+          "itemId": "dv8-002"
+        },
+        {
+          "en": "Check whether tool names and descriptions overlap or are ambiguous.",
+          "zh": "检查工具名称和描述是否重叠或含糊。",
+          "itemId": "dv4-005"
+        }
+      ],
+      "itemIds": [
+        "dv1-002",
+        "dv3-004",
+        "dv3-005",
+        "dv4-005",
+        "dv6-007",
+        "dv8-001",
+        "dv8-002",
+        "dv8-013"
+      ]
+    },
+    {
+      "id": "field",
+      "word": "field",
+      "pos": "名詞",
+      "ja": "フィールド、項目",
+      "zh": "字段",
+      "count": 13,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D5": 2,
+        "D6": 3
+      },
+      "forms": [
+        "field",
+        "fields"
+      ],
+      "examples": [
+        {
+          "en": "Restrict the field to an enum in the schema and handle unknown values explicitly in code.",
+          "zh": "在 schema 中把该字段限制为枚举，并在代码中显式处理未知值。",
+          "itemId": "dv6-019"
+        },
+        {
+          "en": "Return only the fields the model needs, with pagination or truncation for large results.",
+          "zh": "只返回模型需要的字段，对大型结果做分页或截断。",
+          "itemId": "dv5-027"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv2-032",
+        "dv2-036",
+        "dv5-024",
+        "dv5-027",
+        "dv6-016",
+        "dv6-019",
+        "dv6-020"
+      ]
+    },
+    {
+      "id": "client",
+      "word": "client",
+      "pos": "名詞",
+      "ja": "顧客、クライアント",
+      "zh": "客户",
+      "count": 12,
+      "questionCount": 8,
+      "domains": {
+        "D2": 2,
+        "D5": 1,
+        "D8": 5
+      },
+      "forms": [
+        "client",
+        "clients"
+      ],
+      "examples": [
+        {
+          "en": "An MCP server can be reused by many MCP-compatible clients and maintained independently.",
+          "zh": "MCP 服务器可以被许多兼容 MCP 的客户端复用，并独立维护。",
+          "itemId": "dv8-014"
+        },
+        {
+          "en": "The client, running inside a host application such as Claude Code or Claude Desktop.",
+          "zh": "客户端，运行在 Claude Code 或 Claude Desktop 等宿主应用中。",
+          "itemId": "dv8-012"
+        }
+      ],
+      "itemIds": [
+        "dv2-022",
+        "dv2-028",
+        "dv5-009",
+        "dv8-001",
+        "dv8-003",
+        "dv8-008",
+        "dv8-012",
+        "dv8-014"
+      ]
+    },
+    {
+      "id": "fail",
+      "word": "fail",
+      "pos": "動詞",
+      "ja": "失敗する",
+      "zh": "失败",
+      "count": 10,
+      "questionCount": 8,
+      "domains": {
+        "D2": 1,
+        "D4": 6,
+        "D6": 1
+      },
+      "forms": [
+        "fail",
+        "failed",
+        "failing",
+        "fails"
+      ],
+      "examples": [
+        {
+          "en": "Review traces of failing runs to see what the model saw before choosing the tool.",
+          "zh": "查看失败运行的轨迹，了解模型在选工具之前看到了什么。",
+          "itemId": "dv4-005"
+        },
+        {
+          "en": "Retry with exponential backoff and jitter, up to a limit, then fail gracefully.",
+          "zh": "用指数退避加随机抖动进行重试，设定上限，超过后优雅降级。",
+          "itemId": "dv4-001"
+        }
+      ],
+      "itemIds": [
+        "dv2-009",
+        "dv4-001",
+        "dv4-002",
+        "dv4-003",
+        "dv4-005",
+        "dv4-006",
+        "dv4-008",
+        "dv6-012"
+      ]
+    },
+    {
+      "id": "loop",
+      "word": "loop",
+      "pos": "名詞",
+      "ja": "ループ（繰り返し）",
+      "zh": "循环",
+      "count": 10,
+      "questionCount": 8,
+      "domains": {
+        "D1": 5,
+        "D2": 2,
+        "D4": 1
+      },
+      "forms": [
+        "loop"
+      ],
+      "examples": [
+        {
+          "en": "Evaluator-optimizer: one call generates, another evaluates and gives feedback, in a loop.",
+          "zh": "评估者-优化者：一个调用生成，另一个评估并反馈，循环进行。",
+          "itemId": "dv1-022"
+        },
+        {
+          "en": "In a custom agent loop built on the Messages API, when should the loop stop calling Claude again?",
+          "zh": "在基于 Messages API 自己写的智能体循环中，什么时候应该停止再次调用 Claude？",
+          "itemId": "dv1-010"
+        }
+      ],
+      "itemIds": [
+        "dv1-009",
+        "dv1-010",
+        "dv1-014",
+        "dv1-019",
+        "dv1-022",
+        "dv2-022",
+        "dv2-027",
+        "dv4-001"
+      ]
+    },
+    {
+      "id": "window",
+      "word": "window",
+      "pos": "名詞",
+      "ja": "ウィンドウ（文脈の枠）",
+      "zh": "窗口",
+      "count": 9,
+      "questionCount": 8,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 2,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "window"
+      ],
+      "examples": [
+        {
+          "en": "Each subagent works in its own fresh context window, so the main context stays focused.",
+          "zh": "每个子智能体在自己全新的上下文窗口中工作，主上下文保持聚焦。",
+          "itemId": "dv1-004"
+        },
+        {
+          "en": "Subagents run in a separate context window, keeping the main conversation cleaner.",
+          "zh": "子智能体在独立的上下文窗口中运行，使主对话更干净。",
+          "itemId": "dv3-007"
+        }
+      ],
+      "itemIds": [
+        "dv1-004",
+        "dv1-017",
+        "dv1-018",
+        "dv2-001",
+        "dv3-004",
+        "dv3-007",
+        "dv5-002",
+        "dv6-002"
+      ]
+    },
+    {
+      "id": "control",
+      "word": "control",
+      "pos": "名詞",
+      "ja": "管理、統制",
+      "zh": "控制",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 5,
+        "D5": 1,
+        "D7": 1
+      },
+      "forms": [
+        "control",
+        "controls"
+      ],
+      "examples": [
+        {
+          "en": "In a CLAUDE.md file at the project root, committed to version control.",
+          "zh": "放在项目根目录的 CLAUDE.md 中，并提交到版本控制。",
+          "itemId": "dv2-040"
+        },
+        {
+          "en": "Version prompts in source control alongside the code that uses them.",
+          "zh": "把提示词和使用它的代码一起放在版本控制中管理。",
+          "itemId": "dv2-042"
+        }
+      ],
+      "itemIds": [
+        "dv1-013",
+        "dv2-021",
+        "dv2-024",
+        "dv2-026",
+        "dv2-040",
+        "dv2-042",
+        "dv5-024",
+        "dv7-007"
+      ]
+    },
+    {
+      "id": "create",
+      "word": "create",
+      "pos": "動詞",
+      "ja": "作る",
+      "zh": "创建",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 2,
+        "D6": 1,
+        "D7": 2,
+        "D8": 1
+      },
+      "forms": [
+        "create",
+        "creates"
+      ],
+      "examples": [
+        {
+          "en": "Create a custom slash command (or a Skill) in the project's .claude directory and commit it.",
+          "zh": "在项目的 .claude 目录中创建自定义斜杠命令（或 Skill）并提交。",
+          "itemId": "dv3-003"
+        },
+        {
+          "en": "Have Claude create a migration plan and checklist, then process files in batches, running tests after each batch.",
+          "zh": "先让 Claude 制定迁移计划和清单，再分批处理文件，每批之后运行测试。",
+          "itemId": "dv2-029"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv2-029",
+        "dv3-001",
+        "dv3-003",
+        "dv6-015",
+        "dv7-005",
+        "dv7-015",
+        "dv8-007"
+      ]
+    },
+    {
+      "id": "generate",
+      "word": "generate",
+      "pos": "動詞",
+      "ja": "生成する",
+      "zh": "生成",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 2,
+        "D2": 3,
+        "D5": 3
+      },
+      "forms": [
+        "generated",
+        "generates",
+        "generating"
+      ],
+      "examples": [
+        {
+          "en": "Evaluator-optimizer: one call generates, another evaluates and gives feedback, in a loop.",
+          "zh": "评估者-优化者：一个调用生成，另一个评估并反馈，循环进行。",
+          "itemId": "dv1-022"
+        },
+        {
+          "en": "It generates plausible text from patterns rather than checking facts against a source.",
+          "zh": "它根据模式生成看似合理的文本，而不是对照来源核查事实。",
+          "itemId": "dv5-007"
+        }
+      ],
+      "itemIds": [
+        "dv1-002",
+        "dv1-022",
+        "dv2-014",
+        "dv2-025",
+        "dv2-026",
+        "dv5-001",
+        "dv5-002",
+        "dv5-007"
+      ]
+    },
+    {
+      "id": "history",
+      "word": "history",
+      "pos": "名詞",
+      "ja": "履歴",
+      "zh": "历史",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 2,
+        "D2": 4,
+        "D3": 1,
+        "D5": 1
+      },
+      "forms": [
+        "history"
+      ],
+      "examples": [
+        {
+          "en": "It is stateless: each request must include the conversation history the model should see.",
+          "zh": "它是无状态的：每次请求都必须带上模型应看到的对话历史。",
+          "itemId": "dv2-019"
+        },
+        {
+          "en": "Subagents automatically share the full main conversation history.",
+          "zh": "子智能体会自动共享主对话的完整历史。",
+          "itemId": "dv3-007"
+        }
+      ],
+      "itemIds": [
+        "dv1-003",
+        "dv1-018",
+        "dv2-011",
+        "dv2-017",
+        "dv2-019",
+        "dv2-024",
+        "dv3-007",
+        "dv5-025"
+      ]
+    },
+    {
+      "id": "latency",
+      "word": "latency",
+      "pos": "名詞",
+      "ja": "遅延",
+      "zh": "延迟",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D5": 3,
+        "D6": 1
+      },
+      "forms": [
+        "latency"
+      ],
+      "examples": [
+        {
+          "en": "Monitoring output quality, errors, latency, and cost in production.",
+          "zh": "在生产环境监控输出质量、错误、延迟和成本。",
+          "itemId": "dv2-010"
+        },
+        {
+          "en": "Test candidate models on a representative eval set and choose the cheapest one that meets the quality and latency targets.",
+          "zh": "在有代表性的评估集上测试候选模型，选择满足质量和延迟目标的最便宜的那个。",
+          "itemId": "dv5-018"
+        }
+      ],
+      "itemIds": [
+        "dv1-006",
+        "dv2-004",
+        "dv2-010",
+        "dv2-021",
+        "dv5-017",
+        "dv5-018",
+        "dv5-021",
+        "dv6-015"
+      ]
+    },
+    {
+      "id": "support",
+      "word": "support",
+      "pos": "動詞",
+      "ja": "支える、対応する",
+      "zh": "支持",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D5": 3
+      },
+      "forms": [
+        "support",
+        "supported",
+        "supports"
+      ],
+      "examples": [
+        {
+          "en": "Breaking changes, such as different supported parameters or changed default behavior, described in the migration notes.",
+          "zh": "破坏性变更，例如迁移说明中描述的支持参数不同或默认行为变化。",
+          "itemId": "dv5-019"
+        },
+        {
+          "en": "Evaluate a supported replacement model on your test set, adjust prompts if needed, and migrate before the retirement date.",
+          "zh": "在测试集上评估受支持的替代模型，需要时调整提示词，并在退役日期之前完成迁移。",
+          "itemId": "dv2-009"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv2-009",
+        "dv2-020",
+        "dv2-031",
+        "dv2-033",
+        "dv5-019",
+        "dv5-020",
+        "dv5-022"
+      ]
+    },
+    {
+      "id": "format",
+      "word": "format",
+      "pos": "名詞",
+      "ja": "形式、書式",
+      "zh": "格式",
+      "count": 12,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 1,
+        "D6": 1,
+        "D7": 1,
+        "D8": 2
+      },
+      "forms": [
+        "format",
+        "formatting"
+      ],
+      "examples": [
+        {
+          "en": "Use more varied examples that differ in wording and content while showing the same format.",
+          "zh": "使用措辞和内容各不相同、但格式一致的更多样的示例。",
+          "itemId": "dv6-010"
+        },
+        {
+          "en": "Headless mode with claude -p and a machine-readable output format such as JSON.",
+          "zh": "使用 claude -p 的无头模式，并选择 JSON 等机器可读的输出格式。",
+          "itemId": "dv3-002"
+        }
+      ],
+      "itemIds": [
+        "dv1-007",
+        "dv2-023",
+        "dv3-002",
+        "dv6-010",
+        "dv7-013",
+        "dv8-002",
+        "dv8-015"
+      ]
+    },
+    {
+      "id": "project",
+      "word": "project",
+      "pos": "名詞",
+      "ja": "プロジェクト（Claude の Projects 機能も指す）",
+      "zh": "项目（也指 Claude 的 Projects 功能）",
+      "count": 12,
+      "questionCount": 7,
+      "domains": {
+        "D2": 3,
+        "D3": 2,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "project",
+        "projects"
+      ],
+      "examples": [
+        {
+          "en": "Create a custom slash command (or a Skill) in the project's .claude directory and commit it.",
+          "zh": "在项目的 .claude 目录中创建自定义斜杠命令（或 Skill）并提交。",
+          "itemId": "dv3-003"
+        },
+        {
+          "en": "In a CLAUDE.md file at the project root, committed to version control.",
+          "zh": "放在项目根目录的 CLAUDE.md 中，并提交到版本控制。",
+          "itemId": "dv2-040"
+        }
+      ],
+      "itemIds": [
+        "dv2-010",
+        "dv2-040",
+        "dv2-043",
+        "dv3-003",
+        "dv3-005",
+        "dv7-011",
+        "dv8-011"
+      ]
+    },
+    {
+      "id": "permission",
+      "word": "permission",
+      "pos": "名詞",
+      "ja": "権限",
+      "zh": "权限",
+      "count": 11,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 1,
+        "D7": 4
+      },
+      "forms": [
+        "permission",
+        "permissions"
+      ],
+      "examples": [
+        {
+          "en": "A PreToolUse hook (or a deny permission rule) that blocks the command before it runs.",
+          "zh": "用 PreToolUse 钩子（或 deny 权限规则）在命令执行前阻止它。",
+          "itemId": "dv7-011"
+        },
+        {
+          "en": "In the permissions rules (allow / ask / deny) of settings.json.",
+          "zh": "在 settings.json 的权限规则（allow / ask / deny）中配置。",
+          "itemId": "dv3-008"
+        }
+      ],
+      "itemIds": [
+        "dv1-016",
+        "dv2-041",
+        "dv3-008",
+        "dv7-003",
+        "dv7-007",
+        "dv7-008",
+        "dv7-011"
+      ]
+    },
+    {
+      "id": "review",
+      "word": "review",
+      "pos": "動詞",
+      "ja": "見直す、レビューする",
+      "zh": "审阅、复核",
+      "count": 11,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D3": 1,
+        "D4": 1
+      },
+      "forms": [
+        "review",
+        "reviews"
+      ],
+      "examples": [
+        {
+          "en": "Review traces of failing runs to see what the model saw before choosing the tool.",
+          "zh": "查看失败运行的轨迹，了解模型在选工具之前看到了什么。",
+          "itemId": "dv4-005"
+        },
+        {
+          "en": "Work in small steps on a branch, run the tests after each step, and review the diffs before merging.",
+          "zh": "在分支上小步推进，每步之后运行测试，合并前审查差异。",
+          "itemId": "dv2-024"
+        }
+      ],
+      "itemIds": [
+        "dv1-015",
+        "dv2-005",
+        "dv2-013",
+        "dv2-024",
+        "dv2-025",
+        "dv3-003",
+        "dv4-005"
+      ]
+    },
+    {
+      "id": "command",
+      "word": "command",
+      "pos": "名詞",
+      "ja": "コマンド",
+      "zh": "命令",
+      "count": 9,
+      "questionCount": 7,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D3": 2,
+        "D7": 1
+      },
+      "forms": [
+        "command",
+        "commands"
+      ],
+      "examples": [
+        {
+          "en": "Create a custom slash command (or a Skill) in the project's .claude directory and commit it.",
+          "zh": "在项目的 .claude 目录中创建自定义斜杠命令（或 Skill）并提交。",
+          "itemId": "dv3-003"
+        },
+        {
+          "en": "A PreToolUse hook (or a deny permission rule) that blocks the command before it runs.",
+          "zh": "用 PreToolUse 钩子（或 deny 权限规则）在命令执行前阻止它。",
+          "itemId": "dv7-011"
+        }
+      ],
+      "itemIds": [
+        "dv1-009",
+        "dv1-013",
+        "dv2-035",
+        "dv2-040",
+        "dv3-001",
+        "dv3-003",
+        "dv7-011"
+      ]
+    },
+    {
+      "id": "compact",
+      "word": "compact",
+      "pos": "動詞",
+      "ja": "圧縮する、要約して詰める",
+      "zh": "压缩",
+      "count": 9,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D3": 3,
+        "D6": 2,
+        "D8": 1
+      },
+      "forms": [
+        "compact"
+      ],
+      "examples": [
+        {
+          "en": "Context drift; restate the goal in a compact summary and remove stale or irrelevant context.",
+          "zh": "上下文漂移；用简洁的摘要重申目标，并移除过时或无关的上下文。",
+          "itemId": "dv6-001"
+        },
+        {
+          "en": "Prune or clear old tool results and keep only a compact summary of what matters.",
+          "zh": "清理或删除旧的工具结果，只保留重要内容的精简摘要。",
+          "itemId": "dv1-017"
+        }
+      ],
+      "itemIds": [
+        "dv1-017",
+        "dv3-001",
+        "dv3-002",
+        "dv3-006",
+        "dv6-001",
+        "dv6-002",
+        "dv8-007"
+      ]
+    },
+    {
+      "id": "decide",
+      "word": "decide",
+      "pos": "動詞",
+      "ja": "決める",
+      "zh": "决定",
+      "count": 8,
+      "questionCount": 7,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D5": 2,
+        "D6": 2
+      },
+      "forms": [
+        "decide",
+        "decides",
+        "deciding"
+      ],
+      "examples": [
+        {
+          "en": "Deciding what information goes into the model's limited context at each step, and in what form.",
+          "zh": "决定每一步把哪些信息、以什么形式放进模型有限的上下文中。",
+          "itemId": "dv6-006"
+        },
+        {
+          "en": "In a workflow, code defines the steps; in an agent, the model decides its own steps and tool use.",
+          "zh": "工作流中由代码定义步骤；智能体中由模型自己决定步骤和工具使用。",
+          "itemId": "dv1-008"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-008",
+        "dv2-005",
+        "dv5-020",
+        "dv5-022",
+        "dv6-006",
+        "dv6-012"
+      ]
+    },
+    {
+      "id": "personal",
+      "word": "personal",
+      "pos": "形容詞",
+      "ja": "個人の",
+      "zh": "个人的",
+      "count": 8,
+      "questionCount": 7,
+      "domains": {
+        "D2": 2,
+        "D3": 2,
+        "D7": 2,
+        "D8": 1
+      },
+      "forms": [
+        "personal"
+      ],
+      "examples": [
+        {
+          "en": ".claude/settings.json for shared rules and .claude/settings.local.json for personal overrides.",
+          "zh": ".claude/settings.json 存放共享规则，.claude/settings.local.json 存放个人覆盖设置。",
+          "itemId": "dv2-041"
+        },
+        {
+          "en": "Log full prompts with personal data in a public bucket.",
+          "zh": "把含个人数据的完整提示词记录到公开的存储桶中。",
+          "itemId": "dv7-002"
+        }
+      ],
+      "itemIds": [
+        "dv2-040",
+        "dv2-041",
+        "dv3-003",
+        "dv3-005",
+        "dv7-002",
+        "dv7-008",
+        "dv8-011"
+      ]
+    },
+    {
+      "id": "repository",
+      "word": "repository",
+      "pos": "名詞",
+      "ja": "リポジトリ",
+      "zh": "代码仓库",
+      "count": 8,
+      "questionCount": 7,
+      "domains": {
+        "D2": 2,
+        "D3": 3,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "repository"
+      ],
+      "examples": [
+        {
+          "en": "In a project-scoped .mcp.json file committed to the repository.",
+          "zh": "存放在提交到仓库的项目级 .mcp.json 文件中。",
+          "itemId": "dv8-011"
+        },
+        {
+          "en": "A developer accidentally committed an API key to a public repository. What should they do first?",
+          "zh": "开发者不小心把 API 密钥提交到了公开仓库。首先应该做什么？",
+          "itemId": "dv7-015"
+        }
+      ],
+      "itemIds": [
+        "dv2-026",
+        "dv2-041",
+        "dv3-001",
+        "dv3-003",
+        "dv3-005",
+        "dv7-015",
+        "dv8-011"
+      ]
+    },
+    {
+      "id": "switch",
+      "word": "switch",
+      "pos": "動詞",
+      "ja": "切り替える",
+      "zh": "切换",
+      "count": 8,
+      "questionCount": 7,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D4": 1,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "switch"
+      ],
+      "examples": [
+        {
+          "en": "Switch to any model without testing because all models behave the same.",
+          "zh": "不测试就换成任意模型，因为所有模型表现一样。",
+          "itemId": "dv2-009"
+        },
+        {
+          "en": "Switch to a model with a smaller context window.",
+          "zh": "换一个上下文窗口更小的模型。",
+          "itemId": "dv1-017"
+        }
+      ],
+      "itemIds": [
+        "dv1-005",
+        "dv1-017",
+        "dv2-009",
+        "dv2-027",
+        "dv4-002",
+        "dv5-027",
+        "dv6-001"
+      ]
+    },
+    {
+      "id": "correct",
+      "word": "correct",
+      "pos": "形容詞",
+      "ja": "正しい",
+      "zh": "正确的",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D3": 1,
+        "D5": 2
+      },
+      "forms": [
+        "correct"
+      ],
+      "examples": [
+        {
+          "en": "What is the correct structure of the messages array in a Messages API request?",
+          "zh": "Messages API 请求中 messages 数组的正确结构是什么？",
+          "itemId": "dv5-015"
+        },
+        {
+          "en": "Edit the thinking text to correct mistakes before sending it back.",
+          "zh": "在传回之前修改思考内容以纠正错误。",
+          "itemId": "dv2-017"
+        }
+      ],
+      "itemIds": [
+        "dv1-016",
+        "dv2-017",
+        "dv2-019",
+        "dv2-025",
+        "dv3-007",
+        "dv5-008",
+        "dv5-015"
+      ]
+    },
+    {
+      "id": "handle",
+      "word": "handle",
+      "pos": "動詞",
+      "ja": "扱う、処理する",
+      "zh": "处理",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D2": 2,
+        "D4": 2,
+        "D6": 2,
+        "D7": 1
+      },
+      "forms": [
+        "handle",
+        "handling"
+      ],
+      "examples": [
+        {
+          "en": "Restrict the field to an enum in the schema and handle unknown values explicitly in code.",
+          "zh": "在 schema 中把该字段限制为枚举，并在代码中显式处理未知值。",
+          "itemId": "dv6-019"
+        },
+        {
+          "en": "So the server can handle other requests while waiting for Claude's response.",
+          "zh": "这样服务器在等待 Claude 响应时还能处理其他请求。",
+          "itemId": "dv2-030"
+        }
+      ],
+      "itemIds": [
+        "dv2-003",
+        "dv2-030",
+        "dv4-001",
+        "dv4-006",
+        "dv6-014",
+        "dv6-019",
+        "dv7-006"
+      ]
+    },
+    {
+      "id": "option",
+      "word": "option",
+      "pos": "名詞",
+      "ja": "選択肢",
+      "zh": "选项",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 1,
+        "D5": 1,
+        "D8": 3
+      },
+      "forms": [
+        "option",
+        "options"
+      ],
+      "examples": [
+        {
+          "en": "So the team can test whether the solution works and compare design options objectively.",
+          "zh": "这样团队可以测试方案是否有效，并客观地比较不同设计。",
+          "itemId": "dv2-006"
+        },
+        {
+          "en": "A CI pipeline must run Claude Code non-interactively and parse the result. Which option fits?",
+          "zh": "CI 流水线需要以非交互方式运行 Claude Code 并解析结果。哪个选项合适？",
+          "itemId": "dv3-002"
+        }
+      ],
+      "itemIds": [
+        "dv1-009",
+        "dv2-006",
+        "dv3-002",
+        "dv5-005",
+        "dv8-016",
+        "dv8-017",
+        "dv8-018"
+      ]
+    },
+    {
+      "id": "quality",
+      "word": "quality",
+      "pos": "名詞",
+      "ja": "品質",
+      "zh": "质量",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D5": 5
+      },
+      "forms": [
+        "quality"
+      ],
+      "examples": [
+        {
+          "en": "Monitoring output quality, errors, latency, and cost in production.",
+          "zh": "在生产环境监控输出质量、错误、延迟和成本。",
+          "itemId": "dv2-010"
+        },
+        {
+          "en": "Test candidate models on a representative eval set and choose the cheapest one that meets the quality and latency targets.",
+          "zh": "在有代表性的评估集上测试候选模型，选择满足质量和延迟目标的最便宜的那个。",
+          "itemId": "dv5-018"
+        }
+      ],
+      "itemIds": [
+        "dv1-022",
+        "dv2-010",
+        "dv5-005",
+        "dv5-018",
+        "dv5-019",
+        "dv5-020",
+        "dv5-021"
+      ]
+    },
+    {
+      "id": "source",
+      "word": "source",
+      "pos": "名詞",
+      "ja": "出典、情報源",
+      "zh": "来源、出处",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D2": 5,
+        "D5": 2
+      },
+      "forms": [
+        "source"
+      ],
+      "examples": [
+        {
+          "en": "As image content blocks in a user message, for example base64-encoded data or a URL source.",
+          "zh": "作为 user 消息里的图片内容块，例如 base64 编码数据或 URL 来源。",
+          "itemId": "dv2-016"
+        },
+        {
+          "en": "It generates plausible text from patterns rather than checking facts against a source.",
+          "zh": "它根据模式生成看似合理的文本，而不是对照来源核查事实。",
+          "itemId": "dv5-007"
+        }
+      ],
+      "itemIds": [
+        "dv2-016",
+        "dv2-036",
+        "dv2-039",
+        "dv2-042",
+        "dv2-043",
+        "dv5-007",
+        "dv5-014"
+      ]
+    },
+    {
+      "id": "session",
+      "word": "session",
+      "pos": "名詞",
+      "ja": "セッション（一続きの会話）",
+      "zh": "会话",
+      "count": 11,
+      "questionCount": 6,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D3": 1,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "session",
+        "sessions"
+      ],
+      "examples": [
+        {
+          "en": "Start new sessions for new issues and carry over only a short summary or relevant facts.",
+          "zh": "新问题开启新会话，只带入简短摘要或相关事实。",
+          "itemId": "dv2-031"
+        },
+        {
+          "en": "Resume the session, for example with claude --continue or claude --resume.",
+          "zh": "恢复会话，例如使用 claude --continue 或 claude --resume。",
+          "itemId": "dv3-006"
+        }
+      ],
+      "itemIds": [
+        "dv1-011",
+        "dv1-018",
+        "dv2-031",
+        "dv3-006",
+        "dv6-001",
+        "dv7-012"
+      ]
+    },
+    {
+      "id": "rate",
+      "word": "rate",
+      "pos": "名詞",
+      "ja": "割合、率",
+      "zh": "比率",
+      "count": 10,
+      "questionCount": 6,
+      "domains": {
+        "D2": 1,
+        "D4": 1,
+        "D5": 1,
+        "D6": 2,
+        "D8": 1
+      },
+      "forms": [
+        "rate",
+        "rates"
+      ],
+      "examples": [
+        {
+          "en": "Use the SDK's async client with asyncio, while respecting rate limits.",
+          "zh": "使用 SDK 的异步客户端配合 asyncio，同时遵守速率限制。",
+          "itemId": "dv2-022"
+        },
+        {
+          "en": "Which HTTP status code from the Claude API indicates a rate limit was exceeded?",
+          "zh": "Claude API 的哪个 HTTP 状态码表示超出了速率限制？",
+          "itemId": "dv4-004"
+        }
+      ],
+      "itemIds": [
+        "dv2-022",
+        "dv4-004",
+        "dv5-028",
+        "dv6-001",
+        "dv6-017",
+        "dv8-017"
+      ]
+    },
+    {
+      "id": "summary",
+      "word": "summary",
+      "pos": "名詞",
+      "ja": "要約、まとめ",
+      "zh": "摘要、总结",
+      "count": 8,
+      "questionCount": 6,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D4": 1,
+        "D6": 2
+      },
+      "forms": [
+        "summaries",
+        "summary"
+      ],
+      "examples": [
+        {
+          "en": "Start new sessions for new issues and carry over only a short summary or relevant facts.",
+          "zh": "新问题开启新会话，只带入简短摘要或相关事实。",
+          "itemId": "dv2-031"
+        },
+        {
+          "en": "Context drift; restate the goal in a compact summary and remove stale or irrelevant context.",
+          "zh": "上下文漂移；用简洁的摘要重申目标，并移除过时或无关的上下文。",
+          "itemId": "dv6-001"
+        }
+      ],
+      "itemIds": [
+        "dv1-002",
+        "dv1-017",
+        "dv2-031",
+        "dv4-002",
+        "dv6-001",
+        "dv6-004"
+      ]
+    },
+    {
+      "id": "access",
+      "word": "access",
+      "pos": "名詞",
+      "ja": "アクセス、利用権",
+      "zh": "访问、访问权限",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D7": 5,
+        "D8": 1
+      },
+      "forms": [
+        "access"
+      ],
+      "examples": [
+        {
+          "en": "Encrypt data in transit and at rest, limit who and what can access it, and log access for auditing.",
+          "zh": "对传输中和静态存储的数据加密，限制谁和什么可以访问，并记录访问以便审计。",
+          "itemId": "dv7-006"
+        },
+        {
+          "en": "Give the model access only to the data the current user is authorized to see.",
+          "zh": "只让模型访问当前用户有权查看的数据。",
+          "itemId": "dv7-002"
+        }
+      ],
+      "itemIds": [
+        "dv7-002",
+        "dv7-003",
+        "dv7-006",
+        "dv7-008",
+        "dv7-018",
+        "dv8-016"
+      ]
+    },
+    {
+      "id": "information",
+      "word": "information",
+      "pos": "名詞",
+      "ja": "情報",
+      "zh": "信息",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D6": 2,
+        "D8": 1
+      },
+      "forms": [
+        "information"
+      ],
+      "examples": [
+        {
+          "en": "Deciding what information goes into the model's limited context at each step, and in what form.",
+          "zh": "决定每一步把哪些信息、以什么形式放进模型有限的上下文中。",
+          "itemId": "dv6-006"
+        },
+        {
+          "en": "Include an explicit field for \"unknown\" or a null value when information is missing.",
+          "zh": "在信息缺失时提供明确的“unknown”或 null 字段。",
+          "itemId": "dv2-036"
+        }
+      ],
+      "itemIds": [
+        "dv1-005",
+        "dv2-036",
+        "dv2-044",
+        "dv6-003",
+        "dv6-006",
+        "dv8-018"
+      ]
+    },
+    {
+      "id": "internal",
+      "word": "internal",
+      "pos": "形容詞",
+      "ja": "内部の",
+      "zh": "内部的",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D2": 1,
+        "D7": 1,
+        "D8": 4
+      },
+      "forms": [
+        "internal"
+      ],
+      "examples": [
+        {
+          "en": "An app answers questions about a company's internal policies. How should content boundaries be designed?",
+          "zh": "一个应用回答公司内部政策相关的问题。内容边界应如何设计？",
+          "itemId": "dv2-034"
+        },
+        {
+          "en": "A built-in tool, because built-in tools reach any internal system.",
+          "zh": "内置工具，因为内置工具可以访问任何内部系统。",
+          "itemId": "dv8-016"
+        }
+      ],
+      "itemIds": [
+        "dv2-034",
+        "dv7-018",
+        "dv8-007",
+        "dv8-013",
+        "dv8-016",
+        "dv8-017"
+      ]
+    },
+    {
+      "id": "automatically",
+      "word": "automatically",
+      "pos": "副詞",
+      "ja": "自動的に",
+      "zh": "自动地",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D3": 1,
+        "D7": 1
+      },
+      "forms": [
+        "automatically"
+      ],
+      "examples": [
+        {
+          "en": "Which hook event is the best place to automatically format every file after Claude edits it?",
+          "zh": "哪个钩子事件最适合在 Claude 编辑文件后自动格式化每个文件？",
+          "itemId": "dv7-013"
+        },
+        {
+          "en": "Nothing; Claude executes the tool on Anthropic's servers automatically.",
+          "zh": "什么都不用；Claude 会在 Anthropic 服务器上自动执行该工具。",
+          "itemId": "dv1-014"
+        }
+      ],
+      "itemIds": [
+        "dv1-014",
+        "dv1-018",
+        "dv2-008",
+        "dv2-044",
+        "dv3-007",
+        "dv7-013"
+      ]
+    },
+    {
+      "id": "configuration",
+      "word": "configuration",
+      "pos": "名詞",
+      "ja": "設定、構成",
+      "zh": "配置",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D2": 4,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "configuration"
+      ],
+      "examples": [
+        {
+          "en": "A change log of prompt versions, model versions, and configuration changes with dates.",
+          "zh": "带日期的提示词版本、模型版本和配置变更日志。",
+          "itemId": "dv2-012"
+        },
+        {
+          "en": "Keep prompts and configuration files in version control.",
+          "zh": "把提示词和配置文件放进版本控制。",
+          "itemId": "dv2-026"
+        }
+      ],
+      "itemIds": [
+        "dv2-012",
+        "dv2-026",
+        "dv2-042",
+        "dv2-044",
+        "dv7-016",
+        "dv8-011"
+      ]
+    },
+    {
+      "id": "contain",
+      "word": "contain",
+      "pos": "動詞",
+      "ja": "含む",
+      "zh": "包含",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 2,
+        "D5": 1,
+        "D6": 1,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "contain",
+        "containing",
+        "contains"
+      ],
+      "examples": [
+        {
+          "en": "Cross-site scripting if the output contains injected scripts; escape or sanitize output before rendering.",
+          "zh": "如果输出包含被注入的脚本，会导致跨站脚本攻击；渲染前要转义或清洗输出。",
+          "itemId": "dv7-005"
+        },
+        {
+          "en": "In a hand-written agent loop, Claude returns a tool_use block. What must the next request contain?",
+          "zh": "在手写的智能体循环中，Claude 返回了一个 tool_use 块。下一次请求必须包含什么？",
+          "itemId": "dv1-014"
+        }
+      ],
+      "itemIds": [
+        "dv1-010",
+        "dv1-014",
+        "dv5-015",
+        "dv6-014",
+        "dv7-005",
+        "dv8-016"
+      ]
+    },
+    {
+      "id": "current",
+      "word": "current",
+      "pos": "形容詞",
+      "ja": "現在の、最新の",
+      "zh": "当前的、现行的",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D2": 1,
+        "D5": 2,
+        "D7": 1,
+        "D8": 2
+      },
+      "forms": [
+        "current"
+      ],
+      "examples": [
+        {
+          "en": "Run the existing eval suite on the new prompt and compare results with the current version.",
+          "zh": "用现有的评估集测试新提示词，并与当前版本对比结果。",
+          "itemId": "dv2-007"
+        },
+        {
+          "en": "Give the model access only to the data the current user is authorized to see.",
+          "zh": "只让模型访问当前用户有权查看的数据。",
+          "itemId": "dv7-002"
+        }
+      ],
+      "itemIds": [
+        "dv2-007",
+        "dv5-023",
+        "dv5-028",
+        "dv7-002",
+        "dv8-017",
+        "dv8-018"
+      ]
+    },
+    {
+      "id": "customer",
+      "word": "customer",
+      "pos": "名詞",
+      "ja": "顧客",
+      "zh": "客户",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D7": 2
+      },
+      "forms": [
+        "customer"
+      ],
+      "examples": [
+        {
+          "en": "Which TWO steps are part of a safe production rollout of a new customer-facing Claude feature?",
+          "zh": "哪两项步骤属于面向客户的新 Claude 功能安全上线的一部分？",
+          "itemId": "dv7-009"
+        },
+        {
+          "en": "Put every customer's records into the shared system prompt.",
+          "zh": "把所有客户的记录放进共享的系统提示词。",
+          "itemId": "dv7-002"
+        }
+      ],
+      "itemIds": [
+        "dv1-002",
+        "dv2-003",
+        "dv2-020",
+        "dv2-031",
+        "dv7-002",
+        "dv7-009"
+      ]
+    },
+    {
+      "id": "immediately",
+      "word": "immediately",
+      "pos": "副詞",
+      "ja": "すぐに",
+      "zh": "立即",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D2": 3,
+        "D4": 2,
+        "D7": 1
+      },
+      "forms": [
+        "immediately"
+      ],
+      "examples": [
+        {
+          "en": "Revoke (rotate) the key immediately and create a new one.",
+          "zh": "立即吊销（轮换）该密钥并创建新的密钥。",
+          "itemId": "dv7-015"
+        },
+        {
+          "en": "Always use the alias so you get improvements immediately.",
+          "zh": "始终使用别名，以便立刻获得改进。",
+          "itemId": "dv2-008"
+        }
+      ],
+      "itemIds": [
+        "dv2-007",
+        "dv2-008",
+        "dv2-027",
+        "dv4-001",
+        "dv4-002",
+        "dv7-015"
+      ]
+    },
+    {
+      "id": "improve",
+      "word": "improve",
+      "pos": "動詞",
+      "ja": "改善する",
+      "zh": "改进",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 2,
+        "D5": 1,
+        "D6": 1,
+        "D7": 2
+      },
+      "forms": [
+        "improve",
+        "improves"
+      ],
+      "examples": [
+        {
+          "en": "Which TWO practices improve API key management across development and production?",
+          "zh": "哪两项做法可以改善开发和生产环境中的 API 密钥管理？",
+          "itemId": "dv7-017"
+        },
+        {
+          "en": "Why does putting more information into the context not always improve results?",
+          "zh": "为什么往上下文里放更多信息，并不总能改善结果？",
+          "itemId": "dv6-003"
+        }
+      ],
+      "itemIds": [
+        "dv1-004",
+        "dv1-022",
+        "dv5-005",
+        "dv6-003",
+        "dv7-006",
+        "dv7-017"
+      ]
+    },
+    {
+      "id": "include",
+      "word": "include",
+      "pos": "動詞",
+      "ja": "含める、入れる",
+      "zh": "包括、纳入",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D2": 3,
+        "D5": 3
+      },
+      "forms": [
+        "include",
+        "includes",
+        "including"
+      ],
+      "examples": [
+        {
+          "en": "It is stateless: each request must include the conversation history the model should see.",
+          "zh": "它是无状态的：每次请求都必须带上模型应看到的对话历史。",
+          "itemId": "dv2-019"
+        },
+        {
+          "en": "Include an explicit field for \"unknown\" or a null value when information is missing.",
+          "zh": "在信息缺失时提供明确的“unknown”或 null 字段。",
+          "itemId": "dv2-036"
+        }
+      ],
+      "itemIds": [
+        "dv2-019",
+        "dv2-034",
+        "dv2-036",
+        "dv5-002",
+        "dv5-004",
+        "dv5-013"
+      ]
+    },
+    {
+      "id": "language",
+      "word": "language",
+      "pos": "名詞",
+      "ja": "言語、言葉づかい",
+      "zh": "语言、措辞",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D5": 2,
+        "D6": 2
+      },
+      "forms": [
+        "language",
+        "languages"
+      ],
+      "examples": [
+        {
+          "en": "It wraps the REST API with language-native methods and types.",
+          "zh": "它用编程语言原生的方法和类型封装了 REST API。",
+          "itemId": "dv5-009"
+        },
+        {
+          "en": "Translating each product description into three languages.",
+          "zh": "把每条商品描述翻译成三种语言。",
+          "itemId": "dv1-002"
+        }
+      ],
+      "itemIds": [
+        "dv1-002",
+        "dv2-037",
+        "dv5-003",
+        "dv5-009",
+        "dv6-001",
+        "dv6-006"
+      ]
+    },
+    {
+      "id": "statement",
+      "word": "statement",
+      "pos": "名詞",
+      "ja": "記述、文",
+      "zh": "陈述",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D3": 1,
+        "D5": 1,
+        "D8": 1
+      },
+      "forms": [
+        "statement",
+        "statements"
+      ],
+      "examples": [
+        {
+          "en": "Which TWO statements correctly describe tradeoffs between Skills and MCP servers?",
+          "zh": "哪两项正确描述了 Skills 和 MCP 服务器之间的取舍？",
+          "itemId": "dv8-019"
+        },
+        {
+          "en": "Which statement best describes the difference between a workflow and an agent?",
+          "zh": "哪种说法最能描述工作流和智能体的区别？",
+          "itemId": "dv1-008"
+        }
+      ],
+      "itemIds": [
+        "dv1-008",
+        "dv1-016",
+        "dv2-019",
+        "dv3-007",
+        "dv5-008",
+        "dv8-019"
+      ]
+    },
+    {
+      "id": "structure",
+      "word": "structure",
+      "pos": "名詞",
+      "ja": "構造、構成",
+      "zh": "结构",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D5": 1,
+        "D6": 2
+      },
+      "forms": [
+        "structure",
+        "structured"
+      ],
+      "examples": [
+        {
+          "en": "Structured outputs (schema-constrained decoding), plus validation in code.",
+          "zh": "结构化输出（受 schema 约束的解码），再加上代码校验。",
+          "itemId": "dv6-018"
+        },
+        {
+          "en": "Write structured notes or a progress file outside the context window and read it at the start of each session.",
+          "zh": "在上下文窗口之外写结构化笔记或进度文件，每次会话开始时读取。",
+          "itemId": "dv1-018"
+        }
+      ],
+      "itemIds": [
+        "dv1-018",
+        "dv2-032",
+        "dv2-036",
+        "dv5-015",
+        "dv6-008",
+        "dv6-018"
+      ]
+    },
+    {
+      "id": "edit",
+      "word": "edit",
+      "pos": "動詞",
+      "ja": "編集する",
+      "zh": "编辑",
+      "count": 7,
+      "questionCount": 5,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D7": 1
+      },
+      "forms": [
+        "edit",
+        "editing",
+        "edits"
+      ],
+      "examples": [
+        {
+          "en": "A PostToolUse hook that runs deterministically after each edit tool call.",
+          "zh": "用 PostToolUse 钩子，在每次编辑类工具调用后确定性地执行。",
+          "itemId": "dv1-011"
+        },
+        {
+          "en": "Which hook event is the best place to automatically format every file after Claude edits it?",
+          "zh": "哪个钩子事件最适合在 Claude 编辑文件后自动格式化每个文件？",
+          "itemId": "dv7-013"
+        }
+      ],
+      "itemIds": [
+        "dv1-009",
+        "dv1-011",
+        "dv2-017",
+        "dv2-042",
+        "dv7-013"
+      ]
+    },
+    {
+      "id": "process",
+      "word": "process",
+      "pos": "名詞",
+      "ja": "工程、プロセス",
+      "zh": "流程、过程",
+      "count": 6,
+      "questionCount": 5,
+      "domains": {
+        "D2": 4,
+        "D8": 1
+      },
+      "forms": [
+        "process",
+        "processed",
+        "processes"
+      ],
+      "examples": [
+        {
+          "en": "The Message Batches API, which processes large asynchronous workloads at a lower price.",
+          "zh": "Message Batches API：以更低的价格异步处理大批量任务。",
+          "itemId": "dv2-013"
+        },
+        {
+          "en": "Have Claude create a migration plan and checklist, then process files in batches, running tests after each batch.",
+          "zh": "先让 Claude 制定迁移计划和清单，再分批处理文件，每批之后运行测试。",
+          "itemId": "dv2-029"
+        }
+      ],
+      "itemIds": [
+        "dv2-004",
+        "dv2-013",
+        "dv2-022",
+        "dv2-029",
+        "dv8-010"
+      ]
+    },
+    {
+      "id": "accept",
+      "word": "accept",
+      "pos": "動詞",
+      "ja": "受け入れる",
+      "zh": "接受",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D8": 2
+      },
+      "forms": [
+        "accept",
+        "accepts"
+      ],
+      "examples": [
+        {
+          "en": "Which TWO factors are the strongest reasons to accept the extra cost and latency of an agent?",
+          "zh": "哪两项是接受智能体额外成本和延迟的最有力理由？",
+          "itemId": "dv1-006"
+        },
+        {
+          "en": "Accept requests from anyone on the internet without checks.",
+          "zh": "不加检查地接受互联网上任何人的请求。",
+          "itemId": "dv8-013"
+        }
+      ],
+      "itemIds": [
+        "dv1-006",
+        "dv1-024",
+        "dv2-030",
+        "dv8-002",
+        "dv8-013"
+      ]
+    },
+    {
+      "id": "behavior",
+      "word": "behavior",
+      "pos": "名詞",
+      "ja": "振る舞い",
+      "zh": "行为",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D2": 2,
+        "D4": 1,
+        "D5": 1,
+        "D7": 1
+      },
+      "forms": [
+        "behavior",
+        "behaviors"
+      ],
+      "examples": [
+        {
+          "en": "Compare failing cases between versions to find which behaviors changed, and fix or roll back before release.",
+          "zh": "对比两个版本的失败案例，找出哪些行为发生了变化，在发布前修复或回滚。",
+          "itemId": "dv4-008"
+        },
+        {
+          "en": "Breaking changes, such as different supported parameters or changed default behavior, described in the migration notes.",
+          "zh": "破坏性变更，例如迁移说明中描述的支持参数不同或默认行为变化。",
+          "itemId": "dv5-019"
+        }
+      ],
+      "itemIds": [
+        "dv2-038",
+        "dv2-042",
+        "dv4-008",
+        "dv5-019",
+        "dv7-010"
+      ]
+    },
+    {
+      "id": "compare",
+      "word": "compare",
+      "pos": "動詞",
+      "ja": "比較する",
+      "zh": "比较",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D4": 1
+      },
+      "forms": [
+        "compare",
+        "compares"
+      ],
+      "examples": [
+        {
+          "en": "Run the existing eval suite on the new prompt and compare results with the current version.",
+          "zh": "用现有的评估集测试新提示词，并与当前版本对比结果。",
+          "itemId": "dv2-007"
+        },
+        {
+          "en": "So the team can test whether the solution works and compare design options objectively.",
+          "zh": "这样团队可以测试方案是否有效，并客观地比较不同设计。",
+          "itemId": "dv2-006"
+        }
+      ],
+      "itemIds": [
+        "dv1-021",
+        "dv2-006",
+        "dv2-007",
+        "dv2-011",
+        "dv4-008"
+      ]
+    },
+    {
+      "id": "describe",
+      "word": "describe",
+      "pos": "動詞",
+      "ja": "説明する、描写する",
+      "zh": "描述",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D5": 1,
+        "D7": 1,
+        "D8": 2
+      },
+      "forms": [
+        "describe",
+        "described",
+        "describes"
+      ],
+      "examples": [
+        {
+          "en": "Describe the expected format in the tool description and schema, for example ISO 8601 with an example value.",
+          "zh": "在工具描述和 schema 中说明期望的格式，例如 ISO 8601，并给出示例值。",
+          "itemId": "dv8-002"
+        },
+        {
+          "en": "Breaking changes, such as different supported parameters or changed default behavior, described in the migration notes.",
+          "zh": "破坏性变更，例如迁移说明中描述的支持参数不同或默认行为变化。",
+          "itemId": "dv5-019"
+        }
+      ],
+      "itemIds": [
+        "dv1-008",
+        "dv5-019",
+        "dv7-006",
+        "dv8-002",
+        "dv8-019"
+      ]
+    },
+    {
+      "id": "exist",
+      "word": "exist",
+      "pos": "動詞",
+      "ja": "存在する",
+      "zh": "存在",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D2": 4,
+        "D6": 1
+      },
+      "forms": [
+        "existing",
+        "exists"
+      ],
+      "examples": [
+        {
+          "en": "Run the existing eval suite on the new prompt and compare results with the current version.",
+          "zh": "用现有的评估集测试新提示词，并与当前版本对比结果。",
+          "itemId": "dv2-007"
+        },
+        {
+          "en": "Ask Claude to quote the exact source passage and verify in code that each quote exists in the provided documents.",
+          "zh": "要求 Claude 引用原文段落，并在代码中验证每条引文确实存在于提供的文档中。",
+          "itemId": "dv2-039"
+        }
+      ],
+      "itemIds": [
+        "dv2-007",
+        "dv2-018",
+        "dv2-026",
+        "dv2-039",
+        "dv6-013"
+      ]
+    },
+    {
+      "id": "human",
+      "word": "human",
+      "pos": "名詞",
+      "ja": "人間",
+      "zh": "人类、人工",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D2": 4,
+        "D8": 1
+      },
+      "forms": [
+        "human"
+      ],
+      "examples": [
+        {
+          "en": "At least 95% agreement with human labels on a held-out test set of 500 documents.",
+          "zh": "在 500 份预留测试文档上，与人工标注的一致率至少 95%。",
+          "itemId": "dv2-002"
+        },
+        {
+          "en": "Run Claude-generated changes through the same CI pipeline as human changes.",
+          "zh": "让 Claude 生成的改动走和人工改动相同的 CI 流水线。",
+          "itemId": "dv2-026"
+        }
+      ],
+      "itemIds": [
+        "dv2-002",
+        "dv2-005",
+        "dv2-025",
+        "dv2-026",
+        "dv8-004"
+      ]
+    },
+    {
+      "id": "likely",
+      "word": "likely",
+      "pos": "形容詞",
+      "ja": "ありそうな、〜しそうな",
+      "zh": "很可能的",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D4": 1,
+        "D6": 2
+      },
+      "forms": [
+        "likely"
+      ],
+      "examples": [
+        {
+          "en": "A request returns HTTP 401 authentication_error. What is the likely cause?",
+          "zh": "请求返回 HTTP 401 authentication_error。可能的原因是什么？",
+          "itemId": "dv4-007"
+        },
+        {
+          "en": "Which prompt is most likely to produce a useful product description?",
+          "zh": "哪个提示词最可能生成有用的商品描述？",
+          "itemId": "dv6-007"
+        }
+      ],
+      "itemIds": [
+        "dv1-007",
+        "dv2-033",
+        "dv4-007",
+        "dv6-007",
+        "dv6-020"
+      ]
+    },
+    {
+      "id": "pattern",
+      "word": "pattern",
+      "pos": "名詞",
+      "ja": "パターン、型",
+      "zh": "模式（写法）",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 3,
+        "D5": 1,
+        "D8": 1
+      },
+      "forms": [
+        "pattern",
+        "patterns"
+      ],
+      "examples": [
+        {
+          "en": "It generates plausible text from patterns rather than checking facts against a source.",
+          "zh": "它根据模式生成看似合理的文本，而不是对照来源核查事实。",
+          "itemId": "dv5-007"
+        },
+        {
+          "en": "Which pattern runs the same input through several independent LLM calls and then compares or votes on the outputs?",
+          "zh": "哪种模式把同一个输入交给几个独立的 LLM 调用，再比较或投票决定输出？",
+          "itemId": "dv1-021"
+        }
+      ],
+      "itemIds": [
+        "dv1-017",
+        "dv1-021",
+        "dv1-022",
+        "dv5-007",
+        "dv8-004"
+      ]
+    },
+    {
+      "id": "record",
+      "word": "record",
+      "pos": "名詞",
+      "ja": "記録",
+      "zh": "记录",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D2": 2,
+        "D7": 3
+      },
+      "forms": [
+        "record",
+        "records"
+      ],
+      "examples": [
+        {
+          "en": "Users report that answers got worse \"sometime last week.\" Which record would help most to find the cause?",
+          "zh": "用户反映回答质量“上周某个时候”变差了。哪种记录最有助于找到原因？",
+          "itemId": "dv2-012"
+        },
+        {
+          "en": "Where should authorization decisions (\"can this user see this record?\") be enforced in a Claude application?",
+          "zh": "Claude 应用中的授权判断（“这个用户能否看这条记录？”）应在哪里执行？",
+          "itemId": "dv7-003"
+        }
+      ],
+      "itemIds": [
+        "dv2-012",
+        "dv2-042",
+        "dv7-002",
+        "dv7-003",
+        "dv7-018"
+      ]
+    },
+    {
+      "id": "relevant",
+      "word": "relevant",
+      "pos": "形容詞",
+      "ja": "関連のある",
+      "zh": "相关的",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D2": 2,
+        "D3": 1,
+        "D6": 1,
+        "D8": 1
+      },
+      "forms": [
+        "relevant"
+      ],
+      "examples": [
+        {
+          "en": "Start new sessions for new issues and carry over only a short summary or relevant facts.",
+          "zh": "新问题开启新会话，只带入简短摘要或相关事实。",
+          "itemId": "dv2-031"
+        },
+        {
+          "en": "A Skill that bundles the instructions and script and loads only when relevant.",
+          "zh": "一个打包了说明和脚本、只在相关时加载的 Skill。",
+          "itemId": "dv8-015"
+        }
+      ],
+      "itemIds": [
+        "dv2-031",
+        "dv2-037",
+        "dv3-004",
+        "dv6-005",
+        "dv8-015"
+      ]
+    },
+    {
+      "id": "repeat",
+      "word": "repeat",
+      "pos": "動詞",
+      "ja": "繰り返す",
+      "zh": "重复",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 1,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "repeat",
+        "repeated",
+        "repeats"
+      ],
+      "examples": [
+        {
+          "en": "Call the model, run any requested tools, send the results back, and repeat until the model finishes.",
+          "zh": "调用模型，执行它请求的工具，把结果送回去，重复直到模型完成。",
+          "itemId": "dv1-019"
+        },
+        {
+          "en": "Cache the long, repeated prefix with prompt caching.",
+          "zh": "用提示缓存缓存那段很长且重复的前缀。",
+          "itemId": "dv5-025"
+        }
+      ],
+      "itemIds": [
+        "dv1-019",
+        "dv2-021",
+        "dv3-003",
+        "dv5-025",
+        "dv6-010"
+      ]
+    },
+    {
+      "id": "several",
+      "word": "several",
+      "pos": "形容詞",
+      "ja": "いくつかの",
+      "zh": "几个",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 2,
+        "D5": 1,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "several"
+      ],
+      "examples": [
+        {
+          "en": "A token is not always a whole word; words can be split into several tokens.",
+          "zh": "一个 token 不一定是一个完整的单词；单词可能被拆成几个 token。",
+          "itemId": "dv5-008"
+        },
+        {
+          "en": "Combining several independent controls, such as input screening, prompt design, permission limits, and output checks.",
+          "zh": "组合多个相互独立的控制措施，例如输入筛查、提示词设计、权限限制和输出检查。",
+          "itemId": "dv7-007"
+        }
+      ],
+      "itemIds": [
+        "dv1-018",
+        "dv1-021",
+        "dv5-008",
+        "dv7-007",
+        "dv8-013"
+      ]
+    },
+    {
+      "id": "risk",
+      "word": "risk",
+      "pos": "名詞",
+      "ja": "リスク、危険",
+      "zh": "风险",
+      "count": 8,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D7": 2
+      },
+      "forms": [
+        "risk",
+        "risks"
+      ],
+      "examples": [
+        {
+          "en": "Define which risk types the tool flags, target recall on a test set, and that flagged items go to a lawyer for review.",
+          "zh": "明确工具要标记哪些风险类型、在测试集上的召回率目标，并规定被标记的条目交由律师复核。",
+          "itemId": "dv2-005"
+        },
+        {
+          "en": "Which TWO measures reduce the risk of data leakage from a Claude-powered app?",
+          "zh": "哪两项措施可以降低 Claude 应用的数据泄露风险？",
+          "itemId": "dv7-002"
+        }
+      ],
+      "itemIds": [
+        "dv1-020",
+        "dv2-005",
+        "dv7-002",
+        "dv7-005"
+      ]
+    },
+    {
+      "id": "workflow",
+      "word": "workflow",
+      "pos": "名詞",
+      "ja": "ワークフロー、業務の流れ",
+      "zh": "工作流程",
+      "count": 8,
+      "questionCount": 4,
+      "domains": {
+        "D1": 4
+      },
+      "forms": [
+        "workflow",
+        "workflows"
+      ],
+      "examples": [
+        {
+          "en": "In a workflow, code defines the steps; in an agent, the model decides its own steps and tool use.",
+          "zh": "工作流中由代码定义步骤；智能体中由模型自己决定步骤和工具使用。",
+          "itemId": "dv1-008"
+        },
+        {
+          "en": "Simplify to a single call or a short fixed workflow, and add complexity only if measurements show it helps.",
+          "zh": "简化成一次调用或一个简短的固定工作流，只有在测量证明有帮助时才增加复杂度。",
+          "itemId": "dv1-005"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-002",
+        "dv1-005",
+        "dv1-008"
+      ]
+    },
+    {
+      "id": "action",
+      "word": "action",
+      "pos": "名詞",
+      "ja": "行動、対応",
+      "zh": "行动",
+      "count": 7,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D4": 1,
+        "D7": 2
+      },
+      "forms": [
+        "action",
+        "actions"
+      ],
+      "examples": [
+        {
+          "en": "The employee's identity and that their access level allows that action.",
+          "zh": "员工的身份，以及其权限级别是否允许该操作。",
+          "itemId": "dv7-018"
+        },
+        {
+          "en": "Hooks run your own code at defined points, such as before or after a tool call, and can block or modify actions.",
+          "zh": "钩子会在规定的时机（例如工具调用前后）运行你自己的代码，并且可以阻止或修改操作。",
+          "itemId": "dv1-016"
+        }
+      ],
+      "itemIds": [
+        "dv1-016",
+        "dv4-005",
+        "dv7-001",
+        "dv7-018"
+      ]
+    },
+    {
+      "id": "search",
+      "word": "search",
+      "pos": "名詞",
+      "ja": "検索",
+      "zh": "搜索",
+      "count": 7,
+      "questionCount": 4,
+      "domains": {
+        "D6": 1,
+        "D8": 3
+      },
+      "forms": [
+        "search"
+      ],
+      "examples": [
+        {
+          "en": "Delegate the search to a subagent that returns only a concise summary.",
+          "zh": "把搜索交给一个子智能体，只返回简洁的摘要。",
+          "itemId": "dv6-004"
+        },
+        {
+          "en": "Client tools are executed by your application; server tools (such as web search) are executed on Anthropic's side.",
+          "zh": "客户端工具由你的应用执行；服务器工具（如网页搜索）在 Anthropic 一侧执行。",
+          "itemId": "dv8-003"
+        }
+      ],
+      "itemIds": [
+        "dv6-004",
+        "dv8-002",
+        "dv8-003",
+        "dv8-018"
+      ]
+    },
+    {
+      "id": "load",
+      "word": "load",
+      "pos": "動詞",
+      "ja": "読み込む",
+      "zh": "加载",
+      "count": 6,
+      "questionCount": 4,
+      "domains": {
+        "D2": 1,
+        "D3": 1,
+        "D8": 2
+      },
+      "forms": [
+        "load",
+        "loaded",
+        "loads"
+      ],
+      "examples": [
+        {
+          "en": "A Skill that bundles the instructions and script and loads only when relevant.",
+          "zh": "一个打包了说明和脚本、只在相关时加载的 Skill。",
+          "itemId": "dv8-015"
+        },
+        {
+          "en": "Only its name and description are loaded at first; the full SKILL.md and resources load when the Skill is relevant.",
+          "zh": "一开始只加载它的名称和描述；只有在相关时才加载完整的 SKILL.md 和资源。",
+          "itemId": "dv3-004"
+        }
+      ],
+      "itemIds": [
+        "dv2-045",
+        "dv3-004",
+        "dv8-015",
+        "dv8-019"
+      ]
+    },
+    {
+      "id": "manager",
+      "word": "manager",
+      "pos": "名詞",
+      "ja": "管理職、マネージャー",
+      "zh": "经理",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D5": 1
+      },
+      "forms": [
+        "manager"
+      ],
+      "examples": [
+        {
+          "en": "From an environment variable or a secrets manager, not hard-coded in source.",
+          "zh": "从环境变量或密钥管理服务获取，而不是硬编码在源码中。",
+          "itemId": "dv5-014"
+        },
+        {
+          "en": "In a manager/subagent (orchestrator-worker) design, what is the main job of the manager agent?",
+          "zh": "在“管理者/子智能体”（编排者-执行者）设计中，管理者智能体的主要职责是什么？",
+          "itemId": "dv1-003"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv1-003",
+        "dv2-001",
+        "dv5-014"
+      ]
+    },
+    {
+      "id": "policy",
+      "word": "policy",
+      "pos": "名詞",
+      "ja": "方針、規定",
+      "zh": "政策",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D2": 3,
+        "D3": 1
+      },
+      "forms": [
+        "policies",
+        "policy"
+      ],
+      "examples": [
+        {
+          "en": "In managed (enterprise) policy settings, which take the highest precedence.",
+          "zh": "放在托管（企业）策略设置中，它的优先级最高。",
+          "itemId": "dv2-043"
+        },
+        {
+          "en": "Provide the policy documents, instruct Claude to answer only from them, and say \"I don't know\" when the answer is not there.",
+          "zh": "提供政策文档，指示 Claude 只依据文档回答，找不到答案时说“我不知道”。",
+          "itemId": "dv2-034"
+        }
+      ],
+      "itemIds": [
+        "dv2-018",
+        "dv2-034",
+        "dv2-043",
+        "dv3-005"
+      ]
+    },
+    {
+      "id": "sequence",
+      "word": "sequence",
+      "pos": "名詞",
+      "ja": "順序",
+      "zh": "顺序",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D5": 1,
+        "D8": 1
+      },
+      "forms": [
+        "sequence",
+        "sequences"
+      ],
+      "examples": [
+        {
+          "en": "As a sequence of server-sent events such as content_block_delta and message_stop.",
+          "zh": "以一系列服务器发送事件的形式，例如 content_block_delta 和 message_stop。",
+          "itemId": "dv5-010"
+        },
+        {
+          "en": "A workflow: a predefined sequence of LLM calls orchestrated by code.",
+          "zh": "工作流：由代码编排、预先定义好的一串 LLM 调用。",
+          "itemId": "dv1-001"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv2-015",
+        "dv5-010",
+        "dv8-006"
+      ]
+    },
+    {
+      "id": "trust",
+      "word": "trust",
+      "pos": "動詞",
+      "ja": "信頼する",
+      "zh": "信任",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D6": 3,
+        "D7": 1
+      },
+      "forms": [
+        "trust",
+        "trusted"
+      ],
+      "examples": [
+        {
+          "en": "Clearly separated (for example in tags) from trusted instructions, which belong in the system prompt.",
+          "zh": "与可信指令明确分开（例如放在标签中），可信指令应放在系统提示词中。",
+          "itemId": "dv6-009"
+        },
+        {
+          "en": "Ask Claude to rate its own confidence and trust high scores.",
+          "zh": "让 Claude 给自己的把握打分，并相信高分。",
+          "itemId": "dv6-017"
+        }
+      ],
+      "itemIds": [
+        "dv6-009",
+        "dv6-015",
+        "dv6-017",
+        "dv7-010"
+      ]
+    },
+    {
+      "id": "against",
+      "word": "against",
+      "pos": "前置詞",
+      "ja": "〜に照らして、〜に反して",
+      "zh": "对照；违反",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 2,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "against"
+      ],
+      "examples": [
+        {
+          "en": "It generates plausible text from patterns rather than checking facts against a source.",
+          "zh": "它根据模式生成看似合理的文本，而不是对照来源核查事实。",
+          "itemId": "dv5-007"
+        },
+        {
+          "en": "Let the agent plan and check its progress against the goal between steps.",
+          "zh": "让智能体先做计划，并在步骤之间对照目标检查进度。",
+          "itemId": "dv1-023"
+        }
+      ],
+      "itemIds": [
+        "dv1-002",
+        "dv1-023",
+        "dv5-007",
+        "dv6-015"
+      ]
+    },
+    {
+      "id": "assume",
+      "word": "assume",
+      "pos": "動詞",
+      "ja": "仮定する、思い込む",
+      "zh": "假设、认为",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D2": 1,
+        "D4": 1,
+        "D5": 2
+      },
+      "forms": [
+        "assume"
+      ],
+      "examples": [
+        {
+          "en": "Count the words and assume one word equals one token.",
+          "zh": "数单词数，并假设一个单词等于一个 token。",
+          "itemId": "dv5-016"
+        },
+        {
+          "en": "Assume it works because cache_control was added.",
+          "zh": "因为加了 cache_control，就假设它起作用了。",
+          "itemId": "dv5-024"
+        }
+      ],
+      "itemIds": [
+        "dv2-027",
+        "dv4-006",
+        "dv5-016",
+        "dv5-024"
+      ]
+    },
+    {
+      "id": "avoid",
+      "word": "avoid",
+      "pos": "動詞",
+      "ja": "避ける",
+      "zh": "避免",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D2": 1,
+        "D3": 1,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "avoid",
+        "avoids"
+      ],
+      "examples": [
+        {
+          "en": "A children's education app must avoid inappropriate content. Which approach is most robust?",
+          "zh": "一个儿童教育应用必须避免不当内容。哪种方式最稳健？",
+          "itemId": "dv7-010"
+        },
+        {
+          "en": "How does a Claude Code Skill avoid filling the context window when it is not being used?",
+          "zh": "Claude Code 的 Skill 在不使用时如何避免占满上下文窗口？",
+          "itemId": "dv3-004"
+        }
+      ],
+      "itemIds": [
+        "dv2-030",
+        "dv3-004",
+        "dv6-020",
+        "dv7-010"
+      ]
+    },
+    {
+      "id": "detail",
+      "word": "detail",
+      "pos": "名詞",
+      "ja": "詳細",
+      "zh": "细节",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D6": 1,
+        "D8": 1
+      },
+      "forms": [
+        "detail",
+        "detailed",
+        "details"
+      ],
+      "examples": [
+        {
+          "en": "Keep CLAUDE.md short and focused, and move detailed or task-specific material into imported files or Skills that load when needed.",
+          "zh": "让 CLAUDE.md 保持简短聚焦，把详细或特定任务的内容移到按需加载的导入文件或 Skills 中。",
+          "itemId": "dv2-045"
+        },
+        {
+          "en": "Over a long session, an agent gradually forgets the original goal and starts optimizing for side details. What is this problem called, and what helps?",
+          "zh": "在长会话中，智能体逐渐忘记最初的目标，开始纠结于细枝末节。这叫什么问题？什么方法有帮助？",
+          "itemId": "dv6-001"
+        }
+      ],
+      "itemIds": [
+        "dv1-007",
+        "dv2-045",
+        "dv6-001",
+        "dv8-015"
+      ]
+    },
+    {
+      "id": "manually",
+      "word": "manually",
+      "pos": "副詞",
+      "ja": "手作業で",
+      "zh": "手动地",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D2": 1,
+        "D3": 1,
+        "D6": 2
+      },
+      "forms": [
+        "manually"
+      ],
+      "examples": [
+        {
+          "en": "Change the files manually and ignore Claude Code.",
+          "zh": "手动修改文件，不用 Claude Code。",
+          "itemId": "dv2-029"
+        },
+        {
+          "en": "Ask the user to read the results manually.",
+          "zh": "让用户手动阅读这些结果。",
+          "itemId": "dv6-004"
+        }
+      ],
+      "itemIds": [
+        "dv2-029",
+        "dv3-002",
+        "dv6-004",
+        "dv6-019"
+      ]
+    },
+    {
+      "id": "match",
+      "word": "match",
+      "pos": "動詞",
+      "ja": "一致する",
+      "zh": "匹配、符合",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D5": 1,
+        "D6": 2,
+        "D8": 1
+      },
+      "forms": [
+        "match",
+        "matched",
+        "matches",
+        "matching"
+      ],
+      "examples": [
+        {
+          "en": "The prefix now changes on every request, so no cached prefix can match.",
+          "zh": "前缀在每次请求中都变化了，所以没有任何缓存前缀能匹配。",
+          "itemId": "dv5-028"
+        },
+        {
+          "en": "Run both tools and return both tool_result blocks, each matched to its tool_use_id, in the next user message.",
+          "zh": "执行两个工具，并在下一条 user 消息中返回两个 tool_result 块，分别对应各自的 tool_use_id。",
+          "itemId": "dv8-005"
+        }
+      ],
+      "itemIds": [
+        "dv5-028",
+        "dv6-015",
+        "dv6-018",
+        "dv8-005"
+      ]
+    },
+    {
+      "id": "parallel",
+      "word": "parallel",
+      "pos": "形容詞",
+      "ja": "並列の",
+      "zh": "并行的",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D8": 1
+      },
+      "forms": [
+        "parallel"
+      ],
+      "examples": [
+        {
+          "en": "Independent subtopics can be explored in parallel.",
+          "zh": "相互独立的子主题可以并行探索。",
+          "itemId": "dv1-004"
+        },
+        {
+          "en": "Claude returns two tool_use blocks in one response (parallel tool use). How should the application respond?",
+          "zh": "Claude 在一次响应中返回了两个 tool_use 块（并行工具调用）。应用应如何回应？",
+          "itemId": "dv8-005"
+        }
+      ],
+      "itemIds": [
+        "dv1-004",
+        "dv1-022",
+        "dv2-013",
+        "dv8-005"
+      ]
+    },
+    {
+      "id": "paste",
+      "word": "paste",
+      "pos": "動詞",
+      "ja": "貼り付ける",
+      "zh": "粘贴",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D6": 1,
+        "D8": 1
+      },
+      "forms": [
+        "paste",
+        "pasting"
+      ],
+      "examples": [
+        {
+          "en": "Paste the review instructions into the main agent's prompt.",
+          "zh": "把审查指示粘贴到主智能体的提示词里。",
+          "itemId": "dv1-015"
+        },
+        {
+          "en": "Paste the commands into each person's prompt every day.",
+          "zh": "每天把命令粘贴到每个人的提示词里。",
+          "itemId": "dv2-035"
+        }
+      ],
+      "itemIds": [
+        "dv1-015",
+        "dv2-035",
+        "dv6-004",
+        "dv8-015"
+      ]
+    },
+    {
+      "id": "plan",
+      "word": "plan",
+      "pos": "名詞",
+      "ja": "計画",
+      "zh": "计划",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D5": 1
+      },
+      "forms": [
+        "plan",
+        "planning"
+      ],
+      "examples": [
+        {
+          "en": "Let the agent plan and check its progress against the goal between steps.",
+          "zh": "让智能体先做计划，并在步骤之间对照目标检查进度。",
+          "itemId": "dv1-023"
+        },
+        {
+          "en": "Have Claude create a migration plan and checklist, then process files in batches, running tests after each batch.",
+          "zh": "先让 Claude 制定迁移计划和清单，再分批处理文件，每批之后运行测试。",
+          "itemId": "dv2-029"
+        }
+      ],
+      "itemIds": [
+        "dv1-023",
+        "dv2-009",
+        "dv2-029",
+        "dv5-005"
+      ]
+    },
+    {
+      "id": "product",
+      "word": "product",
+      "pos": "名詞",
+      "ja": "製品",
+      "zh": "产品",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "product"
+      ],
+      "examples": [
+        {
+          "en": "Which prompt is most likely to produce a useful product description?",
+          "zh": "哪个提示词最可能生成有用的商品描述？",
+          "itemId": "dv6-007"
+        },
+        {
+          "en": "Translating each product description into three languages.",
+          "zh": "把每条商品描述翻译成三种语言。",
+          "itemId": "dv1-002"
+        }
+      ],
+      "itemIds": [
+        "dv1-002",
+        "dv2-013",
+        "dv5-009",
+        "dv6-007"
+      ]
+    },
+    {
+      "id": "reach",
+      "word": "reach",
+      "pos": "動詞",
+      "ja": "届く、達する",
+      "zh": "到达",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "reach",
+        "reached",
+        "reaches"
+      ],
+      "examples": [
+        {
+          "en": "When stop_reason is end_turn, or when a safety limit such as a maximum number of turns is reached.",
+          "zh": "当 stop_reason 为 end_turn，或者达到最大轮数等安全上限时。",
+          "itemId": "dv1-010"
+        },
+        {
+          "en": "In application code and data-access layers, before data reaches the model.",
+          "zh": "在应用代码和数据访问层中执行，在数据到达模型之前。",
+          "itemId": "dv7-003"
+        }
+      ],
+      "itemIds": [
+        "dv1-010",
+        "dv2-015",
+        "dv7-003",
+        "dv8-016"
+      ]
+    },
+    {
+      "id": "reduce",
+      "word": "reduce",
+      "pos": "動詞",
+      "ja": "減らす",
+      "zh": "减少",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D2": 1,
+        "D5": 1,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "reduce",
+        "reduces"
+      ],
+      "examples": [
+        {
+          "en": "Which TWO measures reduce the risk of data leakage from a Claude-powered app?",
+          "zh": "哪两项措施可以降低 Claude 应用的数据泄露风险？",
+          "itemId": "dv7-002"
+        },
+        {
+          "en": "Which TWO techniques reduce token cost for a high-volume application?",
+          "zh": "对于大流量应用，哪两项技巧可以降低 token 成本？",
+          "itemId": "dv5-025"
+        }
+      ],
+      "itemIds": [
+        "dv2-021",
+        "dv5-025",
+        "dv6-015",
+        "dv7-002"
+      ]
+    },
+    {
+      "id": "security",
+      "word": "security",
+      "pos": "名詞",
+      "ja": "セキュリティ",
+      "zh": "安全",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D2": 2,
+        "D7": 1,
+        "D8": 1
+      },
+      "forms": [
+        "security"
+      ],
+      "examples": [
+        {
+          "en": "A human code review of the logic, security, and maintainability.",
+          "zh": "由人对逻辑、安全性和可维护性进行代码审查。",
+          "itemId": "dv2-025"
+        },
+        {
+          "en": "A company's security policy requires all AI traffic to stay inside its existing AWS account. How can it use Claude?",
+          "zh": "公司的安全策略要求所有 AI 流量都留在现有的 AWS 账户内。它怎样使用 Claude？",
+          "itemId": "dv2-018"
+        }
+      ],
+      "itemIds": [
+        "dv2-018",
+        "dv2-025",
+        "dv7-005",
+        "dv8-020"
+      ]
+    },
+    {
+      "id": "skip",
+      "word": "skip",
+      "pos": "動詞",
+      "ja": "飛ばす、省く",
+      "zh": "跳过",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D6": 2
+      },
+      "forms": [
+        "skip"
+      ],
+      "examples": [
+        {
+          "en": "A single prompt that asks Claude to do all three steps and also decide whether to skip any.",
+          "zh": "用一个提示词让 Claude 完成三步，并自行决定是否跳过某一步。",
+          "itemId": "dv1-001"
+        },
+        {
+          "en": "Skip version control because Claude Code keeps its own history.",
+          "zh": "不用版本控制，因为 Claude Code 会保留自己的历史。",
+          "itemId": "dv2-024"
+        }
+      ],
+      "itemIds": [
+        "dv1-001",
+        "dv2-024",
+        "dv6-015",
+        "dv6-020"
+      ]
+    },
+    {
+      "id": "stable",
+      "word": "stable",
+      "pos": "形容詞",
+      "ja": "安定した",
+      "zh": "稳定的",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D2": 2,
+        "D5": 1,
+        "D8": 1
+      },
+      "forms": [
+        "stable"
+      ],
+      "examples": [
+        {
+          "en": "The stable content (tools, system prompt, reference documents), with variable user input after it.",
+          "zh": "稳定不变的内容（工具、系统提示词、参考文档），可变的用户输入放在后面。",
+          "itemId": "dv5-023"
+        },
+        {
+          "en": "Prompt caching with cache_control breakpoints on the stable prefix.",
+          "zh": "提示缓存：在稳定的前缀上设置 cache_control 断点。",
+          "itemId": "dv2-021"
+        }
+      ],
+      "itemIds": [
+        "dv2-021",
+        "dv2-038",
+        "dv5-023",
+        "dv8-013"
+      ]
+    },
+    {
+      "id": "structured",
+      "word": "structured",
+      "pos": "形容詞",
+      "ja": "構造化された",
+      "zh": "结构化的",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D6": 1
+      },
+      "forms": [
+        "structured"
+      ],
+      "examples": [
+        {
+          "en": "Structured outputs (schema-constrained decoding), plus validation in code.",
+          "zh": "结构化输出（受 schema 约束的解码），再加上代码校验。",
+          "itemId": "dv6-018"
+        },
+        {
+          "en": "Write structured notes or a progress file outside the context window and read it at the start of each session.",
+          "zh": "在上下文窗口之外写结构化笔记或进度文件，每次会话开始时读取。",
+          "itemId": "dv1-018"
+        }
+      ],
+      "itemIds": [
+        "dv1-018",
+        "dv2-032",
+        "dv2-036",
+        "dv6-018"
+      ]
+    },
+    {
+      "id": "useful",
+      "word": "useful",
+      "pos": "形容詞",
+      "ja": "役に立つ",
+      "zh": "有用的",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "useful"
+      ],
+      "examples": [
+        {
+          "en": "Which success criterion is the most useful for a document-classification feature?",
+          "zh": "对于一个文档分类功能，哪个成功标准最有用？",
+          "itemId": "dv2-002"
+        },
+        {
+          "en": "Why is it useful to give an agent a small set of well-defined tools rather than dozens of overlapping ones?",
+          "zh": "为什么给智能体一小组定义清晰的工具，比给它几十个功能重叠的工具更好？",
+          "itemId": "dv1-024"
+        }
+      ],
+      "itemIds": [
+        "dv1-024",
+        "dv2-002",
+        "dv5-026",
+        "dv6-007"
+      ]
+    },
+    {
+      "id": "volume",
+      "word": "volume",
+      "pos": "名詞",
+      "ja": "量",
+      "zh": "量、数量",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D2": 1,
+        "D5": 3
+      },
+      "forms": [
+        "volume"
+      ],
+      "examples": [
+        {
+          "en": "Logged input and output token counts per request type, multiplied by expected volume and model prices.",
+          "zh": "按请求类型记录的输入和输出 token 数，乘以预期请求量和模型价格。",
+          "itemId": "dv5-026"
+        },
+        {
+          "en": "Expected volume and latency targets.",
+          "zh": "预期的请求量和延迟目标。",
+          "itemId": "dv2-004"
+        }
+      ],
+      "itemIds": [
+        "dv2-004",
+        "dv5-017",
+        "dv5-025",
+        "dv5-026"
+      ]
+    }
+  ]
+}

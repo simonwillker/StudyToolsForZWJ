@@ -1,0 +1,941 @@
+{
+  "domain": "D1",
+  "items": [
+    {
+      "id": "dv1-001",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "A team must turn support emails into tickets. Every email goes through the same three fixed steps: classify, extract fields, create a ticket. Which design fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A workflow: a predefined sequence of LLM calls orchestrated by code.",
+          "correct": true,
+          "explain": "正解。手順が決まっていて分岐が予測できるなら、コードで順番を決めるワークフローが安く・速く・検証しやすい。",
+          "textZh": "工作流：由代码编排、预先定义好的一串 LLM 调用。"
+        },
+        {
+          "text": "An autonomous agent that decides on its own which steps to run.",
+          "correct": false,
+          "explain": "不適。手順が固定なのに自律性を持たせると、コストと予測不能さが増えるだけ。",
+          "textZh": "让一个自主智能体自己决定执行哪些步骤。"
+        },
+        {
+          "text": "A manager agent with five specialist subagents.",
+          "correct": false,
+          "explain": "不適。3 ステップの固定処理には過剰な構成。",
+          "textZh": "一个管理者智能体加五个专家子智能体。"
+        },
+        {
+          "text": "A single prompt that asks Claude to do all three steps and also decide whether to skip any.",
+          "correct": false,
+          "explain": "不適。固定手順をモデルの判断に任せる理由がない。",
+          "textZh": "用一个提示词让 Claude 完成三步，并自行决定是否跳过某一步。"
+        }
+      ],
+      "objective": "Agent Architecture",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "团队要把客服邮件转成工单。每封邮件都走同样固定的三步：分类、抽取字段、创建工单。哪种设计最合适？",
+      "commentaryZh": "Anthropic 的建议是先用最简单的方案：步骤固定、可预测时用工作流（workflow），由代码决定顺序；只有当步骤数和路径无法事先确定时才用智能体（agent）。"
+    },
+    {
+      "id": "dv1-002",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which situation most clearly calls for an agent rather than a workflow?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Fixing bugs across a codebase, where the number of files and steps cannot be known in advance.",
+          "correct": true,
+          "explain": "正解。必要な手順数が事前に決まらず、結果を見て次を決める必要がある開かれた課題はエージェント向き。",
+          "textZh": "在代码库中修复缺陷，需要改多少文件、走多少步事先无法知道。"
+        },
+        {
+          "text": "Translating each product description into three languages.",
+          "correct": false,
+          "explain": "不適。入力ごとに同じ処理で、並列化したワークフローで十分。",
+          "textZh": "把每条商品描述翻译成三种语言。"
+        },
+        {
+          "text": "Routing each customer message to one of four fixed queues.",
+          "correct": false,
+          "explain": "不適。ルーティング型ワークフローの典型例。",
+          "textZh": "把每条客户消息分到四个固定队列之一。"
+        },
+        {
+          "text": "Generating a summary and then checking it against a fixed checklist.",
+          "correct": false,
+          "explain": "不適。生成→評価の固定パターン（evaluator-optimizer）で足りる。",
+          "textZh": "生成摘要后再按固定清单检查。"
+        }
+      ],
+      "objective": "Agent Architecture",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪种情况最明显地需要智能体，而不是工作流？",
+      "commentaryZh": "智能体适合开放式问题：无法预知需要几步、路径要根据环境反馈动态决定。路径固定的任务用工作流更便宜、更可控。"
+    },
+    {
+      "id": "dv1-003",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "In a manager/subagent (orchestrator-worker) design, what is the main job of the manager agent?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Break the task into subtasks, delegate them with clear instructions, and combine the results.",
+          "correct": true,
+          "explain": "正解。オーケストレーターは分解・委任・統合を担い、各ワーカーには目的・出力形式・範囲を明示する。",
+          "textZh": "把任务拆成子任务，带着清晰的指示分派出去，再整合结果。"
+        },
+        {
+          "text": "Execute every tool call itself so the subagents stay idle.",
+          "correct": false,
+          "explain": "不適。それではサブエージェントを置く意味がない。",
+          "textZh": "所有工具调用都由自己执行，让子智能体闲着。"
+        },
+        {
+          "text": "Share its full conversation history with every subagent.",
+          "correct": false,
+          "explain": "不適。サブエージェントの利点は文脈の分離。必要な情報だけ渡す。",
+          "textZh": "把自己的完整对话历史共享给每个子智能体。"
+        },
+        {
+          "text": "Only check the final answer for spelling mistakes.",
+          "correct": false,
+          "explain": "不適。役割の中心は計画と委任と統合。",
+          "textZh": "只检查最终答案有没有拼写错误。"
+        }
+      ],
+      "objective": "Agent Architecture",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "在“管理者/子智能体”（编排者-执行者）设计中，管理者智能体的主要职责是什么？",
+      "commentaryZh": "编排者-执行者模式里，管理者负责拆解、委派和汇总。给子智能体的指示要写清目标、输出格式、可用工具和任务边界，否则会重复劳动或遗漏。"
+    },
+    {
+      "id": "dv1-004",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Why can subagents improve the result of a large research task? Select TWO.",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Each subagent works in its own fresh context window, so the main context stays focused.",
+          "correct": true,
+          "explain": "正解。文脈を分離できるので、主エージェントの文脈が検索結果で埋まらない。",
+          "textZh": "每个子智能体在自己全新的上下文窗口中工作，主上下文保持聚焦。"
+        },
+        {
+          "text": "Independent subtopics can be explored in parallel.",
+          "correct": true,
+          "explain": "正解。独立した調査を並列に進められる。",
+          "textZh": "相互独立的子主题可以并行探索。"
+        },
+        {
+          "text": "Subagents always use fewer tokens in total than a single agent.",
+          "correct": false,
+          "explain": "不適。並列化すると総トークンはむしろ増えることが多い。",
+          "textZh": "子智能体的总 token 用量总是比单个智能体少。"
+        },
+        {
+          "text": "Subagents remove the need to write any instructions.",
+          "correct": false,
+          "explain": "不適。委任の指示が曖昧だと重複や抜けが起きる。",
+          "textZh": "有了子智能体就不需要写任何指示。"
+        }
+      ],
+      "objective": "Agent Architecture",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "为什么子智能体能提升大型调研任务的效果？选择两项。",
+      "commentaryZh": "子智能体的价值在于上下文隔离和并行。代价是总 token 用量增加，所以适合价值高、可以拆成独立部分的任务。"
+    },
+    {
+      "id": "dv1-005",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A prototype uses five cooperating agents, but most failures come from agents passing incomplete information to each other. The task itself is a simple two-step transformation. What should the developer do first?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Simplify to a single call or a short fixed workflow, and add complexity only if measurements show it helps.",
+          "correct": true,
+          "explain": "正解。まず最も単純な構成で測り、効果が確認できたときだけ複雑にするのが基本方針。",
+          "textZh": "简化成一次调用或一个简短的固定工作流，只有在测量证明有帮助时才增加复杂度。"
+        },
+        {
+          "text": "Add a sixth agent to check the messages between the others.",
+          "correct": false,
+          "explain": "不適。複雑さを増やして根本原因が残る。",
+          "textZh": "再加第六个智能体来检查其他智能体之间的消息。"
+        },
+        {
+          "text": "Switch every agent to the largest model.",
+          "correct": false,
+          "explain": "不適。構成の問題はモデルを変えても解決しない。",
+          "textZh": "把所有智能体都换成最大的模型。"
+        },
+        {
+          "text": "Increase max_tokens for every agent.",
+          "correct": false,
+          "explain": "不適。情報の受け渡しの問題とは無関係。",
+          "textZh": "提高所有智能体的 max_tokens。"
+        }
+      ],
+      "objective": "Agent Architecture",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个原型用了五个协作的智能体，但大多数失败来自智能体之间传递的信息不完整。任务本身只是简单的两步转换。开发者首先该做什么？",
+      "commentaryZh": "“先用最简单的方案，再按需增加复杂度”是 Anthropic 关于智能体的核心原则。多智能体会带来交接信息丢失等新故障点，简单任务不需要。"
+    },
+    {
+      "id": "dv1-006",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO factors are the strongest reasons to accept the extra cost and latency of an agent?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The path to a solution depends on what is discovered along the way.",
+          "correct": true,
+          "explain": "正解。途中の結果で次の行動が変わるなら、エージェントの柔軟性が必要。",
+          "textZh": "解决路径取决于过程中发现的情况。"
+        },
+        {
+          "text": "Success can be checked with clear feedback, such as tests passing.",
+          "correct": true,
+          "explain": "正解。テストなど検証できるフィードバックがあると、エージェントは自分で修正を繰り返せる。",
+          "textZh": "成功与否可以通过明确的反馈来检查，例如测试通过。"
+        },
+        {
+          "text": "The task always has exactly the same steps.",
+          "correct": false,
+          "explain": "不適。それはワークフロー向き。",
+          "textZh": "任务的步骤永远完全一样。"
+        },
+        {
+          "text": "The team wants the cheapest possible solution.",
+          "correct": false,
+          "explain": "不適。エージェントはコストと遅延が増える。",
+          "textZh": "团队希望方案越便宜越好。"
+        }
+      ],
+      "objective": "Agent Architecture",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪两项是接受智能体额外成本和延迟的最有力理由？",
+      "commentaryZh": "智能体适合路径不确定、而且能获得清晰反馈（如测试结果）的任务。这样它可以根据环境反馈自我纠正。"
+    },
+    {
+      "id": "dv1-007",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A lead agent delegates \"research the market\" to three subagents with no further detail. All three return almost the same results. What is the most likely fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Give each subagent a distinct objective, scope, output format, and boundaries.",
+          "correct": true,
+          "explain": "正解。委任時に目的・範囲・出力形式・やらないことを伝えないと、重複や抜けが起きる。",
+          "textZh": "给每个子智能体明确不同的目标、范围、输出格式和边界。"
+        },
+        {
+          "text": "Run the same subagents again with a higher temperature.",
+          "correct": false,
+          "explain": "不適。ばらつきを増やしても分担は明確にならない。",
+          "textZh": "提高 temperature 再跑一次同样的子智能体。"
+        },
+        {
+          "text": "Add more subagents with the same instruction.",
+          "correct": false,
+          "explain": "不適。重複が増えるだけ。",
+          "textZh": "用同样的指示再加几个子智能体。"
+        },
+        {
+          "text": "Remove the output format so subagents have more freedom.",
+          "correct": false,
+          "explain": "不適。統合しにくくなる。",
+          "textZh": "去掉输出格式，让子智能体更自由。"
+        }
+      ],
+      "objective": "Agent Architecture",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "主智能体把“调研市场”交给三个子智能体，没有其他说明。三个返回的结果几乎一样。最可能的修正是什么？",
+      "commentaryZh": "多智能体系统中，委派指示要具体：每个子智能体的目标、搜索范围、输出格式和不该做的事。模糊的委派会导致重复劳动。"
+    },
+    {
+      "id": "dv1-008",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which statement best describes the difference between a workflow and an agent?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In a workflow, code defines the steps; in an agent, the model decides its own steps and tool use.",
+          "correct": true,
+          "explain": "正解。制御の主体がコードかモデルかが本質的な違い。",
+          "textZh": "工作流中由代码定义步骤；智能体中由模型自己决定步骤和工具使用。"
+        },
+        {
+          "text": "Workflows cannot call tools; agents can.",
+          "correct": false,
+          "explain": "不適。ワークフローの中でもツールは使える。",
+          "textZh": "工作流不能调用工具；智能体可以。"
+        },
+        {
+          "text": "Agents never need a system prompt.",
+          "correct": false,
+          "explain": "不適。エージェントにも明確な指示が必要。",
+          "textZh": "智能体从不需要系统提示词。"
+        },
+        {
+          "text": "Workflows only work with the smallest model.",
+          "correct": false,
+          "explain": "不適。モデルの大きさとは関係ない。",
+          "textZh": "工作流只能用最小的模型。"
+        }
+      ],
+      "objective": "Agent Architecture",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪种说法最能描述工作流和智能体的区别？",
+      "commentaryZh": "区别在于“谁掌控流程”：工作流由预先写好的代码路径控制；智能体由模型根据环境反馈动态决定下一步。"
+    },
+    {
+      "id": "dv1-009",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "A developer wants an agent with built-in file editing, shell commands, and a ready-made agent loop, without writing the loop themselves. Which option fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The Claude Agent SDK.",
+          "correct": true,
+          "explain": "正解。Agent SDK は Claude Code と同じエージェントループと組み込みツールをライブラリとして提供する。",
+          "textZh": "Claude Agent SDK。"
+        },
+        {
+          "text": "A raw HTTP call to the Messages API with no tools.",
+          "correct": false,
+          "explain": "不適。ループもツール実行も自分で書く必要がある。",
+          "textZh": "不带工具、直接用 HTTP 调用 Messages API。"
+        },
+        {
+          "text": "The Message Batches API.",
+          "correct": false,
+          "explain": "不適。非同期の一括処理用で、対話的なエージェントループではない。",
+          "textZh": "Message Batches API。"
+        },
+        {
+          "text": "A longer system prompt in claude.ai.",
+          "correct": false,
+          "explain": "不適。アプリに組み込むエージェントにはならない。",
+          "textZh": "在 claude.ai 里写更长的系统提示词。"
+        }
+      ],
+      "objective": "Agent Construction with Claude",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "开发者想要一个自带文件编辑、命令行执行和现成智能体循环的智能体，不想自己写循环。哪个选项最合适？",
+      "commentaryZh": "Claude Agent SDK 把 Claude Code 背后的智能体循环、内置工具（读写文件、执行命令等）、上下文管理和权限控制以库的形式提供给开发者。"
+    },
+    {
+      "id": "dv1-010",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "In a custom agent loop built on the Messages API, when should the loop stop calling Claude again?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "When stop_reason is end_turn, or when a safety limit such as a maximum number of turns is reached.",
+          "correct": true,
+          "explain": "正解。tool_use なら実行して結果を返し続け、end_turn で終了。無限ループ防止の上限も必要。",
+          "textZh": "当 stop_reason 为 end_turn，或者达到最大轮数等安全上限时。"
+        },
+        {
+          "text": "As soon as the response contains any text.",
+          "correct": false,
+          "explain": "不適。ツール呼び出しの前に説明文が付くことがある。テキストの有無では判断できない。",
+          "textZh": "只要响应里出现任何文字就停止。"
+        },
+        {
+          "text": "After exactly one tool call, every time.",
+          "correct": false,
+          "explain": "不適。複数回のツール利用が必要なタスクを途中で打ち切る。",
+          "textZh": "每次都在恰好一次工具调用后停止。"
+        },
+        {
+          "text": "When the response is shorter than 100 characters.",
+          "correct": false,
+          "explain": "不適。長さは終了条件にならない。",
+          "textZh": "当响应短于 100 个字符时。"
+        }
+      ],
+      "objective": "Agent Construction with Claude",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/agent-loop",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "在基于 Messages API 自己写的智能体循环中，什么时候应该停止再次调用 Claude？",
+      "commentaryZh": "循环应由结构化的 stop_reason 驱动：tool_use 就执行工具并把 tool_result 写回；end_turn 才结束。另外要设置最大轮数等上限，防止失控。"
+    },
+    {
+      "id": "dv1-011",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An agent must always write an audit log entry after every file edit, with no exceptions. How should this be implemented?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A PostToolUse hook that runs deterministically after each edit tool call.",
+          "correct": true,
+          "explain": "正解。必ず実行したい処理は、モデルの判断に任せずフックで決定的に実行する。",
+          "textZh": "用 PostToolUse 钩子，在每次编辑类工具调用后确定性地执行。"
+        },
+        {
+          "text": "A sentence in the system prompt asking Claude to remember to log edits.",
+          "correct": false,
+          "explain": "不適。プロンプトはお願いで、必ず実行される保証はない。",
+          "textZh": "在系统提示词里写一句，请 Claude 记得记录编辑。"
+        },
+        {
+          "text": "A larger model that is better at following instructions.",
+          "correct": false,
+          "explain": "不適。確率的な改善で、例外ゼロは保証できない。",
+          "textZh": "换一个更擅长遵循指令的更大模型。"
+        },
+        {
+          "text": "Asking Claude at the end of the session whether it logged everything.",
+          "correct": false,
+          "explain": "不適。自己申告は検証にならない。",
+          "textZh": "在会话结束时问 Claude 有没有全部记录。"
+        }
+      ],
+      "objective": "Agent Construction with Claude",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "智能体每次编辑文件后都必须写一条审计日志，不能有例外。应该怎么实现？",
+      "commentaryZh": "“必须每次执行”的动作要用钩子（hooks）这种确定性机制，而不是写在提示词里。提示词只能提高概率，钩子由程序保证执行。"
+    },
+    {
+      "id": "dv1-012",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A company wants to run agents but does not want to operate its own containers and sandboxes. Which deployment model fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An Anthropic-hosted (managed) agent deployment.",
+          "correct": true,
+          "explain": "正解。マネージド（Anthropic ホスト）なら実行環境の運用を任せられる。",
+          "textZh": "由 Anthropic 托管的智能体部署。"
+        },
+        {
+          "text": "Self-hosting the Agent SDK on their own servers.",
+          "correct": false,
+          "explain": "不適。自前ホストは柔軟だが、コンテナやサンドボックスの運用は自社の責任になる。",
+          "textZh": "在自己的服务器上自托管 Agent SDK。"
+        },
+        {
+          "text": "Running the agent only on each developer's laptop.",
+          "correct": false,
+          "explain": "不適。本番の運用モデルではない。",
+          "textZh": "只在每个开发者的笔记本电脑上运行智能体。"
+        },
+        {
+          "text": "Using the Batch API instead of an agent.",
+          "correct": false,
+          "explain": "不適。エージェントの実行基盤ではない。",
+          "textZh": "用 Batch API 代替智能体。"
+        }
+      ],
+      "objective": "Agent Construction with Claude",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hosting",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一家公司想运行智能体，但不想自己运维容器和沙箱。哪种部署模式最合适？",
+      "commentaryZh": "部署模式的取舍：自托管（self-hosted）灵活、数据留在自己环境，但要自己运维沙箱和扩缩容；Anthropic 托管（managed）省去运维负担。"
+    },
+    {
+      "id": "dv1-013",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "An Agent SDK agent should be able to read files and run tests, but must never be able to delete files. Which TWO controls are appropriate?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Restrict the allowed tools to only what the task needs.",
+          "correct": true,
+          "explain": "正解。最小権限：必要なツールだけ許可する。",
+          "textZh": "把允许的工具限制在任务所需的范围内。"
+        },
+        {
+          "text": "Use a PreToolUse hook that denies delete commands before they run.",
+          "correct": true,
+          "explain": "正解。実行前に決定的にブロックできる。",
+          "textZh": "用 PreToolUse 钩子在删除命令执行前拒绝它。"
+        },
+        {
+          "text": "Tell the agent in the prompt that deleting is impolite.",
+          "correct": false,
+          "explain": "不適。プロンプトはお願いにすぎず、削除を確実に止める強制力がない。",
+          "textZh": "在提示词里告诉智能体删除文件不礼貌。"
+        },
+        {
+          "text": "Set temperature to 0 so it never chooses to delete.",
+          "correct": false,
+          "explain": "不適。temperature は安全制御ではない。",
+          "textZh": "把 temperature 设为 0，让它永远不会选择删除。"
+        }
+      ],
+      "objective": "Agent Construction with Claude",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/permissions",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个 Agent SDK 智能体应能读取文件和运行测试，但绝不能删除文件。哪两项控制合适？",
+      "commentaryZh": "安全约束要用强制手段：工具白名单（allowed tools）实现最小权限，PreToolUse 钩子在执行前拦截危险操作。"
+    },
+    {
+      "id": "dv1-014",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "In a hand-written agent loop, Claude returns a tool_use block. What must the next request contain?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The assistant turn with the tool_use block, followed by a user turn with a tool_result that references its tool_use_id.",
+          "correct": true,
+          "explain": "正解。tool_use と tool_result は id で対応づけて、会話履歴に順番どおり入れる。",
+          "textZh": "包含 tool_use 块的 assistant 回合，以及随后一个带 tool_result 的 user 回合，并引用对应的 tool_use_id。"
+        },
+        {
+          "text": "Only the tool output as a new system prompt.",
+          "correct": false,
+          "explain": "不適。ツール結果は system ではなく user ターンの tool_result で返す。",
+          "textZh": "只把工具输出作为新的系统提示词。"
+        },
+        {
+          "text": "A brand-new conversation with only the tool output.",
+          "correct": false,
+          "explain": "不適。履歴を失い、Claude はなぜその結果があるのか分からない。",
+          "textZh": "一个只包含工具输出的全新对话。"
+        },
+        {
+          "text": "Nothing; Claude executes the tool on Anthropic's servers automatically.",
+          "correct": false,
+          "explain": "不適。クライアントツールはアプリ側で実行する（サーバーツールは別）。",
+          "textZh": "什么都不用；Claude 会在 Anthropic 服务器上自动执行该工具。"
+        }
+      ],
+      "objective": "Agent Construction with Claude",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/agent-loop",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "在手写的智能体循环中，Claude 返回了一个 tool_use 块。下一次请求必须包含什么？",
+      "commentaryZh": "客户端工具的流程：Claude 返回 tool_use（带 id）→ 应用执行工具 → 下一条 user 消息里放 tool_result 并引用同一个 tool_use_id → 再次调用。"
+    },
+    {
+      "id": "dv1-015",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Using the Agent SDK, a developer wants a code-review step to run in an isolated context with read-only tools. What is the best approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Define a subagent with its own prompt and a restricted, read-only tool list.",
+          "correct": true,
+          "explain": "正解。サブエージェントは独自のプロンプト・ツール制限・独立した文脈を持てる。",
+          "textZh": "定义一个子智能体，带自己的提示词和受限的只读工具列表。"
+        },
+        {
+          "text": "Paste the review instructions into the main agent's prompt.",
+          "correct": false,
+          "explain": "不適。文脈の分離もツール制限もできない。",
+          "textZh": "把审查指示粘贴到主智能体的提示词里。"
+        },
+        {
+          "text": "Start a second unrelated application.",
+          "correct": false,
+          "explain": "不適。SDK のサブエージェント機能で足りる。",
+          "textZh": "另起一个无关的应用程序。"
+        },
+        {
+          "text": "Give the review step every tool so it can fix problems too.",
+          "correct": false,
+          "explain": "不適。読み取り専用という要件に反する。",
+          "textZh": "给审查步骤所有工具，好让它也能修复问题。"
+        }
+      ],
+      "objective": "Agent Construction with Claude",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "使用 Agent SDK 时，开发者希望代码审查步骤在隔离的上下文中、只用只读工具运行。最佳做法是什么？",
+      "commentaryZh": "子智能体（subagent）可以拥有独立的系统提示词、工具白名单和独立上下文，适合审查、调研等需要隔离的专门任务。"
+    },
+    {
+      "id": "dv1-016",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "Which statement about hooks in Claude agents is correct?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Hooks run your own code at defined points, such as before or after a tool call, and can block or modify actions.",
+          "correct": true,
+          "explain": "正解。フックは決まったタイミングで決定的に実行され、ブロックや修正ができる。",
+          "textZh": "钩子会在规定的时机（例如工具调用前后）运行你自己的代码，并且可以阻止或修改操作。"
+        },
+        {
+          "text": "Hooks are suggestions that the model may ignore.",
+          "correct": false,
+          "explain": "不適。フックはモデルではなくプログラムとして実行される。",
+          "textZh": "钩子只是建议，模型可以忽略。"
+        },
+        {
+          "text": "Hooks only work in claude.ai, not in the SDK.",
+          "correct": false,
+          "explain": "不適。Claude Code と Agent SDK で使える。",
+          "textZh": "钩子只能在 claude.ai 中使用，SDK 不行。"
+        },
+        {
+          "text": "Hooks replace the need for a permission system.",
+          "correct": false,
+          "explain": "不適。権限設定と組み合わせて多層で守る。",
+          "textZh": "有了钩子就不需要权限系统了。"
+        }
+      ],
+      "objective": "Agent Construction with Claude",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "关于 Claude 智能体中的钩子（hooks），哪种说法正确？",
+      "commentaryZh": "钩子是确定性的程序代码：在 PreToolUse、PostToolUse 等事件点运行，可以拦截、修改或记录。它和权限设置一起构成多层防护。"
+    },
+    {
+      "id": "dv1-017",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A long-running agent's context fills with old, verbose tool outputs and its decisions get worse. Which pattern helps most?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Prune or clear old tool results and keep only a compact summary of what matters.",
+          "correct": true,
+          "explain": "正解。古いツール出力の削除や要約（コンパクション）で文脈の肥大化を防ぐ。",
+          "textZh": "清理或删除旧的工具结果，只保留重要内容的精简摘要。"
+        },
+        {
+          "text": "Append every tool result twice so nothing is missed.",
+          "correct": false,
+          "explain": "不適。肥大化を悪化させる。",
+          "textZh": "每个工具结果都追加两次，确保不遗漏。"
+        },
+        {
+          "text": "Restart the whole task from scratch each time.",
+          "correct": false,
+          "explain": "不適。毎回最初からやり直すと、それまでの進捗がすべて失われる。",
+          "textZh": "每次都从头重新开始整个任务。"
+        },
+        {
+          "text": "Switch to a model with a smaller context window.",
+          "correct": false,
+          "explain": "不適。文脈ウィンドウが小さいモデルでは、肥大化の問題がさらに悪化する。",
+          "textZh": "换一个上下文窗口更小的模型。"
+        }
+      ],
+      "objective": "Agent Patterns and Frameworks",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个长时间运行的智能体，上下文被旧的、冗长的工具输出填满，决策质量下降。哪种模式最有帮助？",
+      "commentaryZh": "上下文膨胀（context bloat）会让模型被无关信息干扰。常见做法：清理旧工具结果、压缩成摘要（compaction）、把细节放到外部记忆里。"
+    },
+    {
+      "id": "dv1-018",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An agent works on a task that spans several days and many sessions. How should it keep track of progress?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Write structured notes or a progress file outside the context window and read it at the start of each session.",
+          "correct": true,
+          "explain": "正解。外部メモリ（ノートやファイル）に進捗を書き出すと、文脈がリセットされても続けられる。",
+          "textZh": "在上下文窗口之外写结构化笔记或进度文件，每次会话开始时读取。"
+        },
+        {
+          "text": "Keep the entire history of all sessions in one prompt forever.",
+          "correct": false,
+          "explain": "不適。文脈ウィンドウの上限を超え、ノイズも増える。",
+          "textZh": "把所有会话的完整历史永远放在一个提示词里。"
+        },
+        {
+          "text": "Rely on the model to remember previous sessions automatically.",
+          "correct": false,
+          "explain": "不適。API のモデルはセッションをまたいで記憶しない。",
+          "textZh": "依靠模型自动记住之前的会话。"
+        },
+        {
+          "text": "Ask the user to retype the progress every morning.",
+          "correct": false,
+          "explain": "不適。仕組みで解決すべき。",
+          "textZh": "让用户每天早上重新输入进度。"
+        }
+      ],
+      "objective": "Agent Patterns and Frameworks",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个智能体处理的任务跨越好几天、很多个会话。它应该如何记录进度？",
+      "commentaryZh": "长任务需要“记忆”模式：把进度、决定和待办写到上下文之外（文件、记忆工具），新会话开始时读取。模型本身不会跨会话记忆。"
+    },
+    {
+      "id": "dv1-019",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "What is the core of a basic tool-use loop?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Call the model, run any requested tools, send the results back, and repeat until the model finishes.",
+          "correct": true,
+          "explain": "正解。モデル呼び出し→ツール実行→結果返却の繰り返しがエージェントの基本形。",
+          "textZh": "调用模型，执行它请求的工具，把结果送回去，重复直到模型完成。"
+        },
+        {
+          "text": "Call the model once and parse the answer with regular expressions.",
+          "correct": false,
+          "explain": "不適。ツール結果を返して続ける仕組みがない。",
+          "textZh": "只调用一次模型，用正则表达式解析答案。"
+        },
+        {
+          "text": "Let the model run tools directly on the user's computer without the application.",
+          "correct": false,
+          "explain": "不適。クライアントツールはアプリ側が実行する。",
+          "textZh": "让模型绕过应用，直接在用户电脑上运行工具。"
+        },
+        {
+          "text": "Send all possible tool results in advance in the first request.",
+          "correct": false,
+          "explain": "不適。必要な結果は事前に分からない。",
+          "textZh": "在第一次请求中预先发送所有可能的工具结果。"
+        }
+      ],
+      "objective": "Agent Patterns and Frameworks",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "基本的工具使用循环的核心是什么？",
+      "commentaryZh": "工具使用循环：请求 → 模型返回 tool_use → 应用执行 → 返回 tool_result → 再请求，直到 stop_reason 为 end_turn。这是所有智能体的基础。"
+    },
+    {
+      "id": "dv1-020",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team already uses an agent framework such as LangGraph, Strands, or PydanticAI. What is the main risk to keep in mind?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Abstraction layers can hide the actual prompts and responses, making debugging harder.",
+          "correct": true,
+          "explain": "正解。フレームワークは便利だが、実際に送っているプロンプトが見えにくくなる。中身を理解して使う。",
+          "textZh": "抽象层可能隐藏实际的提示词和响应，使调试更困难。"
+        },
+        {
+          "text": "Frameworks cannot call Claude at all.",
+          "correct": false,
+          "explain": "不適。多くのフレームワークは Claude に対応している。",
+          "textZh": "框架完全无法调用 Claude。"
+        },
+        {
+          "text": "Frameworks always make agents cheaper.",
+          "correct": false,
+          "explain": "不適。コストは設計次第。",
+          "textZh": "框架总能让智能体更便宜。"
+        },
+        {
+          "text": "Using a framework removes the need for evaluation.",
+          "correct": false,
+          "explain": "不適。フレームワークを使っても、品質を確かめる評価は常に必要。",
+          "textZh": "用了框架就不需要评估了。"
+        }
+      ],
+      "objective": "Agent Patterns and Frameworks",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "团队已经在用 LangGraph、Strands 或 PydanticAI 之类的智能体框架。需要注意的主要风险是什么？",
+      "commentaryZh": "Anthropic 的建议：可以用框架起步，但要理解底层在做什么。抽象层会隐藏实际的提示词和响应，出问题时难以定位。"
+    },
+    {
+      "id": "dv1-021",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which pattern runs the same input through several independent LLM calls and then compares or votes on the outputs?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Parallelization (voting).",
+          "correct": true,
+          "explain": "正解。並列化の一種「投票」。同じ課題を複数回解いて信頼性を上げる。",
+          "textZh": "并行化（投票）。"
+        },
+        {
+          "text": "Prompt chaining.",
+          "correct": false,
+          "explain": "不適。前の出力を次の入力にする直列の手順。",
+          "textZh": "提示链。"
+        },
+        {
+          "text": "Routing.",
+          "correct": false,
+          "explain": "不適。入力を分類して適切な処理に振り分ける。",
+          "textZh": "路由。"
+        },
+        {
+          "text": "Evaluator-optimizer.",
+          "correct": false,
+          "explain": "不適。生成と評価を繰り返して改善するパターン。",
+          "textZh": "评估者-优化者。"
+        }
+      ],
+      "objective": "Agent Patterns and Frameworks",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪种模式把同一个输入交给几个独立的 LLM 调用，再比较或投票决定输出？",
+      "commentaryZh": "五种常见工作流模式：提示链（串行）、路由（分类分流）、并行化（分段并行或投票）、编排者-执行者（动态拆分）、评估者-优化者（生成+评估循环）。"
+    },
+    {
+      "id": "dv1-022",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A translation must meet strict quality criteria, and a reviewer can give concrete feedback that clearly improves each draft. Which pattern fits?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Evaluator-optimizer: one call generates, another evaluates and gives feedback, in a loop.",
+          "correct": true,
+          "explain": "正解。明確な評価基準があり、フィードバックで改善できるときに有効。",
+          "textZh": "评估者-优化者：一个调用生成，另一个评估并反馈，循环进行。"
+        },
+        {
+          "text": "Routing to one of two fixed translators.",
+          "correct": false,
+          "explain": "不適。改善のループがない。",
+          "textZh": "路由到两个固定翻译器之一。"
+        },
+        {
+          "text": "A single call with a higher max_tokens.",
+          "correct": false,
+          "explain": "不適。品質基準での反復改善にならない。",
+          "textZh": "一次调用并提高 max_tokens。"
+        },
+        {
+          "text": "Parallel calls whose outputs are concatenated.",
+          "correct": false,
+          "explain": "不適。品質の改善にはならない。",
+          "textZh": "并行调用后把输出拼接起来。"
+        }
+      ],
+      "objective": "Agent Patterns and Frameworks",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一份翻译必须满足严格的质量标准，而审阅者能给出明确改进每一稿的具体反馈。哪种模式合适？",
+      "commentaryZh": "评估者-优化者模式适用于：有清晰的评价标准，并且反馈确实能让结果变好。生成和评估交替进行，直到满足标准。"
+    },
+    {
+      "id": "dv1-023",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO are good practices when building a multi-step agent for complex tasks?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Let the agent plan and check its progress against the goal between steps.",
+          "correct": true,
+          "explain": "正解。計画と途中確認で、目標からの逸脱を防げる。",
+          "textZh": "让智能体先做计划，并在步骤之间对照目标检查进度。"
+        },
+        {
+          "text": "Log the full trace of model calls and tool results for later analysis.",
+          "correct": true,
+          "explain": "正解。トレースがないと失敗の原因を特定できない。",
+          "textZh": "记录模型调用和工具结果的完整轨迹，便于后续分析。"
+        },
+        {
+          "text": "Hide tool errors from the model so it stays confident.",
+          "correct": false,
+          "explain": "不適。エラーを返さないとモデルは回復できない。",
+          "textZh": "对模型隐藏工具错误，让它保持自信。"
+        },
+        {
+          "text": "Remove any limit on the number of steps.",
+          "correct": false,
+          "explain": "不適。暴走やコスト増のリスク。",
+          "textZh": "取消步骤数的任何上限。"
+        }
+      ],
+      "objective": "Agent Patterns and Frameworks",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "为复杂任务构建多步骤智能体时，哪两项是好的做法？",
+      "commentaryZh": "多步骤智能体要能规划、在过程中自检，并保留完整轨迹（trace）用于调试。工具错误要如实返回给模型，同时设置步数上限。"
+    },
+    {
+      "id": "dv1-024",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Why is it useful to give an agent a small set of well-defined tools rather than dozens of overlapping ones?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The model chooses the right tool more reliably and the tool definitions use less context.",
+          "correct": true,
+          "explain": "正解。重複するツールは選択を迷わせ、定義だけで文脈を消費する。",
+          "textZh": "模型能更可靠地选对工具，而且工具定义占用的上下文更少。"
+        },
+        {
+          "text": "Claude can only accept up to three tools per request.",
+          "correct": false,
+          "explain": "不適。そのような制限ではない。",
+          "textZh": "Claude 每次请求最多只能接受三个工具。"
+        },
+        {
+          "text": "More tools always make the agent slower to start but more accurate.",
+          "correct": false,
+          "explain": "不適。多いほど正確になるわけではない。",
+          "textZh": "工具越多，智能体启动越慢但越准确。"
+        },
+        {
+          "text": "Overlapping tools are rejected by the API.",
+          "correct": false,
+          "explain": "不適。API は拒否しないが、品質が落ちる。",
+          "textZh": "功能重叠的工具会被 API 拒绝。"
+        }
+      ],
+      "objective": "Agent Patterns and Frameworks",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "为什么给智能体一小组定义清晰的工具，比给它几十个功能重叠的工具更好？",
+      "commentaryZh": "工具集是上下文的一部分。工具少而清晰，模型更容易选对；功能重叠的工具会让模型犹豫，还浪费上下文。"
+    }
+  ]
+}
