@@ -1,6 +1,7 @@
 import React, { useState, Suspense, lazy } from "react";
 import { LEARNERS, getLearner, setLearner, clearLearner, getLastLearner, learnerKey, canUseApp } from "./learner";
 import { migrateActiveApp } from "./sapixStorage";
+import { copyClaudeRecordsToZY } from "./learnerCopy";
 import { migrateClaudeCertApp } from "./claudeCert/certs";
 
 /* アプリ本体は選んだほうだけ読む。
@@ -99,6 +100,8 @@ export default function App() {
 
   // 人によって使うアプリがちがうので、選んだ人が前回開いていたアプリから始める
   const pickLearner = (id) => {
+    // Claude 認定は ZY だけになったので、ZWJ で解いていた記録を最初の 1 回だけ ZY に写す
+    if (id === "ZY") copyClaudeRecordsToZY();
     setLearner(id);
     setLearnerState(id);
     const m = loadInitialApp(id);
