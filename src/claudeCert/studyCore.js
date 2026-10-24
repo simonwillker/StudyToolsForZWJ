@@ -390,6 +390,8 @@ export function predictScore({ results = [], objectives, objectiveStats, domains
   const practiceReady = coveredWeight >= MIN_COVERED_WEIGHT;
   const practiceScaled = practiceReady ? scaleFromRatio(weighted / coveredWeight, examFormat) : null;
 
+  // CCDV-F の配点は小数（14.7% など）なので、表示用に小数第 1 位で丸める
+  coveredWeight = Math.round(coveredWeight * 10) / 10;
   const base = { examScaled, examCount: (results || []).length, practiceScaled, coveredWeight, perDomain };
   if (examScaled === null && practiceScaled === null) {
     return {

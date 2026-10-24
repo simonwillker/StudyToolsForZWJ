@@ -1,0 +1,317 @@
+{
+  "domain": "D3",
+  "items": [
+    {
+      "id": "dv3-001",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which Claude Code command creates a starter CLAUDE.md by analyzing the repository?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "/init",
+          "correct": true,
+          "explain": "正解。/init はリポジトリを調べて CLAUDE.md の下書きを作る。",
+          "textZh": "/init"
+        },
+        {
+          "text": "/clear",
+          "correct": false,
+          "explain": "不適。会話履歴を消すコマンド。",
+          "textZh": "/clear"
+        },
+        {
+          "text": "/compact",
+          "correct": false,
+          "explain": "不適。会話を要約して文脈を圧縮するコマンド。",
+          "textZh": "/compact"
+        },
+        {
+          "text": "/exit",
+          "correct": false,
+          "explain": "不適。/exit はセッションを終了するだけで、CLAUDE.md は作らない。",
+          "textZh": "/exit"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪个 Claude Code 命令会分析代码仓库并生成一个初始的 CLAUDE.md？",
+      "commentaryZh": "/init 会分析项目结构、构建命令等，生成 CLAUDE.md 草稿；之后应人工精简和修改。/clear 清空对话，/compact 压缩上下文。"
+    },
+    {
+      "id": "dv3-002",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A CI pipeline must run Claude Code non-interactively and parse the result. Which option fits?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Headless mode with claude -p and a machine-readable output format such as JSON.",
+          "correct": true,
+          "explain": "正解。-p（print）でヘッドレス実行し、--output-format json などで結果を機械処理できる。",
+          "textZh": "使用 claude -p 的无头模式，并选择 JSON 等机器可读的输出格式。"
+        },
+        {
+          "text": "Open the interactive terminal UI inside the CI job.",
+          "correct": false,
+          "explain": "不適。対話入力ができない。",
+          "textZh": "在 CI 任务中打开交互式终端界面。"
+        },
+        {
+          "text": "Copy the output from the screen manually.",
+          "correct": false,
+          "explain": "不適。自動化にならない。",
+          "textZh": "手动从屏幕复制输出。"
+        },
+        {
+          "text": "Use /compact before every run.",
+          "correct": false,
+          "explain": "不適。/compact は文脈の圧縮で、非対話の実行とは関係ない。",
+          "textZh": "每次运行前都用 /compact。"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "CI 流水线需要以非交互方式运行 Claude Code 并解析结果。哪个选项合适？",
+      "commentaryZh": "无头模式（claude -p \"...\"）用于脚本和 CI；配合 --output-format json 或 stream-json 输出结构化结果，再配合权限设置限制可用工具。"
+    },
+    {
+      "id": "dv3-003",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team repeats the same multi-step review prompt every day. How can they turn it into a reusable Claude Code command shared in the repository?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Create a custom slash command (or a Skill) in the project's .claude directory and commit it.",
+          "correct": true,
+          "explain": "正解。プロジェクトの .claude 配下に置けばチーム全員が同じコマンドを使える。",
+          "textZh": "在项目的 .claude 目录中创建自定义斜杠命令（或 Skill）并提交。"
+        },
+        {
+          "text": "Save the prompt in a personal text file.",
+          "correct": false,
+          "explain": "不適。共有も再利用もしにくい。",
+          "textZh": "把提示词保存到个人文本文件里。"
+        },
+        {
+          "text": "Add it to the system clipboard.",
+          "correct": false,
+          "explain": "不適。クリップボードはチームで共有も再利用もできない。",
+          "textZh": "把它加到系统剪贴板。"
+        },
+        {
+          "text": "Ask Claude to remember it forever.",
+          "correct": false,
+          "explain": "不適。セッションをまたいで記憶しない。",
+          "textZh": "让 Claude 永远记住它。"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/slash-commands",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "团队每天都重复同一个多步骤的审查提示词。怎样把它变成在仓库中共享、可复用的 Claude Code 命令？",
+      "commentaryZh": "可复用的流程可以做成自定义斜杠命令或 Skill，放在项目 .claude 目录下并提交到仓库，团队成员即可直接调用。"
+    },
+    {
+      "id": "dv3-004",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "How does a Claude Code Skill avoid filling the context window when it is not being used?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Only its name and description are loaded at first; the full SKILL.md and resources load when the Skill is relevant.",
+          "correct": true,
+          "explain": "正解。段階的読み込み（progressive disclosure）で必要なときだけ中身を読む。",
+          "textZh": "一开始只加载它的名称和描述；只有在相关时才加载完整的 SKILL.md 和资源。"
+        },
+        {
+          "text": "Skills are compressed into a single token.",
+          "correct": false,
+          "explain": "不適。Skill が 1 トークンに圧縮される仕組みはない。名前と説明だけを先に読む。",
+          "textZh": "Skills 被压缩成一个 token。"
+        },
+        {
+          "text": "Skills are never loaded into context.",
+          "correct": false,
+          "explain": "不適。必要なときは読み込まれる。",
+          "textZh": "Skills 从不加载到上下文中。"
+        },
+        {
+          "text": "Skills only work in claude.ai.",
+          "correct": false,
+          "explain": "不適。Claude Code や API でも使える。",
+          "textZh": "Skills 只能在 claude.ai 中使用。"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "Claude Code 的 Skill 在不使用时如何避免占满上下文窗口？",
+      "commentaryZh": "Skill 采用渐进式加载：启动时只读取 frontmatter 中的 name 和 description；判断相关时才读取 SKILL.md 正文和附带的脚本、资料。所以 description 要写清“何时使用”。"
+    },
+    {
+      "id": "dv3-005",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A developer has personal preferences for Claude Code that should apply to all of their projects but not affect teammates. Where should they put them?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In the user-level memory file ~/.claude/CLAUDE.md.",
+          "correct": true,
+          "explain": "正解。ユーザーレベルの CLAUDE.md は自分の全プロジェクトに効き、他人には影響しない。",
+          "textZh": "放在用户级记忆文件 ~/.claude/CLAUDE.md 中。"
+        },
+        {
+          "text": "In the project's CLAUDE.md committed to the repository.",
+          "correct": false,
+          "explain": "不適。チーム全員に影響する。",
+          "textZh": "放在提交到仓库的项目 CLAUDE.md 中。"
+        },
+        {
+          "text": "In the managed enterprise policy.",
+          "correct": false,
+          "explain": "不適。組織全体に強制される。",
+          "textZh": "放在企业托管策略中。"
+        },
+        {
+          "text": "In a pull request description.",
+          "correct": false,
+          "explain": "不適。プルリクエストの説明は Claude Code の設定として読み込まれない。",
+          "textZh": "写在拉取请求的描述里。"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/memory",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "开发者有一些 Claude Code 的个人偏好，希望应用到自己所有的项目，但不影响队友。应该放在哪里？",
+      "commentaryZh": "CLAUDE.md 层级：企业策略（全组织）、项目 CLAUDE.md（团队共享）、用户 ~/.claude/CLAUDE.md（个人、所有项目）。子目录中的 CLAUDE.md 在处理该目录文件时按需读取。"
+    },
+    {
+      "id": "dv3-006",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A developer closed the terminal yesterday in the middle of a Claude Code task. How can they continue with the same conversation context?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Resume the session, for example with claude --continue or claude --resume.",
+          "correct": true,
+          "explain": "正解。--continue で直前の会話、--resume で選んだ会話を再開できる。",
+          "textZh": "恢复会话，例如使用 claude --continue 或 claude --resume。"
+        },
+        {
+          "text": "Start a new session and retype everything.",
+          "correct": false,
+          "explain": "不適。会話を再開する機能があるので、最初から入力し直す必要はない。",
+          "textZh": "开一个新会话，重新输入所有内容。"
+        },
+        {
+          "text": "Run /init again.",
+          "correct": false,
+          "explain": "不適。CLAUDE.md の作成で、会話の再開ではない。",
+          "textZh": "再运行一次 /init。"
+        },
+        {
+          "text": "The conversation is lost forever.",
+          "correct": false,
+          "explain": "不適。セッションは保存されている。",
+          "textZh": "对话永久丢失了。"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/common-workflows",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "开发者昨天在 Claude Code 任务进行到一半时关闭了终端。怎样才能在同样的对话上下文中继续？",
+      "commentaryZh": "会话管理：claude --continue 继续最近一次对话，claude --resume 从历史会话中选择恢复。长任务也可以配合 /compact 压缩上下文。"
+    },
+    {
+      "id": "dv3-007",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO statements about Claude Code subagents are correct?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Each subagent can have its own system prompt and a restricted set of tools.",
+          "correct": true,
+          "explain": "正解。役割ごとにプロンプトとツールを絞れる。",
+          "textZh": "每个子智能体可以有自己的系统提示词和受限的工具集合。"
+        },
+        {
+          "text": "Subagents run in a separate context window, keeping the main conversation cleaner.",
+          "correct": true,
+          "explain": "正解。調査などの大量の中間結果を主会話に持ち込まない。",
+          "textZh": "子智能体在独立的上下文窗口中运行，使主对话更干净。"
+        },
+        {
+          "text": "Subagents automatically share the full main conversation history.",
+          "correct": false,
+          "explain": "不適。必要な情報だけを渡す設計。",
+          "textZh": "子智能体会自动共享主对话的完整历史。"
+        },
+        {
+          "text": "Subagents can only be defined by Anthropic.",
+          "correct": false,
+          "explain": "不適。ユーザーやプロジェクトで定義できる。",
+          "textZh": "子智能体只能由 Anthropic 定义。"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "关于 Claude Code 子智能体，哪两项说法正确？",
+      "commentaryZh": "子智能体定义在 .claude/agents/ 下的 Markdown 文件中，可设定专用的系统提示词、工具白名单和模型。它们在独立上下文中工作，只把结果返回给主对话。"
+    },
+    {
+      "id": "dv3-008",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team wants Claude Code to run tests without asking every time, but always ask before any git push. Where is this configured?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In the permissions rules (allow / ask / deny) of settings.json.",
+          "correct": true,
+          "explain": "正解。settings.json の permissions でコマンドごとに許可・確認・拒否を決める。",
+          "textZh": "在 settings.json 的权限规则（allow / ask / deny）中配置。"
+        },
+        {
+          "text": "In CLAUDE.md as a polite request.",
+          "correct": false,
+          "explain": "不適。強制力のある設定ではない。",
+          "textZh": "在 CLAUDE.md 中以礼貌请求的方式写上。"
+        },
+        {
+          "text": "In the README file.",
+          "correct": false,
+          "explain": "不適。README の記述は権限設定として読み込まれず、強制力もない。",
+          "textZh": "在 README 文件中。"
+        },
+        {
+          "text": "It cannot be configured.",
+          "correct": false,
+          "explain": "不適。settings.json の permissions でコマンドごとに設定できる。",
+          "textZh": "这无法配置。"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/settings",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "团队希望 Claude Code 运行测试时不必每次询问，但在任何 git push 之前都要询问。这在哪里配置？",
+      "commentaryZh": "权限规则写在 settings.json 的 permissions 中：allow（自动允许）、ask（需确认）、deny（禁止），可以按工具和命令模式细分。"
+    }
+  ]
+}

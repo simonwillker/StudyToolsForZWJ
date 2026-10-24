@@ -1,0 +1,118 @@
+{
+  "blueprintVersion": "1.0",
+  "blueprintEffective": "2026-07",
+  "examCode": "CCDV-F",
+  "examName": "Claude Certified Developer – Foundations",
+  "source": "Claude Certified Developer – Foundations Exam Guide, Version 1.0, Effective July 2026 (exam code CCDV-F)",
+  "checkedAt": "2026-10-24",
+  "objectiveLabel": "skill",
+  "sources": [
+    {
+      "title": "Claude Certified Developer – Foundations Exam Guide v1.0（Anthropic Academy 配布 PDF）",
+      "url": "https://everpath-course-content.s3-accelerate.amazonaws.com/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1783542875/Claude+Certified+Developer+%E2%80%93+Foundations+Exam+Guide.pdf",
+      "kind": "official",
+      "covers": "試験コード・問題数（53）・時間・合格点・受験料・有効期間・8ドメインと配点・24 skill とその配点・サンプル問題 3 問"
+    }
+  ],
+  "updateNote": "Pearson VUE の案内では、CCDV-F は 2026-12-07 から新しい出題内容になり、新しい Exam Guide は 2026-11-17 に公開予定。公開されたら domains・objectives・配点を見直すこと。",
+  "examFormat": {
+    "items": 53,
+    "minutes": 120,
+    "passScaled": 720,
+    "scaleMin": 100,
+    "scaleMax": 1000,
+    "validityMonths": 12,
+    "feeUsd": 125
+  },
+  "domains": [
+    {
+      "id": "D1",
+      "label": "エージェントとワークフロー",
+      "labelEn": "Agents and Workflows",
+      "weight": 14.7,
+      "color": "#2F5D8A",
+      "objectives": ["Agent Architecture", "Agent Construction with Claude", "Agent Patterns and Frameworks"],
+      "skillWeights": [4.5, 5.3, 4.9]
+    },
+    {
+      "id": "D2",
+      "label": "アプリケーションと統合",
+      "labelEn": "Applications and Integration",
+      "weight": 33.1,
+      "color": "#C8743D",
+      "objectives": [
+        "Understanding Requirements",
+        "Systems Life Cycle",
+        "Claude API Mechanics",
+        "Software Engineering Foundations",
+        "Claude Application Design",
+        "Configuration Management"
+      ],
+      "skillWeights": [3.4, 2.8, 6.8, 7.4, 8.6, 4.1]
+    },
+    {
+      "id": "D3",
+      "label": "Claude Code",
+      "labelEn": "Claude Code",
+      "weight": 3.1,
+      "color": "#3B3B3B",
+      "objectives": ["Claude Code Operation"],
+      "skillWeights": [3.1]
+    },
+    {
+      "id": "D4",
+      "label": "評価・テスト・デバッグ",
+      "labelEn": "Eval, Testing, and Debugging",
+      "weight": 2.6,
+      "color": "#8A3B2F",
+      "objectives": ["Debugging and Error Handling"],
+      "skillWeights": [2.6]
+    },
+    {
+      "id": "D5",
+      "label": "モデル選択と最適化",
+      "labelEn": "Model Selection and Optimization",
+      "weight": 16.8,
+      "color": "#8A6D2F",
+      "objectives": ["LLM Fundamentals", "Technical Fundamentals", "Model Selection and Tradeoffs", "Cost and Token Management"],
+      "skillWeights": [5.2, 6.1, 2.7, 2.8]
+    },
+    {
+      "id": "D6",
+      "label": "プロンプトとコンテキスト設計",
+      "labelEn": "Prompt and Context Engineering",
+      "weight": 11.0,
+      "color": "#2F6E8A",
+      "objectives": ["Context Engineering", "Prompt Engineering", "Output Handling"],
+      "skillWeights": [3.8, 4.6, 2.6]
+    },
+    {
+      "id": "D7",
+      "label": "セキュリティと安全",
+      "labelEn": "Security and Safety",
+      "weight": 8.1,
+      "color": "#2F7A4F",
+      "objectives": ["AI Application Security", "Guardrails and Safe Deployment", "Claude Hooks", "Identity, Secrets, and Key Management"],
+      "skillWeights": [3.2, 2.3, 1.0, 1.6]
+    },
+    {
+      "id": "D8",
+      "label": "ツールと MCP",
+      "labelEn": "Tools and MCPs",
+      "weight": 10.6,
+      "color": "#5A3B8A",
+      "objectives": ["Tool Implementation", "MCP Server Development", "Agentic Customization"],
+      "skillWeights": [4.4, 2.1, 4.1]
+    }
+  ],
+  "competencies": [
+    "Building agents and workflows using the Claude Agent SDK, agentic frameworks, and custom agent loops",
+    "Integrating Claude into application code through the API, client SDKs, and third-party integrations, including streaming, error handling, and multi-format input",
+    "Operating Claude Code across interfaces, authoring Claude Skills, and configuring CLAUDE.md, settings.json, and plugins",
+    "Writing effective prompts and applying context engineering techniques to control model behavior and prevent context drift",
+    "Designing and running evals, debugging failure modes through trace analysis, validating structured output, and monitoring production quality",
+    "Selecting Claude model tiers and managing tokens, caching, and batch processing to optimize cost and latency",
+    "Applying secure-by-design principles and implementing guardrails through hooks to defend against prompt injection and destructive actions",
+    "Building custom tools, function schemas, and MCP servers, while weighing tradeoffs across built-in tools, custom tools, Skills, and MCPs"
+  ]
+}

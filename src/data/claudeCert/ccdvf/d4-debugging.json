@@ -1,0 +1,317 @@
+{
+  "domain": "D4",
+  "items": [
+    {
+      "id": "dv4-001",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An application receives HTTP 529 overloaded_error responses during peak hours. What is the best handling?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Retry with exponential backoff and jitter, up to a limit, then fail gracefully.",
+          "correct": true,
+          "explain": "正解。一時的な過負荷は待って再試行する。上限と失敗時の扱いも決める。",
+          "textZh": "用指数退避加随机抖动进行重试，设定上限，超过后优雅降级。"
+        },
+        {
+          "text": "Fix the request parameters.",
+          "correct": false,
+          "explain": "不適。リクエストの誤りではない。",
+          "textZh": "修正请求参数。"
+        },
+        {
+          "text": "Retry immediately in an infinite loop.",
+          "correct": false,
+          "explain": "不適。負荷をさらに上げる。",
+          "textZh": "立即无限循环重试。"
+        },
+        {
+          "text": "Rotate the API key.",
+          "correct": false,
+          "explain": "不適。認証の問題ではない。",
+          "textZh": "更换 API 密钥。"
+        }
+      ],
+      "objective": "Debugging and Error Handling",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "应用在高峰时段收到 HTTP 529 overloaded_error 响应。最佳处理方式是什么？",
+      "commentaryZh": "可重试的错误：429（速率限制，可参考 retry-after）、500、529（过载）。用指数退避 + 抖动并设上限。400、401、403 等需要修正请求或配置，重试无效。"
+    },
+    {
+      "id": "dv4-002",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A summarization feature sometimes returns empty summaries. Logs show the API calls succeed. What is the first step to isolate the problem?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Inspect the traces of failing cases: the exact request sent, the raw response, and the stop_reason, to see whether the problem is in the integration or the model output.",
+          "correct": true,
+          "explain": "正解。実際の入出力を見て、連携層（パース・送信内容）とモデル出力のどちらが原因かを切り分ける。",
+          "textZh": "检查失败案例的轨迹：实际发送的请求、原始响应和 stop_reason，判断问题出在集成层还是模型输出。"
+        },
+        {
+          "text": "Switch to a bigger model immediately.",
+          "correct": false,
+          "explain": "不適。原因が分からないまま対処している。",
+          "textZh": "立即换更大的模型。"
+        },
+        {
+          "text": "Add \"do not return empty summaries\" to the prompt.",
+          "correct": false,
+          "explain": "不適。原因を特定する前にプロンプトを変えても、本当の問題が残る可能性が高い。",
+          "textZh": "在提示词中加入“不要返回空摘要”。"
+        },
+        {
+          "text": "Ignore it because the API returned 200.",
+          "correct": false,
+          "explain": "不適。成功ステータスでも内容に問題がありうる。",
+          "textZh": "忽略它，因为 API 返回了 200。"
+        }
+      ],
+      "objective": "Debugging and Error Handling",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "摘要功能有时返回空摘要。日志显示 API 调用都成功了。隔离问题的第一步是什么？",
+      "commentaryZh": "调试要先看轨迹（trace）：实际请求、原始响应、stop_reason、解析步骤。例如输入为空、max_tokens 截断或解析代码出错，都会表现为“空摘要”。"
+    },
+    {
+      "id": "dv4-003",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A tool called by Claude fails because an external service times out. How should the error be returned?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Return a tool_result with is_error set to true and a clear message, so Claude can retry or choose another approach.",
+          "correct": true,
+          "explain": "正解。エラー内容を伝えると、モデルが再試行や代替手段を判断できる。",
+          "textZh": "返回一个 is_error 为 true、附有清晰信息的 tool_result，让 Claude 可以重试或换一种方法。"
+        },
+        {
+          "text": "Return an empty success result.",
+          "correct": false,
+          "explain": "不適。モデルが誤った前提で進む。",
+          "textZh": "返回一个空的成功结果。"
+        },
+        {
+          "text": "Crash the whole application.",
+          "correct": false,
+          "explain": "不適。回復の機会を失う。",
+          "textZh": "让整个应用崩溃。"
+        },
+        {
+          "text": "Hide the error and invent plausible data.",
+          "correct": false,
+          "explain": "不適。エラーを隠して作ったデータを返すと、誤った情報が利用者に届く。",
+          "textZh": "隐藏错误并编造看似合理的数据。"
+        }
+      ],
+      "objective": "Debugging and Error Handling",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "Claude 调用的工具因外部服务超时而失败。应该如何返回这个错误？",
+      "commentaryZh": "工具失败时，返回 is_error: true 的 tool_result，并写清原因（如超时、权限不足）和可能的处理方式。模型据此决定重试、换工具或告知用户。"
+    },
+    {
+      "id": "dv4-004",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which HTTP status code from the Claude API indicates a rate limit was exceeded?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "429",
+          "correct": true,
+          "explain": "正解。rate_limit_error。retry-after ヘッダーを参考に待つ。",
+          "textZh": "429"
+        },
+        {
+          "text": "401",
+          "correct": false,
+          "explain": "不適。401 は認証エラー（API キーの問題）で、レート制限ではない。",
+          "textZh": "401"
+        },
+        {
+          "text": "404",
+          "correct": false,
+          "explain": "不適。リソースが見つからない。",
+          "textZh": "404"
+        },
+        {
+          "text": "200",
+          "correct": false,
+          "explain": "不適。200 はリクエストが成功したことを示す。",
+          "textZh": "200"
+        }
+      ],
+      "objective": "Debugging and Error Handling",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "Claude API 的哪个 HTTP 状态码表示超出了速率限制？",
+      "commentaryZh": "429 = rate_limit_error，应读取 retry-after 等响应头并退避重试；401 = 认证错误（API 密钥无效）；403 = 权限错误；413 = 请求过大。"
+    },
+    {
+      "id": "dv4-005",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "An agent sometimes calls the wrong tool. Which TWO actions best help find the cause?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Review traces of failing runs to see what the model saw before choosing the tool.",
+          "correct": true,
+          "explain": "正解。選択直前の文脈を見ないと原因が分からない。",
+          "textZh": "查看失败运行的轨迹，了解模型在选工具之前看到了什么。"
+        },
+        {
+          "text": "Check whether tool names and descriptions overlap or are ambiguous.",
+          "correct": true,
+          "explain": "正解。説明が曖昧だと誤選択が起きやすい。",
+          "textZh": "检查工具名称和描述是否重叠或含糊。"
+        },
+        {
+          "text": "Remove all tool descriptions.",
+          "correct": false,
+          "explain": "不適。説明を消すとモデルはツールを区別できず、誤選択が増える。",
+          "textZh": "删除所有工具描述。"
+        },
+        {
+          "text": "Increase the temperature.",
+          "correct": false,
+          "explain": "不適。ばらつきが増える。",
+          "textZh": "提高 temperature。"
+        }
+      ],
+      "objective": "Debugging and Error Handling",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个智能体有时会调用错误的工具。哪两项行动最有助于找到原因？",
+      "commentaryZh": "工具选错的常见原因：工具描述含糊或重叠、上下文中缺少关键信息。通过轨迹分析定位，再改进描述或拆分工具。"
+    },
+    {
+      "id": "dv4-006",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "The JSON returned by Claude occasionally fails to parse in production. What is the most robust handling?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use schema-constrained output where possible, validate every response, and on failure retry or route to a fallback path.",
+          "correct": true,
+          "explain": "正解。制約・検証・失敗時の扱いを組み合わせる防御的パース。",
+          "textZh": "尽可能使用受 schema 约束的输出，校验每个响应，失败时重试或转到备用路径。"
+        },
+        {
+          "text": "Assume the JSON is always valid.",
+          "correct": false,
+          "explain": "不適。常に正しい JSON が来る前提だと、例外が起きたときに処理が壊れる。",
+          "textZh": "假设 JSON 永远有效。"
+        },
+        {
+          "text": "Silently drop the failed items.",
+          "correct": false,
+          "explain": "不適。データ欠落に気づけない。",
+          "textZh": "悄悄丢弃解析失败的条目。"
+        },
+        {
+          "text": "Show the raw text to end users.",
+          "correct": false,
+          "explain": "不適。パースできない生テキストを利用者に見せても問題は解決しない。",
+          "textZh": "把原始文本直接展示给最终用户。"
+        }
+      ],
+      "objective": "Debugging and Error Handling",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "生产环境中 Claude 返回的 JSON 偶尔无法解析。最稳健的处理方式是什么？",
+      "commentaryZh": "防御式解析：用结构化输出约束格式、用 schema 校验、检查 stop_reason（max_tokens 截断会导致 JSON 不完整），失败时重试或进入备用流程并记录日志。"
+    },
+    {
+      "id": "dv4-007",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A request returns HTTP 401 authentication_error. What is the likely cause?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The API key is missing, invalid, or revoked.",
+          "correct": true,
+          "explain": "正解。認証情報の問題。キーの設定を確認する。",
+          "textZh": "API 密钥缺失、无效或已被吊销。"
+        },
+        {
+          "text": "The prompt is too long.",
+          "correct": false,
+          "explain": "不適。それは 400 や 413 系。",
+          "textZh": "提示词太长。"
+        },
+        {
+          "text": "The server is overloaded.",
+          "correct": false,
+          "explain": "不適。過負荷は 529 overloaded_error で、401 の原因ではない。",
+          "textZh": "服务器过载。"
+        },
+        {
+          "text": "The model returned invalid JSON.",
+          "correct": false,
+          "explain": "不適。HTTP エラーではない。",
+          "textZh": "模型返回了无效的 JSON。"
+        }
+      ],
+      "objective": "Debugging and Error Handling",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "请求返回 HTTP 401 authentication_error。可能的原因是什么？",
+      "commentaryZh": "401 表示认证失败：检查 x-api-key 头是否正确设置、密钥是否有效或已被轮换。不要通过重试解决。"
+    },
+    {
+      "id": "dv4-008",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "After a prompt change, accuracy on the eval set drops from 92% to 85%. What should the team do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Compare failing cases between versions to find which behaviors changed, and fix or roll back before release.",
+          "correct": true,
+          "explain": "正解。差分を調べて原因を特定し、リリース前に対処する。",
+          "textZh": "对比两个版本的失败案例，找出哪些行为发生了变化，在发布前修复或回滚。"
+        },
+        {
+          "text": "Release anyway because 85% is still good.",
+          "correct": false,
+          "explain": "不適。回帰を放置している。",
+          "textZh": "照样发布，因为 85% 也不错。"
+        },
+        {
+          "text": "Delete the failing test cases.",
+          "correct": false,
+          "explain": "不適。評価の意味がなくなる。",
+          "textZh": "删除失败的测试用例。"
+        },
+        {
+          "text": "Stop using evals.",
+          "correct": false,
+          "explain": "不適。評価をやめると、品質の低下に気づく手段がなくなる。",
+          "textZh": "不再使用评估。"
+        }
+      ],
+      "objective": "Debugging and Error Handling",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "修改提示词后，评估集上的准确率从 92% 降到 85%。团队应该怎么做？",
+      "commentaryZh": "评估回退时，要按案例对比新旧版本的输出，定位变化的行为，再决定修复还是回滚。删除失败用例会掩盖问题。"
+    }
+  ]
+}
