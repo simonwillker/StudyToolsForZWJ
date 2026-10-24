@@ -46,7 +46,8 @@ const warnings = [];
 
 const meta = JSON.parse(readFileSync(join(dataDir, "meta.json"), "utf8"));
 
-const weightSum = meta.domains.reduce((n, d) => n + d.weight, 0);
+/* CCDV-F の配点は 14.7% のような小数なので、小数第 1 位で丸めて比べる */
+const weightSum = Math.round(meta.domains.reduce((n, d) => n + d.weight, 0) * 10) / 10;
 if (weightSum !== 100) errors.push(`meta.json: 配点比率の合計が ${weightSum}%（100% であるべき）`);
 
 const domainIds = new Set(meta.domains.map((d) => d.id));

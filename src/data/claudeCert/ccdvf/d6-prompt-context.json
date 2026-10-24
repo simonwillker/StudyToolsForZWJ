@@ -1,0 +1,785 @@
+{
+  "domain": "D6",
+  "items": [
+    {
+      "id": "dv6-001",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Over a long session, an agent gradually forgets the original goal and starts optimizing for side details. What is this problem called, and what helps?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Context drift; restate the goal in a compact summary and remove stale or irrelevant context.",
+          "correct": true,
+          "explain": "正解。目標の再提示と不要な文脈の削除でドリフトを抑える。",
+          "textZh": "上下文漂移；用简洁的摘要重申目标，并移除过时或无关的上下文。"
+        },
+        {
+          "text": "Rate limiting; wait and retry.",
+          "correct": false,
+          "explain": "不適。レート制限は送信回数の問題で、目標を見失う現象とは別。",
+          "textZh": "速率限制；等待后重试。"
+        },
+        {
+          "text": "Prompt caching; disable the cache.",
+          "correct": false,
+          "explain": "不適。キャッシュの有無は、会話の中で目標から外れる問題と関係ない。",
+          "textZh": "提示缓存；关闭缓存。"
+        },
+        {
+          "text": "Tokenization; switch languages.",
+          "correct": false,
+          "explain": "不適。言語を変えても、文脈にノイズがたまる問題は解決しない。",
+          "textZh": "分词；换一种语言。"
+        }
+      ],
+      "objective": "Context Engineering",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "在长会话中，智能体逐渐忘记最初的目标，开始纠结于细枝末节。这叫什么问题？什么方法有帮助？",
+      "commentaryZh": "上下文漂移：长上下文中旧信息和噪声越来越多，模型偏离原目标。对策：压缩摘要、重申目标、清理旧工具结果、用子智能体隔离细节工作。"
+    },
+    {
+      "id": "dv6-002",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which technique summarizes older parts of a long conversation so work can continue within the context window?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Compaction.",
+          "correct": true,
+          "explain": "正解。古い会話を要約して文脈を空ける。",
+          "textZh": "压缩（compaction）。"
+        },
+        {
+          "text": "Fine-tuning.",
+          "correct": false,
+          "explain": "不適。ファインチューニングはモデル自体の再学習で、会話の要約ではない。",
+          "textZh": "微调。"
+        },
+        {
+          "text": "Streaming.",
+          "correct": false,
+          "explain": "不適。ストリーミングは出力の届け方で、文脈を空ける仕組みではない。",
+          "textZh": "流式输出。"
+        },
+        {
+          "text": "Temperature scaling.",
+          "correct": false,
+          "explain": "不適。temperature の調整は文脈の量に影響しない。",
+          "textZh": "温度缩放。"
+        }
+      ],
+      "objective": "Context Engineering",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/context-editing",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪种技巧会把长对话中较早的部分做成摘要，以便在上下文窗口内继续工作？",
+      "commentaryZh": "压缩（compaction）把较早的对话总结成精简内容，保留关键决定和状态，释放上下文空间。Claude Code 中的 /compact 就是这个作用。"
+    },
+    {
+      "id": "dv6-003",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Why does putting more information into the context not always improve results?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Irrelevant information competes for the model's attention and can lower accuracy, while also adding cost.",
+          "correct": true,
+          "explain": "正解。文脈は有限の資源。ノイズは精度とコストの両方に悪影響。",
+          "textZh": "无关信息会分散模型的注意力，可能降低准确性，还会增加成本。"
+        },
+        {
+          "text": "The API rejects requests with more than one document.",
+          "correct": false,
+          "explain": "不適。複数の文書を送っても API は拒否しない。問題は精度とコスト。",
+          "textZh": "API 会拒绝包含多份文档的请求。"
+        },
+        {
+          "text": "Claude ignores everything after the first paragraph.",
+          "correct": false,
+          "explain": "不適。Claude は最初の段落以降も読む。問題は無関係な情報が注意をそらすこと。",
+          "textZh": "Claude 会忽略第一段之后的所有内容。"
+        },
+        {
+          "text": "More context always makes outputs shorter.",
+          "correct": false,
+          "explain": "不適。文脈の量と出力の長さに決まった関係はない。",
+          "textZh": "上下文越多输出总是越短。"
+        }
+      ],
+      "objective": "Context Engineering",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "为什么往上下文里放更多信息，并不总能改善结果？",
+      "commentaryZh": "上下文工程的核心：用最少但最相关的信息达成目标。无关内容会稀释注意力（context rot），同时增加 token 成本和延迟。"
+    },
+    {
+      "id": "dv6-004",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A main agent needs a summary of a large codebase search, but not the hundreds of raw search results. Which approach keeps its context clean?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Delegate the search to a subagent that returns only a concise summary.",
+          "correct": true,
+          "explain": "正解。サブエージェントで文脈を分離し、結果だけを受け取る。",
+          "textZh": "把搜索交给一个子智能体，只返回简洁的摘要。"
+        },
+        {
+          "text": "Paste all raw results into the main context.",
+          "correct": false,
+          "explain": "不適。生の検索結果を全部入れると、主エージェントの文脈が肥大化する。",
+          "textZh": "把所有原始结果粘贴到主上下文中。"
+        },
+        {
+          "text": "Ask the user to read the results manually.",
+          "correct": false,
+          "explain": "不適。利用者に読ませるのは自動化の目的に反し、エージェントの意味がない。",
+          "textZh": "让用户手动阅读这些结果。"
+        },
+        {
+          "text": "Run the search twice.",
+          "correct": false,
+          "explain": "不適。検索を 2 回しても、主文脈に大量の結果が入る問題は残る。",
+          "textZh": "把搜索运行两遍。"
+        }
+      ],
+      "objective": "Context Engineering",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/subagents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "主智能体需要一份大型代码库搜索的总结，而不是几百条原始搜索结果。哪种方式能让它的上下文保持干净？",
+      "commentaryZh": "上下文隔离：把会产生大量中间结果的工作（搜索、读大量文件）交给子智能体，主智能体只接收结论，避免上下文膨胀。"
+    },
+    {
+      "id": "dv6-005",
+      "domain": "D6",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO techniques help prevent context bloat in a tool-heavy agent?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Clear or prune old tool results once they are no longer needed.",
+          "correct": true,
+          "explain": "正解。使い終わったツール結果を削る。",
+          "textZh": "在旧工具结果不再需要时清除或删减它们。"
+        },
+        {
+          "text": "Design tools to return concise, relevant output.",
+          "correct": true,
+          "explain": "正解。最初から出力を小さくする。",
+          "textZh": "设计工具时让它返回简洁、相关的输出。"
+        },
+        {
+          "text": "Keep every intermediate result forever.",
+          "correct": false,
+          "explain": "不適。中間結果をすべて残すと、文脈の肥大化がさらに進む。",
+          "textZh": "永久保留每一个中间结果。"
+        },
+        {
+          "text": "Add the full documentation of every tool to every message.",
+          "correct": false,
+          "explain": "不適。毎回すべてのツール文書を付けると、それ自体が肥大化の原因になる。",
+          "textZh": "在每条消息中都附上每个工具的完整文档。"
+        }
+      ],
+      "objective": "Context Engineering",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪两项技巧有助于防止大量使用工具的智能体出现上下文膨胀？",
+      "commentaryZh": "防止上下文膨胀：工具输出精简、清理已用过的工具结果、压缩历史、用子智能体隔离、把长期信息存到外部记忆。"
+    },
+    {
+      "id": "dv6-006",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "What is \"context engineering\"?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Deciding what information goes into the model's limited context at each step, and in what form.",
+          "correct": true,
+          "explain": "正解。何を・どの形で文脈に入れるかを設計すること。",
+          "textZh": "决定每一步把哪些信息、以什么形式放进模型有限的上下文中。"
+        },
+        {
+          "text": "Building a bigger data center.",
+          "correct": false,
+          "explain": "不適。データセンターの規模の話ではなく、文脈に入れる情報の設計のこと。",
+          "textZh": "建设更大的数据中心。"
+        },
+        {
+          "text": "Translating prompts into many languages.",
+          "correct": false,
+          "explain": "不適。翻訳は文脈エンジニアリングの定義ではない。",
+          "textZh": "把提示词翻译成多种语言。"
+        },
+        {
+          "text": "Writing longer prompts in all cases.",
+          "correct": false,
+          "explain": "不適。長いプロンプトが常に良いわけではない。必要な情報を選ぶことが重要。",
+          "textZh": "在任何情况下都写更长的提示词。"
+        }
+      ],
+      "objective": "Context Engineering",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "什么是“上下文工程”？",
+      "commentaryZh": "上下文工程不只是写提示词，还包括：选择放入哪些资料、工具定义、历史记录、记忆，以及何时清理或压缩，使有限的上下文发挥最大效果。"
+    },
+    {
+      "id": "dv6-007",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which prompt is most likely to produce a useful product description?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Write a 60-word description of this water bottle for busy commuters. Mention the leak-proof lid and the 12-hour cold retention. Friendly tone, no exclamation marks.\"",
+          "correct": true,
+          "explain": "正解。読者・長さ・含める内容・トーン・禁止事項が具体的。",
+          "textZh": "“为忙碌的通勤族写一段 60 词的水杯描述。提到防漏杯盖和 12 小时保冷。语气友好，不要用感叹号。”"
+        },
+        {
+          "text": "\"Write something good about this bottle.\"",
+          "correct": false,
+          "explain": "不適。条件がなく結果が安定しない。",
+          "textZh": "“写点关于这个水杯的好话。”"
+        },
+        {
+          "text": "\"You are the best writer in the world. Be perfect.\"",
+          "correct": false,
+          "explain": "不適。具体的な情報がない。",
+          "textZh": "“你是世界上最好的作家。要完美。”"
+        },
+        {
+          "text": "\"Description.\"",
+          "correct": false,
+          "explain": "不適。1 語だけでは目的・読者・条件が何も伝わらない。",
+          "textZh": "“描述。”"
+        }
+      ],
+      "objective": "Prompt Engineering",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪个提示词最可能生成有用的商品描述？",
+      "commentaryZh": "清晰直接：写明读者、目的、长度、必须包含的要点、语气和禁止事项。模型无法猜到你没写出来的要求。"
+    },
+    {
+      "id": "dv6-008",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A prompt mixes instructions, a long contract, and example outputs in one block of text, and Claude confuses them. What helps most?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Separate the parts with clear structure such as XML tags, for example <instructions>, <contract>, and <example>.",
+          "correct": true,
+          "explain": "正解。タグで区切ると、どこが指示でどこが資料か明確になる。",
+          "textZh": "用清晰的结构把各部分分开，例如 <instructions>、<contract>、<example> 等 XML 标签。"
+        },
+        {
+          "text": "Write the whole prompt in capital letters.",
+          "correct": false,
+          "explain": "不適。大文字にしても、どこが指示でどこが資料かの区別はつかない。",
+          "textZh": "把整个提示词都用大写字母写。"
+        },
+        {
+          "text": "Remove the examples.",
+          "correct": false,
+          "explain": "不適。区別の問題は解決しない。",
+          "textZh": "删除示例。"
+        },
+        {
+          "text": "Shorten the contract by deleting random paragraphs.",
+          "correct": false,
+          "explain": "不適。段落を無作為に削ると、契約の重要な内容が失われる。",
+          "textZh": "随意删掉合同中的段落来缩短它。"
+        }
+      ],
+      "objective": "Prompt Engineering",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个提示词把指令、一份长合同和示例输出混在一段文字里，Claude 把它们搞混了。什么方法最有帮助？",
+      "commentaryZh": "用 XML 标签等结构把指令、资料、示例分开，可以减少混淆，也方便在代码中替换内容。长文档建议放在前面，问题放在后面。"
+    },
+    {
+      "id": "dv6-009",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Where should untrusted user input be placed relative to the developer's instructions?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Clearly separated (for example in tags) from trusted instructions, which belong in the system prompt.",
+          "correct": true,
+          "explain": "正解。信頼できる指示は system、外部入力は区切って明示する。",
+          "textZh": "与可信指令明确分开（例如放在标签中），可信指令应放在系统提示词中。"
+        },
+        {
+          "text": "Merged into the system prompt without markers.",
+          "correct": false,
+          "explain": "不適。指示と入力の区別がつかない。",
+          "textZh": "不加任何标记地合并到系统提示词中。"
+        },
+        {
+          "text": "Before the instructions, so it has priority.",
+          "correct": false,
+          "explain": "不適。信頼できない入力を指示より優先させると、注入攻撃に弱くなる。",
+          "textZh": "放在指令之前，让它优先。"
+        },
+        {
+          "text": "Hidden inside the tool definitions.",
+          "correct": false,
+          "explain": "不適。ツール定義に入力を混ぜると、指示とデータの区別がさらに曖昧になる。",
+          "textZh": "藏在工具定义里。"
+        }
+      ],
+      "objective": "Prompt Engineering",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "不可信的用户输入应相对于开发者的指令放在哪里？",
+      "commentaryZh": "可信的规则放系统提示词，用户输入、外部文档等不可信内容用标签隔开，并声明“标签内是数据而不是指令”。这也是防提示注入的基础。"
+    },
+    {
+      "id": "dv6-010",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A few-shot prompt's outputs copy the exact wording of the examples too closely. What should the developer change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use more varied examples that differ in wording and content while showing the same format.",
+          "correct": true,
+          "explain": "正解。例が単調だと表面をまねる。多様な例で本質のパターンを示す。",
+          "textZh": "使用措辞和内容各不相同、但格式一致的更多样的示例。"
+        },
+        {
+          "text": "Remove all instructions and keep only one example.",
+          "correct": false,
+          "explain": "不適。指示を消して例を 1 つにすると、表面をまねる傾向が強まる。",
+          "textZh": "删除所有指令，只保留一个示例。"
+        },
+        {
+          "text": "Repeat the same example five times.",
+          "correct": false,
+          "explain": "不適。同じ例の繰り返しは多様性を減らし、まねる傾向を強める。",
+          "textZh": "把同一个示例重复五遍。"
+        },
+        {
+          "text": "Raise max_tokens.",
+          "correct": false,
+          "explain": "不適。max_tokens は出力の上限で、例をまねる問題とは関係ない。",
+          "textZh": "提高 max_tokens。"
+        }
+      ],
+      "objective": "Prompt Engineering",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个少样本提示词的输出过于照搬示例的措辞。开发者应该改什么？",
+      "commentaryZh": "示例要多样、相关、覆盖边界情况。示例过于单一时，模型会模仿表面措辞而不是背后的规则。"
+    },
+    {
+      "id": "dv6-011",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Instead of \"Don't use markdown,\" which instruction is usually more effective?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Write your answer as plain flowing paragraphs.\"",
+          "correct": true,
+          "explain": "正解。してほしいことを肯定形で具体的に書く方が効きやすい。",
+          "textZh": "“用连贯的普通段落写回答。”"
+        },
+        {
+          "text": "\"NEVER EVER use markdown!!!\"",
+          "correct": false,
+          "explain": "不適。強調しても具体性は増えない。",
+          "textZh": "“绝对绝对不要用 markdown！！！”"
+        },
+        {
+          "text": "\"Markdown is bad.\"",
+          "correct": false,
+          "explain": "不適。否定的な評価だけでは、代わりにどう書けばよいかが伝わらない。",
+          "textZh": "“markdown 很糟糕。”"
+        },
+        {
+          "text": "No instruction at all.",
+          "correct": false,
+          "explain": "不適。指示がなければ、Markdown を使うかどうかはモデル任せになる。",
+          "textZh": "完全不写指令。"
+        }
+      ],
+      "objective": "Prompt Engineering",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "与其写“不要用 markdown”，哪种指令通常更有效？",
+      "commentaryZh": "告诉模型“要做什么”通常比“不要做什么”更有效。同时说明原因（例如输出要被语音朗读），模型更容易理解并遵守。"
+    },
+    {
+      "id": "dv6-012",
+      "domain": "D6",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Which TWO practices are part of iterating on a prompt effectively?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Change one thing at a time and re-run the same test cases.",
+          "correct": true,
+          "explain": "正解。変更の効果を切り分けられる。",
+          "textZh": "每次只改一处，并重新运行同样的测试用例。"
+        },
+        {
+          "text": "Look at the failing outputs to decide what to change.",
+          "correct": true,
+          "explain": "正解。失敗例から原因を推測して直す。",
+          "textZh": "查看失败的输出，再决定要改什么。"
+        },
+        {
+          "text": "Rewrite everything from scratch after each test.",
+          "correct": false,
+          "explain": "不適。何が効いたか分からない。",
+          "textZh": "每次测试后都从头重写全部内容。"
+        },
+        {
+          "text": "Judge success from a single lucky output.",
+          "correct": false,
+          "explain": "不適。ばらつきを無視している。",
+          "textZh": "根据一次碰巧成功的输出来判断成功。"
+        }
+      ],
+      "objective": "Prompt Engineering",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪两项做法属于高效迭代提示词？",
+      "commentaryZh": "提示词迭代要像实验：固定测试集、一次改一处、看失败案例找原因、用整体指标判断。单次成功不代表稳定。"
+    },
+    {
+      "id": "dv6-013",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A developer explains in the prompt WHY a rule exists (\"Keep answers under 50 words because they are read aloud on a phone call\"). Why does this help?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Context about the reason lets Claude generalize the rule to situations the rule did not mention.",
+          "correct": true,
+          "explain": "正解。理由が分かると、明示されていない場面でも意図に沿って判断できる。",
+          "textZh": "说明原因能让 Claude 把规则推广到规则没有明确提到的情况。"
+        },
+        {
+          "text": "The API requires a reason for every rule.",
+          "correct": false,
+          "explain": "不適。API がルールの理由を求めることはない。理由はモデルの理解を助けるもの。",
+          "textZh": "API 要求每条规则都要有原因。"
+        },
+        {
+          "text": "It makes the prompt cheaper.",
+          "correct": false,
+          "explain": "不適。理由を書くとむしろプロンプトは少し長くなる。目的はコストではない。",
+          "textZh": "它让提示词更便宜。"
+        },
+        {
+          "text": "It disables the system prompt.",
+          "correct": false,
+          "explain": "不適。理由を書いてもシステムプロンプトが無効になることはない。",
+          "textZh": "它会让系统提示词失效。"
+        }
+      ],
+      "objective": "Prompt Engineering",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "开发者在提示词中说明了规则存在的原因（“回答控制在 50 词以内，因为要在电话里朗读”）。为什么这样有帮助？",
+      "commentaryZh": "给规则加上“为什么”，模型能理解意图，在规则未覆盖的情况下也做出合理判断（例如电话场景也会避免使用表格和链接）。"
+    },
+    {
+      "id": "dv6-014",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A chatbot receives user text that may contain HTML, scripts, or instructions aimed at the model. What is a sensible input-handling step before inserting it into the prompt?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Sanitize and validate the input, and wrap it in clearly labeled tags as data.",
+          "correct": true,
+          "explain": "正解。入力の無害化・検証と、データとしての明示的な区切り。",
+          "textZh": "对输入进行清洗和校验，并用明确标注的标签把它作为数据包起来。"
+        },
+        {
+          "text": "Insert it directly into the system prompt.",
+          "correct": false,
+          "explain": "不適。信頼できない入力をシステムプロンプトに入れると、指示として扱われる危険がある。",
+          "textZh": "直接插入系统提示词。"
+        },
+        {
+          "text": "Execute any scripts found in it.",
+          "correct": false,
+          "explain": "不適。入力中のスクリプトを実行するのは重大なセキュリティ事故につながる。",
+          "textZh": "执行其中发现的任何脚本。"
+        },
+        {
+          "text": "Ignore length limits.",
+          "correct": false,
+          "explain": "不適。長さを制限しないと、極端に長い入力でコストや動作が不安定になる。",
+          "textZh": "忽略长度限制。"
+        }
+      ],
+      "objective": "Prompt Engineering",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "聊天机器人收到的用户文本可能包含 HTML、脚本或针对模型的指令。在把它放入提示词之前，合理的输入处理步骤是什么？",
+      "commentaryZh": "输入清洗（input sanitization）：校验长度和格式、去除或转义危险内容，并用标签把它标注为“数据”。这能减少注入风险和意外行为。"
+    },
+    {
+      "id": "dv6-015",
+      "domain": "D6",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "A billing system parses Claude's output to create invoices. Which TWO practices are essential?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Validate the output against a schema before using it.",
+          "correct": true,
+          "explain": "正解。形式と値の妥当性をコードで確認する。",
+          "textZh": "使用前按 schema 校验输出。"
+        },
+        {
+          "text": "Check business rules, such as totals matching line items, in code.",
+          "correct": true,
+          "explain": "正解。もっともらしい数字でも計算が合っているか検証する。",
+          "textZh": "在代码中检查业务规则，例如总额与明细是否一致。"
+        },
+        {
+          "text": "Trust the output because Claude sounded confident.",
+          "correct": false,
+          "explain": "不適。自信は正しさの証拠ではない。",
+          "textZh": "因为 Claude 语气很肯定，所以信任输出。"
+        },
+        {
+          "text": "Skip validation to reduce latency.",
+          "correct": false,
+          "explain": "不適。遅延を減らすために検証を省くと、誤った請求書が作られる危険がある。",
+          "textZh": "为了降低延迟跳过校验。"
+        }
+      ],
+      "objective": "Output Handling",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个计费系统解析 Claude 的输出来生成发票。哪两项做法是必需的？",
+      "commentaryZh": "对用于业务处理的输出要“保持怀疑”：schema 校验格式，代码校验业务规则（金额、日期、枚举值），失败则重试或转人工。"
+    },
+    {
+      "id": "dv6-016",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A JSON response is cut off in the middle, and stop_reason is max_tokens. What should the parser do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Treat it as incomplete: do not use it, and retry with a higher max_tokens or a smaller task.",
+          "correct": true,
+          "explain": "正解。途中で切れた出力は使わず、条件を変えて再実行する。",
+          "textZh": "把它视为不完整：不要使用，提高 max_tokens 或缩小任务后重试。"
+        },
+        {
+          "text": "Fill in the missing closing brackets and use it.",
+          "correct": false,
+          "explain": "不適。欠けた内容は復元できない。",
+          "textZh": "补上缺失的右括号后继续使用。"
+        },
+        {
+          "text": "Use only the first field.",
+          "correct": false,
+          "explain": "不適。途中で切れた出力では、最初の項目でさえ正しいとは限らない。",
+          "textZh": "只使用第一个字段。"
+        },
+        {
+          "text": "Ignore stop_reason.",
+          "correct": false,
+          "explain": "不適。stop_reason を見ないと、出力が途中で切れたことに気づけない。",
+          "textZh": "忽略 stop_reason。"
+        }
+      ],
+      "objective": "Output Handling",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个 JSON 响应在中途被截断，stop_reason 是 max_tokens。解析器应该怎么做？",
+      "commentaryZh": "解析前先检查 stop_reason。max_tokens 表示输出被截断，JSON 不完整，应重试（加大 max_tokens 或拆分任务），不要“修补”后使用。"
+    },
+    {
+      "id": "dv6-017",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "What does \"skepticism toward confident output\" mean in practice?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Verify important facts, numbers, and citations regardless of how certain the response sounds.",
+          "correct": true,
+          "explain": "正解。語調の確かさは正確さの証拠ではない。",
+          "textZh": "无论回答听起来多么肯定，都要核实重要的事实、数字和引用。"
+        },
+        {
+          "text": "Reject every answer Claude gives.",
+          "correct": false,
+          "explain": "不適。すべて拒否するのは懐疑ではなく、モデルを使う意味を失う。",
+          "textZh": "拒绝 Claude 给出的每一个答案。"
+        },
+        {
+          "text": "Only trust answers that use exclamation marks.",
+          "correct": false,
+          "explain": "不適。感嘆符の有無は正しさと関係ない。",
+          "textZh": "只相信带感叹号的答案。"
+        },
+        {
+          "text": "Ask Claude to rate its own confidence and trust high scores.",
+          "correct": false,
+          "explain": "不適。自己評価は検証にならない。",
+          "textZh": "让 Claude 给自己的把握打分，并相信高分。"
+        }
+      ],
+      "objective": "Output Handling",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "“对自信的输出保持怀疑”在实践中是什么意思？",
+      "commentaryZh": "模型的语气不代表准确性。关键事实、数字、引用要通过资料对照或程序校验来验证。"
+    },
+    {
+      "id": "dv6-018",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which approach gives the strongest guarantee that Claude's output matches a required JSON schema?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Structured outputs (schema-constrained decoding), plus validation in code.",
+          "correct": true,
+          "explain": "正解。スキーマ制約付きの出力が最も確実。念のため検証も行う。",
+          "textZh": "结构化输出（受 schema 约束的解码），再加上代码校验。"
+        },
+        {
+          "text": "Writing \"please return valid JSON\" in the prompt.",
+          "correct": false,
+          "explain": "不適。プロンプトで頼むだけでは、形式が崩れない保証にはならない。",
+          "textZh": "在提示词里写“请返回有效的 JSON”。"
+        },
+        {
+          "text": "Using a higher temperature.",
+          "correct": false,
+          "explain": "不適。temperature を上げるとばらつきが増え、形式が崩れやすくなる。",
+          "textZh": "使用更高的 temperature。"
+        },
+        {
+          "text": "Asking for YAML instead.",
+          "correct": false,
+          "explain": "不適。YAML に変えてもスキーマに合う保証は得られない。",
+          "textZh": "改为要求 YAML。"
+        }
+      ],
+      "objective": "Output Handling",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪种方式最能保证 Claude 的输出符合规定的 JSON schema？",
+      "commentaryZh": "结构化输出功能可以按 JSON schema 约束生成结果，比仅在提示词中要求更可靠。即便如此，代码端仍应校验业务含义。"
+    },
+    {
+      "id": "dv6-019",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A downstream system crashes when Claude returns an unexpected value for a \"status\" field. What is the best defensive design?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Restrict the field to an enum in the schema and handle unknown values explicitly in code.",
+          "correct": true,
+          "explain": "正解。値を制限しつつ、想定外の値でも落ちないようにする。",
+          "textZh": "在 schema 中把该字段限制为枚举，并在代码中显式处理未知值。"
+        },
+        {
+          "text": "Let the downstream system crash so errors are visible.",
+          "correct": false,
+          "explain": "不適。下流を落とすと利用者に影響が出る。想定外の値は安全に処理する。",
+          "textZh": "让下游系统崩溃，这样错误更明显。"
+        },
+        {
+          "text": "Remove the status field.",
+          "correct": false,
+          "explain": "不適。必要な項目を消すと、下流の処理が成り立たない。",
+          "textZh": "删除 status 字段。"
+        },
+        {
+          "text": "Ask users to fix the data manually.",
+          "correct": false,
+          "explain": "不適。手作業での修正は大量処理では現実的でない。",
+          "textZh": "让用户手动修正数据。"
+        }
+      ],
+      "objective": "Output Handling",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "当 Claude 为“status”字段返回意外值时，下游系统就会崩溃。最佳的防御性设计是什么？",
+      "commentaryZh": "防御式解析：schema 中用 enum 限制取值；代码中对未知值、缺失值、类型错误都有明确的处理（默认值、重试、记录日志）。"
+    },
+    {
+      "id": "dv6-020",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An app extracts dates from scanned letters. Some letters have no date. What output design avoids invented dates?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Allow null for the date field and instruct Claude to return null when no date appears in the text.",
+          "correct": true,
+          "explain": "正解。「ない」を表現できる設計にすると作り話を防げる。",
+          "textZh": "允许 date 字段为 null，并指示 Claude 在文本中没有日期时返回 null。"
+        },
+        {
+          "text": "Require a date and let Claude guess a likely one.",
+          "correct": false,
+          "explain": "不適。日付を必須にして推測させると、存在しない日付の捏造を誘発する。",
+          "textZh": "要求必须有日期，让 Claude 猜一个可能的日期。"
+        },
+        {
+          "text": "Use today's date when unsure.",
+          "correct": false,
+          "explain": "不適。分からないときに今日の日付を入れると、誤ったデータが記録される。",
+          "textZh": "不确定时用今天的日期。"
+        },
+        {
+          "text": "Skip letters without dates silently.",
+          "correct": false,
+          "explain": "不適。黙って飛ばすと、データの欠落に誰も気づけない。",
+          "textZh": "悄悄跳过没有日期的信件。"
+        }
+      ],
+      "objective": "Output Handling",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个应用从扫描的信件中提取日期。有些信件没有日期。哪种输出设计可以避免编造日期？",
+      "commentaryZh": "输出设计要允许“没有”：nullable 字段或 unknown 值，并在提示词中说明何时使用。强制必填会诱导模型编造。"
+    }
+  ]
+}

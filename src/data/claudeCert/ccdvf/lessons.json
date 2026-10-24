@@ -1,0 +1,1292 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-10-24",
+  "note": "CCDV-F 考点讲义（24 skills）。正文为中文，术语附英文。不写价格、具体模型版本和上限值等易变事实，以官方链接为准。",
+  "lessons": [
+    {
+      "id": "D1-1",
+      "domain": "D1",
+      "objective": "Agent Architecture",
+      "titleZh": "智能体架构：工作流还是智能体",
+      "summaryZh": "先判断任务属于哪一类：步骤固定、可预测的用工作流（由代码编排）；步骤数和路径无法事先确定、需要根据反馈调整的才用智能体。复杂度要用测量来证明是值得的，永远从最简单的方案开始。",
+      "concepts": [
+        {
+          "term": "Workflow vs. Agent",
+          "zh": "工作流由预先写好的代码路径控制；智能体由模型根据环境反馈动态决定下一步和工具使用。"
+        },
+        {
+          "term": "Manager / Supervisor",
+          "zh": "编排者负责拆解任务、给子智能体写清楚的委派指示（目标、范围、输出格式、边界）并汇总结果。"
+        },
+        {
+          "term": "Subagents",
+          "zh": "子智能体在独立的上下文中工作，可以并行处理独立子任务，代价是总 token 增加。"
+        },
+        {
+          "term": "Start simple",
+          "zh": "先用单次调用或简单工作流测出基线，只有当数据证明有提升时才增加智能体或多智能体。"
+        }
+      ],
+      "example": {
+        "bad": "固定的三步邮件处理（分类→抽取→建工单）也做成五个协作智能体，结果交接时经常丢信息。",
+        "good": "用代码串起三次调用的工作流，每步输出用 schema 校验；只有“调查原因”这类开放任务才交给智能体。",
+        "whyZh": "按任务性质选架构，减少不必要的故障点和成本。"
+      },
+      "pitfalls": [
+        "以为智能体越多越高级，结果引入了交接信息丢失等新问题。",
+        "委派给子智能体时只写一句“去调研”，导致重复劳动。"
+      ],
+      "examTips": [
+        "选项里“先用最简单的方案，按需增加复杂度”通常是正解。",
+        "看到“步骤固定”“可预测”，就选工作流；看到“无法事先知道几步”，就选智能体。"
+      ],
+      "practiceZh": "拿你工作中的三个任务，分别判断适合工作流还是智能体，并写下理由。",
+      "references": [
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        },
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        }
+      ]
+    },
+    {
+      "id": "D1-2",
+      "domain": "D1",
+      "objective": "Agent Construction with Claude",
+      "titleZh": "用 Claude 构建智能体",
+      "summaryZh": "构建方式有三种：自己基于 Messages API 写循环、使用 Claude Agent SDK（自带循环、内置工具、权限和钩子）、或采用托管部署。必须执行的动作（审计、拦截）用钩子实现，不要只写在提示词里。",
+      "concepts": [
+        {
+          "term": "Custom agent loop",
+          "zh": "自己写的循环由 stop_reason 驱动：tool_use 就执行工具并回传 tool_result，end_turn 才结束，并设置最大轮数上限。"
+        },
+        {
+          "term": "Claude Agent SDK",
+          "zh": "提供与 Claude Code 相同的智能体循环、文件和命令等内置工具、上下文管理、权限控制和子智能体。"
+        },
+        {
+          "term": "Self-hosted vs. managed",
+          "zh": "自托管灵活、数据留在自己环境，但要自己运维沙箱；托管部署省去运维，需确认数据和合规要求。"
+        },
+        {
+          "term": "Hooks",
+          "zh": "在工具调用前后等时机运行你的代码，可以确定性地阻止、修改或记录操作。"
+        }
+      ],
+      "example": {
+        "bad": "在系统提示词里写“每次编辑后请记得写审计日志”，结果偶尔漏记。",
+        "good": "用 PostToolUse 钩子在每次编辑工具执行后写审计日志，并用工具白名单限制可用工具。",
+        "whyZh": "需要百分之百执行的动作交给程序，而不是交给模型的“自觉”。"
+      },
+      "pitfalls": [
+        "自写循环只看响应里有没有文字来判断结束，导致工具调用被中断。",
+        "回传工具结果时忘了引用 tool_use_id，或者把结果放进系统提示词。"
+      ],
+      "examTips": [
+        "“必须每次”“不能有例外”的要求，答案通常是钩子或权限设置。",
+        "不想自己写循环和工具时，答案是 Agent SDK。"
+      ],
+      "practiceZh": "用 Agent SDK 写一个只能读文件和运行测试的小智能体，再加一个 PreToolUse 钩子拦截删除命令。",
+      "references": [
+        {
+          "title": "Agent SDK overview",
+          "url": "https://code.claude.com/docs/en/agent-sdk/overview"
+        },
+        {
+          "title": "Agent SDK hooks",
+          "url": "https://code.claude.com/docs/en/agent-sdk/hooks"
+        },
+        {
+          "title": "The agent loop",
+          "url": "https://code.claude.com/docs/en/agent-sdk/agent-loop"
+        }
+      ]
+    },
+    {
+      "id": "D1-3",
+      "domain": "D1",
+      "objective": "Agent Patterns and Frameworks",
+      "titleZh": "智能体模式与框架",
+      "summaryZh": "常见模式包括：工具使用循环、子智能体、外部记忆、上下文窗口管理，以及五种工作流模式（提示链、路由、并行化、编排者-执行者、评估者-优化者）。LangGraph、Strands、PydanticAI 等框架能加速开发，但要理解底层发送了什么。",
+      "concepts": [
+        {
+          "term": "Tool-use loop",
+          "zh": "调用模型 → 执行请求的工具 → 回传结果 → 重复，直到模型完成。是所有智能体的基础。"
+        },
+        {
+          "term": "Memory",
+          "zh": "长任务把进度、决定写到上下文之外（文件或记忆工具），新会话开始时读取，因为模型不会跨会话记忆。"
+        },
+        {
+          "term": "Workflow patterns",
+          "zh": "提示链（串行）、路由（分流）、并行化（分段或投票）、编排者-执行者（动态拆分）、评估者-优化者（生成+评估循环）。"
+        },
+        {
+          "term": "Frameworks",
+          "zh": "框架提供抽象，但会隐藏实际的提示词和响应；调试时要能看到底层请求。"
+        }
+      ],
+      "example": {
+        "bad": "长时间运行的智能体把所有工具输出都留在上下文里，几小时后开始忘记最初目标。",
+        "good": "清理用过的工具结果，把进度写进 progress 文件，并定期用简短摘要重申目标。",
+        "whyZh": "模式选对了，智能体才能在长任务中保持方向和效率。"
+      },
+      "pitfalls": [
+        "对模型隐藏工具错误，导致它基于错误前提继续。",
+        "为了“保险”给智能体几十个功能重叠的工具。"
+      ],
+      "examTips": [
+        "“同一输入多次调用再投票”是并行化；“生成后由另一调用评估并反馈”是评估者-优化者。",
+        "跨会话的长任务，答案通常是外部记忆/进度文件。"
+      ],
+      "practiceZh": "把五种工作流模式各画一张小图，并为每种写一个你工作中可能用到的例子。",
+      "references": [
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        },
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        }
+      ]
+    },
+    {
+      "id": "D2-1",
+      "domain": "D2",
+      "objective": "Understanding Requirements",
+      "titleZh": "理解需求",
+      "summaryZh": "开发前先把模糊的业务目标转成具体需求：功能需求（做什么任务、给谁、输入输出）和非功能需求（延迟、吞吐量、数据驻留、安全合规）。再给出可衡量的成功标准，作为之后评估和选型的依据。",
+      "concepts": [
+        {
+          "term": "Functional requirements",
+          "zh": "描述系统要完成的任务、用户、输入和期望输出。"
+        },
+        {
+          "term": "Non-functional requirements",
+          "zh": "延迟、吞吐量、可用性、数据驻留和安全要求，会影响模型档位、是否流式、部署平台。"
+        },
+        {
+          "term": "Success criteria",
+          "zh": "具体、可衡量、可实现，并说明在什么数据上测，例如“500 条测试集一致率≥95%”。"
+        },
+        {
+          "term": "Human review",
+          "zh": "需要专业判断的环节应在需求中明确交给人工复核，而不是承诺 100% 自动化。"
+        }
+      ],
+      "example": {
+        "bad": "“做一个销售 AI 助手，要好用。”——没有任务、没有指标，团队无法判断是否完成。",
+        "good": "“为销售代表生成客户拜访纪要：输入通话记录，2 秒内开始输出，数据留在东京区域，纪要要点与人工整理一致率≥90%。”",
+        "whyZh": "具体需求让架构、模型选择和评估都有据可依。"
+      },
+      "pitfalls": [
+        "一开始就讨论用几个智能体、用哪个最大模型，而需求还没定。",
+        "把“发现所有风险”这种无法验证的目标写进需求。"
+      ],
+      "examTips": [
+        "选项中含“可衡量的成功标准”“具体的任务和用户”的通常是正解。",
+        "延迟、吞吐量、数据驻留属于非功能性（基础设施）需求。"
+      ],
+      "practiceZh": "挑一个你想做的 Claude 功能，写出 3 条功能需求、3 条非功能需求和 2 条可衡量的成功标准。",
+      "references": [
+        {
+          "title": "Define your success criteria",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/define-success"
+        },
+        {
+          "title": "Choosing the right model",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+        }
+      ]
+    },
+    {
+      "id": "D2-2",
+      "domain": "D2",
+      "objective": "Systems Life Cycle",
+      "titleZh": "系统生命周期管理",
+      "summaryZh": "Claude 应用也遵循“计划→设计→开发→测试→部署→运行维护”的生命周期。特别之处在于：提示词和模型版本都是会改变行为的“代码”，要版本化、跑回归评估、灰度发布，并关注模型弃用公告。",
+      "concepts": [
+        {
+          "term": "Regression evals",
+          "zh": "修改提示词或模型前后，用同一评估集对比结果，发现质量回退。"
+        },
+        {
+          "term": "Version pinning",
+          "zh": "生产环境固定模型版本，测试后再有计划地升级，避免别名自动切换带来意外。"
+        },
+        {
+          "term": "Deprecation",
+          "zh": "模型会被弃用和退役，要在期限前评估替代模型并迁移。"
+        },
+        {
+          "term": "Rollout & rollback",
+          "zh": "先小流量灰度发布并监控指标，保留旧版本以便快速回滚。"
+        }
+      ],
+      "example": {
+        "bad": "周五晚上直接在生产环境改了系统提示词，没有记录，周一用户投诉质量下降却找不到原因。",
+        "good": "提示词放进版本控制，修改后跑评估集，先给 5% 流量灰度，指标正常再全量，旧版本随时可回滚。",
+        "whyZh": "把提示词和模型当作可发布的组件来管理，问题可追踪、可回退。"
+      },
+      "pitfalls": [
+        "认为提示词“不是代码”，随意修改不留记录。",
+        "等旧模型退役、请求开始失败后才着手迁移。"
+      ],
+      "examTips": [
+        "看到“发布前”“变更后”，优先选“跑评估、对比旧版本”。",
+        "生产环境“固定模型版本”优于“始终用最新别名”。"
+      ],
+      "practiceZh": "为你的项目建立一个变更日志模板：日期、提示词版本、模型版本、参数、评估结果。",
+      "references": [
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Models overview",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
+        },
+        {
+          "title": "Model deprecations",
+          "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations"
+        }
+      ]
+    },
+    {
+      "id": "D2-3",
+      "domain": "D2",
+      "objective": "Claude API Mechanics",
+      "titleZh": "Claude API 机制",
+      "summaryZh": "Messages API 无状态：每次请求都要带上历史。要掌握 messages 结构、system 参数、max_tokens、stop_reason、工具调用流程、流式输出（SSE）、图片和 PDF 输入、扩展思考、提示缓存、Batch API，以及通过 Bedrock、Vertex AI 等第三方平台调用。",
+      "concepts": [
+        {
+          "term": "stop_reason",
+          "zh": "end_turn 正常结束；max_tokens 被截断；tool_use 要调用工具；stop_sequence 遇到停止序列。"
+        },
+        {
+          "term": "Streaming",
+          "zh": "以 SSE 事件逐步返回（content_block_delta 等），降低用户感知的等待时间，但不降低成本。"
+        },
+        {
+          "term": "Batch vs. realtime",
+          "zh": "不急的大批量任务用 Message Batches API，更便宜；实时交互用同步调用。"
+        },
+        {
+          "term": "Thinking & caching",
+          "zh": "扩展思考配合工具时要原样传回 thinking 块；提示缓存对不变的前缀生效。"
+        }
+      ],
+      "example": {
+        "bad": "夜间处理 2 万条评论时并发几千个同步请求，频繁触发 429，成本也没有降低。",
+        "good": "把这批任务提交到 Batch API，第二天早上取结果；聊天界面则用流式输出提升体验。",
+        "whyZh": "按“是否需要即时结果”选择实时或批处理，是 API 选择的核心取舍。"
+      },
+      "pitfalls": [
+        "把 max_tokens 截断的 JSON 当作完整结果使用。",
+        "以为 API 会记住上一次请求的内容。"
+      ],
+      "examTips": [
+        "“隔夜、不急、成本优先”→ Batch API；“用户盯着空白屏幕”→ 流式输出。",
+        "数据必须留在 AWS/GCP 内 → 通过 Bedrock / Vertex AI 使用 Claude。"
+      ],
+      "practiceZh": "用 SDK 分别写一个流式输出的例子和一个 Batch API 的例子，观察响应中的 stop_reason 和 usage。",
+      "references": [
+        {
+          "title": "Working with the Messages API",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages"
+        },
+        {
+          "title": "Streaming",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/streaming"
+        },
+        {
+          "title": "Batch processing",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing"
+        }
+      ]
+    },
+    {
+      "id": "D2-4",
+      "domain": "D2",
+      "objective": "Software Engineering Foundations",
+      "titleZh": "软件工程基础",
+      "summaryZh": "Claude 应用首先是软件：REST API 与 JSON、异步编程、版本控制、CI、代码审查、重构。用 Claude Code 加速开发时，这些工程实践一个都不能少——小步提交、跑测试、人工审查，密钥不进仓库。",
+      "concepts": [
+        {
+          "term": "REST & JSON",
+          "zh": "Claude API 是 HTTPS 上的 JSON 接口，官方 SDK 对其封装并提供类型和重试。"
+        },
+        {
+          "term": "Async",
+          "zh": "模型调用耗时数秒，用 async/await 让服务在等待时继续处理其他请求，并控制并发以免触发速率限制。"
+        },
+        {
+          "term": "SDLC integration",
+          "zh": "AI 生成的改动走同样的 CI 和代码审查；提示词和配置纳入版本控制。"
+        },
+        {
+          "term": "Refactoring at scale",
+          "zh": "大规模迁移先列清单和计划，分批处理，每批跑测试并提交，便于回滚。"
+        }
+      ],
+      "example": {
+        "bad": "让 Claude Code 一次性重写 300 个文件并直接合并到 main，测试被删掉以“加快速度”。",
+        "good": "在分支上按批次迁移，每批运行测试、人工审查差异后再合并；API 密钥通过环境变量注入。",
+        "whyZh": "工程纪律决定了 AI 加速的成果能否安全上线。"
+      },
+      "pitfalls": [
+        "认为测试通过就不需要代码审查。",
+        "对 400 错误不断重试，而不是修正请求。"
+      ],
+      "examTips": [
+        "“大规模改动”的正解通常包含“分批、测试、审查”。",
+        "并发调用的正解通常是“异步客户端 + 控制并发”。"
+      ],
+      "practiceZh": "用异步客户端并发调用 Claude 10 次，加一个信号量限制并发数为 3，并记录每次的耗时。",
+      "references": [
+        {
+          "title": "Client SDKs",
+          "url": "https://platform.claude.com/docs/en/api/client-sdks"
+        },
+        {
+          "title": "Errors",
+          "url": "https://platform.claude.com/docs/en/api/errors"
+        },
+        {
+          "title": "Common workflows",
+          "url": "https://code.claude.com/docs/en/common-workflows"
+        }
+      ]
+    },
+    {
+      "id": "D2-5",
+      "domain": "D2",
+      "objective": "Claude Application Design",
+      "titleZh": "Claude 应用设计",
+      "summaryZh": "设计时要考虑：Claude 在不同界面（Claude Code、桌面、claude.ai、API）看到的系统提示词和工具不同；内容边界（只依据哪些资料、超出范围怎么办）；输出 schema；会话卫生；以及插件的管理和分发。",
+      "concepts": [
+        {
+          "term": "Interfaces",
+          "zh": "各界面内置的提示词、工具和上下文不同，同样的指示可能表现不同；自建 API 只有你提供的内容。"
+        },
+        {
+          "term": "Content boundaries",
+          "zh": "明确信息来源和适用范围，找不到答案时承认不知道或转人工，可减少幻觉。"
+        },
+        {
+          "term": "Schema design",
+          "zh": "固定取值用 enum，允许缺失值，字段含义写清楚，并在代码中校验。"
+        },
+        {
+          "term": "Session hygiene",
+          "zh": "不同问题开新会话，只带入必要摘要，避免长历史导致漂移和成本上升。"
+        }
+      ],
+      "example": {
+        "bad": "客服应用给每个用户保留几个月的超长对话，并要求每个字段必填，结果出现漂移和编造的数据。",
+        "good": "新问题开新会话并带入简短摘要；schema 允许 null，提示词说明资料中没有就返回 null。",
+        "whyZh": "好的应用设计让模型在清晰的边界内工作，输出可以被程序可靠地使用。"
+      },
+      "pitfalls": [
+        "把整本手册塞进每个请求，而不是检索相关章节。",
+        "团队成员各自复制命令和配置，而不是用插件统一分发。"
+      ],
+      "examTips": [
+        "“只依据提供的文档回答，找不到就说不知道”通常是正解。",
+        "统一分发命令、子智能体、钩子 → 插件（plugin）。"
+      ],
+      "practiceZh": "为你的应用设计一个输出 schema：至少一个 enum 字段和一个可为 null 的字段，并写出校验代码。",
+      "references": [
+        {
+          "title": "Structured outputs",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+        },
+        {
+          "title": "Reduce hallucinations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+        },
+        {
+          "title": "Plugins",
+          "url": "https://code.claude.com/docs/en/plugins"
+        }
+      ]
+    },
+    {
+      "id": "D2-6",
+      "domain": "D2",
+      "objective": "Configuration Management",
+      "titleZh": "配置管理",
+      "summaryZh": "需要管理的配置包括：CLAUDE.md（项目/用户/组织层级）、settings.json（权限、钩子等，分共享与本地）、模型版本固定、提示词版本化、插件依赖。目标是让行为可复现、变更可追踪。",
+      "concepts": [
+        {
+          "term": "CLAUDE.md hierarchy",
+          "zh": "组织策略 → 项目 CLAUDE.md（团队共享）→ 用户 ~/.claude/CLAUDE.md（个人）；子目录的文件按需读取。"
+        },
+        {
+          "term": "settings.json",
+          "zh": "托管策略优先级最高；项目共享 .claude/settings.json 提交仓库，个人 .claude/settings.local.json 不提交。"
+        },
+        {
+          "term": "Prompt versioning",
+          "zh": "提示词与使用它的代码一起放进版本控制，记录每次变更。"
+        },
+        {
+          "term": "Plugin dependencies",
+          "zh": "明确插件版本，测试组合后再推广给团队。"
+        }
+      ],
+      "example": {
+        "bad": "CLAUDE.md 写到几千行，重要规则被淹没；权限规则散落在各人电脑上。",
+        "good": "CLAUDE.md 保持简短，详细流程放 Skills；共享权限放 .claude/settings.json，个人覆盖放 settings.local.json。",
+        "whyZh": "清晰的配置层级让团队行为一致，个人偏好也有自己的位置。"
+      },
+      "pitfalls": [
+        "把个人偏好写进项目 CLAUDE.md，影响整个团队。",
+        "必须强制的规则只写在个人设置里，开发者可以随意改掉。"
+      ],
+      "examTips": [
+        "“团队共享”→ 项目文件并提交；“个人、所有项目”→ 用户目录；“不可覆盖”→ 托管策略。",
+        "可复现 = 固定模型版本 + 提示词版本化。"
+      ],
+      "practiceZh": "检查你的项目：CLAUDE.md 是否超过 200 行？哪些内容可以移到 Skill 或导入文件？",
+      "references": [
+        {
+          "title": "Memory (CLAUDE.md)",
+          "url": "https://code.claude.com/docs/en/memory"
+        },
+        {
+          "title": "Settings",
+          "url": "https://code.claude.com/docs/en/settings"
+        }
+      ]
+    },
+    {
+      "id": "D3-1",
+      "domain": "D3",
+      "objective": "Claude Code Operation",
+      "titleZh": "Claude Code 的操作",
+      "summaryZh": "Claude Code 的组成：规则（CLAUDE.md）、Skills、斜杠命令、子智能体、记忆；常用功能：会话管理（--continue、--resume）、/init、/compact、无头模式（claude -p）、权限设置（allow / ask / deny）。",
+      "concepts": [
+        {
+          "term": "/init",
+          "zh": "分析仓库并生成 CLAUDE.md 草稿，之后人工精简。"
+        },
+        {
+          "term": "Headless mode",
+          "zh": "claude -p 用于脚本和 CI，配合 --output-format json 得到机器可读的结果。"
+        },
+        {
+          "term": "Skills & commands",
+          "zh": "可复用流程做成 Skill 或自定义斜杠命令放在 .claude 目录并提交；Skill 按需加载。"
+        },
+        {
+          "term": "Subagents",
+          "zh": "定义在 .claude/agents/，有自己的提示词、工具白名单和独立上下文。"
+        }
+      ],
+      "example": {
+        "bad": "每天手动粘贴同一段审查提示词；CI 中尝试打开交互界面。",
+        "good": "把审查流程做成项目的斜杠命令或 Skill；CI 中用 claude -p 加 JSON 输出，并用权限设置限制工具。",
+        "whyZh": "熟悉组件和模式，才能把 Claude Code 稳定地用在团队和自动化流程中。"
+      },
+      "pitfalls": [
+        "混淆 /clear（清空对话）和 /compact（压缩上下文）。",
+        "以为子智能体会自动共享主对话的全部历史。"
+      ],
+      "examTips": [
+        "非交互 / CI → 无头模式 claude -p。",
+        "“不用时不占上下文”→ Skill 的渐进式加载。"
+      ],
+      "practiceZh": "在你的项目中运行 /init，删减生成的 CLAUDE.md，再写一个自定义斜杠命令。",
+      "references": [
+        {
+          "title": "Claude Code overview",
+          "url": "https://code.claude.com/docs/en/overview"
+        },
+        {
+          "title": "Headless mode",
+          "url": "https://code.claude.com/docs/en/headless"
+        },
+        {
+          "title": "Skills",
+          "url": "https://code.claude.com/docs/en/skills"
+        },
+        {
+          "title": "Subagents",
+          "url": "https://code.claude.com/docs/en/sub-agents"
+        }
+      ]
+    },
+    {
+      "id": "D4-1",
+      "domain": "D4",
+      "objective": "Debugging and Error Handling",
+      "titleZh": "调试与错误处理",
+      "summaryZh": "先识别错误类型，再选恢复策略：4xx（400 参数、401 认证、403 权限、413 过大）要修正；429、500、529 用指数退避重试。质量问题则看轨迹（实际请求、原始响应、stop_reason），判断问题在集成层还是模型输出。",
+      "concepts": [
+        {
+          "term": "Retryable errors",
+          "zh": "429（参考 retry-after）、500、529 过载：指数退避加抖动，并设上限和降级方案。"
+        },
+        {
+          "term": "Non-retryable errors",
+          "zh": "400、401、403 等重试无效，要修正请求、密钥或权限。"
+        },
+        {
+          "term": "Trace analysis",
+          "zh": "查看失败案例的完整请求和响应，定位是输入、解析、截断还是模型行为的问题。"
+        },
+        {
+          "term": "Tool errors",
+          "zh": "工具失败时返回 is_error: true 的 tool_result 并写清原因，让模型可以重试或换方法。"
+        }
+      ],
+      "example": {
+        "bad": "摘要偶尔为空，团队直接换了更大的模型，问题依旧——其实是解析代码在 stop_reason 为 max_tokens 时取错了字段。",
+        "good": "先拉出失败案例的轨迹：请求内容、原始响应、stop_reason，确认问题在集成层后修正解析逻辑。",
+        "whyZh": "先定位问题出在哪一层，再动手修复，避免盲目更换模型或提示词。"
+      },
+      "pitfalls": [
+        "对所有错误都无限重试，包括 400。",
+        "工具失败时返回空的成功结果，让模型以为一切正常。"
+      ],
+      "examTips": [
+        "429 = 速率限制；401 = 认证；529 = 过载。",
+        "“API 返回 200 但结果不对”→ 看轨迹，区分集成层和模型输出。"
+      ],
+      "practiceZh": "故意制造 400、401、429 三种错误，观察 SDK 抛出的异常类型，并写出各自的处理代码。",
+      "references": [
+        {
+          "title": "Errors",
+          "url": "https://platform.claude.com/docs/en/api/errors"
+        },
+        {
+          "title": "Handle tool calls",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+        },
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        }
+      ]
+    },
+    {
+      "id": "D5-1",
+      "domain": "D5",
+      "objective": "LLM Fundamentals",
+      "titleZh": "LLM 基础",
+      "summaryZh": "LLM 通过反复预测下一个 token 生成文本，因此输出是非确定性的，也会自信地出错。要理解 token、上下文窗口、采样、零样本/单样本/多样本提示，以及思考、effort 等模型选项。",
+      "concepts": [
+        {
+          "term": "Token",
+          "zh": "模型处理和计费的单位，可能是词的一部分；输入和输出都计费并占用上下文窗口。"
+        },
+        {
+          "term": "Context window",
+          "zh": "一次请求中模型能处理的 token 上限，包括系统提示词、历史、工具定义和输出。"
+        },
+        {
+          "term": "Non-determinism",
+          "zh": "采样导致同样输入可能得到不同输出，系统要能容忍差异，用评估衡量整体质量。"
+        },
+        {
+          "term": "Thinking & effort",
+          "zh": "扩展/自适应思考提升复杂推理；effort 调节投入多少计算，以速度和成本换质量。"
+        }
+      ],
+      "example": {
+        "bad": "以为把 temperature 设为 0 就能让输出完全一致、永不出错。",
+        "good": "接受输出有差异，用评估集衡量正确率；对复杂任务开启思考，对简单分类用低 effort。",
+        "whyZh": "理解 LLM 的工作原理，才能对其能力和局限做出合理的设计。"
+      },
+      "pitfalls": [
+        "把“一个 token 等于一个单词”当作成本估算依据。",
+        "认为系统提示词的 token 不收费。"
+      ],
+      "examTips": [
+        "给出多个示例 = 多样本（few-shot）提示。",
+        "复杂数学/规划 → 开启扩展思考；简单快速 → 降低 effort。"
+      ],
+      "practiceZh": "用 token 计数接口比较同一段中文和英文的 token 数，体会 token 与字数的差别。",
+      "references": [
+        {
+          "title": "Prompt engineering overview",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
+        },
+        {
+          "title": "Context windows",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows"
+        },
+        {
+          "title": "Extended thinking",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking"
+        }
+      ]
+    },
+    {
+      "id": "D5-2",
+      "domain": "D5",
+      "objective": "Technical Fundamentals",
+      "titleZh": "技术基础",
+      "summaryZh": "开发 AI 应用需要的基础：SDK 如何封装 REST API、认证方式（x-api-key 头和环境变量）、messages 的结构、SSE 流式事件、WebSocket 等双向连接、超时与重试，以及 token 计数。",
+      "concepts": [
+        {
+          "term": "SDK wraps REST",
+          "zh": "SDK 发送与 REST 相同的请求，额外提供类型、错误类、流式辅助和重试。"
+        },
+        {
+          "term": "Authentication",
+          "zh": "API 密钥放在 x-api-key 头中；SDK 默认读取 ANTHROPIC_API_KEY 环境变量。"
+        },
+        {
+          "term": "SSE vs. WebSocket",
+          "zh": "SSE 是服务器到客户端的单向流（Claude 流式输出使用）；WebSocket 是持久双向连接。"
+        },
+        {
+          "term": "Token counting",
+          "zh": "可在发送前用计数接口估算输入 token；响应的 usage 字段返回实际用量。"
+        }
+      ],
+      "example": {
+        "bad": "把 API 密钥写在源码常量中，所有请求都不设超时。",
+        "good": "密钥从环境变量或密钥管理服务读取；为长请求设置合理超时，只对可重试错误退避重试。",
+        "whyZh": "扎实的技术基础让集成稳定、安全，也更容易排查问题。"
+      },
+      "pitfalls": [
+        "把系统提示词放成 role 为 system 的第一条消息。",
+        "以为流式输出返回的是一个完整的 JSON 对象。"
+      ],
+      "examTips": [
+        "认证 = API 密钥 + 请求头。",
+        "持续双向实时通信 → WebSocket；Claude 流式输出 → SSE。"
+      ],
+      "practiceZh": "不用 SDK，用 curl 直接调用一次 Messages API，再用 SDK 调用一次，比较两者的请求内容。",
+      "references": [
+        {
+          "title": "API overview",
+          "url": "https://platform.claude.com/docs/en/api/overview"
+        },
+        {
+          "title": "Client SDKs",
+          "url": "https://platform.claude.com/docs/en/api/client-sdks"
+        },
+        {
+          "title": "Token counting",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/token-counting"
+        }
+      ]
+    },
+    {
+      "id": "D5-3",
+      "domain": "D5",
+      "objective": "Model Selection and Tradeoffs",
+      "titleZh": "模型选择与取舍",
+      "summaryZh": "在质量、延迟、成本之间权衡：Haiku 快且便宜，Sonnet 平衡，Opus 能力最强。用代表性评估集测试，选满足要求的最经济模型；也可以组合使用（小模型路由、大模型处理难题）。升级模型前要查看破坏性变化。",
+      "concepts": [
+        {
+          "term": "Model tiers",
+          "zh": "Haiku 适合大批量、低延迟；Sonnet 适合大多数生产任务；Opus 适合最复杂的推理和编码。"
+        },
+        {
+          "term": "Eval-driven choice",
+          "zh": "用同一评估集比较候选模型的质量、延迟、成本，选能达标的最便宜的。"
+        },
+        {
+          "term": "Routing",
+          "zh": "便宜模型判断难度，只把复杂请求交给能力更强的模型。"
+        },
+        {
+          "term": "Breaking changes",
+          "zh": "新模型可能改变支持的参数或默认行为，升级前读迁移说明并回归测试。"
+        }
+      ],
+      "example": {
+        "bad": "所有请求都用最强的模型，“以防万一”，成本是需要的五倍。",
+        "good": "评估后发现 Haiku 在分类上达标，Sonnet 处理需要推理的工单，只有极少数难题升级到 Opus。",
+        "whyZh": "模型选择要基于数据，而不是“越大越好”或“越新越好”。"
+      },
+      "pitfalls": [
+        "没有评估就直接选择最新或最贵的模型。",
+        "升级模型时不检查参数和行为的变化。"
+      ],
+      "examTips": [
+        "正解通常是“在评估集上测试，选满足要求的最便宜模型”。",
+        "大批量、低延迟的简单任务 → 从 Haiku 开始。"
+      ],
+      "practiceZh": "选一个任务，分别用两档模型跑同一组 20 条测试，记录正确率、平均延迟和 token 成本。",
+      "references": [
+        {
+          "title": "Choosing a model",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+        },
+        {
+          "title": "Models overview",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/overview"
+        },
+        {
+          "title": "Model deprecations",
+          "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations"
+        }
+      ]
+    },
+    {
+      "id": "D5-4",
+      "domain": "D5",
+      "objective": "Cost and Token Management",
+      "titleZh": "成本与 token 管理",
+      "summaryZh": "成本 = 输入 token + 输出 token（按模型单价）+ 缓存读写。降本手段：提示缓存（不变的前缀放前面）、Batch API（不急的任务）、合适的模型档位、精简上下文和工具输出、控制输出长度。用 usage 字段跟踪实际用量。",
+      "concepts": [
+        {
+          "term": "Prompt caching",
+          "zh": "按前缀匹配：工具 → 系统提示词 → 消息。不变内容放前面，动态内容放在缓存断点之后。"
+        },
+        {
+          "term": "Cache metrics",
+          "zh": "usage 中的 cache_creation_input_tokens 和 cache_read_input_tokens 用来确认缓存是否命中。"
+        },
+        {
+          "term": "Batch discount",
+          "zh": "不需要即时结果的大批量任务用 Batch API，单价更低。"
+        },
+        {
+          "term": "Cost modeling",
+          "zh": "按请求类型记录 token 用量，乘以请求量和单价，预测月度成本。"
+        }
+      ],
+      "example": {
+        "bad": "在系统提示词最开头插入当前时间戳，缓存命中率变成零，成本反而上升。",
+        "good": "把时间戳移到用户消息中，系统提示词和参考文档保持不变并设置缓存断点，通过 usage 确认命中。",
+        "whyZh": "缓存和批处理用对了，同样的功能成本可以大幅下降。"
+      },
+      "pitfalls": [
+        "加了 cache_control 就以为缓存一定生效，不看 usage。",
+        "工具每次返回完整的原始数据，token 成本不断上涨。"
+      ],
+      "examTips": [
+        "缓存失效的原因通常是“前缀每次都在变化”。",
+        "降本的组合答案：缓存 + 批处理。"
+      ],
+      "practiceZh": "给你的应用加上缓存断点，连续调用两次，对比两次响应 usage 中的缓存字段。",
+      "references": [
+        {
+          "title": "Prompt caching",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+        },
+        {
+          "title": "Pricing",
+          "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+        },
+        {
+          "title": "Batch processing",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing"
+        }
+      ]
+    },
+    {
+      "id": "D6-1",
+      "domain": "D6",
+      "objective": "Context Engineering",
+      "titleZh": "上下文工程",
+      "summaryZh": "上下文是有限资源。上下文工程决定每一步放入哪些信息、以什么形式：只放相关内容，清理旧工具结果，压缩历史（compaction），用子智能体隔离大量中间结果，防止上下文漂移和膨胀。上下文越长，模型越容易被无关内容分心，成本也越高。",
+      "concepts": [
+        {
+          "term": "Context drift",
+          "zh": "长会话中模型逐渐偏离最初目标；可用摘要重申目标、清理无关内容来纠正。"
+        },
+        {
+          "term": "Context bloat",
+          "zh": "冗长的工具输出和历史占满上下文，降低准确性并增加成本。"
+        },
+        {
+          "term": "Compaction",
+          "zh": "把较早的对话总结成精简内容，保留关键决定和状态，释放空间。"
+        },
+        {
+          "term": "Isolation",
+          "zh": "把搜索、读大量文件等工作交给子智能体，主智能体只接收结论。"
+        }
+      ],
+      "example": {
+        "bad": "智能体把几百条搜索结果全部放进主上下文，后面的决策越来越差。",
+        "good": "由子智能体执行搜索并只返回摘要；主智能体定期压缩历史，并在摘要中重申目标。",
+        "whyZh": "让模型在每一步只看到最需要的信息，是长任务稳定运行的关键。"
+      },
+      "pitfalls": [
+        "认为上下文窗口越大就可以什么都放进去。",
+        "永久保留每个中间结果“以防万一”。"
+      ],
+      "examTips": [
+        "“忘记目标、纠结细节”→ 上下文漂移，用摘要重申目标。",
+        "“主上下文保持干净”→ 子智能体隔离。"
+      ],
+      "practiceZh": "观察一次长 Claude Code 会话，在合适的时机使用 /compact，比较压缩前后的表现。",
+      "references": [
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        },
+        {
+          "title": "Context editing",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing"
+        }
+      ]
+    },
+    {
+      "id": "D6-2",
+      "domain": "D6",
+      "objective": "Prompt Engineering",
+      "titleZh": "提示工程",
+      "summaryZh": "好的提示词：清晰直接（读者、目的、长度、要点、语气）、用 XML 标签分隔指令和资料、多样的示例、说明规则的原因、说“要做什么”而不是只说“不要做什么”。不可信输入要清洗并标注为数据。迭代时一次只改一处。",
+      "concepts": [
+        {
+          "term": "Be clear and direct",
+          "zh": "把 Claude 当作聪明但不了解背景的新同事，写清目的、读者、格式和例外处理。"
+        },
+        {
+          "term": "XML tags",
+          "zh": "用 <instructions>、<document>、<example> 等标签分隔内容，减少混淆，方便程序替换。"
+        },
+        {
+          "term": "Examples",
+          "zh": "示例要多样、相关，否则模型会照搬表面措辞。"
+        },
+        {
+          "term": "System vs. user",
+          "zh": "稳定的角色和规则放系统提示词，具体任务和数据放 user 消息，不可信输入要标注为数据。"
+        }
+      ],
+      "example": {
+        "bad": "“写点关于这个水杯的好话。永远不要用 markdown！！！”",
+        "good": "“为忙碌的通勤族写 60 词的水杯描述，提到防漏杯盖和 12 小时保冷；用连贯段落书写，因为内容会被语音朗读。”",
+        "whyZh": "具体条件加上原因，模型能更稳定地产出符合预期的结果。"
+      },
+      "pitfalls": [
+        "用“你是世界上最好的作家”代替具体条件。",
+        "每次测试后都从头重写提示词，不知道哪处改动有效。"
+      ],
+      "examTips": [
+        "含“具体的读者、长度、要点”的提示词通常是正解。",
+        "混淆指令与资料 → 用 XML 标签分隔。"
+      ],
+      "practiceZh": "挑一个你常用的提示词，按“目的、读者、格式、例外、原因”五项重写，并用 5 个测试用例对比前后效果。",
+      "references": [
+        {
+          "title": "Prompting best practices",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+        },
+        {
+          "title": "Prompt engineering overview",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
+        }
+      ]
+    },
+    {
+      "id": "D6-3",
+      "domain": "D6",
+      "objective": "Output Handling",
+      "titleZh": "输出处理",
+      "summaryZh": "要被程序使用的输出：用结构化输出（schema 约束）生成，用代码校验格式和业务规则，检查 stop_reason（截断的 JSON 不能用），允许 null 以避免编造，对未知值有明确处理。对自信的输出保持怀疑。",
+      "concepts": [
+        {
+          "term": "Structured outputs",
+          "zh": "按 JSON schema 约束生成，比只在提示词中要求“返回 JSON”更可靠。"
+        },
+        {
+          "term": "Validation",
+          "zh": "代码校验格式和业务规则（金额、日期、枚举），失败时重试或转人工。"
+        },
+        {
+          "term": "Defensive parsing",
+          "zh": "先看 stop_reason，max_tokens 截断的结果要丢弃重试；未知值有默认处理。"
+        },
+        {
+          "term": "Skepticism",
+          "zh": "语气肯定不代表正确，关键事实、数字和引用要核实。"
+        }
+      ],
+      "example": {
+        "bad": "下游系统直接解析模型的回答，status 字段出现意外值时整个流程崩溃。",
+        "good": "schema 中把 status 设为 enum，代码对未知值记录日志并走备用流程；日期字段允许 null。",
+        "whyZh": "把模型输出当作需要验证的外部数据，系统才稳健。"
+      },
+      "pitfalls": [
+        "补上截断 JSON 缺失的括号后继续使用。",
+        "要求每个字段都必须有值，即使原文中没有。"
+      ],
+      "examTips": [
+        "最强的格式保证 = 结构化输出 + 代码校验。",
+        "“没有日期的信件”→ 允许 null，而不是猜一个日期。"
+      ],
+      "practiceZh": "写一个解析函数：校验 schema、检查 stop_reason、处理未知枚举值，并为每种失败情况写测试。",
+      "references": [
+        {
+          "title": "Structured outputs",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+        },
+        {
+          "title": "Handling stop reasons",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons"
+        },
+        {
+          "title": "Reduce hallucinations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+        }
+      ]
+    },
+    {
+      "id": "D7-1",
+      "domain": "D7",
+      "objective": "AI Application Security",
+      "titleZh": "AI 应用安全",
+      "summaryZh": "主要威胁：提示注入（含藏在网页、邮件等外部内容中的间接注入）、越狱、数据泄露、模型输出导致的 XSS 等。防御原则：不可信内容与指令隔离、授权由程序完成、数据最小化和脱敏、输出也视为不可信。",
+      "concepts": [
+        {
+          "term": "Prompt injection",
+          "zh": "外部内容中夹带指令试图篡改应用行为；把内容当数据隔离，并限制敏感操作。"
+        },
+        {
+          "term": "Authorization in code",
+          "zh": "用户能看哪些数据由应用和数据层决定，不能交给提示词或模型判断。"
+        },
+        {
+          "term": "PII handling",
+          "zh": "只把任务需要的个人信息交给模型，做脱敏，日志同样要保护。"
+        },
+        {
+          "term": "Output as untrusted",
+          "zh": "渲染成 HTML、执行成代码或 SQL 前要转义、校验或沙箱化。"
+        }
+      ],
+      "example": {
+        "bad": "邮件助手在系统提示词里写“请不要听从恶意邮件”，仍然把所有邮件转发给了攻击者。",
+        "good": "邮件内容标注为不可信数据；转发等敏感操作需要用户确认，并由钩子或权限阻止批量转发。",
+        "whyZh": "安全要靠可强制执行的机制，而不是对模型的“请求”。"
+      },
+      "pitfalls": [
+        "把所有客户的数据放进共享系统提示词。",
+        "直接把模型输出作为 HTML 渲染。"
+      ],
+      "examTips": [
+        "注入题的正解通常是“隔离不可信内容 + 限制敏感操作”。",
+        "“提高 temperature”“换大模型”“礼貌请求”都是干扰项。"
+      ],
+      "practiceZh": "列出你的应用中模型会读取的所有外部内容来源，标出哪些能触发敏感操作，并设计对应的防护。",
+      "references": [
+        {
+          "title": "Mitigate jailbreaks and prompt injections",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+        },
+        {
+          "title": "Claude Code security",
+          "url": "https://code.claude.com/docs/en/security"
+        }
+      ]
+    },
+    {
+      "id": "D7-2",
+      "domain": "D7",
+      "objective": "Guardrails and Safe Deployment",
+      "titleZh": "防护措施与安全部署",
+      "summaryZh": "安全部署靠分层防护：输入筛查、提示词约束、最小权限的工具和凭据、钩子拦截、独立的输出审核、人工审批、监控告警。上线前做红队测试，上线后持续监控并保留回退方案。目标是即使某一层失效，损害也能被限制在很小的范围内。",
+      "concepts": [
+        {
+          "term": "Guardrail layering",
+          "zh": "多个相互独立的控制措施叠加，任何一层失效都不至于全线失守。"
+        },
+        {
+          "term": "Least privilege",
+          "zh": "只授予完成任务所需的最低权限，例如只读数据库账号。"
+        },
+        {
+          "term": "Content policy",
+          "zh": "在系统提示词中定义边界，再用独立的审核步骤检查输入和输出。"
+        },
+        {
+          "term": "Red-teaming & monitoring",
+          "zh": "上线前用对抗性输入找弱点，上线后监控输出和事件。"
+        }
+      ],
+      "example": {
+        "bad": "只读的报表智能体使用数据库管理员账号，以免遇到权限错误。",
+        "good": "改用只能访问所需表的只读账号；输出再经过独立的审核检查，上线后监控被标记的事件。",
+        "whyZh": "把可能的损害限制在最小范围，是安全设计的基本思路。"
+      },
+      "pitfalls": [
+        "为了隐私完全关闭日志，导致无法发现问题。",
+        "只靠屏蔽几个关键词来过滤不当内容。"
+      ],
+      "examTips": [
+        "“分层防护”= 组合多个独立控制，而不是重复写同一条规则。",
+        "只需读取 → 只读、范围最小的凭据。"
+      ],
+      "practiceZh": "为你的应用画一张防护层级图：从输入到输出，每一层用什么控制措施。",
+      "references": [
+        {
+          "title": "Mitigate jailbreaks and prompt injections",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+        },
+        {
+          "title": "Agent SDK permissions",
+          "url": "https://code.claude.com/docs/en/agent-sdk/permissions"
+        }
+      ]
+    },
+    {
+      "id": "D7-3",
+      "domain": "D7",
+      "objective": "Claude Hooks",
+      "titleZh": "Claude 钩子",
+      "summaryZh": "钩子在固定事件点运行你的代码：PreToolUse（执行前，可阻止）、PostToolUse（执行后，适合格式化和日志）、UserPromptSubmit、SessionStart、Stop 等。安全关键的规则用钩子或权限强制执行，因为它们由程序保证执行。",
+      "concepts": [
+        {
+          "term": "PreToolUse",
+          "zh": "在工具执行前检查参数，可以阻止危险命令，并把原因反馈给 Claude。"
+        },
+        {
+          "term": "PostToolUse",
+          "zh": "在工具执行后运行，适合自动格式化、跑检查、写审计日志。"
+        },
+        {
+          "term": "Deterministic control",
+          "zh": "提示词是概率性的引导；钩子由代码每次执行，适合“必须/禁止”的规则。"
+        },
+        {
+          "term": "Feedback to Claude",
+          "zh": "被阻止的调用不会执行，原因会反馈给 Claude，让它换一种安全的做法。"
+        }
+      ],
+      "example": {
+        "bad": "在 CLAUDE.md 里写“删除文件时请小心”，某次重构中 Claude 仍然执行了 rm -rf。",
+        "good": "配置 PreToolUse 钩子（或 deny 权限规则）匹配危险命令并阻止，给出原因让 Claude 改用安全的做法。",
+        "whyZh": "钩子把安全规则从“希望遵守”变成“必定执行”。"
+      },
+      "pitfalls": [
+        "用 PostToolUse 钩子来“防止”删除——执行后才运行，已经来不及了。",
+        "认为有了钩子就不需要权限设置。"
+      ],
+      "examTips": [
+        "“执行前阻止”→ PreToolUse；“编辑后格式化”→ PostToolUse。",
+        "安全关键规则的正解通常是钩子或权限，而不是提示词。"
+      ],
+      "practiceZh": "在 Claude Code 中配置一个 PreToolUse 钩子，拦截包含 rm -rf 的命令，并测试它是否生效。",
+      "references": [
+        {
+          "title": "Hooks",
+          "url": "https://code.claude.com/docs/en/hooks"
+        },
+        {
+          "title": "Agent SDK hooks",
+          "url": "https://code.claude.com/docs/en/agent-sdk/hooks"
+        }
+      ]
+    },
+    {
+      "id": "D7-4",
+      "domain": "D7",
+      "objective": "Identity, Secrets, and Key Management",
+      "titleZh": "身份、密钥与凭据管理",
+      "summaryZh": "API 密钥只放在服务器端，通过环境变量或密钥管理服务注入；按环境分开密钥或工作区，定期轮换并监控用量；泄露时立即吊销。执行敏感操作前由系统验证用户身份和权限，并记录审计日志。密钥一旦外泄，就要假设它已经被滥用。",
+      "concepts": [
+        {
+          "term": "Server-side keys",
+          "zh": "浏览器和移动应用中的密钥会被提取；由后端保存密钥并代为调用 Claude。"
+        },
+        {
+          "term": "Separation",
+          "zh": "开发、测试、生产使用不同的密钥或工作区，便于控制影响范围和统计用量。"
+        },
+        {
+          "term": "Rotation & revocation",
+          "zh": "定期轮换；泄露后立即吊销，再清理历史并加入密钥扫描。"
+        },
+        {
+          "term": "Identity & access",
+          "zh": "执行操作前验证身份和权限级别，记录并监控访问。"
+        }
+      ],
+      "example": {
+        "bad": "移动应用直接内置 API 密钥；有人把密钥提交到公开仓库后，团队只删除了那次提交。",
+        "good": "密钥只放在后端；泄露后立即吊销并更换，检查使用记录，CI 中加入密钥扫描。",
+        "whyZh": "密钥一旦泄露就要假设已被利用，第一步永远是吊销。"
+      },
+      "pitfalls": [
+        "所有团队通过邮件共用一个密钥。",
+        "认为内部工具不需要验证身份和权限。"
+      ],
+      "examTips": [
+        "密钥泄露 → 立即吊销/轮换。",
+        "客户端应用 → 密钥放后端。"
+      ],
+      "practiceZh": "检查你的项目：密钥是否出现在代码、配置文件或日志中？为开发和生产分别创建密钥。",
+      "references": [
+        {
+          "title": "Client SDKs",
+          "url": "https://platform.claude.com/docs/en/api/client-sdks"
+        },
+        {
+          "title": "Identity and access management",
+          "url": "https://code.claude.com/docs/en/iam"
+        }
+      ]
+    },
+    {
+      "id": "D8-1",
+      "domain": "D8",
+      "objective": "Tool Implementation",
+      "titleZh": "工具实现",
+      "summaryZh": "工具定义 = name + description + input_schema。描述要写清用途、何时使用、参数格式和示例；客户端工具由应用执行并按 tool_use_id 回传结果，服务器工具由 Anthropic 执行。高风险操作在工具代码中加审批，tool_choice 可强制使用工具。",
+      "concepts": [
+        {
+          "term": "Tool description",
+          "zh": "像给新同事写说明：用途、使用时机、参数含义和格式、限制和示例。"
+        },
+        {
+          "term": "Client vs. server tools",
+          "zh": "客户端工具由你的应用执行并回传；服务器工具（如网页搜索）在平台侧执行。"
+        },
+        {
+          "term": "Parallel tool use",
+          "zh": "一次响应中可能有多个 tool_use，要在下一条 user 消息中分别回传对应的 tool_result。"
+        },
+        {
+          "term": "Approval pattern",
+          "zh": "退款等高风险操作在工具处理代码中检查条件，需要人工确认后才执行。"
+        }
+      ],
+      "example": {
+        "bad": "search_orders 工具的描述只有一句“搜索订单”，Claude 经常用错日期格式。",
+        "good": "描述中写明“日期使用 ISO 8601（如 2026-10-24）”，schema 加 format 和示例；格式错误时返回明确的错误信息。",
+        "whyZh": "清晰的工具接口能显著减少调用错误。"
+      },
+      "pitfalls": [
+        "并行调用时只回传第一个工具的结果。",
+        "把审批规则只写在提示词里，让 Claude 自己决定是否需要批准。"
+      ],
+      "examTips": [
+        "工具定义三要素：name、description、input_schema。",
+        "强制使用某个工具 → tool_choice 指定该工具。"
+      ],
+      "practiceZh": "实现一个带两个工具的小应用，故意让一个工具返回错误，观察 Claude 如何根据 is_error 调整。",
+      "references": [
+        {
+          "title": "Define tools",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools"
+        },
+        {
+          "title": "Handle tool calls",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+        },
+        {
+          "title": "Writing tools for agents",
+          "url": "https://www.anthropic.com/engineering/writing-tools-for-agents"
+        }
+      ]
+    },
+    {
+      "id": "D8-2",
+      "domain": "D8",
+      "objective": "MCP Server Development",
+      "titleZh": "MCP 服务器开发",
+      "summaryZh": "MCP 是连接模型与外部系统的开放协议。服务器提供三种原语：tools、resources、prompts；宿主应用中的客户端与服务器连接；本地进程常用 stdio，远程服务器用 HTTP 传输。团队共享用项目级 .mcp.json；远程服务器要做认证授权和版本管理。",
+      "concepts": [
+        {
+          "term": "Primitives",
+          "zh": "tools（可调用的操作）、resources（可读取的数据）、prompts（可复用的提示模板）。"
+        },
+        {
+          "term": "Host / client / server",
+          "zh": "宿主（如 Claude Code）内的客户端与服务器保持连接，把能力交给模型。"
+        },
+        {
+          "term": "Transports",
+          "zh": "本地进程用 stdio；远程服务器用基于 HTTP 的传输；消息格式为 JSON-RPC。"
+        },
+        {
+          "term": "Reuse",
+          "zh": "一个 MCP 服务器可被多个客户端复用，并由专门团队独立维护。"
+        }
+      ],
+      "example": {
+        "bad": "三个应用各自在代码里复制了一份调用库存系统的工具，接口一变要改三处。",
+        "good": "构建一个库存 MCP 服务器，三个应用都连接它；服务器做认证授权和版本管理。",
+        "whyZh": "MCP 把“连接外部系统”这件事标准化、可复用。"
+      },
+      "pitfalls": [
+        "把内部所有管理功能都暴露为工具，违反最小权限。",
+        "把凭据直接写进提交到仓库的 .mcp.json。"
+      ],
+      "examTips": [
+        "三种原语 = 工具、资源、提示模板。",
+        "多个应用复用、独立维护 → MCP 服务器。"
+      ],
+      "practiceZh": "用官方 SDK 写一个提供一个工具和一个资源的 MCP 服务器，在 Claude Code 中用 stdio 连接测试。",
+      "references": [
+        {
+          "title": "Connect Claude Code to tools via MCP",
+          "url": "https://code.claude.com/docs/en/mcp"
+        },
+        {
+          "title": "MCP connector",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/mcp-connector"
+        }
+      ]
+    },
+    {
+      "id": "D8-3",
+      "domain": "D8",
+      "objective": "Agentic Customization",
+      "titleZh": "智能体定制方式的选择",
+      "summaryZh": "四种扩展方式各有定位：内置工具（平台已提供，零实现）、自定义工具（应用内的具体操作）、Skills（打包的知识、流程和脚本，按需加载）、MCP（连接外部系统，多客户端复用）。还要知道子智能体适合“专职角色”。",
+      "concepts": [
+        {
+          "term": "Built-in tools",
+          "zh": "如网页搜索、代码执行、文件操作，不需要自己实现，是最省事的选择。"
+        },
+        {
+          "term": "Custom tools",
+          "zh": "单个应用专用的简单操作，直接在请求中定义最简单。"
+        },
+        {
+          "term": "Skills",
+          "zh": "回答“怎么做”：说明、知识和脚本打包，只在相关时加载，不长期占用上下文。"
+        },
+        {
+          "term": "MCP servers",
+          "zh": "回答“连到哪里”：实时访问外部系统和数据，可被多个客户端复用。"
+        }
+      ],
+      "example": {
+        "bad": "为了让 Claude 按公司格式写报告，团队搭建并部署了一个远程 MCP 服务器来提供写作规范。",
+        "good": "把写作规范和格式化脚本做成一个 Skill；只有需要实时访问工单系统时才用 MCP。",
+        "whyZh": "按“要教的是做法，还是要连的是系统”来选，能避免过度工程。"
+      },
+      "pitfalls": [
+        "以为内置工具能自动访问任何内部 API。",
+        "单个应用的一个简单函数也去部署远程 MCP 服务器。"
+      ],
+      "examTips": [
+        "知识/流程 → Skill；外部系统/实时数据 → MCP；单应用简单操作 → 自定义工具；通用能力 → 内置工具。",
+        "专职审查角色、受限工具 → 子智能体。"
+      ],
+      "practiceZh": "列出你团队想让 Claude 做的五件事，分别判断用内置工具、自定义工具、Skill、MCP 还是子智能体。",
+      "references": [
+        {
+          "title": "Skills",
+          "url": "https://code.claude.com/docs/en/skills"
+        },
+        {
+          "title": "Tool use overview",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"
+        },
+        {
+          "title": "Connect Claude Code to tools via MCP",
+          "url": "https://code.claude.com/docs/en/mcp"
+        }
+      ]
+    }
+  ]
+}

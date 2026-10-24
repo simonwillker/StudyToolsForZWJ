@@ -454,4 +454,42 @@ test("blueprintCounts は合計を必ず total に合わせる", () => {
   assert.deepEqual(c, { D1: 16, D2: 11, D3: 12, D4: 12, D5: 9 });
 });
 
+/* ---------- CCDV-F（配点が小数の資格） ---------- */
+const dvDir = join(certRoot, "ccdvf");
+const dvMeta = JSON.parse(readFileSync(join(dvDir, "meta.json"), "utf8"));
+const dvItems = readdirSync(dvDir)
+  .filter((f) => /^d\d+-.*\.json$/.test(f))
+  .flatMap((f) => JSON.parse(readFileSync(join(dvDir, f), "utf8")).items);
+
+test("CCDV-F：小数の配点でも 53 問の内訳が合計 53 になり、各ドメインに足りる問題がある", () => {
+  const c = core.blueprintCounts(dvMeta.domains, dvMeta.examFormat.items);
+  assert.equal(Object.values(c).reduce((a, b) => a + b, 0), 53);
+  assert.deepEqual(c, { D1: 8, D2: 17, D3: 2, D4: 1, D5: 9, D6: 6, D7: 4, D8: 6 }, "最大剰余法：33.1% の D2 は 17.54 → 17 問");
+  dvMeta.domains.forEach((d) => {
+    const n = dvItems.filter((i) => i.domain === d.id).length;
+    assert.ok(n >= c[d.id] * 2, `${d.id}: ${n} 問（模試 2 回分 ${c[d.id] * 2} 問以上ほしい）`);
+  });
+});
+
+test("CCDV-F は選べる資格になっていて、記録は ccdvf* の別キーに入る", () => {
+  resetAll();
+  const cert = certs.findCert("ccdvf");
+  assert.equal(cert.status, "ready");
+  certState.setActiveCertState("ccdvf");
+  mistakes.recordMistakeAnswer({ id: "dv1-001", domain: "D1" }, false);
+  assert.ok(JSON.parse(ls.getItem("ccdvfMistakesV1")).items["dv1-001"]);
+  assert.equal(ls.getItem("ccaofMistakesV1"), null);
+  certState.setActiveCertState("ccaof");
+});
+
+test("合格予測：小数の配点でも「配点の何%ぶん」は小数第 1 位まで", () => {
+  const objectives = core.buildObjectives(dvMeta);
+  const stats = {};
+  objectives.forEach((o) => {
+    if (o.domain === "D1" || o.domain === "D2" || o.domain === "D5") stats[o.id] = { attempted: 10, correct: 8 };
+  });
+  const p = core.predictScore({ results: [], objectives, objectiveStats: stats, domains: dvMeta.domains, examFormat: dvMeta.examFormat });
+  assert.equal(p.coveredWeight, 64.6);
+});
+
 console.log(`\n✅ ${passed} 件すべて成功\n`);
