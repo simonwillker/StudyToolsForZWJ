@@ -1,5 +1,8 @@
 /* ============================================================
-   Sapix（学年×科目）：学習記録と復習リスト
+   Sapix（学年×科目）：学習記録
+
+   まちがえた問題は錯題本（sapixStudy.js、v1.41.0〜）に入れる。
+   v1.40.0 までの復習リスト（reviewKey）は錯題本に移したので、もう書きかえない。
 
    claudeCert/progress.js と同じ考え方。軸は「単元」。教科ごとに別のキー
    （sapixStorage.js の storageKeys。4年は以前からのキーのまま）に保存して、
@@ -10,6 +13,7 @@
 import { learnerKey } from "./learner";
 import { findUnit } from "./sapixSubjects";
 import { recordStudy } from "./studyLog";
+import { recordMistakeAnswer, mistakeIds, mistakeSummary, resetMistakes, resetTestResults } from "./sapixStudy";
 
 function read(key, fallback) {
   try {
@@ -43,11 +47,14 @@ export function loadProgress(subject) {
   return p;
 }
 
-/** 1問答えるごとに呼ぶ。review は「まちがえた問題だけ」で解いているとき */
-export function recordAnswer(subject, unitId, itemId, isCorrect, review = false) {
+/**
+ * 1問答えるごとに呼ぶ。
+ * review：錯題・今日の復習で解いているとき。logLabel：勉強履歴に出す名前（まとめテストは「まとめテスト」）
+ */
+export function recordAnswer(subject, unitId, itemId, isCorrect, review = false, logLabel = null) {
   const unit = findUnit(subject, unitId);
   const label = unit ? unit.label : unitId;
-  recordStudy(subject.logTitle, review ? `${label}（復習）` : label, isCorrect);
+  recordStudy(subject.logTitle, logLabel || (review ? `${label}（復習）` : label), isCorrect);
 
   const store = loadProgress(subject);
   const u = store.units[unitId] || { attempted: 0, correct: 0, lastAt: null, items: {} };
@@ -68,14 +75,8 @@ export function recordAnswer(subject, unitId, itemId, isCorrect, review = false)
   store.daily[key] = day;
   write(subject.progressKey, store);
 
-  // 復習リスト：まちがえたら入れ、正解したら外す
-  const rv = loadReview(subject);
-  const list = rv[unitId] || [];
-  const idx = list.indexOf(itemId);
-  if (isCorrect && idx >= 0) list.splice(idx, 1);
-  if (!isCorrect && idx < 0) list.push(itemId);
-  rv[unitId] = list;
-  write(subject.reviewKey, rv);
+  // 錯題本：まちがえたら 1日後に出し直す。期限が来てからの正解で間をのばし、2回続けて正解で外す
+  recordMistakeAnswer(subject, unitId, itemId, isCorrect);
 }
 
 /** 20問を通して解き終えたときの点数を残す（単元一覧に「前回」として出す） */
@@ -125,19 +126,20 @@ export function getTodayStats(subject) {
   return loadProgress(subject).daily[localDateKey()] || { attempted: 0, correct: 0 };
 }
 
-export function loadReview(subject) {
-  return read(subject.reviewKey, {});
-}
-
+/** その単元の錯題本にある問題の id（期限の早い順） */
 export function getReviewIds(subject, unitId) {
-  return loadReview(subject)[unitId] || [];
+  return mistakeIds(subject, unitId);
 }
 
+/** 錯題本の件数（全単元） */
 export function getTotalReviewCount(subject) {
-  return Object.values(loadReview(subject)).reduce((n, list) => n + (Array.isArray(list) ? list.length : 0), 0);
+  return mistakeSummary(subject).total;
 }
 
+/** その科目の学習記録・復習リスト・錯題本・まとめテストの結果を消す */
 export function resetProgress(subject) {
   write(subject.progressKey, { units: {}, daily: {} });
   write(subject.reviewKey, {});
+  resetMistakes(subject);
+  resetTestResults(subject);
 }
