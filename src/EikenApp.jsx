@@ -18,11 +18,15 @@ import {
 } from "./eikenProgress";
 import {
   recordReviewResult,
-  getReviewEntries,
-  getReviewCount,
+  getDueReviewEntries,
+  getReviewSummary,
   getReviewCountByMode,
   clearLevelReview,
+  REVIEW_INTERVALS,
+  GRADUATE_STREAK,
 } from "./eikenReview";
+import ScoreTrend from "./ScoreTrend.jsx";
+import { getTestResults } from "./eikenTestResults";
 import { downloadBackup, parseBackup, applyBackup, describeBackup } from "./eikenBackup";
 import {
   isSpeechSynthesisSupported,
@@ -735,10 +739,10 @@ function DialogueHeader({ item, answered }) {
    復習ドリル：まちがえた問題だけを集めて出題する
    ============================================================ */
 
-/** 復習リストにある問題だけを、元のモードの出題形式で組み立て直す。
+/** 今日の復習：錯題本のうち、きょうが期限の問題だけを元のモードの出題形式で組み立て直す。
  *  どの問題も元のモードを reviewMode として持ち回り、解答時の記録に使う。 */
 function buildReviewItems(level, vocabDirection) {
-  const entries = getReviewEntries(level.level);
+  const entries = getDueReviewEntries(level.level);
   if (!entries.length) return [];
 
   const idsOf = (mode) => new Set(entries.filter((e) => e.mode === mode).map((e) => e.itemId));
@@ -1133,7 +1137,7 @@ function ProgressDashboard({ onBack }) {
       `${when} のバックアップです。\n\n` +
         `・解いた問題　${d.attempted}問（正解 ${d.correct}問）\n` +
         `・学習した日数　${d.days}日\n` +
-        `・復習リスト　${d.reviewCount}問\n` +
+        `・錯題本（今日の復習）　${d.reviewCount}問\n` +
         `・模擬テスト　${d.tests}回\n` +
         `・単語テスト　${d.vocabTests}回\n\n` +
         `今この端末にある記録は、これで置き換えられます。よろしいですか？`
@@ -1255,6 +1259,30 @@ function ProgressDashboard({ onBack }) {
             );
           })}
         </div>
+
+        <div className="eiken-sub-head">模擬テストの得点推移</div>
+        {LEVEL_META.every((lv) => !getTestResults(lv.level).length) ? (
+          <div className="eiken-empty-note">まだ模擬テストを受けていません。</div>
+        ) : (
+          LEVEL_META.map((lv) => {
+            const list = getTestResults(lv.level);
+            if (!list.length) return null;
+            const best = list.reduce((b, r) => (r.percent > b.percent ? r : b), list[0]);
+            return (
+              <div className="eiken-vt-dash" key={lv.level}>
+                <div className="eiken-mode-stat-top">
+                  <span className="eiken-mode-stat-name" style={{ color: lv.color }}>{lv.levelLabel}</span>
+                  <span className="eiken-mode-stat-num">{list.length}回 ／ 最高 {best.percent}%</span>
+                </div>
+                <ScoreTrend
+                  results={list.slice(0, 20).reverse()}
+                  color={lv.color}
+                  describe={(r) => `${r.examMode === "honban" ? "本番" : "練習"}モード　`}
+                />
+              </div>
+            );
+          })
+        )}
 
         <div className="eiken-sub-head">単語テストの得点推移（3級・準2級・2級）</div>
         {VOCAB_TEST_LEVELS.every((lv) => !summarizeVocabTests(lv)) ? (
@@ -1406,12 +1434,14 @@ export default function EikenApp({ onExitApp }) {
     };
   }, [screen, levelId, loadNonce]);
 
-  const reviewCount = useMemo(
-    () => (level ? getReviewCount(level.level) : 0),
+  // { total：錯題本の件数, due：きょう出す件数, next：次の期限 }
+  const review = useMemo(
+    () => (level ? getReviewSummary(level.level) : { total: 0, due: 0, next: null }),
     [level, reviewNonce]
   );
+  const reviewCount = review.total;
   const reviewByMode = useMemo(
-    () => (level ? getReviewCountByMode(level.level) : {}),
+    () => (level ? getReviewCountByMode(level.level, true) : {}),
     [level, reviewNonce]
   );
 
@@ -1543,6 +1573,10 @@ export default function EikenApp({ onExitApp }) {
         .eiken-review-card { background: #FFF7ED; border-color: #F59E0B; }
         .eiken-review-card .label { color: #B45309; }
         .eiken-review-card .desc { color: #92400E; }
+        .eiken-review-card.idle { background: #fff; border-color: #E4E2DA; cursor: default; }
+        .eiken-review-card.idle .label { color: #6B7280; }
+        .eiken-review-card.idle .desc { color: #6B7280; }
+        .eiken-level-card .lv-due { color: #C8323D; font-weight: 700; }
 
         .eiken-quiz, .eiken-pronounce, .eiken-progress { max-width: 720px; margin: 0 auto; background: #fff; border: 1px solid #E4E2DA; border-radius: 12px; padding: 22px; }
 
@@ -1803,11 +1837,15 @@ export default function EikenApp({ onExitApp }) {
             {LEVEL_META.map((lv) => {
               const stats = getLevelStats(lv.level);
               const pct = accuracyPercent(stats);
+              const due = getReviewSummary(lv.level).due;
               return (
                 <button key={lv.level} className="eiken-level-card" style={{ "--c": lv.color }} onClick={() => goModeSelect(lv.level)}>
                   <div className="lv-label">{lv.levelLabel}</div>
                   <div className="lv-sub">{lv.levelSub}</div>
-                  <div className="lv-stat">{pct === null ? "まだ未学習" : `正答率 ${pct}%（${stats.attempted}問）`}</div>
+                  <div className="lv-stat">
+                    {pct === null ? "まだ未学習" : `正答率 ${pct}%（${stats.attempted}問）`}
+                    {due > 0 && <span className="lv-due">　今日の復習 {due}問</span>}
+                  </div>
                 </button>
               );
             })}
@@ -1855,17 +1893,22 @@ export default function EikenApp({ onExitApp }) {
           <div className="eiken-mode-grid">
             {reviewCount > 0 && (
               <button
-                className="eiken-mode-card wide eiken-review-card"
+                className={`eiken-mode-card wide eiken-review-card${review.due ? "" : " idle"}`}
                 style={{ "--c": level.color }}
-                onClick={() => goMode("review")}
+                onClick={() => review.due && goMode("review")}
+                disabled={!review.due}
               >
                 <div className="icon">🔁</div>
-                <div className="label">まちがえた問題の復習（{reviewCount}問）</div>
+                <div className="label">
+                  今日の復習{review.due > 0 ? `（${review.due}問）` : ""}
+                </div>
                 <div className="desc">
-                  {MODES.filter((m) => reviewByMode[m.id])
-                    .map((m) => `${m.label} ${reviewByMode[m.id]}`)
-                    .join(" ／ ")}
-                  {" ・ "}2回続けて正解すると消えます
+                  {review.due > 0
+                    ? MODES.filter((m) => reviewByMode[m.id])
+                        .map((m) => `${m.label} ${reviewByMode[m.id]}`)
+                        .join(" ／ ")
+                    : `きょうの分はおわり。次は ${review.next ? review.next.slice(5).replace("-", "/") : "—"}`}
+                  {` ・ 錯題本 ${reviewCount}問（${REVIEW_INTERVALS.join("→")}日後に出し、${GRADUATE_STREAK}回続けて正解で外れる）`}
                 </div>
               </button>
             )}
@@ -1887,13 +1930,13 @@ export default function EikenApp({ onExitApp }) {
               className="eiken-back-link"
               style={{ marginTop: 14 }}
               onClick={() => {
-                if (window.confirm(`${level.levelLabel} の復習リスト${reviewCount}問をすべて消します。よろしいですか？`)) {
+                if (window.confirm(`${level.levelLabel} の錯題本${reviewCount}問をすべて消します。よろしいですか？`)) {
                   clearLevelReview(level.level);
                   setReviewNonce((n) => n + 1);
                 }
               }}
             >
-              復習リストを空にする
+              錯題本を空にする
             </button>
           )}
         </>

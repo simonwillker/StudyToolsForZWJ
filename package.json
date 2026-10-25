@@ -1,7 +1,7 @@
 {
   "name": "daily-drill",
   "private": true,
-  "version": "1.40.0",
+  "version": "1.42.0",
   "type": "module",
   "description": "小学生向け日常学習ドリル（算数・国語・理科・社会＋カスタム単語／漢字テスト）、英検マスター（5級〜1級）、Sapix（学年→科目→単元。いまは4年の算数・国語・社会・理科・英語）、Claude 認定（CCAO-F・CCAR-F・CCDV-F）",
   "scripts": {
@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "validate:test": "node scripts/validateEikenTest.mjs",
     "validate:app": "node scripts/validateEikenApp.mjs",
-    "validate": "node scripts/validateEikenApp.mjs && node scripts/validateEikenTest.mjs && node scripts/validateClaudeCert.mjs && node scripts/buildClaudeCertVocab.mjs --check && node scripts/validateSapixMath.mjs && node scripts/validateSapixSubjects.mjs && node scripts/testSapixStorage.mjs && node scripts/testLearnerApps.mjs && node scripts/testCloudSync.mjs && node scripts/testClaudeCertStudy.mjs && node scripts/testClaudeCertAudio.mjs && node scripts/testEikenVocabTest.mjs",
+    "validate": "node scripts/validateEikenApp.mjs && node scripts/validateEikenTest.mjs && node scripts/validateClaudeCert.mjs && node scripts/buildClaudeCertVocab.mjs --check && node scripts/validateSapixMath.mjs && node scripts/validateSapixSubjects.mjs && node scripts/testSapixStorage.mjs && node scripts/testLearnerApps.mjs && node scripts/testCloudSync.mjs && node scripts/testClaudeCertStudy.mjs && node scripts/testClaudeCertAudio.mjs && node scripts/testEikenVocabTest.mjs && node scripts/testEikenReview.mjs",
     "validate:claude-cert": "node scripts/validateClaudeCert.mjs",
     "validate:ccaof": "node scripts/validateClaudeCert.mjs ccaof",
     "validate:ccarf": "node scripts/validateClaudeCert.mjs ccarf",
@@ -25,7 +25,8 @@
     "test:sapix-storage": "node scripts/testSapixStorage.mjs",
     "test:ccaof-study": "node scripts/testClaudeCertStudy.mjs",
     "test:ccaof-audio": "node scripts/testClaudeCertAudio.mjs",
-    "test:eiken-vocab-test": "node scripts/testEikenVocabTest.mjs"
+    "test:eiken-vocab-test": "node scripts/testEikenVocabTest.mjs",
+    "test:eiken-review": "node scripts/testEikenReview.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
