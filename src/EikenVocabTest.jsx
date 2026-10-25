@@ -3,6 +3,7 @@ import { newStudySession } from "./studyLog";
 import { recordAnswer } from "./eikenProgress";
 import { recordReviewResult, getReviewItemIds } from "./eikenReview";
 import { formatDateTime } from "./eikenTestResults";
+import ScoreTrend from "./ScoreTrend.jsx";
 import { isSpeechSynthesisSupported, speak, stopSpeaking } from "./eikenSpeech";
 import {
   UNIT_SIZE,
@@ -56,44 +57,16 @@ function formatElapsed(sec) {
   return m ? `${m}分${s}秒` : `${s}秒`;
 }
 
-/** 級ごとの得点推移（古い→新しい、直近20回）。1系列なので凡例は出さず、見出しで名前を示す */
+/** 級ごとの得点推移（古い→新しい、直近20回） */
 export function VocabTestTrend({ level, color }) {
   const trend = useMemo(() => getVocabTestTrend(level, 20), [level]);
-  const [hover, setHover] = useState(null);
-  if (!trend.length) return <div className="eiken-empty-note">まだテストを受けていません。</div>;
-  const last = trend[trend.length - 1];
-  const shown = hover != null ? trend[hover] : last;
   return (
-    <div className="eiken-vt-trend" style={{ "--c": color }}>
-      <div className="eiken-vt-chart" role="img" aria-label={`得点推移：直近${trend.length}回、最新 ${last.percent}%`}>
-        <div className="eiken-vt-grid" style={{ bottom: "50%" }} />
-        <div className="eiken-vt-grid" style={{ bottom: "100%" }} />
-        {trend.map((r, i) => (
-          <div
-            key={r.at}
-            className={`eiken-vt-col${hover === i ? " hover" : ""}`}
-            onMouseEnter={() => setHover(i)}
-            onMouseLeave={() => setHover(null)}
-            onClick={() => setHover(hover === i ? null : i)}
-            title={`${formatDateTime(r.at)}　${r.correct}/${r.total}（${r.percent}%）`}
-          >
-            <div className="eiken-vt-bar" style={{ height: `${Math.max(r.percent, 2)}%` }} />
-          </div>
-        ))}
-        <div className="eiken-vt-axis">
-          <span>100</span>
-          <span>50</span>
-          <span>0</span>
-        </div>
-      </div>
-      <div className="eiken-vt-caption">
-        {hover != null ? "" : "最新："}
-        {formatDateTime(shown.at)}　{rangeLabel(shown.range)}・{formatLabel(shown.format)}
-        <b>
-          {shown.correct}/{shown.total}（{shown.percent}%）
-        </b>
-      </div>
-    </div>
+    <ScoreTrend
+      results={trend}
+      color={color}
+      describe={(r) => `${rangeLabel(r.range)}・${formatLabel(r.format)}　`}
+      empty="まだテストを受けていません。"
+    />
   );
 }
 

@@ -18,7 +18,8 @@ const FORMAT_VERSION = 1;
 /** 書き出し・読み込みの対象。増やすときはここに足す。 */
 export const BACKUP_KEYS = [
   "eikenProgressV1", // 学習進捗（日別・モード別・級別）
-  "eikenReviewV1", // まちがえた問題の復習リスト
+  "eikenReviewV1", // まちがえた問題の復習リスト（v1.40.0 まで。錯題本に移したあとは読むだけ）
+  "eikenMistakesV1", // 錯題本（今日の復習、v1.41.0〜）
   "eikenTestResultsV1", // 模擬テストの結果
   "eikenVocabTestResultsV1", // 単語テスト（3級・準2級・2級）の結果
 ];
@@ -61,11 +62,12 @@ export function describeBackup(backup) {
     })
   );
   const days = Object.keys(progress.daily || {}).length;
+  // 錯題本があればその件数、無ければ（v1.40.0 までのバックアップ）復習リストの件数
   const review = d.eikenReviewV1 || {};
-  const reviewCount = Object.values(review.levels || {}).reduce(
-    (s, list) => s + (Array.isArray(list) ? list.length : 0),
-    0
-  );
+  const mistakes = d.eikenMistakesV1;
+  const reviewCount = mistakes && mistakes.levels
+    ? Object.values(mistakes.levels).reduce((s, lv) => s + Object.keys((lv && lv.items) || {}).length, 0)
+    : Object.values(review.levels || {}).reduce((s, list) => s + (Array.isArray(list) ? list.length : 0), 0);
   // 結果はどちらも { levels: { 級: [...] } } の形
   const countResults = (store) =>
     Object.values((store && store.levels) || {}).reduce((s, v) => s + (Array.isArray(v) ? v.length : 0), 0);
@@ -118,6 +120,14 @@ export function applyBackup(backup) {
       // 容量超過など。書けたものはそのまま残す。
     }
   });
+  // 錯題本の無い古いバックアップ（v1.40.0 まで）：戻した復習リストから錯題本を作り直させる
+  if (backup.data.eikenReviewV1 !== undefined && backup.data.eikenMistakesV1 === undefined) {
+    try {
+      window.localStorage.removeItem(learnerKey("eikenMistakesV1"));
+    } catch (e) {
+      // 消せなければ今の錯題本のまま
+    }
+  }
   return restored;
 }
 

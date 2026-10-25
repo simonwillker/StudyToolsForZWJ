@@ -3,6 +3,7 @@ import { recordAnswer } from "./eikenProgress";
 import { newStudySession } from "./studyLog";
 import { saveTestResult, getTestResults, formatDateTime } from "./eikenTestResults";
 import { isSpeechSynthesisSupported, speak, stopSpeaking } from "./eikenSpeech";
+import ScoreTrend from "./ScoreTrend.jsx";
 
 /* ============================================================
    英検 模擬テスト（本番形式）
@@ -572,7 +573,13 @@ function IntroScreen({ test, items, examMode, setExamMode, onStart, onExit }) {
 
       {history.length > 0 && (
         <div className="et-history">
-          <div className="et-history-title">受験履歴</div>
+          <div className="et-history-title">得点推移（直近20回）</div>
+          <ScoreTrend
+            results={history.slice(0, 20).reverse()}
+            color={test.color || "#2F5D8A"}
+            describe={(r) => `${r.examMode === "honban" ? "本番" : "練習"}モード　`}
+          />
+          <div className="et-history-title" style={{ marginTop: 12 }}>受験履歴</div>
           {history.slice(0, 5).map((h, i) => (
             <div className="et-history-row" key={i}>
               <span>{formatDateTime(h.at)}</span>
