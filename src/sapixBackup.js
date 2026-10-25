@@ -18,8 +18,9 @@ const FORMAT = "sapix-study-backup";
 const LEGACY_MATH_FORMAT = "sapix-math-study-backup";
 const FORMAT_VERSION = 1;
 
-/** 書き出し・読み込みの対象。学年・科目を足すと自動でふえる（4年のキーは v1.28.0 までと同じ）。 */
-export const BACKUP_KEYS = COURSES.flatMap((s) => [s.progressKey, s.reviewKey]);
+/** 書き出し・読み込みの対象。学年・科目を足すと自動でふえる（4年のキーは v1.28.0 までと同じ）。
+ *  錯題本・まとめテストは v1.41.0 から。それより前のバックアップを戻すと、復習リストから錯題本を作り直す。 */
+export const BACKUP_KEYS = COURSES.flatMap((s) => [s.progressKey, s.reviewKey, s.mistakesKey, s.testKey]);
 
 function readKey(key) {
   try {
@@ -45,6 +46,7 @@ export function describeBackup(backup) {
   let attempted = 0;
   let correct = 0;
   let reviewCount = 0;
+  let tests = 0;
   const days = new Set();
   const subjects = [];
   COURSES.forEach((s) => {
@@ -56,10 +58,15 @@ export function describeBackup(backup) {
     });
     attempted += a;
     Object.keys(progress.daily || {}).forEach((day) => days.add(day));
-    reviewCount += Object.values(d[s.reviewKey] || {}).reduce((n, list) => n + (Array.isArray(list) ? list.length : 0), 0);
+    // 錯題本があればその件数、無ければ（v1.40.0 までのバックアップ）復習リストの件数
+    const mk = d[s.mistakesKey];
+    reviewCount += mk && mk.items
+      ? Object.keys(mk.items).length
+      : Object.values(d[s.reviewKey] || {}).reduce((n, list) => n + (Array.isArray(list) ? list.length : 0), 0);
+    tests += Array.isArray(d[s.testKey] && d[s.testKey].results) ? d[s.testKey].results.length : 0;
     if (a) subjects.push(`${s.title} ${a}問`);
   });
-  return { attempted, correct, days: days.size, reviewCount, subjects, exportedAt: backup?.exportedAt || null };
+  return { attempted, correct, days: days.size, reviewCount, tests, subjects, exportedAt: backup?.exportedAt || null };
 }
 
 export function parseBackup(text) {
@@ -99,6 +106,16 @@ export function applyBackup(backup) {
       restored.push(k);
     } catch (e) {
       // 容量超過など。書けたものはそのまま残す。
+    }
+  });
+  // 錯題本の無い古いバックアップ（v1.40.0 まで）：復習リストを戻したので、錯題本を消して作り直させる
+  COURSES.forEach((s) => {
+    if (backup.data[s.reviewKey] !== undefined && backup.data[s.mistakesKey] === undefined) {
+      try {
+        window.localStorage.removeItem(learnerKey(s.mistakesKey));
+      } catch (e) {
+        // 消せなければ今の錯題本のまま
+      }
     }
   });
   return restored;

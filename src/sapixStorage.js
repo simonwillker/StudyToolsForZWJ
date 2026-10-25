@@ -35,12 +35,18 @@ export function courseId(grade, subjectId) {
   return `g${grade}-${subjectId}`;
 }
 
-/** 学習記録と復習リストの localStorage キー（勉強者の区別は learnerKey が後ろにつける） */
+/** 学習記録・復習リスト・錯題本・まとめテストの localStorage キー（勉強者の区別は learnerKey が後ろにつける）。
+ *  reviewKey（v1.40.0 までの復習リスト）は錯題本に移したあとは読むだけ（移行とバックアップの互換のため残す）。 */
 export function storageKeys(grade, subjectId) {
   const def = subjectDef(subjectId);
   if (!def) throw new Error(`unknown Sapix subject: ${subjectId}`);
   const base = grade === LEGACY_GRADE ? `sapix${def.key}` : `sapixG${grade}${def.key}`;
-  return { progressKey: `${base}ProgressV1`, reviewKey: `${base}ReviewV1` };
+  return {
+    progressKey: `${base}ProgressV1`,
+    reviewKey: `${base}ReviewV1`,
+    mistakesKey: `${base}MistakesV1`,
+    testKey: `${base}TestResultsV1`,
+  };
 }
 
 /** 勉強履歴（📅）に出す名前。4年は以前と同じ「Sapix 算数」にして、履歴の名前がそろうようにする */

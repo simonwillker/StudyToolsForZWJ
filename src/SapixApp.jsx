@@ -9,17 +9,17 @@ import {
   loadUnit,
   checkAnswer,
   isAnswerEmpty,
-  parseFraction,
-  toMixed,
   choiceOrder,
 } from "./sapixSubjects";
+import { LEVEL_COLOR, shortDate, RichText, Figure, AnswerInput, AnswerText } from "./sapixParts.jsx";
+import SapixTest, { loadUnits, TestTrend, TestHistory } from "./SapixTest.jsx";
+import { dueMistakes, mistakeSummary, mistakeCountByUnit, loadTestResults, REVIEW_INTERVALS, GRADUATE_STREAK } from "./sapixStudy";
 import {
   recordAnswer,
   recordRun,
   getUnitStats,
   accuracyPercent,
   getReviewIds,
-  getTotalReviewCount,
   getStreak,
   getTodayStats,
   resetProgress,
@@ -39,125 +39,10 @@ import { downloadBackup, parseBackup, applyBackup, describeBackup } from "./sapi
 
 const APP_VERSION = __APP_VERSION__;
 const BUILD_DATE = __BUILD_DATE__;
-const LEVEL_COLOR = { 基本: "#2F7A4F", 標準: "#C8743D", 発展: "#C8323D" };
 
-function shortDate(iso) {
-  if (!iso) return "";
-  const d = new Date(iso);
-  return `${d.getMonth() + 1}/${d.getDate()}`;
-}
-
-/** 分数を縦書き（分子／線／分母）で表示する */
-function Frac({ n, d }) {
-  return (
-    <span className="sm-frac">
-      <span>{n}</span>
-      <span className="sm-frac-bar" />
-      <span>{d}</span>
-    </span>
-  );
-}
-
-/** 正解の表示。分数は帯分数（1より大きいとき）と仮分数を両方出す */
-function AnswerText({ q }) {
-  if (q.type === "choice") return <span>{q.choices[q.answer]}</span>;
-  if (q.type === "text") return <span>{q.accepted[0]}</span>;
-  if (q.type === "number") return <span>{q.answer}{q.unit ? ` ${q.unit}` : ""}</span>;
-  const f = parseFraction(q.answer);
-  const m = toMixed(f);
-  if (m.whole === 0) return <Frac n={f.n} d={f.d} />;
-  return (
-    <span className="sm-frac-line">
-      {m.whole}<Frac n={m.n} d={m.d} />
-      <span className="sm-frac-alt">（仮分数で <Frac n={f.n} d={f.d} />）</span>
-    </span>
-  );
-}
-
-/** 問題文の中の「a/b」を縦書きの分数で表示する（「1と2/5」の「と」は帯分数の区切り） */
-function RichText({ text, fractions = true }) {
-  if (!fractions) return <>{text}</>;
-  const parts = String(text).split(/(\d+と\d+\/\d+|\d+\/\d+)/g);
-  return (
-    <>
-      {parts.map((p, i) => {
-        const mixed = /^(\d+)と(\d+)\/(\d+)$/.exec(p);
-        if (mixed) return <span key={i} className="sm-frac-line">{mixed[1]}<Frac n={mixed[2]} d={mixed[3]} /></span>;
-        const fr = /^(\d+)\/(\d+)$/.exec(p);
-        if (fr) return <Frac key={i} n={fr[1]} d={fr[2]} />;
-        return <React.Fragment key={i}>{p}</React.Fragment>;
-      })}
-    </>
-  );
-}
-
-function Figure({ q }) {
-  if (!q.figure) return null;
-  // 図は問題データ（リポジトリ内の JSON）にある SVG。検証スクリプトでスクリプトを含まないことを確かめている
-  return <div className="sm-figure" role="img" aria-label={q.figureAlt || "図"} dangerouslySetInnerHTML={{ __html: q.figure }} />;
-}
-
-function AnswerInput({ q, order, input, setInput, disabled, onEnter }) {
-  const onKey = (e) => {
-    if (e.key === "Enter") onEnter();
-  };
-  if (q.type === "choice") {
-    return (
-      <div className={`sm-choices${q.choices.some((c) => c.length > 8) ? " list" : ""}`}>
-        {order.map((i) => {
-          const c = q.choices[i];
-          let cls = "sm-choice";
-          if (disabled) {
-            if (i === q.answer) cls += " correct";
-            else if (input.choice === i) cls += " wrong";
-          } else if (input.choice === i) cls += " picked";
-          return (
-            <button key={i} className={cls} disabled={disabled} onClick={() => setInput({ choice: i })}>
-              {c}
-            </button>
-          );
-        })}
-      </div>
-    );
-  }
-  if (q.type === "fraction") {
-    const set = (k) => (e) => setInput({ ...input, [k]: e.target.value });
-    return (
-      <div className="sm-answer-row">
-        <span className="sm-answer-label">答え</span>
-        <input className="sm-input sm-input-whole" inputMode="numeric" aria-label="整数部分" placeholder="整数"
-          value={input.whole || ""} onChange={set("whole")} onKeyDown={onKey} disabled={disabled} />
-        <span className="sm-frac-input">
-          <input className="sm-input sm-input-small" inputMode="numeric" aria-label="分子" placeholder="分子"
-            value={input.n || ""} onChange={set("n")} onKeyDown={onKey} disabled={disabled} />
-          <span className="sm-frac-bar wide" />
-          <input className="sm-input sm-input-small" inputMode="numeric" aria-label="分母" placeholder="分母"
-            value={input.d || ""} onChange={set("d")} onKeyDown={onKey} disabled={disabled} />
-        </span>
-        <span className="sm-answer-hint">帯分数は左に整数、仮分数は整数を空けたまま</span>
-      </div>
-    );
-  }
-  if (q.type === "text") {
-    return (
-      <div className="sm-answer-row">
-        <span className="sm-answer-label">答え</span>
-        <input className="sm-input sm-input-text" lang={/^[A-Za-z]/.test(q.accepted[0]) ? "en" : "ja"} aria-label="答え" autoComplete="off" autoCapitalize="off" spellCheck={false}
-          value={input.value || ""} onChange={(e) => setInput({ value: e.target.value })} onKeyDown={onKey} disabled={disabled} />
-      </div>
-    );
-  }
-  return (
-    <div className="sm-answer-row">
-      <span className="sm-answer-label">答え</span>
-      <input className="sm-input" inputMode="decimal" aria-label="答え" autoComplete="off"
-        value={input.value || ""} onChange={(e) => setInput({ value: e.target.value })} onKeyDown={onKey} disabled={disabled} />
-      {q.unit && <span className="sm-unit">{q.unit}</span>}
-    </div>
-  );
-}
-
-function Quiz({ subject, unit, questions, passages, review, onFinish, onExit }) {
+/** 単元をまたぐ出題（今日の復習・まとめテストの解き直し）では、問題に _unit（単元 id）がつく。
+ *  unitsData：{ 単元: { questions, passages } }。1 単元のときは passages だけでよい。 */
+function Quiz({ subject, unit, questions, passages, unitsData, review, logLabel, onFinish, onExit }) {
   const [index, setIndex] = useState(0);
   const [input, setInput] = useState({});
   const [result, setResult] = useState(null); // { ok, reason }
@@ -167,9 +52,11 @@ function Quiz({ subject, unit, questions, passages, review, onFinish, onExit }) 
 
   const q = questions[index];
   const total = questions.length;
+  const qUnit = q._unit ? findUnit(subject, q._unit) : unit;
   // 選択肢の並びは問題ごとに1回だけ決める（答え合わせの前後で入れかわらないように）
   const order = useMemo(() => (q.type === "choice" ? choiceOrder(subject, q) : []), [q, subject]);
-  const passage = q.passage ? passages[q.passage] : null;
+  const qPassages = q._unit && unitsData && unitsData[q._unit] ? unitsData[q._unit].passages || {} : passages || {};
+  const passage = q.passage ? qPassages[q.passage] : null;
   const [showPassage, setShowPassage] = useState(true);
 
   // 勉強履歴：出題が始まるたびに新しい回
@@ -185,7 +72,7 @@ function Quiz({ subject, unit, questions, passages, review, onFinish, onExit }) 
     if (result || isAnswerEmpty(q, input)) return;
     const r = checkAnswer(q, input);
     setResult(r);
-    recordAnswer(subject, unit.id, q.id, r.ok, review);
+    recordAnswer(subject, qUnit.id, q.id, r.ok, review, logLabel);
     if (r.ok) setScore((s) => s + 1);
     else setWrongIds((w) => [...w, q.id]);
   };
@@ -206,10 +93,10 @@ function Quiz({ subject, unit, questions, passages, review, onFinish, onExit }) 
         <span>{index + 1} / {total} 問{review ? "（復習）" : ""}</span>
         <span className="sm-quiz-head-right">
           <span className="sm-level" style={{ "--c": LEVEL_COLOR[q.level] }}>{q.level}</span>
-          <span style={{ color: unit.color }}>{unit.label}</span>
+          <span style={{ color: qUnit.color }}>{qUnit.label}</span>
         </span>
       </div>
-      <div className="sm-progress-bar"><div style={{ width: `${(index / total) * 100}%`, background: unit.color }} /></div>
+      <div className="sm-progress-bar"><div style={{ width: `${(index / total) * 100}%`, background: qUnit.color }} /></div>
 
       {passage && (
         <div className="sm-passage">
@@ -238,11 +125,11 @@ function Quiz({ subject, unit, questions, passages, review, onFinish, onExit }) 
       <div className="sm-quiz-foot">
         <button className="sm-btn-ghost" onClick={onExit}>やめる</button>
         {result ? (
-          <button className="sm-btn" style={{ "--c": unit.color }} onClick={next}>
+          <button className="sm-btn" style={{ "--c": qUnit.color }} onClick={next}>
             {index + 1 >= total ? "結果を見る" : "次の問題"}
           </button>
         ) : (
-          <button className="sm-btn" style={{ "--c": unit.color }} onClick={submit} disabled={isAnswerEmpty(q, input)}>
+          <button className="sm-btn" style={{ "--c": qUnit.color }} onClick={submit} disabled={isAnswerEmpty(q, input)}>
             答え合わせ
           </button>
         )}
@@ -251,7 +138,7 @@ function Quiz({ subject, unit, questions, passages, review, onFinish, onExit }) 
   );
 }
 
-function Result({ unit, run, questions, onRetryWrong, onBack }) {
+function Result({ unit, run, questions, review, onRetryWrong, onBack }) {
   const pct = Math.round((run.score / run.total) * 100);
   const wrong = questions.filter((q) => run.wrongIds.includes(q.id));
   const msg = pct === 100 ? "全問正解！すばらしい！" : pct >= 80 ? "よくできました。まちがえた問題を見直そう。" : pct >= 50 ? "あと少し。解き方を読んでからもう一度やってみよう。" : "解説を読んで、まちがえた問題からやり直そう。";
@@ -260,7 +147,11 @@ function Result({ unit, run, questions, onRetryWrong, onBack }) {
       <div className="sm-result-unit" style={{ color: unit.color }}>{unit.label}</div>
       <div className="sm-result-pct" style={{ color: unit.color }}>{pct}%</div>
       <div className="sm-result-sub">{run.total}問中 {run.score}問 正解</div>
-      <div className="sm-result-note">{msg}</div>
+      <div className="sm-result-note">
+        {msg}
+        {run.wrongIds.length > 0 && <><br />まちがえた問題は錯題本に入り、あした「今日の復習」に出ます。</>}
+        {review && <><br />復習は、期限が来てから正解すると間があき、2回続けて正解すると錯題本から外れます。</>}
+      </div>
       {wrong.length > 0 && (
         <div className="sm-wrong-list">
           <div className="sm-sub-head" style={{ margin: "0 0 6px" }}>まちがえた問題</div>
@@ -286,17 +177,19 @@ function Result({ unit, run, questions, onRetryWrong, onBack }) {
 
 function SapixCourse({ subject, onBack, onExitApp }) {
   const ACCENT = subject.accent;
-  const [screen, setScreen] = useState("units"); // units | unit | quiz | result | progress
+  const [screen, setScreen] = useState("units"); // units | unit | quiz | result | progress | test | todayLoading
   const [unitId, setUnitId] = useState(null);
   const [unitData, setUnitData] = useState(null); // { questions（単元の全20問）, passages（読解の本文） }
   const [loadError, setLoadError] = useState(false);
-  const [session, setSession] = useState(null); // { questions, review }
+  const [session, setSession] = useState(null); // { questions, review, unitsData?, title? }
   const [run, setRun] = useState(null);
   const [, setNonce] = useState(0);
   const [backupMsg, setBackupMsg] = useState(null);
   const backupInputRef = useRef(null);
 
   const unit = unitId ? findUnit(subject, unitId) : null;
+  // 単元をまたぐ出題（今日の復習・テストの解き直し）では、見出しに使う仮の「単元」
+  const crossUnit = session && session.title ? { id: null, label: session.title, color: ACCENT } : null;
   const questions = unitData ? unitData.questions : null;
 
   useEffect(() => {
@@ -324,9 +217,40 @@ function SapixCourse({ subject, onBack, onExitApp }) {
     setScreen("quiz");
   };
 
+  /** 単元をまたいで出題する（今日の復習・まとめテストの解き直し） */
+  const startCross = (qs, unitsData, title, review = true) => {
+    setSession({ id: Date.now(), questions: qs, review, unitsData, title });
+    setRun(null);
+    setScreen("quiz");
+  };
+
+  /** 今日の復習：期限の来た錯題を、その単元の問題ファイルから集めて出す */
+  const startToday = () => {
+    const due = dueMistakes(subject);
+    if (!due.length) return;
+    setLoadError(false);
+    setScreen("todayLoading");
+    const ids = [...new Set(due.map((d) => d.unitId))].filter((id) => findUnit(subject, id));
+    loadUnits(subject, ids)
+      .then((unitsData) => {
+        const qs = due
+          .map((d) => {
+            const found = unitsData[d.unitId] && unitsData[d.unitId].questions.find((x) => x.id === d.id);
+            return found ? { ...found, _unit: d.unitId } : null;
+          })
+          .filter(Boolean);
+        if (!qs.length) {
+          setScreen("units");
+          return;
+        }
+        startCross(qs, unitsData, "今日の復習");
+      })
+      .catch(() => setLoadError(true));
+  };
+
   const finish = (r) => {
     // 通しの20問だけを「前回の点数」として残す（復習は数が少ないので混ぜない）
-    if (!session.review && r.total === (questions || []).length) recordRun(subject, unit.id, r.score, r.total);
+    if (!session.review && !session.title && unit && r.total === (questions || []).length) recordRun(subject, unit.id, r.score, r.total);
     setRun(r);
     setScreen("result");
   };
@@ -352,7 +276,8 @@ function SapixCourse({ subject, onBack, onExitApp }) {
         `・解いた問題　${d.attempted}問（正解 ${d.correct}問）\n` +
         (d.subjects.length ? `・学年・科目　${d.subjects.join("、")}\n` : "") +
         `・学習した日数　${d.days}日\n` +
-        `・復習リスト　${d.reviewCount}問\n\n` +
+        `・錯題本（復習）　${d.reviewCount}問\n` +
+        `・まとめテスト　${d.tests}回\n\n` +
         `今この端末にある、バックアップに入っている学年・科目の Sapix の記録は、これで置き換えられます。よろしいですか？`
     );
     if (!okToApply) return;
@@ -361,7 +286,10 @@ function SapixCourse({ subject, onBack, onExitApp }) {
   };
 
   /* 学習記録は localStorage から毎回読む（解いた直後の画面に古い値が残らないように） */
-  const allStats = screen === "units" || screen === "progress" ? subject.units.map((u) => ({ u, s: getUnitStats(subject, u.id), review: getReviewIds(subject, u.id).length })) : [];
+  const byUnit = screen === "units" || screen === "progress" ? mistakeCountByUnit(subject) : {};
+  const allStats = screen === "units" || screen === "progress" ? subject.units.map((u) => ({ u, s: getUnitStats(subject, u.id), review: byUnit[u.id] || 0 })) : [];
+  const mSum = screen === "units" || screen === "progress" ? mistakeSummary(subject) : null;
+  const lastTest = screen === "units" ? loadTestResults(subject)[0] || null : null;
   const totalAttempted = allStats.reduce((n, x) => n + x.s.attempted, 0);
 
   return (
@@ -487,6 +415,53 @@ function SapixCourse({ subject, onBack, onExitApp }) {
         .sm-backup-msg.ok { background: #EAF3EC; color: #2F5D3A; }
         .sm-backup-msg.ng { background: #F7E9E7; color: #8A3324; }
         .sm-empty { text-align: center; padding: 40px 20px; color: #9AA093; }
+        .sm-empty-note { font-size: 12.5px; color: #9AA093; padding: 4px 0 8px; }
+
+        /* ── 今日の復習・まとめテスト ── */
+        .st-actions { max-width: 720px; margin: 14px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        @media (max-width: 480px) { .st-actions { grid-template-columns: 1fr; } }
+        .st-action { text-align: left; border-radius: 10px; padding: 12px 14px; cursor: pointer; font-family: inherit; background: #fff; border: 2px solid var(--c, #C8323D); }
+        .st-action.review { background: #FFF7ED; border-color: #F59E0B; }
+        .st-action.review.idle { background: #fff; border-color: #E4E2DA; cursor: default; }
+        .st-action-title { font-size: 15px; font-weight: 800; color: #2A2E27; display: flex; align-items: center; gap: 6px; }
+        .st-action.review:not(.idle) .st-action-title { color: #B45309; }
+        .st-action.test .st-action-title { color: var(--c); }
+        .st-action-desc { font-size: 12px; color: #6B7280; margin-top: 4px; line-height: 1.5; }
+        .st-badge { background: #C8323D; color: #fff; font-size: 11px; border-radius: 999px; padding: 1px 7px; }
+        .st-row-head { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; font-weight: 800; color: #6B7280; margin-bottom: 6px; }
+        .st-row-tools { display: flex; gap: 12px; font-weight: 400; }
+        .st-cat { margin-bottom: 8px; }
+        .st-cat-head { display: flex; align-items: center; gap: 6px; border: none; background: none; padding: 4px 0; font-size: 12.5px; font-weight: 700; color: #4B5563; cursor: pointer; font-family: inherit; }
+        .st-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+        .st-chip { border: 1.5px solid #D8D5CB; background: #fff; border-radius: 999px; padding: 6px 12px; font-size: 13px; cursor: pointer; font-family: inherit; color: #2A2E27; }
+        .st-chip.on { border-color: var(--c); background: var(--c); color: #fff; font-weight: 700; }
+        .st-summary { text-align: center; font-size: 13.5px; margin-top: 16px; }
+        .st-timer { font-variant-numeric: tabular-nums; color: #2A2E27; }
+        .st-timer.warn { color: #C8323D; }
+        .st-sheet { display: flex; flex-wrap: wrap; gap: 6px; max-width: 720px; margin: 0 auto; }
+        .st-cell { min-width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid #D8D5CB; background: #fff; font-size: 12.5px; color: #9AA093; cursor: pointer; font-family: inherit; }
+        .st-cell.done { background: #EDEBE3; color: #2A2E27; font-weight: 700; }
+        .st-cell.current { border-color: var(--c); box-shadow: inset 0 0 0 1px var(--c); }
+        .st-wrongs { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+        .st-wrong { background: #fff; border: 1px solid #E4E2DA; border-left: 4px solid #C8323D; border-radius: 8px; padding: 12px 14px; }
+        .st-wrong-top { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; }
+        .st-wrong-unit { font-size: 12px; font-weight: 700; }
+        .st-wrong-passage { font-size: 12px; color: #6B5A2E; margin-bottom: 4px; }
+        .st-wrong-q { font-size: 14.5px; line-height: 1.9; white-space: pre-wrap; margin-bottom: 6px; }
+        .st-wrong-yours { font-size: 13px; color: #C8323D; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+        .st-wrong-answer { font-size: 14px; font-weight: 800; margin: 2px 0 6px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+        .st-history { margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
+        .st-history-row { display: flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: #6B7280; }
+        .st-history-row b { margin-left: auto; color: #2A2E27; }
+        /* 得点推移：1系列の縦棒。グリッドは控えめ、値はキャプションとツールチップで出す */
+        .st-chart { position: relative; height: 96px; display: flex; align-items: flex-end; gap: 2px; padding-right: 26px; border-bottom: 1px solid #D8DCD3; }
+        .st-grid { position: absolute; left: 0; right: 26px; border-top: 1px dashed #EDEBE3; }
+        .st-col { flex: 1; max-width: 28px; height: 100%; display: flex; align-items: flex-end; cursor: pointer; position: relative; z-index: 1; }
+        .st-bar { width: 100%; background: var(--c); border-radius: 4px 4px 0 0; opacity: 0.85; }
+        .st-col.hover .st-bar { opacity: 1; outline: 2px solid #2A2E27; outline-offset: 1px; }
+        .st-axis { position: absolute; right: 0; top: -6px; bottom: -6px; display: flex; flex-direction: column; justify-content: space-between; font-size: 9.5px; color: #9AA093; }
+        .st-caption { font-size: 11.5px; color: #6B7280; margin-top: 6px; }
+        .st-caption b { color: #2A2E27; white-space: nowrap; }
       `}</style>
 
       <div className="sm-top-nav">
@@ -513,7 +488,25 @@ function SapixCourse({ subject, onBack, onExitApp }) {
             <div className="sm-fact"><div className="sm-fact-num">{getStreak(subject)}</div><div className="sm-fact-label">日連続</div></div>
             <div className="sm-fact"><div className="sm-fact-num">{getTodayStats(subject).attempted}</div><div className="sm-fact-label">きょう解いた</div></div>
             <div className="sm-fact"><div className="sm-fact-num">{totalAttempted}</div><div className="sm-fact-label">のべ解答数</div></div>
-            <div className="sm-fact"><div className="sm-fact-num">{getTotalReviewCount(subject)}</div><div className="sm-fact-label">復習待ち</div></div>
+            <div className="sm-fact"><div className="sm-fact-num">{mSum.total}</div><div className="sm-fact-label">錯題本</div></div>
+          </div>
+          <div className="st-actions">
+            <button className={`st-action review${mSum.due ? "" : " idle"}`} onClick={startToday} disabled={!mSum.due}>
+              <div className="st-action-title">🔁 今日の復習{mSum.due > 0 && <span className="st-badge">{mSum.due}</span>}</div>
+              <div className="st-action-desc">
+                {mSum.due > 0
+                  ? `期限が来た ${mSum.due}問（錯題本 ${mSum.total}問）`
+                  : mSum.total
+                  ? `きょうの分はおわり。次は ${mSum.next.slice(5).replace("-", "/")}（錯題本 ${mSum.total}問）`
+                  : "まちがえた問題がここに入ります"}
+              </div>
+            </button>
+            <button className="st-action test" style={{ "--c": ACCENT }} onClick={() => setScreen("test")}>
+              <div className="st-action-title">📝 まとめテスト</div>
+              <div className="st-action-desc">
+                {lastTest ? `前回 ${lastTest.correct}/${lastTest.total}（${lastTest.percent}%）・${shortDate(lastTest.at)}` : "単元をえらんで、最後にまとめて採点"}
+              </div>
+            </button>
           </div>
           {subject.categories.map((c) => (
             <React.Fragment key={c.id}>
@@ -527,7 +520,7 @@ function SapixCourse({ subject, onBack, onExitApp }) {
                       <div className="sm-unit-stat">
                         {pct === null ? "未学習" : `正答率 ${pct}%・最終 ${shortDate(s.lastAt)}`}
                         {s.lastRun && <>　前回 {s.lastRun.correct}/{s.lastRun.total}</>}
-                        {review > 0 && <span className="sm-unit-review">　復習 {review}問</span>}
+                        {review > 0 && <span className="sm-unit-review">　錯題 {review}問</span>}
                       </div>
                       <div className="sm-bar"><div style={{ width: `${pct ?? 0}%` }} /></div>
                     </button>
@@ -565,7 +558,7 @@ function SapixCourse({ subject, onBack, onExitApp }) {
                     const qs = questions.filter((q) => ids.includes(q.id));
                     return (
                       <button className="sm-big-btn outline" disabled={!qs.length} onClick={() => start(qs, true)}>
-                        {qs.length ? `まちがえた問題だけ復習（${qs.length}問）` : "復習する問題はありません"}
+                        {qs.length ? `この単元の錯題を解く（${qs.length}問）` : "この単元の錯題はありません"}
                       </button>
                     );
                   })()}
@@ -594,27 +587,54 @@ function SapixCourse({ subject, onBack, onExitApp }) {
         </div>
       )}
 
-      {screen === "quiz" && unit && session && (
+      {screen === "quiz" && session && (crossUnit || unit) && (
         <Quiz
           key={session.id}
           subject={subject}
-          unit={unit}
+          unit={crossUnit || unit}
           questions={session.questions}
           passages={unitData ? unitData.passages : {}}
+          unitsData={session.unitsData}
           review={session.review}
+          logLabel={session.title || null}
           onFinish={finish}
-          onExit={() => { setNonce((n) => n + 1); setScreen("unit"); }}
+          onExit={() => { setNonce((n) => n + 1); setScreen(crossUnit ? "units" : "unit"); }}
         />
       )}
 
-      {screen === "result" && unit && run && session && (
+      {screen === "result" && run && session && (crossUnit || unit) && (
         <Result
-          unit={unit}
+          unit={crossUnit || unit}
           run={run}
           questions={session.questions}
-          onRetryWrong={(qs) => start(qs, true)}
-          onBack={() => { setUnitId(null); setScreen("units"); }}
+          review={session.review}
+          onRetryWrong={(qs) => (crossUnit ? startCross(qs, session.unitsData, session.title) : start(qs, true))}
+          onBack={() => { setUnitId(null); setSession(null); setScreen("units"); }}
         />
+      )}
+
+      {screen === "todayLoading" && (
+        <div className="sm-inner">
+          {loadError ? (
+            <div className="sm-empty">
+              問題を読みこめませんでした。通信を確かめてからもう一度ためしてください。
+              <div style={{ marginTop: 10 }}><button className="sm-btn-ghost" onClick={() => setScreen("units")}>もどる</button></div>
+            </div>
+          ) : (
+            <div className="sm-empty">今日の復習を用意しています…</div>
+          )}
+        </div>
+      )}
+
+      {screen === "test" && (
+        <>
+          <div className="sm-inner"><button className="sm-back-link" style={{ marginBottom: 12 }} onClick={() => setScreen("units")}>← 単元一覧にもどる</button></div>
+          <SapixTest
+            subject={subject}
+            onBack={() => { setNonce((n) => n + 1); setScreen("units"); }}
+            onRetryWrong={(qs, unitsData) => startCross(qs, unitsData, "テストの解き直し")}
+          />
+        </>
       )}
 
       {screen === "progress" && (
@@ -628,7 +648,19 @@ function SapixCourse({ subject, onBack, onExitApp }) {
             <div className="sm-fact"><div className="sm-fact-num">{getStreak(subject)}</div><div className="sm-fact-label">日連続</div></div>
             <div className="sm-fact"><div className="sm-fact-num">{getTodayStats(subject).attempted}</div><div className="sm-fact-label">きょう解いた</div></div>
             <div className="sm-fact"><div className="sm-fact-num">{totalAttempted}</div><div className="sm-fact-label">のべ解答数</div></div>
-            <div className="sm-fact"><div className="sm-fact-num">{getTotalReviewCount(subject)}</div><div className="sm-fact-label">復習待ち</div></div>
+            <div className="sm-fact"><div className="sm-fact-num">{mSum.total}</div><div className="sm-fact-label">錯題本</div></div>
+          </div>
+          <div className="sm-sub-head">まとめテストの得点推移（直近20回）</div>
+          <div style={{ maxWidth: 720, margin: "0 auto" }}>
+            <TestTrend subject={subject} />
+            <TestHistory subject={subject} limit={10} />
+          </div>
+          <div className="sm-sub-head">錯題本（今日の復習）</div>
+          <div className="sm-box" style={{ marginTop: 0 }}>
+            <div className="sm-box-desc" style={{ marginBottom: 0 }}>
+              いま {mSum.total}問（きょう出す {mSum.due}問）。まちがえた問題は {REVIEW_INTERVALS[0]}日後に出し、期限が来てから正解すると
+              {REVIEW_INTERVALS.slice(1).join("日後 → ")}日後と間をあけます。{GRADUATE_STREAK}回続けて正解すると外れます（期限前の正解は数えません）。
+            </div>
           </div>
           <div className="sm-sub-head">単元ごとの正答率と最終学習日</div>
           <div style={{ maxWidth: 720, margin: "0 auto" }}>
@@ -656,8 +688,8 @@ function SapixCourse({ subject, onBack, onExitApp }) {
             {backupMsg && <div className={`sm-backup-msg ${backupMsg.kind}`}>{backupMsg.text}</div>}
           </div>
           <div className="sm-box">
-            <div className="sm-box-desc">{subject.title}の記録だけを消します（ほかの学年・科目や英検・CCAO-F の記録はそのまま）。</div>
-            <button className="sm-btn-ghost" onClick={() => { if (window.confirm(`${subject.title}の学習記録と復習リストをすべて消します。よろしいですか？`)) { resetProgress(subject); setNonce((n) => n + 1); } }}>
+            <div className="sm-box-desc">{subject.title}の記録（学習記録・錯題本・まとめテストの結果）だけを消します（ほかの学年・科目や英検・CCAO-F の記録はそのまま）。</div>
+            <button className="sm-btn-ghost" onClick={() => { if (window.confirm(`${subject.title}の学習記録・錯題本・まとめテストの結果をすべて消します。よろしいですか？`)) { resetProgress(subject); setNonce((n) => n + 1); } }}>
               学習記録をリセット
             </button>
           </div>
@@ -669,10 +701,10 @@ function SapixCourse({ subject, onBack, onExitApp }) {
 
 /* ---------- 学年と科目を選ぶ画面 ---------- */
 
-/** 科目カードの小さな集計（のべ解答数・復習待ち） */
+/** 科目カードの小さな集計（のべ解答数・今日の復習の件数） */
 function courseSummary(course) {
   const attempted = course.units.reduce((n, u) => n + getUnitStats(course, u.id).attempted, 0);
-  return { attempted, review: getTotalReviewCount(course) };
+  return { attempted, review: mistakeSummary(course).due };
 }
 
 export default function SapixApp({ initialCourse = null, onExitApp }) {
@@ -744,7 +776,7 @@ export default function SapixApp({ initialCourse = null, onExitApp }) {
                     {c.target && <>{c.target}・</>}{c.units.length}単元
                     <br />
                     {s.attempted ? `のべ ${s.attempted}問` : "未学習"}
-                    {s.review > 0 && <span className="sx-card-review">　復習 {s.review}問</span>}
+                    {s.review > 0 && <span className="sx-card-review">　今日の復習 {s.review}問</span>}
                   </div>
                 </button>
               );
