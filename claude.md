@@ -31,7 +31,7 @@
 
 ## 状態
 - 最新バージョン：v1.42.0（2026-10-25）
-- v1.42.0：英検マスターの復習を CCAO-F と同じ錯題本（今日の復習）に。まちがえた問題は 1日→3日→7日、2回続けて正解で外れる（期限前の正解は数えない、間隔の計算は `claudeCert/studyCore.js` を共用）。v1.41.0 までの復習リスト（`eikenReviewV1`）は初回に `eikenMistakesV1` へ移す（旧リストは残す）。級カードに「今日の復習 N問」、学習モード画面の一番上に「🔁 今日の復習」。模擬テストの得点推移を模擬テストの最初の画面と学習記録に表示（`src/ScoreTrend.jsx`、単語テストと共用）。`src/eikenReview.js`、`npm run test:eiken-review` で確認（未マージ。Sapix の v1.41.0〔PR #63〕の次）
+- v1.42.0：英検マスターの復習を CCAO-F と同じ錯題本（今日の復習）に。まちがえた問題は 1日→3日→7日、2回続けて正解で外れる（期限前の正解は数えない、間隔の計算は `claudeCert/studyCore.js` を共用）。v1.41.0 までの復習リスト（`eikenReviewV1`）は初回に `eikenMistakesV1` へ移す（旧リストは残す）。級カードに「今日の復習 N問」、学習モード画面の一番上に「🔁 今日の復習」。模擬テストの得点推移を模擬テストの最初の画面と学習記録に表示（`src/ScoreTrend.jsx`、単語テストと共用）。`src/eikenReview.js`、`npm run test:eiken-review` で確認（PR #64、未マージ。Sapix の v1.41.0〔PR #63〕の次）
 - v1.40.0：学習記録の GitHub 同期。非公開リポジトリ（StudyToolsData）の `progress/<勉強者>.json` に、英検・Sapix・Claude 認定の記録と勉強履歴を置き、端末ごとにトークンを設定すると iPad・iPhone・PC で同じ記録になる。キーごとに新しいほう、勉強履歴は回を足し合わせる、消した記録も伝わる。localStorage への書き込みを横取りして時刻を残す（`installSyncTracking`）。ZY への Claude 記録コピーは同期のあとに行う。`src/cloudSync.js`・`src/CloudSyncPanel.jsx`、`npm run test:cloud-sync` で確認
 - v1.39.0：Claude 認定の模擬試験に「英文のみで受ける（本番どおり）」と「中文訳つきで受ける（練習）」の 2 つの始め方。英文のみでは中文訳の設定に関係なく訳を出さない。1問ごとの解答時間を記録し（1回の表示は最大10分まで数える）、結果に「解答ペース」（1問あたりの目安 120分÷問数との比較・目安を超えた問題数・ドメイン別の平均・時間がかかった問題）、間違えた問題の見直しに各問の時間、受験履歴に「英文のみ」と平均時間。集計は `src/claudeCert/studyCore.js` の `paceSummary`、`npm run test:ccaof-study` で確認（未マージ）
 - v1.38.0：勉強者ごとに使うアプリを分けた。ZY は Claude 認定だけ、ZWJ は Claude 認定以外（ドリル・英検・Sapix）、Guest は全部。勉強者の選択画面に各人のアプリを表示し、アプリ選択画面にはその人のアプリと📅勉強履歴だけを出す。「最後に開いたアプリ」も勉強者ごと（ZWJ は従来キー）。ZY をはじめて選んだときに ZWJ の Claude 認定の記録と履歴の Claude 回を ZY に 1 回だけコピー（`src/learnerCopy.js`、ZWJ 側は残す）。`src/learner.js` の `canUseApp`、`npm run test:learner-apps` で確認
