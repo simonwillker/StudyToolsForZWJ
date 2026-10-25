@@ -38,8 +38,12 @@ const V128 = {
 
 console.log("\nSapix 保存キー・移行のテスト\n");
 
-test("4年の保存キーが v1.28.0 と同じ", () => {
-  for (const [s, [p, r]] of Object.entries(V128)) assert.deepEqual(storageKeys(4, s), { progressKey: p, reviewKey: r });
+test("4年の保存キー（学習記録・復習リスト）が v1.28.0 と同じ。錯題本・まとめテストは同じ頭で新しく足す", () => {
+  for (const [s, [p, r]] of Object.entries(V128)) {
+    const k = storageKeys(4, s);
+    assert.equal(k.progressKey, p);
+    assert.equal(k.reviewKey, r);
+  }
 });
 
 test("4年の勉強履歴の名前が v1.28.0 と同じ", () => {
@@ -49,7 +53,12 @@ test("4年の勉強履歴の名前が v1.28.0 と同じ", () => {
 test("全学年×全科目のキーが重ならない", () => {
   const all = GRADES.flatMap((g) => SUBJECT_DEFS.flatMap((d) => Object.values(storageKeys(g, d.id))));
   assert.equal(new Set(all).size, all.length);
-  assert.deepEqual(storageKeys(5, "math"), { progressKey: "sapixG5MathProgressV1", reviewKey: "sapixG5MathReviewV1" });
+  assert.deepEqual(storageKeys(5, "math"), {
+    progressKey: "sapixG5MathProgressV1",
+    reviewKey: "sapixG5MathReviewV1",
+    mistakesKey: "sapixG5MathMistakesV1",
+    testKey: "sapixG5MathTestResultsV1",
+  });
 });
 
 test("最後に開いたアプリの旧形式（科目ごとのカード）を移行する", () => {
