@@ -14,8 +14,8 @@
    ============================================================ */
 
 import { utterancesOf } from "./audioCore";
+import { pickVoice, rankVoices } from "./voicePick";
 
-const LOCALES = { en: ["en-US", "en-GB", "en"], ja: ["ja-JP", "ja"], zh: ["zh-CN", "zh-Hans", "cmn", "zh-TW", "zh-HK", "zh"] };
 const LANG_TAG = { en: "en-US", ja: "ja-JP", zh: "zh-CN" };
 
 export function isSpeechSupported() {
@@ -55,19 +55,47 @@ function allVoices() {
   }
 }
 
+/* 画面でえらんだ声（端末ごと）。中文は普通话の声の中からえらぶ */
+const VOICE_KEY = "ccaofVoiceV1";
+
+function loadPreferred() {
+  try {
+    const v = JSON.parse(window.localStorage.getItem(VOICE_KEY) || "{}");
+    return v && typeof v === "object" ? v : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+export function preferredVoice(lang) {
+  return loadPreferred()[lang] || "";
+}
+
+/** 声をえらぶ。uri が空なら「おまかせ」（一番聞きやすい声） */
+export function setPreferredVoice(lang, uri) {
+  const all = loadPreferred();
+  if (uri) all[lang] = uri;
+  else delete all[lang];
+  try {
+    window.localStorage.setItem(VOICE_KEY, JSON.stringify(all));
+  } catch (e) {
+    // 保存できなくても今回は効く
+  }
+  delete voiceCache[lang];
+  listeners.forEach((fn) => fn());
+}
+
+/** その言語で使える声（聞きやすい順）。中文は普通话の声だけ（粤语は入らない） */
+export function voicesFor(lang) {
+  if (!isSpeechSupported()) return [];
+  return rankVoices(allVoices(), lang);
+}
+
 export function voiceFor(lang) {
   if (!isSpeechSupported()) return null;
   if (lang in voiceCache) return voiceCache[lang];
   const voices = allVoices();
-  const norm = (s) => String(s || "").replace("_", "-").toLowerCase();
-  let found = null;
-  for (const loc of LOCALES[lang] || []) {
-    const l = loc.toLowerCase();
-    const match = voices.filter((v) => norm(v.lang) === l || norm(v.lang).startsWith(l + "-"));
-    // 端末内の声（localService）を優先：オフラインでも読める
-    found = match.find((v) => v.localService) || match[0] || null;
-    if (found) break;
-  }
+  const found = pickVoice(voices, lang, preferredVoice(lang));
   if (voices.length) voiceCache[lang] = found;
   return found;
 }
@@ -104,7 +132,11 @@ function speakUtterance(text, lang, rate) {
       u.lang = LANG_TAG[lang] || lang;
       u.rate = rate;
       const v = voiceFor(lang);
-      if (v) u.voice = v;
+      if (v) {
+        u.voice = v;
+        // 声の言語に合わせる（Safari は lang と voice が食い違うと既定の声に戻ることがある）
+        if (v.lang) u.lang = String(v.lang).replace(/_/g, "-");
+      }
       u.onend = done;
       u.onerror = done;
       alive.add(u);

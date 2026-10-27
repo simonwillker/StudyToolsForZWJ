@@ -18,6 +18,9 @@ import {
   onSpeakingKeyChange,
   speakingKey,
   clearSpeakingKey,
+  voicesFor,
+  preferredVoice,
+  setPreferredVoice,
 } from "./speech";
 import { LANGS, RATES, GAPS, normalizeSettings, filterTracks, pauseMs } from "./audioCore";
 
@@ -78,6 +81,7 @@ export const AudioStyle = () => <style>{`
   .ccaof-pchip { border: 1px solid #D8D5CB; background: #fff; border-radius: 999px; padding: 5px 12px; font-size: 12.5px; cursor: pointer; color: #4B5563; font-weight: 700; }
   .ccaof-pchip.on { background: var(--c, #5B4B8A); border-color: var(--c, #5B4B8A); color: #fff; }
   .ccaof-pchip small { font-weight: 400; opacity: 0.85; }
+  .ccaof-voice-select { border: 1px solid #D8D5CB; border-radius: 8px; padding: 5px 8px; font-size: 12.5px; background: #fff; color: #374151; max-width: 100%; flex: 1 1 180px; min-width: 0; }
   .ccaof-player-note { font-size: 11.5px; color: #9AA093; line-height: 1.7; margin-top: 10px; }
 `}</style>;
 
@@ -130,6 +134,15 @@ export function AudioUnsupported() {
 }
 
 /* ---------- 音声モード（ハンズフリー） ---------- */
+
+const ZH_SAMPLE = "你好，这是标准普通话的朗读。我们来学习写出有效的提示词。";
+
+/** 声の名前を短く：「Microsoft Xiaoxiao Online (Natural) - Chinese (Mainland)」→「Xiaoxiao Online (Natural)」 */
+function voiceLabel(v) {
+  const name = String(v.name || "").replace(/^Microsoft\s+/i, "").replace(/\s+-\s+.*$/, "").trim();
+  const region = /tw|hant/i.test(v.lang || "") ? "・台湾" : "";
+  return `${name}${region}${v.localService ? "" : "・ネット"}`;
+}
 
 function useVoiceAvailability() {
   const [, setN] = useState(0);
@@ -303,6 +316,9 @@ export function AudioPlayer({ title, color = "#5B4B8A", tracks: rawTracks, defau
   const track = tracks[Math.min(pos.t, tracks.length - 1)];
   const step = track && track.steps[Math.min(pos.s, track.steps.length - 1)];
   const langLabel = (id) => (LANGS.find((l) => l.id === id) || {}).label || id;
+  const zhVoices = voicesFor("zh");
+  const zhChoice = zhVoices.some((v) => (v.voiceURI || v.name) === preferredVoice("zh")) ? preferredVoice("zh") : "";
+  const zhAuto = zhVoices[0];
   const missing = LANGS.filter(({ id }) => settings.langs[id] && voices[id] === false);
   /* 讲义のように本文が1つの言語だけのとき、その言語が OFF なら知らせる */
   const needOff = needLang && !settings.langs[needLang];
@@ -347,6 +363,23 @@ export function AudioPlayer({ title, color = "#5B4B8A", tracks: rawTracks, defau
           </button>
         ))}
       </div>
+      {zhVoices.length > 0 && (
+        <div className="ccaof-player-set-row">
+          <span className="ccaof-player-set-label">中文の声</span>
+          <select
+            className="ccaof-voice-select"
+            value={zhChoice}
+            onChange={(e) => setPreferredVoice("zh", e.target.value)}
+            aria-label="中文の声"
+          >
+            <option value="">おまかせ（{zhAuto ? voiceLabel(zhAuto) : "普通话"}）</option>
+            {zhVoices.map((v) => (
+              <option key={v.voiceURI || v.name} value={v.voiceURI || v.name}>{voiceLabel(v)}</option>
+            ))}
+          </select>
+          <SpeakButton lang="zh" text={ZH_SAMPLE} label="中文の声を試す" />
+        </div>
+      )}
       {missing.length > 0 && (
         <div className="ccaof-player-note">
           この端末には {missing.map((m) => m.label).join("・")} の声が入っていないようです。

@@ -248,9 +248,34 @@ export function lessonTracks(lessons) {
   return out.filter((t) => t.steps.length);
 }
 
+/**
+ * 中文を普通话の声で自然に読めるよう、記号を言い換える（v1.43.0〜）。
+ * 「——」「→」を記号の名前で読んだり、「／」「＋」で詰まったりする声があるので、
+ * 間（，、）や読み方（加、等于）に置きかえる。かぎかっこは読まない。
+ */
+export function speakableZh(text) {
+  return speakable(text)
+    .replace(/\s*(?:——|—|–|→|⇒|➡)\s*/g, "，")
+    .replace(/[」』”]\s*[「『“]/g, "、")
+    .replace(/[「」『』“”"]/g, "")
+    .replace(/([\u3400-\u9fff])\s*[／/]\s*(?=[\u3400-\u9fff])/g, "$1、")
+    .replace(/\s*／\s*/g, "、")
+    .replace(/\s*[＋+]\s*/g, "加")
+    .replace(/\s*[＝=]\s*/g, "等于")
+    .replace(/(\d)\s*[～~]\s*(?=\d)/g, "$1到")
+    .replace(/[～~]/g, "到")
+    .replace(/(\d)\s*[×x]\s*(?=\d)/g, "$1乘")
+    .replace(/×/g, "乘")
+    .replace(/…+|\.{3,}/g, "。")
+    .replace(/，(?=[，。！？；：])/g, "")
+    .replace(/^，|，$/g, "")
+    .trim();
+}
+
 /** 読み上げ1回ぶんを、Chrome が途中で切らない長さに分けた発話の列にする */
 export function utterancesOf(s) {
-  return splitSentences(speakable(s.text)).map((text) => ({ lang: s.lang, text }));
+  const text = s.lang === "zh" ? speakableZh(s.text) : speakable(s.text);
+  return splitSentences(text).map((t) => ({ lang: s.lang, text: t }));
 }
 
 /** 速度と「間」の設定を反映した待ち時間 */

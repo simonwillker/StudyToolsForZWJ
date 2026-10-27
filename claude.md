@@ -30,7 +30,8 @@
 サーバー上にupdateする。Ipad、Iphone、PCどれでも確認とれる
 
 ## 状態
-- 最新バージョン：v1.42.0（2026-10-25）
+- 最新バージョン：v1.43.0（2026-10-27）
+- v1.43.0：Claude 認定の音声読み上げ（讲义など）の中文を標準の普通话に。声は普通话（中国大陆）の中から聞きやすいもの（Edge の Natural・Online、Chrome の Google 普通话、Apple の Tingting など）を先にえらび、粤语（zh-HK・yue）は使わない、台湾の国語は最後の手段。古い機械的な声（Huihui など）はあとに回す。音声モードの設定に「中文の声」（えらんだ声は端末ごとに `ccaofVoiceV1`）と試聴の🔊。中文は「——」「→」「／」「＋」「」などの記号を間や読み方に置きかえて読む（`speakableZh`）。`src/claudeCert/voicePick.js`、`npm run test:ccaof-audio` で確認
 - v1.42.0：英検マスターの復習を CCAO-F と同じ錯題本（今日の復習）に。まちがえた問題は 1日→3日→7日、2回続けて正解で外れる（期限前の正解は数えない、間隔の計算は `claudeCert/studyCore.js` を共用）。v1.41.0 までの復習リスト（`eikenReviewV1`）は初回に `eikenMistakesV1` へ移す（旧リストは残す）。級カードに「今日の復習 N問」、学習モード画面の一番上に「🔁 今日の復習」。模擬テストの得点推移を模擬テストの最初の画面と学習記録に表示（`src/ScoreTrend.jsx`、単語テストと共用）。`src/eikenReview.js`、`npm run test:eiken-review` で確認（PR #64）
 - v1.41.0：Sapix（全学年・全科目）に CCAO-F と同じ「🔁 今日の復習（錯題本）」と「📝 まとめテスト」。錯題本は 1日→3日→7日、2回続けて正解で外れる（期限前の正解は数えない、間隔の計算は `claudeCert/studyCore.js` を共用）。v1.40.0 までの復習リスト（`<科目>ReviewV1`）は初回に錯題本へ移す。まとめテストは単元・問題数（10/20/30）・制限時間（なし/10/20/30分）をえらび、回答中は正解を出さず最後に採点、単元ごとの正答率・まちがえた問題・得点推移。キーは `<科目>MistakesV1`・`<科目>TestResultsV1`（バックアップ・同期の対象）。`src/sapixStudy.js`・`src/SapixTest.jsx`・`src/sapixParts.jsx`、`npm run test:sapix-study` で確認（PR #63）。英検マスターの同じ対応は次の PR
 - v1.40.0：学習記録の GitHub 同期。非公開リポジトリ（StudyToolsData）の `progress/<勉強者>.json` に、英検・Sapix・Claude 認定の記録と勉強履歴を置き、端末ごとにトークンを設定すると iPad・iPhone・PC で同じ記録になる。キーごとに新しいほう、勉強履歴は回を足し合わせる、消した記録も伝わる。localStorage への書き込みを横取りして時刻を残す（`installSyncTracking`）。ZY への Claude 記録コピーは同期のあとに行う。`src/cloudSync.js`・`src/CloudSyncPanel.jsx`、`npm run test:cloud-sync` で確認

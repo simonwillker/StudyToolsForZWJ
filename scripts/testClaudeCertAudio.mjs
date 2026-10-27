@@ -89,6 +89,7 @@ const progress = await import("../src/claudeCert/progress.js");
 const mistakes = await import("../src/claudeCert/mistakes.js");
 const backup = await import("../src/claudeCert/backup.js");
 const certState = await import("../src/claudeCert/certState.js");
+const voicePick = await import("../src/claudeCert/voicePick.js");
 
 let passed = 0;
 function test(name, fn) {
@@ -285,6 +286,48 @@ test("聞いた記録は資格ごと：CCAR-F は ccarfListenV1、CCAO-F の cca
   assert.ok(backup.buildBackup().data.ccarfListenV1);
   certState.setActiveCertState("ccaof");
   assert.deepEqual(Object.keys(JSON.parse(window.localStorage.getItem("ccaofListenV1")).items), ["d1-001"]);
+});
+
+test("中文の声：普通话（中国大陆）の聞きやすい声をえらび、粤语は使わない", () => {
+  const V = (name, lang, localService = true) => ({ name, lang, voiceURI: name, localService });
+  const windows = [
+    V("Microsoft Huihui - Chinese (Simplified, PRC)", "zh-CN"),
+    V("Microsoft Xiaoxiao Online (Natural) - Chinese (Mainland)", "zh-CN", false),
+    V("Microsoft HiuGaai Online (Natural) - Chinese (Cantonese Traditional)", "zh-HK", false),
+  ];
+  assert.equal(voicePick.pickVoice(windows, "zh").name, "Microsoft Xiaoxiao Online (Natural) - Chinese (Mainland)");
+  const chrome = [V("Google 粤語（香港）", "zh-HK", false), V("Google 國語（臺灣）", "zh-TW", false), V("Google 普通话（中国大陆）", "zh-CN", false)];
+  assert.equal(voicePick.pickVoice(chrome, "zh").name, "Google 普通话（中国大陆）");
+  const apple = [V("Sinji", "zh-HK"), V("Meijia", "zh-TW"), V("Tingting", "zh-CN")];
+  assert.equal(voicePick.pickVoice(apple, "zh").name, "Tingting");
+  // 粤语しかない端末では中文の声なし
+  assert.equal(voicePick.pickVoice([V("Sinji", "zh-HK"), V("Aasing", "yue-HK")], "zh"), null);
+  // 普通话がなければ台湾の国語
+  assert.equal(voicePick.pickVoice([V("Sinji", "zh-HK"), V("Meijia", "zh-TW")], "zh").name, "Meijia");
+  // えらんだ声があればそれ。粤语をえらんでいても使わない
+  assert.equal(voicePick.pickVoice(apple, "zh", "Meijia").name, "Meijia");
+  assert.equal(voicePick.pickVoice(apple, "zh", "Sinji").name, "Tingting");
+  assert.deepEqual(voicePick.rankVoices(apple, "zh").map((v) => v.name), ["Tingting", "Meijia"]);
+  // 英語・日本語は従来どおり端末内の声を優先
+  assert.equal(voicePick.pickVoice([V("Google US English", "en-US", false), V("Samantha", "en-US")], "en").name, "Samantha");
+  assert.equal(voicePick.pickVoice([V("Kyoko", "ja_JP")], "ja").name, "Kyoko");
+});
+
+test("中文の読み上げ：記号を普通话で読める形にする", () => {
+  assert.equal(audio.speakableZh("先看「读者」「用途」——再决定"), "先看读者、用途，再决定");
+  assert.equal(audio.speakableZh("目的／读者／标准"), "目的、读者、标准");
+  assert.equal(audio.speakableZh("负责人＋期限"), "负责人加期限");
+  assert.equal(audio.speakableZh("产出太笼统 → 加示例"), "产出太笼统，加示例");
+  assert.equal(audio.speakableZh("3～5 次"), "3到5 次");
+  assert.equal(audio.speakableZh("AWS/GCP"), "AWS/GCP");
+  // 讲义の中文はすべて読める形になり、記号が残らない
+  [lessons, arLessons].forEach((ls) =>
+    audio.filterTracks(audio.lessonTracks(ls), ALL).forEach((t) =>
+      t.steps.filter((s) => s.lang === "zh").forEach((s) =>
+        audio.utterancesOf(s).forEach((u) => assert.ok(!/[「」『』→—／＋]/.test(u.text), u.text))
+      )
+    )
+  );
 });
 
 console.log(`\n✅ ${passed} 件すべて成功\n`);
