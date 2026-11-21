@@ -4,7 +4,7 @@
 
 - **きょうのドリル（Daily Drill）**：小学生向けの日常学習ドリル
 - **英検マスター（EIKEN Master）**：英検5級〜1級対応の総合学習アプリ
-- **Claude 認定**：Claude 認定資格の対策。中で資格を選ぶ（CCAO-F：Associate – Foundations／CCAR-F：Architect – Foundations／CCDV-F：Developer – Foundations。CCAR-P は準備中）
+- **Claude 認定**：Claude 認定資格の対策。中で資格を選ぶ（CCAO-F：Associate – Foundations／CCAR-F：Architect – Foundations／CCDV-F：Developer – Foundations／CCAR-P：Architect – Professional）
 - **Sapix**：学年 → 科目（算数・国語・理科・社会・英語）→ 単元の順に選ぶ。いまは4年（算数・国語・社会・理科は小4 冬期講習相当、英語は英検5級〜4級程度）。算数 19 単元・国語 12 単元・社会 15 単元・理科 15 単元・英語 10 単元（各 20 問、計 1,420 問、オリジナル問題）
 
 ## 勉強者の選択と勉強履歴
@@ -134,13 +134,13 @@ Claude 認定（CCAO-F）と同じしくみです。「単語・熟語」「常�
 - 出題データは分野別ドリルが `src/data/eikenApp/*.json`、模擬テストが `src/data/eikenTest/*.json` に分離されています。スキーマや追加方法はそれぞれの `README.md` を参照してください。
 - データを追加したら `npm run validate` で検証できます（`validate:app` は単語・分野別ドリル、`validate:test` は模擬テスト）。
 
-## Claude 認定（v1.33.0〜：CCAO-F と CCAR-F、v1.36.0〜 CCDV-F）
+## Claude 認定（v1.33.0〜：CCAO-F と CCAR-F、v1.36.0〜 CCDV-F、v1.46.0〜 CCAR-P）
 
 アプリ選択画面の「**Claude 認定**」1 枚から使います（v1.31.0 までの「CCAO-F 対策」カード）。中で資格を選び、どの資格も同じ画面（`src/claudeCert/CertApp.jsx`）で **ドメイン練習・模擬試験・考点讲义・考点別の成績と弱点練習・錯題本（今日の復習）・合格予測・頻出単語・音声読み上げ／音声モード・バックアップ** が使えます。
 
-- **データの置き場所**：`src/data/claudeCert/<資格>/`（`meta.json`・`lessons.json`・`d1-*.json`…・`glossary.json`・`vocab.json`）。資格の一覧と画面の文言は `src/claudeCert/certs.js`。資格を足すときは、ここに 1 件足してデータのフォルダを置きます（CCAR-P は一覧に「準備中」と出ています）。
-- **学習記録は資格ごと・勉強者ごと**：キーは `<資格の頭>ProgressV1` など（`src/claudeCert/certState.js`）。**CCAO-F は以前の `ccaof*` キーのまま**なので、v1.31.0 までの学習記録・錯題本・模試の結果・頻出単語・バックアップファイルはそのまま使えます。CCAR-F は `ccarf*`、CCDV-F は `ccdvf*`。前回「CCAO-F 対策」を開いていた人は、初回は CCAO-F が直接開きます（アプリ id `ccaof` → `claudeCert` に移行）。
-- 検証：`npm run validate:claude-cert`（全資格。`validate:ccaof`／`validate:ccarf`／`validate:ccdvf` で個別）、`npm run build:claude-cert-vocab`（頻出単語の生成）、`npm run test:ccaof-study`（錯題本・移行・資格別キー・バックアップ・考点・予測・シナリオ模試）。
+- **データの置き場所**：`src/data/claudeCert/<資格>/`（`meta.json`・`lessons.json`・`d1-*.json`…・`glossary.json`・`vocab.json`）。資格の一覧と画面の文言は `src/claudeCert/certs.js`。資格を足すときは、ここに 1 件足してデータのフォルダを置きます。
+- **学習記録は資格ごと・勉強者ごと**：キーは `<資格の頭>ProgressV1` など（`src/claudeCert/certState.js`）。**CCAO-F は以前の `ccaof*` キーのまま**なので、v1.31.0 までの学習記録・錯題本・模試の結果・頻出単語・バックアップファイルはそのまま使えます。CCAR-F は `ccarf*`、CCDV-F は `ccdvf*`、CCAR-P は `ccarp*`。前回「CCAO-F 対策」を開いていた人は、初回は CCAO-F が直接開きます（アプリ id `ccaof` → `claudeCert` に移行）。
+- 検証：`npm run validate:claude-cert`（全資格。`validate:ccaof`／`validate:ccarf`／`validate:ccdvf`／`validate:ccarp` で個別）、`npm run build:claude-cert-vocab`（頻出単語の生成）、`npm run test:ccaof-study`（錯題本・移行・資格別キー・バックアップ・考点・予測・シナリオ模試）。
 
 ### CCAO-F（Claude Certified Associate – Foundations）
 
@@ -163,6 +163,13 @@ Claude 認定（CCAO-F）と同じしくみです。「単語・熟語」「常�
 - **問題**：計 215 問。v1.0 の 171 問は新しいドメインと skill に振り分け直し（id はそのまま。21 問はドメインが変わったので `movedItems` で学習記録を移す）、v1.1 で増えた内容（LLM-as-judge の校正・ゴールデンセット・回帰テスト・失敗モードの診断・ストリーミングの終了イベント・再試行の区別・階層的なキャッシュ breakpoint・effort・根拠と引用・Claude Managed Agents・Claude Code の拡張など）の新問 44 問（id `ndv<ドメイン>-NNN`）。全問に中国語訳・中文注解・選択肢ごとの解説（日本語）・skill・公式ドキュメントの出典・難易度。問題文はすべてオリジナル。
 - **模擬試験**：本番と同じ 70 問・120 分。ドメインごとの問題数は配点から最大剰余法で配分（D1 12・D2 14・D3 6・D4 7・D5 8・D6 10・D7 6・D8 7）。
 - **讲义**：24 skill すべて（中国語、用語は英語併記）。**頻出単語**：145 語。
+
+### CCAR-P（Claude Certified Architect – Professional）
+
+- **大綱**：公式 Exam Guide v1.1（2026-12-07 発効）に沿う。70 問（うち採点 60 問）・120 分・720/1000 合格・受験料 $175・有効 12 か月、7 ドメイン・39 skill（D1 ソリューション設計とアーキテクチャ 18%／D2 モデル・プロンプト・コンテキスト設計 13%／D3 統合 21%／D4 評価・テスト・最適化 17%／D5 ガバナンス・安全・リスク管理 16%／D6 関係者とのコミュニケーションとライフサイクル管理 7%／D7 開発者の生産性と運用の整備 8%）。本番は業務場面つきの単一選択・複数選択で、CCAR-F のような名前つきシナリオは公開されていないので、シナリオ別の出題はしません。Foundations の範囲は前提知識として扱われます。
+- **問題**：計 161 問（id `rp<ドメイン>-NNN`）。各 skill に 4 問以上、全問に中国語訳・中文注解・選択肢ごとの解説（日本語）・skill・公式ドキュメントの出典・難易度。問題文はすべてオリジナルで、Exam Guide のサンプル問題は使っていません（同じ論点の別問題はあります）。
+- **模擬試験**：本番と同じ 70 問・120 分。ドメインごとの問題数は配点から最大剰余法で配分（D1 13・D2 9・D3 15・D4 12・D5 11・D6 5・D7 5）。
+- **讲义**：39 skill すべて（中国語、用語は英語併記）。**頻出単語**：126 語。
 
 ## 音声読み上げと音声モード（v1.32.0〜、v1.33.0 から CCAR-F でも）
 

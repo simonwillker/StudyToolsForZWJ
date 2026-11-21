@@ -1,0 +1,941 @@
+{
+  "domain": "D2",
+  "items": [
+    {
+      "id": "rp2-001",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A moderation step must label 3 million short comments per day within 500 ms each at minimum cost; evals show the fastest tier reaches the 97% accuracy target. Why are the larger tiers rejected?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "They add latency and cost without a needed quality gain, since the fast tier already meets the target.",
+          "correct": true,
+          "explain": "正解。品質目標を満たすなら、速く安い層を選び、上位層は理由をつけて退ける。",
+          "textZh": "它们增加了延迟和成本，却没有带来必要的质量提升，因为快速层级已经达标。"
+        },
+        {
+          "text": "Larger tiers cannot classify text.",
+          "correct": false,
+          "explain": "不適。能力の問題ではなく、過剰であることが理由。",
+          "textZh": "更大的层级不能做文本分类。"
+        },
+        {
+          "text": "Larger tiers are always less accurate.",
+          "correct": false,
+          "explain": "不適。精度が低いわけではない。",
+          "textZh": "更大的层级总是更不准确。"
+        },
+        {
+          "text": "Larger tiers do not support English.",
+          "correct": false,
+          "explain": "不適。事実に反し、論点でもない。",
+          "textZh": "更大的层级不支持英文。"
+        }
+      ],
+      "objective": "Model Tier Selection",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个审核步骤每天要在每条 500 毫秒内、以最低成本给 300 万条短评论打标签；评估显示最快的层级已达到 97% 的准确率目标。为什么不选更大的层级？",
+      "commentaryZh": "2.1 不仅要选出合适的层级，还要说明其他层级为什么被排除。质量达标后，更大的层级只会增加延迟和成本。"
+    },
+    {
+      "id": "rp2-002",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A contract-risk analysis must catch subtle cross-clause conflicts; the fast tier misses 30% of them in evals, while the most capable tier meets the target within the 60-second SLA. What is the BEST decision?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use the most capable tier, because only it meets the quality constraint within the SLA.",
+          "correct": true,
+          "explain": "正解。品質制約を満たせない層は、安くても候補から外れる。",
+          "textZh": "使用最强层级，因为只有它在 SLA 内满足质量约束。"
+        },
+        {
+          "text": "Use the fast tier to save money and accept the misses.",
+          "correct": false,
+          "explain": "不適。品質の下限を破っている。",
+          "textZh": "为了省钱使用快速层级，接受漏检。"
+        },
+        {
+          "text": "Use the fast tier and tell users to double-check.",
+          "correct": false,
+          "explain": "不適。リスクを利用者に押しつけている。",
+          "textZh": "使用快速层级，并让用户自己复查。"
+        },
+        {
+          "text": "Pick a tier at random each request.",
+          "correct": false,
+          "explain": "不適。ランダムな選択は根拠のない設計。",
+          "textZh": "每次请求随机选择层级。"
+        }
+      ],
+      "objective": "Model Tier Selection",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一项合同风险分析必须发现条款之间细微的冲突；评估中快速层级漏掉了 30%，而最强层级在 60 秒 SLA 内达到目标。最好的决定是什么？",
+      "commentaryZh": "选层级时先看硬约束：质量底线、延迟、成本。达不到质量底线的层级再便宜也不能用；能满足所有约束的最省方案才是答案。"
+    },
+    {
+      "id": "rp2-003",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO pieces of evidence are needed to justify a tier choice to a review board?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Eval results for each candidate tier on a representative task set.",
+          "correct": true,
+          "explain": "正解。品質を同じ基準で比べた根拠が必要。",
+          "textZh": "各候选层级在代表性任务集上的评估结果。"
+        },
+        {
+          "text": "Measured latency and cost per request against the constraints.",
+          "correct": true,
+          "explain": "正解。速度・コストの制約を満たすことを示す。",
+          "textZh": "对照约束测得的每次请求延迟和成本。"
+        },
+        {
+          "text": "The model's own opinion of which tier is best.",
+          "correct": false,
+          "explain": "不適。自己評価は根拠にならない。",
+          "textZh": "模型自己认为哪个层级最好。"
+        },
+        {
+          "text": "The tier a competitor uses.",
+          "correct": false,
+          "explain": "不適。自社のタスクと制約に基づいていない。",
+          "textZh": "竞争对手使用的层级。"
+        }
+      ],
+      "objective": "Model Tier Selection",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "向评审委员会论证层级选择时，需要哪两项证据？",
+      "commentaryZh": "论证要基于同一任务集上的评估质量，以及实测的延迟和成本，并说明被排除的层级违反了哪个约束。"
+    },
+    {
+      "id": "rp2-004",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A pipeline has three stages: intent detection (simple), answer drafting (moderate), and escalation-risk judgment (hard, low volume). How should tiers be assigned?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Fast tier for intent, a mid tier for drafting, and the most capable tier for the low-volume risk judgment, each validated by evals.",
+          "correct": true,
+          "explain": "正解。段階ごとに難しさと量で層を選ぶ。",
+          "textZh": "意图识别用快速层级，起草用中间层级，量少的风险判断用最强层级，并分别用评估验证。"
+        },
+        {
+          "text": "The most capable tier for all three.",
+          "correct": false,
+          "explain": "不適。大量の簡単な処理で無駄が大きい。",
+          "textZh": "三个阶段都用最强层级。"
+        },
+        {
+          "text": "The fast tier for all three.",
+          "correct": false,
+          "explain": "不適。難しい判断で品質が落ちる。",
+          "textZh": "三个阶段都用快速层级。"
+        },
+        {
+          "text": "Let users choose a tier per message.",
+          "correct": false,
+          "explain": "不適。設計判断を利用者に押しつけている。",
+          "textZh": "让用户为每条消息选择层级。"
+        }
+      ],
+      "objective": "Model Tier Selection",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个流水线有三个阶段：意图识别（简单）、起草回答（中等）、升级风险判断（困难、量少）。层级应怎样分配？",
+      "commentaryZh": "不同阶段的难度和请求量不同，层级应分别选择：量大且简单 → 快速层级；量小但关键 → 最强层级。"
+    },
+    {
+      "id": "rp2-005",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A support assistant's system prompt says \"Be helpful.\" Answers vary in length, sometimes promise refunds, and sometimes answer unrelated legal questions. What is the BEST revision?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Specify scope (product support only), format (answer first, under 120 words), and behavior for out-of-scope or refund requests (route to a human).",
+          "correct": true,
+          "explain": "正解。範囲・形式・例外時の振る舞いの不足を埋める。",
+          "textZh": "写明范围（只做产品支持）、格式（先给答案，120 字以内），以及超出范围或退款请求时的处理（转人工）。"
+        },
+        {
+          "text": "Add \"Be very helpful\" in capital letters.",
+          "correct": false,
+          "explain": "不適。曖昧さは強調しても解消しない。",
+          "textZh": "用大写字母写「要非常有帮助」。"
+        },
+        {
+          "text": "Add 50 rules covering every possible question.",
+          "correct": false,
+          "explain": "不適。過剰な制約で正常な回答まで妨げる。",
+          "textZh": "加 50 条规则覆盖所有可能的问题。"
+        },
+        {
+          "text": "Switch to a larger model.",
+          "correct": false,
+          "explain": "不適。指示の不足はモデルでは補えない。",
+          "textZh": "换更大的模型。"
+        }
+      ],
+      "objective": "System Prompt Diagnosis and Revision",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "客服助手的系统提示只写着「要有帮助」。回答长短不一，有时承诺退款，有时还回答无关的法律问题。最好的修改是什么？",
+      "commentaryZh": "2.2：输出不一致常来自提示的规格不足。补上范围、格式和关键行为（例如退款转人工），但不要过度约束，否则会阻碍正常回答。"
+    },
+    {
+      "id": "rp2-006",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "After a revision, a system prompt lists 40 prohibitions. The assistant now refuses many legitimate requests. What went wrong, and what is the fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It is over-constrained; replace the list with the key scope rules and the reasons behind them, and test against legitimate cases.",
+          "correct": true,
+          "explain": "正解。制約しすぎ。理由つきの要点に絞り、正当なケースで回帰確認する。",
+          "textZh": "约束过度；把清单换成关键的范围规则及其理由，并用正当用例测试。"
+        },
+        {
+          "text": "Add 40 more prohibitions to balance it.",
+          "correct": false,
+          "explain": "不適。過剰な制約がさらに悪化する。",
+          "textZh": "再加 40 条禁止事项来平衡。"
+        },
+        {
+          "text": "Remove the system prompt entirely.",
+          "correct": false,
+          "explain": "不適。必要な範囲指定まで失う。",
+          "textZh": "完全删除系统提示。"
+        },
+        {
+          "text": "Increase max_tokens.",
+          "correct": false,
+          "explain": "不適。拒否の原因とは無関係。",
+          "textZh": "调大 max_tokens。"
+        }
+      ],
+      "objective": "System Prompt Diagnosis and Revision",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "修改后，系统提示列出了 40 条禁止事项。助手现在拒绝了很多正当请求。哪里出了问题？怎么修？",
+      "commentaryZh": "修改提示要在「规格不足」和「过度约束」之间平衡。说明规则背后的理由，模型更能正确泛化；并用正当请求做回归测试。"
+    },
+    {
+      "id": "rp2-007",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Users report the assistant uses bullet lists in a voice product where output is read aloud. What is the MOST effective system-prompt change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "State that responses are spoken aloud, so use short plain sentences without lists or markdown.",
+          "correct": true,
+          "explain": "正解。理由（音声で読まれる）を伝え、望む形式を肯定形で示す。",
+          "textZh": "说明回答会被朗读出来，所以用简短的普通句子，不要列表或 markdown。"
+        },
+        {
+          "text": "Write \"NO BULLETS\" five times.",
+          "correct": false,
+          "explain": "不適。理由がなく、繰り返しても安定しない。",
+          "textZh": "把「不要项目符号」写五遍。"
+        },
+        {
+          "text": "Post-process to delete all text after the first line.",
+          "correct": false,
+          "explain": "不適。必要な内容まで失う。",
+          "textZh": "后处理时删掉第一行之后的所有内容。"
+        },
+        {
+          "text": "Use a different voice.",
+          "correct": false,
+          "explain": "不適。出力形式の問題は解決しない。",
+          "textZh": "换一种声音。"
+        }
+      ],
+      "objective": "System Prompt Diagnosis and Revision",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "用户反映，在一个把输出朗读出来的语音产品里，助手会使用项目符号列表。最有效的系统提示改动是什么？",
+      "commentaryZh": "说明场景和理由，并用正面方式描述想要的格式（短句、不用列表），比单纯禁止更有效。"
+    },
+    {
+      "id": "rp2-008",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO steps make a system-prompt revision safe to ship?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Run it against a regression set that includes the original failure cases.",
+          "correct": true,
+          "explain": "正解。直したい失敗が直り、他が壊れていないか確認する。",
+          "textZh": "用包含原始失败案例的回归测试集来测试。"
+        },
+        {
+          "text": "Check that previously passing behaviors still pass.",
+          "correct": true,
+          "explain": "正解。退行がないことを確かめる。",
+          "textZh": "确认以前通过的行为仍然通过。"
+        },
+        {
+          "text": "Ship on Friday night to minimize users affected.",
+          "correct": false,
+          "explain": "不適。検証の代わりにならない。",
+          "textZh": "周五晚上上线，影响的用户最少。"
+        },
+        {
+          "text": "Ask the model whether the new prompt is better.",
+          "correct": false,
+          "explain": "不適。自己評価は検証ではない。",
+          "textZh": "问模型新提示是否更好。"
+        }
+      ],
+      "objective": "System Prompt Diagnosis and Revision",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两个步骤能让系统提示的修改安全上线？",
+      "commentaryZh": "修改提示要像改代码一样验证：原来失败的用例要通过，原来通过的用例不能退步。"
+    },
+    {
+      "id": "rp2-009",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A classifier confuses two similar categories on borderline cases, though instructions define both clearly. Which technique is MOST likely to fix this at low token cost?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Add a few labeled borderline examples (few-shot) that show the distinction.",
+          "correct": true,
+          "explain": "正解。境界例のフューショットが最も直接的。",
+          "textZh": "加入几个标注好的边界示例（少样本），展示两者的区别。"
+        },
+        {
+          "text": "Enable maximum native thinking on every call.",
+          "correct": false,
+          "explain": "不適。単純な分類にはトークン負担が大きすぎる。",
+          "textZh": "每次调用都开启最大限度的原生思考。"
+        },
+        {
+          "text": "Remove the category definitions.",
+          "correct": false,
+          "explain": "不適。定義を消すと曖昧さが増える。",
+          "textZh": "删除类别定义。"
+        },
+        {
+          "text": "Ask for a longer answer.",
+          "correct": false,
+          "explain": "不適。分類の正確さは上がらない。",
+          "textZh": "要求更长的回答。"
+        }
+      ],
+      "objective": "Prompting Technique Selection",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个分类器在边界案例上混淆两个相似的类别，尽管指令已清楚地定义了两者。哪种技术最可能以较低的 token 成本解决这个问题？",
+      "commentaryZh": "2.3 要按观察到的失败选技术：边界混淆 → 少样本示例；多步推理出错 → 引导推理或原生思考；格式问题 → 结构化输出。并避免不必要的 token 开销。"
+    },
+    {
+      "id": "rp2-010",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A planning task fails because the model skips intermediate reasoning across many constraints. Latency budget is generous. Which technique fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use native (extended or adaptive) thinking, or prompted step-by-step reasoning, so the model works through constraints before answering.",
+          "correct": true,
+          "explain": "正解。多制約の推論失敗には思考を使う。",
+          "textZh": "使用原生（扩展或自适应）思考，或提示逐步推理，让模型在回答前逐一处理约束。"
+        },
+        {
+          "text": "Add few-shot examples of final answers only.",
+          "correct": false,
+          "explain": "不適。推論の過程は補えない。",
+          "textZh": "只加入最终答案的少样本示例。"
+        },
+        {
+          "text": "Force JSON output.",
+          "correct": false,
+          "explain": "不適。形式は推論の質を上げない。",
+          "textZh": "强制 JSON 输出。"
+        },
+        {
+          "text": "Shorten the prompt to one line.",
+          "correct": false,
+          "explain": "不適。必要な制約まで失う。",
+          "textZh": "把提示缩成一行。"
+        }
+      ],
+      "objective": "Prompting Technique Selection",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/effort",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一项规划任务失败，原因是模型在众多约束之间跳过了中间推理。延迟预算很宽裕。哪种技术最合适？",
+      "commentaryZh": "多约束推理出错时，让模型先推理再回答最有效：原生思考或提示中的逐步推理。延迟和 token 预算允许时才值得用。"
+    },
+    {
+      "id": "rp2-011",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A downstream service crashes when extraction output is missing fields or uses the wrong types. Which technique addresses the failure MOST directly?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Structured output with a JSON schema, plus validation before the data reaches the service.",
+          "correct": true,
+          "explain": "正解。形式の失敗には構造化出力と検証。",
+          "textZh": "使用带 JSON schema 的结构化输出，并在数据进入服务前做校验。"
+        },
+        {
+          "text": "More few-shot examples of prose answers.",
+          "correct": false,
+          "explain": "不適。型の保証にはならない。",
+          "textZh": "更多散文式回答的少样本示例。"
+        },
+        {
+          "text": "Native thinking at maximum effort.",
+          "correct": false,
+          "explain": "不適。形式の問題に推論を足しても直接効かない。",
+          "textZh": "最高 effort 的原生思考。"
+        },
+        {
+          "text": "A politer tone.",
+          "correct": false,
+          "explain": "不適。語気はスキーマ違反と無関係の変更。",
+          "textZh": "更礼貌的语气。"
+        }
+      ],
+      "objective": "Prompting Technique Selection",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "当提取输出缺字段或类型错误时，下游服务会崩溃。哪种技术最直接地解决这个问题？",
+      "commentaryZh": "格式和类型错误属于结构问题，最直接的手段是结构化输出（schema 约束）加上入库前校验。"
+    },
+    {
+      "id": "rp2-012",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A simple translation task already meets quality with zero-shot instructions. A teammate proposes adding ten examples and thinking. What is the BEST response?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Keep zero-shot; extra examples and thinking add token cost without a measured gain.",
+          "correct": true,
+          "explain": "正解。効果が測れないテクニックはコストを増やすだけ。",
+          "textZh": "保持零样本；额外的示例和思考会增加 token 成本，却没有可测量的提升。"
+        },
+        {
+          "text": "Accept, because more techniques are always better.",
+          "correct": false,
+          "explain": "不適。不要なトークン負担になる。",
+          "textZh": "接受，因为技术越多越好。"
+        },
+        {
+          "text": "Switch to a fine-tuned model.",
+          "correct": false,
+          "explain": "不適。必要のない大きな変更。",
+          "textZh": "换成微调模型。"
+        },
+        {
+          "text": "Remove the instructions.",
+          "correct": false,
+          "explain": "不適。品質を下げる恐れがある。",
+          "textZh": "删除指令。"
+        }
+      ],
+      "objective": "Prompting Technique Selection",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个简单的翻译任务用零样本指令已经达到质量要求。同事提议加入十个示例并开启思考。最好的回应是什么？",
+      "commentaryZh": "技术选择要以效果为依据。已经达标的任务再加示例和思考，只会增加成本和延迟。"
+    },
+    {
+      "id": "rp2-013",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An agent's average request is 60k tokens: 4k system prompt, 50k full conversation history including old tool outputs, 6k current documents. Calls are 100k/day and costs exceed budget. What is the BEST first change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Trim the history: drop or summarize stale tool outputs while keeping decisions and the current task state.",
+          "correct": true,
+          "explain": "正解。最大の要素（古い履歴）を削り、必要な情報は残す。",
+          "textZh": "精简历史：删除或总结过时的工具输出，同时保留决定和当前任务状态。"
+        },
+        {
+          "text": "Shorten the 4k system prompt.",
+          "correct": false,
+          "explain": "不適。影響の小さい部分から削っている。",
+          "textZh": "缩短 4 千 token 的系统提示。"
+        },
+        {
+          "text": "Remove the current documents.",
+          "correct": false,
+          "explain": "不適。回答に必要な情報まで失う。",
+          "textZh": "删除当前文档。"
+        },
+        {
+          "text": "Double the context window.",
+          "correct": false,
+          "explain": "不適。コストはむしろ増える。",
+          "textZh": "把上下文窗口加倍。"
+        }
+      ],
+      "objective": "Context Composition and Token Economics",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个代理的平均请求有 6 万 token：系统提示 4 千、包含旧工具输出的完整对话历史 5 万、当前文档 6 千。每天调用 10 万次，成本超预算。最好的第一步是什么？",
+      "commentaryZh": "2.4 先分析上下文的构成和调用量，从占比最大的部分下手：这里是包含旧工具输出的历史。削减时要保留决定和任务状态，不能丢掉必要信息。"
+    },
+    {
+      "id": "rp2-014",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A 20k-token product catalog is sent unchanged with every one of 50,000 daily requests, followed by a short user question. Which change MOST reduces cost without losing information?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Cache the catalog prefix so repeated reads are billed at the cache-read rate.",
+          "correct": true,
+          "explain": "正解。毎回同じ大きな前置きはキャッシュする。",
+          "textZh": "缓存目录前缀，让重复读取按缓存读取的价格计费。"
+        },
+        {
+          "text": "Send the catalog only on Mondays.",
+          "correct": false,
+          "explain": "不適。他の日の回答に必要な情報が欠ける。",
+          "textZh": "只在周一发送目录。"
+        },
+        {
+          "text": "Summarize the catalog to 200 tokens.",
+          "correct": false,
+          "explain": "不適。必要な詳細を失う。",
+          "textZh": "把目录总结成 200 token。"
+        },
+        {
+          "text": "Move the catalog after the question.",
+          "correct": false,
+          "explain": "不適。可変部分の後ろではキャッシュが効かない。",
+          "textZh": "把目录放到问题后面。"
+        }
+      ],
+      "objective": "Context Composition and Token Economics",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一份 2 万 token 的产品目录在每天 5 万次请求中都原样发送，后面跟着一个简短的用户问题。哪项改动最能在不丢失信息的前提下降低成本？",
+      "commentaryZh": "大而不变的内容每次都重复发送时，提示缓存可以在不删减信息的前提下大幅降低成本。注意缓存按前缀匹配，不变的内容要放在前面。"
+    },
+    {
+      "id": "rp2-015",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO metrics are MOST useful when analyzing token economics for a high-volume feature?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Input tokens per call broken down by component (system, history, documents, tools).",
+          "correct": true,
+          "explain": "正解。どこにトークンが使われているか分かる。",
+          "textZh": "按组成部分（系统提示、历史、文档、工具）拆分的每次调用输入 token。"
+        },
+        {
+          "text": "Cache read vs. cache write tokens per call.",
+          "correct": true,
+          "explain": "正解。キャッシュが効いているか分かる。",
+          "textZh": "每次调用的缓存读取与缓存写入 token。"
+        },
+        {
+          "text": "Number of emoji in answers.",
+          "correct": false,
+          "explain": "不適。コスト分析に無関係。",
+          "textZh": "回答中表情符号的数量。"
+        },
+        {
+          "text": "The developer's typing speed.",
+          "correct": false,
+          "explain": "不適。トークンの経済性と関係ない。",
+          "textZh": "开发者的打字速度。"
+        }
+      ],
+      "objective": "Context Composition and Token Economics",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "分析一个高调用量功能的 token 经济性时，哪两项指标最有用？",
+      "commentaryZh": "成本分析要看每次调用的 token 构成，以及缓存的读写情况，再乘以调用量，才能找出最该优化的部分。"
+    },
+    {
+      "id": "rp2-016",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A team cuts context by removing all tool descriptions longer than one line. Tool-selection errors then rise sharply. What principle was violated?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Reduce tokens without losing information the model needs; tool descriptions drive correct tool use.",
+          "correct": true,
+          "explain": "正解。必要な情報を削ると品質が落ちる。",
+          "textZh": "减少 token 时不能丢掉模型需要的信息；工具描述决定了能否正确使用工具。"
+        },
+        {
+          "text": "Never reduce tokens.",
+          "correct": false,
+          "explain": "不適。削減自体は必要なこともある。",
+          "textZh": "永远不要减少 token。"
+        },
+        {
+          "text": "Tool descriptions should be in another language.",
+          "correct": false,
+          "explain": "不適。言語は論点ではない。",
+          "textZh": "工具描述应该用另一种语言。"
+        },
+        {
+          "text": "Always use more tools.",
+          "correct": false,
+          "explain": "不適。道具の数は原則ではない。",
+          "textZh": "工具总是越多越好。"
+        }
+      ],
+      "objective": "Context Composition and Token Economics",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队为了减少上下文，删掉了所有超过一行的工具描述。之后选错工具的情况急剧增加。违反了什么原则？",
+      "commentaryZh": "削减 token 的目标是去掉冗余，而不是去掉必要信息。工具描述是模型选择工具的依据，删掉它会直接影响质量。"
+    },
+    {
+      "id": "rp2-017",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A request is ordered: current timestamp → system prompt → tool definitions → per-user profile → question. Cache hit rate is near zero. What is the BEST fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Move the timestamp after the stable content and place breakpoints after the system/tools and after the user profile.",
+          "correct": true,
+          "explain": "正解。安定した内容を前に、変わる内容を後ろに置き、変化の頻度で区切る。",
+          "textZh": "把时间戳移到稳定内容之后，并在系统提示/工具之后、用户资料之后设置断点。"
+        },
+        {
+          "text": "Increase the cache lifetime.",
+          "correct": false,
+          "explain": "不適。先頭が毎回違えば一致しない。",
+          "textZh": "延长缓存时间。"
+        },
+        {
+          "text": "Remove the tools.",
+          "correct": false,
+          "explain": "不適。ツールを消すと機能を壊す。",
+          "textZh": "删除工具定义。"
+        },
+        {
+          "text": "Add more breakpoints after the question.",
+          "correct": false,
+          "explain": "不適。可変部分の後の断点は再利用されない。",
+          "textZh": "在问题之后加更多断点。"
+        }
+      ],
+      "objective": "Cache Breakpoints and Reusable Packaging",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "请求的顺序是：当前时间戳 → 系统提示 → 工具定义 → 每个用户的资料 → 问题。缓存命中率几乎为零。最好的修复是什么？",
+      "commentaryZh": "缓存按前缀匹配，开头的时间戳让每个请求的前缀都不同。稳定内容放前面、动态内容放后面，再按变化频率分层设置断点。"
+    },
+    {
+      "id": "rp2-018",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Several products each send the same 3-step prompt sequence (gather facts → draft → compliance check) with copied text. Which packaging approach is BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Package the sequence as a reusable module or Skill with versioned instructions, shared by all products.",
+          "correct": true,
+          "explain": "正解。繰り返す手順はモジュール化・Skill 化して一元管理。",
+          "textZh": "把这个序列打包成可复用的模块或 Skill，指令有版本管理，由所有产品共享。"
+        },
+        {
+          "text": "Keep copying it; it works.",
+          "correct": false,
+          "explain": "不適。更新がばらつき、統制できない。",
+          "textZh": "继续复制，反正能用。"
+        },
+        {
+          "text": "Merge all steps into one prompt per product.",
+          "correct": false,
+          "explain": "不適。検査ポイントを失い、重複も残る。",
+          "textZh": "每个产品把所有步骤合并成一个提示。"
+        },
+        {
+          "text": "Let each product team rewrite it.",
+          "correct": false,
+          "explain": "不適。各チームが書き直すと一貫性を失う。",
+          "textZh": "让每个产品团队自己重写。"
+        }
+      ],
+      "objective": "Cache Breakpoints and Reusable Packaging",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "几个产品都发送同样的三步提示序列（收集事实 → 起草 → 合规检查），文本是复制来的。哪种打包方式最好？",
+      "commentaryZh": "重复出现的提示序列应模块化或做成 Skill：一处维护、版本可控，也更容易与缓存配合。"
+    },
+    {
+      "id": "rp2-019",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO principles guide cache breakpoint placement?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Stable content comes before dynamic content.",
+          "correct": true,
+          "explain": "正解。安定部分を前に置き、前方一致を保つ。",
+          "textZh": "稳定内容放在动态内容之前。"
+        },
+        {
+          "text": "Place breakpoints at boundaries between parts that change at different rates.",
+          "correct": true,
+          "explain": "正解。層ごとに再利用できる。",
+          "textZh": "在变化频率不同的部分之间设置断点。"
+        },
+        {
+          "text": "Put the user question first so it is cached.",
+          "correct": false,
+          "explain": "不適。毎回違う内容が先頭だと一致しない。",
+          "textZh": "把用户问题放在最前面以便缓存。"
+        },
+        {
+          "text": "Use one breakpoint at the very end of every request.",
+          "correct": false,
+          "explain": "不適。末尾が毎回違えば再利用されない。",
+          "textZh": "每个请求只在最末尾设一个断点。"
+        }
+      ],
+      "objective": "Cache Breakpoints and Reusable Packaging",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "设置缓存断点时，应遵循哪两项原则？",
+      "commentaryZh": "断点设计两原则：稳定在前、动态在后；按变化频率（全局固定 → 每个客户 → 每个问题）分层设置。"
+    },
+    {
+      "id": "rp2-020",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A long multi-turn agent conversation grows each turn. Which caching approach keeps reuse high as the conversation grows?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A rolling breakpoint on the latest stable turn, so each new turn reuses the prefix cached on the previous turn.",
+          "correct": true,
+          "explain": "正解。会話の成長に合わせて断点を前進させる。",
+          "textZh": "在最新的稳定轮次上设置滚动断点，让每个新轮次复用上一轮缓存的前缀。"
+        },
+        {
+          "text": "No caching, because conversations change.",
+          "correct": false,
+          "explain": "不適。過去のターンは変わらず再利用できる。",
+          "textZh": "不用缓存，因为对话一直在变。"
+        },
+        {
+          "text": "A single breakpoint after the system prompt only.",
+          "correct": false,
+          "explain": "不適。伸びていく履歴部分を再利用できない。",
+          "textZh": "只在系统提示之后设一个断点。"
+        },
+        {
+          "text": "Restart the conversation every turn.",
+          "correct": false,
+          "explain": "不適。毎回やり直すと会話の文脈を失う。",
+          "textZh": "每一轮都重新开始对话。"
+        }
+      ],
+      "objective": "Cache Breakpoints and Reusable Packaging",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个多轮代理对话每一轮都在变长。哪种缓存方式能在对话增长时保持高复用？",
+      "commentaryZh": "多轮对话中，已发生的轮次不会再变。把断点随对话向前移动（滚动断点），每一轮都能复用之前缓存的前缀。"
+    },
+    {
+      "id": "rp2-021",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An agent handles a mix of simple lookups and complex root-cause analyses, with a 5-second target for lookups. How should reasoning effort be set?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Route by task: low effort for lookups to meet latency, higher effort for root-cause analysis, verified by evals.",
+          "correct": true,
+          "explain": "正解。タスクごとに effort を変え、遅延と精度の目標を両立する。",
+          "textZh": "按任务路由：查询用低 effort 以满足延迟，根因分析用较高 effort，并用评估验证。"
+        },
+        {
+          "text": "Maximum effort everywhere for accuracy.",
+          "correct": false,
+          "explain": "不適。単純な検索で遅延目標を破る。",
+          "textZh": "所有地方都用最高 effort 以保证准确。"
+        },
+        {
+          "text": "Minimum effort everywhere for speed.",
+          "correct": false,
+          "explain": "不適。難しい分析の精度が落ちる。",
+          "textZh": "所有地方都用最低 effort 以保证速度。"
+        },
+        {
+          "text": "Let the user pick effort for each query.",
+          "correct": false,
+          "explain": "不適。設計判断を利用者に押しつけている。",
+          "textZh": "让用户为每个查询选择 effort。"
+        }
+      ],
+      "objective": "Reasoning Effort and Context Lifecycle",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/effort",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个代理既处理简单查询，也处理复杂的根因分析，简单查询的目标是 5 秒内完成。推理强度（effort）应如何设置？",
+      "commentaryZh": "effort 是延迟、成本和准确度之间的权衡，应按任务类型设置，并用评估确认每类任务的质量。"
+    },
+    {
+      "id": "rp2-022",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A long-running coding agent accumulates large, stale tool results that it no longer needs, but its recent reasoning and decisions must stay intact. Which mechanism fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Context editing that clears old tool results while keeping the rest of the conversation.",
+          "correct": true,
+          "explain": "正解。古いツール結果だけを取り除く。",
+          "textZh": "使用上下文编辑，清除旧的工具结果，同时保留对话的其余部分。"
+        },
+        {
+          "text": "Compaction of the entire conversation into one paragraph.",
+          "correct": false,
+          "explain": "不適。必要な直近の推論まで要約されてしまう。",
+          "textZh": "把整个对话压缩成一段话。"
+        },
+        {
+          "text": "Start a brand-new session with no summary.",
+          "correct": false,
+          "explain": "不適。要約なしでは直近の決定を失う。",
+          "textZh": "开一个全新会话，不带摘要。"
+        },
+        {
+          "text": "Increase max_tokens.",
+          "correct": false,
+          "explain": "不適。入力の肥大化は解決しない。",
+          "textZh": "调大 max_tokens。"
+        }
+      ],
+      "objective": "Reasoning Effort and Context Lifecycle",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/context-editing",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个长时间运行的编程代理积累了大量已不再需要的过时工具结果，但它最近的推理和决定必须保持完整。哪种机制最合适？",
+      "commentaryZh": "2.6 要会选上下文生命周期的工具：上下文编辑（清理旧工具结果）、记忆工具（跨会话保存要点）、压缩（把历史总结后继续）。目标是只去掉不再需要的部分。"
+    },
+    {
+      "id": "rp2-023",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An agent works on a project across many sessions over weeks and must remember decisions and progress between sessions. Which mechanism fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A memory tool (or persisted notes files) that the agent reads at the start and updates as it works.",
+          "correct": true,
+          "explain": "正解。セッションをまたぐ情報は外部のメモリに保存する。",
+          "textZh": "使用记忆工具（或持久化的笔记文件），代理在开始时读取、工作时更新。"
+        },
+        {
+          "text": "Keep one session open for weeks.",
+          "correct": false,
+          "explain": "不適。文脈が肥大化し、いずれ溢れる。",
+          "textZh": "让一个会话开几周。"
+        },
+        {
+          "text": "Compaction within a single session only.",
+          "correct": false,
+          "explain": "不適。セッションをまたいで残らない。",
+          "textZh": "只在单个会话内压缩。"
+        },
+        {
+          "text": "Rely on the model remembering from training.",
+          "correct": false,
+          "explain": "不適。プロジェクト固有の情報は知らない。",
+          "textZh": "依赖模型从训练中记住。"
+        }
+      ],
+      "objective": "Reasoning Effort and Context Lifecycle",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个代理在几周内跨多个会话推进项目，必须在会话之间记住决定和进度。哪种机制最合适？",
+      "commentaryZh": "跨会话的信息要保存在上下文之外：记忆工具或进度文件。压缩和上下文编辑只在一个会话内起作用。"
+    },
+    {
+      "id": "rp2-024",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A support agent's conversations rarely exceed a few turns, and accuracy is already on target. A teammate proposes adding compaction, memory, and context editing. What is the BEST response?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Decline for now; these mechanisms address long-running context problems the feature does not have.",
+          "correct": true,
+          "explain": "正解。問題がない所に仕組みを足すと複雑さが増すだけ。",
+          "textZh": "暂时不加；这些机制解决的是长时间运行的上下文问题，而该功能没有这个问题。"
+        },
+        {
+          "text": "Add all three for safety.",
+          "correct": false,
+          "explain": "不適。不要な複雑さとコスト。",
+          "textZh": "为了保险，三个都加。"
+        },
+        {
+          "text": "Add maximum effort instead.",
+          "correct": false,
+          "explain": "不適。目標達成済みなので必要のない変更。",
+          "textZh": "改为使用最高 effort。"
+        },
+        {
+          "text": "Remove the system prompt.",
+          "correct": false,
+          "explain": "不適。システムプロンプト削除は無関係で有害。",
+          "textZh": "删除系统提示。"
+        }
+      ],
+      "objective": "Reasoning Effort and Context Lifecycle",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个客服代理的对话很少超过几轮，准确度已经达标。同事提议加入压缩、记忆和上下文编辑。最好的回应是什么？",
+      "commentaryZh": "上下文生命周期机制针对的是长时间运行的问题。短对话、质量已达标时，加入它们只会增加复杂度和延迟。"
+    }
+  ]
+}

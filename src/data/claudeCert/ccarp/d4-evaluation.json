@@ -1,0 +1,1097 @@
+{
+  "domain": "D4",
+  "items": [
+    {
+      "id": "rp4-001",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A RAG assistant passed pre-release evals that graded answers only against reference answers for relevance. In production it cited policies that do not exist. Which missing metric would have caught this before release?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Groundedness: whether each claim and citation is supported by the retrieved sources.",
+          "correct": true,
+          "explain": "正解。関連性だけでは捏造された引用を検知できない。",
+          "textZh": "基于资料的程度（groundedness）：每个结论和引用是否被检索到的来源支持。"
+        },
+        {
+          "text": "Average answer length.",
+          "correct": false,
+          "explain": "不適。捏造の有無と関係ない。",
+          "textZh": "平均回答长度。"
+        },
+        {
+          "text": "Latency p95.",
+          "correct": false,
+          "explain": "不適。遅延は捏造の検知とは別の側面。",
+          "textZh": "p95 延迟。"
+        },
+        {
+          "text": "Number of eval cases.",
+          "correct": false,
+          "explain": "不適。指標の種類の欠落は件数では補えない。",
+          "textZh": "评估用例的数量。"
+        }
+      ],
+      "objective": "Evaluation Coverage Gaps",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个 RAG 助手通过了发布前的评估，但评估只按参考答案给相关性打分。上线后它引用了不存在的制度。哪个缺失的指标本可以在发布前发现这个问题？",
+      "commentaryZh": "4.1：生产事故后，找出缺失的指标（准确性、基于资料、延迟、成本、安全、安防）或评分对象。只评相关性时，编造的引用也可能「相关」，需要 groundedness 指标。"
+    },
+    {
+      "id": "rp4-002",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An agent passed accuracy evals on final answers, but in production it sometimes deleted records along the way. What was wrong with the grading target?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Only the final answer was graded; the eval must also grade the trajectory (tool calls and side effects).",
+          "correct": true,
+          "explain": "正解。エージェントは過程の行動も評価対象にする。",
+          "textZh": "只评了最终答案；评估还必须评判轨迹（工具调用和副作用）。"
+        },
+        {
+          "text": "The eval set was too large.",
+          "correct": false,
+          "explain": "不適。問題は採点の対象。",
+          "textZh": "评估集太大了。"
+        },
+        {
+          "text": "Accuracy should be measured in words.",
+          "correct": false,
+          "explain": "不適。字数で精度を測るのは無意味な指標。",
+          "textZh": "准确性应该按字数衡量。"
+        },
+        {
+          "text": "The agent should have more tools.",
+          "correct": false,
+          "explain": "不適。ツールを増やすとリスクが増える。",
+          "textZh": "代理应该有更多工具。"
+        }
+      ],
+      "objective": "Evaluation Coverage Gaps",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个代理在最终答案的准确性评估上通过了，但在生产中有时会在过程中删除记录。评分对象哪里出了问题？",
+      "commentaryZh": "代理的风险常出在过程中。评估要覆盖轨迹：调用了哪些工具、参数是否合规、有无破坏性副作用。"
+    },
+    {
+      "id": "rp4-003",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "A feature passed quality evals, but its monthly bill tripled after launch because answers were far longer than expected. Which TWO metrics should have been in the release gate?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Output tokens per request against a budget.",
+          "correct": true,
+          "explain": "正解。コストに直結する指標。",
+          "textZh": "每次请求的输出 token 与预算的对比。"
+        },
+        {
+          "text": "Estimated cost per request at expected volume.",
+          "correct": true,
+          "explain": "正解。量を掛けたコストを事前に確認する。",
+          "textZh": "按预期调用量估算的每次请求成本。"
+        },
+        {
+          "text": "Number of emoji per answer.",
+          "correct": false,
+          "explain": "不適。コストの指標ではない。",
+          "textZh": "每个回答的表情符号数量。"
+        },
+        {
+          "text": "Model version string length.",
+          "correct": false,
+          "explain": "不適。バージョン名の長さは無意味な指標。",
+          "textZh": "模型版本字符串的长度。"
+        }
+      ],
+      "objective": "Evaluation Coverage Gaps",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个功能通过了质量评估，但上线后月账单翻了三倍，因为回答比预期长得多。发布关卡里本应包含哪两项指标？",
+      "commentaryZh": "发布关卡不只看质量，还要有成本和延迟指标：每次请求的 token、按调用量估算的成本。"
+    },
+    {
+      "id": "rp4-004",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A customer agent leaked internal instructions when users asked cleverly. Pre-release evals contained only normal support questions. What coverage was missing?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Security and safety cases: adversarial prompts such as injection and instruction-extraction attempts.",
+          "correct": true,
+          "explain": "正解。敵対的な入力の評価が欠けていた。",
+          "textZh": "安全与安防用例：注入、套取指令等对抗性提示。"
+        },
+        {
+          "text": "More normal questions.",
+          "correct": false,
+          "explain": "不適。同じ分布を増やしても攻撃は見つからない。",
+          "textZh": "更多正常问题。"
+        },
+        {
+          "text": "Latency testing.",
+          "correct": false,
+          "explain": "不適。漏洩とは別の側面。",
+          "textZh": "延迟测试。"
+        },
+        {
+          "text": "Spelling checks.",
+          "correct": false,
+          "explain": "不適。この選択肢は問題と無関係。",
+          "textZh": "拼写检查。"
+        }
+      ],
+      "objective": "Evaluation Coverage Gaps",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "用户巧妙提问时，一个客服代理泄露了内部指令。发布前的评估只包含正常的客服问题。缺少了哪方面的覆盖？",
+      "commentaryZh": "评估集要覆盖安全和安防：越狱、提示注入、套取系统提示等对抗性输入，否则这类问题只会在生产中暴露。"
+    },
+    {
+      "id": "rp4-005",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A claims team decides whether to switch models for a claim-summarization step. Adjusters use summaries to decide whether to approve, deny, or investigate. Which eval is MOST valid for this decision?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Measure whether adjusters reach the same decision from the summary as from the full file, on a sample matching real claim types.",
+          "correct": true,
+          "explain": "正解。業務上の成果（判断が変わらないか）から成功基準を導く。",
+          "textZh": "在与真实理赔类型分布一致的样本上，测量理赔员根据摘要做出的决定是否与根据完整卷宗做出的一致。"
+        },
+        {
+          "text": "Measure summary readability scores.",
+          "correct": false,
+          "explain": "不適。業務成果に結びつかない。",
+          "textZh": "测量摘要的可读性分数。"
+        },
+        {
+          "text": "Measure how many words each summary has.",
+          "correct": false,
+          "explain": "不適。判断の質を示さない。",
+          "textZh": "测量每份摘要的字数。"
+        },
+        {
+          "text": "Ask the new model which summary is better.",
+          "correct": false,
+          "explain": "不適。自己評価は検証ではない。",
+          "textZh": "问新模型哪份摘要更好。"
+        }
+      ],
+      "objective": "Deriving Evaluations from Business Processes",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "理赔团队要决定理赔摘要步骤是否换模型。理赔员用摘要来决定批准、拒绝还是调查。哪种评估对这个决定最有效？",
+      "commentaryZh": "4.2：从业务流程中找出能支撑决策的评估。摘要的价值在于支持正确决定，所以成功标准应是「据摘要做出的决定与据原件做出的一致」。"
+    },
+    {
+      "id": "rp4-006",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Production traffic is 70% billing questions, 25% technical issues, and 5% account closures (high stakes). The eval set is 100 technical questions. What is wrong, and what is the fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It does not cover the deployed distribution; build a mix reflecting real traffic and oversample the high-stakes closures.",
+          "correct": true,
+          "explain": "正解。本番の分布を反映し、重大なケースは厚めにする。",
+          "textZh": "它没有覆盖实际部署的分布；按真实流量构建用例组合，并对高风险的销户类适当多抽样。"
+        },
+        {
+          "text": "Nothing; technical questions are hardest.",
+          "correct": false,
+          "explain": "不適。実際の利用分布を反映していない。",
+          "textZh": "没问题；技术问题最难。"
+        },
+        {
+          "text": "Remove account closures from scope.",
+          "correct": false,
+          "explain": "不適。最も重大なケースを無視している。",
+          "textZh": "把销户排除在范围外。"
+        },
+        {
+          "text": "Use only 10 cases for speed.",
+          "correct": false,
+          "explain": "不適。統計的に弱すぎる。",
+          "textZh": "为了速度只用 10 个用例。"
+        }
+      ],
+      "objective": "Deriving Evaluations from Business Processes",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "生产流量中 70% 是账单问题、25% 是技术问题、5% 是销户（高风险）。评估集是 100 个技术问题。哪里不对？怎么修？",
+      "commentaryZh": "评估要覆盖实际部署的分布，并对高风险但低频的类别多抽样，否则通过评估也不能代表上线后的表现。"
+    },
+    {
+      "id": "rp4-007",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO are valid uses of a business process as an eval source for a release gate?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Using historical cases with known correct outcomes (e.g. resolved tickets with verified resolutions).",
+          "correct": true,
+          "explain": "正解。業務上の正解がある過去データ。",
+          "textZh": "使用结果已知正确的历史案例（例如解决方案经过确认的已结工单）。"
+        },
+        {
+          "text": "Deriving pass criteria from the business KPI the step affects (e.g. first-contact resolution).",
+          "correct": true,
+          "explain": "正解。ビジネス成果から成功基準を導く。",
+          "textZh": "从该步骤影响的业务 KPI 推导通过标准（例如首次联系解决率）。"
+        },
+        {
+          "text": "Using cases the current model already handles perfectly.",
+          "correct": false,
+          "explain": "不適。偏ったセットで回帰も弱点も見えない。",
+          "textZh": "只使用当前模型已经处理得很完美的案例。"
+        },
+        {
+          "text": "Using random internet text.",
+          "correct": false,
+          "explain": "不適。ネットの文章は業務と無関係。",
+          "textZh": "使用随机的网络文本。"
+        }
+      ],
+      "objective": "Deriving Evaluations from Business Processes",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "下面哪两项是把业务流程作为发布关卡评估来源的有效做法？",
+      "commentaryZh": "业务流程能提供带正确结果的历史案例，以及与业务 KPI 挂钩的成功标准，是发布关卡最有说服力的评估来源。"
+    },
+    {
+      "id": "rp4-008",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A prompt change is proposed for an invoice-extraction step whose output feeds payments. Which success criterion is MOST appropriate for approving the change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Field-level accuracy on amount, payee, and due date is no worse than the current version on a representative set, with zero regressions on known critical cases.",
+          "correct": true,
+          "explain": "正解。下流（支払い）に影響する項目で、現行比で劣化しないことを条件にする。",
+          "textZh": "在代表性样本上，金额、收款方、到期日等字段级准确率不低于当前版本，且已知关键用例零退步。"
+        },
+        {
+          "text": "The new output reads more naturally.",
+          "correct": false,
+          "explain": "不適。支払いの正確さと関係ない。",
+          "textZh": "新输出读起来更自然。"
+        },
+        {
+          "text": "The developer likes the new prompt.",
+          "correct": false,
+          "explain": "不適。主観で根拠がない。",
+          "textZh": "开发者喜欢新提示。"
+        },
+        {
+          "text": "The new prompt is shorter.",
+          "correct": false,
+          "explain": "不適。成果の基準ではない。",
+          "textZh": "新提示更短。"
+        }
+      ],
+      "objective": "Deriving Evaluations from Business Processes",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "有人提议修改一个发票提取步骤的提示，该步骤的输出会进入付款流程。批准这个修改时，最合适的成功标准是什么？",
+      "commentaryZh": "成功标准要从业务结果倒推：付款依赖的关键字段的准确率不能下降，已知关键用例不能退步。"
+    },
+    {
+      "id": "rp4-009",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "In pairwise comparisons, an LLM judge prefers whichever response is shown first 68% of the time, while humans are split 50/50. Which bias is this, and what is the fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Position bias; evaluate each pair in both orders and count only consistent preferences (or average them).",
+          "correct": true,
+          "explain": "正解。順序を入れ替えて評価し、位置の影響を打ち消す。",
+          "textZh": "位置偏差；每对回答交换顺序各评一次，只计入前后一致的偏好（或取平均）。"
+        },
+        {
+          "text": "Verbosity bias; shorten responses.",
+          "correct": false,
+          "explain": "不適。症状は順序に依存している。",
+          "textZh": "冗长偏差；把回答缩短。"
+        },
+        {
+          "text": "Self-preference; use a different judge.",
+          "correct": false,
+          "explain": "不適。原因の特定が違う。",
+          "textZh": "自我偏好；换一个评审模型。"
+        },
+        {
+          "text": "No bias; the first answers are better.",
+          "correct": false,
+          "explain": "不適。人の評価と一致しない。",
+          "textZh": "没有偏差；先展示的回答更好。"
+        }
+      ],
+      "objective": "LLM-as-Judge Design and Bias",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在两两比较中，LLM 评审有 68% 的时间偏好先展示的那个回答，而人类评审是五五开。这是哪种偏差？怎么修？",
+      "commentaryZh": "4.3：评审结果与人类不一致时，要诊断偏差类型：位置偏差（偏好某个位置）、冗长偏差（偏好更长）、自我偏好（偏好自家模型的输出）、评审漂移（随时间变化）。位置偏差用交换顺序来校正。"
+    },
+    {
+      "id": "rp4-010",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "An LLM judge consistently scores longer answers higher, even when human raters prefer concise ones that fully answer the question. Which TWO corrections fit BEST?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Add an explicit rubric that rewards completeness and penalizes unnecessary length.",
+          "correct": true,
+          "explain": "正解。冗長さを好む偏りを基準で打ち消す。",
+          "textZh": "加入明确的评分标准：奖励完整性，对不必要的长度扣分。"
+        },
+        {
+          "text": "Recalibrate against human-labeled examples and check agreement after the change.",
+          "correct": true,
+          "explain": "正解。人の判断との一致で校正を確かめる。",
+          "textZh": "用人工标注的示例重新校准，修改后检查一致率。"
+        },
+        {
+          "text": "Ask the generator to write longer answers.",
+          "correct": false,
+          "explain": "不適。偏りに迎合している。",
+          "textZh": "让生成模型写更长的回答。"
+        },
+        {
+          "text": "Remove the human raters.",
+          "correct": false,
+          "explain": "不適。校正の基準がなくなる。",
+          "textZh": "去掉人类评审。"
+        }
+      ],
+      "objective": "LLM-as-Judge Design and Bias",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "LLM 评审总是给更长的回答更高分，即使人类评审更喜欢完整回答了问题的简洁回答。哪两项校正最合适？",
+      "commentaryZh": "冗长偏差的修法：在评分标准里明确「完整但简洁」的要求，并用人工标注重新校准，确认一致率回升。"
+    },
+    {
+      "id": "rp4-011",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A team uses the same model family as both generator and judge, and the judge rates its own family's outputs higher than a competitor's, unlike humans. Which bias is this, and what helps?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Self-preference bias; use a different judge model or blind comparisons and validate against human labels.",
+          "correct": true,
+          "explain": "正解。自己優遇の偏り。別の判定モデルや人のラベルで確認する。",
+          "textZh": "自我偏好偏差；换用不同的评审模型或做盲比，并用人工标注验证。"
+        },
+        {
+          "text": "Position bias; swap order.",
+          "correct": false,
+          "explain": "不適。原因は順序ではない。",
+          "textZh": "位置偏差；交换顺序。"
+        },
+        {
+          "text": "Judge drift; restart the judge.",
+          "correct": false,
+          "explain": "不適。時間的な変化ではない。",
+          "textZh": "评审漂移；重启评审。"
+        },
+        {
+          "text": "No action; the family is simply better.",
+          "correct": false,
+          "explain": "不適。人の評価と食い違っている。",
+          "textZh": "不用处理；自家模型就是更好。"
+        }
+      ],
+      "objective": "LLM-as-Judge Design and Bias",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队用同一模型家族既做生成又做评审，评审给自家输出的分数高于竞品，而人类评审没有这种倾向。这是哪种偏差？什么有帮助？",
+      "commentaryZh": "自我偏好：评审偏爱与自己同源的输出。对策是换用不同的评审、去除来源标识，并以人类标注为准进行校准。"
+    },
+    {
+      "id": "rp4-012",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Six months after deployment, an LLM judge's agreement with a fixed human-labeled set has dropped from 0.85 to 0.70 with no rubric change. What is the MOST likely cause and response?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Judge drift (e.g. the judge model version changed); pin the judge version and re-calibrate on the fixed set.",
+          "correct": true,
+          "explain": "正解。判定側の変化。バージョン固定と定期的な再校正。",
+          "textZh": "评审漂移（例如评审模型的版本变了）；固定评审版本，并在固定集上重新校准。"
+        },
+        {
+          "text": "The human labels became wrong.",
+          "correct": false,
+          "explain": "不適。固定セットは変わっていない。",
+          "textZh": "人工标注变错了。"
+        },
+        {
+          "text": "Position bias.",
+          "correct": false,
+          "explain": "不適。時間経過による変化の説明にならない。",
+          "textZh": "位置偏差。"
+        },
+        {
+          "text": "The eval set is too small; ignore it.",
+          "correct": false,
+          "explain": "不適。低下を無視するのは危険。",
+          "textZh": "评估集太小，忽略它。"
+        }
+      ],
+      "objective": "LLM-as-Judge Design and Bias",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "部署六个月后，LLM 评审与一组固定人工标注的一致率从 0.85 降到 0.70，评分标准没有改动。最可能的原因和对策是什么？",
+      "commentaryZh": "评审本身也会变化。定期用固定的人工标注集检查一致率；下降时检查评审模型版本、固定版本并重新校准。"
+    },
+    {
+      "id": "rp4-013",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "Config B beats config A by 2 points on a 50-case eval run once each. Re-running A alone shows a ±3-point spread between runs. What is the BEST next step within a fixed budget?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run multiple trials per case for both configs on the same cases, and compare the paired differences against the run-to-run variance.",
+          "correct": true,
+          "explain": "正解。ばらつきより効果が大きいかを、同じケースでの反復試行で確かめる。",
+          "textZh": "两种配置在相同用例上各跑多次，并把成对差异与运行间的波动进行比较。"
+        },
+        {
+          "text": "Adopt B; it scored higher.",
+          "correct": false,
+          "explain": "不適。差がばらつきの範囲内。",
+          "textZh": "采用 B，因为分数更高。"
+        },
+        {
+          "text": "Run B ten times and A once.",
+          "correct": false,
+          "explain": "不適。条件が揃っておらず比較が偏る。",
+          "textZh": "B 跑十次、A 跑一次。"
+        },
+        {
+          "text": "Switch to a new eval set for B only.",
+          "correct": false,
+          "explain": "不適。同じ条件で比べていない。",
+          "textZh": "只给 B 换一套新的评估集。"
+        }
+      ],
+      "objective": "Experimental Design for Configuration Comparison",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在一个 50 个用例的评估上各跑一次，配置 B 比 A 高 2 分。只重跑 A 时，不同次之间有 ±3 分的波动。在预算固定的情况下，最好的下一步是什么？",
+      "commentaryZh": "4.4：比较两个配置时，要把效果和运行间的随机波动分开：同一用例、成对比较、每个用例多次试验，并在样本和成本预算内设计试验次数。"
+    },
+    {
+      "id": "rp4-014",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "With a limited budget, which design gives the MOST statistical power for comparing two prompts?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A paired design: both prompts on the same cases, comparing per-case differences.",
+          "correct": true,
+          "explain": "正解。同じケースで比べると、ケース間の差の影響を除ける。",
+          "textZh": "成对设计：两个提示在相同用例上运行，比较每个用例的差异。"
+        },
+        {
+          "text": "Different random cases for each prompt.",
+          "correct": false,
+          "explain": "不適。ケースの難易度差が混ざる。",
+          "textZh": "每个提示使用不同的随机用例。"
+        },
+        {
+          "text": "Only the easiest cases.",
+          "correct": false,
+          "explain": "不適。差が出にくく、代表性もない。",
+          "textZh": "只用最简单的用例。"
+        },
+        {
+          "text": "One case run 500 times.",
+          "correct": false,
+          "explain": "不適。分布を代表しない。",
+          "textZh": "一个用例跑 500 次。"
+        }
+      ],
+      "objective": "Experimental Design for Configuration Comparison",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "预算有限时，哪种设计在比较两个提示时统计效力最强？",
+      "commentaryZh": "成对设计去掉了用例难度差异带来的噪声，同样预算下更容易检测到真实的差别。"
+    },
+    {
+      "id": "rp4-015",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO factors determine how many trials per case are needed?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "How much outputs vary between runs of the same configuration.",
+          "correct": true,
+          "explain": "正解。ばらつきが大きいほど試行が必要。",
+          "textZh": "同一配置不同次运行之间输出的波动有多大。"
+        },
+        {
+          "text": "The size of the effect you need to detect.",
+          "correct": true,
+          "explain": "正解。小さな差を見るほど試行が必要。",
+          "textZh": "需要检测出的效果有多大。"
+        },
+        {
+          "text": "The color of the dashboard.",
+          "correct": false,
+          "explain": "不適。この選択肢は問題と無関係。",
+          "textZh": "仪表盘的颜色。"
+        },
+        {
+          "text": "The length of the model name.",
+          "correct": false,
+          "explain": "不適。この選択肢は問題と無関係。",
+          "textZh": "模型名称的长度。"
+        }
+      ],
+      "objective": "Experimental Design for Configuration Comparison",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "每个用例需要多少次试验，由哪两项因素决定？",
+      "commentaryZh": "试验次数取决于运行间的波动和要检测的效果大小：波动越大、效果越小，需要的试验越多，同时要受成本预算约束。"
+    },
+    {
+      "id": "rp4-016",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A team compares two models but changes the prompt at the same time, and B wins. What is the main flaw?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Two variables changed at once, so the effect cannot be attributed to the model.",
+          "correct": true,
+          "explain": "正解。一度に一つだけ変える。",
+          "textZh": "同时改了两个变量，无法把效果归因于模型。"
+        },
+        {
+          "text": "The sample was too diverse.",
+          "correct": false,
+          "explain": "不適。多様性は問題ではない。",
+          "textZh": "样本太多样了。"
+        },
+        {
+          "text": "B should have lost.",
+          "correct": false,
+          "explain": "不適。結論ありきの主張。",
+          "textZh": "B 本来应该输。"
+        },
+        {
+          "text": "Models cannot be compared.",
+          "correct": false,
+          "explain": "不適。条件を揃えれば比較できる。",
+          "textZh": "模型无法比较。"
+        }
+      ],
+      "objective": "Experimental Design for Configuration Comparison",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队比较两个模型，同时又改了提示，结果 B 胜出。主要缺陷是什么？",
+      "commentaryZh": "对照试验一次只改一个变量；同时换模型和提示，就分不清是谁带来的效果。"
+    },
+    {
+      "id": "rp4-017",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A trace shows: the retriever returned the correct passage; the model's answer contradicts that passage and cites a nonexistent section. How should this failure be classified?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Hallucination (generation), not retrieval; fix grounding instructions and add groundedness checks.",
+          "correct": true,
+          "explain": "正解。根拠は渡っているのに生成で誤った。生成側の問題。",
+          "textZh": "幻觉（生成环节），而不是检索问题；修正基于资料作答的指令，并加入 groundedness 检查。"
+        },
+        {
+          "text": "Retrieval failure.",
+          "correct": false,
+          "explain": "不適。正しい段落は取得できている。",
+          "textZh": "检索失败。"
+        },
+        {
+          "text": "Tool error.",
+          "correct": false,
+          "explain": "不適。ツールは正常に動いている。",
+          "textZh": "工具错误。"
+        },
+        {
+          "text": "Network timeout.",
+          "correct": false,
+          "explain": "不適。トレースに通信の問題はない。",
+          "textZh": "网络超时。"
+        }
+      ],
+      "objective": "Root-Cause Isolation from Logs and Traces",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "轨迹显示：检索器返回了正确的段落；模型的回答却与该段落矛盾，还引用了不存在的章节。这个失败应怎样归类？",
+      "commentaryZh": "4.5：用轨迹把失败归类为提示、检索、幻觉、工具/子代理错误或模型不匹配。资料已经正确送达，回答却与之矛盾，问题在生成环节。"
+    },
+    {
+      "id": "rp4-018",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A trace shows the agent called update_address with a correctly formatted request, the tool returned is_error with \"service unavailable,\" and the agent told the user the address was updated. Where is the root cause?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Agent behavior after a tool error: the prompt and tool result handling must make the agent report failures and retry or escalate.",
+          "correct": true,
+          "explain": "正解。ツール失敗の扱い（報告・再試行）が欠けている。",
+          "textZh": "代理在工具出错后的行为：需要通过提示和工具结果处理，让代理如实报告失败并重试或升级。"
+        },
+        {
+          "text": "Retrieval.",
+          "correct": false,
+          "explain": "不適。検索は関係していない。",
+          "textZh": "检索。"
+        },
+        {
+          "text": "The address format.",
+          "correct": false,
+          "explain": "不適。リクエスト形式は正しかった。",
+          "textZh": "地址格式。"
+        },
+        {
+          "text": "Model tier mismatch only.",
+          "correct": false,
+          "explain": "不適。まず扱いの設計を直す。",
+          "textZh": "只是模型层级不匹配。"
+        }
+      ],
+      "objective": "Root-Cause Isolation from Logs and Traces",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "轨迹显示代理用格式正确的请求调用了 update_address，工具返回 is_error：「service unavailable」，而代理却告诉用户地址已更新。根本原因在哪里？",
+      "commentaryZh": "工具确实失败了，错的是代理对失败的处理。修法：明确要求出错时如实告知、有限重试或升级，并在评估中加入工具失败的用例。"
+    },
+    {
+      "id": "rp4-019",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 3,
+      "stem": "Final reports from a multi-agent system contain outdated pricing. Traces show one subagent's web search returned a 2022 page, and the orchestrator passed it through. Which TWO fixes target the root cause?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Require subagents to return source dates and prefer recent, authoritative sources.",
+          "correct": true,
+          "explain": "正解。サブエージェントの出力品質を直す。",
+          "textZh": "要求子代理返回来源日期，并优先使用最新的权威来源。"
+        },
+        {
+          "text": "Have the orchestrator check dates during synthesis and flag stale sources.",
+          "correct": true,
+          "explain": "正解。統合段階で検証する。",
+          "textZh": "让编排代理在汇总时检查日期，并标记过时的来源。"
+        },
+        {
+          "text": "Switch every agent to the largest tier.",
+          "correct": false,
+          "explain": "不適。古い資料の問題は直らない。",
+          "textZh": "把所有代理都换成最大层级。"
+        },
+        {
+          "text": "Remove web search.",
+          "correct": false,
+          "explain": "不適。必要な機能を失う。",
+          "textZh": "去掉网页搜索。"
+        }
+      ],
+      "objective": "Root-Cause Isolation from Logs and Traces",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个多代理系统的最终报告里有过时的价格。轨迹显示某个子代理的网页搜索返回了 2022 年的页面，编排代理原样传了下去。哪两项修复针对根本原因？",
+      "commentaryZh": "定位到「子代理返回过时来源」和「汇总时没有校验」两个环节，就分别修复：子代理返回日期并优先新来源，编排代理在汇总时检查。"
+    },
+    {
+      "id": "rp4-020",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A fast tier consistently fails a multi-step legal reasoning task across varied prompts and good retrieval, while a stronger tier passes. How should the failure be classified?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Model mismatch: the task needs a more capable tier.",
+          "correct": true,
+          "explain": "正解。プロンプトと検索を変えても失敗し、上位層で通るならモデルの不一致。",
+          "textZh": "模型不匹配：任务需要能力更强的层级。"
+        },
+        {
+          "text": "Retrieval failure.",
+          "correct": false,
+          "explain": "不適。検索は良好だと分かっている。",
+          "textZh": "检索失败。"
+        },
+        {
+          "text": "Prompt typo.",
+          "correct": false,
+          "explain": "不適。複数のプロンプトで失敗している。",
+          "textZh": "提示里的笔误。"
+        },
+        {
+          "text": "Tool error.",
+          "correct": false,
+          "explain": "不適。ツールは関係ない。",
+          "textZh": "工具错误。"
+        }
+      ],
+      "objective": "Root-Cause Isolation from Logs and Traces",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在多种提示和良好检索的情况下，快速层级在一个多步法律推理任务上一直失败，而更强的层级可以通过。这个失败应怎样归类？",
+      "commentaryZh": "排除了提示和检索之后仍然失败，而更强的层级能通过，说明是模型与任务不匹配。"
+    },
+    {
+      "id": "rp4-021",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "Telemetry: cache hit rate is 5%, input tokens are 85% of spend, and each request begins with a per-request UUID followed by a 25k-token static prompt. Which change MOST reduces cost without touching quality?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Move the UUID after the static prompt (or out of the prompt) so the prefix is cacheable.",
+          "correct": true,
+          "explain": "正解。先頭の可変値がキャッシュを壊している。",
+          "textZh": "把 UUID 移到固定提示之后（或移出提示），让前缀可以被缓存。"
+        },
+        {
+          "text": "Switch to a smaller model.",
+          "correct": false,
+          "explain": "不適。品質に影響し、根本原因も残る。",
+          "textZh": "换成更小的模型。"
+        },
+        {
+          "text": "Shorten answers.",
+          "correct": false,
+          "explain": "不適。コストの大半は入力。",
+          "textZh": "缩短回答。"
+        },
+        {
+          "text": "Disable caching.",
+          "correct": false,
+          "explain": "不適。キャッシュを切るのは逆効果。",
+          "textZh": "关闭缓存。"
+        }
+      ],
+      "objective": "Cost and Latency Optimization",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "遥测数据：缓存命中率 5%，输入 token 占花费的 85%，每个请求开头是一个每次不同的 UUID，后面跟着 2.5 万 token 的固定提示。哪项改动最能在不影响质量的前提下降低成本？",
+      "commentaryZh": "4.6：用遥测（包括缓存命中率）定位花费。输入占大头且命中率低，原因是开头的可变值破坏了前缀匹配；调整顺序即可，不影响质量。"
+    },
+    {
+      "id": "rp4-022",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO optimizations are MOST likely to cut cost for a nightly enrichment job without lowering the quality floor?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Use batch processing, since results are not needed in real time.",
+          "correct": true,
+          "explain": "正解。即時性が不要なら batch で安くなる。",
+          "textZh": "使用批处理，因为结果不需要实时。"
+        },
+        {
+          "text": "Cache the shared instruction prefix.",
+          "correct": true,
+          "explain": "正解。共通部分を再利用する。",
+          "textZh": "缓存共同的指令前缀。"
+        },
+        {
+          "text": "Switch to the cheapest tier without running evals.",
+          "correct": false,
+          "explain": "不適。品質の下限を確かめていない。",
+          "textZh": "不跑评估就换成最便宜的层级。"
+        },
+        {
+          "text": "Drop the validation step.",
+          "correct": false,
+          "explain": "不適。品質の下限を破る恐れ。",
+          "textZh": "去掉校验步骤。"
+        }
+      ],
+      "objective": "Cost and Latency Optimization",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "对一个夜间数据补全任务，哪两项优化最可能在不降低质量底线的前提下降低成本？",
+      "commentaryZh": "优化成本时，先选不改变模型行为的方法（批处理、缓存）；改模型或删步骤之前，必须用评估确认质量底线。"
+    },
+    {
+      "id": "rp4-023",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "p95 latency for a triage step is too high. Telemetry shows the step runs at maximum reasoning effort, but evals show lower effort gives the same accuracy on this step. What is the BEST change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Lower the effort for this step and keep monitoring accuracy.",
+          "correct": true,
+          "explain": "正解。品質を保ったまま遅延を下げる。",
+          "textZh": "降低这个步骤的 effort，并持续监控准确率。"
+        },
+        {
+          "text": "Keep maximum effort and add servers.",
+          "correct": false,
+          "explain": "不適。遅延の原因は推論量。",
+          "textZh": "保持最高 effort，再加服务器。"
+        },
+        {
+          "text": "Remove the triage step.",
+          "correct": false,
+          "explain": "不適。手順を消すと分類の機能を失う。",
+          "textZh": "去掉分拣步骤。"
+        },
+        {
+          "text": "Switch every step to maximum effort.",
+          "correct": false,
+          "explain": "不適。全段階を最大にするのは逆方向。",
+          "textZh": "所有步骤都改成最高 effort。"
+        }
+      ],
+      "objective": "Cost and Latency Optimization",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/effort",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个分拣步骤的 p95 延迟太高。遥测显示该步骤用的是最高推理强度，但评估表明降低 effort 在此步骤上准确率相同。最好的改动是什么？",
+      "commentaryZh": "effort 是延迟的主要杠杆之一。评估证明降低 effort 不影响准确率时，就降低它，并继续监控。"
+    },
+    {
+      "id": "rp4-024",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An agent's cost per task doubled after a new tool was added that returns full HTML pages. Which optimization is MOST targeted?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Shape the tool response to return only the extracted fields or text the agent needs.",
+          "correct": true,
+          "explain": "正解。肥大化したツール出力を必要最小限にする。",
+          "textZh": "调整工具的返回内容，只返回代理需要的提取字段或文本。"
+        },
+        {
+          "text": "Switch to a model with a larger context window.",
+          "correct": false,
+          "explain": "不適。コストは下がらない。",
+          "textZh": "换一个上下文窗口更大的模型。"
+        },
+        {
+          "text": "Raise the budget.",
+          "correct": false,
+          "explain": "不適。最適化になっていない。",
+          "textZh": "提高预算。"
+        },
+        {
+          "text": "Ask users to submit fewer tasks.",
+          "correct": false,
+          "explain": "不適。利用を減らすのは価値を下げる。",
+          "textZh": "让用户少提交任务。"
+        }
+      ],
+      "objective": "Cost and Latency Optimization",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "新增一个返回完整 HTML 页面的工具后，代理每个任务的成本翻了一倍。哪项优化最有针对性？",
+      "commentaryZh": "定位到成本来源（新工具的大块输出）后，直接修它：工具只返回必要的信息，既省 token 又减少干扰。"
+    },
+    {
+      "id": "rp4-025",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "The current model retires in 90 days. On the regression suite, the new model improves overall accuracy but regresses on 4 of 30 critical compliance cases. What is the BEST plan?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Re-tune prompts for the regressed cases, re-baseline the evals on the new model, and migrate before retirement once critical cases pass.",
+          "correct": true,
+          "explain": "正解。期限内に、退行を直してから移行する。",
+          "textZh": "针对退步的用例重新调整提示，在新模型上重建评估基线，关键用例通过后在退役前完成迁移。"
+        },
+        {
+          "text": "Migrate immediately; overall accuracy improved.",
+          "correct": false,
+          "explain": "不適。重大なケースの退行を無視している。",
+          "textZh": "马上迁移，因为整体准确率提高了。"
+        },
+        {
+          "text": "Pin the old model forever.",
+          "correct": false,
+          "explain": "不適。廃止されれば動かなくなる。",
+          "textZh": "永远固定在旧模型上。"
+        },
+        {
+          "text": "Defer until after retirement.",
+          "correct": false,
+          "explain": "不適。サービスが止まる。",
+          "textZh": "推迟到退役之后再说。"
+        }
+      ],
+      "objective": "Model Version Migration",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "当前模型将在 90 天后退役。在回归测试集上，新模型整体准确率提高了，但在 30 个关键合规用例中有 4 个退步。最好的计划是什么？",
+      "commentaryZh": "4.7：根据弃用时间表和回归结果判断迁移准备度。关键用例退步就先修（调提示、重建基线），在退役期限前完成迁移。"
+    },
+    {
+      "id": "rp4-026",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A newer model is released, the current one has no retirement date yet, and the new one shows no measurable gain on the team's evals but needs prompt changes. What is the MOST reasonable choice?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Stay pinned on the current version and plan the migration later, watching the deprecation schedule.",
+          "correct": true,
+          "explain": "正解。利得がなく期限もないなら固定して延期するのが妥当。",
+          "textZh": "继续固定在当前版本，之后再计划迁移，并关注弃用时间表。"
+        },
+        {
+          "text": "Migrate today because newer is better.",
+          "correct": false,
+          "explain": "不適。利得がなくリスクだけある。",
+          "textZh": "今天就迁移，因为新的更好。"
+        },
+        {
+          "text": "Delete the eval suite.",
+          "correct": false,
+          "explain": "不適。将来の移行判断ができない。",
+          "textZh": "删除评估集。"
+        },
+        {
+          "text": "Switch to an unpinned alias.",
+          "correct": false,
+          "explain": "不適。予期しない挙動変化を招く。",
+          "textZh": "改用不固定版本的别名。"
+        }
+      ],
+      "objective": "Model Version Migration",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "新模型发布了，当前模型还没有退役日期；新模型在团队的评估上没有可测量的提升，而且需要修改提示。最合理的选择是什么？",
+      "commentaryZh": "迁移不是越早越好。没有收益、也没有截止日期时，固定版本、关注弃用公告，等有必要时再迁移。"
+    },
+    {
+      "id": "rp4-027",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO artifacts are essential before switching production to a new model version?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Regression eval results comparing old and new versions on the same set.",
+          "correct": true,
+          "explain": "正解。同じ条件での比較。",
+          "textZh": "在同一测试集上比较新旧版本的回归评估结果。"
+        },
+        {
+          "text": "A rollback plan to the pinned previous version.",
+          "correct": true,
+          "explain": "正解。問題が出たら戻せる。",
+          "textZh": "回滚到之前固定版本的方案。"
+        },
+        {
+          "text": "A press release.",
+          "correct": false,
+          "explain": "不適。移行の準備ではない。",
+          "textZh": "一份新闻稿。"
+        },
+        {
+          "text": "A new logo.",
+          "correct": false,
+          "explain": "不適。この選択肢は問題と無関係。",
+          "textZh": "一个新标志。"
+        }
+      ],
+      "objective": "Model Version Migration",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在把生产切换到新模型版本之前，哪两项是必不可少的？",
+      "commentaryZh": "切换前要有同一测试集上的新旧对比，以及能快速回到旧版本的回滚方案。"
+    },
+    {
+      "id": "rp4-028",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "During a migration, the new model is more verbose, breaking a downstream parser on 3% of outputs. Which response is BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Re-tune the prompt or use structured outputs to restore the format, add the cases to the regression set, then continue the rollout.",
+          "correct": true,
+          "explain": "正解。差分を直し、回帰テストで固定してから進める。",
+          "textZh": "重新调整提示或改用结构化输出来恢复格式，把这些用例加入回归集，然后继续上线。"
+        },
+        {
+          "text": "Ignore the 3%.",
+          "correct": false,
+          "explain": "不適。本番で障害になる。",
+          "textZh": "忽略这 3%。"
+        },
+        {
+          "text": "Abandon the migration permanently.",
+          "correct": false,
+          "explain": "不適。廃止期限に間に合わない恐れ。",
+          "textZh": "永久放弃迁移。"
+        },
+        {
+          "text": "Make the parser accept anything.",
+          "correct": false,
+          "explain": "不適。データの不正を下流に流す。",
+          "textZh": "让解析器什么都接受。"
+        }
+      ],
+      "objective": "Model Version Migration",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "迁移过程中，新模型更啰嗦，导致下游解析器在 3% 的输出上出错。最好的应对是什么？",
+      "commentaryZh": "迁移中出现的行为差异要在本次修好：调整提示或用结构化输出，并把新发现的用例加入回归集。"
+    }
+  ]
+}

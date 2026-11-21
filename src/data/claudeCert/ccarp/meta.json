@@ -1,0 +1,147 @@
+{
+  "blueprintVersion": "1.1",
+  "blueprintEffective": "2026-12-07",
+  "examCode": "CCAR-P",
+  "examName": "Claude Certified Architect – Professional",
+  "source": "Claude Certified Architect – Professional Exam Guide, Version 1.1, Effective December 7, 2026 (exam code CCAR-P)",
+  "checkedAt": "2026-11-21",
+  "objectiveLabel": "skill",
+  "sources": [
+    {
+      "title": "Claude Certified Architect – Professional Exam Guide v1.1（2026-12-07 発効、Anthropic Academy 配布 PDF）",
+      "url": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946420/Claude_Certified_Architect_-_Professional_Exam_Guide_Updated_Dec_7.pdf",
+      "kind": "official",
+      "covers": "問題数（70、うち採点 60）・時間・合格点・受験料・有効期間・7ドメインと配点・39 skill・サンプル問題 3 問"
+    },
+    {
+      "title": "Claude 認定プログラム（Pearson VUE）",
+      "url": "https://www.pearsonvue.com/us/en/anthropic.html",
+      "kind": "official",
+      "covers": "2026-12-07 から CCAO-F・CCDV-F・CCAR-P が新しい出題内容になること"
+    }
+  ],
+  "updateNote": "2026-12-07 から Exam Guide v1.1 の出題範囲（7ドメイン・39 skill・70問）。シナリオ名は公開されていないので、問題はそれぞれ独立した業務場面の単一選択・複数選択。Foundations（CCAO-F・CCDV-F）の範囲は前提知識として扱われる。",
+  "examFormat": {
+    "items": 70,
+    "scoredItems": 60,
+    "minutes": 120,
+    "passScaled": 720,
+    "scaleMin": 100,
+    "scaleMax": 1000,
+    "validityMonths": 12,
+    "feeUsd": 175
+  },
+  "competencies": [
+    "Designing end-to-end Claude solutions: delegating work between Claude and humans, selecting architectural patterns, decomposing orchestrators and subagents, and choosing the deployment surface and agent runtime",
+    "Selecting model tiers, diagnosing system prompts, choosing prompting techniques, and managing context, caching, reasoning effort, and context lifecycle",
+    "Integrating Claude with least-privilege tools, sound authentication and authorization, retrieval, connection mechanisms, monitoring, and production reliability controls",
+    "Deriving evaluations from business processes, designing LLM-as-judge and configuration experiments, isolating root causes, optimizing cost and latency, and migrating model versions",
+    "Placing guardrails and human-in-the-loop checkpoints, controlling prompt injection, ranking risks, meeting compliance obligations, and mitigating bias",
+    "Communicating with stakeholders through supportable commitments, architecture decision records, and complete operational handoffs",
+    "Enabling developers by packaging Claude Code workflows, configuring the Agent SDK and Claude Code safely, and keeping humans accountable for AI-generated code"
+  ],
+  "domains": [
+    {
+      "id": "D1",
+      "label": "ソリューション設計とアーキテクチャ",
+      "labelEn": "Solution Design and Architecture",
+      "weight": 18,
+      "color": "#5A3B8A",
+      "objectives": [
+        "Task Delegation Between Claude and Humans",
+        "End-to-End Architecture Evaluation",
+        "Architectural Pattern Selection",
+        "Orchestrator and Subagent Decomposition",
+        "Value-Based Architectural Decisions",
+        "Deployment Surface and Agent Runtime Selection"
+      ]
+    },
+    {
+      "id": "D2",
+      "label": "モデル・プロンプト・コンテキスト設計",
+      "labelEn": "Claude Models, Prompting, and Context Engineering",
+      "weight": 13,
+      "color": "#2F5D8A",
+      "objectives": [
+        "Model Tier Selection",
+        "System Prompt Diagnosis and Revision",
+        "Prompting Technique Selection",
+        "Context Composition and Token Economics",
+        "Cache Breakpoints and Reusable Packaging",
+        "Reasoning Effort and Context Lifecycle"
+      ]
+    },
+    {
+      "id": "D3",
+      "label": "統合",
+      "labelEn": "Integration",
+      "weight": 21,
+      "color": "#3F6F52",
+      "objectives": [
+        "Least-Privilege Tool Configuration",
+        "Authentication and Authorization Posture",
+        "Relieving the Binding Performance Constraint",
+        "Instrumentation and Monitoring Gaps",
+        "Retrieval Architecture Selection",
+        "Connection Mechanism Selection",
+        "Progressive Discovery vs. Monolithic Context Loading",
+        "Production Reliability Controls"
+      ]
+    },
+    {
+      "id": "D4",
+      "label": "評価・テスト・最適化",
+      "labelEn": "Evaluation, Testing, and Optimization",
+      "weight": 17,
+      "color": "#C8743D",
+      "objectives": [
+        "Evaluation Coverage Gaps",
+        "Deriving Evaluations from Business Processes",
+        "LLM-as-Judge Design and Bias",
+        "Experimental Design for Configuration Comparison",
+        "Root-Cause Isolation from Logs and Traces",
+        "Cost and Latency Optimization",
+        "Model Version Migration"
+      ]
+    },
+    {
+      "id": "D5",
+      "label": "ガバナンス・安全・リスク管理",
+      "labelEn": "Governance, Safety, and Risk Management",
+      "weight": 16,
+      "color": "#9A3B3B",
+      "objectives": [
+        "Guardrail Placement",
+        "Prompt Injection Surface and Controls",
+        "Risk Assessment and Ranking",
+        "Human-in-the-Loop Checkpoints",
+        "Architectural Controls for Compliance Obligations",
+        "Bias Source Identification and Mitigation"
+      ]
+    },
+    {
+      "id": "D6",
+      "label": "関係者とのコミュニケーションとライフサイクル管理",
+      "labelEn": "Stakeholder Communication and Lifecycle Management",
+      "weight": 7,
+      "color": "#6B6B2F",
+      "objectives": [
+        "Unsupportable Commitments in Requirements and SLAs",
+        "Architecture Decision Records",
+        "Operational Handoff Completeness"
+      ]
+    },
+    {
+      "id": "D7",
+      "label": "開発者の生産性と運用の整備",
+      "labelEn": "Developer Productivity and Operational Enablement",
+      "weight": 8,
+      "color": "#3B3B3B",
+      "objectives": [
+        "Packaging and Distributing Claude Code Workflows",
+        "Agent SDK and Claude Code Configuration",
+        "Accountability for AI-Generated Code"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1253 @@
+{
+  "domain": "D3",
+  "items": [
+    {
+      "id": "rp3-001",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A report-writing subagent only needs to read two database views, but it has been given a general SQL tool with write access to the whole database. What is the BEST change?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Replace it with a narrow read-only tool scoped to the two views.",
+          "correct": true,
+          "explain": "正解。必要最小限の範囲に絞った専用ツールに置き換える。",
+          "textZh": "换成一个只读、只限这两个视图的窄范围工具。"
+        },
+        {
+          "text": "Keep the tool and tell the subagent not to write.",
+          "correct": false,
+          "explain": "不適。指示は権限の制限にならない。",
+          "textZh": "保留工具，并告诉子代理不要写入。"
+        },
+        {
+          "text": "Give it to every subagent for consistency.",
+          "correct": false,
+          "explain": "不適。権限の範囲がさらに広がる。",
+          "textZh": "为了统一，把它给每个子代理。"
+        },
+        {
+          "text": "Add a second write tool as a backup.",
+          "correct": false,
+          "explain": "不適。足跡がさらに大きくなる。",
+          "textZh": "再加一个写入工具作为备份。"
+        }
+      ],
+      "objective": "Least-Privilege Tool Configuration",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/permissions",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个写报告的子代理只需要读取两个数据库视图，却被给了一个能写整个数据库的通用 SQL 工具。最好的改动是什么？",
+      "commentaryZh": "3.1：审查代理和子代理的工具，按最小权限和最小足迹原则删减、缩小范围或换成更精简的访问方式。提示里的「不要写」不是权限控制。"
+    },
+    {
+      "id": "rp3-002",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "An audit finds that every subagent inherits all 25 of the orchestrator's tools. Which TWO actions BEST reduce the footprint?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Define an explicit tool allowlist for each subagent based on its task.",
+          "correct": true,
+          "explain": "正解。役割ごとに許可するツールを明示する。",
+          "textZh": "按每个子代理的任务定义明确的工具白名单。"
+        },
+        {
+          "text": "Remove tools no subagent has used in traces over the past month, after confirming they are unneeded.",
+          "correct": true,
+          "explain": "正解。使われていない道具は削る。",
+          "textZh": "确认不需要后，删除过去一个月轨迹中没有任何子代理用过的工具。"
+        },
+        {
+          "text": "Give subagents admin credentials so they never hit permission errors.",
+          "correct": false,
+          "explain": "不適。管理者権限は最小権限の逆。",
+          "textZh": "给子代理管理员凭证，免得遇到权限错误。"
+        },
+        {
+          "text": "Merge all tools into one universal tool.",
+          "correct": false,
+          "explain": "不適。範囲が見えなくなり、絞れない。",
+          "textZh": "把所有工具合并成一个万能工具。"
+        }
+      ],
+      "objective": "Least-Privilege Tool Configuration",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "审计发现每个子代理都继承了编排代理的全部 25 个工具。哪两项措施最能缩小足迹？",
+      "commentaryZh": "最小足迹：每个子代理只拿完成任务所需的工具；用轨迹数据找出从未使用的工具并移除。"
+    },
+    {
+      "id": "rp3-003",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An agent uses a shell tool to run `curl` against an internal API just to fetch order status. What is the leaner access pattern?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A dedicated get_order_status tool that calls the API with fixed parameters and returns only the needed fields.",
+          "correct": true,
+          "explain": "正解。汎用シェルより目的別ツールの方が権限も出力も小さい。",
+          "textZh": "一个专门的 get_order_status 工具，用固定参数调用 API，只返回需要的字段。"
+        },
+        {
+          "text": "Keep the shell tool; it is flexible.",
+          "correct": false,
+          "explain": "不適。柔軟さは過大な権限の裏返し。",
+          "textZh": "保留 shell 工具，因为它灵活。"
+        },
+        {
+          "text": "Add sudo to the shell tool.",
+          "correct": false,
+          "explain": "不適。権限がさらに大きくなる。",
+          "textZh": "给 shell 工具加上 sudo。"
+        },
+        {
+          "text": "Let the agent install new CLI tools as needed.",
+          "correct": false,
+          "explain": "不適。足跡と攻撃面が広がる。",
+          "textZh": "允许代理按需安装新的命令行工具。"
+        }
+      ],
+      "objective": "Least-Privilege Tool Configuration",
+      "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个代理用 shell 工具执行 `curl` 调用内部 API，只是为了查询订单状态。更精简的访问方式是什么？",
+      "commentaryZh": "通用工具（shell、通用 SQL）权限大、输出多。只需要一种操作时，换成专用工具：固定参数、只返回必要字段，权限和上下文占用都更小。"
+    },
+    {
+      "id": "rp3-004",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which tool configuration BEST follows least privilege for an agent that drafts replies but must not send them?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A create_draft tool only; sending is a separate human action outside the agent.",
+          "correct": true,
+          "explain": "正解。送信能力そのものを持たせない。",
+          "textZh": "只提供 create_draft 工具；发送是代理之外的人工操作。"
+        },
+        {
+          "text": "A send_email tool with an instruction to save drafts instead.",
+          "correct": false,
+          "explain": "不適。送信できる権限が残っている。",
+          "textZh": "提供 send_email 工具，并指示它改为保存草稿。"
+        },
+        {
+          "text": "Full mailbox access for context.",
+          "correct": false,
+          "explain": "不適。メールボックス全体は必要以上の範囲。",
+          "textZh": "为了了解背景给予完整的邮箱访问权限。"
+        },
+        {
+          "text": "No tools; the agent should email users directly.",
+          "correct": false,
+          "explain": "不適。下書き専用なのに直接送るのは矛盾した設計。",
+          "textZh": "不给工具；代理应直接给用户发邮件。"
+        }
+      ],
+      "objective": "Least-Privilege Tool Configuration",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/permissions",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "对一个只起草回复、不得发送的代理来说，哪种工具配置最符合最小权限？",
+      "commentaryZh": "最可靠的限制是「不给能力」：不得发送就不提供发送工具，而不是给了工具再用指令限制。"
+    },
+    {
+      "id": "rp3-005",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An MCP server for an HR system authenticates with one service account that can read every employee record, and returns whatever the agent requests. Users of the agent have different HR permissions. What is the main flaw and mitigation?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Privilege escalation through a shared identity; authorize each request with the end user's identity and permissions (e.g. delegated OAuth).",
+          "correct": true,
+          "explain": "正解。共有アカウントで利用者の権限を超えてしまう。利用者単位で認可する。",
+          "textZh": "通过共享身份造成权限提升；应以最终用户的身份和权限授权每个请求（例如委托式 OAuth）。"
+        },
+        {
+          "text": "The server should use two service accounts.",
+          "correct": false,
+          "explain": "不適。数を増やしても利用者ごとの認可にならない。",
+          "textZh": "服务器应该用两个服务账号。"
+        },
+        {
+          "text": "The agent should be told which records to avoid.",
+          "correct": false,
+          "explain": "不適。プロンプトは認可の代わりにならない。",
+          "textZh": "应告诉代理哪些记录不能看。"
+        },
+        {
+          "text": "HR data should be cached for speed.",
+          "correct": false,
+          "explain": "不適。認可の問題を解決しない。",
+          "textZh": "人事数据应缓存以提速。"
+        }
+      ],
+      "objective": "Authentication and Authorization Posture",
+      "reference": "https://code.claude.com/docs/en/security",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个人事系统的 MCP 服务器用一个能读取所有员工记录的服务账号认证，代理要什么就返回什么。而使用代理的用户各有不同的人事权限。主要缺陷和缓解措施是什么？",
+      "commentaryZh": "3.2：找出凭证暴露和权限提升。代理通过一个高权限的共享账号访问数据，用户就能借代理越权。应按最终用户的身份授权，服务器端执行权限检查。"
+    },
+    {
+      "id": "rp3-006",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "A browser extension calls the Claude API directly using an API key stored in its source code. Which TWO mitigations are needed?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Move calls behind a server-side proxy that holds the key and authenticates users.",
+          "correct": true,
+          "explain": "正解。キーをクライアントに置かない。",
+          "textZh": "把调用移到服务器端代理之后，由代理保管密钥并认证用户。"
+        },
+        {
+          "text": "Rotate the exposed key immediately and monitor its usage.",
+          "correct": true,
+          "explain": "正解。漏洩したキーは無効化して監視する。",
+          "textZh": "立即轮换已暴露的密钥，并监控其使用情况。"
+        },
+        {
+          "text": "Obfuscate the key in the extension.",
+          "correct": false,
+          "explain": "不適。難読化してもキーの抽出は防げない。",
+          "textZh": "在扩展中混淆密钥。"
+        },
+        {
+          "text": "Switch to an admin key.",
+          "correct": false,
+          "explain": "不適。漏洩時の被害が大きくなる。",
+          "textZh": "换成管理员密钥。"
+        }
+      ],
+      "objective": "Authentication and Authorization Posture",
+      "reference": "https://code.claude.com/docs/en/iam",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个浏览器扩展把 API 密钥写在源代码里，直接调用 Claude API。需要哪两项缓解措施？",
+      "commentaryZh": "客户端里的密钥迟早会被提取。要把调用放到服务器端代理，并立刻轮换已暴露的密钥、监控访问。"
+    },
+    {
+      "id": "rp3-007",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An agent can call an internal admin API by passing a user_id argument; the API trusts the agent's service token and acts on any user_id. Which risk is MOST serious?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A prompt injection can make the agent act on another user's account (confused deputy); authorization must bind the action to the authenticated user.",
+          "correct": true,
+          "explain": "正解。代理人の権限で他人を操作される。認証済み利用者に紐づけて認可する。",
+          "textZh": "提示注入可能让代理对其他用户的账户执行操作（混淆代理问题）；授权必须把操作绑定到已认证的用户。"
+        },
+        {
+          "text": "The API might be slow.",
+          "correct": false,
+          "explain": "不適。性能の問題ではない。",
+          "textZh": "API 可能会慢。"
+        },
+        {
+          "text": "user_id might be a string.",
+          "correct": false,
+          "explain": "不適。型の問題ではない。",
+          "textZh": "user_id 可能是字符串。"
+        },
+        {
+          "text": "The token might expire.",
+          "correct": false,
+          "explain": "不適。最も重大なリスクではない。",
+          "textZh": "令牌可能会过期。"
+        }
+      ],
+      "objective": "Authentication and Authorization Posture",
+      "reference": "https://code.claude.com/docs/en/security",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "代理可以通过传入 user_id 参数调用内部管理 API；该 API 信任代理的服务令牌，对任意 user_id 都会执行操作。哪个风险最严重？",
+      "commentaryZh": "服务令牌权限大、参数由模型决定时，就形成「混淆代理」：攻击者通过注入让代理代他行事。必须在服务器端把操作对象绑定到真实用户身份。"
+    },
+    {
+      "id": "rp3-008",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which credential practice BEST limits blast radius across development, staging, and production?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Separate workspace-scoped keys per environment, with rotation and access monitoring.",
+          "correct": true,
+          "explain": "正解。環境ごとに分け、漏洩時の影響を限定する。",
+          "textZh": "每个环境使用独立的工作区范围密钥，并定期轮换、监控访问。"
+        },
+        {
+          "text": "One admin key shared by all environments.",
+          "correct": false,
+          "explain": "不適。一つの漏洩が全環境に及ぶ。",
+          "textZh": "所有环境共用一个管理员密钥。"
+        },
+        {
+          "text": "Developers use production keys locally.",
+          "correct": false,
+          "explain": "不適。本番の鍵が拡散する。",
+          "textZh": "开发者在本地使用生产密钥。"
+        },
+        {
+          "text": "Keys committed to the repository for convenience.",
+          "correct": false,
+          "explain": "不適。リポジトリへのコミットは漏洩の典型。",
+          "textZh": "为方便把密钥提交到仓库。"
+        }
+      ],
+      "objective": "Authentication and Authorization Posture",
+      "reference": "https://code.claude.com/docs/en/iam",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪种凭证做法最能限制开发、测试和生产环境之间的影响范围？",
+      "commentaryZh": "环境隔离：每个环境独立的、范围受限的密钥；定期轮换并监控。管理员密钥和共享密钥会扩大泄露的影响。"
+    },
+    {
+      "id": "rp3-009",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A Q&A system meets latency targets, but evals show 20% of wrong answers come from the correct passage not being retrieved. Which change BEST relieves the binding constraint?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Increase retrieval depth or improve retrieval (e.g. contextual retrieval, reranking), checking that latency stays within target.",
+          "correct": true,
+          "explain": "正解。精度のボトルネックは検索。遅延への影響を確かめながら改善する。",
+          "textZh": "增加检索深度或改进检索（如上下文检索、重排序），并确认延迟仍在目标内。"
+        },
+        {
+          "text": "Switch to a larger model.",
+          "correct": false,
+          "explain": "不適。根拠が渡っていない問題は直らず、遅延も増える。",
+          "textZh": "换更大的模型。"
+        },
+        {
+          "text": "Cache responses.",
+          "correct": false,
+          "explain": "不適。誤答をそのまま再利用するだけ。",
+          "textZh": "缓存回答。"
+        },
+        {
+          "text": "Shorten the answers.",
+          "correct": false,
+          "explain": "不適。原因に対処していない。",
+          "textZh": "缩短回答。"
+        }
+      ],
+      "objective": "Relieving the Binding Performance Constraint",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个问答系统满足延迟目标，但评估显示 20% 的错误答案来自没有检索到正确段落。哪项改动最能解除这个瓶颈？",
+      "commentaryZh": "3.3 先找出真正的瓶颈（这里是检索的准确度），再选对另一项指标（延迟）代价最小的改动。换大模型解决不了「没检索到」的问题。"
+    },
+    {
+      "id": "rp3-010",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An assistant's answers are accurate, but p95 latency is 9 s against a 4 s SLA. Most time is spent processing a 30k-token static instruction block on every call. Which change BEST relieves latency at least cost to accuracy?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Cache the static block so it is not reprocessed on each call.",
+          "correct": true,
+          "explain": "正解。精度を変えずに前処理の時間を減らす。",
+          "textZh": "缓存这个固定块，避免每次调用都重新处理。"
+        },
+        {
+          "text": "Switch to the fastest tier without testing.",
+          "correct": false,
+          "explain": "不適。精度への影響を確かめていない。",
+          "textZh": "不经测试直接换成最快的层级。"
+        },
+        {
+          "text": "Delete half of the instructions at random.",
+          "correct": false,
+          "explain": "不適。指示を無作為に削ると精度を損なう。",
+          "textZh": "随机删掉一半指令。"
+        },
+        {
+          "text": "Raise max_tokens.",
+          "correct": false,
+          "explain": "不適。遅延は改善しない。",
+          "textZh": "调大 max_tokens。"
+        }
+      ],
+      "objective": "Relieving the Binding Performance Constraint",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个助手的回答很准确，但 p95 延迟是 9 秒，而 SLA 是 4 秒。大部分时间花在每次调用都要处理的 3 万 token 固定指令块上。哪项改动能以最小的准确度代价缓解延迟？",
+      "commentaryZh": "延迟是瓶颈、准确度已达标时，优先选不影响准确度的方案：缓存不变的长前缀，可以显著降低处理时间。"
+    },
+    {
+      "id": "rp3-011",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An agent makes 12 sequential tool calls that are independent of each other, and total latency is too high. Which change MOST directly relieves latency?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Change the call pattern to run the independent calls in parallel.",
+          "correct": true,
+          "explain": "正解。独立した呼び出しは並列化できる。",
+          "textZh": "改变调用模式，让互不依赖的调用并行执行。"
+        },
+        {
+          "text": "Use a larger model.",
+          "correct": false,
+          "explain": "不適。逐次呼び出しの遅延は減らない。",
+          "textZh": "使用更大的模型。"
+        },
+        {
+          "text": "Add more tools.",
+          "correct": false,
+          "explain": "不適。呼び出しが増えるだけ。",
+          "textZh": "增加更多工具。"
+        },
+        {
+          "text": "Add a sleep between calls.",
+          "correct": false,
+          "explain": "不適。待ち時間を足すと遅延が増える。",
+          "textZh": "在调用之间加等待。"
+        }
+      ],
+      "objective": "Relieving the Binding Performance Constraint",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个代理依次进行 12 次互不依赖的工具调用，总延迟太高。哪项改动最直接地缓解延迟？",
+      "commentaryZh": "调用模式也是性能杠杆：互不依赖的工具调用可以并行，延迟大幅下降而不影响准确度。"
+    },
+    {
+      "id": "rp3-012",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO steps should come BEFORE choosing a performance fix?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Identify which constraint (accuracy or latency) is actually binding, using measurements.",
+          "correct": true,
+          "explain": "正解。どちらがボトルネックかを先に確かめる。",
+          "textZh": "用测量数据确定真正受限的是哪个指标（准确度还是延迟）。"
+        },
+        {
+          "text": "Measure how each candidate change affects the other constraint.",
+          "correct": true,
+          "explain": "正解。もう一方を悪化させないかを確認する。",
+          "textZh": "测量每个候选改动对另一个指标的影响。"
+        },
+        {
+          "text": "Upgrade every component at once.",
+          "correct": false,
+          "explain": "不適。効果の切り分けができない。",
+          "textZh": "一次升级所有组件。"
+        },
+        {
+          "text": "Ask users which model they prefer.",
+          "correct": false,
+          "explain": "不適。測定に基づいていない。",
+          "textZh": "问用户喜欢哪个模型。"
+        }
+      ],
+      "objective": "Relieving the Binding Performance Constraint",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在选择性能修复方案之前，应该先做哪两步？",
+      "commentaryZh": "先测量找出受限的那个指标，再评估每个方案对另一个指标的代价，选「解除瓶颈、代价最小」的改动。"
+    },
+    {
+      "id": "rp3-013",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "For two weeks, a summarizer silently truncated 8% of outputs at max_tokens; users noticed before the team did. Dashboards tracked only HTTP errors and latency. Which monitoring would have caught it?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Track stop_reason distribution per feature and alert when max_tokens exceeds a threshold.",
+          "correct": true,
+          "explain": "正解。HTTP 成功でも内容は壊れうる。stop_reason を監視する。",
+          "textZh": "按功能跟踪 stop_reason 的分布，当 max_tokens 的比例超过阈值时报警。"
+        },
+        {
+          "text": "Track CPU usage of the web server.",
+          "correct": false,
+          "explain": "不適。切り捨ては検知できない。",
+          "textZh": "跟踪 Web 服务器的 CPU 使用率。"
+        },
+        {
+          "text": "Count total requests per day.",
+          "correct": false,
+          "explain": "不適。品質の異常を示さない。",
+          "textZh": "统计每天的请求总数。"
+        },
+        {
+          "text": "Log only failed HTTP calls.",
+          "correct": false,
+          "explain": "不適。成功した切り捨てを見逃す。",
+          "textZh": "只记录失败的 HTTP 调用。"
+        }
+      ],
+      "objective": "Instrumentation and Monitoring Gaps",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "两周内，一个摘要功能有 8% 的输出在 max_tokens 处被悄悄截断；用户比团队先发现。仪表盘只跟踪 HTTP 错误和延迟。什么监控本可以发现它？",
+      "commentaryZh": "3.4：问题为什么在规模化后没被发现？因为只监控了传输层。要监控语义层的信号：stop_reason、输出长度、解析失败率、评估抽样分数等。"
+    },
+    {
+      "id": "rp3-014",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "After a retrieval index update, answer quality dropped for one product line, but overall averages looked normal. Which TWO monitoring practices would have caught this?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Segment quality metrics by product line or tenant instead of only global averages.",
+          "correct": true,
+          "explain": "正解。平均に埋もれる局所的な劣化を見つける。",
+          "textZh": "按产品线或租户分段统计质量指标，而不只看全局平均。"
+        },
+        {
+          "text": "Run a sampled online eval (e.g. groundedness scoring) on production traffic with alerts.",
+          "correct": true,
+          "explain": "正解。本番の品質を継続的に測る。",
+          "textZh": "在生产流量上进行抽样在线评估（如基于资料的程度评分）并设置报警。"
+        },
+        {
+          "text": "Check the average response length once a quarter.",
+          "correct": false,
+          "explain": "不適。頻度も指標も不十分。",
+          "textZh": "每季度检查一次平均回答长度。"
+        },
+        {
+          "text": "Rely on user complaints.",
+          "correct": false,
+          "explain": "不適。苦情頼みでは検知が遅れる。",
+          "textZh": "依赖用户投诉。"
+        }
+      ],
+      "objective": "Instrumentation and Monitoring Gaps",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "检索索引更新后，某一产品线的回答质量下降了，但整体平均值看起来正常。哪两项监控做法本可以发现？",
+      "commentaryZh": "全局平均会掩盖局部问题。按细分维度监控，并在生产流量上做持续的抽样评估，才能及时发现退化。"
+    },
+    {
+      "id": "rp3-015",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An agent occasionally loops on a failing tool for minutes, driving up cost, but no alert fires. What instrumentation is MOST useful?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Per-run metrics for tool-call count, repeated identical calls, and token spend, with alerts on outliers.",
+          "correct": true,
+          "explain": "正解。ループの兆候（回数・重複・コスト）を測る。",
+          "textZh": "按每次运行统计工具调用次数、重复的相同调用和 token 花费，并对异常值报警。"
+        },
+        {
+          "text": "Daily total cost only.",
+          "correct": false,
+          "explain": "不適。個別の異常を特定できない。",
+          "textZh": "只看每天的总成本。"
+        },
+        {
+          "text": "A log line when the agent starts.",
+          "correct": false,
+          "explain": "不適。ループを検知できない。",
+          "textZh": "代理启动时记一行日志。"
+        },
+        {
+          "text": "User satisfaction surveys.",
+          "correct": false,
+          "explain": "不適。遅く、原因も分からない。",
+          "textZh": "用户满意度调查。"
+        }
+      ],
+      "objective": "Instrumentation and Monitoring Gaps",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个代理偶尔会在失败的工具上循环好几分钟，推高成本，却没有任何报警。哪种埋点最有用？",
+      "commentaryZh": "代理需要按运行粒度的指标：工具调用次数、重复调用、token 花费、运行时长，并对异常报警。"
+    },
+    {
+      "id": "rp3-016",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A model update changed refusal behavior, and a small but important set of legitimate medical questions started being refused. Which signal BEST detects this early in production?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A monitored refusal-rate metric on a canary set of known legitimate questions, compared against the previous version.",
+          "correct": true,
+          "explain": "正解。既知の正当な質問で拒否率の変化を監視する。",
+          "textZh": "在一组已知正当问题的金丝雀集上监控拒绝率，并与上一版本比较。"
+        },
+        {
+          "text": "Total token usage.",
+          "correct": false,
+          "explain": "不適。拒否の増加を示さない。",
+          "textZh": "总 token 用量。"
+        },
+        {
+          "text": "HTTP 500 rate.",
+          "correct": false,
+          "explain": "不適。拒否は正常応答として返る。",
+          "textZh": "HTTP 500 的比例。"
+        },
+        {
+          "text": "Average latency.",
+          "correct": false,
+          "explain": "不適。品質の変化を示さない。",
+          "textZh": "平均延迟。"
+        }
+      ],
+      "objective": "Instrumentation and Monitoring Gaps",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "模型更新改变了拒绝行为，一小部分重要的正当医疗问题开始被拒绝。在生产中，哪个信号最能及早发现？",
+      "commentaryZh": "拒绝是「成功」返回的，传输层监控看不到。用固定的正当问题集持续检查拒绝率，并在版本变化时比较。"
+    },
+    {
+      "id": "rp3-017",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A support bot must answer from 2 million help articles updated daily, with mostly specific lookup questions and a 3-second latency target. Which retrieval architecture fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A pre-built RAG index with contextual retrieval and reranking, refreshed daily, with a fallback when retrieval confidence is low.",
+          "correct": true,
+          "explain": "正解。大規模・更新あり・低遅延なら事前インデックスの RAG。",
+          "textZh": "预先构建的 RAG 索引，采用上下文检索和重排序，每天刷新，并在检索置信度低时有兜底方案。"
+        },
+        {
+          "text": "Put the full corpus in context.",
+          "correct": false,
+          "explain": "不適。200 万記事を文脈に入れるのは規模的に不可能。",
+          "textZh": "把全部语料放进上下文。"
+        },
+        {
+          "text": "Agentic search with many sequential tool calls per question.",
+          "correct": false,
+          "explain": "不適。遅延目標を守りにくい。",
+          "textZh": "每个问题都做多次顺序工具调用的代理式搜索。"
+        },
+        {
+          "text": "No retrieval; rely on model knowledge.",
+          "correct": false,
+          "explain": "不適。社内の最新記事を知らない。",
+          "textZh": "不检索，依赖模型的知识。"
+        }
+      ],
+      "objective": "Retrieval Architecture Selection",
+      "reference": "https://www.anthropic.com/news/contextual-retrieval",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个客服机器人要根据每天更新的 200 万篇帮助文章作答，问题大多是具体的查询，延迟目标 3 秒。哪种检索架构最合适？",
+      "commentaryZh": "3.5 依据语料规模、查询模式和约束选择：语料大且延迟要求高 → 预建索引 RAG（配合上下文检索、重排序和兜底）；语料小 → 全量放入；探索性问题 → 代理式搜索。"
+    },
+    {
+      "id": "rp3-018",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "Engineers ask open-ended questions over a codebase that changes hourly, such as \"Where is this behavior implemented and why?\" Latency tolerance is minutes. Which approach fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Agentic search with tools (grep, file reads) over the live repository.",
+          "correct": true,
+          "explain": "正解。探索的な質問と頻繁な更新には agentic search が合う。",
+          "textZh": "在实时仓库上用工具（grep、读文件）做代理式搜索。"
+        },
+        {
+          "text": "A vector index rebuilt monthly.",
+          "correct": false,
+          "explain": "不適。更新に追いつかない。",
+          "textZh": "每月重建一次的向量索引。"
+        },
+        {
+          "text": "Full-corpus context on every question.",
+          "correct": false,
+          "explain": "不適。規模とコストに合わない。",
+          "textZh": "每个问题都放入全部代码。"
+        },
+        {
+          "text": "Pre-written FAQ answers.",
+          "correct": false,
+          "explain": "不適。開放的な質問に対応できない。",
+          "textZh": "预先写好的 FAQ 答案。"
+        }
+      ],
+      "objective": "Retrieval Architecture Selection",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "工程师针对每小时都在变化的代码库提出开放式问题，例如「这个行为在哪里实现、为什么？」，可以接受几分钟的延迟。哪种方式最合适？",
+      "commentaryZh": "开放式、需要多步追踪的问题，且语料频繁变化时，代理式搜索直接在最新数据上查找，更灵活也更新鲜；代价是延迟较高。"
+    },
+    {
+      "id": "rp3-019",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A legal team queries a single 60-page policy manual that changes yearly. Which approach is simplest and most reliable?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Load the full manual in context and cache it.",
+          "correct": true,
+          "explain": "正解。小さく安定した資料は全文＋キャッシュが最も簡単。",
+          "textZh": "把整份手册放进上下文并缓存。"
+        },
+        {
+          "text": "Build a vector database with chunking and reranking.",
+          "correct": false,
+          "explain": "不適。この規模には過剰で、検索漏れの危険も増える。",
+          "textZh": "建立带分块和重排序的向量数据库。"
+        },
+        {
+          "text": "Agentic web search.",
+          "correct": false,
+          "explain": "不適。対象の資料は手元にある。",
+          "textZh": "代理式网页搜索。"
+        },
+        {
+          "text": "Fine-tune a model on the manual.",
+          "correct": false,
+          "explain": "不適。更新や引用に向かない。",
+          "textZh": "用手册微调一个模型。"
+        }
+      ],
+      "objective": "Retrieval Architecture Selection",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "法务团队查询一份每年才更新一次的 60 页制度手册。哪种方式最简单、最可靠？",
+      "commentaryZh": "小而稳定的语料，全量放入上下文并缓存最简单，也没有检索遗漏的风险。"
+    },
+    {
+      "id": "rp3-020",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A RAG system retrieves chunks like \"Revenue grew 3% over the previous quarter\" without knowing which company or period they refer to. Which technique MOST directly improves retrieval?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Contextual retrieval: prepend chunk-specific context (document, entity, period) to each chunk before embedding and indexing.",
+          "correct": true,
+          "explain": "正解。チャンクに文脈を付けて埋め込むと検索の精度が上がる。",
+          "textZh": "上下文检索：在嵌入和建索引前，为每个片段加上该片段的背景（文档、实体、期间）。"
+        },
+        {
+          "text": "Make chunks smaller.",
+          "correct": false,
+          "explain": "不適。文脈がさらに失われる。",
+          "textZh": "把片段切得更小。"
+        },
+        {
+          "text": "Use a larger generation model.",
+          "correct": false,
+          "explain": "不適。検索段階の問題は解決しない。",
+          "textZh": "使用更大的生成模型。"
+        },
+        {
+          "text": "Remove the index and rely on keywords only.",
+          "correct": false,
+          "explain": "不適。曖昧なチャンクの問題は残る。",
+          "textZh": "去掉索引，只靠关键词。"
+        }
+      ],
+      "objective": "Retrieval Architecture Selection",
+      "reference": "https://www.anthropic.com/news/contextual-retrieval",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个 RAG 系统检索到的片段像「收入比上一季度增长 3%」，却不知道指的是哪家公司、哪个期间。哪种技术最直接地改进检索？",
+      "commentaryZh": "分块会丢失上下文。上下文检索在每个片段前加上它所属的文档、实体和时间，再嵌入和建 BM25 索引，能明显减少检索失败。"
+    },
+    {
+      "id": "rp3-021",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Five different agent products need the same governed access to a ticketing system, with consistent auth and tool definitions. Which connection mechanism fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An MCP server that all products connect to.",
+          "correct": true,
+          "explain": "正解。複数クライアントで共有し、認証とツール定義を一元化できる。",
+          "textZh": "一个所有产品都连接的 MCP 服务器。"
+        },
+        {
+          "text": "Each product calls the ticketing REST API directly with its own wrapper.",
+          "correct": false,
+          "explain": "不適。実装と認証がばらつく。",
+          "textZh": "每个产品各自写封装，直接调用工单 REST API。"
+        },
+        {
+          "text": "Agent-to-agent handoff to a human.",
+          "correct": false,
+          "explain": "不適。システム接続ではない。",
+          "textZh": "代理之间交接给人工。"
+        },
+        {
+          "text": "Copy ticket exports into prompts nightly.",
+          "correct": false,
+          "explain": "不適。リアルタイム性も統制もない。",
+          "textZh": "每晚把工单导出粘贴进提示。"
+        }
+      ],
+      "objective": "Connection Mechanism Selection",
+      "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "五个不同的代理产品需要以统一的认证和工具定义、受控地访问同一个工单系统。哪种连接机制最合适？",
+      "commentaryZh": "3.6 比较 MCP、直接 API/CLI、代理间交接。多个客户端共用同一能力、需要统一认证和治理时，MCP 服务器最合适。"
+    },
+    {
+      "id": "rp3-022",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A single high-throughput service needs one internal pricing lookup with the lowest possible latency; no other client will use it. Which mechanism fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A custom tool in the application that calls the pricing API directly.",
+          "correct": true,
+          "explain": "正解。単一クライアント・低遅延なら直接呼び出しが最も簡単で速い。",
+          "textZh": "在应用内定义一个直接调用价格 API 的自定义工具。"
+        },
+        {
+          "text": "A remote MCP server with OAuth.",
+          "correct": false,
+          "explain": "不適。この用途には層が増えて遅くなる。",
+          "textZh": "一个带 OAuth 的远程 MCP 服务器。"
+        },
+        {
+          "text": "An agent-to-agent handoff.",
+          "correct": false,
+          "explain": "不適。単純な検索に過剰。",
+          "textZh": "代理之间的交接。"
+        },
+        {
+          "text": "A Skill with written instructions only.",
+          "correct": false,
+          "explain": "不適。データにアクセスできない。",
+          "textZh": "只有文字说明的 Skill。"
+        }
+      ],
+      "objective": "Connection Mechanism Selection",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个高吞吐的服务只需要一个内部价格查询，要求尽可能低的延迟；没有其他客户端会用它。哪种机制最合适？",
+      "commentaryZh": "只有一个客户端、追求低延迟时，直接 API 调用（自定义工具）最简单最快；MCP 的价值在于多客户端复用和统一治理。"
+    },
+    {
+      "id": "rp3-023",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A triage agent must pass a conversation, with its gathered state, to a specialized billing agent owned by another team, which then continues the dialogue. Which mechanism fits BEST, and what must be designed carefully?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Agent-to-agent handoff, with an explicit, minimal state payload and clear authorization for what the billing agent may do.",
+          "correct": true,
+          "explain": "正解。状態を持つ引き継ぎ。渡す状態と権限の境界を明確にする。",
+          "textZh": "代理之间交接，要设计明确且精简的状态载荷，并清楚授权账单代理可以做什么。"
+        },
+        {
+          "text": "An MCP tool call that returns once and forgets.",
+          "correct": false,
+          "explain": "不適。会話の継続（状態）を扱えない。",
+          "textZh": "调用一次就结束、不保留状态的 MCP 工具。"
+        },
+        {
+          "text": "Paste the entire raw transcript and all credentials.",
+          "correct": false,
+          "explain": "不適。過剰な情報と権限を渡す。",
+          "textZh": "把完整的原始对话和所有凭证都粘贴过去。"
+        },
+        {
+          "text": "Ask the user to start over with the billing team.",
+          "correct": false,
+          "explain": "不適。最初からやり直させると体験を損なう。",
+          "textZh": "让用户重新从账单团队那里开始。"
+        }
+      ],
+      "objective": "Connection Mechanism Selection",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个分拣代理需要把对话连同收集到的状态交给另一个团队负责的专门账单代理，由它继续对话。哪种机制最合适？需要仔细设计什么？",
+      "commentaryZh": "需要连续对话和状态时，用代理间交接；要设计交接的状态内容（最少且足够）和接收方的权限边界。"
+    },
+    {
+      "id": "rp3-024",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO factors MOST commonly favor MCP over direct API calls?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Several clients (Claude Code, desktop, custom agents) need the same capability.",
+          "correct": true,
+          "explain": "正解。複数クライアントでの再利用性。",
+          "textZh": "多个客户端（Claude Code、桌面应用、自定义代理）需要同一能力。"
+        },
+        {
+          "text": "Central ownership of auth, tool schemas, and updates by one team.",
+          "correct": true,
+          "explain": "正解。統制と保守の一元化。",
+          "textZh": "由一个团队集中负责认证、工具 schema 和更新。"
+        },
+        {
+          "text": "A single script needs the lowest possible latency.",
+          "correct": false,
+          "explain": "不適。直接呼び出しの方が向く。",
+          "textZh": "一个脚本需要尽可能低的延迟。"
+        },
+        {
+          "text": "The API will be called once and then removed.",
+          "correct": false,
+          "explain": "不適。サーバーを作る価値がない。",
+          "textZh": "这个 API 只调用一次就废弃。"
+        }
+      ],
+      "objective": "Connection Mechanism Selection",
+      "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两项因素最常使 MCP 优于直接 API 调用？",
+      "commentaryZh": "MCP 的优势在复用和集中治理；单客户端、追求最低延迟或一次性的调用，直接 API 更合适。"
+    },
+    {
+      "id": "rp3-025",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An agent has 40 internal procedures, but each task needs at most two. Loading all of them up front uses 80k tokens per call. Which design fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Progressive discovery: expose short descriptions and load full procedures (e.g. as Skills) only when relevant.",
+          "correct": true,
+          "explain": "正解。必要な時だけ読み込み、文脈を節約する。",
+          "textZh": "渐进式发现：只提供简短描述，相关时才加载完整流程（例如以 Skill 形式）。"
+        },
+        {
+          "text": "Load all 40 every time to be safe.",
+          "correct": false,
+          "explain": "不適。トークンと遅延の無駄。",
+          "textZh": "为了保险每次都加载全部 40 套。"
+        },
+        {
+          "text": "Delete 38 procedures.",
+          "correct": false,
+          "explain": "不適。必要になる時に使えない。",
+          "textZh": "删掉 38 套流程。"
+        },
+        {
+          "text": "Merge all procedures into one short paragraph.",
+          "correct": false,
+          "explain": "不適。必要な詳細を失う。",
+          "textZh": "把所有流程合并成一段短文。"
+        }
+      ],
+      "objective": "Progressive Discovery vs. Monolithic Context Loading",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个代理有 40 套内部流程，但每个任务最多只需要两套。全部预先加载每次调用要用 8 万 token。哪种设计最合适？",
+      "commentaryZh": "3.7：任务只用到少量内容时，渐进式发现（先给目录，需要时再加载）能大幅减少上下文；Skill 的渐进式披露就是这种模式。"
+    },
+    {
+      "id": "rp3-026",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A real-time voice assistant must answer within 800 ms, always uses the same 3k-token policy, and cannot afford extra round trips. Which approach fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Load the policy up front (monolithically) and cache it, avoiding discovery round trips.",
+          "correct": true,
+          "explain": "正解。常に必要で小さく、遅延が厳しいなら一括読み込み。",
+          "textZh": "预先整体加载这份规定并缓存，避免发现过程的往返。"
+        },
+        {
+          "text": "Progressive discovery with a tool call per question.",
+          "correct": false,
+          "explain": "不適。往復が増えて遅延目標を破る。",
+          "textZh": "每个问题都通过工具调用进行渐进式发现。"
+        },
+        {
+          "text": "Agentic search over the policy.",
+          "correct": false,
+          "explain": "不適。agentic search は 800 ms には遅すぎる。",
+          "textZh": "对规定做代理式搜索。"
+        },
+        {
+          "text": "Omit the policy.",
+          "correct": false,
+          "explain": "不適。必要な情報が欠ける。",
+          "textZh": "不提供规定。"
+        }
+      ],
+      "objective": "Progressive Discovery vs. Monolithic Context Loading",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个实时语音助手必须在 800 毫秒内回答，总是使用同一份 3 千 token 的规定，承受不起额外的往返。哪种方式最合适？",
+      "commentaryZh": "渐进式发现节省上下文，但会增加往返延迟。内容小、每次都需要、延迟要求严格时，整体加载（并缓存）更好。"
+    },
+    {
+      "id": "rp3-027",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An agent connected to 15 MCP servers spends much of its context on tool definitions it rarely uses, and tool selection accuracy is dropping. What is the BEST improvement?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use tool search / on-demand loading so only relevant tool definitions enter context.",
+          "correct": true,
+          "explain": "正解。ツール定義も段階的に発見させる。",
+          "textZh": "使用工具搜索或按需加载，只让相关的工具定义进入上下文。"
+        },
+        {
+          "text": "Add five more servers.",
+          "correct": false,
+          "explain": "不適。サーバーを増やすと文脈の圧迫が悪化する。",
+          "textZh": "再加五个服务器。"
+        },
+        {
+          "text": "Shorten every tool description to one word.",
+          "correct": false,
+          "explain": "不適。選択精度がさらに落ちる。",
+          "textZh": "把每个工具描述都缩成一个词。"
+        },
+        {
+          "text": "Increase temperature.",
+          "correct": false,
+          "explain": "不適。temperature はツール選択の文脈量と無関係。",
+          "textZh": "提高 temperature。"
+        }
+      ],
+      "objective": "Progressive Discovery vs. Monolithic Context Loading",
+      "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个连接了 15 个 MCP 服务器的代理，大量上下文被很少用到的工具定义占用，工具选择准确率在下降。最好的改进是什么？",
+      "commentaryZh": "工具定义本身也会占用大量上下文并干扰选择。按需发现工具（工具搜索）能减少上下文并提升选择准确率。"
+    },
+    {
+      "id": "rp3-028",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO conditions favor progressive discovery over monolithic loading?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The available material is large but each task needs only a small, unpredictable part.",
+          "correct": true,
+          "explain": "正解。必要部分が少なく予測できない。",
+          "textZh": "可用资料很多，但每个任务只需要其中一小部分，且事先无法预测。"
+        },
+        {
+          "text": "The task can tolerate an extra round trip of latency.",
+          "correct": true,
+          "explain": "正解。往復コストを受け入れられる。",
+          "textZh": "任务能容忍额外一次往返的延迟。"
+        },
+        {
+          "text": "The same small content is needed on every call.",
+          "correct": false,
+          "explain": "不適。一括読み込みが向く。",
+          "textZh": "每次调用都需要同一小段内容。"
+        },
+        {
+          "text": "The latency budget is extremely tight.",
+          "correct": false,
+          "explain": "不適。往復が許されない。",
+          "textZh": "延迟预算极其紧张。"
+        }
+      ],
+      "objective": "Progressive Discovery vs. Monolithic Context Loading",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两个条件更适合渐进式发现，而不是整体加载？",
+      "commentaryZh": "选择依据：需要的内容占比小且不可预测、能接受往返延迟 → 渐进式发现；内容小且每次都要、延迟敏感 → 整体加载。"
+    },
+    {
+      "id": "rp3-029",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "During a rate-limit surge, an expense agent's client wrapper retries payment calls with backoff. Some payments execute twice because the original requests had already succeeded before the client timed out. What is the BEST fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Attach an idempotency key to each payment call so a repeat returns the original result instead of paying again.",
+          "correct": true,
+          "explain": "正解。副作用のある操作は冪等キーでリトライを安全にする。",
+          "textZh": "为每次付款调用附加幂等键，让重复请求返回原来的结果，而不是再付一次。"
+        },
+        {
+          "text": "Increase the client timeout.",
+          "correct": false,
+          "explain": "不適。頻度が減るだけで重複は防げない。",
+          "textZh": "延长客户端超时。"
+        },
+        {
+          "text": "Move payments to batch processing.",
+          "correct": false,
+          "explain": "不適。同期の副作用には合わない。",
+          "textZh": "把付款改为批处理。"
+        },
+        {
+          "text": "Tell the model not to pay twice.",
+          "correct": false,
+          "explain": "不適。リトライはモデルの外で起きる。",
+          "textZh": "告诉模型不要重复付款。"
+        }
+      ],
+      "objective": "Production Reliability Controls",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在一次限流高峰中，报销代理的客户端封装对付款调用做了退避重试。有些付款被执行了两次，因为原始请求在客户端超时前其实已经成功。最好的修复是什么？",
+      "commentaryZh": "对应 v1.1 样题 2。问题是重试重放了有副作用的操作。幂等键让重复请求安全；延长超时只会让问题变少，提示指令也无法控制模型之外发生的重试。"
+    },
+    {
+      "id": "rp3-030",
+      "domain": "D3",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Traces show bursts of 429 errors at the top of every hour when scheduled jobs start together. Which TWO controls fit BEST?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Exponential backoff with jitter that respects retry-after.",
+          "correct": true,
+          "explain": "正解。再試行を分散させる。",
+          "textZh": "带抖动、遵守 retry-after 的指数退避。"
+        },
+        {
+          "text": "Smooth the load with a queue or staggered start times.",
+          "correct": true,
+          "explain": "正解。ピーク自体を下げる。",
+          "textZh": "用队列或错开启动时间来平滑负载。"
+        },
+        {
+          "text": "Retry immediately in a tight loop.",
+          "correct": false,
+          "explain": "不適。レート制限を悪化させる。",
+          "textZh": "在紧密循环中立即重试。"
+        },
+        {
+          "text": "Treat 429 as a permanent failure and drop the job.",
+          "correct": false,
+          "explain": "不適。一時的なエラーを失敗扱いにしている。",
+          "textZh": "把 429 当作永久失败并丢弃任务。"
+        }
+      ],
+      "objective": "Production Reliability Controls",
+      "reference": "https://platform.claude.com/docs/en/api/rate-limits",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "轨迹显示每个整点定时任务同时启动时会出现大量 429 错误。哪两项控制最合适？",
+      "commentaryZh": "限流是暂时的：用带抖动的退避并遵守 retry-after，同时从源头削峰（队列、错开时间）。"
+    },
+    {
+      "id": "rp3-031",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "The primary model endpoint returns overloaded errors during peaks, and the product has a strict availability SLA. Which control fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Fallback routing to a pre-tested secondary tier or region after bounded retries, with the fallback's quality validated by evals.",
+          "correct": true,
+          "explain": "正解。上限つき再試行と、検証済みのフォールバック。",
+          "textZh": "在有限次数的重试后，回退路由到事先测试过的备用层级或区域，并用评估验证备用方案的质量。"
+        },
+        {
+          "text": "Retry forever until it works.",
+          "correct": false,
+          "explain": "不適。SLA を守れない。",
+          "textZh": "一直重试直到成功。"
+        },
+        {
+          "text": "Return an empty answer.",
+          "correct": false,
+          "explain": "不適。利用者に誤った結果を返す。",
+          "textZh": "返回空答案。"
+        },
+        {
+          "text": "Disable the feature permanently.",
+          "correct": false,
+          "explain": "不適。可用性の要件に反する。",
+          "textZh": "永久关闭该功能。"
+        }
+      ],
+      "objective": "Production Reliability Controls",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "主要的模型端点在高峰时返回过载错误，而产品有严格的可用性 SLA。哪种控制最合适？",
+      "commentaryZh": "可靠性控制包括：有上限的重试、回退路由（备用层级或区域）以及降级方案。回退的质量要事先用评估确认。"
+    },
+    {
+      "id": "rp3-032",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which tool is MOST in need of idempotency protection when retries are enabled?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "create_refund, which moves money.",
+          "correct": true,
+          "explain": "正解。副作用があり、二重実行の被害が大きい。",
+          "textZh": "create_refund（会转移资金）。"
+        },
+        {
+          "text": "get_order_status, which only reads.",
+          "correct": false,
+          "explain": "不適。読み取りは繰り返しても害がない。",
+          "textZh": "get_order_status（只读）。"
+        },
+        {
+          "text": "search_docs.",
+          "correct": false,
+          "explain": "不適。検索は読み取り専用で副作用がない。",
+          "textZh": "search_docs。"
+        },
+        {
+          "text": "get_weather.",
+          "correct": false,
+          "explain": "不適。天気の取得には副作用がない。",
+          "textZh": "get_weather。"
+        }
+      ],
+      "objective": "Production Reliability Controls",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "启用重试时，哪种工具最需要幂等保护？",
+      "commentaryZh": "只读操作重复执行没有副作用；会改变外部状态的操作（付款、退款、发邮件）在重试前必须具备幂等性。"
+    }
+  ]
+}
