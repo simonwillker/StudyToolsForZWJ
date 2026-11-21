@@ -30,7 +30,9 @@
 サーバー上にupdateする。Ipad、Iphone、PCどれでも確認とれる
 
 ## 状態
-- 最新バージョン：v1.43.0（2026-10-27）
+- 最新バージョン：v1.45.0（2026-11-21）
+- v1.45.0：CCDV-F を 2026-12-07 発効の公式 Exam Guide v1.1 に合わせた。8 ドメイン（17/20/8/10/12/15/8/10%）・24 skill、模擬試験は 70 問・120 分。v1.0 の 171 問は新しい skill に振り分け直し（ドメインが変わった 21 問は `meta.json` の `movedItems` で学習記録を移す。しくみは v1.44.0 の CCAO-F と同じ）、v1.1 で増えた内容の新問 44 問（id `ndv<ドメイン>-NNN`）で計 215 問。讲义は 24 篇に書き直し、頻出単語 145 語。`npm run validate:ccdvf`・`npm run test:ccaof-study` で確認
+- v1.44.0：CCAO-F を 2026-12-07 発効の公式 Exam Guide v1.1 に合わせた。6 ドメイン（D1 15%・D2 20%・D3 15%・D4 18%・D5 15%・D6 17%）・21 skill、模擬試験は 70 問・120 分。v1.0 の 560 問は新しいドメインと skill に振り分け直し（id は変えない。旧 D7 の 80 問は D1・D4 へ）、v1.1 で増えた内容（Skills・コード実行での分析と文件作成・メモリーの確認と削除・インコグニートチャット・effort の選択・委任の判断・設定の劣化・三分類・4D の Diligence など）の新問 49 問（id `n<ドメイン>-NNN`）で計 609 問。讲义は 21 篇に書き直し。ドメインが変わった問題の学習記録・復習リスト・錯題本は `meta.json` の `movedItems` に従って新しいドメインへ移す（`studyCore.js` の `moveProgressItems` など、開いたときに 1 回）。`npm run validate:ccaof`・`npm run test:ccaof-study` で確認
 - v1.43.0：Claude 認定の音声読み上げ（讲义など）の中文を標準の普通话に。声は普通话（中国大陆）の中から聞きやすいもの（Edge の Natural・Online、Chrome の Google 普通话、Apple の Tingting など）を先にえらび、粤语（zh-HK・yue）は使わない、台湾の国語は最後の手段。古い機械的な声（Huihui など）はあとに回す。音声モードの設定に「中文の声」（えらんだ声は端末ごとに `ccaofVoiceV1`）と試聴の🔊。中文は「——」「→」「／」「＋」「」などの記号を間や読み方に置きかえて読む（`speakableZh`）。`src/claudeCert/voicePick.js`、`npm run test:ccaof-audio` で確認
 - v1.42.0：英検マスターの復習を CCAO-F と同じ錯題本（今日の復習）に。まちがえた問題は 1日→3日→7日、2回続けて正解で外れる（期限前の正解は数えない、間隔の計算は `claudeCert/studyCore.js` を共用）。v1.41.0 までの復習リスト（`eikenReviewV1`）は初回に `eikenMistakesV1` へ移す（旧リストは残す）。級カードに「今日の復習 N問」、学習モード画面の一番上に「🔁 今日の復習」。模擬テストの得点推移を模擬テストの最初の画面と学習記録に表示（`src/ScoreTrend.jsx`、単語テストと共用）。`src/eikenReview.js`、`npm run test:eiken-review` で確認（PR #64）
 - v1.41.0：Sapix（全学年・全科目）に CCAO-F と同じ「🔁 今日の復習（錯題本）」と「📝 まとめテスト」。錯題本は 1日→3日→7日、2回続けて正解で外れる（期限前の正解は数えない、間隔の計算は `claudeCert/studyCore.js` を共用）。v1.40.0 までの復習リスト（`<科目>ReviewV1`）は初回に錯題本へ移す。まとめテストは単元・問題数（10/20/30）・制限時間（なし/10/20/30分）をえらび、回答中は正解を出さず最後に採点、単元ごとの正答率・まちがえた問題・得点推移。キーは `<科目>MistakesV1`・`<科目>TestResultsV1`（バックアップ・同期の対象）。`src/sapixStudy.js`・`src/SapixTest.jsx`・`src/sapixParts.jsx`、`npm run test:sapix-study` で確認（PR #63）。英検マスターの同じ対応は次の PR
@@ -44,7 +46,7 @@
 - v1.31.0：CCAO-F に 4 機能。考点讲义（30 objectives、中国語、`src/data/ccaof/lessons.json`）→ その考点だけの練習／考点別の成績と「弱い 3 考点だけ練習」／錯題本（1日→3日→7日、2回連続正解で外れる、`ccaofMistakesV1`）と今日の復習／合格予測（模試＋考点別正答率を配点で加重）。計算は `src/ccaofStudyCore.js`、`npm run test:ccaof-study` で確認
 - v1.30.0：4年に追加 16 単元（算数：速さ・グラフの読み取り・水そうとグラフ・数のせいしつ／理科：太陽高度・蒸散と光合成・食物連鎖・動物の分類と骨格・回路／社会：森林と林業・自然災害と防災・伝統工業・工業地域と太平洋ベルト・日本の地名と地形／国語：敬語・擬態語と擬音語）。教材（41B-33 など）の範囲に合わせたオリジナル問題
 - Sapix は v1.29.0 からトップのカード 1 枚に統合し、中で 学年 → 科目 → 単元 を選ぶ。データは `src/data/sapix/g<学年>/<科目>/`（追加手順は同じ場所の README.md、meta.json を置けば自動で出る）。4年の学習記録キーは以前のまま（`src/sapixStorage.js`、`npm run test:sapix-storage` で確認）
-- CCAO-F 対策：全7ドメイン 560問＋頻出単語 291語（勉強・復習・テスト）。単語データは `scripts/buildCcaofVocab.mjs` で問題から生成
+- CCAO-F 対策：Exam Guide v1.1 の 6 ドメイン・21 skill、609問＋頻出単語 291語（勉強・復習・テスト）。単語データは `scripts/buildCcaofVocab.mjs` で問題から生成
 - Sapix 算数（小4 冬期講習相当）：19単元×20問＝380問（すべてオリジナル）。データは `src/data/sapix/g4/math/`、`npm run validate:sapix-math` で全問の正解を検算
 - Sapix 国語・社会・理科（小4 冬期講習相当）：国語12・社会15・理科15単元×20問＝840問（すべてオリジナル）。4教科とも `src/SapixApp.jsx` を共用、データは `src/data/sapix/g4/kokugo|shakai|rika/`、`npm run validate:sapix-subjects` で検証
 - Sapix 英語（英検5級〜4級程度）：10単元×20問＝200問（すべてオリジナル）。`src/SapixApp.jsx` を共用、データは `src/data/sapix/g4/eigo/`、`npm run validate:sapix-subjects` で検証

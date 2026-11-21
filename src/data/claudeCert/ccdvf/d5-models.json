@@ -34,7 +34,7 @@
           "textZh": "运行基于规则的语法引擎。"
         }
       ],
-      "objective": "LLM Fundamentals",
+      "objective": "Generation Mechanics and Model Options",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "LLM 生成文本时，本质上在做什么？",
@@ -73,7 +73,7 @@
           "textZh": "模型在请求之间把对话保存在内存中的时间。"
         }
       ],
-      "objective": "LLM Fundamentals",
+      "objective": "Generation Mechanics and Model Options",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
       "reviewedAt": "2026-10-24",
       "stemZh": "在 LLM 中，什么是上下文窗口？",
@@ -112,50 +112,11 @@
           "textZh": "第二次请求用了不同的语言。"
         }
       ],
-      "objective": "LLM Fundamentals",
+      "objective": "Generation Mechanics and Model Options",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "同一个提示词发送两次，得到的答案略有不同。为什么？",
       "commentaryZh": "LLM 输出带有随机性（采样）。即使降低 temperature，也不能保证完全一致。系统设计要能容忍这种差异，并用评估衡量整体质量。"
-    },
-    {
-      "id": "dv5-004",
-      "domain": "D5",
-      "type": "mcq",
-      "difficulty": 1,
-      "stem": "A prompt includes three worked examples of input and the desired output before the real task. What technique is this?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "Multi-shot (few-shot) prompting.",
-          "correct": true,
-          "explain": "正解。例を複数示して形式や基準を伝える。",
-          "textZh": "多样本（少样本）提示。"
-        },
-        {
-          "text": "Zero-shot prompting.",
-          "correct": false,
-          "explain": "不適。例を示さない方法。",
-          "textZh": "零样本提示。"
-        },
-        {
-          "text": "Prompt caching.",
-          "correct": false,
-          "explain": "不適。コスト削減の機能。",
-          "textZh": "提示缓存。"
-        },
-        {
-          "text": "Fine-tuning.",
-          "correct": false,
-          "explain": "不適。モデル自体を再学習する方法。",
-          "textZh": "微调。"
-        }
-      ],
-      "objective": "LLM Fundamentals",
-      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "一个提示词在真正的任务之前给出了三个输入与期望输出的示例。这是什么技巧？",
-      "commentaryZh": "零样本（zero-shot）：不给示例；单样本（single-shot）：给一个示例；多样本（multi-shot/few-shot）：给多个示例。示例要多样、贴近实际，并与指令一致。"
     },
     {
       "id": "dv5-005",
@@ -190,7 +151,7 @@
           "textZh": "使用 Batch API。"
         }
       ],
-      "objective": "LLM Fundamentals",
+      "objective": "Generation Mechanics and Model Options",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking",
       "reviewedAt": "2026-10-24",
       "stemZh": "对于复杂的多步骤数学和规划问题，哪个模型选项最能直接提升推理质量？",
@@ -229,7 +190,7 @@
           "textZh": "HTTP 超时时间。"
         }
       ],
-      "objective": "LLM Fundamentals",
+      "objective": "Generation Mechanics and Model Options",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/effort",
       "reviewedAt": "2026-10-24",
       "stemZh": "开发者希望在简单分类调用中让 Claude 少花些力气、响应更快，但不更换模型。应该调整什么？",
@@ -268,7 +229,7 @@
           "textZh": "Claude 不会出现这种情况。"
         }
       ],
-      "objective": "LLM Fundamentals",
+      "objective": "Generation Mechanics and Model Options",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-10-24",
       "stemZh": "为什么 LLM 会自信地陈述一个错误的事实？",
@@ -307,323 +268,11 @@
           "textZh": "系统提示词中的 token 是免费的。"
         }
       ],
-      "objective": "LLM Fundamentals",
+      "objective": "Generation Mechanics and Model Options",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
       "reviewedAt": "2026-10-24",
       "stemZh": "关于 token，哪两项说法正确？",
       "commentaryZh": "token 是模型处理文本的单位，可能是词、词的一部分或符号。输入（含系统提示词、工具定义）和输出都按 token 计费并占用上下文窗口。"
-    },
-    {
-      "id": "dv5-009",
-      "domain": "D5",
-      "type": "mcq",
-      "difficulty": 1,
-      "stem": "What does an official client SDK do in relation to the Claude REST API?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "It wraps the REST API with language-native methods and types.",
-          "correct": true,
-          "explain": "正解。SDK は REST API をラップしている。",
-          "textZh": "它用编程语言原生的方法和类型封装了 REST API。"
-        },
-        {
-          "text": "It replaces the API with a local model.",
-          "correct": false,
-          "explain": "不適。SDK はローカルでモデルを動かすものではなく、API を呼び出すクライアント。",
-          "textZh": "它用本地模型替代 API。"
-        },
-        {
-          "text": "It is a separate product that does not use the API.",
-          "correct": false,
-          "explain": "不適。SDK は API と別の製品ではなく、REST API を包んだもの。",
-          "textZh": "它是不使用 API 的独立产品。"
-        },
-        {
-          "text": "It only works in the browser.",
-          "correct": false,
-          "explain": "不適。公式 SDK は Python や TypeScript などのサーバー側でも使える。",
-          "textZh": "它只能在浏览器中运行。"
-        }
-      ],
-      "objective": "Technical Fundamentals",
-      "reference": "https://platform.claude.com/docs/en/api/client-sdks",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "官方客户端 SDK 与 Claude REST API 是什么关系？",
-      "commentaryZh": "SDK 是对 REST API 的封装：发送同样的 HTTP 请求，但提供类型、错误类、流式辅助和重试等便利功能。"
-    },
-    {
-      "id": "dv5-010",
-      "domain": "D5",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "When streaming a response, how does the server deliver the output?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "As a sequence of server-sent events such as content_block_delta and message_stop.",
-          "correct": true,
-          "explain": "正解。SSE のイベント列として届き、差分を順に組み立てる。",
-          "textZh": "以一系列服务器发送事件的形式，例如 content_block_delta 和 message_stop。"
-        },
-        {
-          "text": "As one large JSON object after generation finishes.",
-          "correct": false,
-          "explain": "不適。それは非ストリーミング。",
-          "textZh": "生成结束后以一个大的 JSON 对象发送。"
-        },
-        {
-          "text": "By email.",
-          "correct": false,
-          "explain": "不適。メールで届くことはなく、HTTP 接続の上でイベントとして順に届く。",
-          "textZh": "通过电子邮件。"
-        },
-        {
-          "text": "As a downloadable file link.",
-          "correct": false,
-          "explain": "不適。ファイルのダウンロードではなく、SSE のイベント列として届く。",
-          "textZh": "以可下载文件链接的形式。"
-        }
-      ],
-      "objective": "Technical Fundamentals",
-      "reference": "https://platform.claude.com/docs/en/build-with-claude/streaming",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "流式输出时，服务器如何传送输出？",
-      "commentaryZh": "流式响应使用 SSE：message_start → content_block_start → content_block_delta（多次）→ content_block_stop → message_delta → message_stop。中途也可能收到 error 事件，需要处理。"
-    },
-    {
-      "id": "dv5-011",
-      "domain": "D5",
-      "type": "mcq",
-      "difficulty": 1,
-      "stem": "How is a request to the Claude API authenticated?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "With an API key sent in a request header.",
-          "correct": true,
-          "explain": "正解。x-api-key ヘッダーで API キーを送る（SDK は環境変数から読む）。",
-          "textZh": "通过在请求头中发送 API 密钥。"
-        },
-        {
-          "text": "With a username and password in the prompt.",
-          "correct": false,
-          "explain": "不適。プロンプトにユーザー名やパスワードを書く認証方式はない。",
-          "textZh": "在提示词中写用户名和密码。"
-        },
-        {
-          "text": "No authentication is needed.",
-          "correct": false,
-          "explain": "不適。API の利用には API キーによる認証が必要。",
-          "textZh": "不需要认证。"
-        },
-        {
-          "text": "With the user's browser cookie from claude.ai.",
-          "correct": false,
-          "explain": "不適。claude.ai のブラウザ Cookie は API の認証には使えない。",
-          "textZh": "使用用户在 claude.ai 的浏览器 Cookie。"
-        }
-      ],
-      "objective": "Technical Fundamentals",
-      "reference": "https://platform.claude.com/docs/en/api/overview",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "对 Claude API 的请求如何进行身份认证？",
-      "commentaryZh": "API 请求通过 x-api-key 头携带 API 密钥认证，并带上 anthropic-version 头。SDK 默认从 ANTHROPIC_API_KEY 环境变量读取密钥。"
-    },
-    {
-      "id": "dv5-012",
-      "domain": "D5",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "A voice assistant needs a persistent two-way connection to push audio and receive partial results continuously. Which transport concept fits that part of the system?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "WebSockets, which keep a long-lived bidirectional connection.",
-          "correct": true,
-          "explain": "正解。双方向で継続的にやり取りするなら WebSocket が向く。",
-          "textZh": "WebSocket：保持长连接的双向通信。"
-        },
-        {
-          "text": "A single HTTP GET request per day.",
-          "correct": false,
-          "explain": "不適。1 日 1 回の GET では継続的な双方向通信にならない。",
-          "textZh": "每天一次 HTTP GET 请求。"
-        },
-        {
-          "text": "Email polling.",
-          "correct": false,
-          "explain": "不適。メールのポーリングはリアルタイムの音声通信に使えない。",
-          "textZh": "邮件轮询。"
-        },
-        {
-          "text": "FTP uploads.",
-          "correct": false,
-          "explain": "不適。FTP のアップロードは継続的な双方向のやり取りに向かない。",
-          "textZh": "FTP 上传。"
-        }
-      ],
-      "objective": "Technical Fundamentals",
-      "reference": "https://platform.claude.com/docs/en/build-with-claude/streaming",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "一个语音助手需要持久的双向连接，持续推送音频并接收部分结果。系统的这一部分适合哪种传输概念？",
-      "commentaryZh": "SSE 是服务器到客户端的单向流（Claude 流式输出使用它）；WebSocket 是持久的双向连接，适合实时语音、协作等场景。要根据通信方向选择。"
-    },
-    {
-      "id": "dv5-013",
-      "domain": "D5",
-      "type": "multi",
-      "difficulty": 2,
-      "stem": "Which TWO practices are part of robust HTTP integration with the Claude API?",
-      "selectCount": 2,
-      "choices": [
-        {
-          "text": "Set sensible timeouts for long requests.",
-          "correct": true,
-          "explain": "正解。長い応答に合わせたタイムアウト設定が必要。",
-          "textZh": "为耗时较长的请求设置合理的超时。"
-        },
-        {
-          "text": "Retry only retryable errors with backoff.",
-          "correct": true,
-          "explain": "正解。429・5xx は再試行、400 系は修正。",
-          "textZh": "只对可重试的错误进行退避重试。"
-        },
-        {
-          "text": "Retry every error, including invalid requests, forever.",
-          "correct": false,
-          "explain": "不適。不正なリクエストを永遠に再試行しても成功せず、負荷を増やすだけ。",
-          "textZh": "对所有错误（包括无效请求）无限重试。"
-        },
-        {
-          "text": "Ignore response status codes.",
-          "correct": false,
-          "explain": "不適。ステータスコードを見ないと、成功か失敗か、再試行すべきかを判断できない。",
-          "textZh": "忽略响应状态码。"
-        }
-      ],
-      "objective": "Technical Fundamentals",
-      "reference": "https://platform.claude.com/docs/en/api/errors",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "哪两项做法属于与 Claude API 稳健集成的 HTTP 实践？",
-      "commentaryZh": "稳健的集成：合理的超时、区分可重试/不可重试错误、指数退避、记录请求 ID 便于排查。官方 SDK 默认提供部分重试功能。"
-    },
-    {
-      "id": "dv5-014",
-      "domain": "D5",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "A developer installs the Python SDK. Where should the API key come from in production code?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "From an environment variable or a secrets manager, not hard-coded in source.",
-          "correct": true,
-          "explain": "正解。キーはコードに書かず、環境変数やシークレット管理から読む。",
-          "textZh": "从环境变量或密钥管理服务获取，而不是硬编码在源码中。"
-        },
-        {
-          "text": "Hard-coded as a string constant in the main file.",
-          "correct": false,
-          "explain": "不適。コードに直接書いたキーはリポジトリ経由で漏えいする原因になる。",
-          "textZh": "作为字符串常量硬编码在主文件中。"
-        },
-        {
-          "text": "From a comment in the README.",
-          "correct": false,
-          "explain": "不適。README に書いたキーは誰でも読めてしまい、管理もできない。",
-          "textZh": "从 README 的注释中获取。"
-        },
-        {
-          "text": "From the system prompt.",
-          "correct": false,
-          "explain": "不適。API キーをプロンプトに入れるとモデルに送られ、漏えいの原因になる。",
-          "textZh": "从系统提示词中获取。"
-        }
-      ],
-      "objective": "Technical Fundamentals",
-      "reference": "https://platform.claude.com/docs/en/api/client-sdks",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "开发者安装了 Python SDK。生产代码中 API 密钥应从哪里获取？",
-      "commentaryZh": "SDK 默认读取 ANTHROPIC_API_KEY 环境变量。生产环境用密钥管理服务注入，绝不能写进代码或提交到仓库。"
-    },
-    {
-      "id": "dv5-015",
-      "domain": "D5",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "What is the correct structure of the messages array in a Messages API request?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "A list of turns with role user or assistant, each with content that can be text or content blocks.",
-          "correct": true,
-          "explain": "正解。user と assistant のターンを並べ、content は文字列かブロック配列。",
-          "textZh": "由若干回合组成的列表，role 为 user 或 assistant，content 可以是文本或内容块。"
-        },
-        {
-          "text": "A single string containing the whole conversation.",
-          "correct": false,
-          "explain": "不適。会話全体を 1 つの文字列にするのではなく、ターンの配列で渡す。",
-          "textZh": "包含整个对话的单个字符串。"
-        },
-        {
-          "text": "A list where the system prompt must be the first item with role system.",
-          "correct": false,
-          "explain": "不適。system はトップレベルのパラメータ。",
-          "textZh": "系统提示词必须作为 role 为 system 的第一项。"
-        },
-        {
-          "text": "A dictionary keyed by timestamp.",
-          "correct": false,
-          "explain": "不適。タイムスタンプをキーにした辞書ではなく、順番に並べた配列で渡す。",
-          "textZh": "以时间戳为键的字典。"
-        }
-      ],
-      "objective": "Technical Fundamentals",
-      "reference": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "Messages API 请求中 messages 数组的正确结构是什么？",
-      "commentaryZh": "messages 是 user/assistant 回合组成的数组；content 可以是字符串，也可以是 text、image、document、tool_use、tool_result 等内容块的数组。system 为顶层参数。"
-    },
-    {
-      "id": "dv5-016",
-      "domain": "D5",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "Before sending a very large request, a developer wants to know how many input tokens it will use. What can they do?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "Use the token counting endpoint with the same request content.",
-          "correct": true,
-          "explain": "正解。トークン数カウント API で事前に見積もれる。",
-          "textZh": "用相同的请求内容调用 token 计数接口。"
-        },
-        {
-          "text": "Count the words and assume one word equals one token.",
-          "correct": false,
-          "explain": "不適。1 単語＝1 トークンではないので、単語数では正確に見積もれない。",
-          "textZh": "数单词数，并假设一个单词等于一个 token。"
-        },
-        {
-          "text": "Send the request and check the bill next month.",
-          "correct": false,
-          "explain": "不適。事前に見積もる方法があるのに、請求を待つのは管理として不十分。",
-          "textZh": "先发送请求，下个月看账单。"
-        },
-        {
-          "text": "It is impossible to know in advance.",
-          "correct": false,
-          "explain": "不適。トークン数カウント API で送信前に見積もれる。",
-          "textZh": "无法事先知道。"
-        }
-      ],
-      "objective": "Technical Fundamentals",
-      "reference": "https://platform.claude.com/docs/en/build-with-claude/token-counting",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "在发送一个很大的请求之前，开发者想知道它会用多少输入 token。可以怎么做？",
-      "commentaryZh": "token 计数接口可在不生成回答的情况下估算输入 token 数；实际调用后，响应中的 usage 字段也会返回 input_tokens 和 output_tokens。"
     },
     {
       "id": "dv5-017",
@@ -658,7 +307,7 @@
           "textZh": "思考预算拉满的扩展思考模型。"
         }
       ],
-      "objective": "Model Selection and Tradeoffs",
+      "objective": "Model Tier Selection and Release Planning",
       "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-10-24",
       "stemZh": "大批量、低延迟的任务（例如给短聊天消息分类）需要便宜又快。通常从哪一档模型开始最合适？",
@@ -697,7 +346,7 @@
           "textZh": "随机选择，之后不再重新评估。"
         }
       ],
-      "objective": "Model Selection and Tradeoffs",
+      "objective": "Model Tier Selection and Release Planning",
       "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-10-24",
       "stemZh": "开发者应如何在 Opus、Sonnet 和 Haiku 之间为新功能做选择？",
@@ -736,7 +385,7 @@
           "textZh": "标志是否变了。"
         }
       ],
-      "objective": "Model Selection and Tradeoffs",
+      "objective": "Model Tier Selection and Release Planning",
       "reference": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
       "reviewedAt": "2026-10-24",
       "stemZh": "升级到更新的 Claude 模型时，除了质量，开发者还应检查什么？",
@@ -775,7 +424,7 @@
           "textZh": "让用户为每个工单选择模型。"
         }
       ],
-      "objective": "Model Selection and Tradeoffs",
+      "objective": "Model Tier Selection and Release Planning",
       "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个流水线先判断客服工单是简单还是复杂，然后作答。哪种设计能兼顾成本和质量？",
@@ -814,7 +463,7 @@
           "textZh": "开发者最喜欢的名字。"
         }
       ],
-      "objective": "Model Selection and Tradeoffs",
+      "objective": "Model Tier Selection and Release Planning",
       "reference": "https://platform.claude.com/docs/en/about-claude/models/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "选择 Claude 模型时，主要的权衡因素是哪两项？",
@@ -853,7 +502,7 @@
           "textZh": "它让模型忽略系统提示词。"
         }
       ],
-      "objective": "Model Selection and Tradeoffs",
+      "objective": "Model Tier Selection and Release Planning",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking",
       "reviewedAt": "2026-10-24",
       "stemZh": "某功能对简单问题需要快速回答，对困难问题需要更深入的推理，且所用模型支持自适应思考。自适应思考在这里的优势是什么？",
@@ -892,7 +541,7 @@
           "textZh": "随机填充文本。"
         }
       ],
-      "objective": "Cost and Token Management",
+      "objective": "Cost Diagnosis and Optimization",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
       "reviewedAt": "2026-10-24",
       "stemZh": "使用提示缓存时，请求中的哪部分应该放在最前面，以便在多次调用中复用？",
@@ -931,7 +580,7 @@
           "textZh": "问 Claude 是否使用了缓存。"
         }
       ],
-      "objective": "Cost and Token Management",
+      "objective": "Cost Diagnosis and Optimization",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
       "reviewedAt": "2026-10-24",
       "stemZh": "开发者如何确认提示缓存真的在起作用？",
@@ -970,7 +619,7 @@
           "textZh": "所有任务都使用能力最强的模型。"
         }
       ],
-      "objective": "Cost and Token Management",
+      "objective": "Cost Diagnosis and Optimization",
       "reference": "https://platform.claude.com/docs/en/about-claude/pricing",
       "reviewedAt": "2026-10-24",
       "stemZh": "对于大流量应用，哪两项技巧可以降低 token 成本？",
@@ -1009,7 +658,7 @@
           "textZh": "参考类似公司随便猜。"
         }
       ],
-      "objective": "Cost and Token Management",
+      "objective": "Cost Diagnosis and Optimization",
       "reference": "https://platform.claude.com/docs/en/about-claude/pricing",
       "reviewedAt": "2026-10-24",
       "stemZh": "团队需要预测每月的 Claude 成本。哪种数据最有用？",
@@ -1048,7 +697,7 @@
           "textZh": "关闭所有工具。"
         }
       ],
-      "objective": "Cost and Token Management",
+      "objective": "Cost Diagnosis and Optimization",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/token-counting",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个智能体的工具结果非常大，token 成本在上升。好的改进方法是什么？",
@@ -1087,11 +736,167 @@
           "textZh": "缓存在一次请求后就过期。"
         }
       ],
-      "objective": "Cost and Token Management",
+      "objective": "Cost Diagnosis and Optimization",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
       "reviewedAt": "2026-10-24",
       "stemZh": "团队在系统提示词的最开头加入了当前时间戳，结果缓存命中率降到了零。为什么？",
       "commentaryZh": "缓存要求前缀完全一致。动态内容（时间戳、用户名等）应放在缓存断点之后；放在开头会让整个缓存失效。"
+    },
+    {
+      "id": "ndv5-001",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A document-review service sends a static system prompt and tool definitions, then a per-customer policy document that changes a few times a day, then the user question. A single cache breakpoint sits after the question, and cache reads are near zero. What is the BEST fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use layered breakpoints: one after the static system prompt and tools, and one after the policy document.",
+          "correct": true,
+          "explain": "正解。変化の頻度ごとに区切ると、共通部分を再利用できる。",
+          "textZh": "使用分层断点：一个放在固定的系统提示和工具之后，一个放在制度文档之后。"
+        },
+        {
+          "text": "Keep one breakpoint but use a longer cache lifetime.",
+          "correct": false,
+          "explain": "不適。毎回違う前置きは一致しないので効果がない。",
+          "textZh": "保留一个断点，但延长缓存时间。"
+        },
+        {
+          "text": "Switch to a smaller model.",
+          "correct": false,
+          "explain": "不適。挙動が変わり、根本原因も残る。",
+          "textZh": "换成更小的模型。"
+        },
+        {
+          "text": "Remove the tool definitions.",
+          "correct": false,
+          "explain": "不適。機能を壊し、節約も小さい。",
+          "textZh": "删除工具定义。"
+        }
+      ],
+      "objective": "Cost Diagnosis and Optimization",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个文档审查服务依次发送：固定的系统提示和工具定义、每个客户的制度文档（每天变几次）、用户问题。唯一的缓存断点放在问题之后，缓存读取几乎为零。最好的修复是什么？",
+      "commentaryZh": "对应 v1.1 样题 2。缓存按前缀匹配，断点放在每次都不同的问题之后，前缀永远不同。按变化频率分层放断点，固定部分在所有客户之间复用，制度文档在同一客户的问题之间复用。"
+    },
+    {
+      "id": "ndv5-002",
+      "domain": "D5",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Usage data shows 80% of spend comes from a nightly job that re-summarizes 30,000 tickets with a long shared prompt. Which TWO changes are MOST likely to cut cost without changing quality?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Move the job to the Message Batches API.",
+          "correct": true,
+          "explain": "正解。即時性不要の大量処理は batch で安くなる。",
+          "textZh": "把任务改为使用 Message Batches API。"
+        },
+        {
+          "text": "Cache the long shared prompt prefix.",
+          "correct": true,
+          "explain": "正解。共通の前置きをキャッシュから読む。",
+          "textZh": "缓存那段很长的共同提示前缀。"
+        },
+        {
+          "text": "Switch the chat UI to a cheaper model.",
+          "correct": false,
+          "explain": "不適。主なコスト要因ではない。",
+          "textZh": "把聊天界面换成更便宜的模型。"
+        },
+        {
+          "text": "Double max_tokens.",
+          "correct": false,
+          "explain": "不適。コストは下がらない。",
+          "textZh": "把 max_tokens 加倍。"
+        }
+      ],
+      "objective": "Cost Diagnosis and Optimization",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "使用数据显示，80% 的费用来自一个每晚运行的任务：用很长的共同提示重新总结 3 万张工单。哪两项改动最可能在不影响质量的前提下降低成本？",
+      "commentaryZh": "5.3 先从使用数据找出最大的成本来源，再选对症的方法：大量、非实时的任务用批处理；重复的长前缀用提示缓存。优化不相关的部分效果很小。"
+    },
+    {
+      "id": "ndv5-003",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A model supports effort levels. A feature handles both trivial lookups and hard multi-step analyses. What is the BEST way to use effort?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use a lower effort for simple requests and a higher effort for hard ones, and verify the trade-off with evals.",
+          "correct": true,
+          "explain": "正解。effort はタスクの難しさに合わせ、評価で確かめる。",
+          "textZh": "简单请求用较低 effort，困难请求用较高 effort，并用评估确认取舍。"
+        },
+        {
+          "text": "Always use the highest effort.",
+          "correct": false,
+          "explain": "不適。簡単な処理で遅く高くなる。",
+          "textZh": "始终使用最高 effort。"
+        },
+        {
+          "text": "Always use the lowest effort.",
+          "correct": false,
+          "explain": "不適。難しい分析の品質が落ちる。",
+          "textZh": "始终使用最低 effort。"
+        },
+        {
+          "text": "Effort only changes the response language.",
+          "correct": false,
+          "explain": "不適。思考の深さとトークン使用量に関わる。",
+          "textZh": "effort 只会改变回答的语言。"
+        }
+      ],
+      "objective": "Generation Mechanics and Model Options",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/effort",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "模型支持 effort（推理强度）等级。一个功能既处理简单查询，也处理困难的多步分析。怎样使用 effort 最好？",
+      "commentaryZh": "effort 控制模型投入多少思考（和 token）。简单任务降低 effort 可以更快更省，难任务提高 effort 提升质量；最好用评估数据决定每类请求的设置。"
+    },
+    {
+      "id": "ndv5-004",
+      "domain": "D5",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A new model release is announced. How should a team plan the upgrade of a production feature?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run the regression eval suite on the new model, compare quality, latency, and cost, fix prompt gaps, then roll out gradually.",
+          "correct": true,
+          "explain": "正解。リリース計画は回帰評価と段階的な切り替え。",
+          "textZh": "先用新模型跑回归评估，比较质量、延迟和成本，修补提示的差异，再逐步上线。"
+        },
+        {
+          "text": "Switch all traffic immediately because newer is better.",
+          "correct": false,
+          "explain": "不適。挙動の変化を確かめていない。",
+          "textZh": "马上把所有流量切过去，因为新的更好。"
+        },
+        {
+          "text": "Never upgrade.",
+          "correct": false,
+          "explain": "不適。旧モデルは廃止されうる。",
+          "textZh": "永远不升级。"
+        },
+        {
+          "text": "Upgrade only after users complain.",
+          "correct": false,
+          "explain": "不適。利用者が困ってからの事後対応になる。",
+          "textZh": "等用户抱怨后再升级。"
+        }
+      ],
+      "objective": "Model Tier Selection and Release Planning",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "新模型版本发布了。团队应该怎样规划生产功能的升级？",
+      "commentaryZh": "5.2 包括为模型更新做计划：新版本可能改变行为。用回归评估比较，修补差异，再逐步切换；同时关注旧版本的弃用时间表。"
     }
   ]
 }

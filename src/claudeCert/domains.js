@@ -59,7 +59,7 @@ function cacheFor(id) {
 export function activateCert(id) {
   const meta = getCertMeta(id);
   if (!meta) throw new Error(`meta.json が無い資格: ${id}`);
-  setActiveCertState(id);
+  setActiveCertState(id, meta.movedItems || null);
   CERT_ID = id;
   BLUEPRINT = meta;
   EXAM_FORMAT = meta.examFormat;

@@ -2,45 +2,6 @@
   "domain": "D4",
   "items": [
     {
-      "id": "dv4-001",
-      "domain": "D4",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "An application receives HTTP 529 overloaded_error responses during peak hours. What is the best handling?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "Retry with exponential backoff and jitter, up to a limit, then fail gracefully.",
-          "correct": true,
-          "explain": "正解。一時的な過負荷は待って再試行する。上限と失敗時の扱いも決める。",
-          "textZh": "用指数退避加随机抖动进行重试，设定上限，超过后优雅降级。"
-        },
-        {
-          "text": "Fix the request parameters.",
-          "correct": false,
-          "explain": "不適。リクエストの誤りではない。",
-          "textZh": "修正请求参数。"
-        },
-        {
-          "text": "Retry immediately in an infinite loop.",
-          "correct": false,
-          "explain": "不適。負荷をさらに上げる。",
-          "textZh": "立即无限循环重试。"
-        },
-        {
-          "text": "Rotate the API key.",
-          "correct": false,
-          "explain": "不適。認証の問題ではない。",
-          "textZh": "更换 API 密钥。"
-        }
-      ],
-      "objective": "Debugging and Error Handling",
-      "reference": "https://platform.claude.com/docs/en/api/errors",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "应用在高峰时段收到 HTTP 529 overloaded_error 响应。最佳处理方式是什么？",
-      "commentaryZh": "可重试的错误：429（速率限制，可参考 retry-after）、500、529（过载）。用指数退避 + 抖动并设上限。400、401、403 等需要修正请求或配置，重试无效。"
-    },
-    {
       "id": "dv4-002",
       "domain": "D4",
       "type": "mcq",
@@ -73,89 +34,11 @@
           "textZh": "忽略它，因为 API 返回了 200。"
         }
       ],
-      "objective": "Debugging and Error Handling",
+      "objective": "Failure-Mode Diagnosis",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-10-24",
       "stemZh": "摘要功能有时返回空摘要。日志显示 API 调用都成功了。隔离问题的第一步是什么？",
       "commentaryZh": "调试要先看轨迹（trace）：实际请求、原始响应、stop_reason、解析步骤。例如输入为空、max_tokens 截断或解析代码出错，都会表现为“空摘要”。"
-    },
-    {
-      "id": "dv4-003",
-      "domain": "D4",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "A tool called by Claude fails because an external service times out. How should the error be returned?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "Return a tool_result with is_error set to true and a clear message, so Claude can retry or choose another approach.",
-          "correct": true,
-          "explain": "正解。エラー内容を伝えると、モデルが再試行や代替手段を判断できる。",
-          "textZh": "返回一个 is_error 为 true、附有清晰信息的 tool_result，让 Claude 可以重试或换一种方法。"
-        },
-        {
-          "text": "Return an empty success result.",
-          "correct": false,
-          "explain": "不適。モデルが誤った前提で進む。",
-          "textZh": "返回一个空的成功结果。"
-        },
-        {
-          "text": "Crash the whole application.",
-          "correct": false,
-          "explain": "不適。回復の機会を失う。",
-          "textZh": "让整个应用崩溃。"
-        },
-        {
-          "text": "Hide the error and invent plausible data.",
-          "correct": false,
-          "explain": "不適。エラーを隠して作ったデータを返すと、誤った情報が利用者に届く。",
-          "textZh": "隐藏错误并编造看似合理的数据。"
-        }
-      ],
-      "objective": "Debugging and Error Handling",
-      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "Claude 调用的工具因外部服务超时而失败。应该如何返回这个错误？",
-      "commentaryZh": "工具失败时，返回 is_error: true 的 tool_result，并写清原因（如超时、权限不足）和可能的处理方式。模型据此决定重试、换工具或告知用户。"
-    },
-    {
-      "id": "dv4-004",
-      "domain": "D4",
-      "type": "mcq",
-      "difficulty": 1,
-      "stem": "Which HTTP status code from the Claude API indicates a rate limit was exceeded?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "429",
-          "correct": true,
-          "explain": "正解。rate_limit_error。retry-after ヘッダーを参考に待つ。",
-          "textZh": "429"
-        },
-        {
-          "text": "401",
-          "correct": false,
-          "explain": "不適。401 は認証エラー（API キーの問題）で、レート制限ではない。",
-          "textZh": "401"
-        },
-        {
-          "text": "404",
-          "correct": false,
-          "explain": "不適。リソースが見つからない。",
-          "textZh": "404"
-        },
-        {
-          "text": "200",
-          "correct": false,
-          "explain": "不適。200 はリクエストが成功したことを示す。",
-          "textZh": "200"
-        }
-      ],
-      "objective": "Debugging and Error Handling",
-      "reference": "https://platform.claude.com/docs/en/api/errors",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "Claude API 的哪个 HTTP 状态码表示超出了速率限制？",
-      "commentaryZh": "429 = rate_limit_error，应读取 retry-after 等响应头并退避重试；401 = 认证错误（API 密钥无效）；403 = 权限错误；413 = 请求过大。"
     },
     {
       "id": "dv4-005",
@@ -190,7 +73,7 @@
           "textZh": "提高 temperature。"
         }
       ],
-      "objective": "Debugging and Error Handling",
+      "objective": "Failure-Mode Diagnosis",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个智能体有时会调用错误的工具。哪两项行动最有助于找到原因？",
@@ -229,50 +112,11 @@
           "textZh": "把原始文本直接展示给最终用户。"
         }
       ],
-      "objective": "Debugging and Error Handling",
+      "objective": "Failure-Mode Diagnosis",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
       "reviewedAt": "2026-10-24",
       "stemZh": "生产环境中 Claude 返回的 JSON 偶尔无法解析。最稳健的处理方式是什么？",
       "commentaryZh": "防御式解析：用结构化输出约束格式、用 schema 校验、检查 stop_reason（max_tokens 截断会导致 JSON 不完整），失败时重试或进入备用流程并记录日志。"
-    },
-    {
-      "id": "dv4-007",
-      "domain": "D4",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "A request returns HTTP 401 authentication_error. What is the likely cause?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "The API key is missing, invalid, or revoked.",
-          "correct": true,
-          "explain": "正解。認証情報の問題。キーの設定を確認する。",
-          "textZh": "API 密钥缺失、无效或已被吊销。"
-        },
-        {
-          "text": "The prompt is too long.",
-          "correct": false,
-          "explain": "不適。それは 400 や 413 系。",
-          "textZh": "提示词太长。"
-        },
-        {
-          "text": "The server is overloaded.",
-          "correct": false,
-          "explain": "不適。過負荷は 529 overloaded_error で、401 の原因ではない。",
-          "textZh": "服务器过载。"
-        },
-        {
-          "text": "The model returned invalid JSON.",
-          "correct": false,
-          "explain": "不適。HTTP エラーではない。",
-          "textZh": "模型返回了无效的 JSON。"
-        }
-      ],
-      "objective": "Debugging and Error Handling",
-      "reference": "https://platform.claude.com/docs/en/api/errors",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "请求返回 HTTP 401 authentication_error。可能的原因是什么？",
-      "commentaryZh": "401 表示认证失败：检查 x-api-key 头是否正确设置、密钥是否有效或已被轮换。不要通过重试解决。"
     },
     {
       "id": "dv4-008",
@@ -307,11 +151,557 @@
           "textZh": "不再使用评估。"
         }
       ],
-      "objective": "Debugging and Error Handling",
+      "objective": "Failure-Mode Diagnosis",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-10-24",
       "stemZh": "修改提示词后，评估集上的准确率从 92% 降到 85%。团队应该怎么做？",
       "commentaryZh": "评估回退时，要按案例对比新旧版本的输出，定位变化的行为，再决定修复还是回滚。删除失败用例会掩盖问题。"
+    },
+    {
+      "id": "ndv4-001",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team uses Claude as an LLM-as-judge to grade 2,000 support answers for helpfulness. Before trusting the judge's scores, what should they do FIRST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Calibrate the judge against a sample labeled by humans and measure how often it agrees with them.",
+          "correct": true,
+          "explain": "正解。LLM-as-judge は人手ラベルとの一致度で校正してから使う。",
+          "textZh": "用一批人工标注的样本校准评审模型，测量它与人工判断的一致率。"
+        },
+        {
+          "text": "Use the most capable model as judge; its scores need no checking.",
+          "correct": false,
+          "explain": "不適。強いモデルでも採点基準のずれは起こる。",
+          "textZh": "用最强的模型当评审，分数就不需要检查了。"
+        },
+        {
+          "text": "Ask the judge to explain each score and accept any score with a long explanation.",
+          "correct": false,
+          "explain": "不適。説明の長さは正しさの指標にならない。",
+          "textZh": "让评审解释每个分数，解释写得长的就采纳。"
+        },
+        {
+          "text": "Average the judge's scores with the answer model's own self-ratings.",
+          "correct": false,
+          "explain": "不適。自己評価を混ぜても校正にはならない。",
+          "textZh": "把评审分数和回答模型的自我评分取平均。"
+        }
+      ],
+      "objective": "Evaluation Design",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队用 Claude 作为 LLM-as-judge，给 2000 条客服回答的「有用程度」打分。在信任评审分数之前，首先应该做什么？",
+      "commentaryZh": "LLM-as-judge 能扩大评估规模，但它本身也要被验证：先用人工标注的样本测一致率（校准），不一致的地方修改评分标准或评审提示，再大规模使用。"
+    },
+    {
+      "id": "ndv4-002",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team wants a golden set for a contract-clause extraction feature. Which design is BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Real, representative contracts with expected outputs reviewed by experts, including edge cases such as missing clauses.",
+          "correct": true,
+          "explain": "正解。代表性・正解の信頼性・エッジケースが揃ったセットにする。",
+          "textZh": "使用真实且有代表性的合同，配上由专家审核的期望输出，并包括条款缺失等边界情况。"
+        },
+        {
+          "text": "Ten easy contracts Claude already handles well.",
+          "correct": false,
+          "explain": "不適。易しい例だけでは回帰も弱点も見つからない。",
+          "textZh": "十份 Claude 已经处理得很好的简单合同。"
+        },
+        {
+          "text": "Outputs from the current production model, used as the expected answers.",
+          "correct": false,
+          "explain": "不適。現行の誤りまで「正解」として固定してしまう。",
+          "textZh": "把当前生产模型的输出直接当作期望答案。"
+        },
+        {
+          "text": "Randomly generated text that looks like contracts.",
+          "correct": false,
+          "explain": "不適。実データの分布を代表しない。",
+          "textZh": "随机生成的看起来像合同的文本。"
+        }
+      ],
+      "objective": "Evaluation Design",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队想为合同条款提取功能建一个黄金集（golden set）。哪种设计最好？",
+      "commentaryZh": "黄金集要能代表真实输入，期望输出要可信（由专家确认），还要覆盖边界情况。用当前模型的输出当答案，会把现有错误固定下来。"
+    },
+    {
+      "id": "ndv4-003",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO metrics are the most defensible for an eval of a ticket-routing classifier with five fixed queues?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Per-queue precision and recall against labeled tickets.",
+          "correct": true,
+          "explain": "正解。キューごとの誤りの種類が分かる。",
+          "textZh": "对照已标注工单，计算每个队列的精确率和召回率。"
+        },
+        {
+          "text": "The rate of tickets sent to the wrong queue that is costly to fix (e.g. urgent tickets routed to low priority).",
+          "correct": true,
+          "explain": "正解。業務上の影響に結びついた指標。",
+          "textZh": "被送错队列且纠正代价高的工单比例（例如紧急工单被分到低优先级）。"
+        },
+        {
+          "text": "Average length of Claude's explanation.",
+          "correct": false,
+          "explain": "不適。ルーティングの正しさと関係ない。",
+          "textZh": "Claude 解释的平均长度。"
+        },
+        {
+          "text": "How confident Claude says it is.",
+          "correct": false,
+          "explain": "不適。自己申告の確信度は正確さの指標にならない。",
+          "textZh": "Claude 自称有多大把握。"
+        }
+      ],
+      "objective": "Evaluation Design",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个把工单分到 5 个固定队列的分类功能，评估时哪两项指标最站得住脚？",
+      "commentaryZh": "可辩护（defensible）的指标要和质量目标直接相关：分类任务看每类的精确率、召回率，以及业务上代价最高的错误。长度、自称的信心都不能证明质量。"
+    },
+    {
+      "id": "ndv4-004",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "After every prompt change, a team wants to know quickly whether previously fixed bugs have come back. What should they add?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A regression test suite that includes every past failure case, run automatically on each change.",
+          "correct": true,
+          "explain": "正解。過去の失敗を回帰テストに入れると、直したものが壊れたらすぐ分かる。",
+          "textZh": "建立包含所有历史失败案例的回归测试集，每次修改自动运行。"
+        },
+        {
+          "text": "A manual spot check of three random inputs.",
+          "correct": false,
+          "explain": "不適。過去の失敗を確実には再現しない。",
+          "textZh": "人工随机抽查三个输入。"
+        },
+        {
+          "text": "A note in the prompt saying \"do not repeat old mistakes.\"",
+          "correct": false,
+          "explain": "不適。テストの代わりにならない。",
+          "textZh": "在提示里写「不要重复以前的错误」。"
+        },
+        {
+          "text": "Only checking the newest failure.",
+          "correct": false,
+          "explain": "不適。他のケースの退行を見逃す。",
+          "textZh": "只检查最新的那个失败。"
+        }
+      ],
+      "objective": "Evaluation Design",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "每次修改提示后，团队想快速知道以前修好的问题有没有复发。应该加什么？",
+      "commentaryZh": "回归测试把「修好的问题」固定成测试用例，每次改提示或换模型都自动跑。v1.1 的 6.2 也强调「修复要保持有效」，靠的就是这类测试。"
+    },
+    {
+      "id": "ndv4-005",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An agent must never issue a refund above $100 without approval. Which eval checks this BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A behavioral check: run scripted conversations that push for large refunds and assert from the trace that no refund tool call above $100 occurs without approval.",
+          "correct": true,
+          "explain": "正解。最終テキストではなく、トレースの行動（ツール呼び出し）を検査する。",
+          "textZh": "做行为检查：用脚本对话诱导大额退款，从轨迹中断言没有出现未经批准且超过 100 美元的退款工具调用。"
+        },
+        {
+          "text": "Grade only the final message for politeness.",
+          "correct": false,
+          "explain": "不適。危険な行動を見ていない。",
+          "textZh": "只给最后一条消息的礼貌程度打分。"
+        },
+        {
+          "text": "Ask the agent whether it would ever break the rule.",
+          "correct": false,
+          "explain": "不適。自己申告は検証にならない。",
+          "textZh": "问代理它会不会违反这条规则。"
+        },
+        {
+          "text": "Count how many tools the agent has.",
+          "correct": false,
+          "explain": "不適。規則が守られるかは分からない。",
+          "textZh": "统计代理有多少个工具。"
+        }
+      ],
+      "objective": "Evaluation Design",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个代理（agent）在未经批准时绝不能发放超过 100 美元的退款。哪种评估最能检查这一点？",
+      "commentaryZh": "对代理来说，危险在于「做了什么」而不是「说了什么」。行为检查（behavioral check）从轨迹里断言工具调用是否符合规则，并用对抗性的输入去试。"
+    },
+    {
+      "id": "ndv4-006",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Why should an eval be designed from a stated quality goal rather than from whatever is easy to measure?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Because an easy metric that does not reflect the goal can improve while real quality gets worse.",
+          "correct": true,
+          "explain": "正解。測りやすさではなく、目的に結びついた指標を選ぶ。",
+          "textZh": "因为与目标无关的指标可能在变好，而真正的质量却在变差。"
+        },
+        {
+          "text": "Because easy metrics are always wrong.",
+          "correct": false,
+          "explain": "不適。目的に合っていれば簡単な指標でもよい。",
+          "textZh": "因为容易测的指标总是错的。"
+        },
+        {
+          "text": "Because quality goals cannot be measured at all.",
+          "correct": false,
+          "explain": "不適。測定可能な形に落とすのが評価設計。",
+          "textZh": "因为质量目标根本没法测量。"
+        },
+        {
+          "text": "Because evals are only needed before launch.",
+          "correct": false,
+          "explain": "不適。リリース後の回帰確認にも必要。",
+          "textZh": "因为评估只在上线前才需要。"
+        }
+      ],
+      "objective": "Evaluation Design",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "为什么评估应该从明确的质量目标出发设计，而不是测量容易测的东西？",
+      "commentaryZh": "评估设计的第一步是把质量目标写清楚（成功标准），再选能反映它的指标。只测容易测的东西，会出现指标变好、用户体验变差的情况。"
+    },
+    {
+      "id": "ndv4-007",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team compares two prompt versions on 40 test cases and sees 31 vs. 33 passes. What is the BEST next step before switching?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Look at which cases changed, expand the set if the difference may be noise, and check that no important case regressed.",
+          "correct": true,
+          "explain": "正解。小さな差は揺らぎの可能性。変化したケースの中身を見る。",
+          "textZh": "看哪些用例的结果变了；如果差距可能是噪声就扩大测试集；并确认没有重要用例退步。"
+        },
+        {
+          "text": "Switch immediately; 33 is higher.",
+          "correct": false,
+          "explain": "不適。小さな差だけでは改善と言えない。",
+          "textZh": "马上切换，33 更高。"
+        },
+        {
+          "text": "Reject both prompts.",
+          "correct": false,
+          "explain": "不適。どちらも捨てる根拠がない。",
+          "textZh": "两个版本都放弃。"
+        },
+        {
+          "text": "Run each prompt once more and keep the better score.",
+          "correct": false,
+          "explain": "不適。良い方だけを選ぶのは偏った比較。",
+          "textZh": "每个版本再跑一次，取更好的分数。"
+        }
+      ],
+      "objective": "Evaluation Design",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队在 40 个测试用例上比较两个提示版本，通过数分别是 31 和 33。切换之前最好的下一步是什么？",
+      "commentaryZh": "生成有随机性，小样本上的小差距可能只是噪声。要看具体哪些用例变了、是否有关键用例退步，必要时扩大样本或多次运行，再做决定。"
+    },
+    {
+      "id": "ndv4-008",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An agent with a file-editing tool keeps describing the change it would make but never calls the tool. Which failure mode is this, and what is the BEST fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Under-acting; state explicitly that the agent should make the change with the tool rather than suggest it.",
+          "correct": true,
+          "explain": "正解。指示が「提案」と読める場合に起きる。行動を明示する。",
+          "textZh": "行动不足（under-acting）；明确指示代理用工具直接修改，而不是只提建议。"
+        },
+        {
+          "text": "Hallucination; lower the temperature.",
+          "correct": false,
+          "explain": "不適。事実の捏造ではなく、行動しないことが問題。",
+          "textZh": "幻觉；降低 temperature。"
+        },
+        {
+          "text": "Context loss; restart every turn.",
+          "correct": false,
+          "explain": "不適。原因に合っていない。",
+          "textZh": "上下文丢失；每轮都重新开始。"
+        },
+        {
+          "text": "A network error; add retries.",
+          "correct": false,
+          "explain": "不適。ツールは呼ばれていないので通信の問題ではない。",
+          "textZh": "网络错误；加重试。"
+        }
+      ],
+      "objective": "Failure-Mode Diagnosis",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个带文件编辑工具的代理总是描述它会做什么修改，却从不调用工具。这是哪种失败模式？最好的修复是什么？",
+      "commentaryZh": "under-acting（行动不足）是指模型只给建议、不执行。常见原因是指令写成「能不能改一下」这类建议口吻。明确要求「直接修改」，或调整工具说明，比加重试或换参数更对症。"
+    },
+    {
+      "id": "ndv4-009",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Users report that some long reports end abruptly. Traces show the model output is fine but stop_reason is \"max_tokens\" on the short ones. Where is the defect?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In the integration layer: the app does not check stop_reason and presents truncated output as complete.",
+          "correct": true,
+          "explain": "正解。原因は連携層。stop_reason を見て切れたことを扱う。",
+          "textZh": "在集成层：应用没有检查 stop_reason，把被截断的输出当作完整结果展示。"
+        },
+        {
+          "text": "In the model, which forgot how to finish reports.",
+          "correct": false,
+          "explain": "不適。上限で止まっただけ。",
+          "textZh": "在模型：它忘了怎么写完报告。"
+        },
+        {
+          "text": "In the prompt, which must say \"finish your answer.\"",
+          "correct": false,
+          "explain": "不適。上限に達する限り直らない。",
+          "textZh": "在提示：必须写上「把答案写完」。"
+        },
+        {
+          "text": "In the user's browser.",
+          "correct": false,
+          "explain": "不適。サーバー側の扱いの問題。",
+          "textZh": "在用户的浏览器。"
+        }
+      ],
+      "objective": "Failure-Mode Diagnosis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "用户反映一些长报告突然中断。轨迹显示模型输出本身没问题，但被截断的那些 stop_reason 为 \"max_tokens\"。缺陷在哪里？",
+      "commentaryZh": "4.2 要判断原因在集成层还是在模型输出。max_tokens 截断是一个可预期的停止条件，应用应读取 stop_reason，提示截断、续写或调整上限，而不是改提示或怪模型。"
+    },
+    {
+      "id": "ndv4-010",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A RAG assistant sometimes cites a policy section that does not exist. Retrieval logs show the right passages were never retrieved for those questions. What is the root cause and fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Retrieval misses lead to hallucination; fix retrieval and instruct the model to answer \"not found\" when the passages lack the answer.",
+          "correct": true,
+          "explain": "正解。症状（捏造）ではなく原因（検索漏れ）と、根拠がない時の振る舞いの両方を直す。",
+          "textZh": "检索遗漏导致幻觉；修复检索，并指示模型在段落中没有答案时回答「未找到」。"
+        },
+        {
+          "text": "Increase max_tokens.",
+          "correct": false,
+          "explain": "不適。出力の長さとは関係ない。",
+          "textZh": "调大 max_tokens。"
+        },
+        {
+          "text": "Switch to a larger model only.",
+          "correct": false,
+          "explain": "不適。根拠が渡っていない問題は残る。",
+          "textZh": "只换更大的模型。"
+        },
+        {
+          "text": "Filter out citations from the answers.",
+          "correct": false,
+          "explain": "不適。捏造という症状を隠すだけ。",
+          "textZh": "把回答里的引用都过滤掉。"
+        }
+      ],
+      "objective": "Failure-Mode Diagnosis",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个 RAG 助手有时会引用不存在的制度条款。检索日志显示，这些问题从来没有检索到正确的段落。根本原因和修复是什么？",
+      "commentaryZh": "修复要针对原因而不是症状：编造的引用来自「没检索到」加「没有允许说不知道」。修好检索，并要求在资料中找不到时回答「未找到」。"
+    },
+    {
+      "id": "ndv4-011",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A JSON extractor worked for months, but after a prompt edit some outputs add an extra \"notes\" field and drop \"date\". Which failure mode is this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Format drift; restore the constraint with structured outputs or schema validation and add regression cases.",
+          "correct": true,
+          "explain": "正解。形式のずれは、スキーマで強制し回帰テストで防ぐ。",
+          "textZh": "格式漂移（format drift）；用结构化输出或 schema 校验恢复约束，并加入回归用例。"
+        },
+        {
+          "text": "Refusal.",
+          "correct": false,
+          "explain": "不適。応答自体は返っている。",
+          "textZh": "拒绝回答。"
+        },
+        {
+          "text": "Rate limiting.",
+          "correct": false,
+          "explain": "不適。API エラーではない。",
+          "textZh": "限流。"
+        },
+        {
+          "text": "Context loss across sessions.",
+          "correct": false,
+          "explain": "不適。単発の抽出で起きている。",
+          "textZh": "跨会话的上下文丢失。"
+        }
+      ],
+      "objective": "Failure-Mode Diagnosis",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个 JSON 提取功能用了几个月都正常，但修改提示之后，部分输出多了 \"notes\" 字段、少了 \"date\"。这属于哪种失败模式？",
+      "commentaryZh": "format drift 是输出格式逐渐偏离约定。可靠的修法是在 API 层用结构化输出或严格校验来约束，再把这些用例加进回归测试，防止下次改提示时复发。"
+    },
+    {
+      "id": "ndv4-012",
+      "domain": "D4",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO pieces of evidence BEST show whether a failure comes from the integration layer rather than the model?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The raw API response is correct, but the parsed value stored by the app is wrong.",
+          "correct": true,
+          "explain": "正解。モデル出力は正しく、後段の処理で壊れている。",
+          "textZh": "原始 API 响应是对的，但应用解析后保存的值是错的。"
+        },
+        {
+          "text": "The request actually sent is missing the document the prompt refers to.",
+          "correct": true,
+          "explain": "正解。送信内容の組み立てに問題がある。",
+          "textZh": "实际发送的请求里缺少提示中提到的文档。"
+        },
+        {
+          "text": "The answer sounds unconfident.",
+          "correct": false,
+          "explain": "不適。原因の切り分けにならない。",
+          "textZh": "回答听起来没有把握。"
+        },
+        {
+          "text": "The failure happens on weekdays.",
+          "correct": false,
+          "explain": "不適。それだけでは層を特定できない。",
+          "textZh": "失败发生在工作日。"
+        }
+      ],
+      "objective": "Failure-Mode Diagnosis",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两项证据最能说明失败来自集成层，而不是模型本身？",
+      "commentaryZh": "切分原因要看轨迹：实际发送的请求是否完整、原始响应是否正确、解析和保存是否出错。响应对而结果错，问题在集成层；请求本身缺内容，也是集成层的问题。"
+    },
+    {
+      "id": "ndv4-013",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A classifier returns different labels for the same ticket on different runs. What is the BEST first response?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Measure the inconsistency on a fixed set, then tighten the instructions and label definitions with examples of borderline cases.",
+          "correct": true,
+          "explain": "正解。まず測り、定義の曖昧さ（境界例）を潰す。",
+          "textZh": "先在固定测试集上量化不一致的程度，再用边界案例的示例收紧指令和标签定义。"
+        },
+        {
+          "text": "Run each ticket five times and pick any answer.",
+          "correct": false,
+          "explain": "不適。ばらつきを放置している。",
+          "textZh": "每张工单跑五次，随便取一个答案。"
+        },
+        {
+          "text": "Remove the label definitions to give the model freedom.",
+          "correct": false,
+          "explain": "不適。逆にばらつきが増える。",
+          "textZh": "删掉标签定义，让模型自由发挥。"
+        },
+        {
+          "text": "Assume the API is broken.",
+          "correct": false,
+          "explain": "不適。API の故障を示す根拠がない。",
+          "textZh": "认定是 API 坏了。"
+        }
+      ],
+      "objective": "Failure-Mode Diagnosis",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个分类器对同一张工单，在不同次运行中给出不同的标签。最好的第一步是什么？",
+      "commentaryZh": "输出不一致（inconsistent output）多半来自定义不清：边界案例没有说明。先量化，再补充定义和边界示例，用同一测试集确认改善。"
+    },
+    {
+      "id": "ndv4-014",
+      "domain": "D4",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "Late in a long agent run, the agent repeats a search it already did and contradicts a decision made earlier. Which failure mode is MOST likely?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Context loss; persist key decisions outside the context (notes or memory) and compact or prune old tool output.",
+          "correct": true,
+          "explain": "正解。長い実行で重要な情報が埋もれる。外部に保存し、文脈を整理する。",
+          "textZh": "上下文丢失；把关键决定保存在上下文之外（笔记或记忆），并压缩或修剪旧的工具输出。"
+        },
+        {
+          "text": "Refusal.",
+          "correct": false,
+          "explain": "不適。作業は続いている。",
+          "textZh": "拒绝。"
+        },
+        {
+          "text": "Format drift.",
+          "correct": false,
+          "explain": "不適。問題は形式ではなく内容の一貫性。",
+          "textZh": "格式漂移。"
+        },
+        {
+          "text": "Authentication failure.",
+          "correct": false,
+          "explain": "不適。API は動いている。",
+          "textZh": "认证失败。"
+        }
+      ],
+      "objective": "Failure-Mode Diagnosis",
+      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在一次很长的代理运行后期，代理重复了已经做过的搜索，还推翻了之前做出的决定。最可能是哪种失败模式？",
+      "commentaryZh": "context loss 表现为忘记已做的事、推翻之前的决定。对策是把重要状态写到上下文外（进度文件、记忆），并通过压缩（compaction）、修剪工具输出来保持上下文清爽。"
     }
   ]
 }

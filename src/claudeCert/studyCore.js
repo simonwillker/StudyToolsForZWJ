@@ -212,6 +212,83 @@ export function migrateMistakes(store, oldReview, today) {
   return next;
 }
 
+/* ---------- ブループリント改訂で問題のドメインが変わったときの移しかえ ---------- */
+
+/**
+ * 学習記録（ccaofProgressV1）は domains[ドメイン].items[問題 id] の形なので、
+ * 問題が別のドメインに移ると、そのままでは記録が見えなくなる。
+ * moves（{ 問題 id: 新しいドメイン }、meta.json の movedItems）に従って、
+ * 問題の記録と、ドメインの解答数・正解数をその分だけ新しいドメインへ移す。
+ * 何度呼んでも同じ結果になる（移し終えた問題はもう動かない）。
+ * 戻り値は { progress, changed }。元の progress は変えない。
+ */
+export function moveProgressItems(progress, moves) {
+  const src = (progress && progress.domains) || {};
+  if (!moves || !Object.keys(moves).length) return { progress, changed: false };
+  const domains = {};
+  Object.entries(src).forEach(([id, b]) => {
+    domains[id] = { attempted: b.attempted || 0, correct: b.correct || 0, items: { ...(b.items || {}) } };
+  });
+  let changed = false;
+  Object.keys(domains).forEach((from) => {
+    Object.entries(domains[from].items).forEach(([itemId, rec]) => {
+      const to = moves[itemId];
+      if (!to || to === from) return;
+      changed = true;
+      const a = domains[from];
+      const seen = rec.seen || 0;
+      const ok = rec.correct || 0;
+      a.attempted = Math.max(0, a.attempted - seen);
+      a.correct = Math.max(0, a.correct - ok);
+      delete a.items[itemId];
+      const b = domains[to] || (domains[to] = { attempted: 0, correct: 0, items: {} });
+      b.attempted += seen;
+      b.correct += ok;
+      const prev = b.items[itemId];
+      b.items[itemId] = prev ? { seen: (prev.seen || 0) + seen, correct: (prev.correct || 0) + ok } : { ...rec };
+    });
+  });
+  if (!changed) return { progress, changed: false };
+  // 空になった旧ドメイン（D7 など）は消す
+  Object.keys(domains).forEach((id) => {
+    const d = domains[id];
+    if (!Object.keys(d.items).length && !d.attempted) delete domains[id];
+  });
+  return { progress: { ...progress, domains }, changed: true };
+}
+
+/** 復習リスト（{ D1: [id, ...] }）を moves に従って移す。戻り値は { review, changed } */
+export function moveReviewItems(review, moves) {
+  if (!review || !moves || !Object.keys(moves).length) return { review, changed: false };
+  const next = {};
+  let changed = false;
+  Object.entries(review).forEach(([from, list]) => {
+    (Array.isArray(list) ? list : []).forEach((id) => {
+      const to = moves[id] || from;
+      if (to !== from) changed = true;
+      const l = next[to] || (next[to] = []);
+      if (!l.includes(id)) l.push(id);
+    });
+  });
+  if (!changed) return { review, changed: false };
+  return { review: next, changed: true };
+}
+
+/** 錯題本の各問題の domain を moves に合わせる。戻り値は { store, changed } */
+export function moveMistakeItems(store, moves) {
+  const s = normalizeMistakes(store);
+  if (!moves || !Object.keys(moves).length) return { store: s, changed: false };
+  let changed = false;
+  Object.entries(s.items).forEach(([id, e]) => {
+    const to = moves[id];
+    if (to && e.domain !== to) {
+      s.items[id] = { ...e, domain: to };
+      changed = true;
+    }
+  });
+  return { store: s, changed };
+}
+
 /* ---------- 模擬試験の組み立て ---------- */
 
 /** 配点比率から total 問の内訳を決める（最大剰余法で合計を total に合わせる） */
