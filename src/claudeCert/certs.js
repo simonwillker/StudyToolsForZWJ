@@ -73,7 +73,7 @@ export const CERTS = [
     eyebrow: "CCDV-F — CLAUDE CERTIFIED DEVELOPER (FOUNDATIONS)",
     lead: "公式 Exam Guide v1.1（2026年12月7日発効）の 8 ドメイン・24 skill に沿った練習問題です。模擬試験は本番と同じ 70 問・120 分。問題文はすべてオリジナルで、公式の試験問題・サンプル問題は使っていません。",
     officialDesc:
-      "受験料 ${fee}、Pearson VUE のオンライン監督またはテストセンターで受験します。申し込みは Anthropic Partner Academy から。本番は 53 問・120 分、配点は Applications and Integration が 33.1% で最大です。問題はすべてオリジナルです。",
+      "受験料 ${fee}、Pearson VUE のオンライン監督またはテストセンターで受験します。申し込みは Anthropic Partner Academy から。本番は 70 問（うち採点 60 問）・120 分、配点は Applications and Integration が 20% で最大です。問題はすべてオリジナルです。",
     links: [
       { label: "Claude 認定プログラム（Pearson VUE） ↗", url: "https://www.pearsonvue.com/us/en/anthropic.html" },
       { label: "Claude API ドキュメント ↗", url: "https://platform.claude.com/docs/en/home" },
