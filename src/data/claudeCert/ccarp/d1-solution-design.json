@@ -1,0 +1,1136 @@
+{
+  "domain": "D1",
+  "items": [
+    {
+      "id": "rp1-001",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An insurer redesigns claims handling: intake triage, document extraction, coverage determination, and payment authorization. Which delegation split is BEST justified?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Claude handles triage and extraction; coverage determination is shared (Claude drafts, an adjuster decides); payment authorization stays with humans.",
+          "correct": true,
+          "explain": "正解。可逆性・重大さ・説明責任に応じて段階的に委任する。",
+          "textZh": "分拣和提取交给 Claude；承保判断由双方共同完成（Claude 起草、理赔员决定）；付款授权留给人。"
+        },
+        {
+          "text": "Claude handles all four steps to minimize cycle time.",
+          "correct": false,
+          "explain": "不適。取り消せない支払いと説明責任のある判断まで委ねている。",
+          "textZh": "四个步骤全交给 Claude，以缩短周期。"
+        },
+        {
+          "text": "Humans handle all four steps because claims are regulated.",
+          "correct": false,
+          "explain": "不適。低リスクの作業まで人に残し、価値を失う。",
+          "textZh": "因为理赔受监管，四个步骤都由人做。"
+        },
+        {
+          "text": "Claude authorizes payments under $10,000 without review; humans do triage.",
+          "correct": false,
+          "explain": "不適。逆転している。不可逆な行為を委ね、低リスク作業を人に残す。",
+          "textZh": "Claude 无需审核即可授权 1 万美元以下的付款；分拣由人做。"
+        }
+      ],
+      "objective": "Task Delegation Between Claude and Humans",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一家保险公司重新设计理赔流程：受理分拣、文件信息提取、承保判断、付款授权。哪种分工最站得住脚？",
+      "commentaryZh": "1.1 用可逆性、影响大小和问责来划分：易纠正的分拣和提取交给 Claude；需要专业判断的承保由 Claude 起草、人来决定；不可逆且需要负责的付款授权留给人。"
+    },
+    {
+      "id": "rp1-002",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A legal team wants Claude to send settlement offers to opposing counsel automatically. What is the strongest architectural objection?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Sending an offer is an external, binding commitment that cannot be withdrawn cleanly, so a human must own and approve it.",
+          "correct": true,
+          "explain": "正解。不可逆で説明責任が伴う行為は人に残す。",
+          "textZh": "发出报价是对外的、有约束力的承诺，很难干净地撤回，所以必须由人负责并批准。"
+        },
+        {
+          "text": "Claude cannot write legal language.",
+          "correct": false,
+          "explain": "不適。能力ではなく委任の適否の問題。",
+          "textZh": "Claude 写不了法律文书。"
+        },
+        {
+          "text": "Email APIs are too slow.",
+          "correct": false,
+          "explain": "不適。本質的な理由ではない。",
+          "textZh": "邮件 API 太慢。"
+        },
+        {
+          "text": "Offers would be too short.",
+          "correct": false,
+          "explain": "不適。論点がずれている。",
+          "textZh": "报价会写得太短。"
+        }
+      ],
+      "objective": "Task Delegation Between Claude and Humans",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "法务团队希望 Claude 自动向对方律师发出和解报价。最有力的架构层面反对理由是什么？",
+      "commentaryZh": "判断委托边界时，先看动作能否撤回、影响多大、谁要负责。对外承诺一旦发出就难以撤回，适合「Claude 起草、人审批发送」。"
+    },
+    {
+      "id": "rp1-003",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO process steps are the BEST candidates to delegate fully to Claude in a procurement workflow?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Normalizing vendor quotes into a common comparison table.",
+          "correct": true,
+          "explain": "正解。可逆で検証しやすく、誤りの影響も小さい。",
+          "textZh": "把供应商报价整理成统一的比较表。"
+        },
+        {
+          "text": "Flagging quotes that are missing required fields.",
+          "correct": true,
+          "explain": "正解。ルールが明確で、人が後で確認できる。",
+          "textZh": "标记缺少必填字段的报价。"
+        },
+        {
+          "text": "Signing the purchase order.",
+          "correct": false,
+          "explain": "不適。法的な約束で説明責任が伴う。",
+          "textZh": "签署采购订单。"
+        },
+        {
+          "text": "Choosing the winning vendor for a strategic contract.",
+          "correct": false,
+          "explain": "不適。判断と説明責任が必要。",
+          "textZh": "为战略合同选定中标供应商。"
+        }
+      ],
+      "objective": "Task Delegation Between Claude and Humans",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在采购流程中，哪两个步骤最适合完全交给 Claude？",
+      "commentaryZh": "适合完全委托的步骤：规则清楚、易验证、可撤回、影响小。签字和战略选择属于需要人负责的决定。"
+    },
+    {
+      "id": "rp1-004",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A hospital wants Claude to pre-fill discharge summaries. Clinicians currently spend 25 minutes per summary. Which design gives the MOST value while keeping accountability clear?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Claude drafts from the chart with citations to source notes; the clinician reviews, edits, and signs.",
+          "correct": true,
+          "explain": "正解。作業時間を減らし、署名と責任は臨床医に残る。",
+          "textZh": "Claude 根据病历起草并标注来源记录；医生审阅、修改并签字。"
+        },
+        {
+          "text": "Claude writes and files summaries; clinicians spot-check 5%.",
+          "correct": false,
+          "explain": "不適。臨床記録の責任が曖昧になる。",
+          "textZh": "Claude 撰写并直接归档；医生抽查 5%。"
+        },
+        {
+          "text": "Clinicians write; Claude only checks spelling.",
+          "correct": false,
+          "explain": "不適。価値がほとんど出ない。",
+          "textZh": "医生自己写；Claude 只检查拼写。"
+        },
+        {
+          "text": "Claude writes summaries but they are never shown to clinicians.",
+          "correct": false,
+          "explain": "不適。検証も責任もない。",
+          "textZh": "Claude 写的小结从不给医生看。"
+        }
+      ],
+      "objective": "Task Delegation Between Claude and Humans",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一家医院希望 Claude 预填出院小结。医生目前每份要花 25 分钟。哪种设计在问责清晰的前提下价值最大？",
+      "commentaryZh": "把耗时的起草交给 Claude，并附上来源便于核对；签字和临床责任留给医生。这是「共同完成」的典型设计。"
+    },
+    {
+      "id": "rp1-005",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team argues a step should stay human because \"AI might make mistakes.\" Which reasoning BEST tests whether that step should be delegated?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask how costly and reversible an error is, whether it would be caught downstream, and who is accountable for the outcome.",
+          "correct": true,
+          "explain": "正解。誤りの可能性ではなく、影響・可逆性・検出・責任で判断する。",
+          "textZh": "问：出错代价多大、能否挽回、下游能否发现，以及谁对结果负责。"
+        },
+        {
+          "text": "Delegate nothing until Claude is 100% accurate.",
+          "correct": false,
+          "explain": "不適。人も誤る。非現実的な基準。",
+          "textZh": "在 Claude 达到 100% 准确之前什么都不委托。"
+        },
+        {
+          "text": "Delegate everything because humans also make mistakes.",
+          "correct": false,
+          "explain": "不適。影響や責任を考えていない。",
+          "textZh": "因为人也会出错，所以全部委托。"
+        },
+        {
+          "text": "Let the team vote.",
+          "correct": false,
+          "explain": "不適。根拠のある判断基準ではない。",
+          "textZh": "让团队投票决定。"
+        }
+      ],
+      "objective": "Task Delegation Between Claude and Humans",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队认为某个步骤应该留给人，理由是「AI 可能出错」。哪种思路最能检验这个步骤该不该委托？",
+      "commentaryZh": "「可能出错」不是判断依据——人也会出错。要看错误的代价、可逆性、能否被发现，以及问责归属。"
+    },
+    {
+      "id": "rp1-006",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A design: web form → single synchronous Claude call (classify + extract + draft reply) → write to CRM → nightly human review. Traffic will grow 20×, and some tenants must not see others' data. Which component fails FIRST under the new load and trust requirements?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The single synchronous call: it couples three tasks, blocks the form under load, and gives no per-step isolation or retry; split and queue it.",
+          "correct": true,
+          "explain": "正解。負荷と分離の両面で最初に壊れるのは同期の一括呼び出し。",
+          "textZh": "那一次同步调用：它把三项任务绑在一起，负载高时阻塞表单，也没有分步隔离和重试；应拆分并改为队列处理。"
+        },
+        {
+          "text": "The web form's colors.",
+          "correct": false,
+          "explain": "不適。配色は負荷や分離と無関係。",
+          "textZh": "网页表单的配色。"
+        },
+        {
+          "text": "The nightly human review, because humans are slow.",
+          "correct": false,
+          "explain": "不適。負荷増でまず詰まるのは同期呼び出し。",
+          "textZh": "每晚的人工复查，因为人很慢。"
+        },
+        {
+          "text": "Nothing; synchronous designs always scale.",
+          "correct": false,
+          "explain": "不適。同期の一括呼び出しは負荷で詰まる。",
+          "textZh": "没有问题；同步设计总能扩展。"
+        }
+      ],
+      "objective": "End-to-End Architecture Evaluation",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "设计如下：网页表单 → 一次同步的 Claude 调用（分类＋提取＋起草回复）→ 写入 CRM → 每晚人工复查。流量将增长 20 倍，而且部分租户不能看到其他租户的数据。在新的负载和信任要求下，哪个组件最先出问题？",
+      "commentaryZh": "1.2 要从输入、处理、输出、反馈四个环节检查可扩展性、可维护性和访问控制，找出最先失效的部分。同步的一次性大调用既不能扛住负载，也难以按步骤隔离与重试。"
+    },
+    {
+      "id": "rp1-007",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A multi-tenant support assistant retrieves documents from a shared vector index filtered by a tenant_id that the model passes as a tool argument. What is the critical flaw?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tenant isolation depends on a model-supplied value; the tenant filter must be enforced server-side from the authenticated session.",
+          "correct": true,
+          "explain": "正解。アクセス制御をモデルの出力に任せてはいけない。",
+          "textZh": "租户隔离依赖模型提供的值；租户过滤必须在服务器端根据已认证的会话强制执行。"
+        },
+        {
+          "text": "Vector indexes are always slow.",
+          "correct": false,
+          "explain": "不適。速度は分離の欠陥と関係ない。",
+          "textZh": "向量索引总是很慢。"
+        },
+        {
+          "text": "Tool arguments should be in XML.",
+          "correct": false,
+          "explain": "不適。形式の問題ではない。",
+          "textZh": "工具参数应该用 XML。"
+        },
+        {
+          "text": "The index should be re-embedded daily.",
+          "correct": false,
+          "explain": "不適。分離の問題は解決しない。",
+          "textZh": "索引应该每天重新嵌入。"
+        }
+      ],
+      "objective": "End-to-End Architecture Evaluation",
+      "reference": "https://code.claude.com/docs/en/security",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个多租户客服助手从共享的向量索引中检索文档，用模型作为工具参数传入的 tenant_id 过滤。致命缺陷是什么？",
+      "commentaryZh": "访问控制不能交给模型：注入或错误都会让它传错 tenant_id。租户边界要由服务器根据认证信息强制执行，模型只负责查询内容。"
+    },
+    {
+      "id": "rp1-008",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO properties MOST improve the maintainability of an end-to-end Claude pipeline?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Versioned prompts and configs with an eval gate before release.",
+          "correct": true,
+          "explain": "正解。変更の追跡と回帰検出ができる。",
+          "textZh": "提示和配置有版本管理，发布前有评估关卡。"
+        },
+        {
+          "text": "Clear stage boundaries with logged inputs and outputs per stage.",
+          "correct": true,
+          "explain": "正解。どこで壊れたか特定できる。",
+          "textZh": "阶段边界清晰，每个阶段的输入输出都有日志。"
+        },
+        {
+          "text": "One giant prompt that does everything.",
+          "correct": false,
+          "explain": "不適。変更の影響範囲が分からない。",
+          "textZh": "一个包揽所有事情的巨型提示。"
+        },
+        {
+          "text": "Changing prompts directly in production.",
+          "correct": false,
+          "explain": "不適。追跡も検証もできない。",
+          "textZh": "直接在生产环境修改提示。"
+        }
+      ],
+      "objective": "End-to-End Architecture Evaluation",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两项特性最能提升端到端 Claude 流水线的可维护性？",
+      "commentaryZh": "可维护性来自「改动可追踪、可验证」和「问题可定位」：版本化配置＋评估关卡，加上分阶段的日志。"
+    },
+    {
+      "id": "rp1-009",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A feedback loop sends user thumbs-down ratings directly into the few-shot examples of the production prompt every hour. What is the main architectural risk?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Unreviewed, possibly adversarial data changes production behavior without an eval gate.",
+          "correct": true,
+          "explain": "正解。フィードバックは評価とレビューを経てから反映する。",
+          "textZh": "未经审核、可能带有恶意的数据在没有评估关卡的情况下改变了生产行为。"
+        },
+        {
+          "text": "Thumbs-down ratings are too rare to matter.",
+          "correct": false,
+          "explain": "不適。リスクを無視している。",
+          "textZh": "「踩」太少，没有影响。"
+        },
+        {
+          "text": "Few-shot examples cannot be updated.",
+          "correct": false,
+          "explain": "不適。更新はできるが手順が必要。",
+          "textZh": "少样本示例不能更新。"
+        },
+        {
+          "text": "Hourly is too slow.",
+          "correct": false,
+          "explain": "不適。速さではなく統制の問題。",
+          "textZh": "每小时太慢了。"
+        }
+      ],
+      "objective": "End-to-End Architecture Evaluation",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个反馈环每小时把用户的「踩」评价直接写进生产提示的少样本示例里。主要的架构风险是什么？",
+      "commentaryZh": "反馈环节要有治理：用户反馈可能被操纵，也可能有噪声。应先进入评估集、经人工审核和回归测试，再更新提示。"
+    },
+    {
+      "id": "rp1-010",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An architecture review finds that every stage calls the same admin-scoped API key. Which evaluation dimension does this MOST directly fail?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Access control: each component should use the narrowest credential it needs.",
+          "correct": true,
+          "explain": "正解。最小権限の観点で不合格。",
+          "textZh": "访问控制：每个组件都应使用所需的最小权限凭证。"
+        },
+        {
+          "text": "Latency.",
+          "correct": false,
+          "explain": "不適。性能の問題ではない。",
+          "textZh": "延迟。"
+        },
+        {
+          "text": "Prompt clarity.",
+          "correct": false,
+          "explain": "不適。提示の明確さは権限と無関係。",
+          "textZh": "提示的清晰度。"
+        },
+        {
+          "text": "Token cost.",
+          "correct": false,
+          "explain": "不適。コストの問題ではない。",
+          "textZh": "token 成本。"
+        }
+      ],
+      "objective": "End-to-End Architecture Evaluation",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "架构评审发现每个阶段都使用同一个管理员权限的 API 密钥。这最直接地违反了哪个评估维度？",
+      "commentaryZh": "端到端评估要同时看可扩展性、可维护性和访问控制。全部组件共用管理员密钥，一处泄露即全盘失守，属于访问控制缺陷。"
+    },
+    {
+      "id": "rp1-011",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Twelve teams each need Claude to follow the same audited financial-report procedure (templates, checks, and a validation script) in different apps. Which pattern BEST supports reuse and governance?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A Skills-based pattern: package the procedure once as a governed, versioned Skill that each app loads.",
+          "correct": true,
+          "explain": "正解。再利用と統制には Skill としての一元管理が向く。",
+          "textZh": "基于 Skill 的模式：把流程打包成一个受管理、有版本的 Skill，各应用加载使用。"
+        },
+        {
+          "text": "Each team copies the procedure into its own prompt.",
+          "correct": false,
+          "explain": "不適。バージョンがばらつき統制できない。",
+          "textZh": "每个团队把流程复制进自己的提示。"
+        },
+        {
+          "text": "A fully autonomous agent per team that invents its own procedure.",
+          "correct": false,
+          "explain": "不適。監査済みの手順が守られない。",
+          "textZh": "每个团队一个完全自主的代理，自己发明流程。"
+        },
+        {
+          "text": "No automation.",
+          "correct": false,
+          "explain": "不適。要件を満たさない。",
+          "textZh": "不做自动化。"
+        }
+      ],
+      "objective": "Architectural Pattern Selection",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "12 个团队都需要 Claude 在各自的应用中遵循同一套经过审计的财务报告流程（模板、检查项和验证脚本）。哪种模式最有利于复用和治理？",
+      "commentaryZh": "1.3 要按复用、治理和风险选模式。同一流程被多处使用且需要审计时，打包成受控版本的 Skill，一处更新、处处生效。"
+    },
+    {
+      "id": "rp1-012",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A task is a fixed sequence (extract fields → validate → format) with predictable inputs. Which pattern fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A workflow with code-orchestrated steps.",
+          "correct": true,
+          "explain": "正解。経路が固定ならワークフローが簡単で監査しやすい。",
+          "textZh": "由代码编排步骤的工作流。"
+        },
+        {
+          "text": "An open-ended agent that chooses its own steps.",
+          "correct": false,
+          "explain": "不適。予測可能性を失う。",
+          "textZh": "自己选择步骤的开放式代理。"
+        },
+        {
+          "text": "A multi-agent debate.",
+          "correct": false,
+          "explain": "不適。複雑さに見合わない。",
+          "textZh": "多代理辩论。"
+        },
+        {
+          "text": "A human-only process.",
+          "correct": false,
+          "explain": "不適。自動化の価値を捨てる。",
+          "textZh": "纯人工流程。"
+        }
+      ],
+      "objective": "Architectural Pattern Selection",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "某任务是固定顺序（提取字段 → 校验 → 格式化），输入可预测。哪种模式最合适？",
+      "commentaryZh": "路径固定、输入可预测的任务用工作流；只有路径无法事先确定的开放任务才需要代理。越简单越好，复杂度要有收益来证明。"
+    },
+    {
+      "id": "rp1-013",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A research assistant must decide which sources to search, how deep to go, and when to stop, for questions that vary widely. Which pattern fits BEST, and what delegation boundary must be explicit?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An agentic pattern, with explicit limits on tools, budget, and stopping conditions, and human review of conclusions used for decisions.",
+          "correct": true,
+          "explain": "正解。経路が不定なら agent。境界（道具・予算・停止・人の確認）を明示する。",
+          "textZh": "代理式模式，并明确工具、预算和停止条件的限制，用于决策的结论需经人工审核。"
+        },
+        {
+          "text": "A fixed workflow with three hard-coded searches.",
+          "correct": false,
+          "explain": "不適。質問の多様さに対応できない。",
+          "textZh": "固定三次搜索的工作流。"
+        },
+        {
+          "text": "An augmented LLM with no tools.",
+          "correct": false,
+          "explain": "不適。ツールが無いと検索ができない。",
+          "textZh": "不带工具的增强 LLM。"
+        },
+        {
+          "text": "An agent with unlimited budget and no stopping rule.",
+          "correct": false,
+          "explain": "不適。予算と停止の境界が無い。",
+          "textZh": "预算无限、没有停止规则的代理。"
+        }
+      ],
+      "objective": "Architectural Pattern Selection",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个研究助手需要针对差异很大的问题，自己决定搜索哪些来源、挖多深、何时停止。哪种模式最合适？必须明确哪种委托边界？",
+      "commentaryZh": "路径随问题变化时用代理模式，但要把边界写清楚：可用工具、成本上限、停止条件，以及哪些结论必须由人确认。"
+    },
+    {
+      "id": "rp1-014",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which situation is the BEST fit for an augmented LLM (a single call with retrieval and tools) rather than a multi-step agent?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Answering a policy question from a few retrieved passages in one turn.",
+          "correct": true,
+          "explain": "正解。一回で完結するなら augmented LLM で十分。",
+          "textZh": "根据检索到的几段内容，一轮内回答一个制度问题。"
+        },
+        {
+          "text": "Migrating a large codebase over several days.",
+          "correct": false,
+          "explain": "不適。多段階の agent が必要。",
+          "textZh": "用几天时间迁移一个大型代码库。"
+        },
+        {
+          "text": "Running a month-long autonomous sales campaign.",
+          "correct": false,
+          "explain": "不適。単発呼び出しの範囲外。",
+          "textZh": "执行一个月的自主销售活动。"
+        },
+        {
+          "text": "Coordinating ten parallel research subtasks.",
+          "correct": false,
+          "explain": "不適。オーケストレーションが必要。",
+          "textZh": "协调十个并行的研究子任务。"
+        }
+      ],
+      "objective": "Architectural Pattern Selection",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪种情况最适合用增强 LLM（一次调用，配合检索和工具），而不是多步代理？",
+      "commentaryZh": "增强 LLM（检索＋工具＋记忆的一次调用）是最简单的构件；能一轮完成的问题不必上多步代理。"
+    },
+    {
+      "id": "rp1-015",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "A company is choosing between a Skills-based design and hard-coding procedures into each application's system prompt. Which TWO factors favor Skills?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The procedure is reused across many apps and must be updated centrally.",
+          "correct": true,
+          "explain": "正解。一元管理と再利用。",
+          "textZh": "流程在很多应用中复用，需要集中更新。"
+        },
+        {
+          "text": "The procedure is long and only needed for some requests, so loading it on demand saves context.",
+          "correct": true,
+          "explain": "正解。必要な時だけ読み込む。",
+          "textZh": "流程很长，只有部分请求需要，按需加载可以节省上下文。"
+        },
+        {
+          "text": "The procedure is a single sentence used once.",
+          "correct": false,
+          "explain": "不適。Skill にする価値が小さい。",
+          "textZh": "流程只有一句话，只用一次。"
+        },
+        {
+          "text": "The team wants each app's version to drift independently.",
+          "correct": false,
+          "explain": "不適。ばらつかせるのは統制の逆。",
+          "textZh": "团队希望各应用的版本各自演变。"
+        }
+      ],
+      "objective": "Architectural Pattern Selection",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "公司在「基于 Skill 的设计」和「把流程写死在各应用的系统提示里」之间选择。哪两项因素支持选 Skill？",
+      "commentaryZh": "Skill 适合「多处复用、需要集中治理、内容较长且按需使用」的流程；一次性的短指令直接写在提示里即可。"
+    },
+    {
+      "id": "rp1-016",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An orchestrator spawns five research subagents. The final report sometimes contains claims no subagent returned. Traces show the orchestrator receives only free-text summaries without sources. Where does the design break?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Result synthesis: subagents should return structured findings with sources so the orchestrator can trace every claim.",
+          "correct": true,
+          "explain": "正解。統合段階で出典が失われ、追跡できない。",
+          "textZh": "结果汇总：子代理应返回带来源的结构化发现，让编排代理能追溯每个结论。"
+        },
+        {
+          "text": "Subagents should share one context window.",
+          "correct": false,
+          "explain": "不適。分離の利点を失う。",
+          "textZh": "子代理应共享同一个上下文窗口。"
+        },
+        {
+          "text": "The orchestrator should spawn 50 subagents.",
+          "correct": false,
+          "explain": "不適。問題は数ではない。",
+          "textZh": "编排代理应该生成 50 个子代理。"
+        },
+        {
+          "text": "Use a smaller model for the orchestrator.",
+          "correct": false,
+          "explain": "不適。根本原因ではない。",
+          "textZh": "给编排代理换更小的模型。"
+        }
+      ],
+      "objective": "Orchestrator and Subagent Decomposition",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "编排代理生成了五个研究子代理。最终报告有时包含任何子代理都没有返回过的结论。轨迹显示编排代理只收到不带来源的自由文本摘要。设计在哪里出了问题？",
+      "commentaryZh": "1.4 要检查边界、控制流和结果汇总。子代理返回的结果没有结构和出处，汇总时就无法验证，容易混入未经支持的结论。"
+    },
+    {
+      "id": "rp1-017",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "A subagent fails silently and the orchestrator waits until a global timeout. Which TWO changes MOST improve error recovery?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Give each subagent its own timeout and a required status field (success, partial, failed).",
+          "correct": true,
+          "explain": "正解。失敗を早く・明示的に検出できる。",
+          "textZh": "给每个子代理单独的超时，并要求返回状态字段（成功、部分完成、失败）。"
+        },
+        {
+          "text": "Let the orchestrator retry or reassign a failed subtask, or proceed with partial results flagged.",
+          "correct": true,
+          "explain": "正解。回復の経路を設計する。",
+          "textZh": "让编排代理重试或重新分配失败的子任务，或在标注后用部分结果继续。"
+        },
+        {
+          "text": "Remove all timeouts.",
+          "correct": false,
+          "explain": "不適。失敗に気づかず待ち続けるだけ。",
+          "textZh": "去掉所有超时。"
+        },
+        {
+          "text": "Hide failures from the final report.",
+          "correct": false,
+          "explain": "不適。失敗を隠すと観測性を失う。",
+          "textZh": "在最终报告中隐藏失败。"
+        }
+      ],
+      "objective": "Orchestrator and Subagent Decomposition",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个子代理静默失败，编排代理一直等到全局超时。哪两项改动最能改善错误恢复？",
+      "commentaryZh": "可观测性和错误恢复要设计进去：子代理有独立超时和明确的状态；编排代理能重试、改派，或带标注地使用部分结果。"
+    },
+    {
+      "id": "rp1-018",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Two subagents need the same 200-page specification. The orchestrator pastes it into both prompts and also keeps it in its own context. What is the BEST improvement?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Give subagents a tool to retrieve only the relevant sections, and keep the orchestrator's context to task-level state.",
+          "correct": true,
+          "explain": "正解。必要部分だけ取得し、オーケストレーターは軽く保つ。",
+          "textZh": "给子代理一个只检索相关章节的工具，编排代理的上下文只保留任务层面的状态。"
+        },
+        {
+          "text": "Paste it three more times for emphasis.",
+          "correct": false,
+          "explain": "不適。同じ資料の重複で文脈を浪費する。",
+          "textZh": "为了强调再粘贴三遍。"
+        },
+        {
+          "text": "Merge both subagents into the orchestrator.",
+          "correct": false,
+          "explain": "不適。分離の利点を失う。",
+          "textZh": "把两个子代理合并进编排代理。"
+        },
+        {
+          "text": "Summarize the spec to one sentence.",
+          "correct": false,
+          "explain": "不適。必要な情報まで失う。",
+          "textZh": "把规格缩成一句话。"
+        }
+      ],
+      "objective": "Orchestrator and Subagent Decomposition",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "两个子代理都需要同一份 200 页的规格说明。编排代理把它分别粘贴进两个子代理的提示，自己的上下文里也留了一份。最好的改进是什么？",
+      "commentaryZh": "分解的价值之一是上下文隔离。共享的大资料应按需检索，编排代理只保存进度、决定等任务级状态。"
+    },
+    {
+      "id": "rp1-019",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An orchestrator gives subagents one-line instructions like \"research competitors.\" Subagents duplicate each other's work and miss key areas. What is the root cause?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Unclear task boundaries: each delegation needs an objective, scope, output format, and what other subagents cover.",
+          "correct": true,
+          "explain": "正解。委任指示が曖昧だと重複と漏れが起きる。",
+          "textZh": "任务边界不清：每次委派都需要目标、范围、输出格式，以及其他子代理负责什么。"
+        },
+        {
+          "text": "Subagents are too capable.",
+          "correct": false,
+          "explain": "不適。能力の高さは重複の原因ではない。",
+          "textZh": "子代理能力太强。"
+        },
+        {
+          "text": "The model needs more temperature.",
+          "correct": false,
+          "explain": "不適。temperature は役割分担と無関係。",
+          "textZh": "模型需要更高的 temperature。"
+        },
+        {
+          "text": "There are too few tools.",
+          "correct": false,
+          "explain": "不適。道具の数ではなく境界の問題。",
+          "textZh": "工具太少。"
+        }
+      ],
+      "objective": "Orchestrator and Subagent Decomposition",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "编排代理给子代理的指令只有一句「调研竞争对手」。子代理彼此重复，还漏掉了关键方面。根本原因是什么？",
+      "commentaryZh": "编排者写的委派说明决定子代理的质量：目标、范围、输出格式、与其他子代理的分工都要写明，否则会重复和遗漏。"
+    },
+    {
+      "id": "rp1-020",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which observability practice is MOST important in an orchestrator/subagent system?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Trace each subagent's inputs, tool calls, outputs, and cost under a shared run ID.",
+          "correct": true,
+          "explain": "正解。どのサブエージェントで何が起きたか追える。",
+          "textZh": "用共同的运行 ID 记录每个子代理的输入、工具调用、输出和成本。"
+        },
+        {
+          "text": "Log only the final answer.",
+          "correct": false,
+          "explain": "不適。最終回答だけでは原因を追えない。",
+          "textZh": "只记录最终答案。"
+        },
+        {
+          "text": "Log nothing to save storage.",
+          "correct": false,
+          "explain": "不適。何も残さないと観測性はゼロ。",
+          "textZh": "为了节省存储什么都不记录。"
+        },
+        {
+          "text": "Ask subagents to self-report success.",
+          "correct": false,
+          "explain": "不適。自己申告は検証にならない。",
+          "textZh": "让子代理自报成功。"
+        }
+      ],
+      "objective": "Orchestrator and Subagent Decomposition",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在编排代理／子代理系统中，哪种可观测性做法最重要？",
+      "commentaryZh": "多代理系统的问题往往出在某个子代理或交接处；以运行 ID 串起每一步的输入、工具调用、输出和成本，才能定位。"
+    },
+    {
+      "id": "rp1-021",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A contact center must cut handling time with a budget ceiling and a 3-second response SLA. Option X: the most capable model on every turn (best quality, misses SLA at peak). Option Y: a fast tier for routine turns with escalation of complex cases to a stronger tier (meets SLA, quality within target on evals). Which choice maximizes business outcome?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Y, because it meets the binding SLA and budget while keeping quality within target.",
+          "correct": true,
+          "explain": "正解。制約（SLA・コスト）を満たした上で成果を最大化する。",
+          "textZh": "选 Y，因为它满足硬性的 SLA 和预算，质量也在目标之内。"
+        },
+        {
+          "text": "X, because quality always wins.",
+          "correct": false,
+          "explain": "不適。SLA を破る選択は要件違反。",
+          "textZh": "选 X，因为质量永远第一。"
+        },
+        {
+          "text": "Neither; wait for a faster model.",
+          "correct": false,
+          "explain": "不適。現時点の価値を捨てる。",
+          "textZh": "都不选，等更快的模型。"
+        },
+        {
+          "text": "X, but only at night.",
+          "correct": false,
+          "explain": "不適。論点を外している。",
+          "textZh": "选 X，但只在夜间使用。"
+        }
+      ],
+      "objective": "Value-Based Architectural Decisions",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "呼叫中心要在预算上限和 3 秒响应 SLA 的约束下缩短处理时间。方案 X：每一轮都用最强模型（质量最好，但高峰时达不到 SLA）。方案 Y：常规轮次用快速层级，复杂情况升级到更强层级（满足 SLA，评估显示质量在目标内）。哪个选择业务成果最大？",
+      "commentaryZh": "1.5 的思路：先满足硬约束（成本上限、SLA），再在约束内追求最大业务价值。质量最高但违反 SLA 的方案不可接受。"
+    },
+    {
+      "id": "rp1-022",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A bank wants overnight risk summaries for 200,000 accounts. Which feature choice delivers the MOST value per cost?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Batch processing with a cached shared prompt prefix.",
+          "correct": true,
+          "explain": "正解。即時性不要の大量処理は batch＋キャッシュでコストを下げる。",
+          "textZh": "批处理，并缓存共同的提示前缀。"
+        },
+        {
+          "text": "Realtime calls with streaming.",
+          "correct": false,
+          "explain": "不適。即時性の価値がない場面でコスト高。",
+          "textZh": "实时调用并使用流式输出。"
+        },
+        {
+          "text": "The largest model with maximum effort for every account.",
+          "correct": false,
+          "explain": "不適。全件に最大設定は過剰でコスト高。",
+          "textZh": "每个账户都用最大模型、最高 effort。"
+        },
+        {
+          "text": "Manual summaries.",
+          "correct": false,
+          "explain": "不適。規模に対応できない。",
+          "textZh": "人工撰写摘要。"
+        }
+      ],
+      "objective": "Value-Based Architectural Decisions",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一家银行需要在夜间为 20 万个账户生成风险摘要。哪种功能选择单位成本价值最高？",
+      "commentaryZh": "价值支柱包括效率、成本和 SLA。不需要即时结果的大批量任务，批处理加提示缓存能大幅降低成本而不影响质量。"
+    },
+    {
+      "id": "rp1-023",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Leadership asks whether a proposed agent feature is worth building. Which justification is MOST defensible?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Tie the feature to a measurable value pillar (e.g. hours saved per case), its cost to run, and the SLA it must meet, using pilot data.",
+          "correct": true,
+          "explain": "正解。価値・コスト・SLA を数字で結びつける。",
+          "textZh": "用试点数据，把功能与可衡量的价值支柱（如每单节省的工时）、运行成本和必须满足的 SLA 联系起来。"
+        },
+        {
+          "text": "It uses the newest model.",
+          "correct": false,
+          "explain": "不適。技術は価値の根拠ではない。",
+          "textZh": "它用了最新的模型。"
+        },
+        {
+          "text": "Competitors have AI.",
+          "correct": false,
+          "explain": "不適。自社の成果と結びつかない。",
+          "textZh": "竞争对手都有 AI。"
+        },
+        {
+          "text": "The demo looked impressive.",
+          "correct": false,
+          "explain": "不適。デモは本番の価値を示さない。",
+          "textZh": "演示看起来很惊艳。"
+        }
+      ],
+      "objective": "Value-Based Architectural Decisions",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "管理层问一个拟议的代理功能是否值得做。哪种论证最站得住脚？",
+      "commentaryZh": "架构决策要以业务成果为依据：可衡量的收益、运行成本、性能 SLA。新技术、竞争压力或演示效果都不是充分理由。"
+    },
+    {
+      "id": "rp1-024",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "Two designs meet the quality floor. Design A costs 40% less per request but needs a new retrieval service the team must operate. Design B costs more but uses existing infrastructure. Volume is low (2,000 requests/month). Which is MOST likely the better business decision?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "B, because at low volume the operating cost of a new service outweighs the per-request saving.",
+          "correct": true,
+          "explain": "正解。総コスト（運用負担を含む）で比べる。",
+          "textZh": "选 B，因为请求量低时，新服务的运维成本超过了单次请求的节省。"
+        },
+        {
+          "text": "A, because per-request cost is all that matters.",
+          "correct": false,
+          "explain": "不適。運用コストを無視している。",
+          "textZh": "选 A，因为只有单次请求成本重要。"
+        },
+        {
+          "text": "Both, in parallel, forever.",
+          "correct": false,
+          "explain": "不適。両方を運用し続けるのは無駄。",
+          "textZh": "两个都做，永远并行。"
+        },
+        {
+          "text": "Neither, because quality is equal.",
+          "correct": false,
+          "explain": "不適。品質が同じでも価値を捨てる理由にならない。",
+          "textZh": "都不做，因为质量相同。"
+        }
+      ],
+      "objective": "Value-Based Architectural Decisions",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "两种设计都达到了质量底线。设计 A 每次请求便宜 40%，但需要团队自己运维一个新的检索服务；设计 B 单价更高，但使用现有基础设施。请求量很低（每月 2000 次）。哪个更可能是更好的业务决策？",
+      "commentaryZh": "解决方案成本包括运维和维护，而不仅是单价。低量场景下，新增系统的运维负担往往比节省的调用费更大。"
+    },
+    {
+      "id": "rp1-025",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A financial-services firm requires that prompts and documents never leave its existing cloud account, where residency attestations already exist. Product wants the newest API features, and platform wants Anthropic to host the agent loop. What is the BEST decision?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Deploy through the firm's cloud provider surface (e.g. Bedrock or Vertex AI), accepting possible feature lag and owning the agent runtime and session state.",
+          "correct": true,
+          "explain": "正解。所在地は絶対条件。それに伴う機能差と運用責任を受け入れる。",
+          "textZh": "通过公司所在云厂商的接入面（如 Bedrock 或 Vertex AI）部署，接受可能的功能滞后，并自行负责代理运行环境和会话状态。"
+        },
+        {
+          "text": "Use the Anthropic API with zero-data-retention, which satisfies residency.",
+          "correct": false,
+          "explain": "不適。ZDR は保持期間の管理で、所在地の管理ではない。",
+          "textZh": "使用 Anthropic API 并开启零数据保留，这样就满足了驻留要求。"
+        },
+        {
+          "text": "Mirror documents to Anthropic-hosted storage for the managed agent.",
+          "correct": false,
+          "explain": "不適。入力が境界の外に出る。",
+          "textZh": "把文档镜像到 Anthropic 托管的存储，供托管代理使用。"
+        },
+        {
+          "text": "Any surface works with no trade-offs.",
+          "correct": false,
+          "explain": "不適。接入面によって機能や運用が制約される。",
+          "textZh": "任何接入面都可以，没有取舍。"
+        }
+      ],
+      "objective": "Deployment Surface and Agent Runtime Selection",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一家金融服务公司要求提示和文档绝不能离开其现有云账户（那里已有数据驻留证明）。产品团队想要最新的 API 功能，平台团队希望由 Anthropic 托管代理循环。最好的决定是什么？",
+      "commentaryZh": "对应 v1.1 样题 1。数据驻留是硬约束，排除了把输入送出边界的方案。零数据保留管的是保存时长，不是位置。选择云厂商接入面意味着可能有功能滞后，运行环境和会话状态也要自己负责。"
+    },
+    {
+      "id": "rp1-026",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A startup with no infrastructure team needs long-running agents that execute code in a sandbox and keep session state. Data residency is not a constraint. Which runtime fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Claude Managed Agents, which provides a hosted sandbox and session management.",
+          "correct": true,
+          "explain": "正解。運用を任せたいならマネージド。",
+          "textZh": "Claude Managed Agents，它提供托管的沙箱和会话管理。"
+        },
+        {
+          "text": "A self-hosted Agent SDK harness on their own Kubernetes cluster.",
+          "correct": false,
+          "explain": "不適。運用チームがないという制約に合わない。",
+          "textZh": "在自己的 Kubernetes 集群上自托管 Agent SDK。"
+        },
+        {
+          "text": "A single Messages API call with no tools.",
+          "correct": false,
+          "explain": "不適。コード実行も状態保持もできない。",
+          "textZh": "一次不带工具的 Messages API 调用。"
+        },
+        {
+          "text": "Running agents on employees' laptops.",
+          "correct": false,
+          "explain": "不適。隔離も可用性もない。",
+          "textZh": "在员工笔记本上运行代理。"
+        }
+      ],
+      "objective": "Deployment Surface and Agent Runtime Selection",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一家没有基础设施团队的初创公司需要长时间运行的代理，在沙箱中执行代码并保持会话状态。没有数据驻留约束。哪种运行环境最合适？",
+      "commentaryZh": "运行环境的取舍：托管方案省去运维、提供沙箱和会话状态；自托管 Agent SDK 或无头 Claude Code 控制力更强但要自己运维；直接用 Messages API 循环最灵活也最需要自己实现。"
+    },
+    {
+      "id": "rp1-027",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A regulated enterprise must keep full custody of tool execution, logs, and session data inside its VPC, and needs custom tools that call internal systems. Which runtime choice fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A self-hosted agent loop (Agent SDK or headless Claude Code) inside the VPC, calling the model through an approved surface.",
+          "correct": true,
+          "explain": "正解。データ保管と実行の管理を自社に置く。",
+          "textZh": "在 VPC 内自托管代理循环（Agent SDK 或无头 Claude Code），通过批准的接入面调用模型。"
+        },
+        {
+          "text": "A hosted runtime outside the VPC with the same tools.",
+          "correct": false,
+          "explain": "不適。保管要件に反する。",
+          "textZh": "使用 VPC 外的托管运行环境和同样的工具。"
+        },
+        {
+          "text": "Skip tools and paste internal data into prompts manually.",
+          "correct": false,
+          "explain": "不適。運用できず、統制もない。",
+          "textZh": "不用工具，把内部数据手动粘贴进提示。"
+        },
+        {
+          "text": "Use a consumer chat app.",
+          "correct": false,
+          "explain": "不適。統制の要件を満たさない。",
+          "textZh": "使用面向个人用户的聊天应用。"
+        }
+      ],
+      "objective": "Deployment Surface and Agent Runtime Selection",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一家受监管的企业必须把工具执行、日志和会话数据完全保留在自己的 VPC 内，并需要调用内部系统的自定义工具。哪种运行环境最合适？",
+      "commentaryZh": "数据保管（data custody）要求高时，自托管代理循环可以把执行、日志和会话都留在自己的边界内，代价是要自己运维。"
+    },
+    {
+      "id": "rp1-028",
+      "domain": "D1",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO factors MOST commonly decide between the Anthropic API and a cloud provider surface (Bedrock, Vertex AI, Microsoft Foundry)?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Data residency and compliance commitments tied to an existing cloud account.",
+          "correct": true,
+          "explain": "正解。所在地・コンプライアンスが決め手になりやすい。",
+          "textZh": "与现有云账户绑定的数据驻留和合规承诺。"
+        },
+        {
+          "text": "Availability of specific models and features on each surface.",
+          "correct": true,
+          "explain": "正解。機能や提供時期に差がある。",
+          "textZh": "各接入面上具体模型和功能的可用性。"
+        },
+        {
+          "text": "The color of the console.",
+          "correct": false,
+          "explain": "不適。コンソールの見た目は選定と無関係。",
+          "textZh": "控制台的颜色。"
+        },
+        {
+          "text": "Whether prompts can be written in English.",
+          "correct": false,
+          "explain": "不適。言語による違いはない。",
+          "textZh": "能否用英文写提示。"
+        }
+      ],
+      "objective": "Deployment Surface and Agent Runtime Selection",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在 Anthropic API 和云厂商接入面（Bedrock、Vertex AI、Microsoft Foundry）之间做选择时，最常见的两项决定因素是什么？",
+      "commentaryZh": "接入面的选择通常由数据驻留与合规、模型与功能的可用性、运维归属决定。不同接入面的新功能上线时间可能不同。"
+    },
+    {
+      "id": "rp1-029",
+      "domain": "D1",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team needs CI jobs that run an agent non-interactively against the repository with restricted tools. Which runtime is the simplest fit?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Headless Claude Code (or the Agent SDK) in the CI runner with an explicit allowed-tools list.",
+          "correct": true,
+          "explain": "正解。CI には headless 実行と明示的な権限。",
+          "textZh": "在 CI 执行器中运行无头 Claude Code（或 Agent SDK），并明确允许的工具列表。"
+        },
+        {
+          "text": "An interactive desktop session left open.",
+          "correct": false,
+          "explain": "不適。対話セッションは CI で自動化できない。",
+          "textZh": "开着一个交互式桌面会话。"
+        },
+        {
+          "text": "A managed runtime with bypassed permissions.",
+          "correct": false,
+          "explain": "不適。無人実行で権限を外すのは危険。",
+          "textZh": "使用托管运行环境并跳过权限检查。"
+        },
+        {
+          "text": "Copying the repo into a chat window.",
+          "correct": false,
+          "explain": "不適。手作業のコピーは自動化できない。",
+          "textZh": "把仓库复制进聊天窗口。"
+        }
+      ],
+      "objective": "Deployment Surface and Agent Runtime Selection",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队需要在 CI 中以非交互方式对仓库运行代理，并限制可用工具。最简单的运行方式是什么？",
+      "commentaryZh": "CI 中需要非交互、可脚本化的运行方式：无头 Claude Code 或 Agent SDK，并用最小权限限制工具。"
+    }
+  ]
+}

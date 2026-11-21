@@ -1,0 +1,1978 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-11-21",
+  "note": "CCAR-P 考点讲义（Exam Guide v1.1 的 39 skills）。正文为中文，术语附英文。不写价格、具体模型版本和上限值等易变事实，以官方链接为准。按 2026-12-07 生效的考试指南 v1.1 编写。",
+  "lessons": [
+    {
+      "id": "D1-1",
+      "domain": "D1",
+      "objective": "Task Delegation Between Claude and Humans",
+      "titleZh": "任务分配：哪些交给 Claude，哪些留给人",
+      "summaryZh": "架构师要把业务流程拆成步骤，逐步判断由 Claude 做、由人做，还是人机协作。判断依据有三个：可逆性（做错了能不能撤回）、影响大小（金额、客户、法律后果）、问责（出了问题谁负责）。可逆、低风险、量大的步骤适合交给 Claude；不可逆、高风险、需要签字负责的步骤保留人工决定或人工批准。分配结果要能说明理由，而不是凭“AI 能不能做”来决定。",
+      "concepts": [
+        {
+          "term": "Reversibility（可逆性）",
+          "zh": "做错后能否低成本撤回。可撤回的操作可以自动执行并事后审计，不可撤回的要事前把关。"
+        },
+        {
+          "term": "Stakes（影响大小）",
+          "zh": "错误造成的金钱、客户体验、合规后果越大，越需要人参与决定。"
+        },
+        {
+          "term": "Accountability（问责）",
+          "zh": "法律或组织要求由具名的人负责的决定（批准贷款、签合同），即使模型能做也要留给人。"
+        },
+        {
+          "term": "Shared step（人机协作）",
+          "zh": "Claude 起草、整理证据或给出建议，人做最终判断；兼顾效率与问责。"
+        }
+      ],
+      "example": {
+        "bad": "因为模型准确率高，就让 Claude 直接批准所有理赔，包括大额且无法追回的付款。",
+        "good": "Claude 负责整理材料和给出建议，小额可撤回的理赔自动处理，大额付款由理赔员批准。",
+        "whyZh": "按可逆性和影响大小分配，既保留效率，又让高风险决定有人负责。"
+      },
+      "pitfalls": [
+        "只看模型能力，不看错误能否撤回和由谁负责。",
+        "把所有步骤都设成人工批准，导致流程比原来还慢。"
+      ],
+      "examTips": [
+        "题干出现“不可逆”“直接扣款”“法律责任”时，答案通常是保留人工决定或事前批准。",
+        "“全部自动化”和“全部人工”两个极端选项一般都不对。"
+      ],
+      "practiceZh": "选一个你熟悉的业务流程，列出每一步，标上可逆性、影响大小和负责人，决定由谁执行。",
+      "references": [
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ]
+    },
+    {
+      "id": "D1-2",
+      "domain": "D1",
+      "objective": "End-to-End Architecture Evaluation",
+      "titleZh": "端到端架构评估：找出最先失败的组件",
+      "summaryZh": "评估一套“输入→处理→输出→反馈”的 Claude 架构时，要分别用可扩展性、可维护性和访问控制三个角度去压测它，找出在负载变大或信任边界受压时最先出问题的组件。常见的薄弱点：所有请求串行经过单个同步调用、提示词和逻辑硬编码难以修改、检索或工具层没有按用户权限过滤、输出没有反馈回路因此质量下降无人发现。答题时先找瓶颈或越权点，再选针对它的改动。",
+      "concepts": [
+        {
+          "term": "Scalability（可扩展性）",
+          "zh": "流量增加时哪里排队或触发速率限制；能否并行、缓存或改用批处理。"
+        },
+        {
+          "term": "Maintainability（可维护性）",
+          "zh": "提示词、工具定义、模型版本能否独立修改和版本化，修改后能否用评估验证。"
+        },
+        {
+          "term": "Access control（访问控制）",
+          "zh": "检索和工具调用是否按发起用户的权限执行，而不是用一个高权限服务账号读取所有数据。"
+        },
+        {
+          "term": "Feedback loop（反馈回路）",
+          "zh": "收集用户反馈和线上指标，回流到评估集，否则质量下降无法被发现。"
+        }
+      ],
+      "example": {
+        "bad": "内部知识助手用一个能读全部文档的服务账号检索，再让提示词告诉模型“不要透露无权查看的内容”。",
+        "good": "检索层按提问者的权限过滤文档，模型只看到他本来就能看到的内容。",
+        "whyZh": "访问控制要在架构层强制执行，不能依赖模型遵守提示词。"
+      },
+      "pitfalls": [
+        "只关心准确率，忽略了负载或权限压力下的失败点。",
+        "把访问控制写在提示词里，以为模型会自觉遵守。"
+      ],
+      "examTips": [
+        "题目问“最先失败的组件”时，找单点、串行同步调用或高权限共享账号。",
+        "安全相关的修复优先选架构层的强制措施，而不是提示词指令。"
+      ],
+      "practiceZh": "画出你最近做过的一个 AI 系统的数据流，标出流量翻十倍时和恶意用户出现时各自最先坏掉的地方。",
+      "references": [
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        },
+        {
+          "title": "Security",
+          "url": "https://code.claude.com/docs/en/security"
+        }
+      ]
+    },
+    {
+      "id": "D1-3",
+      "domain": "D1",
+      "objective": "Architectural Pattern Selection",
+      "titleZh": "架构模式的选择：工作流、智能体、增强型 LLM、Skills",
+      "summaryZh": "常见模式有四种：增强型 LLM（单次调用加检索、工具、记忆）、工作流（代码预先编排的固定路径，如提示链、路由、并行化）、智能体（模型根据反馈自己决定下一步）、基于 Skills 的模式（把可复用的流程和资料打包，按需加载）。选择时看三点：路径是否可预测、需要多少治理和审计、是否会在多个团队或任务间复用。每种模式都会划出一条委派边界，也就是模型能自主决定什么，架构师要能说明这条边界为什么合理。原则仍然是从最简单的方案开始。",
+      "concepts": [
+        {
+          "term": "Augmented LLM（增强型 LLM）",
+          "zh": "单次模型调用配合检索、工具和记忆，是所有更复杂模式的基本单元。"
+        },
+        {
+          "term": "Workflow（工作流）",
+          "zh": "由代码控制的固定路径，可预测、易审计，适合步骤明确的任务。"
+        },
+        {
+          "term": "Agent（智能体）",
+          "zh": "模型自己决定步骤和工具，适合无法事先确定步骤的开放任务，但成本和风险更高。"
+        },
+        {
+          "term": "Skills-based pattern",
+          "zh": "把说明、脚本和资料打包成 Skill，多个团队复用同一套做法，并能集中审查和更新。"
+        }
+      ],
+      "example": {
+        "bad": "每月固定格式的报表生成也做成自主智能体，审计时无法说明每次走了哪些步骤。",
+        "good": "报表用固定工作流生成，每步可追溯；只有原因调查这种开放任务交给智能体。",
+        "whyZh": "可预测且需要审计的任务用工作流，委派边界更窄也更容易治理。"
+      },
+      "pitfalls": [
+        "认为智能体总是比工作流高级。",
+        "需要多团队复用的流程每个团队各写一份提示词，无法统一治理。"
+      ],
+      "examTips": [
+        "“步骤固定、需要审计”选工作流；“步骤数无法预知”选智能体。",
+        "出现“多个团队复用”“集中更新”时，考虑 Skills 打包。"
+      ],
+      "practiceZh": "把你身边的三个 AI 用例分别归到四种模式中，并写出委派边界。",
+      "references": [
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        },
+        {
+          "title": "Agent Skills overview",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        }
+      ]
+    },
+    {
+      "id": "D1-4",
+      "domain": "D1",
+      "objective": "Orchestrator and Subagent Decomposition",
+      "titleZh": "编排者与子智能体的拆分",
+      "summaryZh": "多步任务可以由一个编排者（orchestrator）拆分给多个子智能体并行处理，再汇总结果。评估这种设计时关注两点：可观测性（能否看到每个子智能体收到了什么指示、调用了什么工具、返回了什么）和错误恢复（一个子智能体失败时，能否重试或降级而不必整体重来）。常见故障：委派指示太模糊导致重复劳动、子任务边界重叠、子智能体返回大量原始数据塞满编排者的上下文、汇总时丢失来源或冲突信息。",
+      "concepts": [
+        {
+          "term": "Delegation brief（委派说明）",
+          "zh": "给子智能体写清目标、范围、输出格式、可用工具和停止条件，避免重复或越界。"
+        },
+        {
+          "term": "Context isolation（上下文隔离）",
+          "zh": "子智能体在自己的上下文里工作，只把精简后的结论交回编排者。"
+        },
+        {
+          "term": "Result synthesis（结果汇总）",
+          "zh": "汇总时保留来源、标出冲突，而不是简单拼接。"
+        },
+        {
+          "term": "Error recovery（错误恢复）",
+          "zh": "记录每个子任务的状态，失败时只重试该子任务，或带着部分结果继续。"
+        }
+      ],
+      "example": {
+        "bad": "编排者只对三个子智能体说“去调研这个市场”，三者搜了同样的资料，返回的长文本把上下文撑满。",
+        "good": "每个子智能体负责不同地区，规定返回不超过一页的结构化摘要和来源列表。",
+        "whyZh": "清晰的边界和精简的返回格式能同时解决重复劳动和上下文膨胀。"
+      },
+      "pitfalls": [
+        "子智能体之间任务重叠，费用成倍增加却没有新信息。",
+        "没有记录每个子任务的轨迹，失败后只能从头再跑。"
+      ],
+      "examTips": [
+        "问“哪里会坏”时，先看委派边界、控制流和汇总三处。",
+        "改进选项里“结构化、精简的返回格式”和“明确分工”通常正确。"
+      ],
+      "practiceZh": "为一个需要调研三个方面的任务写出编排者给子智能体的委派说明，包括输出格式和停止条件。",
+      "references": [
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        },
+        {
+          "title": "Subagents",
+          "url": "https://code.claude.com/docs/en/sub-agents"
+        }
+      ]
+    },
+    {
+      "id": "D1-5",
+      "domain": "D1",
+      "objective": "Value-Based Architectural Decisions",
+      "titleZh": "以业务价值为准做架构决策",
+      "summaryZh": "架构决策最终要回到业务结果：在成本上限或 SLA 限制下，哪个方案带来的价值最大。可以用几个价值支柱来衡量：效率（节省的人工时间）、业务转型（能否做到以前做不到的事）、生产力、方案成本（模型调用、基础设施、运维人力）和性能 SLA（延迟、可用性）。不要因为某个功能新、听起来先进就选它，而要问它在哪个支柱上带来多少改善、代价是什么。常用的降本手段包括选更合适的模型层级、提示缓存和批处理。",
+      "concepts": [
+        {
+          "term": "Value pillars（价值支柱）",
+          "zh": "效率、转型、生产力、方案成本、性能 SLA，用来比较不同方案的商业价值。"
+        },
+        {
+          "term": "Cost ceiling（成本上限）",
+          "zh": "预算是硬约束，超过上限的方案即使效果更好也不能选。"
+        },
+        {
+          "term": "SLA constraint",
+          "zh": "延迟或可用性承诺决定能否用批处理、能否用更大的模型。"
+        },
+        {
+          "term": "Cost levers（降本手段）",
+          "zh": "模型层级、提示缓存、批处理、减少不必要的上下文，各自影响成本和延迟的方式不同。"
+        }
+      ],
+      "example": {
+        "bad": "为了用上最新功能，把夜间批量的文档分类改成最大模型的实时调用，成本超出预算三倍。",
+        "good": "夜间任务不需要实时结果，改用批处理并复用缓存的说明部分，在预算内完成。",
+        "whyZh": "先看业务约束（不需要实时、成本有上限），再选满足约束且价值最大的方案。"
+      },
+      "pitfalls": [
+        "用技术新颖度代替业务价值来比较方案。",
+        "忽略运维人力等隐藏成本，只算模型调用费。"
+      ],
+      "examTips": [
+        "题干给出预算或 SLA 时，先排除违反约束的选项。",
+        "“不需要实时”是批处理的信号；“重复的长前缀”是提示缓存的信号。"
+      ],
+      "practiceZh": "选一个 AI 项目，用五个价值支柱各写一句它带来的改善，并估算主要成本项。",
+      "references": [
+        {
+          "title": "Choosing the right model",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+        },
+        {
+          "title": "Batch processing",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing"
+        },
+        {
+          "title": "Prompt caching",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+        },
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ]
+    },
+    {
+      "id": "D1-6",
+      "domain": "D1",
+      "objective": "Deployment Surface and Agent Runtime Selection",
+      "titleZh": "部署平台与智能体运行环境的选择",
+      "summaryZh": "部署平台有 Anthropic API、Amazon Bedrock、Google Vertex AI、Microsoft Foundry。选择时看数据驻留和合规（数据必须留在哪个云或地区）、模型和功能的可用时间（云平台上的新功能可能晚到）、谁负责运维。运行环境有三类：自己写 Messages API 循环；自托管 Agent SDK 或无头模式的 Claude Code；托管的 Claude Managed Agents。它们在延迟、功能、托管方式、会话状态、沙箱和数据保管上各有取舍。数据驻留是硬约束时，零数据保留（ZDR）解决不了“数据在哪里”的问题。",
+      "concepts": [
+        {
+          "term": "Deployment surface（部署平台）",
+          "zh": "Anthropic API 新功能最早；云平台便于沿用现有合规边界和采购，但功能可能滞后。"
+        },
+        {
+          "term": "Data residency（数据驻留）",
+          "zh": "要求数据不离开指定的云边界或地区，是硬约束，优先于功能需求。"
+        },
+        {
+          "term": "Self-hosted runtime（自托管）",
+          "zh": "Agent SDK 或无头 Claude Code 由自己运行，控制力强，但会话状态、沙箱和扩容都要自己负责。"
+        },
+        {
+          "term": "Managed runtime（托管）",
+          "zh": "Claude Managed Agents 由 Anthropic 托管智能体循环和沙箱，省运维，但数据保管和平台选择受限。"
+        }
+      ],
+      "example": {
+        "bad": "法务要求数据留在公司现有云边界内，团队却选托管运行环境，理由是开启零数据保留就没问题。",
+        "good": "通过公司云市场的平台部署，接受功能滞后，并自己负责智能体运行环境和会话状态。",
+        "whyZh": "零数据保留管的是保留期限，不管数据在哪里处理；驻留要求决定了平台。"
+      },
+      "pitfalls": [
+        "把零数据保留当成数据驻留的解决方案。",
+        "选了云平台却以为所有新功能都会同时可用。"
+      ],
+      "examTips": [
+        "样题 1：驻留是硬约束时，选在现有云边界内部署并接受取舍的选项。",
+        "声称“没有任何取舍”的选项通常是错的。"
+      ],
+      "practiceZh": "列出你所在组织对数据位置、保留期限和运维人力的要求，判断适合哪个平台和运行环境。",
+      "references": [
+        {
+          "title": "Claude on Amazon Bedrock",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock"
+        },
+        {
+          "title": "Claude on Vertex AI",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai"
+        },
+        {
+          "title": "Agent SDK overview",
+          "url": "https://code.claude.com/docs/en/agent-sdk/overview"
+        }
+      ]
+    },
+    {
+      "id": "D2-1",
+      "domain": "D2",
+      "objective": "Model Tier Selection",
+      "titleZh": "模型层级的选择",
+      "summaryZh": "选模型层级要同时满足延迟、成本和质量三条约束。大模型推理能力最强但更慢更贵；中间层级在多数生产任务上性价比好；小而快的模型适合分类、路由、简单抽取等量大且要求低延迟的任务。考试不仅要你选对层级，还要能说出其他层级为什么不行：大模型超出延迟或预算，小模型达不到质量下限。常见做法是先用评估集测出各层级的质量，再挑满足质量下限的最便宜、最快的那个；也可以按任务难度路由到不同层级。",
+      "concepts": [
+        {
+          "term": "Quality floor（质量下限）",
+          "zh": "业务能接受的最低质量，用评估集测量；达不到下限的层级直接排除。"
+        },
+        {
+          "term": "Latency budget（延迟预算）",
+          "zh": "交互式场景对响应时间敏感，大模型可能超出预算。"
+        },
+        {
+          "term": "Cost per task（单任务成本）",
+          "zh": "调用量大时层级差异会被放大，要按总量估算。"
+        },
+        {
+          "term": "Routing（路由）",
+          "zh": "先用小模型判断难度或类别，再把难题交给大模型，兼顾成本和质量。"
+        }
+      ],
+      "example": {
+        "bad": "客服意图分类每秒上百次请求，团队直接用最大的模型，延迟和费用都超标。",
+        "good": "用评估集比较各层级，小模型在分类上已达标，就用小模型，难以判断的少数请求再升级。",
+        "whyZh": "满足质量下限的前提下选最快最便宜的层级，并说明其他层级被排除的理由。"
+      },
+      "pitfalls": [
+        "默认用最大模型，不做评估。",
+        "只看单次调用价格，不看调用量和延迟要求。"
+      ],
+      "examTips": [
+        "题干强调“低延迟、大量、简单任务”时选小模型或路由方案。",
+        "选项说明“为什么其他层级不行”的推理要和约束一一对应。"
+      ],
+      "practiceZh": "为你的一个任务列出质量下限、延迟预算和调用量，推断应该选哪个层级。",
+      "references": [
+        {
+          "title": "Choosing the right model",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+        }
+      ]
+    },
+    {
+      "id": "D2-2",
+      "domain": "D2",
+      "objective": "System Prompt Diagnosis and Revision",
+      "titleZh": "系统提示词的诊断与修订",
+      "summaryZh": "输出不一致的常见原因是系统提示词规定不足：没有说清任务范围、输出格式、遇到边界情况怎么做、语气和长度。诊断时从失败样例出发，找出提示词里没有覆盖的情况，再补上明确的说明，比如“只回答与订单有关的问题，其他问题礼貌拒绝并转人工”“按以下 JSON 字段输出”。修订时也要避免过度约束：堆砌大量“绝对不要”的规则、互相矛盾的指令，会让模型变得僵硬或在正常请求上也拒绝。修改后用评估集回归，确认没有引入新问题。",
+      "concepts": [
+        {
+          "term": "Underspecification（规定不足）",
+          "zh": "提示词没写到的情况，模型只能自己猜，导致不同请求之间输出不一致。"
+        },
+        {
+          "term": "Scope / format / behavior",
+          "zh": "修订的三个方面：处理范围、输出格式、边界情况下的行为。"
+        },
+        {
+          "term": "Over-constraint（过度约束）",
+          "zh": "规则过多或过严，模型在正常请求上也拒绝或输出僵硬。"
+        },
+        {
+          "term": "Explain the why（说明理由）",
+          "zh": "告诉模型规则背后的原因，比只写命令更能让它在新情况下正确推广。"
+        }
+      ],
+      "example": {
+        "bad": "回答长度忽长忽短，团队在提示词末尾加了十几条全大写的“绝对不要”。",
+        "good": "明确写出目标读者、长度范围和格式，并说明原因，再用失败样例回归测试。",
+        "whyZh": "针对缺失的规定补充说明，比堆砌禁令更稳定，也不会误伤正常请求。"
+      },
+      "pitfalls": [
+        "一遇到问题就加更强硬的措辞。",
+        "修改提示词后不跑回归测试就上线。"
+      ],
+      "examTips": [
+        "选“补充缺失的范围、格式或行为说明”的选项，而不是“换更大的模型”。",
+        "大量绝对禁令的选项通常是过度约束的陷阱。"
+      ],
+      "practiceZh": "找一个输出不稳定的提示词，列出它没覆盖的三种情况，并写出补充说明。",
+      "references": [
+        {
+          "title": "Prompting best practices",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+        },
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        }
+      ]
+    },
+    {
+      "id": "D2-3",
+      "domain": "D2",
+      "objective": "Prompting Technique Selection",
+      "titleZh": "提示技巧的选择",
+      "summaryZh": "提示技巧要对症下药：格式或风格不稳定，用 few-shot 示例；任务简单清楚，zero-shot 就够；需要多步推理时，可以在提示里要求先推理，或使用模型原生的扩展思考，并用 effort 控制推理深度；下游程序要解析结果时，用结构化输出保证符合 schema。每种技巧都有 token 成本：示例越多前缀越长，思考越深越慢越贵。考试会给出一个观察到的失败现象，要你选出代价最小又能解决它的技巧，而不是把所有技巧都加上。",
+      "concepts": [
+        {
+          "term": "Zero-shot / few-shot",
+          "zh": "没有示例与带少量示例；示例能稳定格式和风格，但增加 token。"
+        },
+        {
+          "term": "Prompted reasoning vs. native thinking",
+          "zh": "在提示里要求逐步推理，或开启模型原生的扩展思考；后者可以用 effort 调整深度。"
+        },
+        {
+          "term": "Structured outputs（结构化输出）",
+          "zh": "让输出严格符合 JSON schema，解决下游解析失败。"
+        },
+        {
+          "term": "Token cost（token 成本）",
+          "zh": "每种技巧都增加输入或输出 token，要按失败类型选最小改动。"
+        }
+      ],
+      "example": {
+        "bad": "JSON 偶尔缺字段导致解析失败，团队加了二十个示例和深度思考。",
+        "good": "开启结构化输出，按 schema 约束字段，示例和思考保持原样。",
+        "whyZh": "解析失败是格式问题，结构化输出直接解决，不需要额外增加推理成本。"
+      },
+      "pitfalls": [
+        "不分析失败类型就同时叠加多种技巧。",
+        "把格式问题当成推理问题，开启深度思考。"
+      ],
+      "examTips": [
+        "“格式不稳定”对应 few-shot 或结构化输出；“多步推理出错”对应思考或推理提示。",
+        "注意题干里的成本约束，选能解决问题的最小改动。"
+      ],
+      "practiceZh": "整理三个你见过的模型失败案例，分别写出最合适的提示技巧和它的代价。",
+      "references": [
+        {
+          "title": "Prompting best practices",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+        },
+        {
+          "title": "Effort",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/effort"
+        },
+        {
+          "title": "Structured outputs",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+        },
+        {
+          "title": "Prompt engineering overview",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
+        }
+      ]
+    },
+    {
+      "id": "D2-4",
+      "domain": "D2",
+      "objective": "Context Composition and Token Economics",
+      "titleZh": "上下文组成与 token 经济",
+      "summaryZh": "每次调用的上下文由系统提示词、工具定义、检索文档、对话历史和用户输入组成。分析 token 预算时，先算出每部分各占多少，再乘以调用量，找出最大的开销。常见浪费：每次都带上完整的对话历史、检索返回过多文档、工具定义中有大量用不到的工具、重复的长说明没有缓存。削减时要保证必要信息不丢：可以只保留最近几轮加摘要、减少检索数量但提高相关性、按需加载工具、把稳定前缀交给提示缓存。上下文越长，成本越高，模型也更容易被无关信息干扰。",
+      "concepts": [
+        {
+          "term": "Context composition（上下文组成）",
+          "zh": "系统提示、工具、检索、历史、输入各自占用的 token，要分别测量。"
+        },
+        {
+          "term": "Token budget（token 预算）",
+          "zh": "单次上下文上限和总成本预算；乘以调用量后才看得出真正的开销。"
+        },
+        {
+          "term": "Context rot（上下文腐化）",
+          "zh": "上下文越长，模型越难找到关键信息，准确率可能下降。"
+        },
+        {
+          "term": "Trim without loss（无损削减）",
+          "zh": "用摘要、精准检索和按需加载削减 token，同时保留回答所需的信息。"
+        }
+      ],
+      "example": {
+        "bad": "为了“保险”，每次请求都附上全部二十篇检索结果和完整的三十轮对话。",
+        "good": "只附最相关的五篇，历史保留最近几轮加一段摘要，稳定的说明部分用缓存。",
+        "whyZh": "按组成分析开销后精准削减，成本降低，模型也更专注。"
+      },
+      "pitfalls": [
+        "只看单次调用，不乘以调用量。",
+        "削减时把回答必需的信息也删掉了。"
+      ],
+      "examTips": [
+        "题目给出各部分 token 数时，先找最大项再选对应的削减手段。",
+        "“上下文越多越好”是常见错误选项。"
+      ],
+      "practiceZh": "取一次真实调用，估算各组成部分的 token 数，找出最大的两项并提出削减方法。",
+      "references": [
+        {
+          "title": "Context windows",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows"
+        },
+        {
+          "title": "Prompt caching",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+        },
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        }
+      ]
+    },
+    {
+      "id": "D2-5",
+      "domain": "D2",
+      "objective": "Cache Breakpoints and Reusable Packaging",
+      "titleZh": "缓存断点与可复用的打包方式",
+      "summaryZh": "提示缓存按前缀匹配：只要前面的内容完全相同，就能命中缓存，降低成本和延迟。所以要把稳定的内容（工具定义、系统提示、长文档）放在前面，把每次都变化的内容（用户问题、时间戳）放在后面，并在稳定部分的末尾设置缓存断点。如果在开头插入时间戳或用户名，后面所有内容都无法命中。对于多个工作流反复使用的提示序列，可以做成模块化的提示组件，或者打包成 Skill，只在需要时加载，避免每次都复制一大段说明。",
+      "concepts": [
+        {
+          "term": "Prefix matching（前缀匹配）",
+          "zh": "缓存只在前缀完全一致时命中，任何前面的改动都会让后续缓存失效。"
+        },
+        {
+          "term": "Stable before dynamic（稳定在前）",
+          "zh": "工具、系统提示、长文档在前，用户输入和变化的数据在后。"
+        },
+        {
+          "term": "Cache breakpoint（缓存断点）",
+          "zh": "标记缓存到哪里为止；可以分层设置多个断点，对应不同的更新频率。"
+        },
+        {
+          "term": "Skill packaging（Skill 打包）",
+          "zh": "把反复使用的说明和资料打包成 Skill，按需加载，便于复用和统一更新。"
+        }
+      ],
+      "example": {
+        "bad": "系统提示词第一行写入当前时间，缓存命中率几乎为零。",
+        "good": "时间放到用户消息里，系统提示和工具定义保持不变，并在其后设置断点。",
+        "whyZh": "把变化的内容移到断点之后，稳定前缀才能被反复命中。"
+      },
+      "pitfalls": [
+        "在前缀里放时间戳、请求 ID 等每次都变的内容。",
+        "把很少变化和经常变化的内容放在同一个断点前。"
+      ],
+      "examTips": [
+        "“缓存命中率低”时先找前缀中变化的内容。",
+        "多个工作流共用长说明时，选模块化或 Skill 打包的选项。"
+      ],
+      "practiceZh": "检查一个你的提示词，把每一段标为“稳定”或“变化”，重新排序并决定断点位置。",
+      "references": [
+        {
+          "title": "Prompt caching",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+        },
+        {
+          "title": "Agent Skills overview",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        }
+      ]
+    },
+    {
+      "id": "D2-6",
+      "domain": "D2",
+      "objective": "Reasoning Effort and Context Lifecycle",
+      "titleZh": "推理深度与长任务的上下文管理",
+      "summaryZh": "effort 参数控制模型思考和输出的投入程度：低 effort 更快更省，适合简单任务；高 effort 适合复杂推理，但延迟和 token 都增加。长时间运行的智能体会不断积累工具结果和对话，有三种管理方法：上下文编辑（自动清除过时的工具结果）、记忆工具（把重要信息写到上下文之外，之后再读回）、压缩（把历史总结成摘要后继续）。选择时看任务需要保留什么：旧工具结果已无用就清除；跨会话需要的事实写入记忆；需要保留脉络但细节可丢就压缩。",
+      "concepts": [
+        {
+          "term": "Effort（推理投入）",
+          "zh": "调整模型的思考深度和输出详尽程度，在质量与延迟、成本之间取舍。"
+        },
+        {
+          "term": "Context editing（上下文编辑）",
+          "zh": "自动清除旧的工具调用结果，释放上下文空间，适合工具输出大的长任务。"
+        },
+        {
+          "term": "Memory tool（记忆工具）",
+          "zh": "把需要长期保留的信息存到上下文外的文件中，跨会话或压缩后仍可读取。"
+        },
+        {
+          "term": "Compaction（压缩）",
+          "zh": "接近上限时把历史总结成摘要，保留脉络，丢掉细节。"
+        }
+      ],
+      "example": {
+        "bad": "代码代理跑了几个小时，上下文塞满了旧的测试输出，开始忘记最初的需求。",
+        "good": "开启上下文编辑清除旧的工具结果，并把需求和关键决定写入记忆文件。",
+        "whyZh": "清除无用内容、保存关键事实，让长任务保持准确和可控的延迟。"
+      },
+      "pitfalls": [
+        "对所有任务都用最高 effort。",
+        "只靠压缩，导致关键约束在摘要中被丢掉。"
+      ],
+      "examTips": [
+        "简单、量大的任务调低 effort；复杂推理调高。",
+        "区分三种方法：旧工具结果→上下文编辑；跨会话事实→记忆；整体脉络→压缩。"
+      ],
+      "practiceZh": "设想一个运行一整天的智能体，写出哪些信息该清除、该写入记忆、该压缩。",
+      "references": [
+        {
+          "title": "Effort",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/effort"
+        },
+        {
+          "title": "Context editing",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing"
+        },
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        }
+      ]
+    },
+    {
+      "id": "D3-1",
+      "domain": "D3",
+      "objective": "Least-Privilege Tool Configuration",
+      "titleZh": "最小权限的工具配置",
+      "summaryZh": "审查智能体和子智能体能用哪些工具时，遵守最小权限和最小足迹：只给完成任务必需的工具，范围尽量窄（只读而不是读写、指定目录而不是整个文件系统、单一 API 端点而不是任意 HTTP 请求）。每个子智能体按自己的职责配置工具列表，不要共用一套“全能”工具。如果某个工具权限过大，可以删除它、缩小范围，或换成更精简的访问方式，例如用一个专用的“查询订单状态”工具替代通用的数据库查询工具。权限越小，被提示注入利用时的损害也越小。",
+      "concepts": [
+        {
+          "term": "Least privilege（最小权限）",
+          "zh": "只授予任务必需的权限；多余的工具就是多余的攻击面。"
+        },
+        {
+          "term": "Minimal footprint（最小足迹）",
+          "zh": "智能体对环境的影响尽量小，不保留不需要的数据或访问。"
+        },
+        {
+          "term": "Per-subagent tool lists",
+          "zh": "每个子智能体只配置与其职责相符的工具，例如调研子智能体只读。"
+        },
+        {
+          "term": "Purpose-built tool（专用工具）",
+          "zh": "用参数受限的专用工具替代通用查询或命令执行工具，降低误用风险。"
+        }
+      ],
+      "example": {
+        "bad": "客服智能体拥有可执行任意 SQL 的工具，只因为“以后可能会用到”。",
+        "good": "换成只能按订单号查询状态的专用工具，退款工具交给另一个需要批准的流程。",
+        "whyZh": "范围窄的专用工具让智能体只能做该做的事，即使被注入也损害有限。"
+      },
+      "pitfalls": [
+        "为了方便给所有子智能体同一套完整工具。",
+        "用提示词说“不要删除数据”代替真正移除删除权限。"
+      ],
+      "examTips": [
+        "选“删除或缩小工具范围”的选项，而不是“在提示词里提醒”。",
+        "看到通用命令执行或任意查询工具时，考虑换成专用工具。"
+      ],
+      "practiceZh": "列出一个智能体的所有工具，逐一判断是否必要、能否只读、能否换成专用工具。",
+      "references": [
+        {
+          "title": "Agent SDK permissions",
+          "url": "https://code.claude.com/docs/en/agent-sdk/permissions"
+        },
+        {
+          "title": "Subagents",
+          "url": "https://code.claude.com/docs/en/sub-agents"
+        },
+        {
+          "title": "Writing effective tools for agents",
+          "url": "https://www.anthropic.com/engineering/writing-tools-for-agents"
+        }
+      ]
+    },
+    {
+      "id": "D3-2",
+      "domain": "D3",
+      "objective": "Authentication and Authorization Posture",
+      "titleZh": "认证与授权的安全设计",
+      "summaryZh": "集成中常见的问题有两类：凭据泄露和权限提升。凭据泄露包括把 API 密钥写进提示词、代码仓库或日志，或让模型能读取存放密钥的文件。权限提升包括智能体用高权限的服务账号代替用户执行操作、工具不检查调用者是否有权访问该资源、OAuth 令牌的范围过大。对应措施：密钥放在密钥管理服务中，由工具层注入而不进入模型上下文；按最终用户的身份和权限授权；使用短期、范围最小的令牌；在工具服务端校验每次请求的授权。",
+      "concepts": [
+        {
+          "term": "Credential exposure（凭据泄露）",
+          "zh": "密钥出现在提示词、日志、仓库或模型可读的文件中，可能被输出或被注入窃取。"
+        },
+        {
+          "term": "Privilege escalation（权限提升）",
+          "zh": "用户通过智能体做到他本来没有权限做的事，例如借高权限服务账号读取他人数据。"
+        },
+        {
+          "term": "Delegated authorization（委托授权）",
+          "zh": "工具以最终用户的身份和权限执行，在服务端校验，而不是信任模型传来的参数。"
+        },
+        {
+          "term": "Scoped, short-lived tokens",
+          "zh": "令牌只包含必要范围并尽快过期，降低泄露后的影响。"
+        }
+      ],
+      "example": {
+        "bad": "把数据库密码写在系统提示里，让模型生成连接字符串。",
+        "good": "工具服务从密钥管理服务读取凭据，模型只调用工具，永远看不到密码。",
+        "whyZh": "凭据不进入模型上下文，就不会被输出或被注入的指令窃取。"
+      },
+      "pitfalls": [
+        "以为模型会保密，把密钥放进上下文。",
+        "工具只信任模型传入的用户 ID，不做服务端校验。"
+      ],
+      "examTips": [
+        "每个问题要配对一个具体措施：泄露→密钥管理与注入；提权→按用户授权与服务端校验。",
+        "“在提示词里要求模型不要泄露”不是有效控制。"
+      ],
+      "practiceZh": "检查一个集成，找出密钥在哪里出现过、工具用谁的身份执行，并写出改进方案。",
+      "references": [
+        {
+          "title": "Security",
+          "url": "https://code.claude.com/docs/en/security"
+        },
+        {
+          "title": "Identity and access management",
+          "url": "https://code.claude.com/docs/en/iam"
+        }
+      ]
+    },
+    {
+      "id": "D3-3",
+      "domain": "D3",
+      "objective": "Relieving the Binding Performance Constraint",
+      "titleZh": "解除真正的性能瓶颈",
+      "summaryZh": "当准确率或延迟成为瓶颈时，先判断哪一个才是约束，再选能解除它、并对另一方影响最小的改动。可调的杠杆有：检索深度（多取几篇提高召回，但增加 token 和延迟）、模型层级（大模型提高准确率但更慢）、提示缓存（降低重复前缀的延迟和成本，几乎不影响准确率）、调用方式（并行化、流式输出、减少串行调用次数）。例如准确率已达标但延迟超标，就不该换更大的模型，而应考虑缓存、并行或更小的模型；准确率不够且原因是检索漏掉文档，就调检索而不是换模型。",
+      "concepts": [
+        {
+          "term": "Binding constraint（真正的约束）",
+          "zh": "当前限制系统的那个指标；改其他指标没有意义。"
+        },
+        {
+          "term": "Retrieval depth（检索深度）",
+          "zh": "取回的文档数量与质量；召回不足时提高，噪音过多时降低。"
+        },
+        {
+          "term": "Call pattern（调用方式）",
+          "zh": "串行改并行、合并调用、流式输出，都能降低用户感受到的延迟。"
+        },
+        {
+          "term": "Least-cost trade-off",
+          "zh": "选择对另一个指标损害最小的改动。"
+        }
+      ],
+      "example": {
+        "bad": "延迟超标，准确率已经满足要求，团队却换成了更大的模型。",
+        "good": "缓存稳定前缀，把三个互不依赖的调用改为并行，准确率保持不变。",
+        "whyZh": "针对延迟这个真正的约束下手，并选择不牺牲准确率的方法。"
+      },
+      "pitfalls": [
+        "不分析瓶颈，换大模型解决一切。",
+        "为提高准确率无限增加检索数量，导致延迟失控。"
+      ],
+      "examTips": [
+        "先看题干说哪个指标不达标，再排除改善另一个指标的选项。",
+        "缓存和并行通常是降延迟且不伤准确率的选项。"
+      ],
+      "practiceZh": "为一个系统列出准确率和延迟的现状与目标，判断哪个是约束，并选出一个改动。",
+      "references": [
+        {
+          "title": "Choosing the right model",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+        },
+        {
+          "title": "Prompt caching",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+        },
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ]
+    },
+    {
+      "id": "D3-4",
+      "domain": "D3",
+      "objective": "Instrumentation and Monitoring Gaps",
+      "titleZh": "监控与埋点的缺口",
+      "summaryZh": "很多故障不是设计错了，而是发生了却没人发现。分析时问：这个故障在哪个指标上会有反映？我们有没有收集这个指标？常见缺口：只监控 HTTP 错误率，不监控输出质量；只看平均延迟，不看尾部延迟；没有记录工具调用的参数和结果；没有按租户、语言或类别分组，导致某一类用户的质量下降被平均值掩盖；没有在线抽样评估。应补上的监控包括：抽样的在线质量评估、按分组的指标、工具调用和 stop reason 的日志、token 和费用的异常告警。",
+      "concepts": [
+        {
+          "term": "Silent failure（静默失败）",
+          "zh": "系统返回 200 但内容错误，只看错误率无法发现。"
+        },
+        {
+          "term": "Online evaluation（在线评估）",
+          "zh": "对生产流量抽样，用评分器或人工检查质量，及时发现下降。"
+        },
+        {
+          "term": "Segmented metrics（分组指标）",
+          "zh": "按租户、语言、请求类别等拆分指标，防止局部问题被平均值掩盖。"
+        },
+        {
+          "term": "Trace logging（轨迹日志）",
+          "zh": "记录每次调用的输入、工具调用、结果和 stop reason，便于追查原因。"
+        }
+      ],
+      "example": {
+        "bad": "西班牙语用户的回答质量下降了一个月，但整体满意度平均值几乎没变，没人发现。",
+        "good": "按语言拆分质量指标并设置告警，同时对每种语言抽样做在线评估。",
+        "whyZh": "分组指标和在线评估能把被平均值掩盖的局部故障暴露出来。"
+      },
+      "pitfalls": [
+        "只监控基础设施指标，不监控输出质量。",
+        "只看平均值，忽视分组和尾部。"
+      ],
+      "examTips": [
+        "问“哪种监控能发现”时，选直接测量该故障表现的指标。",
+        "被平均值掩盖的问题对应分组指标。"
+      ],
+      "practiceZh": "回想一次线上问题，写出它本可以在哪个指标上被提前发现，以及需要按什么维度分组监控。",
+      "references": [
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        }
+      ]
+    },
+    {
+      "id": "D3-5",
+      "domain": "D3",
+      "objective": "Retrieval Architecture Selection",
+      "titleZh": "检索架构的选择",
+      "summaryZh": "三种主要方式：预先建索引的 RAG（向量或关键词检索后把片段放入上下文）、用工具进行的智能体式搜索（模型自己决定搜什么、搜几次）、把整个语料直接放进上下文。选择依据是语料大小和变化频率、查询模式、延迟和成本约束。语料小且稳定，可以整个放进上下文并配合提示缓存；语料大、问题明确，用 RAG；问题开放、需要多步探索，用智能体式搜索。用 RAG 时可以配置上下文检索（给每个片段加上它所在文档的背景说明再建索引），并结合关键词检索和重排，检索不到时要有回退方案。",
+      "concepts": [
+        {
+          "term": "Pre-built RAG",
+          "zh": "预先建索引，查询快、成本可预测，适合大语料和明确的问题。"
+        },
+        {
+          "term": "Agentic search（智能体式搜索）",
+          "zh": "模型通过工具多次搜索和阅读，适合开放、多步的问题，但更慢更贵。"
+        },
+        {
+          "term": "Full-corpus context",
+          "zh": "语料足够小时整个放进上下文，配合缓存，省去检索带来的漏检。"
+        },
+        {
+          "term": "Contextual retrieval（上下文检索）",
+          "zh": "建索引前给每个片段补上文档背景，并结合 BM25 和重排，减少检索失败。"
+        }
+      ],
+      "example": {
+        "bad": "只有三十页的产品手册，团队搭了完整的向量数据库，经常因切块漏掉答案。",
+        "good": "把整本手册放进上下文并缓存，省掉检索环节。",
+        "whyZh": "语料小而稳定时，全量放入上下文比 RAG 更简单也更准确。"
+      },
+      "pitfalls": [
+        "无论语料大小都先搭向量数据库。",
+        "开放式调研问题只做一次检索，信息不足。"
+      ],
+      "examTips": [
+        "看语料规模、更新频率和查询是否开放来选方式。",
+        "切块丢失上下文导致检索失败时，选上下文检索。"
+      ],
+      "practiceZh": "为三个不同规模、不同更新频率的知识库分别选择检索方式，并写出选择的理由和回退方案。",
+      "references": [
+        {
+          "title": "Introducing Contextual Retrieval",
+          "url": "https://www.anthropic.com/news/contextual-retrieval"
+        },
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        },
+        {
+          "title": "Prompt caching",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+        }
+      ]
+    },
+    {
+      "id": "D3-6",
+      "domain": "D3",
+      "objective": "Connection Mechanism Selection",
+      "titleZh": "连接方式的选择：MCP、直接 API/CLI、智能体间交接",
+      "summaryZh": "连接外部系统有三种主要方式。MCP 把工具和资源标准化，适合多个应用或客户端复用同一个集成，并可以集中治理。直接调用 API 或命令行工具实现简单、延迟低，适合单一应用内的专用集成。智能体间交接（handoff）把任务连同上下文交给另一个智能体，适合需要不同专业能力或不同权限边界的场景。比较时看延迟（多一层协议或多一个智能体就多一份开销）、安全（谁持有凭据、信任边界在哪里）和状态（是否需要在多次调用之间保持会话）。",
+      "concepts": [
+        {
+          "term": "MCP（Model Context Protocol）",
+          "zh": "标准化的工具和资源协议，一次实现即可被多个客户端使用，便于集中管理。"
+        },
+        {
+          "term": "Direct API / CLI",
+          "zh": "在应用代码里直接调用，最简单、延迟最低，但复用和治理较弱。"
+        },
+        {
+          "term": "Agent-to-agent handoff",
+          "zh": "把任务交给另一个智能体，适合需要不同能力或权限隔离的步骤，但增加延迟和状态传递的复杂度。"
+        },
+        {
+          "term": "Statefulness（状态性）",
+          "zh": "集成是否需要保持会话或连接状态，影响选择和扩容方式。"
+        }
+      ],
+      "example": {
+        "bad": "只在一个后台脚本里用到的内部接口，也专门做成 MCP 服务器并部署运维。",
+        "good": "单一脚本直接调用 API；多个团队的助手都要访问的 CRM 再做成 MCP 服务器。",
+        "whyZh": "按复用范围、延迟和安全需要选择连接方式，避免不必要的复杂度。"
+      },
+      "pitfalls": [
+        "认为所有集成都应该用 MCP。",
+        "需要权限隔离的步骤仍在同一个智能体里完成。"
+      ],
+      "examTips": [
+        "“多个客户端复用、集中治理”选 MCP；“单一应用、低延迟”选直接调用。",
+        "需要不同权限边界或专业能力时考虑交接。"
+      ],
+      "practiceZh": "列出你系统中的三个外部集成，分别判断适合 MCP、直接调用还是交接，并写出延迟和安全上的理由。",
+      "references": [
+        {
+          "title": "Tool use overview",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview"
+        },
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        }
+      ]
+    },
+    {
+      "id": "D3-7",
+      "domain": "D3",
+      "objective": "Progressive Discovery vs. Monolithic Context Loading",
+      "titleZh": "按需发现与一次性全部加载",
+      "summaryZh": "上下文可以一开始全部加载，也可以让模型在需要时逐步发现。一次性加载简单、没有额外往返，适合内容少、几乎每次都要用的情况；但内容多时会占满上下文、增加成本，还会让模型分心。按需发现（progressive disclosure）先只提供目录或简短说明，模型判断需要时再读取详细内容，例如 Skills 先只加载名称和描述，用到时才读完整说明；工具很多时先给搜索工具。代价是多了几次往返，延迟可能增加。选择时看上下文需求有多大、每次请求实际用到多少、能接受多少延迟。",
+      "concepts": [
+        {
+          "term": "Progressive disclosure（渐进式披露）",
+          "zh": "先给摘要或目录，需要时再加载细节，节省上下文。"
+        },
+        {
+          "term": "Monolithic loading（全量加载）",
+          "zh": "一次性放入所有说明和资料，简单但占用大量 token。"
+        },
+        {
+          "term": "Skill metadata",
+          "zh": "Skill 平时只加载名称和描述，触发时才读取完整内容和附带文件。"
+        },
+        {
+          "term": "Latency tolerance（延迟容忍度）",
+          "zh": "按需发现增加往返，实时性要求极高时可能不适合。"
+        }
+      ],
+      "example": {
+        "bad": "把两百个工具的完整定义和所有操作手册每次都塞进上下文。",
+        "good": "常用的几个工具直接加载，其余通过工具搜索和 Skill 描述按需发现。",
+        "whyZh": "只加载每次真正需要的内容，既省 token 又减少干扰。"
+      },
+      "pitfalls": [
+        "内容越来越多仍然坚持全量加载。",
+        "延迟要求很严的场景里设计了多层按需发现。"
+      ],
+      "examTips": [
+        "“内容多、每次只用一小部分”选按需发现。",
+        "“内容少、每次都用、延迟敏感”选全量加载。"
+      ],
+      "practiceZh": "统计你的智能体每次请求实际用到的工具和文档比例，判断是否应改为按需发现。",
+      "references": [
+        {
+          "title": "Agent Skills overview",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        },
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        }
+      ]
+    },
+    {
+      "id": "D3-8",
+      "domain": "D3",
+      "objective": "Production Reliability Controls",
+      "titleZh": "生产环境的可靠性控制",
+      "summaryZh": "从错误日志或吞吐数据中判断问题，再选择合适的控制：遇到 429 速率限制或 529 过载时，用带抖动的指数退避重试，并遵守 retry-after；400 类请求错误不应重试，要修正请求；对有副作用的工具（付款、发邮件、建工单）加幂等键，这样重试时服务端会返回第一次的结果而不会重复执行；主平台持续不可用时，可以路由到备用区域或平台。关键是重试本身不能制造重复的副作用。样题 2 就是这个情况：超时后重试导致重复付款，正解是给每次付款调用加幂等键。",
+      "concepts": [
+        {
+          "term": "Exponential backoff with jitter",
+          "zh": "重试间隔按指数增长并加随机抖动，避免大量客户端同时重试。"
+        },
+        {
+          "term": "Retryable vs. non-retryable",
+          "zh": "429、529、部分 5xx 可以重试；400、401、403 等应修正请求或配置。"
+        },
+        {
+          "term": "Idempotency key（幂等键）",
+          "zh": "同一操作携带相同的键，服务端识别重复请求并返回原结果，防止重复副作用。"
+        },
+        {
+          "term": "Fallback routing（回退路由）",
+          "zh": "主区域或平台不可用时切换到备用，保证可用性。"
+        }
+      ],
+      "example": {
+        "bad": "付款工具超时后客户端自动重试，原请求其实已执行，结果重复付款。",
+        "good": "每次付款调用附带幂等键，重试时付款服务返回第一次的结果。",
+        "whyZh": "幂等性让重试变得安全；延长超时只能减少发生次数，不能根除。"
+      },
+      "pitfalls": [
+        "对 400 错误也不断重试。",
+        "用提示词让模型“不要重复付款”，而重试发生在模型看不到的客户端。"
+      ],
+      "examTips": [
+        "样题 2：重试造成重复副作用时选幂等键。",
+        "批处理不适合同步的副作用操作；更长的超时不是根本解决。"
+      ],
+      "practiceZh": "找出你系统中所有有副作用的工具，确认每一个是否支持幂等键和合适的重试策略。",
+      "references": [
+        {
+          "title": "Errors",
+          "url": "https://platform.claude.com/docs/en/api/errors"
+        },
+        {
+          "title": "Rate limits",
+          "url": "https://platform.claude.com/docs/en/api/rate-limits"
+        },
+        {
+          "title": "Handle tool calls",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+        }
+      ]
+    },
+    {
+      "id": "D4-1",
+      "domain": "D4",
+      "objective": "Evaluation Coverage Gaps",
+      "titleZh": "评估覆盖的缺口",
+      "summaryZh": "生产事故发生后，要回头问：发布前的评估为什么没有发现它？通常是缺少某个指标或评分对象。指标维度包括准确率、有据性（回答是否有来源支撑）、延迟、成本、安全（有害输出）和安全防护（越狱、注入）。评分对象也可能不对：只评最终回答，不评中间的工具调用；只评单轮，不评多轮。找出缺口后，要定义一个能在发布前捕捉到该故障的具体指标，并把事故样例加入评估集，防止再次发生。",
+      "concepts": [
+        {
+          "term": "Metric dimensions（指标维度）",
+          "zh": "准确率、有据性、延迟、成本、安全、安全防护，事故往往出在没测的维度。"
+        },
+        {
+          "term": "Groundedness（有据性）",
+          "zh": "回答中的说法能否在提供的资料中找到依据，用来发现编造。"
+        },
+        {
+          "term": "Grading target（评分对象）",
+          "zh": "评什么：最终回答、引用、工具调用参数、多轮对话的整体结果。"
+        },
+        {
+          "term": "Regression case（回归用例）",
+          "zh": "把事故样例加入评估集，之后每次改动都会检查。"
+        }
+      ],
+      "example": {
+        "bad": "评估只测答案正确率，上线后发现回答里常引用资料中不存在的条款。",
+        "good": "加入有据性指标，检查每个说法是否有对应的来源，并把事故样例加入评估集。",
+        "whyZh": "针对没有被测量的维度补上指标，下次发布前就能拦下同类问题。"
+      },
+      "pitfalls": [
+        "事故后只修提示词，不补评估。",
+        "所有指标都只看最终回答，忽略中间步骤。"
+      ],
+      "examTips": [
+        "问“哪个指标本可以发现”时，选直接对应故障表现的指标。",
+        "编造引用对应有据性；越狱对应安全防护评估。"
+      ],
+      "practiceZh": "选一次线上问题，写出它属于哪个指标维度，以及应该加入的评估用例。",
+      "references": [
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Mitigate jailbreaks and prompt injections",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+        }
+      ]
+    },
+    {
+      "id": "D4-2",
+      "domain": "D4",
+      "objective": "Deriving Evaluations from Business Processes",
+      "titleZh": "从业务流程推导评估",
+      "summaryZh": "评估要服务于具体决定：换模型、改提示词还是作为发布门槛。先从业务流程中选出与这个决定相关的部分作为评估对象，再从业务结果推导成功标准，例如“工单分类准确率不低于人工基线”“退款决定的错误金额每月低于某值”，而不是“回答看起来不错”。测试集要覆盖真实的分布：常见请求、边缘情况、对抗输入，各类请求的比例要接近生产。标准要具体、可测量、可实现，并且有多个维度。",
+      "concepts": [
+        {
+          "term": "Decision-driven eval",
+          "zh": "评估回答一个具体问题：这次改动可以上线吗？换模型是否值得？"
+        },
+        {
+          "term": "Success criteria（成功标准）",
+          "zh": "具体、可测量、可实现、多维，由业务结果推导。"
+        },
+        {
+          "term": "Deployed distribution（真实分布）",
+          "zh": "测试集各类请求的比例要接近生产流量，否则评估结果不代表上线表现。"
+        },
+        {
+          "term": "Edge and adversarial cases",
+          "zh": "边缘和对抗样例单独覆盖，防止只在常见请求上表现好。"
+        }
+      ],
+      "example": {
+        "bad": "只用二十个团队自己写的简单问题评估新模型，就决定全量切换。",
+        "good": "从生产日志按类别抽样组成测试集，并按业务标准设定通过线，再决定是否切换。",
+        "whyZh": "测试集代表真实分布、标准来自业务，评估结果才能支撑决定。"
+      },
+      "pitfalls": [
+        "成功标准写成“质量更好”这种无法测量的描述。",
+        "测试集只包含容易的常见问题。"
+      ],
+      "examTips": [
+        "选“按生产分布抽样”和“由业务结果定义标准”的选项。",
+        "发布门槛类问题，选与该决定直接相关的流程环节。"
+      ],
+      "practiceZh": "为一次提示词修改写出三条可测量的成功标准和测试集的组成比例。",
+      "references": [
+        {
+          "title": "Define success criteria",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/define-success"
+        },
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        }
+      ]
+    },
+    {
+      "id": "D4-3",
+      "domain": "D4",
+      "objective": "LLM-as-Judge Design and Bias",
+      "titleZh": "LLM 评分器的设计与偏差",
+      "summaryZh": "用 LLM 作为评分器可以大规模评估，但它有偏差，结果与人工判断不一致时要诊断原因。位置偏差：成对比较时偏向先出现或后出现的答案，可以交换顺序各评一次。冗长偏差：偏好更长的回答，可以在评分标准里明确长度不是标准，或按要点打分。自我偏好：偏向与自己同系列模型的输出，可以换评分模型或用多个评分器。评分漂移：评分模型或提示更新后标准变了，要固定版本并定期用人工标注的校准集检查一致性。",
+      "concepts": [
+        {
+          "term": "Position bias（位置偏差）",
+          "zh": "偏向某个位置的答案；交换顺序评两次并取一致结果。"
+        },
+        {
+          "term": "Verbosity bias（冗长偏差）",
+          "zh": "偏好更长的回答；用明确的评分细则按要点打分。"
+        },
+        {
+          "term": "Self-preference bias（自我偏好）",
+          "zh": "偏向同系模型的输出；换评分模型或组合多个评分器。"
+        },
+        {
+          "term": "Judge drift（评分漂移）",
+          "zh": "评分器版本或提示变化导致标准改变；固定版本并用人工校准集定期检查。"
+        }
+      ],
+      "example": {
+        "bad": "评分器总是给更长的回答高分，但用户实际更喜欢简洁的回答。",
+        "good": "评分细则按是否覆盖要点打分并说明长度不加分，再用人工标注集校准。",
+        "whyZh": "先识别偏差类型，再用对应的方法纠正，并用人工判断验证。"
+      },
+      "pitfalls": [
+        "把评分器结果当作绝对真相，不与人工对比。",
+        "评分器提示更新后不重新校准。"
+      ],
+      "examTips": [
+        "题干描述的现象对应偏差类型：顺序影响→位置；长度影响→冗长。",
+        "纠正方法要对应偏差类型，“换更大的评分模型”通常不是重点。"
+      ],
+      "practiceZh": "设计一个成对比较的评分流程，写出如何防止位置偏差和冗长偏差。",
+      "references": [
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        }
+      ]
+    },
+    {
+      "id": "D4-4",
+      "domain": "D4",
+      "objective": "Experimental Design for Configuration Comparison",
+      "titleZh": "比较两种配置的实验设计",
+      "summaryZh": "比较两个提示词或模型配置时，要在样本数和成本预算内设计出可信的实验。模型输出有随机性，同一用例跑多次结果也会不同，所以要对每个用例运行多次，估计运行间的方差，判断两种配置的差异是否大于这个噪音。两种配置要用同一组用例、同样的评分方法，其他条件保持不变。样本太少时，几个百分点的差异可能只是偶然。预算有限时，优先保证用例覆盖真实分布，再决定每个用例跑几次。",
+      "concepts": [
+        {
+          "term": "Run-to-run variance（运行间方差）",
+          "zh": "同一输入多次运行结果的差异，是判断真实效果的噪音基线。"
+        },
+        {
+          "term": "Trials per case（每例运行次数）",
+          "zh": "每个用例跑多次取平均或通过率，减少偶然性。"
+        },
+        {
+          "term": "Controlled comparison（对照比较）",
+          "zh": "同样的用例、评分和参数，只改变要比较的那一个因素。"
+        },
+        {
+          "term": "Sample budget（样本预算）",
+          "zh": "在成本内平衡用例数和每例次数，用例覆盖面通常更重要。"
+        }
+      ],
+      "example": {
+        "bad": "新提示词在三十个用例上各跑一次，通过率高了两个百分点，就判定更好。",
+        "good": "每个用例两种配置各跑多次，计算方差后确认差异超出噪音范围再下结论。",
+        "whyZh": "只有当差异大于运行间的随机波动时，才能说明配置真的更好。"
+      },
+      "pitfalls": [
+        "每个用例只跑一次就比较。",
+        "两种配置用了不同的用例或评分方法。"
+      ],
+      "examTips": [
+        "题干出现“结果每次不同”时，选多次运行并估计方差的方案。",
+        "注意是否只改变了一个变量。"
+      ],
+      "practiceZh": "为一次模型比较写出实验计划：用例数、每例次数、评分方法和判定标准。",
+      "references": [
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        }
+      ]
+    },
+    {
+      "id": "D4-5",
+      "domain": "D4",
+      "objective": "Root-Cause Isolation from Logs and Traces",
+      "titleZh": "从日志和轨迹定位根因",
+      "summaryZh": "智能体出错时，要从日志和轨迹中判断故障属于哪一类，再对症修复。提示词问题：指令不清或冲突，模型按字面做错，修改提示词。检索问题：正确资料根本没被取回，调整检索。幻觉：资料里有正确答案或没有答案，模型却编造，加强有据性要求、允许回答“不知道”。工具或子智能体错误：工具返回错误、参数格式不对、子智能体返回不完整，修工具或委派说明。模型能力不匹配：任务超出该层级能力，换层级或拆分任务。顺序是先看输入和检索结果，再看模型推理，最后看工具。",
+      "concepts": [
+        {
+          "term": "Failure taxonomy（故障分类）",
+          "zh": "提示词、检索、幻觉、工具或子智能体错误、模型不匹配，五类修法不同。"
+        },
+        {
+          "term": "Retrieval failure",
+          "zh": "检索结果里没有正确资料，改提示词或模型都无济于事。"
+        },
+        {
+          "term": "Hallucination（幻觉）",
+          "zh": "答案不被资料支持；要求引用来源并允许回答“不知道”。"
+        },
+        {
+          "term": "Trace inspection（轨迹检查）",
+          "zh": "逐步查看输入、检索、工具调用和结果，定位第一次出错的地方。"
+        }
+      ],
+      "example": {
+        "bad": "回答错误，团队直接换了更大的模型；轨迹显示检索根本没取回相关文档。",
+        "good": "检查轨迹后发现是检索问题，改进查询和索引后问题解决。",
+        "whyZh": "先定位第一个出错的环节，修对环节才能真正解决问题。"
+      },
+      "pitfalls": [
+        "不看轨迹就换模型或改提示词。",
+        "把工具返回的错误误判为模型幻觉。"
+      ],
+      "examTips": [
+        "题目给出轨迹时，找出第一个出错的步骤并对应故障类别。",
+        "资料中没有答案时，错误属于检索，不属于提示词。"
+      ],
+      "practiceZh": "拿一个失败的智能体轨迹，按五类故障标注每一步，找出第一个出错的环节和对应的修复方法。",
+      "references": [
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Handle tool calls",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+        },
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        },
+        {
+          "title": "Choosing the right model",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+        }
+      ]
+    },
+    {
+      "id": "D4-6",
+      "domain": "D4",
+      "objective": "Cost and Latency Optimization",
+      "titleZh": "成本与延迟的优化",
+      "summaryZh": "优化前先看数据：用成本和延迟的遥测找出钱花在哪里，例如哪些端点调用最多、哪些请求的输入 token 最大、缓存命中率是多少。常见手段：提高缓存命中率（调整前缀顺序和断点）、不需要实时的任务改用批处理、简单任务降低 effort 或换小模型、削减不必要的上下文。每次优化都要用评估确认质量没有跌破下限。缓存命中率低往往是前缀里有变化的内容；某个功能花费突然上升，常是上下文在多轮中不断膨胀。",
+      "concepts": [
+        {
+          "term": "Telemetry-driven（数据驱动）",
+          "zh": "按端点、功能、租户统计 token、费用和延迟，先找最大开销。"
+        },
+        {
+          "term": "Cache hit rate（缓存命中率）",
+          "zh": "命中率低说明前缀不稳定，调整后能同时降低成本和延迟。"
+        },
+        {
+          "term": "Batch for non-urgent work",
+          "zh": "不需要即时结果的任务用批处理，大幅降低成本。"
+        },
+        {
+          "term": "Quality floor（质量下限）",
+          "zh": "优化后必须用评估验证质量仍满足要求。"
+        }
+      ],
+      "example": {
+        "bad": "为了降本，所有请求一律改用最小模型，复杂请求的质量明显下降。",
+        "good": "根据遥测发现主要费用来自缓存未命中，调整前缀后费用下降，模型不变。",
+        "whyZh": "先找到真正的开销来源，再选不伤质量的优化手段。"
+      },
+      "pitfalls": [
+        "不看数据就整体降级模型。",
+        "优化后不做评估，质量下降没有被发现。"
+      ],
+      "examTips": [
+        "题干给出缓存命中率很低时，优先调整前缀和断点。",
+        "“不需要实时”的任务对应批处理。"
+      ],
+      "practiceZh": "查看你的 API 用量数据，找出费用最高的两个来源，并各提出一个优化手段。",
+      "references": [
+        {
+          "title": "Prompt caching",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+        },
+        {
+          "title": "Batch processing",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing"
+        },
+        {
+          "title": "Effort",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/effort"
+        },
+        {
+          "title": "Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        }
+      ]
+    },
+    {
+      "id": "D4-7",
+      "domain": "D4",
+      "objective": "Model Version Migration",
+      "titleZh": "模型版本迁移",
+      "summaryZh": "旧模型会按照公布的时间表弃用和退役。判断迁移时机时，看两件事：弃用时间表（还剩多久必须迁移）和回归评估结果（新模型在你的评估集上表现如何）。可选的做法：固定当前版本（pin）以保持稳定；针对新模型重新调整提示词；用新模型重新建立评估基线；在离退役还有时间、回归结果不理想时推迟迁移并安排计划。不要在没有评估的情况下直接切换，也不要用会自动指向最新版本的别名来运行生产环境，否则行为可能在你不知情时改变。",
+      "concepts": [
+        {
+          "term": "Deprecation timeline（弃用时间表）",
+          "zh": "官方公布的弃用和退役日期，决定迁移的最后期限。"
+        },
+        {
+          "term": "Version pinning（固定版本）",
+          "zh": "生产环境使用具体的模型版本 ID，避免行为意外改变。"
+        },
+        {
+          "term": "Re-baseline（重建基线）",
+          "zh": "在新模型上重新运行评估，得到新的比较基准。"
+        },
+        {
+          "term": "Prompt re-tuning（重调提示词）",
+          "zh": "新模型对提示词的反应可能不同，需要针对性调整后再比较。"
+        }
+      ],
+      "example": {
+        "bad": "生产环境使用会自动更新的别名，某天回答风格突然改变，导致下游解析失败。",
+        "good": "生产固定具体版本，新版本先在评估集上回归，调整提示词后再按计划切换。",
+        "whyZh": "固定版本加回归评估，让迁移成为可控的、有计划的变更。"
+      },
+      "pitfalls": [
+        "收到弃用通知后不做评估直接切换。",
+        "等到退役前最后一刻才开始迁移。"
+      ],
+      "examTips": [
+        "回归结果差但离退役还远时，选重调提示词或推迟并制定计划。",
+        "生产环境用别名而非固定版本通常是错误选项。"
+      ],
+      "practiceZh": "查看你使用的模型的弃用时间表，写出迁移步骤和需要重跑的评估。",
+      "references": [
+        {
+          "title": "Model deprecations",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations"
+        }
+      ]
+    },
+    {
+      "id": "D5-1",
+      "domain": "D5",
+      "objective": "Guardrail Placement",
+      "titleZh": "防护措施的放置位置",
+      "summaryZh": "防护措施要放在能堵住滥用路径、又不影响正常使用的位置。先弄清滥用的具体路径：坏人用什么输入、得到什么输出、造成什么危害。然后选择针对这条路径的控制，例如对输入和输出做有针对性的分类检查、限制某类工具的使用、对高风险请求要求额外验证。范围过宽的控制（大量关键词屏蔽、对所有请求都严格审查）会误伤正常用户，而且容易被换个说法绕过。确定性的控制（钩子、权限）比提示词里的指示更可靠。",
+      "concepts": [
+        {
+          "term": "Misuse path（滥用路径）",
+          "zh": "从恶意输入到实际危害的完整链条，防护措施要截断其中一环。"
+        },
+        {
+          "term": "Targeted control（针对性控制）",
+          "zh": "只针对滥用特征的检查，正常请求不受影响。"
+        },
+        {
+          "term": "False positives（误报）",
+          "zh": "过宽的规则拦截正常请求，损害用户体验和业务。"
+        },
+        {
+          "term": "Deterministic enforcement",
+          "zh": "用钩子、权限、服务端校验强制执行，而不是依赖模型自觉。"
+        }
+      ],
+      "example": {
+        "bad": "为防止冒充银行的钓鱼邮件，屏蔽所有含“银行”“账户”的邮件草稿，正常客户也无法写催款通知。",
+        "good": "针对冒充第三方机构和索取凭据的特征检查输入和输出，正常邮件写作不受影响。",
+        "whyZh": "针对滥用路径的控制既能阻止危害，又不会误伤合法用途。"
+      },
+      "pitfalls": [
+        "靠关键词列表一刀切。",
+        "只在提示词里写“不要帮助诈骗”。"
+      ],
+      "examTips": [
+        "选“针对滥用特征、保留正常用途”的选项。",
+        "范围过宽、误伤正常用户的选项通常是陷阱。"
+      ],
+      "practiceZh": "为一个你熟悉的 AI 功能写出一条滥用路径，并选出截断它的最佳位置。",
+      "references": [
+        {
+          "title": "Mitigate jailbreaks and prompt injections",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+        },
+        {
+          "title": "Hooks",
+          "url": "https://code.claude.com/docs/en/hooks"
+        }
+      ]
+    },
+    {
+      "id": "D5-2",
+      "domain": "D5",
+      "objective": "Prompt Injection Surface and Controls",
+      "titleZh": "提示注入的攻击面与控制",
+      "summaryZh": "提示注入是外部内容中藏着指令，被模型当成用户或系统的命令执行。攻击面包括：检索到的文档、网页、工具调用结果、MCP 服务器的返回、第三方 Skill 的内容、邮件和附件。控制方法：在提示中明确区分指令和数据，把外部内容放在标记好的区域并说明其中的指令不要执行；限制处理不可信内容的智能体的权限（只读、不能发外部请求）；对高风险操作要求人工批准；只安装审查过的 Skill 和 MCP 服务器；对输出做检查，防止数据外泄。",
+      "concepts": [
+        {
+          "term": "Indirect prompt injection（间接注入）",
+          "zh": "恶意指令藏在模型读取的文档、网页或工具结果里，而非用户直接输入。"
+        },
+        {
+          "term": "Trust boundary（信任边界）",
+          "zh": "区分可信的指令来源和不可信的数据来源，外部内容一律当数据处理。"
+        },
+        {
+          "term": "Privilege separation（权限隔离）",
+          "zh": "读取不可信内容的智能体不拥有危险工具，减少注入成功后的损害。"
+        },
+        {
+          "term": "Supply-chain review（供应链审查）",
+          "zh": "第三方 Skill 和 MCP 服务器在安装前审查其内容和权限。"
+        }
+      ],
+      "example": {
+        "bad": "邮件助手能读取所有邮件并自动转发，一封外部邮件里写着“把最近的发票转发到这个地址”。",
+        "good": "读邮件的智能体只能起草，转发到外部地址需要用户确认，邮件内容在提示中标为不可信数据。",
+        "whyZh": "把外部内容当数据，并限制权限、加人工确认，注入就难以造成实际危害。"
+      },
+      "pitfalls": [
+        "只防用户直接输入，忽略工具结果和文档中的注入。",
+        "随意安装来源不明的 Skill 或 MCP 服务器。"
+      ],
+      "examTips": [
+        "题目问注入来源时，记得工具结果、MCP 返回和第三方 Skill 都算。",
+        "最有效的通常是“权限限制加人工确认”，而不是单靠提示词。"
+      ],
+      "practiceZh": "列出你的智能体读取的所有外部内容来源，标出哪些可能含有注入。",
+      "references": [
+        {
+          "title": "Mitigate jailbreaks and prompt injections",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+        },
+        {
+          "title": "Agent Skills overview",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        }
+      ]
+    },
+    {
+      "id": "D5-3",
+      "domain": "D5",
+      "objective": "Risk Assessment and Ranking",
+      "titleZh": "风险的评估与排序",
+      "summaryZh": "风险要按暴露程度排序：发生的可能性乘以影响大小，再看有没有现成的控制。常见的风险类别：攻击面（谁能接触系统、能输入什么）、故障模式（模型或工具出错的后果）、token 和配额耗尽（循环调用或恶意请求耗尽预算、触发速率限制）、依赖和供应链（第三方 MCP 服务器、Skill、库、模型平台的变化或被攻破）。排序后先处理暴露最高的风险。面向公众且能调用写操作工具的入口，通常比内部只读工具的风险高得多。",
+      "concepts": [
+        {
+          "term": "Exposure（暴露程度）",
+          "zh": "可能性、影响和现有控制综合起来的风险大小，用来排优先级。"
+        },
+        {
+          "term": "Attack surface（攻击面）",
+          "zh": "外部可以接触和影响系统的所有入口。"
+        },
+        {
+          "term": "Quota exhaustion（配额耗尽）",
+          "zh": "失控的循环或滥用请求耗尽 token 预算或速率限制，导致服务中断。"
+        },
+        {
+          "term": "Dependency risk（依赖风险）",
+          "zh": "第三方组件更新、下线或被攻破带来的风险。"
+        }
+      ],
+      "example": {
+        "bad": "团队把大量时间花在内部只读报表的提示词优化上，却忽略了公开的、能发起退款的客服入口。",
+        "good": "先给面向公众且有写操作的入口加上限额、监控和批准流程。",
+        "whyZh": "按暴露程度排序，资源优先用在风险最高的地方。"
+      },
+      "pitfalls": [
+        "只按“听起来可怕”来排序，而不是按暴露程度。",
+        "忽略配额耗尽这类运营风险。"
+      ],
+      "examTips": [
+        "比较风险时看：是否面向公众、是否有写操作、是否已有控制。",
+        "第三方 MCP 或 Skill 属于供应链风险。"
+      ],
+      "practiceZh": "为你的系统列出四类风险中各一项，估计可能性和影响，按暴露程度排序并写出首要对策。",
+      "references": [
+        {
+          "title": "Security",
+          "url": "https://code.claude.com/docs/en/security"
+        },
+        {
+          "title": "Rate limits",
+          "url": "https://platform.claude.com/docs/en/api/rate-limits"
+        }
+      ]
+    },
+    {
+      "id": "D5-4",
+      "domain": "D5",
+      "objective": "Human-in-the-Loop Checkpoints",
+      "titleZh": "人工介入检查点的放置",
+      "summaryZh": "人工检查点应放在不可逆或高风险操作之前，而不是每一步都加。判断依据是可逆性和影响大小：可撤回的操作可以自动执行，用审计日志和事后纠正兜底；不可撤回的操作（扣款、删除数据、对外发送）需要执行前的批准。给每一步都加检查点会让流程停滞几个小时，审批人也会疲劳而随手批准。置信度阈值不是确定性的控制，不能替代对不可逆操作的批准。样题 3 的正解就是只在会立即扣费的计费变更前加检查点，邮件限制为发往存档地址，联系人更新靠审计日志撤回。",
+      "concepts": [
+        {
+          "term": "Pre-execution gate（执行前批准）",
+          "zh": "操作执行前暂停等待人工批准，适用于不可逆或高风险操作。"
+        },
+        {
+          "term": "Post-hoc review（事后审查）",
+          "zh": "执行后检查和纠正，只适用于可撤回的操作。"
+        },
+        {
+          "term": "Approval fatigue（审批疲劳）",
+          "zh": "检查点太多时审批人会不看就批准，反而降低安全性。"
+        },
+        {
+          "term": "Constrain instead of gate",
+          "zh": "限制操作范围（如只能发往存档邮箱），用确定性约束替代人工审批。"
+        }
+      ],
+      "example": {
+        "bad": "运营智能体的六个步骤每一步都要人工批准，请求要等好几个小时。",
+        "good": "只在立即扣费的计费变更前批准，邮件只能发往存档地址，联系人修改可通过审计日志撤回。",
+        "whyZh": "按可逆性放置检查点，高风险处有人把关，其他路径保持顺畅。"
+      },
+      "pitfalls": [
+        "每一步都加检查点，导致流程停滞和审批疲劳。",
+        "用模型的置信度阈值代替不可逆操作的批准。"
+      ],
+      "examTips": [
+        "样题 3：只给不可逆的计费变更加执行前批准。",
+        "事后审查无法撤回已经发生的扣款。"
+      ],
+      "practiceZh": "列出一个智能体流程的每一步，判断哪些需要执行前批准，哪些可以用约束或审计代替。",
+      "references": [
+        {
+          "title": "Agent SDK permissions",
+          "url": "https://code.claude.com/docs/en/agent-sdk/permissions"
+        },
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ]
+    },
+    {
+      "id": "D5-5",
+      "domain": "D5",
+      "objective": "Architectural Controls for Compliance Obligations",
+      "titleZh": "满足合规义务的架构控制",
+      "summaryZh": "合规义务要用具体的架构控制来满足，并且要选对控制。数据驻留要求：选择在指定区域或云边界内的部署平台。数据保留限制：配置零数据保留或缩短保留期，并管理自己系统中的日志。个人信息保护：在发送给模型之前检测并脱敏 PII，日志中也要脱敏。审计要求：记录谁在什么时候做了什么、模型和工具做了什么。多租户隔离：每个租户的数据、检索索引和缓存要分开，不能让一个租户的数据出现在另一个租户的上下文中。考试常见陷阱是用错控制，例如用零数据保留去满足数据驻留。",
+      "concepts": [
+        {
+          "term": "Residency → deployment surface",
+          "zh": "数据位置的要求由部署平台和区域选择来满足。"
+        },
+        {
+          "term": "Retention / ZDR",
+          "zh": "保留期限的要求由零数据保留或保留策略来满足，不解决数据位置问题。"
+        },
+        {
+          "term": "PII redaction（PII 脱敏）",
+          "zh": "在数据进入模型和日志前检测并替换个人信息。"
+        },
+        {
+          "term": "Tenant isolation（租户隔离）",
+          "zh": "不同客户的数据、索引、缓存和会话互相隔离。"
+        }
+      ],
+      "example": {
+        "bad": "为了满足“数据不得离开欧盟”的要求，团队只开启了零数据保留。",
+        "good": "选择在欧盟区域处理的部署平台，再按需配置保留策略和审计日志。",
+        "whyZh": "每个义务要对应正确的控制，保留期限和数据位置是两回事。"
+      },
+      "pitfalls": [
+        "用一个控制去满足所有合规要求。",
+        "多租户系统共用同一个检索索引。"
+      ],
+      "examTips": [
+        "先识别义务类型（位置、保留、个人信息、审计、隔离），再选对应控制。",
+        "零数据保留不等于数据驻留。"
+      ],
+      "practiceZh": "为一个受监管的项目列出合规义务，并为每一项配上具体的架构控制。",
+      "references": [
+        {
+          "title": "Security",
+          "url": "https://code.claude.com/docs/en/security"
+        },
+        {
+          "title": "Claude on Amazon Bedrock",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock"
+        }
+      ]
+    },
+    {
+      "id": "D5-6",
+      "domain": "D5",
+      "objective": "Bias Source Identification and Mitigation",
+      "titleZh": "偏差来源的识别与缓解",
+      "summaryZh": "当输出或数据在不同人群之间出现差异时，先判断偏差来自哪里，再缓解正确的来源。数据偏差：训练或检索数据中某些群体样本不足或带有历史偏见，需要补充或重新平衡数据。提示框架偏差：提示词的措辞或示例暗含倾向，例如示例全是某一类人，需要修改提示和示例。评估设计偏差：测试集没有覆盖某些群体，或评分标准对某些表达方式不公平，需要修正评估。找错来源会白费力气，例如问题出在评估集，却去改提示词。",
+      "concepts": [
+        {
+          "term": "Data bias（数据偏差）",
+          "zh": "数据中群体分布不均或带有历史偏见，导致输出对某些群体不利。"
+        },
+        {
+          "term": "Prompt-framing bias（提示框架偏差）",
+          "zh": "提示的措辞、角色设定或示例引入倾向。"
+        },
+        {
+          "term": "Eval-design bias（评估设计偏差）",
+          "zh": "测试集或评分标准没有代表所有群体，掩盖或制造差异。"
+        },
+        {
+          "term": "Disaggregated evaluation（分组评估）",
+          "zh": "按群体分别统计指标，发现并定位差异。"
+        }
+      ],
+      "example": {
+        "bad": "简历筛选助手对某些学校的候选人评分偏低，团队直接在提示里加了“请保持公平”。",
+        "good": "按群体拆分评估，发现提示中的示例全部来自少数学校，替换示例并复测。",
+        "whyZh": "找到偏差的真正来源并针对性修正，比笼统的公平提示更有效。"
+      },
+      "pitfalls": [
+        "不分析来源，直接加一句“保持公平”。",
+        "评估集本身不覆盖某些群体，却据此宣称系统没有偏差。"
+      ],
+      "examTips": [
+        "题干描述的线索指向哪个来源：数据分布、提示措辞，还是测试集构成。",
+        "分组评估是发现差异的第一步。"
+      ],
+      "practiceZh": "为一个分类任务设计分组评估，写出你会比较哪些群体以及如何判断偏差来源。",
+      "references": [
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Prompting best practices",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+        }
+      ]
+    },
+    {
+      "id": "D6-1",
+      "domain": "D6",
+      "objective": "Unsupportable Commitments in Requirements and SLAs",
+      "titleZh": "需求和 SLA 中无法兑现的承诺",
+      "summaryZh": "需求文档和 SLA 里常有 Claude 架构无法保证的承诺，例如“百分之百准确”“永远不会产生错误信息”“无论流量多大都在一秒内响应”“永久使用同一个模型版本”。架构师要找出这些承诺，说明为什么无法保证（模型输出有概率性、速率限制存在、模型会按时间表弃用），然后提出澄清或改设计：把绝对承诺改为可测量的目标（如评估集准确率不低于某值）、加入人工复核、设置排队和降级策略、写明版本迁移计划。不要为了拿下项目而签下守不住的承诺。",
+      "concepts": [
+        {
+          "term": "Unsupportable commitment",
+          "zh": "架构本身无法保证的承诺，如零错误、无限吞吐、永久版本。"
+        },
+        {
+          "term": "Measurable target（可测量目标）",
+          "zh": "用评估集上的指标和阈值替代绝对承诺。"
+        },
+        {
+          "term": "Rate limits and capacity",
+          "zh": "速率限制和容量决定了吞吐和延迟承诺的上限。"
+        },
+        {
+          "term": "Deprecation reality",
+          "zh": "模型会弃用，SLA 中要写明迁移计划而非“永不变”。"
+        }
+      ],
+      "example": {
+        "bad": "合同写明“AI 回答保证百分之百正确”，团队打算先签再说。",
+        "good": "改为“在约定评估集上准确率不低于某值，低置信度回答转人工复核”。",
+        "whyZh": "把绝对承诺换成可测量、可兑现的目标，并配上兜底措施。"
+      },
+      "pitfalls": [
+        "为了赢得项目接受不可能的承诺。",
+        "SLA 不考虑速率限制和模型弃用。"
+      ],
+      "examTips": [
+        "“百分之百”“永远”“无论多少”这类绝对词是识别信号。",
+        "正解通常是“改为可测量目标并加兜底”。"
+      ],
+      "practiceZh": "找一份需求或合同草稿，圈出所有绝对承诺并改写为可测量的目标。",
+      "references": [
+        {
+          "title": "Reduce hallucinations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+        },
+        {
+          "title": "Rate limits",
+          "url": "https://platform.claude.com/docs/en/api/rate-limits"
+        },
+        {
+          "title": "Model deprecations",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations"
+        },
+        {
+          "title": "Define success criteria",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/define-success"
+        }
+      ]
+    },
+    {
+      "id": "D6-2",
+      "domain": "D6",
+      "objective": "Architecture Decision Records",
+      "titleZh": "架构决策记录（ADR）",
+      "summaryZh": "ADR 记录一个架构决定：背景、可选方案、选择的方案、理由、后果和剩余风险。审查 ADR 时，检查它是否回应了所有相关方的约束（法务的数据要求、安全团队的权限要求、财务的预算、运营的支持能力），取舍是否写清楚（选这个方案放弃了什么），剩余风险是否明确列出并有负责人。还要注意不夸大模型的确定性：不要写“模型不会出错”，而要写“在评估集上的错误率约为多少，以及出错时如何处理”。",
+      "concepts": [
+        {
+          "term": "ADR（Architecture Decision Record）",
+          "zh": "记录决定、理由、备选方案和后果的文档，供日后理解和复审。"
+        },
+        {
+          "term": "Stakeholder constraints",
+          "zh": "法务、安全、财务、运营等各方的约束，ADR 必须逐一回应。"
+        },
+        {
+          "term": "Explicit trade-offs（明确取舍）",
+          "zh": "写出选择这个方案放弃了什么，例如功能滞后或运维成本。"
+        },
+        {
+          "term": "Residual risk（剩余风险）",
+          "zh": "采取控制后仍然存在的风险，要写明并指定负责人。"
+        }
+      ],
+      "example": {
+        "bad": "ADR 写着“采用多智能体架构，效果最好，没有缺点”，没提成本和法务要求。",
+        "good": "ADR 列出成本增加、调试难度和法务的数据要求，并写明剩余风险和应对方式。",
+        "whyZh": "明确的取舍和剩余风险让决定可以被审查，也便于日后复审。"
+      },
+      "pitfalls": [
+        "ADR 只写优点，不写取舍。",
+        "用确定性的语言描述模型行为。"
+      ],
+      "examTips": [
+        "审查 ADR 时找“没有被回应的相关方约束”。",
+        "“没有任何风险或取舍”的描述通常是错误选项。"
+      ],
+      "practiceZh": "为你最近做的一个技术决定写一份简短 ADR，包括至少两个取舍和一个剩余风险。",
+      "references": [
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        },
+        {
+          "title": "Reduce hallucinations",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+        },
+        {
+          "title": "How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        }
+      ]
+    },
+    {
+      "id": "D6-3",
+      "domain": "D6",
+      "objective": "Operational Handoff Completeness",
+      "titleZh": "运维交接的完整性",
+      "summaryZh": "系统交给运维团队前，要确保他们拥有运营所需的一切。常见缺失：前提假设（例如假设流量低于某值、假设输入都是英文）、依赖（模型版本及其弃用日期、第三方 MCP 服务器、API 密钥的轮换）、运行手册（出现速率限制、质量下降、成本异常时怎么处理，如何回滚提示词或模型版本）、监控和告警的阈值、评估集和回归流程。缺了这些，运维团队在出现问题时无法判断和处理。交接文档要具体到可以照着执行。",
+      "concepts": [
+        {
+          "term": "Assumptions（前提假设）",
+          "zh": "设计时依赖的条件，一旦不成立系统可能失效，必须写明。"
+        },
+        {
+          "term": "Dependencies（依赖）",
+          "zh": "模型版本、外部服务、凭据及其到期或弃用日期。"
+        },
+        {
+          "term": "Runbook（运行手册）",
+          "zh": "常见故障的识别方法和处理步骤，包括回滚方式。"
+        },
+        {
+          "term": "Eval handoff（评估交接）",
+          "zh": "交付评估集和回归流程，运维团队才能验证变更。"
+        }
+      ],
+      "example": {
+        "bad": "交接文档只有架构图和代码仓库链接，模型弃用后运维团队不知道如何迁移。",
+        "good": "交接时附上模型版本和弃用日期、迁移步骤、评估集及运行手册。",
+        "whyZh": "把假设、依赖和处理步骤写清楚，运维团队才能独立运营系统。"
+      },
+      "pitfalls": [
+        "只交接代码，不交接假设和运行手册。",
+        "没有写明模型弃用日期和迁移负责人。"
+      ],
+      "examTips": [
+        "问“缺少什么会阻碍运维”时，找假设、依赖或运行手册中的空白。",
+        "模型弃用和凭据轮换是常被遗漏的依赖。"
+      ],
+      "practiceZh": "为你负责的一个系统列出交接清单：假设、依赖、运行手册和评估。",
+      "references": [
+        {
+          "title": "Model deprecations",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations"
+        },
+        {
+          "title": "Develop test cases",
+          "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+        },
+        {
+          "title": "Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ]
+    },
+    {
+      "id": "D7-1",
+      "domain": "D7",
+      "objective": "Packaging and Distributing Claude Code Workflows",
+      "titleZh": "打包和分发 Claude Code 工作流",
+      "summaryZh": "团队的 Claude Code 工作流可以打包成插件，里面包括 Skills、钩子、子智能体定义、斜杠命令和 MCP 配置，通过插件市场分发，大家安装同一个版本，更新也统一推送。组织层面可以用托管设置（managed settings）强制执行必须统一的控制，例如禁止的命令、允许的 MCP 服务器、权限模式。需要区分哪些控制应集中管理（安全相关、无人值守运行时必须遵守的），哪些可以交给各团队（测试框架、代码风格）。插件中的钩子和脚本会在开发者机器上执行，发布前要审查内容。",
+      "concepts": [
+        {
+          "term": "Plugin（插件）",
+          "zh": "把 Skills、钩子、子智能体、命令和 MCP 配置打包成一个可安装的单位。"
+        },
+        {
+          "term": "Marketplace（插件市场）",
+          "zh": "集中发布和版本管理插件的位置，团队从这里安装和更新。"
+        },
+        {
+          "term": "Managed settings（托管设置）",
+          "zh": "由组织强制下发、个人无法覆盖的设置，用于必须统一的安全控制。"
+        },
+        {
+          "term": "Central vs. team-level",
+          "zh": "安全和无人值守运行的控制集中管理，风格和工具偏好交给团队。"
+        }
+      ],
+      "example": {
+        "bad": "把 CLAUDE.md 和钩子脚本通过邮件发给各团队，各自修改，版本很快就不一致了。",
+        "good": "打包成插件发布到内部市场，安全钩子通过托管设置强制启用。",
+        "whyZh": "统一分发保证版本一致，托管设置保证关键控制不会被关闭。"
+      },
+      "pitfalls": [
+        "每个团队各写一套，无法统一更新和审查。",
+        "把团队偏好也写进托管设置，限制过度。"
+      ],
+      "examTips": [
+        "“统一分发和更新”选插件加市场；“必须强制”选托管设置。",
+        "发布前审查插件内容（钩子、脚本、MCP 配置）是正确做法。"
+      ],
+      "practiceZh": "把你团队常用的一套 Claude Code 配置分成“必须集中”和“团队自定”两类。",
+      "references": [
+        {
+          "title": "Plugins",
+          "url": "https://code.claude.com/docs/en/plugins"
+        },
+        {
+          "title": "Settings",
+          "url": "https://code.claude.com/docs/en/settings"
+        },
+        {
+          "title": "Agent Skills overview",
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        }
+      ]
+    },
+    {
+      "id": "D7-2",
+      "domain": "D7",
+      "objective": "Agent SDK and Claude Code Configuration",
+      "titleZh": "Agent SDK 与 Claude Code 的配置",
+      "summaryZh": "Agent SDK 和 Claude Code 有几种权限模式：default（危险操作需要确认）、acceptEdits（自动接受文件编辑）、plan（只做计划不执行）、auto（由分类器判断是否需要确认）、dontAsk（不在列表里的操作直接拒绝）、bypassPermissions（跳过所有检查，只适合隔离环境）。在 CI 或无头模式下没人能回答确认提示，所以要用允许和拒绝列表明确规定能做什么，用 PreToolUse 钩子确定性地阻止危险命令，给子智能体只配置必要的工具。不要为了让流水线跑通而在有生产凭据的环境中使用 bypassPermissions。",
+      "concepts": [
+        {
+          "term": "Permission modes（权限模式）",
+          "zh": "default、acceptEdits、plan、auto、dontAsk、bypassPermissions，安全程度和自动化程度不同。"
+        },
+        {
+          "term": "Allow / deny rules",
+          "zh": "明确列出允许和禁止的工具与命令，无人值守时尤其重要。"
+        },
+        {
+          "term": "PreToolUse hook",
+          "zh": "在工具执行前运行的钩子，可以确定性地阻止危险操作。"
+        },
+        {
+          "term": "Headless / CI operation",
+          "zh": "无人交互地运行，必须事先用规则和钩子定义好边界。"
+        }
+      ],
+      "example": {
+        "bad": "CI 中的代码代理因为等待确认而卡住，团队改用 bypassPermissions，而该环境里有生产数据库凭据。",
+        "good": "用 dontAsk 配合明确的允许列表，并用 PreToolUse 钩子阻止破坏性命令。",
+        "whyZh": "在无人值守环境中，用明确的规则和确定性钩子替代人工确认。"
+      },
+      "pitfalls": [
+        "在有真实凭据的环境中跳过所有权限检查。",
+        "只用提示词告诉代理不要执行危险命令。"
+      ],
+      "examTips": [
+        "CI 场景选“允许列表加钩子”，而不是 bypassPermissions。",
+        "确定性的钩子比提示词指令更可靠。"
+      ],
+      "practiceZh": "为一个在 CI 中运行的代码代理写出权限模式、允许列表和需要阻止的命令。",
+      "references": [
+        {
+          "title": "Agent SDK permissions",
+          "url": "https://code.claude.com/docs/en/agent-sdk/permissions"
+        },
+        {
+          "title": "Agent SDK hooks",
+          "url": "https://code.claude.com/docs/en/agent-sdk/hooks"
+        },
+        {
+          "title": "Headless mode",
+          "url": "https://code.claude.com/docs/en/headless"
+        }
+      ]
+    },
+    {
+      "id": "D7-3",
+      "domain": "D7",
+      "objective": "Accountability for AI-Generated Code",
+      "titleZh": "AI 生成代码的问责",
+      "summaryZh": "AI 写的代码仍然由人负责。要设计审查和问责机制：每个由 AI 生成或修改的变更都有一个具名的人类负责人，他审查并批准后才能合并；AI 生成的代码同样要经过测试、静态分析和安全扫描，不能豁免；分支保护规则对 AI 代理同样适用，不能给代理管理员权限来绕过；在提交记录或 PR 中标明 AI 的参与，保持透明。风险较高的改动（认证、支付、权限相关）应要求更严格的审查。目标是让 AI 提高效率，同时人类保留对代码库的理解和所有权。",
+      "concepts": [
+        {
+          "term": "Human ownership（人类所有权）",
+          "zh": "每个变更都有具名的负责人，对其质量和后果负责。"
+        },
+        {
+          "term": "Same gates（同样的关卡）",
+          "zh": "AI 生成的代码经过与人写代码相同或更严格的测试、扫描和审查。"
+        },
+        {
+          "term": "Branch protection（分支保护）",
+          "zh": "代理不能绕过合并前的审查和检查。"
+        },
+        {
+          "term": "Transparency（透明）",
+          "zh": "在提交或 PR 中标明 AI 的参与，便于审查和追溯。"
+        }
+      ],
+      "example": {
+        "bad": "为了加快速度，让代码代理拥有管理员权限，直接合并到主分支并跳过安全扫描。",
+        "good": "代理只能提交 PR，由负责人审查批准，CI 中的测试和安全扫描照常运行。",
+        "whyZh": "人类审查和同样的质量关卡让 AI 提速的同时保持问责。"
+      },
+      "pitfalls": [
+        "认为 AI 写的代码更可靠，可以免检。",
+        "隐藏哪些代码由 AI 生成。"
+      ],
+      "examTips": [
+        "选“具名负责人审查加同样的检查”的选项。",
+        "任何“绕过分支保护”或“豁免扫描”的选项都是错的。"
+      ],
+      "practiceZh": "为你团队制定一条 AI 生成代码的合并规则，写出负责人、必需的检查和标注方式。",
+      "references": [
+        {
+          "title": "Security",
+          "url": "https://code.claude.com/docs/en/security"
+        },
+        {
+          "title": "Settings",
+          "url": "https://code.claude.com/docs/en/settings"
+        }
+      ]
+    }
+  ]
+}

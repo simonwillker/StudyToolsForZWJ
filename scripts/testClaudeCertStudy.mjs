@@ -544,6 +544,43 @@ test("CCDV-F は選べる資格になっていて、記録は ccdvf* の別キ�
   certState.setActiveCertState("ccaof");
 });
 
+/* ---------- CCAR-P ---------- */
+const rpDir = join(certRoot, "ccarp");
+const rpMeta = JSON.parse(readFileSync(join(rpDir, "meta.json"), "utf8"));
+const rpItems = readdirSync(rpDir)
+  .filter((f) => /^d\d+-.*\.json$/.test(f))
+  .flatMap((f) => JSON.parse(readFileSync(join(rpDir, f), "utf8")).items);
+
+test("CCAR-P（v1.1）：7 ドメイン・39 skill、70 問の内訳が合計 70 になり、各ドメインに模試 2 回分以上の問題がある", () => {
+  assert.equal(rpMeta.blueprintVersion, "1.1");
+  assert.equal(rpMeta.domains.length, 7);
+  assert.equal(rpMeta.domains.reduce((n, d) => n + d.objectives.length, 0), 39);
+  assert.equal(rpMeta.domains.reduce((n, d) => n + d.weight, 0), 100);
+  assert.equal(rpMeta.scenarios, undefined, "CCAR-P はシナリオ名が公開されていない");
+  const c = core.blueprintCounts(rpMeta.domains, rpMeta.examFormat.items);
+  assert.equal(Object.values(c).reduce((a, b) => a + b, 0), 70);
+  assert.deepEqual(c, { D1: 13, D2: 9, D3: 15, D4: 12, D5: 11, D6: 5, D7: 5 }, "最大剰余法：余りが同じ D1・D7（.6）は先のドメインが取る");
+  rpMeta.domains.forEach((d) => {
+    const n = rpItems.filter((i) => i.domain === d.id).length;
+    assert.ok(n >= c[d.id] * 2, `${d.id}: ${n} 問（模試 2 回分 ${c[d.id] * 2} 問以上ほしい）`);
+    d.objectives.forEach((o) => assert.ok(rpItems.some((i) => i.objective === o), `${d.id}「${o}」の問題が無い`));
+  });
+  assert.ok(rpItems.some((i) => i.type === "multi"), "複数選択の問題もある");
+});
+
+test("CCAR-P は選べる資格になっていて、記録は ccarp* の別キーに入る", () => {
+  resetAll();
+  const cert = certs.findCert("ccarp");
+  assert.equal(cert.status, "ready");
+  assert.equal(cert.backupFormat, "ccarp-study-backup");
+  certState.setActiveCertState("ccarp");
+  mistakes.recordMistakeAnswer({ id: "rp1-001", domain: "D1" }, false);
+  assert.ok(JSON.parse(ls.getItem("ccarpMistakesV1")).items["rp1-001"]);
+  assert.equal(ls.getItem("ccaofMistakesV1"), null);
+  assert.equal(ls.getItem("ccdvfMistakesV1"), null);
+  certState.setActiveCertState("ccaof");
+});
+
 test("合格予測：小数の配点でも「配点の何%ぶん」は小数第 1 位まで", () => {
   // v1.0 の CCDV-F のような小数の配点（v1.1 は整数になったので、ここでは作った配点で確かめる）
   const domains = [

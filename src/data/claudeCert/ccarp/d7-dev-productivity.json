@@ -1,0 +1,473 @@
+{
+  "domain": "D7",
+  "items": [
+    {
+      "id": "rp7-001",
+      "domain": "D7",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A platform team wants every engineering team to get the same review Skill, security hooks, a reviewer subagent, and an MCP config, with updates in one place. What should they build?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A plugin distributed through an internal marketplace, with security-critical settings enforced via managed settings.",
+          "correct": true,
+          "explain": "正解。プラグインで配布し、重要な統制は managed settings で中央管理する。",
+          "textZh": "做成插件，通过内部插件市场分发，安全关键的设置通过托管设置强制执行。"
+        },
+        {
+          "text": "Email the files to each team.",
+          "correct": false,
+          "explain": "不適。メール配布では更新がチームごとにばらつく。",
+          "textZh": "把文件通过邮件发给每个团队。"
+        },
+        {
+          "text": "Ask teams to write their own.",
+          "correct": false,
+          "explain": "不適。各チームが自作すると一貫性がない。",
+          "textZh": "让各团队自己写。"
+        },
+        {
+          "text": "Put everything in one huge CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。フックやサブエージェントは配布できない。",
+          "textZh": "全部写进一个巨大的 CLAUDE.md。"
+        }
+      ],
+      "objective": "Packaging and Distributing Claude Code Workflows",
+      "reference": "https://code.claude.com/docs/en/plugins",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "平台团队希望每个工程团队都拿到同样的审查 Skill、安全钩子、审查子代理和 MCP 配置，并能在一处更新。应该做什么？",
+      "commentaryZh": "7.1：把团队工作流打包成插件（Skill、钩子、子代理、命令、MCP 配置），通过市场分发；并决定哪些控制集中管理（托管设置），哪些留给团队。"
+    },
+    {
+      "id": "rp7-002",
+      "domain": "D7",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "Which control should be central (managed settings) rather than team-level when unattended Claude Code runs execute in CI?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Deny rules for destructive commands and access to secrets, which teams cannot override.",
+          "correct": true,
+          "explain": "正解。無人実行の安全に関わる統制は中央で固定する。",
+          "textZh": "针对破坏性命令和访问密钥的拒绝规则，各团队不能覆盖。"
+        },
+        {
+          "text": "The preferred code-comment style.",
+          "correct": false,
+          "explain": "不適。チームごとに任せてよい。",
+          "textZh": "偏好的代码注释风格。"
+        },
+        {
+          "text": "Which test framework a team uses.",
+          "correct": false,
+          "explain": "不適。テストフレームワーク選択はチームの裁量でよい。",
+          "textZh": "团队使用哪个测试框架。"
+        },
+        {
+          "text": "The team's slash-command names.",
+          "correct": false,
+          "explain": "不適。安全に関わらない。",
+          "textZh": "团队的斜杠命令名称。"
+        }
+      ],
+      "objective": "Packaging and Distributing Claude Code Workflows",
+      "reference": "https://code.claude.com/docs/en/settings",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在 CI 中无人值守运行 Claude Code 时，哪项控制应集中管理（托管设置），而不是留给团队？",
+      "commentaryZh": "安全关键的规则（禁止破坏性命令、保护密钥）要通过托管设置集中强制；风格、工具偏好等可以留给团队。"
+    },
+    {
+      "id": "rp7-003",
+      "domain": "D7",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO practices make plugin distribution safe and maintainable?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Version plugins and let teams pin or update deliberately.",
+          "correct": true,
+          "explain": "正解。予期しない変更を防ぐ。",
+          "textZh": "为插件做版本管理，让团队有意识地固定或更新版本。"
+        },
+        {
+          "text": "Review plugin contents (hooks, scripts, MCP configs) before publishing to the marketplace.",
+          "correct": true,
+          "explain": "正解。フックやMCP設定を配布前に審査する。",
+          "textZh": "在发布到插件市场之前审查插件内容（钩子、脚本、MCP 配置）。"
+        },
+        {
+          "text": "Auto-install unreviewed community plugins org-wide.",
+          "correct": false,
+          "explain": "不適。サプライチェーンのリスク。",
+          "textZh": "在全组织自动安装未经审查的社区插件。"
+        },
+        {
+          "text": "Let anyone overwrite the published plugin.",
+          "correct": false,
+          "explain": "不適。誰でも上書きできると配布の統制がない。",
+          "textZh": "允许任何人覆盖已发布的插件。"
+        }
+      ],
+      "objective": "Packaging and Distributing Claude Code Workflows",
+      "reference": "https://code.claude.com/docs/en/plugins",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两项做法能让插件分发既安全又易于维护？",
+      "commentaryZh": "插件也是供应链的一部分：版本管理、发布前审查、受控的发布权限。"
+    },
+    {
+      "id": "rp7-004",
+      "domain": "D7",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team's release procedure is only needed occasionally but is long and detailed. How should it be packaged inside the plugin?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "As a Skill, so it loads only when the release task comes up.",
+          "correct": true,
+          "explain": "正解。必要な時だけ読み込む。",
+          "textZh": "做成 Skill，只在涉及发布任务时加载。"
+        },
+        {
+          "text": "In CLAUDE.md, so it is always loaded.",
+          "correct": false,
+          "explain": "不適。毎回文脈を圧迫する。",
+          "textZh": "写进 CLAUDE.md，这样总是会加载。"
+        },
+        {
+          "text": "As a PreToolUse hook.",
+          "correct": false,
+          "explain": "不適。手順の知識を教える仕組みではない。",
+          "textZh": "做成 PreToolUse 钩子。"
+        },
+        {
+          "text": "As an environment variable.",
+          "correct": false,
+          "explain": "不適。環境変数では複数手順の作業を表せない。",
+          "textZh": "做成环境变量。"
+        }
+      ],
+      "objective": "Packaging and Distributing Claude Code Workflows",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个团队的发布流程只是偶尔需要，但又长又详细。在插件里应该如何打包它？",
+      "commentaryZh": "偶尔使用、内容较长的流程适合做成 Skill，按需加载；常驻的 CLAUDE.md 只放每次都要遵守的规则。"
+    },
+    {
+      "id": "rp7-005",
+      "domain": "D7",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A CI job runs Claude Code headlessly to fix lint errors. Which permission configuration is BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An explicit allowlist (file edits and the lint command) with deny rules for network, secrets, and git push; never bypassPermissions.",
+          "correct": true,
+          "explain": "正解。無人実行は許可リスト＋拒否ルールで最小権限にする。",
+          "textZh": "明确的白名单（文件编辑和 lint 命令），并对网络、密钥和 git push 设置拒绝规则；绝不使用 bypassPermissions。"
+        },
+        {
+          "text": "bypassPermissions so the job never stalls.",
+          "correct": false,
+          "explain": "不適。無人実行で全権限を与えるのは危険。",
+          "textZh": "使用 bypassPermissions，这样任务不会卡住。"
+        },
+        {
+          "text": "default mode, so a human approves each step in CI.",
+          "correct": false,
+          "explain": "不適。無人の CI では承認できない。",
+          "textZh": "使用 default 模式，在 CI 中由人逐步批准。"
+        },
+        {
+          "text": "plan mode, so it edits files.",
+          "correct": false,
+          "explain": "不適。plan モードは計画だけで編集しない。",
+          "textZh": "使用 plan 模式让它修改文件。"
+        }
+      ],
+      "objective": "Agent SDK and Claude Code Configuration",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/permissions",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个 CI 任务以无头模式运行 Claude Code 来修复 lint 错误。哪种权限配置最好？",
+      "commentaryZh": "7.2：权限模式包括 default、acceptEdits、plan、auto、dontAsk、bypassPermissions。无人值守的 CI 应使用明确的允许/拒绝规则，绝不跳过权限检查。"
+    },
+    {
+      "id": "rp7-006",
+      "domain": "D7",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A developer wants Claude Code to propose an approach for a risky refactor without changing any files yet. Which permission mode fits?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "plan mode.",
+          "correct": true,
+          "explain": "正解。計画を立てるだけで変更しない。",
+          "textZh": "plan 模式。"
+        },
+        {
+          "text": "acceptEdits.",
+          "correct": false,
+          "explain": "不適。編集を自動で受け入れてしまう。",
+          "textZh": "acceptEdits。"
+        },
+        {
+          "text": "bypassPermissions.",
+          "correct": false,
+          "explain": "不適。すべてを許可してしまう。",
+          "textZh": "bypassPermissions。"
+        },
+        {
+          "text": "dontAsk with all tools allowed.",
+          "correct": false,
+          "explain": "不適。確認なしで実行される。",
+          "textZh": "dontAsk 并允许所有工具。"
+        }
+      ],
+      "objective": "Agent SDK and Claude Code Configuration",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/permissions",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "开发者希望 Claude Code 先为一项有风险的重构提出方案，但暂时不修改任何文件。哪种权限模式合适？",
+      "commentaryZh": "plan 模式让 Claude 先分析和规划，不执行修改；适合高风险变更前的方案讨论。"
+    },
+    {
+      "id": "rp7-007",
+      "domain": "D7",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO configurations make an Agent SDK agent safer in production?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "A PreToolUse hook that blocks destructive commands deterministically.",
+          "correct": true,
+          "explain": "正解。PreToolUseフックで決定的に強制できる。",
+          "textZh": "一个确定性拦截破坏性命令的 PreToolUse 钩子。"
+        },
+        {
+          "text": "Subagent definitions with restricted tool lists.",
+          "correct": true,
+          "explain": "正解。サブエージェントのツールを絞る最小権限。",
+          "textZh": "工具列表受限的子代理定义。"
+        },
+        {
+          "text": "Granting every subagent all tools.",
+          "correct": false,
+          "explain": "不適。全ツール付与は権限が広すぎる。",
+          "textZh": "给每个子代理所有工具。"
+        },
+        {
+          "text": "Relying only on the system prompt for safety.",
+          "correct": false,
+          "explain": "不適。確率的な制御のみ。",
+          "textZh": "只依靠系统提示保证安全。"
+        }
+      ],
+      "objective": "Agent SDK and Claude Code Configuration",
+      "reference": "https://code.claude.com/docs/en/agent-sdk/hooks",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两项配置能让 Agent SDK 代理在生产中更安全？",
+      "commentaryZh": "生产环境中的安全来自确定性的控制：钩子拦截危险操作，子代理只拿必要的工具。"
+    },
+    {
+      "id": "rp7-008",
+      "domain": "D7",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A nightly job must run Claude Code without a terminal and feed results into a dashboard. Which configuration fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Headless mode (claude -p) with JSON output, explicit allowed tools, and a fixed working directory.",
+          "correct": true,
+          "explain": "正解。非対話・機械可読・最小権限。",
+          "textZh": "无头模式（claude -p），JSON 输出，明确允许的工具，以及固定的工作目录。"
+        },
+        {
+          "text": "An interactive session started by cron.",
+          "correct": false,
+          "explain": "不適。対話入力を待って止まる。",
+          "textZh": "用 cron 启动一个交互式会话。"
+        },
+        {
+          "text": "bypassPermissions with text output.",
+          "correct": false,
+          "explain": "不適。安全でなく、解析もしにくい。",
+          "textZh": "bypassPermissions 加文本输出。"
+        },
+        {
+          "text": "A developer running it by hand each night.",
+          "correct": false,
+          "explain": "不適。自動化になっていない。",
+          "textZh": "开发者每晚手动运行。"
+        }
+      ],
+      "objective": "Agent SDK and Claude Code Configuration",
+      "reference": "https://code.claude.com/docs/en/headless",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个夜间任务必须在没有终端的情况下运行 Claude Code，并把结果送入仪表盘。哪种配置最合适？",
+      "commentaryZh": "无人运行用无头模式和机器可读的输出，并配合最小权限；解析终端文本既不稳定也不安全。"
+    },
+    {
+      "id": "rp7-009",
+      "domain": "D7",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team merges large AI-generated pull requests with only a quick glance because \"tests pass.\" Which process change BEST preserves human ownership?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Require a named human reviewer who understands and approves each change, with PRs kept small enough to review.",
+          "correct": true,
+          "explain": "正解。責任を持つ人を明確にし、レビュー可能な単位にする。",
+          "textZh": "要求有一位具名的人类审阅者理解并批准每项改动，并把 PR 控制在可以审阅的大小。"
+        },
+        {
+          "text": "Let the AI approve its own PRs.",
+          "correct": false,
+          "explain": "不適。責任の所在がなくなる。",
+          "textZh": "让 AI 批准自己的 PR。"
+        },
+        {
+          "text": "Skip review when tests pass.",
+          "correct": false,
+          "explain": "不適。テストは意図や設計の妥当性を保証しない。",
+          "textZh": "测试通过就跳过审阅。"
+        },
+        {
+          "text": "Hide which code was AI-generated.",
+          "correct": false,
+          "explain": "不適。AI生成箇所を隠すのは透明性に反する。",
+          "textZh": "隐瞒哪些代码是 AI 生成的。"
+        }
+      ],
+      "objective": "Accountability for AI-Generated Code",
+      "reference": "https://code.claude.com/docs/en/security",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队只扫一眼就合并大型的 AI 生成拉取请求，理由是「测试通过了」。哪项流程改动最能保持人对代码的所有权？",
+      "commentaryZh": "7.3：AI 写的代码仍由人负责。要有具名的审阅者真正理解并批准改动，PR 要小到可以认真审查。"
+    },
+    {
+      "id": "rp7-010",
+      "domain": "D7",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO practices support accountability for AI-generated code?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Mark AI-assisted commits or PRs so reviewers know what to scrutinize.",
+          "correct": true,
+          "explain": "正解。透明性とレビューの焦点。",
+          "textZh": "标注 AI 辅助的提交或 PR，让审阅者知道重点检查什么。"
+        },
+        {
+          "text": "Keep CODEOWNERS and required reviews for sensitive paths regardless of author.",
+          "correct": true,
+          "explain": "正解。重要な箇所に責任者を残す。",
+          "textZh": "无论作者是谁，敏感路径都保留 CODEOWNERS 和必需审阅。"
+        },
+        {
+          "text": "Exempt AI-generated code from security scanning.",
+          "correct": false,
+          "explain": "不適。AI生成コードこそセキュリティスキャンが必要。",
+          "textZh": "让 AI 生成的代码免于安全扫描。"
+        },
+        {
+          "text": "Assign ownership of the code to the AI.",
+          "correct": false,
+          "explain": "不適。AI は責任を負えない。",
+          "textZh": "把代码的所有权分配给 AI。"
+        }
+      ],
+      "objective": "Accountability for AI-Generated Code",
+      "reference": "https://code.claude.com/docs/en/security",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两项做法支持对 AI 生成代码的问责？",
+      "commentaryZh": "问责机制：透明标注 AI 参与、敏感路径保留代码负责人和必需审阅，AI 生成的代码同样要做安全扫描。"
+    },
+    {
+      "id": "rp7-011",
+      "domain": "D7",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An autonomous coding agent can open and merge its own PRs into main. What is the BEST control?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Allow it to open PRs but require branch protection with human approval for merges.",
+          "correct": true,
+          "explain": "正解。マージという最終判断を人に残す。",
+          "textZh": "允许它创建 PR，但用分支保护要求人工批准才能合并。"
+        },
+        {
+          "text": "Let it merge if tests pass.",
+          "correct": false,
+          "explain": "不適。人の責任が消える。",
+          "textZh": "测试通过就让它合并。"
+        },
+        {
+          "text": "Remove tests to speed up merges.",
+          "correct": false,
+          "explain": "不適。品質の統制を失う。",
+          "textZh": "去掉测试来加快合并。"
+        },
+        {
+          "text": "Give it admin rights to bypass protection.",
+          "correct": false,
+          "explain": "不適。管理者権限で保護を回避するのは統制を破る。",
+          "textZh": "给它管理员权限绕过保护。"
+        }
+      ],
+      "objective": "Accountability for AI-Generated Code",
+      "reference": "https://code.claude.com/docs/en/settings",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个自主编程代理可以自己创建 PR 并合并到 main。最好的控制是什么？",
+      "commentaryZh": "AI 可以起草和提交，但合并到主干的决定和责任要留给人，用分支保护强制执行。"
+    },
+    {
+      "id": "rp7-012",
+      "domain": "D7",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A security incident traces to an AI-generated function. Who is accountable?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The humans and team who reviewed, approved, and own that code under the team's process.",
+          "correct": true,
+          "explain": "正解。AI ではなく、レビューし承認した人とチームが責任を持つ。",
+          "textZh": "按照团队流程审阅、批准并拥有该代码的人和团队。"
+        },
+        {
+          "text": "The AI model.",
+          "correct": false,
+          "explain": "不適。AI は説明責任を負えない。",
+          "textZh": "AI 模型。"
+        },
+        {
+          "text": "No one, because the code was generated.",
+          "correct": false,
+          "explain": "不適。責任の空白を作る。",
+          "textZh": "没有人，因为代码是生成的。"
+        },
+        {
+          "text": "The model provider only.",
+          "correct": false,
+          "explain": "不適。利用側の責任は消えない。",
+          "textZh": "只有模型提供商。"
+        }
+      ],
+      "objective": "Accountability for AI-Generated Code",
+      "reference": "https://code.claude.com/docs/en/security",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一次安全事件追溯到一个 AI 生成的函数。谁应负责？",
+      "commentaryZh": "使用 AI 生成代码不改变责任归属：审阅、批准并维护代码的人和团队负责。流程设计要让这一点清晰。"
+    }
+  ]
+}

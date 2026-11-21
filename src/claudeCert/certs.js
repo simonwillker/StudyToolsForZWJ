@@ -85,9 +85,22 @@ export const CERTS = [
     code: "CCAR-P",
     name: "Claude Certified Architect – Professional",
     prefix: "ccarp",
+    studyApp: "CCAR-P 対策",
+    backupFormat: "ccarp-study-backup",
+    backupFilePrefix: "ccarp-backup",
     color: "#5A3B8A",
-    status: "planned",
-    audience: "準備中",
+    status: "ready",
+    audience: "本番の Claude ソリューションを設計・統括する人向け（設計判断・統合・評価・ガバナンス・関係者への説明・開発運用の整備）",
+    title: "CCAR-P 対策",
+    eyebrow: "CCAR-P — CLAUDE CERTIFIED ARCHITECT (PROFESSIONAL)",
+    lead: "公式 Exam Guide v1.1（2026年12月7日発効）の 7 ドメイン・39 skill に沿った練習問題です。模擬試験は本番と同じ 70 問・120 分。問題文はすべてオリジナルで、公式の試験問題・サンプル問題は使っていません。",
+    officialDesc:
+      "受験料 ${fee}、Pearson VUE のオンライン監督またはテストセンターで受験します。申し込みは Anthropic Partner Academy から。本番は業務場面つきの選択問題 70 問（うち採点 60 問）・120 分、配点は Integration が 21% で最大です。Foundations の範囲は前提知識として扱われます。問題はすべてオリジナルです。",
+    links: [
+      { label: "Claude 認定プログラム（Pearson VUE） ↗", url: "https://www.pearsonvue.com/us/en/anthropic.html" },
+      { label: "Building effective agents ↗", url: "https://www.anthropic.com/engineering/building-effective-agents" },
+      { label: "Claude API ドキュメント ↗", url: "https://platform.claude.com/docs/en/home" },
+    ],
   },
 ];
 

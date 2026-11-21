@@ -1,0 +1,5524 @@
+{
+  "_note": "scripts/buildClaudeCertVocab.mjs が生成。手で直さず glossary.json を直して作り直すこと。",
+  "minQuestions": 4,
+  "totalQuestions": 161,
+  "words": [
+    {
+      "id": "model",
+      "word": "model",
+      "pos": "名詞",
+      "ja": "モデル（AIモデル）",
+      "zh": "模型（AI 模型）",
+      "count": 70,
+      "questionCount": 55,
+      "domains": {
+        "D1": 8,
+        "D2": 7,
+        "D3": 9,
+        "D4": 16,
+        "D5": 8,
+        "D6": 6,
+        "D7": 1
+      },
+      "forms": [
+        "model",
+        "models"
+      ],
+      "examples": [
+        {
+          "en": "It is enforced by code on every call, regardless of what the model is persuaded to do.",
+          "zh": "它由代码在每次调用时强制执行，不管模型被说服去做什么。",
+          "itemId": "rp5-003"
+        },
+        {
+          "en": "The conditions that would trigger revisiting it (e.g. new model tier, cost threshold).",
+          "zh": "需要重新审视该决策的触发条件（如新的模型层级、成本阈值）。",
+          "itemId": "rp6-007"
+        }
+      ],
+      "itemIds": [
+        "rp1-007",
+        "rp1-016",
+        "rp1-019",
+        "rp1-021",
+        "rp1-022",
+        "rp1-023",
+        "rp1-027",
+        "rp1-028",
+        "rp2-003",
+        "rp2-005",
+        "rp2-008",
+        "rp2-010",
+        "rp2-012",
+        "rp2-016",
+        "rp2-023",
+        "rp3-009",
+        "rp3-011",
+        "rp3-012",
+        "rp3-016",
+        "rp3-017",
+        "rp3-019",
+        "rp3-020",
+        "rp3-029",
+        "rp3-031",
+        "rp4-003",
+        "rp4-005",
+        "rp4-007",
+        "rp4-011",
+        "rp4-012",
+        "rp4-015",
+        "rp4-016",
+        "rp4-017",
+        "rp4-018",
+        "rp4-020",
+        "rp4-021",
+        "rp4-024",
+        "rp4-025",
+        "rp4-026",
+        "rp4-027",
+        "rp4-028",
+        "rp5-002",
+        "rp5-003",
+        "rp5-006",
+        "rp5-011",
+        "rp5-018",
+        "rp5-021",
+        "rp5-022",
+        "rp5-024",
+        "rp6-003",
+        "rp6-005",
+        "rp6-006",
+        "rp6-007",
+        "rp6-009",
+        "rp6-010",
+        "rp7-012"
+      ]
+    },
+    {
+      "id": "tool",
+      "word": "tool",
+      "pos": "名詞",
+      "ja": "ツール（モデルが呼び出せる機能）",
+      "zh": "工具",
+      "count": 87,
+      "questionCount": 45,
+      "domains": {
+        "D1": 9,
+        "D2": 6,
+        "D3": 15,
+        "D4": 5,
+        "D5": 6,
+        "D6": 1,
+        "D7": 3
+      },
+      "forms": [
+        "tool",
+        "tools"
+      ],
+      "examples": [
+        {
+          "en": "Context editing that clears old tool results while keeping the rest of the conversation.",
+          "zh": "使用上下文编辑，清除旧的工具结果，同时保留对话的其余部分。",
+          "itemId": "rp2-022"
+        },
+        {
+          "en": "Headless Claude Code (or the Agent SDK) in the CI runner with an explicit allowed-tools list.",
+          "zh": "在 CI 执行器中运行无头 Claude Code（或 Agent SDK），并明确允许的工具列表。",
+          "itemId": "rp1-029"
+        }
+      ],
+      "itemIds": [
+        "rp1-007",
+        "rp1-013",
+        "rp1-014",
+        "rp1-018",
+        "rp1-019",
+        "rp1-020",
+        "rp1-026",
+        "rp1-027",
+        "rp1-029",
+        "rp2-013",
+        "rp2-015",
+        "rp2-016",
+        "rp2-017",
+        "rp2-022",
+        "rp2-023",
+        "rp3-001",
+        "rp3-002",
+        "rp3-003",
+        "rp3-004",
+        "rp3-011",
+        "rp3-015",
+        "rp3-017",
+        "rp3-018",
+        "rp3-021",
+        "rp3-022",
+        "rp3-023",
+        "rp3-024",
+        "rp3-026",
+        "rp3-027",
+        "rp3-032",
+        "rp4-002",
+        "rp4-017",
+        "rp4-018",
+        "rp4-020",
+        "rp4-024",
+        "rp5-002",
+        "rp5-003",
+        "rp5-005",
+        "rp5-008",
+        "rp5-009",
+        "rp5-019",
+        "rp6-002",
+        "rp7-006",
+        "rp7-007",
+        "rp7-008"
+      ]
+    },
+    {
+      "id": "prompt",
+      "word": "prompt",
+      "pos": "名詞",
+      "ja": "プロンプト（AIへの指示文）",
+      "zh": "提示词",
+      "count": 63,
+      "questionCount": 44,
+      "domains": {
+        "D1": 10,
+        "D2": 10,
+        "D3": 2,
+        "D4": 10,
+        "D5": 10,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "prompt",
+        "prompted",
+        "prompts"
+      ],
+      "examples": [
+        {
+          "en": "Move the UUID after the static prompt (or out of the prompt) so the prefix is cacheable.",
+          "zh": "把 UUID 移到固定提示之后（或移出提示），让前缀可以被缓存。",
+          "itemId": "rp4-021"
+        },
+        {
+          "en": "Revise the prompt to describe evidence-based, consistent criteria for describing achievements.",
+          "zh": "修改提示，规定基于事实且一致的成就描述标准。",
+          "itemId": "rp5-023"
+        }
+      ],
+      "itemIds": [
+        "rp1-008",
+        "rp1-009",
+        "rp1-010",
+        "rp1-011",
+        "rp1-015",
+        "rp1-018",
+        "rp1-022",
+        "rp1-025",
+        "rp1-027",
+        "rp1-028",
+        "rp2-005",
+        "rp2-006",
+        "rp2-007",
+        "rp2-008",
+        "rp2-010",
+        "rp2-013",
+        "rp2-017",
+        "rp2-018",
+        "rp2-020",
+        "rp2-024",
+        "rp3-007",
+        "rp3-021",
+        "rp4-004",
+        "rp4-008",
+        "rp4-014",
+        "rp4-016",
+        "rp4-018",
+        "rp4-020",
+        "rp4-021",
+        "rp4-025",
+        "rp4-026",
+        "rp4-028",
+        "rp5-003",
+        "rp5-006",
+        "rp5-008",
+        "rp5-011",
+        "rp5-018",
+        "rp5-020",
+        "rp5-021",
+        "rp5-022",
+        "rp5-023",
+        "rp5-024",
+        "rp6-009",
+        "rp7-007"
+      ]
+    },
+    {
+      "id": "agent",
+      "word": "agent",
+      "pos": "名詞",
+      "ja": "エージェント（自律的にツールを使うAI）",
+      "zh": "智能体",
+      "count": 81,
+      "questionCount": 43,
+      "domains": {
+        "D1": 9,
+        "D2": 6,
+        "D3": 13,
+        "D4": 5,
+        "D5": 6,
+        "D6": 2,
+        "D7": 2
+      },
+      "forms": [
+        "agent",
+        "agents"
+      ],
+      "examples": [
+        {
+          "en": "Headless Claude Code (or the Agent SDK) in the CI runner with an explicit allowed-tools list.",
+          "zh": "在 CI 执行器中运行无头 Claude Code（或 Agent SDK），并明确允许的工具列表。",
+          "itemId": "rp1-029"
+        },
+        {
+          "en": "Shape the tool response to return only the extracted fields or text the agent needs.",
+          "zh": "调整工具的返回内容，只返回代理需要的提取字段或文本。",
+          "itemId": "rp4-024"
+        }
+      ],
+      "itemIds": [
+        "rp1-011",
+        "rp1-012",
+        "rp1-013",
+        "rp1-014",
+        "rp1-023",
+        "rp1-025",
+        "rp1-026",
+        "rp1-027",
+        "rp1-029",
+        "rp2-013",
+        "rp2-020",
+        "rp2-021",
+        "rp2-022",
+        "rp2-023",
+        "rp2-024",
+        "rp3-003",
+        "rp3-004",
+        "rp3-005",
+        "rp3-007",
+        "rp3-011",
+        "rp3-015",
+        "rp3-021",
+        "rp3-022",
+        "rp3-023",
+        "rp3-024",
+        "rp3-025",
+        "rp3-027",
+        "rp3-029",
+        "rp4-002",
+        "rp4-004",
+        "rp4-018",
+        "rp4-019",
+        "rp4-024",
+        "rp5-002",
+        "rp5-005",
+        "rp5-008",
+        "rp5-009",
+        "rp5-013",
+        "rp5-015",
+        "rp6-002",
+        "rp6-008",
+        "rp7-007",
+        "rp7-011"
+      ]
+    },
+    {
+      "id": "team",
+      "word": "team",
+      "pos": "名詞",
+      "ja": "チーム",
+      "zh": "团队",
+      "count": 39,
+      "questionCount": 28,
+      "domains": {
+        "D1": 7,
+        "D2": 2,
+        "D3": 4,
+        "D4": 4,
+        "D5": 1,
+        "D6": 4,
+        "D7": 6
+      },
+      "forms": [
+        "team",
+        "teams"
+      ],
+      "examples": [
+        {
+          "en": "Deny rules for destructive commands and access to secrets, which teams cannot override.",
+          "zh": "针对破坏性命令和访问密钥的拒绝规则，各团队不能覆盖。",
+          "itemId": "rp7-002"
+        },
+        {
+          "en": "The humans and team who reviewed, approved, and own that code under the team's process.",
+          "zh": "按照团队流程审阅、批准并拥有该代码的人和团队。",
+          "itemId": "rp7-012"
+        }
+      ],
+      "itemIds": [
+        "rp1-002",
+        "rp1-005",
+        "rp1-011",
+        "rp1-015",
+        "rp1-024",
+        "rp1-026",
+        "rp1-029",
+        "rp2-016",
+        "rp2-018",
+        "rp3-013",
+        "rp3-019",
+        "rp3-023",
+        "rp3-024",
+        "rp4-005",
+        "rp4-011",
+        "rp4-016",
+        "rp4-026",
+        "rp5-007",
+        "rp6-004",
+        "rp6-005",
+        "rp6-009",
+        "rp6-012",
+        "rp7-001",
+        "rp7-002",
+        "rp7-003",
+        "rp7-004",
+        "rp7-009",
+        "rp7-012"
+      ]
+    },
+    {
+      "id": "system",
+      "word": "system",
+      "pos": "名詞",
+      "ja": "システム",
+      "zh": "系统",
+      "count": 30,
+      "questionCount": 25,
+      "domains": {
+        "D1": 3,
+        "D2": 9,
+        "D3": 4,
+        "D4": 1,
+        "D5": 6,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "system",
+        "systems"
+      ],
+      "examples": [
+        {
+          "en": "Input tokens per call broken down by component (system, history, documents, tools).",
+          "zh": "按组成部分（系统提示、历史、文档、工具）拆分的每次调用输入 token。",
+          "itemId": "rp2-015"
+        },
+        {
+          "en": "Move the timestamp after the stable content and place breakpoints after the system/tools and after the user profile.",
+          "zh": "把时间戳移到稳定内容之后，并在系统提示/工具之后、用户资料之后设置断点。",
+          "itemId": "rp2-017"
+        }
+      ],
+      "itemIds": [
+        "rp1-015",
+        "rp1-020",
+        "rp1-027",
+        "rp2-005",
+        "rp2-006",
+        "rp2-007",
+        "rp2-008",
+        "rp2-013",
+        "rp2-015",
+        "rp2-017",
+        "rp2-020",
+        "rp2-024",
+        "rp3-005",
+        "rp3-009",
+        "rp3-020",
+        "rp3-021",
+        "rp4-019",
+        "rp5-003",
+        "rp5-006",
+        "rp5-008",
+        "rp5-011",
+        "rp5-020",
+        "rp5-023",
+        "rp6-008",
+        "rp7-007"
+      ]
+    },
+    {
+      "id": "human",
+      "word": "human",
+      "pos": "名詞",
+      "ja": "人間",
+      "zh": "人类、人工",
+      "count": 36,
+      "questionCount": 24,
+      "domains": {
+        "D1": 6,
+        "D2": 1,
+        "D3": 2,
+        "D4": 4,
+        "D5": 4,
+        "D6": 3,
+        "D7": 4
+      },
+      "forms": [
+        "human",
+        "humans"
+      ],
+      "examples": [
+        {
+          "en": "The humans and team who reviewed, approved, and own that code under the team's process.",
+          "zh": "按照团队流程审阅、批准并拥有该代码的人和团队。",
+          "itemId": "rp7-012"
+        },
+        {
+          "en": "Allow it to open PRs but require branch protection with human approval for merges.",
+          "zh": "允许它创建 PR，但用分支保护要求人工批准才能合并。",
+          "itemId": "rp7-011"
+        }
+      ],
+      "itemIds": [
+        "rp1-001",
+        "rp1-002",
+        "rp1-005",
+        "rp1-006",
+        "rp1-012",
+        "rp1-013",
+        "rp2-005",
+        "rp3-004",
+        "rp3-021",
+        "rp4-009",
+        "rp4-010",
+        "rp4-011",
+        "rp4-012",
+        "rp5-006",
+        "rp5-014",
+        "rp5-015",
+        "rp5-016",
+        "rp6-001",
+        "rp6-003",
+        "rp6-004",
+        "rp7-005",
+        "rp7-009",
+        "rp7-011",
+        "rp7-012"
+      ]
+    },
+    {
+      "id": "token",
+      "word": "token",
+      "pos": "名詞",
+      "ja": "トークン（テキストの処理単位）",
+      "zh": "token",
+      "count": 36,
+      "questionCount": 23,
+      "domains": {
+        "D1": 1,
+        "D2": 9,
+        "D3": 7,
+        "D4": 3,
+        "D5": 2,
+        "D6": 1
+      },
+      "forms": [
+        "token",
+        "tokens"
+      ],
+      "examples": [
+        {
+          "en": "Track stop_reason distribution per feature and alert when max_tokens exceeds a threshold.",
+          "zh": "按功能跟踪 stop_reason 的分布，当 max_tokens 的比例超过阈值时报警。",
+          "itemId": "rp3-013"
+        },
+        {
+          "en": "Token and quota exhaustion; enforce per-user rate limits and spend caps with alerts.",
+          "zh": "token 与配额耗尽；实施按用户的速率限制和花费上限，并设置报警。",
+          "itemId": "rp5-010"
+        }
+      ],
+      "itemIds": [
+        "rp1-010",
+        "rp2-006",
+        "rp2-009",
+        "rp2-010",
+        "rp2-012",
+        "rp2-013",
+        "rp2-014",
+        "rp2-015",
+        "rp2-016",
+        "rp2-022",
+        "rp3-007",
+        "rp3-010",
+        "rp3-013",
+        "rp3-015",
+        "rp3-016",
+        "rp3-025",
+        "rp3-026",
+        "rp4-003",
+        "rp4-021",
+        "rp4-024",
+        "rp5-009",
+        "rp5-010",
+        "rp6-008"
+      ]
+    },
+    {
+      "id": "remove",
+      "word": "remove",
+      "pos": "動詞",
+      "ja": "取り除く、削除する",
+      "zh": "删除、去掉",
+      "count": 23,
+      "questionCount": 23,
+      "domains": {
+        "D1": 1,
+        "D2": 7,
+        "D3": 3,
+        "D4": 4,
+        "D5": 5,
+        "D6": 2,
+        "D7": 1
+      },
+      "forms": [
+        "remove",
+        "removed",
+        "removing"
+      ],
+      "examples": [
+        {
+          "en": "Remove tools no subagent has used in traces over the past month, after confirming they are unneeded.",
+          "zh": "确认不需要后，删除过去一个月轨迹中没有任何子代理用过的工具。",
+          "itemId": "rp3-002"
+        },
+        {
+          "en": "The model is reacting to the region in the input (prompt/input framing); remove or mask non-job-relevant attributes and add counterfactual tests to the eval set.",
+          "zh": "模型在对输入中的地区作出反应（提示/输入的框架问题）；去除或遮蔽与工作无关的属性，并在评估集中加入反事实测试。",
+          "itemId": "rp5-021"
+        }
+      ],
+      "itemIds": [
+        "rp1-017",
+        "rp2-006",
+        "rp2-009",
+        "rp2-012",
+        "rp2-013",
+        "rp2-016",
+        "rp2-017",
+        "rp2-024",
+        "rp3-002",
+        "rp3-020",
+        "rp3-024",
+        "rp4-006",
+        "rp4-010",
+        "rp4-019",
+        "rp4-023",
+        "rp5-004",
+        "rp5-015",
+        "rp5-016",
+        "rp5-021",
+        "rp5-023",
+        "rp6-001",
+        "rp6-002",
+        "rp7-011"
+      ]
+    },
+    {
+      "id": "step",
+      "word": "step",
+      "pos": "名詞",
+      "ja": "手順、段階",
+      "zh": "步骤",
+      "count": 32,
+      "questionCount": 22,
+      "domains": {
+        "D1": 6,
+        "D2": 4,
+        "D3": 1,
+        "D4": 7,
+        "D5": 1,
+        "D6": 2,
+        "D7": 1
+      },
+      "forms": [
+        "step",
+        "steps"
+      ],
+      "examples": [
+        {
+          "en": "Deriving pass criteria from the business KPI the step affects (e.g. first-contact resolution).",
+          "zh": "从该步骤影响的业务 KPI 推导通过标准（例如首次联系解决率）。",
+          "itemId": "rp4-007"
+        },
+        {
+          "en": "Lower the effort for this step and keep monitoring accuracy.",
+          "zh": "降低这个步骤的 effort，并持续监控准确率。",
+          "itemId": "rp4-023"
+        }
+      ],
+      "itemIds": [
+        "rp1-001",
+        "rp1-003",
+        "rp1-005",
+        "rp1-006",
+        "rp1-012",
+        "rp1-014",
+        "rp2-001",
+        "rp2-008",
+        "rp2-010",
+        "rp2-018",
+        "rp3-012",
+        "rp4-005",
+        "rp4-007",
+        "rp4-008",
+        "rp4-013",
+        "rp4-020",
+        "rp4-022",
+        "rp4-023",
+        "rp5-013",
+        "rp6-002",
+        "rp6-006",
+        "rp7-005"
+      ]
+    },
+    {
+      "id": "request",
+      "word": "request",
+      "pos": "名詞",
+      "ja": "依頼、要求",
+      "zh": "请求、要求",
+      "count": 28,
+      "questionCount": 22,
+      "domains": {
+        "D1": 2,
+        "D2": 8,
+        "D3": 3,
+        "D4": 3,
+        "D5": 4,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "request",
+        "requests"
+      ],
+      "examples": [
+        {
+          "en": "B, because at low volume the operating cost of a new service outweighs the per-request saving.",
+          "zh": "选 B，因为请求量低时，新服务的运维成本超过了单次请求的节省。",
+          "itemId": "rp1-024"
+        },
+        {
+          "en": "The procedure is long and only needed for some requests, so loading it on demand saves context.",
+          "zh": "流程很长，只有部分请求需要，按需加载可以节省上下文。",
+          "itemId": "rp1-015"
+        }
+      ],
+      "itemIds": [
+        "rp1-015",
+        "rp1-024",
+        "rp2-002",
+        "rp2-003",
+        "rp2-005",
+        "rp2-006",
+        "rp2-013",
+        "rp2-014",
+        "rp2-017",
+        "rp2-019",
+        "rp3-005",
+        "rp3-013",
+        "rp3-029",
+        "rp4-003",
+        "rp4-018",
+        "rp4-021",
+        "rp5-001",
+        "rp5-004",
+        "rp5-013",
+        "rp5-015",
+        "rp6-012",
+        "rp7-009"
+      ]
+    },
+    {
+      "id": "latency",
+      "word": "latency",
+      "pos": "名詞",
+      "ja": "遅延",
+      "zh": "延迟",
+      "count": 27,
+      "questionCount": 22,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D3": 11,
+        "D4": 3,
+        "D5": 1,
+        "D6": 2
+      },
+      "forms": [
+        "latency"
+      ],
+      "examples": [
+        {
+          "en": "Identify which constraint (accuracy or latency) is actually binding, using measurements.",
+          "zh": "用测量数据确定真正受限的是哪个指标（准确度还是延迟）。",
+          "itemId": "rp3-012"
+        },
+        {
+          "en": "They add latency and cost without a needed quality gain, since the fast tier already meets the target.",
+          "zh": "它们增加了延迟和成本，却没有带来必要的质量提升，因为快速层级已经达标。",
+          "itemId": "rp2-001"
+        }
+      ],
+      "itemIds": [
+        "rp1-010",
+        "rp2-001",
+        "rp2-003",
+        "rp2-010",
+        "rp2-021",
+        "rp3-009",
+        "rp3-010",
+        "rp3-011",
+        "rp3-012",
+        "rp3-013",
+        "rp3-016",
+        "rp3-017",
+        "rp3-018",
+        "rp3-022",
+        "rp3-024",
+        "rp3-028",
+        "rp4-001",
+        "rp4-004",
+        "rp4-023",
+        "rp5-024",
+        "rp6-002",
+        "rp6-005"
+      ]
+    },
+    {
+      "id": "cost",
+      "word": "cost",
+      "pos": "名詞",
+      "ja": "費用、コスト",
+      "zh": "成本、费用",
+      "count": 27,
+      "questionCount": 19,
+      "domains": {
+        "D1": 5,
+        "D2": 6,
+        "D3": 2,
+        "D4": 4,
+        "D6": 2
+      },
+      "forms": [
+        "cost",
+        "costs"
+      ],
+      "examples": [
+        {
+          "en": "B, because at low volume the operating cost of a new service outweighs the per-request saving.",
+          "zh": "选 B，因为请求量低时，新服务的运维成本超过了单次请求的节省。",
+          "itemId": "rp1-024"
+        },
+        {
+          "en": "The conditions that would trigger revisiting it (e.g. new model tier, cost threshold).",
+          "zh": "需要重新审视该决策的触发条件（如新的模型层级、成本阈值）。",
+          "itemId": "rp6-007"
+        }
+      ],
+      "itemIds": [
+        "rp1-010",
+        "rp1-020",
+        "rp1-022",
+        "rp1-023",
+        "rp1-024",
+        "rp2-001",
+        "rp2-003",
+        "rp2-009",
+        "rp2-012",
+        "rp2-013",
+        "rp2-014",
+        "rp3-010",
+        "rp3-015",
+        "rp4-003",
+        "rp4-021",
+        "rp4-022",
+        "rp4-024",
+        "rp6-007",
+        "rp6-008"
+      ]
+    },
+    {
+      "id": "code",
+      "word": "code",
+      "pos": "名詞",
+      "ja": "コード",
+      "zh": "代码",
+      "count": 25,
+      "questionCount": 19,
+      "domains": {
+        "D1": 6,
+        "D2": 1,
+        "D3": 2,
+        "D5": 1,
+        "D6": 1,
+        "D7": 8
+      },
+      "forms": [
+        "code",
+        "coded",
+        "coding"
+      ],
+      "examples": [
+        {
+          "en": "Headless Claude Code (or the Agent SDK) in the CI runner with an explicit allowed-tools list.",
+          "zh": "在 CI 执行器中运行无头 Claude Code（或 Agent SDK），并明确允许的工具列表。",
+          "itemId": "rp1-029"
+        },
+        {
+          "en": "The humans and team who reviewed, approved, and own that code under the team's process.",
+          "zh": "按照团队流程审阅、批准并拥有该代码的人和团队。",
+          "itemId": "rp7-012"
+        }
+      ],
+      "itemIds": [
+        "rp1-012",
+        "rp1-013",
+        "rp1-015",
+        "rp1-026",
+        "rp1-027",
+        "rp1-029",
+        "rp2-022",
+        "rp3-006",
+        "rp3-024",
+        "rp5-003",
+        "rp6-012",
+        "rp7-002",
+        "rp7-005",
+        "rp7-006",
+        "rp7-008",
+        "rp7-009",
+        "rp7-010",
+        "rp7-011",
+        "rp7-012"
+      ]
+    },
+    {
+      "id": "data",
+      "word": "data",
+      "pos": "名詞",
+      "ja": "データ",
+      "zh": "数据",
+      "count": 23,
+      "questionCount": 19,
+      "domains": {
+        "D1": 7,
+        "D2": 1,
+        "D3": 1,
+        "D5": 10
+      },
+      "forms": [
+        "data"
+      ],
+      "examples": [
+        {
+          "en": "Structured output with a JSON schema, plus validation before the data reaches the service.",
+          "zh": "使用带 JSON schema 的结构化输出，并在数据进入服务前做校验。",
+          "itemId": "rp2-011"
+        },
+        {
+          "en": "Unreviewed, possibly adversarial data changes production behavior without an eval gate.",
+          "zh": "未经审核、可能带有恶意的数据在没有评估关卡的情况下改变了生产行为。",
+          "itemId": "rp1-009"
+        }
+      ],
+      "itemIds": [
+        "rp1-006",
+        "rp1-009",
+        "rp1-023",
+        "rp1-025",
+        "rp1-026",
+        "rp1-027",
+        "rp1-028",
+        "rp2-011",
+        "rp3-005",
+        "rp5-005",
+        "rp5-006",
+        "rp5-008",
+        "rp5-010",
+        "rp5-014",
+        "rp5-017",
+        "rp5-018",
+        "rp5-020",
+        "rp5-021",
+        "rp5-024"
+      ]
+    },
+    {
+      "id": "output",
+      "word": "output",
+      "pos": "名詞",
+      "ja": "出力、生成結果",
+      "zh": "输出、生成结果",
+      "count": 23,
+      "questionCount": 17,
+      "domains": {
+        "D1": 3,
+        "D2": 4,
+        "D3": 1,
+        "D4": 5,
+        "D5": 3,
+        "D7": 1
+      },
+      "forms": [
+        "output",
+        "outputs"
+      ],
+      "examples": [
+        {
+          "en": "Structured output with a JSON schema, plus validation before the data reaches the service.",
+          "zh": "使用带 JSON schema 的结构化输出，并在数据进入服务前做校验。",
+          "itemId": "rp2-011"
+        },
+        {
+          "en": "Trace each subagent's inputs, tool calls, outputs, and cost under a shared run ID.",
+          "zh": "用共同的运行 ID 记录每个子代理的输入、工具调用、输出和成本。",
+          "itemId": "rp1-020"
+        }
+      ],
+      "itemIds": [
+        "rp1-008",
+        "rp1-019",
+        "rp1-020",
+        "rp2-007",
+        "rp2-010",
+        "rp2-011",
+        "rp2-013",
+        "rp3-013",
+        "rp4-003",
+        "rp4-008",
+        "rp4-011",
+        "rp4-015",
+        "rp4-028",
+        "rp5-001",
+        "rp5-008",
+        "rp5-023",
+        "rp7-008"
+      ]
+    },
+    {
+      "id": "fix",
+      "word": "fix",
+      "pos": "動詞",
+      "ja": "直す、修正する",
+      "zh": "修正、修复",
+      "count": 21,
+      "questionCount": 17,
+      "domains": {
+        "D1": 2,
+        "D2": 3,
+        "D3": 3,
+        "D4": 6,
+        "D5": 1,
+        "D7": 2
+      },
+      "forms": [
+        "fix",
+        "fixed",
+        "fixes"
+      ],
+      "examples": [
+        {
+          "en": "Score each by exposure (reachability × impact × likelihood) and fix the top items first.",
+          "zh": "按暴露程度（可触达性 × 影响 × 可能性）给每项打分，先修排名靠前的。",
+          "itemId": "rp5-012"
+        },
+        {
+          "en": "Hallucination (generation), not retrieval; fix grounding instructions and add groundedness checks.",
+          "zh": "幻觉（生成环节），而不是检索问题；修正基于资料作答的指令，并加入 groundedness 检查。",
+          "itemId": "rp4-017"
+        }
+      ],
+      "itemIds": [
+        "rp1-012",
+        "rp1-013",
+        "rp2-006",
+        "rp2-009",
+        "rp2-017",
+        "rp3-003",
+        "rp3-012",
+        "rp3-029",
+        "rp4-006",
+        "rp4-009",
+        "rp4-012",
+        "rp4-013",
+        "rp4-017",
+        "rp4-019",
+        "rp5-012",
+        "rp7-005",
+        "rp7-008"
+      ]
+    },
+    {
+      "id": "cache",
+      "word": "cache",
+      "pos": "名詞",
+      "ja": "キャッシュ",
+      "zh": "缓存",
+      "count": 22,
+      "questionCount": 15,
+      "domains": {
+        "D1": 1,
+        "D2": 5,
+        "D3": 5,
+        "D4": 2,
+        "D5": 2
+      },
+      "forms": [
+        "cache",
+        "cached",
+        "caching"
+      ],
+      "examples": [
+        {
+          "en": "Load the policy up front (monolithically) and cache it, avoiding discovery round trips.",
+          "zh": "预先整体加载这份规定并缓存，避免发现过程的往返。",
+          "itemId": "rp3-026"
+        },
+        {
+          "en": "Cache the catalog prefix so repeated reads are billed at the cache-read rate.",
+          "zh": "缓存目录前缀，让重复读取按缓存读取的价格计费。",
+          "itemId": "rp2-014"
+        }
+      ],
+      "itemIds": [
+        "rp1-022",
+        "rp2-014",
+        "rp2-015",
+        "rp2-017",
+        "rp2-019",
+        "rp2-020",
+        "rp3-005",
+        "rp3-009",
+        "rp3-010",
+        "rp3-019",
+        "rp3-026",
+        "rp4-021",
+        "rp4-022",
+        "rp5-018",
+        "rp5-020"
+      ]
+    },
+    {
+      "id": "version",
+      "word": "version",
+      "pos": "名詞",
+      "ja": "版、バージョン",
+      "zh": "版本",
+      "count": 19,
+      "questionCount": 15,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 1,
+        "D4": 5,
+        "D5": 1,
+        "D6": 3,
+        "D7": 1
+      },
+      "forms": [
+        "version",
+        "versioned",
+        "versions"
+      ],
+      "examples": [
+        {
+          "en": "Stay pinned on the current version and plan the migration later, watching the deprecation schedule.",
+          "zh": "继续固定在当前版本，之后再计划迁移，并关注弃用时间表。",
+          "itemId": "rp4-026"
+        },
+        {
+          "en": "A Skills-based pattern: package the procedure once as a governed, versioned Skill that each app loads.",
+          "zh": "基于 Skill 的模式：把流程打包成一个受管理、有版本的 Skill，各应用加载使用。",
+          "itemId": "rp1-011"
+        }
+      ],
+      "itemIds": [
+        "rp1-008",
+        "rp1-011",
+        "rp1-015",
+        "rp2-018",
+        "rp3-016",
+        "rp4-003",
+        "rp4-008",
+        "rp4-012",
+        "rp4-026",
+        "rp4-027",
+        "rp5-007",
+        "rp6-009",
+        "rp6-010",
+        "rp6-011",
+        "rp7-003"
+      ]
+    },
+    {
+      "id": "task",
+      "word": "task",
+      "pos": "名詞",
+      "ja": "タスク、作業",
+      "zh": "任务",
+      "count": 18,
+      "questionCount": 15,
+      "domains": {
+        "D1": 4,
+        "D2": 5,
+        "D3": 3,
+        "D4": 2,
+        "D7": 1
+      },
+      "forms": [
+        "task",
+        "tasks"
+      ],
+      "examples": [
+        {
+          "en": "The available material is large but each task needs only a small, unpredictable part.",
+          "zh": "可用资料很多，但每个任务只需要其中一小部分，且事先无法预测。",
+          "itemId": "rp3-028"
+        },
+        {
+          "en": "Trim the history: drop or summarize stale tool outputs while keeping decisions and the current task state.",
+          "zh": "精简历史：删除或总结过时的工具输出，同时保留决定和当前任务状态。",
+          "itemId": "rp2-013"
+        }
+      ],
+      "itemIds": [
+        "rp1-006",
+        "rp1-012",
+        "rp1-018",
+        "rp1-019",
+        "rp2-003",
+        "rp2-010",
+        "rp2-012",
+        "rp2-013",
+        "rp2-021",
+        "rp3-002",
+        "rp3-025",
+        "rp3-028",
+        "rp4-020",
+        "rp4-024",
+        "rp7-004"
+      ]
+    },
+    {
+      "id": "review",
+      "word": "review",
+      "pos": "動詞",
+      "ja": "見直す、レビューする",
+      "zh": "审阅、复核",
+      "count": 17,
+      "questionCount": 15,
+      "domains": {
+        "D1": 5,
+        "D2": 1,
+        "D5": 3,
+        "D6": 1,
+        "D7": 5
+      },
+      "forms": [
+        "review",
+        "reviewed",
+        "reviews"
+      ],
+      "examples": [
+        {
+          "en": "Review plugin contents (hooks, scripts, MCP configs) before publishing to the marketplace.",
+          "zh": "在发布到插件市场之前审查插件内容（钩子、脚本、MCP 配置）。",
+          "itemId": "rp7-003"
+        },
+        {
+          "en": "The humans and team who reviewed, approved, and own that code under the team's process.",
+          "zh": "按照团队流程审阅、批准并拥有该代码的人和团队。",
+          "itemId": "rp7-012"
+        }
+      ],
+      "itemIds": [
+        "rp1-001",
+        "rp1-004",
+        "rp1-006",
+        "rp1-010",
+        "rp1-013",
+        "rp2-003",
+        "rp5-007",
+        "rp5-013",
+        "rp5-015",
+        "rp6-006",
+        "rp7-001",
+        "rp7-003",
+        "rp7-009",
+        "rp7-010",
+        "rp7-012"
+      ]
+    },
+    {
+      "id": "control",
+      "word": "control",
+      "pos": "名詞",
+      "ja": "管理、統制",
+      "zh": "控制",
+      "count": 15,
+      "questionCount": 15,
+      "domains": {
+        "D1": 1,
+        "D3": 2,
+        "D5": 9,
+        "D6": 1,
+        "D7": 2
+      },
+      "forms": [
+        "control",
+        "controls"
+      ],
+      "examples": [
+        {
+          "en": "Access control: each component should use the narrowest credential it needs.",
+          "zh": "访问控制：每个组件都应使用所需的最小权限凭证。",
+          "itemId": "rp1-010"
+        },
+        {
+          "en": "Flag it as unsupportable and replace it with measurable targets (e.g. groundedness rate on an eval set) plus controls such as citations and human escalation.",
+          "zh": "指出这是无法兑现的承诺，换成可衡量的目标（如评估集上的 groundedness 比例），再加上引用和转人工等控制。",
+          "itemId": "rp6-001"
+        }
+      ],
+      "itemIds": [
+        "rp1-010",
+        "rp3-030",
+        "rp3-031",
+        "rp5-002",
+        "rp5-006",
+        "rp5-007",
+        "rp5-008",
+        "rp5-010",
+        "rp5-017",
+        "rp5-018",
+        "rp5-019",
+        "rp5-020",
+        "rp6-001",
+        "rp7-002",
+        "rp7-011"
+      ]
+    },
+    {
+      "id": "instruction",
+      "word": "instruction",
+      "pos": "名詞",
+      "ja": "指示",
+      "zh": "指令",
+      "count": 19,
+      "questionCount": 14,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D3": 3,
+        "D4": 3,
+        "D5": 4
+      },
+      "forms": [
+        "instruction",
+        "instructions"
+      ],
+      "examples": [
+        {
+          "en": "Hallucination (generation), not retrieval; fix grounding instructions and add groundedness checks.",
+          "zh": "幻觉（生成环节），而不是检索问题；修正基于资料作答的指令，并加入 groundedness 检查。",
+          "itemId": "rp4-017"
+        },
+        {
+          "en": "Security and safety cases: adversarial prompts such as injection and instruction-extraction attempts.",
+          "zh": "安全与安防用例：注入、套取指令等对抗性提示。",
+          "itemId": "rp4-004"
+        }
+      ],
+      "itemIds": [
+        "rp1-019",
+        "rp2-009",
+        "rp2-012",
+        "rp2-018",
+        "rp3-004",
+        "rp3-010",
+        "rp3-022",
+        "rp4-004",
+        "rp4-017",
+        "rp4-022",
+        "rp5-005",
+        "rp5-006",
+        "rp5-007",
+        "rp5-008"
+      ]
+    },
+    {
+      "id": "design",
+      "word": "design",
+      "pos": "名詞",
+      "ja": "設計",
+      "zh": "设计",
+      "count": 18,
+      "questionCount": 14,
+      "domains": {
+        "D1": 5,
+        "D3": 2,
+        "D4": 1,
+        "D5": 2,
+        "D6": 4
+      },
+      "forms": [
+        "design",
+        "designed",
+        "designs"
+      ],
+      "examples": [
+        {
+          "en": "A paired design: both prompts on the same cases, comparing per-case differences.",
+          "zh": "成对设计：两个提示在相同用例上运行，比较每个用例的差异。",
+          "itemId": "rp4-014"
+        },
+        {
+          "en": "Eval-design bias; rebuild that slice with representative, varied examples before drawing conclusions.",
+          "zh": "评估设计偏差；先用有代表性、多样化的示例重建这一部分，再下结论。",
+          "itemId": "rp5-022"
+        }
+      ],
+      "itemIds": [
+        "rp1-004",
+        "rp1-006",
+        "rp1-015",
+        "rp1-016",
+        "rp1-024",
+        "rp3-023",
+        "rp3-025",
+        "rp4-014",
+        "rp5-013",
+        "rp5-022",
+        "rp6-004",
+        "rp6-008",
+        "rp6-010",
+        "rp6-012"
+      ]
+    },
+    {
+      "id": "context",
+      "word": "context",
+      "pos": "名詞",
+      "ja": "文脈、コンテキスト",
+      "zh": "上下文、语境",
+      "count": 17,
+      "questionCount": 14,
+      "domains": {
+        "D1": 3,
+        "D2": 4,
+        "D3": 6,
+        "D4": 1
+      },
+      "forms": [
+        "context"
+      ],
+      "examples": [
+        {
+          "en": "Context editing that clears old tool results while keeping the rest of the conversation.",
+          "zh": "使用上下文编辑，清除旧的工具结果，同时保留对话的其余部分。",
+          "itemId": "rp2-022"
+        },
+        {
+          "en": "The procedure is long and only needed for some requests, so loading it on demand saves context.",
+          "zh": "流程很长，只有部分请求需要，按需加载可以节省上下文。",
+          "itemId": "rp1-015"
+        }
+      ],
+      "itemIds": [
+        "rp1-015",
+        "rp1-016",
+        "rp1-018",
+        "rp2-013",
+        "rp2-016",
+        "rp2-022",
+        "rp2-024",
+        "rp3-004",
+        "rp3-017",
+        "rp3-018",
+        "rp3-019",
+        "rp3-020",
+        "rp3-027",
+        "rp4-024"
+      ]
+    },
+    {
+      "id": "rate",
+      "word": "rate",
+      "pos": "名詞",
+      "ja": "割合、率",
+      "zh": "比率",
+      "count": 16,
+      "questionCount": 14,
+      "domains": {
+        "D2": 3,
+        "D3": 2,
+        "D4": 2,
+        "D5": 4,
+        "D6": 3
+      },
+      "forms": [
+        "rate",
+        "rated",
+        "rates"
+      ],
+      "examples": [
+        {
+          "en": "Token and quota exhaustion; enforce per-user rate limits and spend caps with alerts.",
+          "zh": "token 与配额耗尽；实施按用户的速率限制和花费上限，并设置报警。",
+          "itemId": "rp5-010"
+        },
+        {
+          "en": "\"Daily volume stays under the current rate limits; above that, requests are queued.\"",
+          "zh": "「每日请求量低于当前的速率限制；超过时请求会进入队列。」",
+          "itemId": "rp6-012"
+        }
+      ],
+      "itemIds": [
+        "rp2-014",
+        "rp2-017",
+        "rp2-019",
+        "rp3-016",
+        "rp3-029",
+        "rp4-011",
+        "rp4-021",
+        "rp5-010",
+        "rp5-013",
+        "rp5-016",
+        "rp5-021",
+        "rp6-001",
+        "rp6-009",
+        "rp6-012"
+      ]
+    },
+    {
+      "id": "require",
+      "word": "require",
+      "pos": "動詞",
+      "ja": "必要とする、要求する",
+      "zh": "需要、要求",
+      "count": 14,
+      "questionCount": 14,
+      "domains": {
+        "D1": 3,
+        "D4": 1,
+        "D5": 3,
+        "D6": 4,
+        "D7": 3
+      },
+      "forms": [
+        "require",
+        "required",
+        "requires"
+      ],
+      "examples": [
+        {
+          "en": "Give each subagent its own timeout and a required status field (success, partial, failed).",
+          "zh": "给每个子代理单独的超时，并要求返回状态字段（成功、部分完成、失败）。",
+          "itemId": "rp1-017"
+        },
+        {
+          "en": "Require subagents to return source dates and prefer recent, authoritative sources.",
+          "zh": "要求子代理返回来源日期，并优先使用最新的权威来源。",
+          "itemId": "rp4-019"
+        }
+      ],
+      "itemIds": [
+        "rp1-003",
+        "rp1-017",
+        "rp1-025",
+        "rp4-019",
+        "rp5-002",
+        "rp5-006",
+        "rp5-017",
+        "rp6-002",
+        "rp6-003",
+        "rp6-004",
+        "rp6-005",
+        "rp7-009",
+        "rp7-010",
+        "rp7-011"
+      ]
+    },
+    {
+      "id": "switch",
+      "word": "switch",
+      "pos": "動詞",
+      "ja": "切り替える",
+      "zh": "切换",
+      "count": 14,
+      "questionCount": 14,
+      "domains": {
+        "D2": 2,
+        "D3": 3,
+        "D4": 9
+      },
+      "forms": [
+        "switch",
+        "switching"
+      ],
+      "examples": [
+        {
+          "en": "Which TWO artifacts are essential before switching production to a new model version?",
+          "zh": "在把生产切换到新模型版本之前，哪两项是必不可少的？",
+          "itemId": "rp4-027"
+        },
+        {
+          "en": "Switch to the cheapest tier without running evals.",
+          "zh": "不跑评估就换成最便宜的层级。",
+          "itemId": "rp4-022"
+        }
+      ],
+      "itemIds": [
+        "rp2-005",
+        "rp2-012",
+        "rp3-006",
+        "rp3-009",
+        "rp3-010",
+        "rp4-005",
+        "rp4-013",
+        "rp4-019",
+        "rp4-021",
+        "rp4-022",
+        "rp4-023",
+        "rp4-024",
+        "rp4-026",
+        "rp4-027"
+      ]
+    },
+    {
+      "id": "document",
+      "word": "document",
+      "pos": "名詞",
+      "ja": "文書、資料",
+      "zh": "文档、文件",
+      "count": 17,
+      "questionCount": 13,
+      "domains": {
+        "D1": 3,
+        "D2": 2,
+        "D3": 1,
+        "D5": 3,
+        "D6": 4
+      },
+      "forms": [
+        "document",
+        "documented",
+        "documents"
+      ],
+      "examples": [
+        {
+          "en": "Input tokens per call broken down by component (system, history, documents, tools).",
+          "zh": "按组成部分（系统提示、历史、文档、工具）拆分的每次调用输入 token。",
+          "itemId": "rp2-015"
+        },
+        {
+          "en": "Limited to output manipulation or prompt disclosure; keep secrets out of the prompt and delimit documents as data.",
+          "zh": "影响限于操纵输出或泄露提示；不要在提示中放秘密信息，并把文档标记为数据。",
+          "itemId": "rp5-008"
+        }
+      ],
+      "itemIds": [
+        "rp1-001",
+        "rp1-007",
+        "rp1-025",
+        "rp2-013",
+        "rp2-015",
+        "rp3-020",
+        "rp5-008",
+        "rp5-020",
+        "rp5-023",
+        "rp6-001",
+        "rp6-003",
+        "rp6-010",
+        "rp6-011"
+      ]
+    },
+    {
+      "id": "response",
+      "word": "response",
+      "pos": "名詞",
+      "ja": "応答、回答",
+      "zh": "回答、回应",
+      "count": 15,
+      "questionCount": 13,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D3": 2,
+        "D4": 4,
+        "D5": 1,
+        "D6": 2
+      },
+      "forms": [
+        "response",
+        "responses"
+      ],
+      "examples": [
+        {
+          "en": "State that responses are spoken aloud, so use short plain sentences without lists or markdown.",
+          "zh": "说明回答会被朗读出来，所以用简短的普通句子，不要列表或 markdown。",
+          "itemId": "rp2-007"
+        },
+        {
+          "en": "Shape the tool response to return only the extracted fields or text the agent needs.",
+          "zh": "调整工具的返回内容，只返回代理需要的提取字段或文本。",
+          "itemId": "rp4-024"
+        }
+      ],
+      "itemIds": [
+        "rp1-021",
+        "rp2-007",
+        "rp2-012",
+        "rp2-024",
+        "rp3-009",
+        "rp3-014",
+        "rp4-009",
+        "rp4-012",
+        "rp4-024",
+        "rp4-028",
+        "rp5-005",
+        "rp6-001",
+        "rp6-002"
+      ]
+    },
+    {
+      "id": "process",
+      "word": "process",
+      "pos": "名詞",
+      "ja": "工程、プロセス",
+      "zh": "流程、过程",
+      "count": 14,
+      "questionCount": 13,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 2,
+        "D4": 2,
+        "D5": 3,
+        "D7": 2
+      },
+      "forms": [
+        "process",
+        "processed",
+        "processes",
+        "processing"
+      ],
+      "examples": [
+        {
+          "en": "The humans and team who reviewed, approved, and own that code under the team's process.",
+          "zh": "按照团队流程审阅、批准并拥有该代码的人和团队。",
+          "itemId": "rp7-012"
+        },
+        {
+          "en": "Choose a deployment surface and region that keeps processing in the EU, and route EU tenants there.",
+          "zh": "选择能把处理留在欧盟境内的部署接入面和区域，并把欧盟租户路由到那里。",
+          "itemId": "rp5-017"
+        }
+      ],
+      "itemIds": [
+        "rp1-003",
+        "rp1-012",
+        "rp1-022",
+        "rp2-007",
+        "rp3-010",
+        "rp3-029",
+        "rp4-007",
+        "rp4-022",
+        "rp5-008",
+        "rp5-017",
+        "rp5-018",
+        "rp7-009",
+        "rp7-012"
+      ]
+    },
+    {
+      "id": "support",
+      "word": "support",
+      "pos": "動詞",
+      "ja": "支える、対応する",
+      "zh": "支持",
+      "count": 14,
+      "questionCount": 13,
+      "domains": {
+        "D1": 2,
+        "D2": 3,
+        "D3": 1,
+        "D4": 2,
+        "D5": 4,
+        "D7": 1
+      },
+      "forms": [
+        "support",
+        "supported",
+        "supports"
+      ],
+      "examples": [
+        {
+          "en": "Groundedness: whether each claim and citation is supported by the retrieved sources.",
+          "zh": "基于资料的程度（groundedness）：每个结论和引用是否被检索到的来源支持。",
+          "itemId": "rp4-001"
+        },
+        {
+          "en": "Specify scope (product support only), format (answer first, under 120 words), and behavior for out-of-scope or refund requests (route to a human).",
+          "zh": "写明范围（只做产品支持）、格式（先给答案，120 字以内），以及超出范围或退款请求时的处理（转人工）。",
+          "itemId": "rp2-005"
+        }
+      ],
+      "itemIds": [
+        "rp1-007",
+        "rp1-011",
+        "rp2-001",
+        "rp2-005",
+        "rp2-024",
+        "rp3-017",
+        "rp4-001",
+        "rp4-004",
+        "rp5-001",
+        "rp5-019",
+        "rp5-022",
+        "rp5-024",
+        "rp7-010"
+      ]
+    },
+    {
+      "id": "against",
+      "word": "against",
+      "pos": "前置詞",
+      "ja": "〜に照らして、〜に反して",
+      "zh": "对照；违反",
+      "count": 13,
+      "questionCount": 13,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D3": 3,
+        "D4": 5,
+        "D5": 1
+      },
+      "forms": [
+        "against"
+      ],
+      "examples": [
+        {
+          "en": "Recalibrate against human-labeled examples and check agreement after the change.",
+          "zh": "用人工标注的示例重新校准，修改后检查一致率。",
+          "itemId": "rp4-010"
+        },
+        {
+          "en": "Self-preference bias; use a different judge model or blind comparisons and validate against human labels.",
+          "zh": "自我偏好偏差；换用不同的评审模型或做盲比，并用人工标注验证。",
+          "itemId": "rp4-011"
+        }
+      ],
+      "itemIds": [
+        "rp1-029",
+        "rp2-003",
+        "rp2-006",
+        "rp2-008",
+        "rp3-003",
+        "rp3-010",
+        "rp3-016",
+        "rp4-001",
+        "rp4-003",
+        "rp4-010",
+        "rp4-011",
+        "rp4-013",
+        "rp5-022"
+      ]
+    },
+    {
+      "id": "quality",
+      "word": "quality",
+      "pos": "名詞",
+      "ja": "品質",
+      "zh": "质量",
+      "count": 20,
+      "questionCount": 12,
+      "domains": {
+        "D1": 2,
+        "D2": 3,
+        "D3": 2,
+        "D4": 3,
+        "D6": 2
+      },
+      "forms": [
+        "quality"
+      ],
+      "examples": [
+        {
+          "en": "Use the most capable tier, because only it meets the quality constraint within the SLA.",
+          "zh": "使用最强层级，因为只有它在 SLA 内满足质量约束。",
+          "itemId": "rp2-002"
+        },
+        {
+          "en": "Y, because it meets the binding SLA and budget while keeping quality within target.",
+          "zh": "选 Y，因为它满足硬性的 SLA 和预算，质量也在目标之内。",
+          "itemId": "rp1-021"
+        }
+      ],
+      "itemIds": [
+        "rp1-021",
+        "rp1-024",
+        "rp2-001",
+        "rp2-002",
+        "rp2-012",
+        "rp3-014",
+        "rp3-031",
+        "rp4-003",
+        "rp4-021",
+        "rp4-022",
+        "rp6-008",
+        "rp6-011"
+      ]
+    },
+    {
+      "id": "error",
+      "word": "error",
+      "pos": "名詞",
+      "ja": "誤り、エラー",
+      "zh": "错误",
+      "count": 14,
+      "questionCount": 12,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D3": 4,
+        "D4": 3,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "error",
+        "errors"
+      ],
+      "examples": [
+        {
+          "en": "Ask how costly and reversible an error is, whether it would be caught downstream, and who is accountable for the outcome.",
+          "zh": "问：出错代价多大、能否挽回、下游能否发现，以及谁对结果负责。",
+          "itemId": "rp1-005"
+        },
+        {
+          "en": "Agent behavior after a tool error: the prompt and tool result handling must make the agent report failures and retry or escalate.",
+          "zh": "代理在工具出错后的行为：需要通过提示和工具结果处理，让代理如实报告失败并重试或升级。",
+          "itemId": "rp4-018"
+        }
+      ],
+      "itemIds": [
+        "rp1-005",
+        "rp1-017",
+        "rp2-016",
+        "rp3-002",
+        "rp3-013",
+        "rp3-030",
+        "rp3-031",
+        "rp4-017",
+        "rp4-018",
+        "rp4-020",
+        "rp6-006",
+        "rp7-005"
+      ]
+    },
+    {
+      "id": "risk",
+      "word": "risk",
+      "pos": "名詞",
+      "ja": "リスク、危険",
+      "zh": "风险",
+      "count": 14,
+      "questionCount": 12,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D3": 1,
+        "D5": 5,
+        "D6": 2
+      },
+      "forms": [
+        "risk",
+        "risks"
+      ],
+      "examples": [
+        {
+          "en": "Address the audit requirement explicitly, state the latency trade-off and residual risks, and record alternatives considered.",
+          "zh": "明确回应审计要求，说明延迟方面的取舍和剩余风险，并记录考虑过的替代方案。",
+          "itemId": "rp6-005"
+        },
+        {
+          "en": "Fast tier for intent, a mid tier for drafting, and the most capable tier for the low-volume risk judgment, each validated by evals.",
+          "zh": "意图识别用快速层级，起草用中间层级，量少的风险判断用最强层级，并分别用评估验证。",
+          "itemId": "rp2-004"
+        }
+      ],
+      "itemIds": [
+        "rp1-009",
+        "rp1-022",
+        "rp2-002",
+        "rp2-004",
+        "rp3-007",
+        "rp5-002",
+        "rp5-005",
+        "rp5-010",
+        "rp5-011",
+        "rp5-012",
+        "rp6-003",
+        "rp6-005"
+      ]
+    },
+    {
+      "id": "source",
+      "word": "source",
+      "pos": "名詞",
+      "ja": "出典、情報源",
+      "zh": "来源、出处",
+      "count": 14,
+      "questionCount": 11,
+      "domains": {
+        "D1": 3,
+        "D3": 1,
+        "D4": 3,
+        "D5": 3,
+        "D6": 1
+      },
+      "forms": [
+        "source",
+        "sources"
+      ],
+      "examples": [
+        {
+          "en": "Groundedness: whether each claim and citation is supported by the retrieved sources.",
+          "zh": "基于资料的程度（groundedness）：每个结论和引用是否被检索到的来源支持。",
+          "itemId": "rp4-001"
+        },
+        {
+          "en": "Require subagents to return source dates and prefer recent, authoritative sources.",
+          "zh": "要求子代理返回来源日期，并优先使用最新的权威来源。",
+          "itemId": "rp4-019"
+        }
+      ],
+      "itemIds": [
+        "rp1-004",
+        "rp1-013",
+        "rp1-016",
+        "rp3-006",
+        "rp4-001",
+        "rp4-007",
+        "rp4-019",
+        "rp5-021",
+        "rp5-022",
+        "rp5-024",
+        "rp6-003"
+      ]
+    },
+    {
+      "id": "feature",
+      "word": "feature",
+      "pos": "名詞",
+      "ja": "機能",
+      "zh": "功能",
+      "count": 13,
+      "questionCount": 11,
+      "domains": {
+        "D1": 4,
+        "D2": 2,
+        "D3": 2,
+        "D4": 1,
+        "D6": 2
+      },
+      "forms": [
+        "feature",
+        "features"
+      ],
+      "examples": [
+        {
+          "en": "Track stop_reason distribution per feature and alert when max_tokens exceeds a threshold.",
+          "zh": "按功能跟踪 stop_reason 的分布，当 max_tokens 的比例超过阈值时报警。",
+          "itemId": "rp3-013"
+        },
+        {
+          "en": "Decline for now; these mechanisms address long-running context problems the feature does not have.",
+          "zh": "暂时不加；这些机制解决的是长时间运行的上下文问题，而该功能没有这个问题。",
+          "itemId": "rp2-024"
+        }
+      ],
+      "itemIds": [
+        "rp1-022",
+        "rp1-023",
+        "rp1-025",
+        "rp1-028",
+        "rp2-015",
+        "rp2-024",
+        "rp3-013",
+        "rp3-031",
+        "rp4-003",
+        "rp6-002",
+        "rp6-009"
+      ]
+    },
+    {
+      "id": "server",
+      "word": "server",
+      "pos": "名詞",
+      "ja": "サーバー",
+      "zh": "服务器",
+      "count": 13,
+      "questionCount": 11,
+      "domains": {
+        "D1": 1,
+        "D3": 6,
+        "D4": 1,
+        "D5": 2,
+        "D6": 1
+      },
+      "forms": [
+        "server",
+        "servers"
+      ],
+      "examples": [
+        {
+          "en": "Move calls behind a server-side proxy that holds the key and authenticates users.",
+          "zh": "把调用移到服务器端代理之后，由代理保管密钥并认证用户。",
+          "itemId": "rp3-006"
+        },
+        {
+          "en": "External MCP servers and API keys, with owners and rotation schedules.",
+          "zh": "外部 MCP 服务器和 API 密钥，以及负责人和轮换计划。",
+          "itemId": "rp6-010"
+        }
+      ],
+      "itemIds": [
+        "rp1-007",
+        "rp3-005",
+        "rp3-006",
+        "rp3-013",
+        "rp3-021",
+        "rp3-022",
+        "rp3-027",
+        "rp4-023",
+        "rp5-011",
+        "rp5-020",
+        "rp6-010"
+      ]
+    },
+    {
+      "id": "action",
+      "word": "action",
+      "pos": "名詞",
+      "ja": "行動、対応",
+      "zh": "行动",
+      "count": 12,
+      "questionCount": 11,
+      "domains": {
+        "D3": 3,
+        "D4": 1,
+        "D5": 5,
+        "D6": 2
+      },
+      "forms": [
+        "action",
+        "actions"
+      ],
+      "examples": [
+        {
+          "en": "Immutable audit logs that record the user identity, the action, its parameters, and the time.",
+          "zh": "不可篡改的审计日志，记录用户身份、操作、参数和时间。",
+          "itemId": "rp5-019"
+        },
+        {
+          "en": "A create_draft tool only; sending is a separate human action outside the agent.",
+          "zh": "只提供 create_draft 工具；发送是代理之外的人工操作。",
+          "itemId": "rp3-004"
+        }
+      ],
+      "itemIds": [
+        "rp3-002",
+        "rp3-004",
+        "rp3-007",
+        "rp4-011",
+        "rp5-006",
+        "rp5-014",
+        "rp5-016",
+        "rp5-019",
+        "rp5-023",
+        "rp6-002",
+        "rp6-003"
+      ]
+    },
+    {
+      "id": "single",
+      "word": "single",
+      "pos": "形容詞",
+      "ja": "たった一つの、単一の",
+      "zh": "单一的",
+      "count": 12,
+      "questionCount": 11,
+      "domains": {
+        "D1": 4,
+        "D2": 2,
+        "D3": 3,
+        "D6": 2
+      },
+      "forms": [
+        "single"
+      ],
+      "examples": [
+        {
+          "en": "The single synchronous call: it couples three tasks, blocks the form under load, and gives no per-step isolation or retry; split and queue it.",
+          "zh": "那一次同步调用：它把三项任务绑在一起，负载高时阻塞表单，也没有分步隔离和重试；应拆分并改为队列处理。",
+          "itemId": "rp1-006"
+        },
+        {
+          "en": "Explain the latency floor of the architecture and either renegotiate the SLA or change the architecture (e.g. precompute, a single augmented call).",
+          "zh": "说明该架构的延迟下限，要么重新商定 SLA，要么调整架构（如预先计算、改为一次增强调用）。",
+          "itemId": "rp6-002"
+        }
+      ],
+      "itemIds": [
+        "rp1-006",
+        "rp1-014",
+        "rp1-015",
+        "rp1-026",
+        "rp2-020",
+        "rp2-023",
+        "rp3-019",
+        "rp3-022",
+        "rp3-024",
+        "rp6-002",
+        "rp6-008"
+      ]
+    },
+    {
+      "id": "directly",
+      "word": "directly",
+      "pos": "副詞",
+      "ja": "直接",
+      "zh": "直接地",
+      "count": 11,
+      "questionCount": 11,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 6,
+        "D5": 1
+      },
+      "forms": [
+        "directly"
+      ],
+      "examples": [
+        {
+          "en": "A custom tool in the application that calls the pricing API directly.",
+          "zh": "在应用内定义一个直接调用价格 API 的自定义工具。",
+          "itemId": "rp3-022"
+        },
+        {
+          "en": "Each product calls the ticketing REST API directly with its own wrapper.",
+          "zh": "每个产品各自写封装，直接调用工单 REST API。",
+          "itemId": "rp3-021"
+        }
+      ],
+      "itemIds": [
+        "rp1-008",
+        "rp1-009",
+        "rp1-010",
+        "rp2-011",
+        "rp3-004",
+        "rp3-006",
+        "rp3-011",
+        "rp3-020",
+        "rp3-021",
+        "rp3-022",
+        "rp5-019"
+      ]
+    },
+    {
+      "id": "skill",
+      "word": "skill",
+      "pos": "名詞",
+      "ja": "スキル（呼び出せる手順）",
+      "zh": "技能",
+      "count": 31,
+      "questionCount": 10,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D3": 2,
+        "D5": 3,
+        "D7": 2
+      },
+      "forms": [
+        "skill",
+        "skills"
+      ],
+      "examples": [
+        {
+          "en": "A Skills-based pattern: package the procedure once as a governed, versioned Skill that each app loads.",
+          "zh": "基于 Skill 的模式：把流程打包成一个受管理、有版本的 Skill，各应用加载使用。",
+          "itemId": "rp1-011"
+        },
+        {
+          "en": "Package the sequence as a reusable module or Skill with versioned instructions, shared by all products.",
+          "zh": "把这个序列打包成可复用的模块或 Skill，指令有版本管理，由所有产品共享。",
+          "itemId": "rp2-018"
+        }
+      ],
+      "itemIds": [
+        "rp1-011",
+        "rp1-015",
+        "rp2-018",
+        "rp3-022",
+        "rp3-025",
+        "rp5-005",
+        "rp5-007",
+        "rp5-011",
+        "rp7-001",
+        "rp7-004"
+      ]
+    },
+    {
+      "id": "subagent",
+      "word": "subagent",
+      "pos": "名詞",
+      "ja": "サブエージェント（委任先のエージェント）",
+      "zh": "子智能体",
+      "count": 29,
+      "questionCount": 10,
+      "domains": {
+        "D1": 5,
+        "D3": 2,
+        "D4": 1,
+        "D7": 2
+      },
+      "forms": [
+        "subagent",
+        "subagents"
+      ],
+      "examples": [
+        {
+          "en": "Give each subagent its own timeout and a required status field (success, partial, failed).",
+          "zh": "给每个子代理单独的超时，并要求返回状态字段（成功、部分完成、失败）。",
+          "itemId": "rp1-017"
+        },
+        {
+          "en": "Trace each subagent's inputs, tool calls, outputs, and cost under a shared run ID.",
+          "zh": "用共同的运行 ID 记录每个子代理的输入、工具调用、输出和成本。",
+          "itemId": "rp1-020"
+        }
+      ],
+      "itemIds": [
+        "rp1-016",
+        "rp1-017",
+        "rp1-018",
+        "rp1-019",
+        "rp1-020",
+        "rp3-001",
+        "rp3-002",
+        "rp4-019",
+        "rp7-001",
+        "rp7-007"
+      ]
+    },
+    {
+      "id": "load",
+      "word": "load",
+      "pos": "動詞",
+      "ja": "読み込む",
+      "zh": "加载",
+      "count": 14,
+      "questionCount": 10,
+      "domains": {
+        "D1": 3,
+        "D3": 6,
+        "D7": 1
+      },
+      "forms": [
+        "load",
+        "loaded",
+        "loading",
+        "loads"
+      ],
+      "examples": [
+        {
+          "en": "Load the policy up front (monolithically) and cache it, avoiding discovery round trips.",
+          "zh": "预先整体加载这份规定并缓存，避免发现过程的往返。",
+          "itemId": "rp3-026"
+        },
+        {
+          "en": "The procedure is long and only needed for some requests, so loading it on demand saves context.",
+          "zh": "流程很长，只有部分请求需要，按需加载可以节省上下文。",
+          "itemId": "rp1-015"
+        }
+      ],
+      "itemIds": [
+        "rp1-006",
+        "rp1-011",
+        "rp1-015",
+        "rp3-019",
+        "rp3-025",
+        "rp3-026",
+        "rp3-027",
+        "rp3-028",
+        "rp3-030",
+        "rp7-004"
+      ]
+    },
+    {
+      "id": "internal",
+      "word": "internal",
+      "pos": "形容詞",
+      "ja": "内部の",
+      "zh": "内部的",
+      "count": 12,
+      "questionCount": 10,
+      "domains": {
+        "D1": 1,
+        "D3": 4,
+        "D4": 1,
+        "D5": 3,
+        "D7": 1
+      },
+      "forms": [
+        "internal"
+      ],
+      "examples": [
+        {
+          "en": "Allow exports only to approved internal destinations, enforced in the tool.",
+          "zh": "只允许导出到批准的内部目的地，并在工具内强制执行。",
+          "itemId": "rp5-002"
+        },
+        {
+          "en": "A plugin distributed through an internal marketplace, with security-critical settings enforced via managed settings.",
+          "zh": "做成插件，通过内部插件市场分发，安全关键的设置通过托管设置强制执行。",
+          "itemId": "rp7-001"
+        }
+      ],
+      "itemIds": [
+        "rp1-027",
+        "rp3-003",
+        "rp3-007",
+        "rp3-022",
+        "rp3-025",
+        "rp4-004",
+        "rp5-002",
+        "rp5-009",
+        "rp5-014",
+        "rp7-001"
+      ]
+    },
+    {
+      "id": "test",
+      "word": "test",
+      "pos": "名詞",
+      "ja": "テスト",
+      "zh": "测试",
+      "count": 12,
+      "questionCount": 10,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 2,
+        "D4": 1,
+        "D5": 2,
+        "D7": 3
+      },
+      "forms": [
+        "test",
+        "tested",
+        "testing",
+        "tests"
+      ],
+      "examples": [
+        {
+          "en": "Test with counterfactual pairs that differ only in gender and measure wording differences.",
+          "zh": "用只改变性别的反事实配对进行测试，衡量措辞差异。",
+          "itemId": "rp5-023"
+        },
+        {
+          "en": "Fallback routing to a pre-tested secondary tier or region after bounded retries, with the fallback's quality validated by evals.",
+          "zh": "在有限次数的重试后，回退路由到事先测试过的备用层级或区域，并用评估验证备用方案的质量。",
+          "itemId": "rp3-031"
+        }
+      ],
+      "itemIds": [
+        "rp1-005",
+        "rp2-006",
+        "rp3-010",
+        "rp3-031",
+        "rp4-004",
+        "rp5-021",
+        "rp5-023",
+        "rp7-002",
+        "rp7-009",
+        "rp7-011"
+      ]
+    },
+    {
+      "id": "result",
+      "word": "result",
+      "pos": "名詞",
+      "ja": "結果",
+      "zh": "结果",
+      "count": 11,
+      "questionCount": 10,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D3": 1,
+        "D4": 3,
+        "D5": 1,
+        "D7": 1
+      },
+      "forms": [
+        "result",
+        "results"
+      ],
+      "examples": [
+        {
+          "en": "Context editing that clears old tool results while keeping the rest of the conversation.",
+          "zh": "使用上下文编辑，清除旧的工具结果，同时保留对话的其余部分。",
+          "itemId": "rp2-022"
+        },
+        {
+          "en": "Let the orchestrator retry or reassign a failed subtask, or proceed with partial results flagged.",
+          "zh": "让编排代理重试或重新分配失败的子任务，或在标注后用部分结果继续。",
+          "itemId": "rp1-017"
+        }
+      ],
+      "itemIds": [
+        "rp1-016",
+        "rp1-017",
+        "rp2-003",
+        "rp2-022",
+        "rp3-029",
+        "rp4-018",
+        "rp4-022",
+        "rp4-027",
+        "rp5-022",
+        "rp7-008"
+      ]
+    },
+    {
+      "id": "delete",
+      "word": "delete",
+      "pos": "動詞",
+      "ja": "削除する",
+      "zh": "删除",
+      "count": 10,
+      "questionCount": 10,
+      "domains": {
+        "D2": 1,
+        "D3": 2,
+        "D4": 2,
+        "D5": 4,
+        "D6": 1
+      },
+      "forms": [
+        "delete",
+        "deleted",
+        "deleting"
+      ],
+      "examples": [
+        {
+          "en": "Permanently deleting a customer's data.",
+          "zh": "永久删除客户数据。",
+          "itemId": "rp5-014"
+        },
+        {
+          "en": "Post-process to delete all text after the first line.",
+          "zh": "后处理时删掉第一行之后的所有内容。",
+          "itemId": "rp2-007"
+        }
+      ],
+      "itemIds": [
+        "rp2-007",
+        "rp3-010",
+        "rp3-025",
+        "rp4-002",
+        "rp4-026",
+        "rp5-008",
+        "rp5-014",
+        "rp5-019",
+        "rp5-021",
+        "rp6-005"
+      ]
+    },
+    {
+      "id": "likely",
+      "word": "likely",
+      "pos": "形容詞",
+      "ja": "ありそうな、〜しそうな",
+      "zh": "很可能的",
+      "count": 10,
+      "questionCount": 10,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D4": 2,
+        "D5": 3,
+        "D6": 3
+      },
+      "forms": [
+        "likely"
+      ],
+      "examples": [
+        {
+          "en": "Which assumption, if undocumented, is MOST likely to cause a production incident after handoff?",
+          "zh": "下面哪个前提假设如果没有写进文档，最可能在交接后引发生产事故？",
+          "itemId": "rp6-012"
+        },
+        {
+          "en": "Which TWO optimizations are MOST likely to cut cost for a nightly enrichment job without lowering the quality floor?",
+          "zh": "对一个夜间数据补全任务，哪两项优化最可能在不降低质量底线的前提下降低成本？",
+          "itemId": "rp4-022"
+        }
+      ],
+      "itemIds": [
+        "rp1-024",
+        "rp2-009",
+        "rp4-012",
+        "rp4-022",
+        "rp5-021",
+        "rp5-022",
+        "rp5-024",
+        "rp6-003",
+        "rp6-009",
+        "rp6-012"
+      ]
+    },
+    {
+      "id": "share",
+      "word": "share",
+      "pos": "動詞",
+      "ja": "共有する",
+      "zh": "共享、分享",
+      "count": 10,
+      "questionCount": 10,
+      "domains": {
+        "D1": 5,
+        "D2": 1,
+        "D3": 2,
+        "D4": 1,
+        "D5": 1
+      },
+      "forms": [
+        "share",
+        "shared"
+      ],
+      "examples": [
+        {
+          "en": "Trace each subagent's inputs, tool calls, outputs, and cost under a shared run ID.",
+          "zh": "用共同的运行 ID 记录每个子代理的输入、工具调用、输出和成本。",
+          "itemId": "rp1-020"
+        },
+        {
+          "en": "Package the sequence as a reusable module or Skill with versioned instructions, shared by all products.",
+          "zh": "把这个序列打包成可复用的模块或 Skill，指令有版本管理，由所有产品共享。",
+          "itemId": "rp2-018"
+        }
+      ],
+      "itemIds": [
+        "rp1-001",
+        "rp1-007",
+        "rp1-016",
+        "rp1-020",
+        "rp1-022",
+        "rp2-018",
+        "rp3-005",
+        "rp3-008",
+        "rp4-022",
+        "rp5-019"
+      ]
+    },
+    {
+      "id": "retrieval",
+      "word": "retrieval",
+      "pos": "名詞",
+      "ja": "検索・取得（RAG の R）",
+      "zh": "检索",
+      "count": 17,
+      "questionCount": 9,
+      "domains": {
+        "D1": 2,
+        "D3": 4,
+        "D4": 3
+      },
+      "forms": [
+        "retrieval"
+      ],
+      "examples": [
+        {
+          "en": "Hallucination (generation), not retrieval; fix grounding instructions and add groundedness checks.",
+          "zh": "幻觉（生成环节），而不是检索问题；修正基于资料作答的指令，并加入 groundedness 检查。",
+          "itemId": "rp4-017"
+        },
+        {
+          "en": "Contextual retrieval: prepend chunk-specific context (document, entity, period) to each chunk before embedding and indexing.",
+          "zh": "上下文检索：在嵌入和建索引前，为每个片段加上该片段的背景（文档、实体、期间）。",
+          "itemId": "rp3-020"
+        }
+      ],
+      "itemIds": [
+        "rp1-014",
+        "rp1-024",
+        "rp3-009",
+        "rp3-014",
+        "rp3-017",
+        "rp3-020",
+        "rp4-017",
+        "rp4-018",
+        "rp4-020"
+      ]
+    },
+    {
+      "id": "search",
+      "word": "search",
+      "pos": "名詞",
+      "ja": "検索",
+      "zh": "搜索",
+      "count": 13,
+      "questionCount": 9,
+      "domains": {
+        "D1": 1,
+        "D3": 6,
+        "D4": 1,
+        "D6": 1
+      },
+      "forms": [
+        "search",
+        "searches"
+      ],
+      "examples": [
+        {
+          "en": "Use tool search / on-demand loading so only relevant tool definitions enter context.",
+          "zh": "使用工具搜索或按需加载，只让相关的工具定义进入上下文。",
+          "itemId": "rp3-027"
+        },
+        {
+          "en": "Agentic search with tools (grep, file reads) over the live repository.",
+          "zh": "在实时仓库上用工具（grep、读文件）做代理式搜索。",
+          "itemId": "rp3-018"
+        }
+      ],
+      "itemIds": [
+        "rp1-013",
+        "rp3-017",
+        "rp3-018",
+        "rp3-019",
+        "rp3-026",
+        "rp3-027",
+        "rp3-032",
+        "rp4-019",
+        "rp6-005"
+      ]
+    },
+    {
+      "id": "example",
+      "word": "example",
+      "pos": "名詞",
+      "ja": "例",
+      "zh": "示例",
+      "count": 12,
+      "questionCount": 9,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D4": 1,
+        "D5": 3
+      },
+      "forms": [
+        "example",
+        "examples"
+      ],
+      "examples": [
+        {
+          "en": "Keep zero-shot; extra examples and thinking add token cost without a measured gain.",
+          "zh": "保持零样本；额外的示例和思考会增加 token 成本，却没有可测量的提升。",
+          "itemId": "rp2-012"
+        },
+        {
+          "en": "Recalibrate against human-labeled examples and check agreement after the change.",
+          "zh": "用人工标注的示例重新校准，修改后检查一致率。",
+          "itemId": "rp4-010"
+        }
+      ],
+      "itemIds": [
+        "rp1-009",
+        "rp2-009",
+        "rp2-010",
+        "rp2-011",
+        "rp2-012",
+        "rp4-010",
+        "rp5-004",
+        "rp5-022",
+        "rp5-024"
+      ]
+    },
+    {
+      "id": "whether",
+      "word": "whether",
+      "pos": "接続詞",
+      "ja": "〜かどうか",
+      "zh": "是否",
+      "count": 12,
+      "questionCount": 9,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D4": 2,
+        "D5": 1,
+        "D6": 2
+      },
+      "forms": [
+        "whether"
+      ],
+      "examples": [
+        {
+          "en": "Groundedness: whether each claim and citation is supported by the retrieved sources.",
+          "zh": "基于资料的程度（groundedness）：每个结论和引用是否被检索到的来源支持。",
+          "itemId": "rp4-001"
+        },
+        {
+          "en": "Stakeholders cannot weigh the trade-off; the ADR must state the cost impact and whether the quality gain justifies it.",
+          "zh": "利益相关方无法权衡取舍；ADR 必须说明成本影响，以及质量提升是否值得。",
+          "itemId": "rp6-008"
+        }
+      ],
+      "itemIds": [
+        "rp1-005",
+        "rp1-023",
+        "rp1-028",
+        "rp2-008",
+        "rp4-001",
+        "rp4-005",
+        "rp5-007",
+        "rp6-008",
+        "rp6-011"
+      ]
+    },
+    {
+      "id": "limit",
+      "word": "limit",
+      "pos": "名詞",
+      "ja": "上限、制限",
+      "zh": "限制、上限",
+      "count": 10,
+      "questionCount": 9,
+      "domains": {
+        "D1": 1,
+        "D3": 2,
+        "D4": 1,
+        "D5": 3,
+        "D6": 2
+      },
+      "forms": [
+        "limit",
+        "limited",
+        "limits"
+      ],
+      "examples": [
+        {
+          "en": "Token and quota exhaustion; enforce per-user rate limits and spend caps with alerts.",
+          "zh": "token 与配额耗尽；实施按用户的速率限制和花费上限，并设置报警。",
+          "itemId": "rp5-010"
+        },
+        {
+          "en": "\"Daily volume stays under the current rate limits; above that, requests are queued.\"",
+          "zh": "「每日请求量低于当前的速率限制；超过时请求会进入队列。」",
+          "itemId": "rp6-012"
+        }
+      ],
+      "itemIds": [
+        "rp1-013",
+        "rp3-008",
+        "rp3-029",
+        "rp4-014",
+        "rp5-008",
+        "rp5-010",
+        "rp5-015",
+        "rp6-009",
+        "rp6-012"
+      ]
+    },
+    {
+      "id": "field",
+      "word": "field",
+      "pos": "名詞",
+      "ja": "フィールド、項目",
+      "zh": "字段",
+      "count": 9,
+      "questionCount": 9,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 1,
+        "D4": 2,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "field",
+        "fields"
+      ],
+      "examples": [
+        {
+          "en": "Give each subagent its own timeout and a required status field (success, partial, failed).",
+          "zh": "给每个子代理单独的超时，并要求返回状态字段（成功、部分完成、失败）。",
+          "itemId": "rp1-017"
+        },
+        {
+          "en": "Shape the tool response to return only the extracted fields or text the agent needs.",
+          "zh": "调整工具的返回内容，只返回代理需要的提取字段或文本。",
+          "itemId": "rp4-024"
+        }
+      ],
+      "itemIds": [
+        "rp1-003",
+        "rp1-012",
+        "rp1-017",
+        "rp2-011",
+        "rp3-003",
+        "rp4-008",
+        "rp4-024",
+        "rp5-002",
+        "rp6-006"
+      ]
+    },
+    {
+      "id": "product",
+      "word": "product",
+      "pos": "名詞",
+      "ja": "製品",
+      "zh": "产品",
+      "count": 14,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D3": 3
+      },
+      "forms": [
+        "product",
+        "products"
+      ],
+      "examples": [
+        {
+          "en": "Segment quality metrics by product line or tenant instead of only global averages.",
+          "zh": "按产品线或租户分段统计质量指标，而不只看全局平均。",
+          "itemId": "rp3-014"
+        },
+        {
+          "en": "Package the sequence as a reusable module or Skill with versioned instructions, shared by all products.",
+          "zh": "把这个序列打包成可复用的模块或 Skill，指令有版本管理，由所有产品共享。",
+          "itemId": "rp2-018"
+        }
+      ],
+      "itemIds": [
+        "rp1-025",
+        "rp2-005",
+        "rp2-007",
+        "rp2-014",
+        "rp2-018",
+        "rp3-014",
+        "rp3-021",
+        "rp3-031"
+      ]
+    },
+    {
+      "id": "session",
+      "word": "session",
+      "pos": "名詞",
+      "ja": "セッション（一続きの会話）",
+      "zh": "会话",
+      "count": 12,
+      "questionCount": 8,
+      "domains": {
+        "D1": 5,
+        "D2": 2,
+        "D7": 1
+      },
+      "forms": [
+        "session",
+        "sessions"
+      ],
+      "examples": [
+        {
+          "en": "Claude Managed Agents, which provides a hosted sandbox and session management.",
+          "zh": "Claude Managed Agents，它提供托管的沙箱和会话管理。",
+          "itemId": "rp1-026"
+        },
+        {
+          "en": "Tenant isolation depends on a model-supplied value; the tenant filter must be enforced server-side from the authenticated session.",
+          "zh": "租户隔离依赖模型提供的值；租户过滤必须在服务器端根据已认证的会话强制执行。",
+          "itemId": "rp1-007"
+        }
+      ],
+      "itemIds": [
+        "rp1-007",
+        "rp1-025",
+        "rp1-026",
+        "rp1-027",
+        "rp1-029",
+        "rp2-022",
+        "rp2-023",
+        "rp7-008"
+      ]
+    },
+    {
+      "id": "reason",
+      "word": "reason",
+      "pos": "名詞",
+      "ja": "理由",
+      "zh": "理由",
+      "count": 11,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 4,
+        "D3": 1,
+        "D4": 2
+      },
+      "forms": [
+        "reason",
+        "reasoning",
+        "reasons"
+      ],
+      "examples": [
+        {
+          "en": "Track stop_reason distribution per feature and alert when max_tokens exceeds a threshold.",
+          "zh": "按功能跟踪 stop_reason 的分布，当 max_tokens 的比例超过阈值时报警。",
+          "itemId": "rp3-013"
+        },
+        {
+          "en": "It is over-constrained; replace the list with the key scope rules and the reasons behind them, and test against legitimate cases.",
+          "zh": "约束过度；把清单换成关键的范围规则及其理由，并用正当用例测试。",
+          "itemId": "rp2-006"
+        }
+      ],
+      "itemIds": [
+        "rp1-005",
+        "rp2-006",
+        "rp2-010",
+        "rp2-021",
+        "rp2-022",
+        "rp3-013",
+        "rp4-020",
+        "rp4-023"
+      ]
+    },
+    {
+      "id": "audit",
+      "word": "audit",
+      "pos": "名詞",
+      "ja": "監査",
+      "zh": "审计",
+      "count": 9,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D3": 1,
+        "D5": 5,
+        "D6": 1
+      },
+      "forms": [
+        "audit",
+        "audited"
+      ],
+      "examples": [
+        {
+          "en": "Immutable audit logs that record the user identity, the action, its parameters, and the time.",
+          "zh": "不可篡改的审计日志，记录用户身份、操作、参数和时间。",
+          "itemId": "rp5-019"
+        },
+        {
+          "en": "Address the audit requirement explicitly, state the latency trade-off and residual risks, and record alternatives considered.",
+          "zh": "明确回应审计要求，说明延迟方面的取舍和剩余风险，并记录考虑过的替代方案。",
+          "itemId": "rp6-005"
+        }
+      ],
+      "itemIds": [
+        "rp1-011",
+        "rp3-002",
+        "rp5-013",
+        "rp5-015",
+        "rp5-017",
+        "rp5-019",
+        "rp5-024",
+        "rp6-005"
+      ]
+    },
+    {
+      "id": "file",
+      "word": "file",
+      "pos": "名詞",
+      "ja": "ファイル",
+      "zh": "文件",
+      "count": 9,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 1,
+        "D4": 1,
+        "D5": 1,
+        "D7": 3
+      },
+      "forms": [
+        "file",
+        "files"
+      ],
+      "examples": [
+        {
+          "en": "A memory tool (or persisted notes files) that the agent reads at the start and updates as it works.",
+          "zh": "使用记忆工具（或持久化的笔记文件），代理在开始时读取、工作时更新。",
+          "itemId": "rp2-023"
+        },
+        {
+          "en": "Agentic search with tools (grep, file reads) over the live repository.",
+          "zh": "在实时仓库上用工具（grep、读文件）做代理式搜索。",
+          "itemId": "rp3-018"
+        }
+      ],
+      "itemIds": [
+        "rp1-004",
+        "rp2-023",
+        "rp3-018",
+        "rp4-005",
+        "rp5-013",
+        "rp7-001",
+        "rp7-005",
+        "rp7-006"
+      ]
+    },
+    {
+      "id": "scope",
+      "word": "scope",
+      "pos": "名詞",
+      "ja": "範囲・スコープ",
+      "zh": "范围",
+      "count": 9,
+      "questionCount": 8,
+      "domains": {
+        "D1": 2,
+        "D2": 2,
+        "D3": 2,
+        "D4": 1,
+        "D5": 1
+      },
+      "forms": [
+        "scope",
+        "scoped",
+        "scopes"
+      ],
+      "examples": [
+        {
+          "en": "Separate workspace-scoped keys per environment, with rotation and access monitoring.",
+          "zh": "每个环境使用独立的工作区范围密钥，并定期轮换、监控访问。",
+          "itemId": "rp3-008"
+        },
+        {
+          "en": "Unclear task boundaries: each delegation needs an objective, scope, output format, and what other subagents cover.",
+          "zh": "任务边界不清：每次委派都需要目标、范围、输出格式，以及其他子代理负责什么。",
+          "itemId": "rp1-019"
+        }
+      ],
+      "itemIds": [
+        "rp1-010",
+        "rp1-019",
+        "rp2-005",
+        "rp2-006",
+        "rp3-001",
+        "rp3-008",
+        "rp4-006",
+        "rp5-020"
+      ]
+    },
+    {
+      "id": "behavior",
+      "word": "behavior",
+      "pos": "名詞",
+      "ja": "振る舞い",
+      "zh": "行为",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D3": 2,
+        "D4": 1,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "behavior",
+        "behaviors"
+      ],
+      "examples": [
+        {
+          "en": "Unreviewed, possibly adversarial data changes production behavior without an eval gate.",
+          "zh": "未经审核、可能带有恶意的数据在没有评估关卡的情况下改变了生产行为。",
+          "itemId": "rp1-009"
+        },
+        {
+          "en": "\"The model's behavior will never change over the contract term.\"",
+          "zh": "「在合同期内，模型的行为永远不会改变。」",
+          "itemId": "rp6-003"
+        }
+      ],
+      "itemIds": [
+        "rp1-009",
+        "rp2-005",
+        "rp2-008",
+        "rp3-016",
+        "rp3-018",
+        "rp4-018",
+        "rp5-011",
+        "rp6-003"
+      ]
+    },
+    {
+      "id": "customer",
+      "word": "customer",
+      "pos": "名詞",
+      "ja": "顧客",
+      "zh": "客户",
+      "count": 8,
+      "questionCount": 8,
+      "domains": {
+        "D4": 1,
+        "D5": 6,
+        "D6": 1
+      },
+      "forms": [
+        "customer",
+        "customers"
+      ],
+      "examples": [
+        {
+          "en": "Permanently deleting a customer's data.",
+          "zh": "永久删除客户数据。",
+          "itemId": "rp5-014"
+        },
+        {
+          "en": "A regulator requires that EU customer data be processed only in the EU. Which control addresses this obligation?",
+          "zh": "监管机构要求欧盟客户的数据只能在欧盟境内处理。哪项控制对应这项义务？",
+          "itemId": "rp5-017"
+        }
+      ],
+      "itemIds": [
+        "rp4-004",
+        "rp5-002",
+        "rp5-014",
+        "rp5-015",
+        "rp5-017",
+        "rp5-018",
+        "rp5-019",
+        "rp6-001"
+      ]
+    },
+    {
+      "id": "bias",
+      "word": "bias",
+      "pos": "名詞",
+      "ja": "偏り・バイアス",
+      "zh": "偏差",
+      "count": 17,
+      "questionCount": 7,
+      "domains": {
+        "D4": 3,
+        "D5": 4
+      },
+      "forms": [
+        "bias",
+        "biased"
+      ],
+      "examples": [
+        {
+          "en": "Eval-design bias; rebuild that slice with representative, varied examples before drawing conclusions.",
+          "zh": "评估设计偏差；先用有代表性、多样化的示例重建这一部分，再下结论。",
+          "itemId": "rp5-022"
+        },
+        {
+          "en": "Position bias; evaluate each pair in both orders and count only consistent preferences (or average them).",
+          "zh": "位置偏差；每对回答交换顺序各评一次，只计入前后一致的偏好（或取平均）。",
+          "itemId": "rp4-009"
+        }
+      ],
+      "itemIds": [
+        "rp4-009",
+        "rp4-011",
+        "rp4-012",
+        "rp5-010",
+        "rp5-021",
+        "rp5-022",
+        "rp5-024"
+      ]
+    },
+    {
+      "id": "orchestrator",
+      "word": "orchestrator",
+      "pos": "名詞",
+      "ja": "オーケストレーター（全体を指揮するエージェント）",
+      "zh": "编排者",
+      "count": 15,
+      "questionCount": 7,
+      "domains": {
+        "D1": 5,
+        "D3": 1,
+        "D4": 1
+      },
+      "forms": [
+        "orchestrator"
+      ],
+      "examples": [
+        {
+          "en": "Let the orchestrator retry or reassign a failed subtask, or proceed with partial results flagged.",
+          "zh": "让编排代理重试或重新分配失败的子任务，或在标注后用部分结果继续。",
+          "itemId": "rp1-017"
+        },
+        {
+          "en": "Have the orchestrator check dates during synthesis and flag stale sources.",
+          "zh": "让编排代理在汇总时检查日期，并标记过时的来源。",
+          "itemId": "rp4-019"
+        }
+      ],
+      "itemIds": [
+        "rp1-016",
+        "rp1-017",
+        "rp1-018",
+        "rp1-019",
+        "rp1-020",
+        "rp3-002",
+        "rp4-019"
+      ]
+    },
+    {
+      "id": "gate",
+      "word": "gate",
+      "pos": "名詞",
+      "ja": "ゲート（実行前の承認ポイント）",
+      "zh": "关卡、审批点",
+      "count": 14,
+      "questionCount": 7,
+      "domains": {
+        "D1": 2,
+        "D4": 2,
+        "D5": 3
+      },
+      "forms": [
+        "gate",
+        "gates"
+      ],
+      "examples": [
+        {
+          "en": "Unreviewed, possibly adversarial data changes production behavior without an eval gate.",
+          "zh": "未经审核、可能带有恶意的数据在没有评估关卡的情况下改变了生产行为。",
+          "itemId": "rp1-009"
+        },
+        {
+          "en": "Rubber-stamping: the gate must show what will be executed (target, amount, diff) so the human can actually judge it.",
+          "zh": "走过场：关卡必须展示将要执行的内容（对象、金额、变更差异），人才能真正做出判断。",
+          "itemId": "rp5-016"
+        }
+      ],
+      "itemIds": [
+        "rp1-008",
+        "rp1-009",
+        "rp4-003",
+        "rp4-007",
+        "rp5-013",
+        "rp5-015",
+        "rp5-016"
+      ]
+    },
+    {
+      "id": "plan",
+      "word": "plan",
+      "pos": "名詞",
+      "ja": "計画",
+      "zh": "计划",
+      "count": 12,
+      "questionCount": 7,
+      "domains": {
+        "D2": 1,
+        "D4": 3,
+        "D5": 1,
+        "D7": 2
+      },
+      "forms": [
+        "plan",
+        "planning"
+      ],
+      "examples": [
+        {
+          "en": "Stay pinned on the current version and plan the migration later, watching the deprecation schedule.",
+          "zh": "继续固定在当前版本，之后再计划迁移，并关注弃用时间表。",
+          "itemId": "rp4-026"
+        },
+        {
+          "en": "A rollback plan to the pinned previous version.",
+          "zh": "回滚到之前固定版本的方案。",
+          "itemId": "rp4-027"
+        }
+      ],
+      "itemIds": [
+        "rp2-010",
+        "rp4-025",
+        "rp4-026",
+        "rp4-027",
+        "rp5-013",
+        "rp7-005",
+        "rp7-006"
+      ]
+    },
+    {
+      "id": "current",
+      "word": "current",
+      "pos": "形容詞",
+      "ja": "現在の、最新の",
+      "zh": "当前的、现行的",
+      "count": 10,
+      "questionCount": 7,
+      "domains": {
+        "D2": 2,
+        "D4": 4,
+        "D6": 1
+      },
+      "forms": [
+        "current"
+      ],
+      "examples": [
+        {
+          "en": "\"Daily volume stays under the current rate limits; above that, requests are queued.\"",
+          "zh": "「每日请求量低于当前的速率限制；超过时请求会进入队列。」",
+          "itemId": "rp6-012"
+        },
+        {
+          "en": "Stay pinned on the current version and plan the migration later, watching the deprecation schedule.",
+          "zh": "继续固定在当前版本，之后再计划迁移，并关注弃用时间表。",
+          "itemId": "rp4-026"
+        }
+      ],
+      "itemIds": [
+        "rp2-013",
+        "rp2-017",
+        "rp4-007",
+        "rp4-008",
+        "rp4-025",
+        "rp4-026",
+        "rp6-012"
+      ]
+    },
+    {
+      "id": "handle",
+      "word": "handle",
+      "pos": "動詞",
+      "ja": "扱う、処理する",
+      "zh": "处理",
+      "count": 10,
+      "questionCount": 7,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D4": 2,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "handle",
+        "handles",
+        "handling"
+      ],
+      "examples": [
+        {
+          "en": "Agent behavior after a tool error: the prompt and tool result handling must make the agent report failures and retry or escalate.",
+          "zh": "代理在工具出错后的行为：需要通过提示和工具结果处理，让代理如实报告失败并重试或升级。",
+          "itemId": "rp4-018"
+        },
+        {
+          "en": "Claude handles triage and extraction; coverage determination is shared (Claude drafts, an adjuster decides); payment authorization stays with humans.",
+          "zh": "分拣和提取交给 Claude；承保判断由双方共同完成（Claude 起草、理赔员决定）；付款授权留给人。",
+          "itemId": "rp1-001"
+        }
+      ],
+      "itemIds": [
+        "rp1-001",
+        "rp1-021",
+        "rp2-021",
+        "rp4-007",
+        "rp4-018",
+        "rp5-013",
+        "rp6-004"
+      ]
+    },
+    {
+      "id": "retry",
+      "word": "retry",
+      "pos": "動詞",
+      "ja": "再試行する",
+      "zh": "重试",
+      "count": 10,
+      "questionCount": 7,
+      "domains": {
+        "D1": 2,
+        "D3": 4,
+        "D4": 1
+      },
+      "forms": [
+        "retries",
+        "retry"
+      ],
+      "examples": [
+        {
+          "en": "Let the orchestrator retry or reassign a failed subtask, or proceed with partial results flagged.",
+          "zh": "让编排代理重试或重新分配失败的子任务，或在标注后用部分结果继续。",
+          "itemId": "rp1-017"
+        },
+        {
+          "en": "Exponential backoff with jitter that respects retry-after.",
+          "zh": "带抖动、遵守 retry-after 的指数退避。",
+          "itemId": "rp3-030"
+        }
+      ],
+      "itemIds": [
+        "rp1-006",
+        "rp1-017",
+        "rp3-029",
+        "rp3-030",
+        "rp3-031",
+        "rp3-032",
+        "rp4-018"
+      ]
+    },
+    {
+      "id": "constraint",
+      "word": "constraint",
+      "pos": "名詞",
+      "ja": "制約",
+      "zh": "约束",
+      "count": 9,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D3": 2,
+        "D6": 1
+      },
+      "forms": [
+        "constraint",
+        "constraints"
+      ],
+      "examples": [
+        {
+          "en": "Identify which constraint (accuracy or latency) is actually binding, using measurements.",
+          "zh": "用测量数据确定真正受限的是哪个指标（准确度还是延迟）。",
+          "itemId": "rp3-012"
+        },
+        {
+          "en": "Use the most capable tier, because only it meets the quality constraint within the SLA.",
+          "zh": "使用最强层级，因为只有它在 SLA 内满足质量约束。",
+          "itemId": "rp2-002"
+        }
+      ],
+      "itemIds": [
+        "rp1-026",
+        "rp2-002",
+        "rp2-003",
+        "rp2-010",
+        "rp3-009",
+        "rp3-012",
+        "rp6-007"
+      ]
+    },
+    {
+      "id": "fail",
+      "word": "fail",
+      "pos": "動詞",
+      "ja": "失敗する",
+      "zh": "失败",
+      "count": 9,
+      "questionCount": 7,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D3": 2,
+        "D4": 1
+      },
+      "forms": [
+        "fail",
+        "failed",
+        "failing",
+        "fails"
+      ],
+      "examples": [
+        {
+          "en": "Give each subagent its own timeout and a required status field (success, partial, failed).",
+          "zh": "给每个子代理单独的超时，并要求返回状态字段（成功、部分完成、失败）。",
+          "itemId": "rp1-017"
+        },
+        {
+          "en": "An agent occasionally loops on a failing tool for minutes, driving up cost, but no alert fires. What instrumentation is MOST useful?",
+          "zh": "一个代理偶尔会在失败的工具上循环好几分钟，推高成本，却没有任何报警。哪种埋点最有用？",
+          "itemId": "rp3-015"
+        }
+      ],
+      "itemIds": [
+        "rp1-006",
+        "rp1-010",
+        "rp1-017",
+        "rp2-010",
+        "rp3-013",
+        "rp3-015",
+        "rp4-020"
+      ]
+    },
+    {
+      "id": "input",
+      "word": "input",
+      "pos": "名詞",
+      "ja": "入力（情報）",
+      "zh": "输入",
+      "count": 8,
+      "questionCount": 7,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D4": 1,
+        "D5": 2
+      },
+      "forms": [
+        "input",
+        "inputs"
+      ],
+      "examples": [
+        {
+          "en": "Input tokens per call broken down by component (system, history, documents, tools).",
+          "zh": "按组成部分（系统提示、历史、文档、工具）拆分的每次调用输入 token。",
+          "itemId": "rp2-015"
+        },
+        {
+          "en": "Trace each subagent's inputs, tool calls, outputs, and cost under a shared run ID.",
+          "zh": "用共同的运行 ID 记录每个子代理的输入、工具调用、输出和成本。",
+          "itemId": "rp1-020"
+        }
+      ],
+      "itemIds": [
+        "rp1-008",
+        "rp1-012",
+        "rp1-020",
+        "rp2-015",
+        "rp4-021",
+        "rp5-001",
+        "rp5-021"
+      ]
+    },
+    {
+      "id": "access",
+      "word": "access",
+      "pos": "名詞",
+      "ja": "アクセス、利用権",
+      "zh": "访问、访问权限",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D3": 5,
+        "D7": 1
+      },
+      "forms": [
+        "access"
+      ],
+      "examples": [
+        {
+          "en": "Deny rules for destructive commands and access to secrets, which teams cannot override.",
+          "zh": "针对破坏性命令和访问密钥的拒绝规则，各团队不能覆盖。",
+          "itemId": "rp7-002"
+        },
+        {
+          "en": "Separate workspace-scoped keys per environment, with rotation and access monitoring.",
+          "zh": "每个环境使用独立的工作区范围密钥，并定期轮换、监控访问。",
+          "itemId": "rp3-008"
+        }
+      ],
+      "itemIds": [
+        "rp1-010",
+        "rp3-001",
+        "rp3-003",
+        "rp3-004",
+        "rp3-008",
+        "rp3-021",
+        "rp7-002"
+      ]
+    },
+    {
+      "id": "approach",
+      "word": "approach",
+      "pos": "名詞",
+      "ja": "やり方、方法",
+      "zh": "方法、做法",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D2": 2,
+        "D3": 3,
+        "D5": 1,
+        "D7": 1
+      },
+      "forms": [
+        "approach"
+      ],
+      "examples": [
+        {
+          "en": "A risk register lists 30 items with equal priority. Leadership asks what to fix first. What is the BEST approach?",
+          "zh": "一份风险登记表列出了 30 项，优先级都一样。管理层问先修哪个。最好的做法是什么？",
+          "itemId": "rp5-012"
+        },
+        {
+          "en": "A legal team queries a single 60-page policy manual that changes yearly. Which approach is simplest and most reliable?",
+          "zh": "法务团队查询一份每年才更新一次的 60 页制度手册。哪种方式最简单、最可靠？",
+          "itemId": "rp3-019"
+        }
+      ],
+      "itemIds": [
+        "rp2-018",
+        "rp2-020",
+        "rp3-018",
+        "rp3-019",
+        "rp3-026",
+        "rp5-012",
+        "rp7-006"
+      ]
+    },
+    {
+      "id": "developer",
+      "word": "developer",
+      "pos": "名詞",
+      "ja": "開発者",
+      "zh": "开发者",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D2": 1,
+        "D3": 1,
+        "D4": 1,
+        "D6": 2,
+        "D7": 2
+      },
+      "forms": [
+        "developer",
+        "developers"
+      ],
+      "examples": [
+        {
+          "en": "A developer wants Claude Code to propose an approach for a risky refactor without changing any files yet. Which permission mode fits?",
+          "zh": "开发者希望 Claude Code 先为一项有风险的重构提出方案，但暂时不修改任何文件。哪种权限模式合适？",
+          "itemId": "rp7-006"
+        },
+        {
+          "en": "A developer running it by hand each night.",
+          "zh": "开发者每晚手动运行。",
+          "itemId": "rp7-008"
+        }
+      ],
+      "itemIds": [
+        "rp2-015",
+        "rp3-008",
+        "rp4-008",
+        "rp6-009",
+        "rp6-010",
+        "rp7-006",
+        "rp7-008"
+      ]
+    },
+    {
+      "id": "text",
+      "word": "text",
+      "pos": "名詞",
+      "ja": "テキスト、文章",
+      "zh": "文本",
+      "count": 7,
+      "questionCount": 7,
+      "domains": {
+        "D1": 1,
+        "D2": 3,
+        "D4": 2,
+        "D7": 1
+      },
+      "forms": [
+        "text"
+      ],
+      "examples": [
+        {
+          "en": "Shape the tool response to return only the extracted fields or text the agent needs.",
+          "zh": "调整工具的返回内容，只返回代理需要的提取字段或文本。",
+          "itemId": "rp4-024"
+        },
+        {
+          "en": "Post-process to delete all text after the first line.",
+          "zh": "后处理时删掉第一行之后的所有内容。",
+          "itemId": "rp2-007"
+        }
+      ],
+      "itemIds": [
+        "rp1-016",
+        "rp2-001",
+        "rp2-007",
+        "rp2-018",
+        "rp4-007",
+        "rp4-024",
+        "rp7-008"
+      ]
+    },
+    {
+      "id": "tenant",
+      "word": "tenant",
+      "pos": "名詞",
+      "ja": "テナント（SaaS の顧客単位）",
+      "zh": "租户",
+      "count": 16,
+      "questionCount": 6,
+      "domains": {
+        "D1": 2,
+        "D3": 1,
+        "D5": 3
+      },
+      "forms": [
+        "tenant",
+        "tenants"
+      ],
+      "examples": [
+        {
+          "en": "Segment quality metrics by product line or tenant instead of only global averages.",
+          "zh": "按产品线或租户分段统计质量指标，而不只看全局平均。",
+          "itemId": "rp3-014"
+        },
+        {
+          "en": "Choose a deployment surface and region that keeps processing in the EU, and route EU tenants there.",
+          "zh": "选择能把处理留在欧盟境内的部署接入面和区域，并把欧盟租户路由到那里。",
+          "itemId": "rp5-017"
+        }
+      ],
+      "itemIds": [
+        "rp1-006",
+        "rp1-007",
+        "rp3-014",
+        "rp5-017",
+        "rp5-018",
+        "rp5-020"
+      ]
+    },
+    {
+      "id": "summary",
+      "word": "summary",
+      "pos": "名詞",
+      "ja": "要約、まとめ",
+      "zh": "摘要、总结",
+      "count": 14,
+      "questionCount": 6,
+      "domains": {
+        "D1": 3,
+        "D2": 1,
+        "D4": 1,
+        "D5": 1
+      },
+      "forms": [
+        "summaries",
+        "summary"
+      ],
+      "examples": [
+        {
+          "en": "Measure whether adjusters reach the same decision from the summary as from the full file, on a sample matching real claim types.",
+          "zh": "在与真实理赔类型分布一致的样本上，测量理赔员根据摘要做出的决定是否与根据完整卷宗做出的一致。",
+          "itemId": "rp4-005"
+        },
+        {
+          "en": "A bank wants overnight risk summaries for 200,000 accounts. Which feature choice delivers the MOST value per cost?",
+          "zh": "一家银行需要在夜间为 20 万个账户生成风险摘要。哪种功能选择单位成本价值最高？",
+          "itemId": "rp1-022"
+        }
+      ],
+      "itemIds": [
+        "rp1-004",
+        "rp1-016",
+        "rp1-022",
+        "rp2-022",
+        "rp4-005",
+        "rp5-014"
+      ]
+    },
+    {
+      "id": "content",
+      "word": "content",
+      "pos": "名詞",
+      "ja": "内容",
+      "zh": "内容",
+      "count": 9,
+      "questionCount": 6,
+      "domains": {
+        "D2": 2,
+        "D3": 1,
+        "D5": 2,
+        "D7": 1
+      },
+      "forms": [
+        "content",
+        "contents"
+      ],
+      "examples": [
+        {
+          "en": "Review plugin contents (hooks, scripts, MCP configs) before publishing to the marketplace.",
+          "zh": "在发布到插件市场之前审查插件内容（钩子、脚本、MCP 配置）。",
+          "itemId": "rp7-003"
+        },
+        {
+          "en": "Clearly delimit untrusted content (e.g. tags) and state that it is data to analyze, not instructions to follow.",
+          "zh": "清楚地标记不可信内容（例如用标签包裹），并说明它是待分析的数据，而不是要执行的指令。",
+          "itemId": "rp5-006"
+        }
+      ],
+      "itemIds": [
+        "rp2-017",
+        "rp2-019",
+        "rp3-028",
+        "rp5-006",
+        "rp5-009",
+        "rp7-003"
+      ]
+    },
+    {
+      "id": "pattern",
+      "word": "pattern",
+      "pos": "名詞",
+      "ja": "パターン、型",
+      "zh": "模式（写法）",
+      "count": 8,
+      "questionCount": 6,
+      "domains": {
+        "D1": 3,
+        "D3": 2,
+        "D5": 1
+      },
+      "forms": [
+        "pattern"
+      ],
+      "examples": [
+        {
+          "en": "A Skills-based pattern: package the procedure once as a governed, versioned Skill that each app loads.",
+          "zh": "基于 Skill 的模式：把流程打包成一个受管理、有版本的 Skill，各应用加载使用。",
+          "itemId": "rp1-011"
+        },
+        {
+          "en": "Change the call pattern to run the independent calls in parallel.",
+          "zh": "改变调用模式，让互不依赖的调用并行执行。",
+          "itemId": "rp3-011"
+        }
+      ],
+      "itemIds": [
+        "rp1-011",
+        "rp1-012",
+        "rp1-013",
+        "rp3-003",
+        "rp3-011",
+        "rp5-024"
+      ]
+    },
+    {
+      "id": "approval",
+      "word": "approval",
+      "pos": "名詞",
+      "ja": "承認",
+      "zh": "批准",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D5": 4,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "approval"
+      ],
+      "examples": [
+        {
+          "en": "Allow it to open PRs but require branch protection with human approval for merges.",
+          "zh": "允许它创建 PR，但用分支保护要求人工批准才能合并。",
+          "itemId": "rp7-011"
+        },
+        {
+          "en": "Require deterministic checks or human approval before sensitive actions triggered after reading untrusted content.",
+          "zh": "读取不可信内容后触发的敏感操作，执行前需要确定性检查或人工批准。",
+          "itemId": "rp5-006"
+        }
+      ],
+      "itemIds": [
+        "rp5-002",
+        "rp5-006",
+        "rp5-013",
+        "rp5-016",
+        "rp6-003",
+        "rp7-011"
+      ]
+    },
+    {
+      "id": "handoff",
+      "word": "handoff",
+      "pos": "名詞",
+      "ja": "引き継ぎ",
+      "zh": "交接",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D3": 3,
+        "D6": 3
+      },
+      "forms": [
+        "handoff"
+      ],
+      "examples": [
+        {
+          "en": "Agent-to-agent handoff, with an explicit, minimal state payload and clear authorization for what the billing agent may do.",
+          "zh": "代理之间交接，要设计明确且精简的状态载荷，并清楚授权账单代理可以做什么。",
+          "itemId": "rp3-023"
+        },
+        {
+          "en": "Which assumption, if undocumented, is MOST likely to cause a production incident after handoff?",
+          "zh": "下面哪个前提假设如果没有写进文档，最可能在交接后引发生产事故？",
+          "itemId": "rp6-012"
+        }
+      ],
+      "itemIds": [
+        "rp3-021",
+        "rp3-022",
+        "rp3-023",
+        "rp6-010",
+        "rp6-011",
+        "rp6-012"
+      ]
+    },
+    {
+      "id": "permission",
+      "word": "permission",
+      "pos": "名詞",
+      "ja": "権限",
+      "zh": "权限",
+      "count": 7,
+      "questionCount": 6,
+      "domains": {
+        "D1": 1,
+        "D3": 2,
+        "D5": 1,
+        "D7": 2
+      },
+      "forms": [
+        "permission",
+        "permissions"
+      ],
+      "examples": [
+        {
+          "en": "Review its instructions and scripts, pin a vetted version, and run it with only the permissions it needs.",
+          "zh": "审查它的说明和脚本，固定一个审查过的版本，并只授予它所需的权限。",
+          "itemId": "rp5-007"
+        },
+        {
+          "en": "Privilege escalation through a shared identity; authorize each request with the end user's identity and permissions (e.g. delegated OAuth).",
+          "zh": "通过共享身份造成权限提升；应以最终用户的身份和权限授权每个请求（例如委托式 OAuth）。",
+          "itemId": "rp3-005"
+        }
+      ],
+      "itemIds": [
+        "rp1-029",
+        "rp3-002",
+        "rp3-005",
+        "rp5-007",
+        "rp7-005",
+        "rp7-006"
+      ]
+    },
+    {
+      "id": "accept",
+      "word": "accept",
+      "pos": "動詞",
+      "ja": "受け入れる",
+      "zh": "接受",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D4": 1,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "accept",
+        "accepting"
+      ],
+      "examples": [
+        {
+          "en": "Deploy through the firm's cloud provider surface (e.g. Bedrock or Vertex AI), accepting possible feature lag and owning the agent runtime and session state.",
+          "zh": "通过公司所在云厂商的接入面（如 Bedrock 或 Vertex AI）部署，接受可能的功能滞后，并自行负责代理运行环境和会话状态。",
+          "itemId": "rp1-025"
+        },
+        {
+          "en": "Use the fast tier to save money and accept the misses.",
+          "zh": "为了省钱使用快速层级，接受漏检。",
+          "itemId": "rp2-002"
+        }
+      ],
+      "itemIds": [
+        "rp1-025",
+        "rp2-002",
+        "rp2-012",
+        "rp4-028",
+        "rp5-023",
+        "rp6-001"
+      ]
+    },
+    {
+      "id": "build",
+      "word": "build",
+      "pos": "動詞",
+      "ja": "構築する",
+      "zh": "构建",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D1": 1,
+        "D3": 2,
+        "D4": 1,
+        "D6": 1,
+        "D7": 1
+      },
+      "forms": [
+        "build",
+        "building",
+        "built"
+      ],
+      "examples": [
+        {
+          "en": "It does not cover the deployed distribution; build a mix reflecting real traffic and oversample the high-stakes closures.",
+          "zh": "它没有覆盖实际部署的分布；按真实流量构建用例组合，并对高风险的销户类适当多抽样。",
+          "itemId": "rp4-006"
+        },
+        {
+          "en": "A pre-built RAG index with contextual retrieval and reranking, refreshed daily, with a fallback when retrieval confidence is low.",
+          "zh": "预先构建的 RAG 索引，采用上下文检索和重排序，每天刷新，并在检索置信度低时有兜底方案。",
+          "itemId": "rp3-017"
+        }
+      ],
+      "itemIds": [
+        "rp1-023",
+        "rp3-017",
+        "rp3-019",
+        "rp4-006",
+        "rp6-004",
+        "rp7-001"
+      ]
+    },
+    {
+      "id": "include",
+      "word": "include",
+      "pos": "動詞",
+      "ja": "含める、入れる",
+      "zh": "包括、纳入",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D2": 2,
+        "D5": 3,
+        "D6": 1
+      },
+      "forms": [
+        "included",
+        "includes",
+        "including"
+      ],
+      "examples": [
+        {
+          "en": "Run it against a regression set that includes the original failure cases.",
+          "zh": "用包含原始失败案例的回归测试集来测试。",
+          "itemId": "rp2-008"
+        },
+        {
+          "en": "Require approval for every report, including internal ones without PII.",
+          "zh": "每份报告都要审批，包括不含个人信息的内部报告。",
+          "itemId": "rp5-002"
+        }
+      ],
+      "itemIds": [
+        "rp2-008",
+        "rp2-013",
+        "rp5-002",
+        "rp5-007",
+        "rp5-015",
+        "rp6-011"
+      ]
+    },
+    {
+      "id": "regression",
+      "word": "regression",
+      "pos": "名詞",
+      "ja": "回帰（以前できたことができなくなること）",
+      "zh": "回归",
+      "count": 6,
+      "questionCount": 6,
+      "domains": {
+        "D2": 1,
+        "D4": 4,
+        "D6": 1
+      },
+      "forms": [
+        "regression",
+        "regressions"
+      ],
+      "examples": [
+        {
+          "en": "Run it against a regression set that includes the original failure cases.",
+          "zh": "用包含原始失败案例的回归测试集来测试。",
+          "itemId": "rp2-008"
+        },
+        {
+          "en": "Regression eval results comparing old and new versions on the same set.",
+          "zh": "在同一测试集上比较新旧版本的回归评估结果。",
+          "itemId": "rp4-027"
+        }
+      ],
+      "itemIds": [
+        "rp2-008",
+        "rp4-008",
+        "rp4-025",
+        "rp4-027",
+        "rp4-028",
+        "rp6-011"
+      ]
+    },
+    {
+      "id": "judge",
+      "word": "judge",
+      "pos": "名詞",
+      "ja": "評価者（採点するモデル）",
+      "zh": "评分者",
+      "count": 13,
+      "questionCount": 5,
+      "domains": {
+        "D4": 4,
+        "D5": 1
+      },
+      "forms": [
+        "judge"
+      ],
+      "examples": [
+        {
+          "en": "Self-preference bias; use a different judge model or blind comparisons and validate against human labels.",
+          "zh": "自我偏好偏差；换用不同的评审模型或做盲比，并用人工标注验证。",
+          "itemId": "rp4-011"
+        },
+        {
+          "en": "Judge drift (e.g. the judge model version changed); pin the judge version and re-calibrate on the fixed set.",
+          "zh": "评审漂移（例如评审模型的版本变了）；固定评审版本，并在固定集上重新校准。",
+          "itemId": "rp4-012"
+        }
+      ],
+      "itemIds": [
+        "rp4-009",
+        "rp4-010",
+        "rp4-011",
+        "rp4-012",
+        "rp5-016"
+      ]
+    },
+    {
+      "id": "conversation",
+      "word": "conversation",
+      "pos": "名詞",
+      "ja": "会話（チャットのやり取り）",
+      "zh": "对话",
+      "count": 9,
+      "questionCount": 5,
+      "domains": {
+        "D2": 4,
+        "D3": 1
+      },
+      "forms": [
+        "conversation",
+        "conversations"
+      ],
+      "examples": [
+        {
+          "en": "Context editing that clears old tool results while keeping the rest of the conversation.",
+          "zh": "使用上下文编辑，清除旧的工具结果，同时保留对话的其余部分。",
+          "itemId": "rp2-022"
+        },
+        {
+          "en": "A long multi-turn agent conversation grows each turn. Which caching approach keeps reuse high as the conversation grows?",
+          "zh": "一个多轮代理对话每一轮都在变长。哪种缓存方式能在对话增长时保持高复用？",
+          "itemId": "rp2-020"
+        }
+      ],
+      "itemIds": [
+        "rp2-013",
+        "rp2-020",
+        "rp2-022",
+        "rp2-024",
+        "rp3-023"
+      ]
+    },
+    {
+      "id": "client",
+      "word": "client",
+      "pos": "名詞",
+      "ja": "顧客、クライアント",
+      "zh": "客户",
+      "count": 7,
+      "questionCount": 5,
+      "domains": {
+        "D3": 3,
+        "D5": 1,
+        "D6": 1
+      },
+      "forms": [
+        "client",
+        "clients"
+      ],
+      "examples": [
+        {
+          "en": "Several clients (Claude Code, desktop, custom agents) need the same capability.",
+          "zh": "多个客户端（Claude Code、桌面应用、自定义代理）需要同一能力。",
+          "itemId": "rp3-024"
+        },
+        {
+          "en": "Increase the client timeout.",
+          "zh": "延长客户端超时。",
+          "itemId": "rp3-029"
+        }
+      ],
+      "itemIds": [
+        "rp3-022",
+        "rp3-024",
+        "rp3-029",
+        "rp5-010",
+        "rp6-004"
+      ]
+    },
+    {
+      "id": "compare",
+      "word": "compare",
+      "pos": "動詞",
+      "ja": "比較する",
+      "zh": "比较",
+      "count": 7,
+      "questionCount": 5,
+      "domains": {
+        "D3": 1,
+        "D4": 4
+      },
+      "forms": [
+        "compare",
+        "compared",
+        "compares",
+        "comparing"
+      ],
+      "examples": [
+        {
+          "en": "A paired design: both prompts on the same cases, comparing per-case differences.",
+          "zh": "成对设计：两个提示在相同用例上运行，比较每个用例的差异。",
+          "itemId": "rp4-014"
+        },
+        {
+          "en": "Regression eval results comparing old and new versions on the same set.",
+          "zh": "在同一测试集上比较新旧版本的回归评估结果。",
+          "itemId": "rp4-027"
+        }
+      ],
+      "itemIds": [
+        "rp3-016",
+        "rp4-013",
+        "rp4-014",
+        "rp4-016",
+        "rp4-027"
+      ]
+    },
+    {
+      "id": "surface",
+      "word": "surface",
+      "pos": "名詞",
+      "ja": "提供面（API・クラウドなどの利用経路）",
+      "zh": "平台、界面",
+      "count": 7,
+      "questionCount": 5,
+      "domains": {
+        "D1": 3,
+        "D5": 2
+      },
+      "forms": [
+        "surface"
+      ],
+      "examples": [
+        {
+          "en": "Choose a deployment surface and region that keeps processing in the EU, and route EU tenants there.",
+          "zh": "选择能把处理留在欧盟境内的部署接入面和区域，并把欧盟租户路由到那里。",
+          "itemId": "rp5-017"
+        },
+        {
+          "en": "Availability of specific models and features on each surface.",
+          "zh": "各接入面上具体模型和功能的可用性。",
+          "itemId": "rp1-028"
+        }
+      ],
+      "itemIds": [
+        "rp1-025",
+        "rp1-027",
+        "rp1-028",
+        "rp5-005",
+        "rp5-017"
+      ]
+    },
+    {
+      "id": "volume",
+      "word": "volume",
+      "pos": "名詞",
+      "ja": "量",
+      "zh": "量、数量",
+      "count": 7,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D4": 1,
+        "D6": 1
+      },
+      "forms": [
+        "volume"
+      ],
+      "examples": [
+        {
+          "en": "B, because at low volume the operating cost of a new service outweighs the per-request saving.",
+          "zh": "选 B，因为请求量低时，新服务的运维成本超过了单次请求的节省。",
+          "itemId": "rp1-024"
+        },
+        {
+          "en": "\"Daily volume stays under the current rate limits; above that, requests are queued.\"",
+          "zh": "「每日请求量低于当前的速率限制；超过时请求会进入队列。」",
+          "itemId": "rp6-012"
+        }
+      ],
+      "itemIds": [
+        "rp1-024",
+        "rp2-004",
+        "rp2-015",
+        "rp4-003",
+        "rp6-012"
+      ]
+    },
+    {
+      "id": "format",
+      "word": "format",
+      "pos": "名詞",
+      "ja": "形式、書式",
+      "zh": "格式",
+      "count": 6,
+      "questionCount": 5,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D4": 2
+      },
+      "forms": [
+        "format",
+        "formatted"
+      ],
+      "examples": [
+        {
+          "en": "Unclear task boundaries: each delegation needs an objective, scope, output format, and what other subagents cover.",
+          "zh": "任务边界不清：每次委派都需要目标、范围、输出格式，以及其他子代理负责什么。",
+          "itemId": "rp1-019"
+        },
+        {
+          "en": "Re-tune the prompt or use structured outputs to restore the format, add the cases to the regression set, then continue the rollout.",
+          "zh": "重新调整提示或改用结构化输出来恢复格式，把这些用例加入回归集，然后继续上线。",
+          "itemId": "rp4-028"
+        }
+      ],
+      "itemIds": [
+        "rp1-012",
+        "rp1-019",
+        "rp2-005",
+        "rp4-018",
+        "rp4-028"
+      ]
+    },
+    {
+      "id": "hook",
+      "word": "hook",
+      "pos": "名詞",
+      "ja": "フック（処理に割り込む仕組み）",
+      "zh": "钩子",
+      "count": 6,
+      "questionCount": 5,
+      "domains": {
+        "D5": 1,
+        "D7": 4
+      },
+      "forms": [
+        "hook",
+        "hooks"
+      ],
+      "examples": [
+        {
+          "en": "Review plugin contents (hooks, scripts, MCP configs) before publishing to the marketplace.",
+          "zh": "在发布到插件市场之前审查插件内容（钩子、脚本、MCP 配置）。",
+          "itemId": "rp7-003"
+        },
+        {
+          "en": "A PreToolUse hook that blocks destructive commands deterministically.",
+          "zh": "一个确定性拦截破坏性命令的 PreToolUse 钩子。",
+          "itemId": "rp7-007"
+        }
+      ],
+      "itemIds": [
+        "rp5-003",
+        "rp7-001",
+        "rp7-003",
+        "rp7-004",
+        "rp7-007"
+      ]
+    },
+    {
+      "id": "improve",
+      "word": "improve",
+      "pos": "動詞",
+      "ja": "改善する",
+      "zh": "改进",
+      "count": 6,
+      "questionCount": 5,
+      "domains": {
+        "D1": 2,
+        "D3": 2,
+        "D4": 1
+      },
+      "forms": [
+        "improve",
+        "improved",
+        "improves"
+      ],
+      "examples": [
+        {
+          "en": "Increase retrieval depth or improve retrieval (e.g. contextual retrieval, reranking), checking that latency stays within target.",
+          "zh": "增加检索深度或改进检索（如上下文检索、重排序），并确认延迟仍在目标内。",
+          "itemId": "rp3-009"
+        },
+        {
+          "en": "Which TWO properties MOST improve the maintainability of an end-to-end Claude pipeline?",
+          "zh": "哪两项特性最能提升端到端 Claude 流水线的可维护性？",
+          "itemId": "rp1-008"
+        }
+      ],
+      "itemIds": [
+        "rp1-008",
+        "rp1-017",
+        "rp3-009",
+        "rp3-020",
+        "rp4-025"
+      ]
+    },
+    {
+      "id": "record",
+      "word": "record",
+      "pos": "名詞",
+      "ja": "記録",
+      "zh": "记录",
+      "count": 6,
+      "questionCount": 5,
+      "domains": {
+        "D3": 1,
+        "D4": 1,
+        "D5": 1,
+        "D6": 2
+      },
+      "forms": [
+        "record",
+        "records"
+      ],
+      "examples": [
+        {
+          "en": "Immutable audit logs that record the user identity, the action, its parameters, and the time.",
+          "zh": "不可篡改的审计日志，记录用户身份、操作、参数和时间。",
+          "itemId": "rp5-019"
+        },
+        {
+          "en": "Address the audit requirement explicitly, state the latency trade-off and residual risks, and record alternatives considered.",
+          "zh": "明确回应审计要求，说明延迟方面的取舍和剩余风险，并记录考虑过的替代方案。",
+          "itemId": "rp6-005"
+        }
+      ],
+      "itemIds": [
+        "rp3-005",
+        "rp4-002",
+        "rp5-019",
+        "rp6-004",
+        "rp6-005"
+      ]
+    },
+    {
+      "id": "reduce",
+      "word": "reduce",
+      "pos": "動詞",
+      "ja": "減らす",
+      "zh": "减少",
+      "count": 6,
+      "questionCount": 5,
+      "domains": {
+        "D2": 2,
+        "D3": 1,
+        "D4": 1,
+        "D5": 1
+      },
+      "forms": [
+        "reduce",
+        "reduces"
+      ],
+      "examples": [
+        {
+          "en": "Reduce tokens without losing information the model needs; tool descriptions drive correct tool use.",
+          "zh": "减少 token 时不能丢掉模型需要的信息；工具描述决定了能否正确使用工具。",
+          "itemId": "rp2-016"
+        },
+        {
+          "en": "Which TWO controls MOST reduce the chance that untrusted content is treated as instruction?",
+          "zh": "哪两项控制最能降低不可信内容被当作指令执行的可能？",
+          "itemId": "rp5-006"
+        }
+      ],
+      "itemIds": [
+        "rp2-014",
+        "rp2-016",
+        "rp3-002",
+        "rp4-021",
+        "rp5-006"
+      ]
+    },
+    {
+      "id": "allow",
+      "word": "allow",
+      "pos": "動詞",
+      "ja": "許す、可能にする",
+      "zh": "允许",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D5": 1,
+        "D7": 3
+      },
+      "forms": [
+        "allow",
+        "allowed"
+      ],
+      "examples": [
+        {
+          "en": "Headless Claude Code (or the Agent SDK) in the CI runner with an explicit allowed-tools list.",
+          "zh": "在 CI 执行器中运行无头 Claude Code（或 Agent SDK），并明确允许的工具列表。",
+          "itemId": "rp1-029"
+        },
+        {
+          "en": "Headless mode (claude -p) with JSON output, explicit allowed tools, and a fixed working directory.",
+          "zh": "无头模式（claude -p），JSON 输出，明确允许的工具，以及固定的工作目录。",
+          "itemId": "rp7-008"
+        }
+      ],
+      "itemIds": [
+        "rp1-029",
+        "rp5-002",
+        "rp7-006",
+        "rp7-008",
+        "rp7-011"
+      ]
+    },
+    {
+      "id": "configuration",
+      "word": "configuration",
+      "pos": "名詞",
+      "ja": "設定、構成",
+      "zh": "配置",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D3": 1,
+        "D4": 1,
+        "D7": 3
+      },
+      "forms": [
+        "configuration",
+        "configurations"
+      ],
+      "examples": [
+        {
+          "en": "How much outputs vary between runs of the same configuration.",
+          "zh": "同一配置不同次运行之间输出的波动有多大。",
+          "itemId": "rp4-015"
+        },
+        {
+          "en": "A CI job runs Claude Code headlessly to fix lint errors. Which permission configuration is BEST?",
+          "zh": "一个 CI 任务以无头模式运行 Claude Code 来修复 lint 错误。哪种权限配置最好？",
+          "itemId": "rp7-005"
+        }
+      ],
+      "itemIds": [
+        "rp3-004",
+        "rp4-015",
+        "rp7-005",
+        "rp7-007",
+        "rp7-008"
+      ]
+    },
+    {
+      "id": "correct",
+      "word": "correct",
+      "pos": "形容詞",
+      "ja": "正しい",
+      "zh": "正确的",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D2": 1,
+        "D3": 1,
+        "D4": 2,
+        "D5": 1
+      },
+      "forms": [
+        "correct"
+      ],
+      "examples": [
+        {
+          "en": "Reduce tokens without losing information the model needs; tool descriptions drive correct tool use.",
+          "zh": "减少 token 时不能丢掉模型需要的信息；工具描述决定了能否正确使用工具。",
+          "itemId": "rp2-016"
+        },
+        {
+          "en": "Using historical cases with known correct outcomes (e.g. resolved tickets with verified resolutions).",
+          "zh": "使用结果已知正确的历史案例（例如解决方案经过确认的已结工单）。",
+          "itemId": "rp4-007"
+        }
+      ],
+      "itemIds": [
+        "rp2-016",
+        "rp3-009",
+        "rp4-007",
+        "rp4-017",
+        "rp5-024"
+      ]
+    },
+    {
+      "id": "credential",
+      "word": "credential",
+      "pos": "名詞",
+      "ja": "認証情報（鍵・パスワード）",
+      "zh": "凭据",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D3": 3,
+        "D5": 1
+      },
+      "forms": [
+        "credential",
+        "credentials"
+      ],
+      "examples": [
+        {
+          "en": "Access control: each component should use the narrowest credential it needs.",
+          "zh": "访问控制：每个组件都应使用所需的最小权限凭证。",
+          "itemId": "rp1-010"
+        },
+        {
+          "en": "A targeted check on inputs and outputs for impersonation of third-party institutions and credential requests, leaving normal email drafting untouched.",
+          "zh": "针对输入和输出，检查是否冒充第三方机构以及是否索取凭证，不影响正常的邮件起草。",
+          "itemId": "rp5-001"
+        }
+      ],
+      "itemIds": [
+        "rp1-010",
+        "rp3-002",
+        "rp3-008",
+        "rp3-023",
+        "rp5-001"
+      ]
+    },
+    {
+      "id": "ignore",
+      "word": "ignore",
+      "pos": "動詞",
+      "ja": "無視する",
+      "zh": "忽视",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D4": 2,
+        "D5": 2,
+        "D6": 1
+      },
+      "forms": [
+        "ignore",
+        "ignored"
+      ],
+      "examples": [
+        {
+          "en": "The eval set is too small; ignore it.",
+          "zh": "评估集太小，忽略它。",
+          "itemId": "rp4-012"
+        },
+        {
+          "en": "System prompts are ignored by Claude.",
+          "zh": "Claude 会忽略系统提示。",
+          "itemId": "rp5-003"
+        }
+      ],
+      "itemIds": [
+        "rp4-012",
+        "rp4-028",
+        "rp5-003",
+        "rp5-008",
+        "rp6-004"
+      ]
+    },
+    {
+      "id": "loop",
+      "word": "loop",
+      "pos": "名詞",
+      "ja": "ループ（繰り返し）",
+      "zh": "循环",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 3,
+        "D3": 2
+      },
+      "forms": [
+        "loop",
+        "loops"
+      ],
+      "examples": [
+        {
+          "en": "A self-hosted agent loop (Agent SDK or headless Claude Code) inside the VPC, calling the model through an approved surface.",
+          "zh": "在 VPC 内自托管代理循环（Agent SDK 或无头 Claude Code），通过批准的接入面调用模型。",
+          "itemId": "rp1-027"
+        },
+        {
+          "en": "An agent occasionally loops on a failing tool for minutes, driving up cost, but no alert fires. What instrumentation is MOST useful?",
+          "zh": "一个代理偶尔会在失败的工具上循环好几分钟，推高成本，却没有任何报警。哪种埋点最有用？",
+          "itemId": "rp3-015"
+        }
+      ],
+      "itemIds": [
+        "rp1-009",
+        "rp1-025",
+        "rp1-027",
+        "rp3-015",
+        "rp3-030"
+      ]
+    },
+    {
+      "id": "practice",
+      "word": "practice",
+      "pos": "名詞",
+      "ja": "慣行、実践",
+      "zh": "做法、惯例",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D3": 2,
+        "D7": 2
+      },
+      "forms": [
+        "practice",
+        "practices"
+      ],
+      "examples": [
+        {
+          "en": "Which credential practice BEST limits blast radius across development, staging, and production?",
+          "zh": "哪种凭证做法最能限制开发、测试和生产环境之间的影响范围？",
+          "itemId": "rp3-008"
+        },
+        {
+          "en": "Which observability practice is MOST important in an orchestrator/subagent system?",
+          "zh": "在编排代理／子代理系统中，哪种可观测性做法最重要？",
+          "itemId": "rp1-020"
+        }
+      ],
+      "itemIds": [
+        "rp1-020",
+        "rp3-008",
+        "rp3-014",
+        "rp7-003",
+        "rp7-010"
+      ]
+    },
+    {
+      "id": "rule",
+      "word": "rule",
+      "pos": "名詞",
+      "ja": "ルール、規則",
+      "zh": "规则",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D7": 2
+      },
+      "forms": [
+        "rule",
+        "rules"
+      ],
+      "examples": [
+        {
+          "en": "Deny rules for destructive commands and access to secrets, which teams cannot override.",
+          "zh": "针对破坏性命令和访问密钥的拒绝规则，各团队不能覆盖。",
+          "itemId": "rp7-002"
+        },
+        {
+          "en": "It is over-constrained; replace the list with the key scope rules and the reasons behind them, and test against legitimate cases.",
+          "zh": "约束过度；把清单换成关键的范围规则及其理由，并用正当用例测试。",
+          "itemId": "rp2-006"
+        }
+      ],
+      "itemIds": [
+        "rp1-013",
+        "rp2-005",
+        "rp2-006",
+        "rp7-002",
+        "rp7-005"
+      ]
+    },
+    {
+      "id": "several",
+      "word": "several",
+      "pos": "形容詞",
+      "ja": "いくつかの",
+      "zh": "几个",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 1,
+        "D6": 2
+      },
+      "forms": [
+        "several"
+      ],
+      "examples": [
+        {
+          "en": "Several clients (Claude Code, desktop, custom agents) need the same capability.",
+          "zh": "多个客户端（Claude Code、桌面应用、自定义代理）需要同一能力。",
+          "itemId": "rp3-024"
+        },
+        {
+          "en": "Migrating a large codebase over several days.",
+          "zh": "用几天时间迁移一个大型代码库。",
+          "itemId": "rp1-014"
+        }
+      ],
+      "itemIds": [
+        "rp1-014",
+        "rp2-018",
+        "rp3-024",
+        "rp6-002",
+        "rp6-008"
+      ]
+    },
+    {
+      "id": "trust",
+      "word": "trust",
+      "pos": "動詞",
+      "ja": "信頼する",
+      "zh": "信任",
+      "count": 5,
+      "questionCount": 5,
+      "domains": {
+        "D1": 1,
+        "D3": 1,
+        "D5": 2,
+        "D6": 1
+      },
+      "forms": [
+        "trust",
+        "trusted",
+        "trusts"
+      ],
+      "examples": [
+        {
+          "en": "MCP responses are always trusted.",
+          "zh": "MCP 的响应总是可信的。",
+          "itemId": "rp5-005"
+        },
+        {
+          "en": "Trust it because it is popular.",
+          "zh": "因为它很热门所以信任它。",
+          "itemId": "rp5-007"
+        }
+      ],
+      "itemIds": [
+        "rp1-006",
+        "rp3-007",
+        "rp5-005",
+        "rp5-007",
+        "rp6-006"
+      ]
+    },
+    {
+      "id": "refund",
+      "word": "refund",
+      "pos": "名詞",
+      "ja": "返金",
+      "zh": "退款",
+      "count": 10,
+      "questionCount": 4,
+      "domains": {
+        "D2": 1,
+        "D3": 1,
+        "D5": 2
+      },
+      "forms": [
+        "refund",
+        "refunds"
+      ],
+      "examples": [
+        {
+          "en": "Auto-approve low-value refunds within deterministic limits and keep human gates for higher amounts or anomalies, with audit sampling.",
+          "zh": "在确定性的额度限制内自动批准小额退款，对高额或异常情况保留人工关卡，并进行审计抽查。",
+          "itemId": "rp5-015"
+        },
+        {
+          "en": "Specify scope (product support only), format (answer first, under 120 words), and behavior for out-of-scope or refund requests (route to a human).",
+          "zh": "写明范围（只做产品支持）、格式（先给答案，120 字以内），以及超出范围或退款请求时的处理（转人工）。",
+          "itemId": "rp2-005"
+        }
+      ],
+      "itemIds": [
+        "rp2-005",
+        "rp3-032",
+        "rp5-009",
+        "rp5-015"
+      ]
+    },
+    {
+      "id": "generate",
+      "word": "generate",
+      "pos": "動詞",
+      "ja": "生成する",
+      "zh": "生成",
+      "count": 7,
+      "questionCount": 4,
+      "domains": {
+        "D5": 1,
+        "D7": 3
+      },
+      "forms": [
+        "generate",
+        "generated"
+      ],
+      "examples": [
+        {
+          "en": "A security incident traces to an AI-generated function. Who is accountable?",
+          "zh": "一次安全事件追溯到一个 AI 生成的函数。谁应负责？",
+          "itemId": "rp7-012"
+        },
+        {
+          "en": "Which TWO practices support accountability for AI-generated code?",
+          "zh": "哪两项做法支持对 AI 生成代码的问责？",
+          "itemId": "rp7-010"
+        }
+      ],
+      "itemIds": [
+        "rp5-001",
+        "rp7-009",
+        "rp7-010",
+        "rp7-012"
+      ]
+    },
+    {
+      "id": "policy",
+      "word": "policy",
+      "pos": "名詞",
+      "ja": "方針、規定",
+      "zh": "政策",
+      "count": 7,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D3": 2,
+        "D4": 1
+      },
+      "forms": [
+        "policies",
+        "policy"
+      ],
+      "examples": [
+        {
+          "en": "Load the policy up front (monolithically) and cache it, avoiding discovery round trips.",
+          "zh": "预先整体加载这份规定并缓存，避免发现过程的往返。",
+          "itemId": "rp3-026"
+        },
+        {
+          "en": "Answering a policy question from a few retrieved passages in one turn.",
+          "zh": "根据检索到的几段内容，一轮内回答一个制度问题。",
+          "itemId": "rp1-014"
+        }
+      ],
+      "itemIds": [
+        "rp1-014",
+        "rp3-019",
+        "rp3-026",
+        "rp4-001"
+      ]
+    },
+    {
+      "id": "decide",
+      "word": "decide",
+      "pos": "動詞",
+      "ja": "決める",
+      "zh": "决定",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D1": 3,
+        "D4": 1
+      },
+      "forms": [
+        "decide",
+        "decides"
+      ],
+      "examples": [
+        {
+          "en": "Claude handles triage and extraction; coverage determination is shared (Claude drafts, an adjuster decides); payment authorization stays with humans.",
+          "zh": "分拣和提取交给 Claude；承保判断由双方共同完成（Claude 起草、理赔员决定）；付款授权留给人。",
+          "itemId": "rp1-001"
+        },
+        {
+          "en": "Which TWO factors MOST commonly decide between the Anthropic API and a cloud provider surface (Bedrock, Vertex AI, Microsoft Foundry)?",
+          "zh": "在 Anthropic API 和云厂商接入面（Bedrock、Vertex AI、Microsoft Foundry）之间做选择时，最常见的两项决定因素是什么？",
+          "itemId": "rp1-028"
+        }
+      ],
+      "itemIds": [
+        "rp1-001",
+        "rp1-013",
+        "rp1-028",
+        "rp4-005"
+      ]
+    },
+    {
+      "id": "edit",
+      "word": "edit",
+      "pos": "動詞",
+      "ja": "編集する",
+      "zh": "编辑",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 2,
+        "D7": 1
+      },
+      "forms": [
+        "editing",
+        "edits"
+      ],
+      "examples": [
+        {
+          "en": "Context editing that clears old tool results while keeping the rest of the conversation.",
+          "zh": "使用上下文编辑，清除旧的工具结果，同时保留对话的其余部分。",
+          "itemId": "rp2-022"
+        },
+        {
+          "en": "Claude drafts from the chart with citations to source notes; the clinician reviews, edits, and signs.",
+          "zh": "Claude 根据病历起草并标注来源记录；医生审阅、修改并签字。",
+          "itemId": "rp1-004"
+        }
+      ],
+      "itemIds": [
+        "rp1-004",
+        "rp2-022",
+        "rp2-024",
+        "rp7-005"
+      ]
+    },
+    {
+      "id": "exist",
+      "word": "exist",
+      "pos": "動詞",
+      "ja": "存在する",
+      "zh": "存在",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D1": 3,
+        "D4": 1
+      },
+      "forms": [
+        "exist",
+        "existing"
+      ],
+      "examples": [
+        {
+          "en": "Data residency and compliance commitments tied to an existing cloud account.",
+          "zh": "与现有云账户绑定的数据驻留和合规承诺。",
+          "itemId": "rp1-028"
+        }
+      ],
+      "itemIds": [
+        "rp1-024",
+        "rp1-025",
+        "rp1-028",
+        "rp4-001"
+      ]
+    },
+    {
+      "id": "legal",
+      "word": "legal",
+      "pos": "形容詞",
+      "ja": "法務の・法律上の",
+      "zh": "法务的",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D3": 1,
+        "D4": 1
+      },
+      "forms": [
+        "legal"
+      ],
+      "examples": [
+        {
+          "en": "A legal team queries a single 60-page policy manual that changes yearly. Which approach is simplest and most reliable?",
+          "zh": "法务团队查询一份每年才更新一次的 60 页制度手册。哪种方式最简单、最可靠？",
+          "itemId": "rp3-019"
+        },
+        {
+          "en": "A legal team wants Claude to send settlement offers to opposing counsel automatically. What is the strongest architectural objection?",
+          "zh": "法务团队希望 Claude 自动向对方律师发出和解报价。最有力的架构层面反对理由是什么？",
+          "itemId": "rp1-002"
+        }
+      ],
+      "itemIds": [
+        "rp1-002",
+        "rp2-005",
+        "rp3-019",
+        "rp4-020"
+      ]
+    },
+    {
+      "id": "security",
+      "word": "security",
+      "pos": "名詞",
+      "ja": "セキュリティ",
+      "zh": "安全",
+      "count": 5,
+      "questionCount": 4,
+      "domains": {
+        "D4": 1,
+        "D7": 3
+      },
+      "forms": [
+        "security"
+      ],
+      "examples": [
+        {
+          "en": "Security and safety cases: adversarial prompts such as injection and instruction-extraction attempts.",
+          "zh": "安全与安防用例：注入、套取指令等对抗性提示。",
+          "itemId": "rp4-004"
+        },
+        {
+          "en": "A plugin distributed through an internal marketplace, with security-critical settings enforced via managed settings.",
+          "zh": "做成插件，通过内部插件市场分发，安全关键的设置通过托管设置强制执行。",
+          "itemId": "rp7-001"
+        }
+      ],
+      "itemIds": [
+        "rp4-004",
+        "rp7-001",
+        "rp7-010",
+        "rp7-012"
+      ]
+    },
+    {
+      "id": "commitment",
+      "word": "commitment",
+      "pos": "名詞",
+      "ja": "約束・確約",
+      "zh": "承诺",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 2,
+        "D6": 2
+      },
+      "forms": [
+        "commitment",
+        "commitments"
+      ],
+      "examples": [
+        {
+          "en": "Data residency and compliance commitments tied to an existing cloud account.",
+          "zh": "与现有云账户绑定的数据驻留和合规承诺。",
+          "itemId": "rp1-028"
+        },
+        {
+          "en": "Sending an offer is an external, binding commitment that cannot be withdrawn cleanly, so a human must own and approve it.",
+          "zh": "发出报价是对外的、有约束力的承诺，很难干净地撤回，所以必须由人负责并批准。",
+          "itemId": "rp1-002"
+        }
+      ],
+      "itemIds": [
+        "rp1-002",
+        "rp1-028",
+        "rp6-003",
+        "rp6-004"
+      ]
+    },
+    {
+      "id": "compliance",
+      "word": "compliance",
+      "pos": "名詞",
+      "ja": "法令・規程の順守",
+      "zh": "合规",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D4": 1,
+        "D6": 1
+      },
+      "forms": [
+        "compliance"
+      ],
+      "examples": [
+        {
+          "en": "Data residency and compliance commitments tied to an existing cloud account.",
+          "zh": "与现有云账户绑定的数据驻留和合规承诺。",
+          "itemId": "rp1-028"
+        },
+        {
+          "en": "Several products each send the same 3-step prompt sequence (gather facts → draft → compliance check) with copied text. Which packaging approach is BEST?",
+          "zh": "几个产品都发送同样的三步提示序列（收集事实 → 起草 → 合规检查），文本是复制来的。哪种打包方式最好？",
+          "itemId": "rp2-018"
+        }
+      ],
+      "itemIds": [
+        "rp1-028",
+        "rp2-018",
+        "rp4-025",
+        "rp6-005"
+      ]
+    },
+    {
+      "id": "contain",
+      "word": "contain",
+      "pos": "動詞",
+      "ja": "含む",
+      "zh": "包含",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D4": 2,
+        "D5": 1
+      },
+      "forms": [
+        "contain",
+        "contained",
+        "contains"
+      ],
+      "examples": [
+        {
+          "en": "Skills cannot contain instructions.",
+          "zh": "Skill 不可能包含指令。",
+          "itemId": "rp5-005"
+        },
+        {
+          "en": "A customer agent leaked internal instructions when users asked cleverly. Pre-release evals contained only normal support questions. What coverage was missing?",
+          "zh": "用户巧妙提问时，一个客服代理泄露了内部指令。发布前的评估只包含正常的客服问题。缺少了哪方面的覆盖？",
+          "itemId": "rp4-004"
+        }
+      ],
+      "itemIds": [
+        "rp1-016",
+        "rp4-004",
+        "rp4-019",
+        "rp5-005"
+      ]
+    },
+    {
+      "id": "relevant",
+      "word": "relevant",
+      "pos": "形容詞",
+      "ja": "関連のある",
+      "zh": "相关的",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D3": 2,
+        "D5": 1
+      },
+      "forms": [
+        "relevant"
+      ],
+      "examples": [
+        {
+          "en": "Use tool search / on-demand loading so only relevant tool definitions enter context.",
+          "zh": "使用工具搜索或按需加载，只让相关的工具定义进入上下文。",
+          "itemId": "rp3-027"
+        },
+        {
+          "en": "Progressive discovery: expose short descriptions and load full procedures (e.g. as Skills) only when relevant.",
+          "zh": "渐进式发现：只提供简短描述，相关时才加载完整流程（例如以 Skill 形式）。",
+          "itemId": "rp3-025"
+        }
+      ],
+      "itemIds": [
+        "rp1-018",
+        "rp3-025",
+        "rp3-027",
+        "rp5-021"
+      ]
+    },
+    {
+      "id": "skip",
+      "word": "skip",
+      "pos": "動詞",
+      "ja": "飛ばす、省く",
+      "zh": "跳过",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 1,
+        "D2": 1,
+        "D5": 1,
+        "D7": 1
+      },
+      "forms": [
+        "skip",
+        "skips"
+      ],
+      "examples": [
+        {
+          "en": "Skip tools and paste internal data into prompts manually.",
+          "zh": "不用工具，把内部数据手动粘贴进提示。",
+          "itemId": "rp1-027"
+        },
+        {
+          "en": "Let the agent skip the gate when its confidence is high.",
+          "zh": "代理把握大时就跳过关卡。",
+          "itemId": "rp5-013"
+        }
+      ],
+      "itemIds": [
+        "rp1-027",
+        "rp2-010",
+        "rp5-013",
+        "rp7-009"
+      ]
+    },
+    {
+      "id": "threshold",
+      "word": "threshold",
+      "pos": "名詞",
+      "ja": "しきい値",
+      "zh": "阈值",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D3": 1,
+        "D5": 1,
+        "D6": 2
+      },
+      "forms": [
+        "threshold",
+        "thresholds"
+      ],
+      "examples": [
+        {
+          "en": "Track stop_reason distribution per feature and alert when max_tokens exceeds a threshold.",
+          "zh": "按功能跟踪 stop_reason 的分布，当 max_tokens 的比例超过阈值时报警。",
+          "itemId": "rp3-013"
+        },
+        {
+          "en": "The conditions that would trigger revisiting it (e.g. new model tier, cost threshold).",
+          "zh": "需要重新审视该决策的触发条件（如新的模型层级、成本阈值）。",
+          "itemId": "rp6-007"
+        }
+      ],
+      "itemIds": [
+        "rp3-013",
+        "rp5-002",
+        "rp6-007",
+        "rp6-011"
+      ]
+    },
+    {
+      "id": "window",
+      "word": "window",
+      "pos": "名詞",
+      "ja": "ウィンドウ（文脈の枠）",
+      "zh": "窗口",
+      "count": 4,
+      "questionCount": 4,
+      "domains": {
+        "D1": 2,
+        "D2": 1,
+        "D4": 1
+      },
+      "forms": [
+        "window"
+      ],
+      "examples": [
+        {
+          "en": "Switch to a model with a larger context window.",
+          "zh": "换一个上下文窗口更大的模型。",
+          "itemId": "rp4-024"
+        },
+        {
+          "en": "Subagents should share one context window.",
+          "zh": "子代理应共享同一个上下文窗口。",
+          "itemId": "rp1-016"
+        }
+      ],
+      "itemIds": [
+        "rp1-016",
+        "rp1-029",
+        "rp2-013",
+        "rp4-024"
+      ]
+    }
+  ]
+}

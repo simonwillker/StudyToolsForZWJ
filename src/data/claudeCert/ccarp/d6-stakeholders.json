@@ -1,0 +1,473 @@
+{
+  "domain": "D6",
+  "items": [
+    {
+      "id": "rp6-001",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A requirements document promises \"100% accurate answers with zero hallucinations\" for a customer-facing assistant. What is the BEST response?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Flag it as unsupportable and replace it with measurable targets (e.g. groundedness rate on an eval set) plus controls such as citations and human escalation.",
+          "correct": true,
+          "explain": "正解。保証できない約束を、測れる目標と統制に置き換える。",
+          "textZh": "指出这是无法兑现的承诺，换成可衡量的目标（如评估集上的 groundedness 比例），再加上引用和转人工等控制。"
+        },
+        {
+          "text": "Accept it to win the deal.",
+          "correct": false,
+          "explain": "不適。守れない約束は後で問題になる。",
+          "textZh": "为了拿下合同而接受。"
+        },
+        {
+          "text": "Promise 99.99% instead.",
+          "correct": false,
+          "explain": "不適。根拠のない数字は同じ問題。",
+          "textZh": "改为承诺 99.99%。"
+        },
+        {
+          "text": "Remove accuracy from the requirements.",
+          "correct": false,
+          "explain": "不適。必要な要件まで失う。",
+          "textZh": "把准确性从需求中删掉。"
+        }
+      ],
+      "objective": "Unsupportable Commitments in Requirements and SLAs",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一份需求文档为面向客户的助手承诺「答案 100% 准确，零幻觉」。最好的回应是什么？",
+      "commentaryZh": "6.1：找出 Claude 架构无法兑现的承诺，提出澄清或架构调整。概率性系统不能承诺零错误，应改成可衡量的目标和相应的控制措施。"
+    },
+    {
+      "id": "rp6-002",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An SLA draft promises a 500 ms p99 response for a feature that requires a multi-step agent with several tool calls. What is the BEST action?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Explain the latency floor of the architecture and either renegotiate the SLA or change the architecture (e.g. precompute, a single augmented call).",
+          "correct": true,
+          "explain": "正解。アーキテクチャで守れない SLA は、合意の見直しか設計変更。",
+          "textZh": "说明该架构的延迟下限，要么重新商定 SLA，要么调整架构（如预先计算、改为一次增强调用）。"
+        },
+        {
+          "text": "Sign it and hope traffic is low.",
+          "correct": false,
+          "explain": "不適。根拠なく署名するのは守れない約束になる。",
+          "textZh": "签了再说，指望流量低。"
+        },
+        {
+          "text": "Measure only p50.",
+          "correct": false,
+          "explain": "不適。約束と測定がずれている。",
+          "textZh": "只测量 p50。"
+        },
+        {
+          "text": "Remove logging to speed up.",
+          "correct": false,
+          "explain": "不適。観測性を失い、根本解決にならない。",
+          "textZh": "去掉日志来提速。"
+        }
+      ],
+      "objective": "Unsupportable Commitments in Requirements and SLAs",
+      "reference": "https://platform.claude.com/docs/en/api/rate-limits",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一份 SLA 草案为一个需要多步代理、多次工具调用的功能承诺 p99 响应 500 毫秒。最好的做法是什么？",
+      "commentaryZh": "多步代理有固有的延迟下限。SLA 必须与架构匹配：重新商定，或改变架构以满足。"
+    },
+    {
+      "id": "rp6-003",
+      "domain": "D6",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO commitments are MOST likely unsupportable as written?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "\"The model's behavior will never change over the contract term.\"",
+          "correct": true,
+          "explain": "正解。モデルは更新・廃止されうる。固定と回帰評価で管理するもの。",
+          "textZh": "「在合同期内，模型的行为永远不会改变。」"
+        },
+        {
+          "text": "\"The assistant will always give the same answer to the same question.\"",
+          "correct": true,
+          "explain": "正解。生成には非決定性がある。",
+          "textZh": "「助手对同一问题总是给出相同的答案。」"
+        },
+        {
+          "text": "\"Answers will cite the source documents they are based on.\"",
+          "correct": false,
+          "explain": "不適。設計で実現できる。",
+          "textZh": "「回答会引用其所依据的来源文档。」"
+        },
+        {
+          "text": "\"High-risk actions require human approval.\"",
+          "correct": false,
+          "explain": "不適。これは実装可能な統制で問題のない表現。",
+          "textZh": "「高风险操作需要人工批准。」"
+        }
+      ],
+      "objective": "Unsupportable Commitments in Requirements and SLAs",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "下面哪两项承诺按原文写法最可能无法兑现？",
+      "commentaryZh": "模型版本会更新和退役、生成有随机性，这类承诺要改写为「固定版本并在升级前回归评估」「在关键字段上保持一致的格式」等可实现的表述。"
+    },
+    {
+      "id": "rp6-004",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A sales team promised a client that the AI will \"approve loans autonomously\" in a jurisdiction that requires human decisions for credit. What should the architect do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Raise it as an unsupportable commitment and propose a design where Claude prepares recommendations and humans make and record the decision.",
+          "correct": true,
+          "explain": "正解。法的に守れない約束を明らかにし、実現可能な設計を示す。",
+          "textZh": "把它作为无法兑现的承诺提出来，并提议由 Claude 准备建议、由人做出并记录决定的设计。"
+        },
+        {
+          "text": "Build it quietly and add a human later.",
+          "correct": false,
+          "explain": "不適。人の関与を後回しにすると法令違反の設計になる。",
+          "textZh": "先悄悄做出来，以后再加人工。"
+        },
+        {
+          "text": "Let Claude approve but log decisions.",
+          "correct": false,
+          "explain": "不適。人の判断要件を満たさない。",
+          "textZh": "让 Claude 审批，但记录决定。"
+        },
+        {
+          "text": "Ignore it; sales handles promises.",
+          "correct": false,
+          "explain": "不適。アーキテクトの責任を放棄している。",
+          "textZh": "不管它，承诺是销售的事。"
+        }
+      ],
+      "objective": "Unsupportable Commitments in Requirements and SLAs",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "销售团队向客户承诺 AI 会「自主审批贷款」，而该地区要求信贷决定必须由人做出。架构师应该怎么做？",
+      "commentaryZh": "架构师要识别违反法规或架构能力的承诺，并提出可行方案：Claude 辅助、人决定并留记录。"
+    },
+    {
+      "id": "rp6-005",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An ADR chooses agentic search over a vector index. It lists benefits but does not mention the compliance team's audit-trail requirement or the higher latency. What should a reviewer require?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Address the audit requirement explicitly, state the latency trade-off and residual risks, and record alternatives considered.",
+          "correct": true,
+          "explain": "正解。未対応の制約、トレードオフ、残存リスクを明示させる。",
+          "textZh": "明确回应审计要求，说明延迟方面的取舍和剩余风险，并记录考虑过的替代方案。"
+        },
+        {
+          "text": "Approve it; benefits are enough.",
+          "correct": false,
+          "explain": "不適。利害関係者の制約が抜けている。",
+          "textZh": "批准，优点已经足够了。"
+        },
+        {
+          "text": "Delete the alternatives section.",
+          "correct": false,
+          "explain": "不適。判断の根拠が失われる。",
+          "textZh": "删掉替代方案部分。"
+        },
+        {
+          "text": "Add \"the model is always right.\"",
+          "correct": false,
+          "explain": "不適。モデルの確実性を誇張している。",
+          "textZh": "加上「模型总是对的」。"
+        }
+      ],
+      "objective": "Architecture Decision Records",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一份架构决策记录（ADR）选择了代理式搜索而不是向量索引。它列出了优点，却没有提到合规团队的审计追踪要求和更高的延迟。审阅者应该要求什么？",
+      "commentaryZh": "6.2：检查 ADR 是否遗漏了利益相关方的约束，是否把取舍和剩余风险写清楚，且不夸大模型的确定性。"
+    },
+    {
+      "id": "rp6-006",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which statement is MOST appropriate in an ADR about an LLM-based extraction step?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"On the 500-case golden set, field accuracy was 97.8%; residual errors are caught by schema validation and a weekly sample review.\"",
+          "correct": true,
+          "explain": "正解。測定値と残存リスクへの対策を明示している。",
+          "textZh": "「在 500 个用例的黄金集上，字段准确率为 97.8%；剩余错误由 schema 校验和每周抽样审查发现。」"
+        },
+        {
+          "text": "\"The model never makes extraction errors.\"",
+          "correct": false,
+          "explain": "不適。誤りゼロと言うのは確実性の誇張。",
+          "textZh": "「模型从不出现提取错误。」"
+        },
+        {
+          "text": "\"Accuracy is excellent.\"",
+          "correct": false,
+          "explain": "不適。数値の根拠がなく曖昧な表現。",
+          "textZh": "「准确率非常好。」"
+        },
+        {
+          "text": "\"We trust the model.\"",
+          "correct": false,
+          "explain": "不適。判断の根拠にならない。",
+          "textZh": "「我们信任这个模型。」"
+        }
+      ],
+      "objective": "Architecture Decision Records",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在关于一个基于 LLM 的提取步骤的 ADR 中，哪种表述最恰当？",
+      "commentaryZh": "ADR 中关于模型的结论要有测量数据，并说明剩余风险如何被控制，避免绝对化的表述。"
+    },
+    {
+      "id": "rp6-007",
+      "domain": "D6",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO elements make an ADR for a Claude architecture decision MOST useful to future maintainers?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The constraints and stakeholder requirements that drove the decision.",
+          "correct": true,
+          "explain": "正解。なぜそう決めたかが分かる。",
+          "textZh": "驱动这个决策的约束和利益相关方要求。"
+        },
+        {
+          "text": "The conditions that would trigger revisiting it (e.g. new model tier, cost threshold).",
+          "correct": true,
+          "explain": "正解。見直しのタイミングが分かる。",
+          "textZh": "需要重新审视该决策的触发条件（如新的模型层级、成本阈值）。"
+        },
+        {
+          "text": "The author's favorite model.",
+          "correct": false,
+          "explain": "不適。判断の根拠ではない。",
+          "textZh": "作者最喜欢的模型。"
+        },
+        {
+          "text": "A copy of the full chat with Claude.",
+          "correct": false,
+          "explain": "不適。全ログを渡すと判断の要点が埋もれる。",
+          "textZh": "与 Claude 的完整聊天记录副本。"
+        }
+      ],
+      "objective": "Architecture Decision Records",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "对未来的维护者来说，一份关于 Claude 架构决策的 ADR 中哪两项最有用？",
+      "commentaryZh": "好的 ADR 记录决策背景（约束、要求）、取舍、剩余风险，以及何时需要重新评估。"
+    },
+    {
+      "id": "rp6-008",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "An ADR for a multi-agent design claims \"higher quality\" but omits that token cost is several times higher than a single agent. Why does this matter?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Stakeholders cannot weigh the trade-off; the ADR must state the cost impact and whether the quality gain justifies it.",
+          "correct": true,
+          "explain": "正解。トレードオフを明示しないと妥当な判断ができない。",
+          "textZh": "利益相关方无法权衡取舍；ADR 必须说明成本影响，以及质量提升是否值得。"
+        },
+        {
+          "text": "It does not matter; quality is what counts.",
+          "correct": false,
+          "explain": "不適。コストも利害関係者の制約。",
+          "textZh": "没关系，质量才是关键。"
+        },
+        {
+          "text": "Costs should be hidden from finance.",
+          "correct": false,
+          "explain": "不適。財務部門にコストを隠すのは不誠実。",
+          "textZh": "成本应该对财务隐瞒。"
+        },
+        {
+          "text": "Multi-agent systems cost less.",
+          "correct": false,
+          "explain": "不適。マルチエージェントは通常コストが増え事実に反する。",
+          "textZh": "多代理系统成本更低。"
+        }
+      ],
+      "objective": "Architecture Decision Records",
+      "reference": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一份多代理设计的 ADR 声称「质量更高」，却没有提到 token 成本是单代理的好几倍。为什么这很重要？",
+      "commentaryZh": "ADR 的价值在于让各方看到取舍。只写收益、不写成本，决策就失去依据。"
+    },
+    {
+      "id": "rp6-009",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A Claude feature is handed to an operations team with an architecture diagram and API docs only. Which missing item would MOST likely block operations?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A runbook: alerts and their meaning, rollback to the pinned model and prompt version, rate-limit and outage procedures, and escalation contacts.",
+          "correct": true,
+          "explain": "正解。運用に必要な手順書が欠けている。",
+          "textZh": "运维手册：各报警的含义、回滚到固定的模型和提示版本、限流和故障处理流程、升级联系人。"
+        },
+        {
+          "text": "A logo.",
+          "correct": false,
+          "explain": "不適。ロゴは運用引き継ぎとは無関係。",
+          "textZh": "一个标志。"
+        },
+        {
+          "text": "The developers' chat history.",
+          "correct": false,
+          "explain": "不適。手順として使えない。",
+          "textZh": "开发者的聊天记录。"
+        },
+        {
+          "text": "A list of rejected ideas only.",
+          "correct": false,
+          "explain": "不適。運用の役に立たない。",
+          "textZh": "只有被否决的想法列表。"
+        }
+      ],
+      "objective": "Operational Handoff Completeness",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个 Claude 功能交接给运维团队时，只有架构图和 API 文档。缺少哪一项最可能阻碍运维？",
+      "commentaryZh": "6.3：找出会阻碍运维的缺失项——前提假设、依赖、运维手册。运维手册要说明报警、回滚、故障处理和升级路径。"
+    },
+    {
+      "id": "rp6-010",
+      "domain": "D6",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO dependencies MUST be documented for a Claude-based service handoff?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The pinned model version and its deprecation date.",
+          "correct": true,
+          "explain": "正解。移行計画に必要な依存。",
+          "textZh": "固定的模型版本及其弃用日期。"
+        },
+        {
+          "text": "External MCP servers and API keys, with owners and rotation schedules.",
+          "correct": true,
+          "explain": "正解。止まると動かなくなる依存。",
+          "textZh": "外部 MCP 服务器和 API 密钥，以及负责人和轮换计划。"
+        },
+        {
+          "text": "The developer's laptop model.",
+          "correct": false,
+          "explain": "不適。運用の依存ではない。",
+          "textZh": "开发者笔记本的型号。"
+        },
+        {
+          "text": "The meeting room used for design.",
+          "correct": false,
+          "explain": "不適。設問の論点とは無関係な選択肢。",
+          "textZh": "设计时用的会议室。"
+        }
+      ],
+      "objective": "Operational Handoff Completeness",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "交接一个基于 Claude 的服务时，哪两项依赖必须写进文档？",
+      "commentaryZh": "交接文档要列出所有会导致服务中断的依赖：模型版本与弃用日期、外部服务、密钥与轮换、负责人。"
+    },
+    {
+      "id": "rp6-011",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "After handoff, operations cannot tell whether a quality drop is a real regression because no one documented the baseline. What should the handoff have included?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The eval suite, its baseline scores per version, how to run it, and the thresholds that trigger escalation.",
+          "correct": true,
+          "explain": "正解。品質の基準線と判断基準を引き継ぐ。",
+          "textZh": "评估集、每个版本的基线分数、运行方法，以及触发升级的阈值。"
+        },
+        {
+          "text": "A promise that quality will not drop.",
+          "correct": false,
+          "explain": "不適。検証できない約束。",
+          "textZh": "保证质量不会下降。"
+        },
+        {
+          "text": "The final presentation slides only.",
+          "correct": false,
+          "explain": "不適。運用に必要な情報がない。",
+          "textZh": "只有最终的演示幻灯片。"
+        },
+        {
+          "text": "Nothing; operations should rebuild evals.",
+          "correct": false,
+          "explain": "不適。引き継ぎの不備を押しつけている。",
+          "textZh": "什么都不需要；运维应该自己重建评估。"
+        }
+      ],
+      "objective": "Operational Handoff Completeness",
+      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "交接后，运维无法判断质量下降是否是真正的退步，因为没人记录基线。交接时本应包含什么？",
+      "commentaryZh": "没有基线就无法判断退步。交接要包括评估集、各版本基线、运行方法和报警阈值。"
+    },
+    {
+      "id": "rp6-012",
+      "domain": "D6",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Which assumption, if undocumented, is MOST likely to cause a production incident after handoff?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "\"Daily volume stays under the current rate limits; above that, requests are queued.\"",
+          "correct": true,
+          "explain": "正解。前提が崩れた時の挙動が分からないと障害になる。",
+          "textZh": "「每日请求量低于当前的速率限制；超过时请求会进入队列。」"
+        },
+        {
+          "text": "\"The team likes the color blue.\"",
+          "correct": false,
+          "explain": "不適。チームの好みは運用判断に無関係。",
+          "textZh": "「团队喜欢蓝色。」"
+        },
+        {
+          "text": "\"The design took three weeks.\"",
+          "correct": false,
+          "explain": "不適。運用の前提ではない。",
+          "textZh": "「设计花了三周。」"
+        },
+        {
+          "text": "\"The code uses spaces, not tabs.\"",
+          "correct": false,
+          "explain": "不適。障害の原因にならない。",
+          "textZh": "「代码用空格而不是制表符。」"
+        }
+      ],
+      "objective": "Operational Handoff Completeness",
+      "reference": "https://www.anthropic.com/engineering/building-effective-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "下面哪个前提假设如果没有写进文档，最可能在交接后引发生产事故？",
+      "commentaryZh": "容量、速率限制、数据格式等前提一旦被打破就会出事；交接时要写明前提以及超出时系统的行为。"
+    }
+  ]
+}
