@@ -33,7 +33,7 @@
           "textZh": "让 Claude 自己猜团队想要什么，然后按它的猜测继续。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-23",
       "stemZh": "某位担当把一份40页的季度报告粘贴给 Claude，只写了一句「改进一下」。返回的稿子变短了，但离团队想要的东西并没有更近。下一步最有效的做法是什么？",
@@ -71,7 +71,7 @@
           "textZh": "「致歉邮件。写得完美一点。不要出错。」"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-23",
       "stemZh": "下面哪个提示词最可能产出一封可直接使用的客户致歉邮件初稿？",
@@ -115,7 +115,7 @@
           "textZh": "要求用团队里没人看得懂的语言输出。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
       "reviewedAt": "2026-09-23",
       "stemZh": "一个写作类提示词产出的文字在技术上没错，却没法用。下面哪两项改动最可能解决问题？（选2项）",
@@ -153,7 +153,7 @@
           "textZh": "分析时不应把数据交给 Claude，以避免产生偏见。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-23",
       "stemZh": "某位担当需要 Claude 帮两件不同的事：(1) 头脑风暴20个营销活动点子；(2) 分析上季度的客户流失数据，找出真正的原因。提示词策略应该有什么不同？",
@@ -192,7 +192,7 @@
           "textZh": "一句「要详尽」的要求。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**最常见的缺失项**。用途和读者决定了几乎所有其他选择：用什么词、写多长、要不要背景、结论放在哪。不写这一条，模型只能按「一般情况」来猜，而一般情况往往不是你的情况。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -230,7 +230,7 @@
           "textZh": "在一条消息里处理全部12份文档，然后接受结果。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**把提取和写作分开**。数字一旦被写进流畅的文章里，就很难再单独核对了。先做成一张可以逐条对照的清单，确认无误后再写——这样检查的成本低得多，出错也定位得到。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -274,7 +274,7 @@
           "textZh": "在同一条消息里把请求重复两遍。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**详细程度怎么控制**。「更详细」是相对的，下一次还是要猜。两个可靠的办法：**给一个样例**（一眼看懂），和**说明读者已经知道什么**（这直接决定要解释到什么层次）。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
       "reviewedAt": "2026-09-24"
@@ -312,7 +312,7 @@
           "textZh": "让它把计划改写得更有说服力。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**要批评就要明确地要**。开放式地问「你觉得怎么样」，得到的多半是肯定加几句温和的建议。有效的做法是**指定立场**（谁会反对）和**指定形式**（失败需要什么条件成立）——后者尤其能逼出具体的风险。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -350,7 +350,7 @@
           "textZh": "产出会很长。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**什么时候该拆**。判断依据是**检查的单位**：如果要确认结果是否正确，必须分别核对好几件事，那就说明它本来就是好几个任务。按检查的边界来拆，每一步都能单独验收。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -394,7 +394,7 @@
           "textZh": "一句关于这周有多忙的说明。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**反复使用的提示词要写什么**。两件事让它稳定：**固定的结构**（下游能依赖）和**异常情况的处理**（数据缺了怎么办）。第二条常被漏掉，结果每次遇到缺数据都要临时判断。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -432,7 +432,7 @@
           "textZh": "第一次只是碰巧。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**反复修改会积累矛盾**。每一轮都加一条要求，加到第三轮，其中几条已经无法同时满足了。解决办法不是继续加，而是**退回到有效的版本，一次只改一处**——这样也能看出每个改动的效果。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -470,7 +470,7 @@
           "textZh": "起草类的提示词应该避免指定格式。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**按任务类型调整**。调研的产出是**可追溯的信息**，所以要问来源、要让它说哪里查不到；起草的产出是**成品**，所以要给读者、格式、长度。用同一套要求去套两种任务，两边都得不到该有的东西。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -514,7 +514,7 @@
           "textZh": "所有步骤在一条消息里完成。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**拆解的目的是制造可验证的单元**。两个条件：每一步的产出**能单独判定对错**，以及**确认后的结果被明确传下去**。如果下一步要重新推导上一步，那么你确认过的东西等于白确认。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -552,7 +552,7 @@
           "textZh": "试试另一个模型。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**「总结」这个词本身没有信息量**。给缺席者看的记录需要背景和讨论过程；行动清单只需要谁在什么时候做什么。三次都不能用，说明每次它猜的都不是你要的那一种。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -590,7 +590,7 @@
           "textZh": "换一个能力更强的模型。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**长指令里的条件会被淹没**。当一条要求夹在一大段说明的中间，它被忽略的概率明显更高。把它**单独拎出来、明确标为必须**，往往比任何其他调整都有效。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
       "reviewedAt": "2026-09-24"
@@ -634,7 +634,7 @@
           "textZh": "要求逐步展示推理过程。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**两种任务的要求正好相反**。发想阶段要的是**宽**（数量多、允许不现实、约束先放松）；分析阶段要的是**严**（有来源、有推理、承认数据不足）。把分析的严格标准用在发想上，得到的会是一堆保守而平庸的候选。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -672,7 +672,7 @@
           "textZh": "要求它不要居高临下。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**不指定读者水平，就会按最宽的受众来写**。这是默认行为，不是模型「不懂」。写上「读者是有五年经验的数据工程师」这一句，输出的层次立刻就变了。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -710,7 +710,7 @@
           "textZh": "在一条消息里同时要求三个版本。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**先固定内容、再派生形态**。三个版本必须说的是同一件事——如果独立写，很容易出现「对员工说的」和「对客户说的」在实质上不一致，这在方针文件上是严重问题。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -748,7 +748,7 @@
           "textZh": "同事需要一个更强的模型。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**提示词里的隐性上下文**。写的人在对话中会自然地补上「不是那个意思」「按上周的格式」这类信息，自己意识不到。检验办法很简单：**把提示词交给别人，一句话也不补充**。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -786,7 +786,7 @@
           "textZh": "一个更简单、更好读的答案。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**自己判断不了的时候，让产出变得可被别人检查**。这比要一个「更好的答案」实际得多：来源和推理过程让有专业能力的人几分钟就能验证，而一个漂亮但无法追溯的答案，谁也没办法确认。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -830,7 +830,7 @@
           "textZh": "缩短一段文字和去掉行话。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**该拆的是「判断」和「基于判断的产出」**。如果决定本身错了，基于它写出的公告再漂亮也是错的，而且错误已经被包装成了成品。提取与解读同理：数字错了，解读一定错。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -868,7 +868,7 @@
           "textZh": "要求事后由法务复核。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**禁止事项要具体到词**。「避免法律用语」这种说法，你和模型划的线很可能不在同一个地方。列出具体的词（「不要写 guarantee、warrant、indemnify」）并给出替代说法，才是可执行、可检查的指令。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -906,7 +906,7 @@
           "textZh": "立刻试着把它缩短。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**成功的提示词要留下来**。而且要**和样例产出一起**保存——只有提示词的话，下一个人不知道什么才算成功。这两样凑齐，这个成果才从个人技巧变成团队可以复用的资产。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
       "reviewedAt": "2026-09-24"
@@ -950,7 +950,7 @@
           "textZh": "要求它跳过所有不确定的内容。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**不熟悉的领域先要「问题」而不是「答案」**。你无法验证答案，但你可以拿着问题清单去找能回答的人或资料。最后一个干扰项尤其要注意：**不确定的地方正是你该去查的地方**，跳过它等于把风险藏起来。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -988,7 +988,7 @@
           "textZh": "给最重要的那一行加上强调。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**提示词也需要结构**。分成「背景 / 请求 / 范例 / 约束」几块，有两个好处：条件不会被淹没在段落中间，以及下次要调整时**知道该改哪一块**——这直接决定了迭代的效率。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -1026,7 +1026,7 @@
           "textZh": "「总结一下。」"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**把长度绑定到可数的结构上**。「简短」是相对的，但「最多五个要点、每个一行」是可以当场判定的。这类指令的另一个好处是**产出形态也一并确定了**，下游处理更稳定。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -1070,7 +1070,7 @@
           "textZh": "它指定了产出格式。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**什么时候该把一个提示词拆开**。判断标准不是长度，而是**可维护性**：能不能定位因果，改动会不会有连带破坏。出现这两种现象，说明里面的条件已经互相纠缠，应该拆成几步。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1108,7 +1108,7 @@
           "textZh": "先手写一份，再让它修改。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**不会写的东西，先要「型」**。这类文档通常有既定的结构（谁先看、必须包含哪几节）。把结构单独确认一遍，既能快速学会这类文档的规矩，也避免了在错误的框架上填满内容后再推倒重来。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1146,7 +1146,7 @@
           "textZh": "这能保证最终答案是正确的。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**早发现便宜**。第三步用错了一个数字，如果到第十步才发现，前面七步的成果可能都要重做。中间确认的成本是几分钟，省下的是整个后段。注意它**不保证**最终正确，只是大幅降低代价。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -1190,7 +1190,7 @@
           "textZh": "担当的职位头衔。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**对外邮件的两个关键输入**。**关系和来龙去脉**决定语气和哪些话可以省略；**期望的结果**决定整封邮件的结构（要对方做什么，就要让那件事最显眼）。少了任何一个，写出来的都是通用模板。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -1228,7 +1228,7 @@
           "textZh": "接受这个语气，每次手工修改。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**语气用例子传达**。这是 multishot 最典型的用武之地：语气是一种难以用词语准确定义的东西（「专业」在不同公司差别极大），但一段样例能一次说清。这也是文风指南该放进 Project 知识库的原因。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
       "reviewedAt": "2026-09-24"
@@ -1266,7 +1266,7 @@
           "textZh": "要几个答案然后挑一个。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**高风险任务的提示策略**。核心是**让不确定性显形**：写出假设、标出没把握的地方。第三个干扰项是常见的错误直觉——要求「不要模棱两可」只会让模型把不确定的部分也说得斩钉截铁，风险反而更大。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1304,7 +1304,7 @@
           "textZh": "这会让产出更准确。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**多余的上下文是有代价的**。这和「信息越多越好」的直觉相反：无关的背景会稀释关键条件，让它们更容易被忽略。判断标准是「这段话会不会改变产出」——不会的就删掉。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -1342,7 +1342,7 @@
           "textZh": "不提方针，直接要判断。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**先给依据再要判断**。顺序很重要：如果先得到一个基于一般常识的答案，之后再去对照方针，人很容易被那个先入为主的结论牵着走。而且内部方针根本不在模型的知识里。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -1386,7 +1386,7 @@
           "textZh": "新提示词比旧的多跑几次。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**改进要能被证明**。两个条件和做实验一样：**控制变量**（同样的输入）和**有判定标准**。少了任何一个，「改好了」就只是感觉——而感觉在下一次遇到反例时就会推翻。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1424,7 +1424,7 @@
           "textZh": "在两段不同的对话里分别评价。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**减少无关信息的影响**。两个动作：**隐去作者**（这个信息对评价内容毫无帮助，却可能影响措辞）和**明确统一的标准**（否则两份提案会被用不同的尺子量）。这和前面 D2 里「按顺序推荐供应商」是同一类问题。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1462,7 +1462,7 @@
           "textZh": "要求它不要猜测。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**限定来源 + 允许说「文档里没有」**。这两条必须配套：只限定来源而不给「答不了」的出口，模型会在范围内硬凑一个答案。给了出口，它才会老实说哪里查不到——而那正是你需要知道的。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -1506,7 +1506,7 @@
           "textZh": "这些步骤由同一个人执行。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**拆分边界的检验**。好的边界有两个特征：不重叠（没有重复劳动）和**可单独验收**。如果必须做完下一步才知道这一步对不对，那这两步其实是一个任务，拆开只增加了麻烦。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -1544,7 +1544,7 @@
           "textZh": "跑两次，挑更好的那个结果。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**失败有规律就好办**。随机的失败难处理，但**总是同一类输入出问题**是最容易修的情况——补一条针对性的指令或一个范例就行。最后一个干扰项还错在：同类输入重跑两次，多半两次都失败。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
       "reviewedAt": "2026-09-24"
@@ -1582,7 +1582,7 @@
           "textZh": "对问题更长的描述。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**答案不唯一时，要先给选择标准**。命名、设计、方案这类任务有无数合理解，如果不说「我们更看重好记还是好搜」，拿到的就是一堆各自合理但没法取舍的候选。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1626,7 +1626,7 @@
           "textZh": "它只被测试过一次。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**可复用的提示词**。两个条件：**自包含**（别人不用补充任何东西）和**标出可变部分**（否则会有人忘了改客户名）。个人简写和过度精简都会让别人用不起来。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -1664,7 +1664,7 @@
           "textZh": "先写结论，再找支持它的数字。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**占位数字的危险**。它有两个问题：**忘记替换**（很常见），以及更隐蔽的——**围绕假数字写出的论述会固定下来**，等真数字进来时，整段推理其实已经不成立了，但文字读着仍然顺。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -1702,7 +1702,7 @@
           "textZh": "换一个不同的模型。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**先怀疑自己写的字**。产出完全跑偏时，最常见的原因不是模型故障，而是**脑子里的请求和写下来的请求不是一回事**——代词指代不清、关键限定词漏了、把两件事混在一句里。重读一遍通常几秒钟就能发现。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1746,7 +1746,7 @@
           "textZh": "问这个论点写得好不好。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**压力测试的两个有效问法**。一是**最强的反驳**（弱反驳挡住了不说明什么），二是**证伪条件**——「什么证据会推翻它」。第二个问题特别有价值：如果答案是「没有任何证据能推翻」，那这个论点其实没有内容。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1784,7 +1784,7 @@
           "textZh": "什么都不用指定，模型会自动适应。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**为可变输入设计产出结构**。有效的写法是区分两部分：**固定的骨架**（永远有「结论」「风险」「建议」三节）和**可变的部分**（要点的条数随内容增减）。这样无论输入多长，产出都是可预期、可比较的。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -1822,7 +1822,7 @@
           "textZh": "从十个文件里提取数据并计算总和。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**不是所有任务都该拆**。判断标准还是「**检查的单位有几个**」。改写一个段落只有一个判断，拆开没有任何好处，只会增加往返。而后三项都包含「先得到中间结果、再基于它做下一步」的结构。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -1860,7 +1860,7 @@
           "textZh": "只给出最重要的三项。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**清单的价值在于可核对**。要点在正确选项的最后半句：**不适用的项目也要标出来**。如果产出只提到了七项，你无法分辨另外三项是「不适用」还是「忘了」——而这正是清单要防止的事。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -1898,7 +1898,7 @@
           "textZh": "把提示词分成几个部分来写。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**只加不减**。每次遇到问题就加一条，几轮之后提示词里堆满了为特定情况写的规则，其中一些已经互相冲突。好的迭代包含删除：**这条还需要吗？它和那条矛盾吗？**",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1942,7 +1942,7 @@
           "textZh": "要求它不要使用类比。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**理解和产出是两种不同的目标**。为理解而用时，价值在**往返**：先要一个合适层次的解释，再针对听不懂的地方追问，或者要求换个角度重讲一遍——换一种说法常常正好补上第一次的缺口。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -1980,7 +1980,7 @@
           "textZh": "用更快的模型来缩短等待时间。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**把重复的往返固化下来**。六个来回里，通常有四五个是每次都在说的同样的话。把它们写进最初的提示词，既省时间，也让这个提示词**变得可以交给别人用**——这正是前面讲过的「自包含」。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -2018,7 +2018,7 @@
           "textZh": "说「小心一点」。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**否定指令要具体、并给替代**。只说「不要 X」时，模型仍然需要决定该写什么，结果往往绕回相似的表达。配上「改用 Y」之后，指令才是完整可执行的。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -2062,7 +2062,7 @@
           "textZh": "让范例保持模糊，以便泛化。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**好范例的两个特征**。一是**覆盖难点**（容易的情况本来就不会出错，难的才需要示范），二是**格式即示范**。数量不是重点——两三个精选的例子好过十个随手挑的，后者还容易互相矛盾。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
       "reviewedAt": "2026-09-24"
@@ -2100,7 +2100,7 @@
           "textZh": "要求保留情绪化的措辞以保证准确。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**呈现分歧的方式**。两个要求：**每一方都用最强的版本**（否则就成了稻草人），以及**把真正的分歧和误解分开**——后者常常占一半，一旦点明，争论的范围立刻就小了。等长和下结论都不等于公平。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -2138,7 +2138,7 @@
           "textZh": "它的产出格式应该改进。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**没人看的中间产出是个信号**。它只有两种可能，而两种的处理完全相反：**多余**（删掉，简化流程）或**该看没看**（这道检查形同虚设，风险一直存在）。必须搞清楚是哪一种。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -2182,7 +2182,7 @@
           "textZh": "用什么软件打开它。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**分析请求的两个关键输入**。**用途**决定从哪个角度切（为定价做的分析和为库存做的分析完全不同），**数据的局限**决定结论能说到多强——不说明「这份数据只覆盖了三个大区」，得到的结论就会被当作全局结论。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -2220,7 +2220,7 @@
           "textZh": "这种差异是随机的。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**长度是个假指标**。一个三行但写清了读者、格式和约束的提示词，胜过一段五百字但没说用途的背景铺陈。要比较的不是长短，而是**必要条件的覆盖程度**。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -2258,7 +2258,7 @@
           "textZh": "要求给出选项，不要任何说明。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**要选项就要能比较的选项**。三个要素：**真正不同**（不是一个好方案配两个陪衬）、**各自的代价**、**各自的前提**。少了后两样，摆在面前的只是几个名字，无从选择。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -2302,7 +2302,7 @@
           "textZh": "这让工作看起来更周全。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**什么时候该保持在同一段对话**。理由必须是**内容上的连续性**：需要带着前一步的结果，或者共享同一组约束。如果各步骤互相独立，分开反而更清晰——第二个干扰项也提醒，对话拉长本身是有代价的。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
       "reviewedAt": "2026-09-24"
@@ -2340,7 +2340,7 @@
           "textZh": "让模型自己推断每个地区的特征。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**固定结构 + 可变数据**。这样十二份分析才**能互相比较**（同样的小节、同样的口径）。最后一个干扰项特别危险：让模型自己「推断」各地区情况，等于把编造的前提混进了十二份报告。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
       "reviewedAt": "2026-09-24"
@@ -2378,7 +2378,7 @@
           "textZh": "当担当想不出别的办法时。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**什么时候收手**。判断依据是成本比较：如果再花二十分钟调提示词只为省下两分钟的手工修改，那就该停了。反过来，如果这个提示词要用一百次，多花一小时打磨就很划算——**看它会被用多少次**。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
       "reviewedAt": "2026-09-24"
@@ -2416,7 +2416,7 @@
           "textZh": "应该在一天中的什么时间运行提示词。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**默认值会随使用者的处境而变**。日期格式、货币、计量单位这类东西，写提示词的人觉得理所当然，换个国家就不一样了。干扰项里的「模型名称」「对话长度」都不随地域变化。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2454,7 +2454,7 @@
           "textZh": "必须在两步之间重复第1步。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**独立的步骤可以分开验证**。互不依赖意味着其中一个出错不会污染另一个，所以可以各自检查、各自重做。不要误以为「顺序无所谓」就等于「可以合并成一步」。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2492,7 +2492,7 @@
           "textZh": "提示词不应该在第一版之后再改。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**一次改多处就无法归因**。四处里可能有一处在帮忙、一处在拖后腿，净效果为正而已。下次遇到别的任务时，不知道该带走哪一条。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2530,7 +2530,7 @@
           "textZh": "改进版本的理想长度。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**评判和改进是两种不同的任务**。评判要的是判断的依据和范围，不是替你改。写出「按什么标准判断」和「不要直接改写」这两条，才能守住任务的边界。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2568,7 +2568,7 @@
           "textZh": "这个任务本身就需要很长的回答。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**形容词不是可检验的约束**。「简洁」由谁来判断没有写明，所以无法落实。换成字数、条数这类能数出来的限制才有效。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2606,7 +2606,7 @@
           "textZh": "不再需要验证。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**步骤之间的接口**。上一步的产出正好是下一步的输入，中间就不需要人手改格式，出错的地方也少了一处。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2644,7 +2644,7 @@
           "textZh": "数一份文档里的词数。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**推理过程对谁有用**。需要自己判断对错的任务，看得到推理才能查；单纯的格式转换写出推理只是噪音。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2682,7 +2682,7 @@
           "textZh": "是哪位同事提出的措辞。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**修改的可追溯性**。只留下新版本，下次出问题时无法判断是不是这次改动造成的。要留下「改了什么」和「为什么改」。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2720,7 +2720,7 @@
           "textZh": "Claude 会拒绝产出结果。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**范例会被当成目标而不是格式说明**。范例过于理想，输出会为了贴近它而填补没有依据的内容。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2758,7 +2758,7 @@
           "textZh": "把方案要两遍再比较。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**发散和收敛是两种模式**。放在一次请求里，收敛会提前发生，方案的幅度被压掉。分开两次，先铺开再挑选。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2796,7 +2796,7 @@
           "textZh": "它使用了不同的输出格式。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**分得太细也有代价**。中间产物没人看、每次都原样传下去，那这一步就只是多了一次交接，没有带来检查的机会。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2834,7 +2834,7 @@
           "textZh": "要求用散文形式以便自然易读。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**机器读的输出要写明结构**。描述性的要求（「整齐一点」）无法保证字段名和层级一致，明确给出结构和字段才行。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2872,7 +2872,7 @@
           "textZh": "把它们重复一遍以加强效果。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**提示词也需要清理**。过时的指示不只是累赘，还可能和新指示冲突，产生难以定位的行为。定期删掉不再适用的条目。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2910,7 +2910,7 @@
           "textZh": "要求一个更短的结论版本。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**面对质疑要先准备反驳**。把最强的反面意见和各步骤的依据准备好，才是为辩护做的准备；只把语气写得更有信心没有任何帮助。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2948,7 +2948,7 @@
           "textZh": "标准永远无法用文字描述。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**「行业标准」在很多领域并不存在唯一答案**。这样问，得到的会是一个被说成标准的做法，而真正的分歧被抹掉了。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2986,7 +2986,7 @@
           "textZh": "只在有人报告问题时才检查。"
         }
       ],
-      "objective": "Apply task decomposition techniques to structure complex requests",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**检查要贴着不稳定的那一步**。放在最后，错误已经被后面几步加工过，定位更难、返工更多。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3024,7 +3024,7 @@
           "textZh": "输出用错了标题样式。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**有些问题改提示词改不好**。使用者自己说不清什么样算对、不同的人期待不同的结果，这时要先把任务本身定清楚。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3062,7 +3062,7 @@
           "textZh": "估算这次调研花了多长时间。"
         }
       ],
-      "objective": "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)",
+      "objective": "Task Decomposition and Sequencing",
       "commentaryZh": "考点是**调研的价值在于可追溯**。同时要求出处和把握程度，使用者才知道哪些可以直接用、哪些需要自己再查。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3100,7 +3100,7 @@
           "textZh": "简单任务被检查得没那么仔细。"
         }
       ],
-      "objective": "Create effective prompts for business and technical tasks",
+      "objective": "Prompt Construction",
       "commentaryZh": "考点是**简单任务容忍模糊**。任务简单时，缺失的条件只有一种合理的补法；任务复杂了，缺失的条件有很多种补法，于是每次都对不上。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3138,8 +3138,2176 @@
           "textZh": "删掉它，马上重写。"
         }
       ],
-      "objective": "Iterate prompts to improve output quality",
+      "objective": "Prompt Diagnosis and Iteration",
       "commentaryZh": "考点是**不可解释的提示词维护不了**。现在能用，条件一变就不知道该改哪里。要趁还能用的时候，把其中真正起作用的部分找出来。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-001",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt asks for a summary \"under 200 words,\" but the output is consistently 400 words. The prompt also says \"cover every section of the report in detail.\" What is the most likely cause and fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The two instructions conflict; decide which matters more and rewrite so only one constraint governs length.",
+          "correct": true,
+          "explain": "正解。出力が言うことを聞かないときは、まず指示どうしが矛盾していないかを疑う。両立しない条件を渡していれば、どちらかは必ず破られる。",
+          "textZh": "两条指示互相冲突；决定哪一条更重要，改写成只由一个约束来决定长度。"
+        },
+        {
+          "text": "The model cannot count words; there is nothing to do.",
+          "correct": false,
+          "explain": "不適。原因の特定を諦めている。矛盾を解けば長さは制御できる。",
+          "textZh": "模型不会数字数，没有办法可想。"
+        },
+        {
+          "text": "Repeat \"under 200 words\" five times in the prompt.",
+          "correct": false,
+          "explain": "不適。矛盾した条件が消えるわけではない。",
+          "textZh": "把「200字以内」在提示词里重复五遍。"
+        },
+        {
+          "text": "Switch to a larger model.",
+          "correct": false,
+          "explain": "不適。指示の矛盾はモデルの性能で解決しない。",
+          "textZh": "换一个更大的模型。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-23",
+      "stemZh": "一个提示词要求「200字以内的摘要」，但产出稳定在400字。同一个提示词里还写着「详细覆盖报告的每一个章节」。最可能的原因和修法是什么？",
+      "commentaryZh": "考点是「诊断表现不佳的提示词」。产出不听话时，第一个该怀疑的是指示之间有没有矛盾——给了无法同时成立的条件，必定有一条会被破坏。这类题的解法是「回去读自己的提示词」，而不是加力度或换模型。"
+    },
+    {
+      "id": "d7-002",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "The same prompt produces a usable result about half the time and an unusable one the rest. What is the most effective first fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Pin down what \"usable\" means — give an example of a good output and state the required structure explicitly.",
+          "correct": true,
+          "explain": "正解。ばらつきは、良し悪しの基準が指示に入っていないときに出る。例示と構造の明示で振れ幅が縮む。",
+          "textZh": "把「可用」的定义钉死——给出一个合格产出的示例，并明确说明要求的结构。"
+        },
+        {
+          "text": "Run the prompt repeatedly and keep whichever result looks best.",
+          "correct": false,
+          "explain": "不適。毎回人が選別する手間が残り、原因は残ったまま。",
+          "textZh": "反复运行提示词，留下看起来最好的那次结果。"
+        },
+        {
+          "text": "Accept the variation as inherent and stop trying.",
+          "correct": false,
+          "explain": "不適。診断を放棄している。",
+          "textZh": "接受这种波动是固有的，不再尝试。"
+        },
+        {
+          "text": "Make the prompt shorter so there is less to go wrong.",
+          "correct": false,
+          "explain": "不適。情報を減らせば基準はさらに不明確になる。",
+          "textZh": "把提示词写得更短，这样出错的余地更小。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-23",
+      "stemZh": "同一个提示词有一半的时候产出可用的结果，另一半不可用。最有效的第一步修正是什么？",
+      "commentaryZh": "考点是「根据结果调整做法」。波动往往来自「好坏的标准没有写进指示里」，用示例和结构说明就能把振幅压下来。「多跑几次挑最好的」让人工筛选的成本永远留着，原因一点没动；「把提示词写短」减少信息只会让标准更模糊。"
+    },
+    {
+      "id": "d7-004",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "An output is generic and could describe any company. Which TWO changes help most? (Select 2)",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Supply the specific material — the actual numbers, names, and constraints — instead of describing them in general terms.",
+          "correct": true,
+          "explain": "正解。一般的な出力は、一般的な入力しか渡していないときに出る。",
+          "textZh": "提供具体的材料——真实的数字、名称和约束条件——而不是用一般性的措辞去描述它们。"
+        },
+        {
+          "text": "State what the output must not do — the assumptions to avoid and the boilerplate to leave out.",
+          "correct": true,
+          "explain": "正解。避けるべき形を明示すると、既定の書きぶりから外れやすくなる。",
+          "textZh": "说明产出不该做什么——要避免的假设、要去掉的套话。"
+        },
+        {
+          "text": "Ask for a longer output.",
+          "correct": false,
+          "explain": "不適。一般論が増えるだけ。",
+          "textZh": "要求产出更长一些。"
+        },
+        {
+          "text": "Add \"be specific\" without providing specifics.",
+          "correct": false,
+          "explain": "不適。具体性は指示ではなく材料から生まれる。",
+          "textZh": "加上「要具体」，但不提供任何具体信息。"
+        },
+        {
+          "text": "Change the model's temperature setting from the chat interface.",
+          "correct": false,
+          "explain": "不適。一般的なチャット利用で触る設定ではなく、原因にも当たっていない。",
+          "textZh": "从聊天界面修改模型的 temperature 设置。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-23",
+      "stemZh": "一份产出很笼统，套在哪家公司身上都说得通。下面哪两项改动最有帮助？（选2项）",
+      "commentaryZh": "考点是「笼统的产出来自笼统的输入」。具体性来自材料，不来自形容词——「只加一句『要具体』却不给具体信息」正是这个陷阱。「说明不该做什么」也很有效：明确排除掉默认的写法，产出才会偏离套路。改 temperature 在一般的聊天使用中并不是会去动的设置，也没有对准原因。"
+    },
+    {
+      "id": "d7-005",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An output ignores a constraint that appears in the middle of a long instruction paragraph. What is the most likely fix?",
+      "stemZh": "一份产出忽略了写在长指令段落中间的一条约束。最可能的修法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Pull the constraint out as its own line and mark it as required.",
+          "correct": true,
+          "explain": "正解。埋もれている条件を構造的に目立たせる。",
+          "textZh": "把这条约束单独拎成一行，并标注为必须。"
+        },
+        {
+          "text": "Repeat the paragraph twice.",
+          "correct": false,
+          "explain": "不適。埋もれた条件が2回埋もれるだけ。",
+          "textZh": "把这段重复两遍。"
+        },
+        {
+          "text": "Add capital letters to the constraint.",
+          "correct": false,
+          "explain": "不適。見た目を変えても、段落の中という位置は同じ。",
+          "textZh": "把这条约束改成大写。"
+        },
+        {
+          "text": "Accept that long instructions cannot be followed.",
+          "correct": false,
+          "explain": "不適。構造を直せば従える。諦める理由が無い。",
+          "textZh": "接受长指令就是没法被遵守这个事实。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**位置比强调更有效**。夹在段落中间的条件容易被淹没，而把它提到独立的一行、标明是必须项，往往一次就解决。这是 D1 里同类问题的诊断版本。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-006",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "A workflow's quality dropped after a change nobody documented. What is the first diagnostic step?",
+      "stemZh": "在一次没人记录的改动之后，某道流程的质量下降了。第一步诊断该做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Establish what changed by comparing against the last known-good configuration.",
+          "correct": true,
+          "explain": "正解。差分を特定するのが最短。記録が無ければ再現から始める。",
+          "textZh": "通过与上一个已知良好的配置对比，确定改了什么。"
+        },
+        {
+          "text": "Rewrite the workflow from scratch.",
+          "correct": false,
+          "explain": "不適。原因が分からないまま作り直すと、同じ問題を持ち込む。",
+          "textZh": "从头重写这道流程。"
+        },
+        {
+          "text": "Increase the amount of human checking permanently.",
+          "correct": false,
+          "explain": "不適。症状を人手で覆っているだけ。",
+          "textZh": "永久性地增加人工检查量。"
+        },
+        {
+          "text": "Assume the model changed.",
+          "correct": false,
+          "explain": "不適。まず自分たちの変更を疑う。",
+          "textZh": "假定是模型变了。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**诊断从「差分」开始**。质量下降必然对应某个改变，找出它比任何猜测都快。这道题也反向说明了为什么 D5 强调**记录改动前的状态**——没有记录，诊断的第一步就走不动。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-008",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "Output quality varies a lot depending on who writes the request, even for the same task. What does this indicate?",
+      "stemZh": "即使是同一项任务，产出质量也会因写请求的人不同而差别很大。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The task lacks a shared, written definition of what the request must contain.",
+          "correct": true,
+          "explain": "正解。依頼の型が共有されていない。標準の依頼文を決める。",
+          "textZh": "这项任务缺少一份共享的、成文的「请求必须包含什么」的定义。"
+        },
+        {
+          "text": "Some people are naturally better at this.",
+          "correct": false,
+          "explain": "不適。属人性を前提にして、改善を諦めている。",
+          "textZh": "有些人天生就更擅长这个。"
+        },
+        {
+          "text": "The model responds differently to different accounts.",
+          "correct": false,
+          "explain": "不適。まず依頼の内容差を疑う。",
+          "textZh": "模型对不同账号的反应不同。"
+        },
+        {
+          "text": "The task is too complex to standardize.",
+          "correct": false,
+          "explain": "不適。同じ作業なら型は作れる。",
+          "textZh": "这项任务太复杂，无法标准化。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**人与人之间的差异说明缺少标准**。既然是同一项任务，好的请求里包含哪些要素是可以写下来的。把它定成一份标准的请求模板，差异就消失了——这也是 D5 说的「该进设置的东西」。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-009",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "After fixing a problem, what should be done to confirm the fix worked?",
+      "stemZh": "在修好一个问题之后，应该做什么来确认修复有效？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Reproduce the original failing case and check that it now passes, then check that nothing else broke.",
+          "correct": true,
+          "explain": "正解。元の失敗が直ったことと、他が壊れていないことの両方を見る。",
+          "textZh": "重现原来失败的那个案例，确认它现在通过了，然后检查别的地方没有被弄坏。"
+        },
+        {
+          "text": "Run a new case and see if it works.",
+          "correct": false,
+          "explain": "不適。元の失敗が直った証拠にならない。",
+          "textZh": "跑一个新案例，看看行不行。"
+        },
+        {
+          "text": "Assume it is fixed since the change was made.",
+          "correct": false,
+          "explain": "不適。変更したことと、直ったことは別。確かめずに完了としている。",
+          "textZh": "既然改了就当它修好了。"
+        },
+        {
+          "text": "Ask the model whether the problem is solved.",
+          "correct": false,
+          "explain": "不適。自己申告は確認にならない。",
+          "textZh": "问模型问题解决了没有。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**修复验证要做两件事**：**原来的失败不再发生**，以及**没有引入新的问题**。第二条最容易被省略——而在提示词和配置上，一个改动影响别处是很常见的。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-010",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO are useful first questions when an output is poor? (Select 2)",
+      "stemZh": "当产出质量差时，下面哪两个是有用的第一个问题？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Does the request actually say what a good result looks like?",
+          "correct": true,
+          "explain": "正解。基準が無ければ、良い出力は偶然にしか出ない。",
+          "textZh": "这个请求里真的说明了什么算好结果吗？"
+        },
+        {
+          "text": "Was the necessary material actually provided?",
+          "correct": true,
+          "explain": "正解。材料不足は一般論の出力を生む最大の原因。",
+          "textZh": "必要的材料真的提供了吗？"
+        },
+        {
+          "text": "Is this model the newest available?",
+          "correct": false,
+          "explain": "不適。新しさは今回の出力の質を説明しない。",
+          "textZh": "这是不是最新的模型？"
+        },
+        {
+          "text": "Was the request typed or pasted?",
+          "correct": false,
+          "explain": "不適。入力の方法は結果に影響しない。",
+          "textZh": "请求是打字输入的还是粘贴的？"
+        },
+        {
+          "text": "Is the output longer than last time?",
+          "correct": false,
+          "explain": "不適。長さは質の指標ではない。",
+          "textZh": "产出是不是比上次长？"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**诊断先看输入的两样东西**：**标准**（说清什么算好了吗）和**材料**（该给的给了吗）。绝大多数「产出不行」都能在这两处找到原因，而且都比换模型便宜得多。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-012",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "A prompt produces the right content but in an unusable structure every time. What is the most direct fix?",
+      "stemZh": "一个提示词每次产出的内容都对，但结构总是不能用。最直接的修法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Show the exact structure required as a template in the prompt.",
+          "correct": true,
+          "explain": "正解。構造は例示が最短。言葉での説明より確実。",
+          "textZh": "在提示词里以模板的形式展示所需的确切结构。"
+        },
+        {
+          "text": "Ask for \"better structure\".",
+          "correct": false,
+          "explain": "不適。基準が共有されていない。",
+          "textZh": "要求「更好的结构」。"
+        },
+        {
+          "text": "Reorder the sentences in the prompt.",
+          "correct": false,
+          "explain": "不適。指示の順序は出力の構造を決めない。",
+          "textZh": "调整提示词里句子的顺序。"
+        },
+        {
+          "text": "Fix the structure by hand each time.",
+          "correct": false,
+          "explain": "不適。解ける問題に毎回手を掛けている。",
+          "textZh": "每次手工调整结构。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**结构问题用模板解决**。这是本考试反复出现的一条：**能示范的就不要描述**。内容已经对了，说明材料和理解都没问题，缺的只是一个形状——给一个模板，一次就定下来。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-013",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "A change improved results for one team but made them worse for another. Which TWO explanations are most likely? (Select 2)",
+      "stemZh": "一次改动让一个团队的结果变好了，却让另一个团队变差了。哪两种解释最可能？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The two teams' inputs differ in ways the change did not account for.",
+          "correct": true,
+          "explain": "正解。入力の性質が違えば、同じ変更が逆に働く。",
+          "textZh": "两个团队的输入存在这次改动没有考虑到的差异。"
+        },
+        {
+          "text": "The two teams judge a good result by different standards.",
+          "correct": true,
+          "explain": "正解。評価基準が違えば、改善の向きも違う。",
+          "textZh": "两个团队对「好结果」的判断标准不同。"
+        },
+        {
+          "text": "One team is using the change incorrectly.",
+          "correct": false,
+          "explain": "不適。まず前提の違いを疑う。人の誤用と決めつけない。",
+          "textZh": "有一个团队用错了这个改动。"
+        },
+        {
+          "text": "The change was too small.",
+          "correct": false,
+          "explain": "不適。規模では逆方向の結果を説明できない。",
+          "textZh": "这个改动太小了。"
+        },
+        {
+          "text": "One team has newer computers.",
+          "correct": false,
+          "explain": "不適。結果の質に影響しない。",
+          "textZh": "有一个团队的电脑更新一些。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**同一个改动结果相反，说明前提不同**。两个方向：**输入不同**或**评判标准不同**。在把它归咎于「有人用错了」之前，先确认这两件事——它们才是最常见的原因，而且修法完全不同。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-015",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "An output contains a section that is completely off-topic. What is the most useful thing to check?",
+      "stemZh": "一份产出里有一节完全跑题了。最该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether something in the request could be read as asking for it.",
+          "correct": true,
+          "explain": "正解。多くの場合、依頼文に読み取れる指示が入っている。",
+          "textZh": "请求里是否有什么内容可能被读成在要求这个。"
+        },
+        {
+          "text": "Whether the model is malfunctioning.",
+          "correct": false,
+          "explain": "不適。まず依頼側を確かめるほうが早い。",
+          "textZh": "模型是不是出故障了。"
+        },
+        {
+          "text": "Whether the output was too long overall.",
+          "correct": false,
+          "explain": "不適。長さは脱線の原因を説明しない。",
+          "textZh": "产出整体是不是太长了。"
+        },
+        {
+          "text": "Whether other users had the same result.",
+          "correct": false,
+          "explain": "不適。確認の価値はあるが、最初に見る場所ではない。",
+          "textZh": "其他用户是不是也得到了同样的结果。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**跑题通常有出处**。请求里往往有一句被误读的话——一个代词、一个举例、一句背景说明。找出那句话，比任何其他调整都直接。这是 D1「先重读自己写的字」的延伸。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-016",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO should be recorded when a fix is applied to a workflow? (Select 2)",
+      "stemZh": "当对一道流程应用一处修复时，应该记录哪两样？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What the symptom was and which case reproduced it.",
+          "correct": true,
+          "explain": "正解。再現条件が無いと、直ったかを確かめられない。",
+          "textZh": "症状是什么，以及哪个案例能重现它。"
+        },
+        {
+          "text": "What was changed and what it replaced.",
+          "correct": true,
+          "explain": "正解。差分が分かれば戻せる。",
+          "textZh": "改了什么，以及它替换掉了什么。"
+        },
+        {
+          "text": "How the person felt about the problem.",
+          "correct": false,
+          "explain": "不適。記録として後の判断に使えない。",
+          "textZh": "那个人对这个问题的感受。"
+        },
+        {
+          "text": "How long the fix took to write.",
+          "correct": false,
+          "explain": "不適。作業時間は再発時に役立たない。",
+          "textZh": "写这个修复花了多长时间。"
+        },
+        {
+          "text": "Who else was in the office that day.",
+          "correct": false,
+          "explain": "不適。居合わせた人の記録は、再発時の診断にも復旧にも使えない。",
+          "textZh": "那天办公室里还有谁。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**修复记录的两要素**：**重现条件**（否则无法验证修好了，也无法在复发时确认是不是同一个问题）和**差分**（否则无法回滚）。这两样加起来才构成一条有用的记录。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-018",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which explanation for poor output should be considered last, not first?",
+      "stemZh": "对于产出质量差，哪个解释应该最后才考虑，而不是最先？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The model is not capable enough for this task.",
+          "correct": true,
+          "explain": "正解。最も高くつく仮説。指示・材料・基準を先に確かめる。",
+          "textZh": "模型的能力不足以胜任这项任务。"
+        },
+        {
+          "text": "The request did not state what was needed.",
+          "correct": false,
+          "explain": "不適。最初に確かめるべき仮説。",
+          "textZh": "请求里没有说明需要什么。"
+        },
+        {
+          "text": "The necessary material was not provided.",
+          "correct": false,
+          "explain": "不適。これも最初に確かめる。",
+          "textZh": "必要的材料没有提供。"
+        },
+        {
+          "text": "Two instructions in the request conflict.",
+          "correct": false,
+          "explain": "不適。よくある原因で、早い段階で確かめる。",
+          "textZh": "请求里有两条指令互相冲突。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**诊断的顺序**。「模型不行」是最贵也最难验证的假设，而前三项（说明不清、材料不足、指令冲突）既常见又几分钟就能查。养成这个顺序，能省下大量不必要的升级。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-019",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A multi-step workflow produces a wrong final answer. How should the associate locate the fault?",
+      "stemZh": "一道多步骤流程产出了错误的最终答案。这位担当应该如何定位故障？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Check each step's output in order until one is wrong; everything after that inherits the error.",
+          "correct": true,
+          "explain": "正解。順に確かめる。最初に狂った工程を見つければ、以降は自動的に説明がつく。",
+          "textZh": "按顺序检查每一步的产出，直到找到出错的那一步；在它之后的一切都继承了这个错误。"
+        },
+        {
+          "text": "Rerun the whole workflow and hope for a different result.",
+          "correct": false,
+          "explain": "不適。原因を特定していない。同じ誤りが再現することが多い。",
+          "textZh": "把整道流程重跑一遍，希望结果不一样。"
+        },
+        {
+          "text": "Check the last step only, since that produced the answer.",
+          "correct": false,
+          "explain": "不適。最終工程は上流の誤りをそのまま受け取っている。",
+          "textZh": "只检查最后一步，因为答案是它产出的。"
+        },
+        {
+          "text": "Replace the model at every step.",
+          "correct": false,
+          "explain": "不適。どこが悪いか分からないまま全部を変えている。",
+          "textZh": "把每一步的模型都换掉。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**按顺序定位第一个出错的环节**。这正是任务分解的价值所在——如果每一步的产出都能单独判断对错，找出故障点只需要几分钟。只看最后一步，看到的是被污染的结果而不是源头。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-021",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Feedback says outputs are \"not useful\" but gives no detail. Which TWO next steps help? (Select 2)",
+      "stemZh": "反馈说产出「没用」，但没有给出细节。哪两个后续动作有帮助？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Ask for one specific example of an output that failed and what was needed instead.",
+          "correct": true,
+          "explain": "正解。具体例が無ければ直しようがない。1件で十分なことが多い。",
+          "textZh": "要一个具体的失败案例，以及当时真正需要的是什么。"
+        },
+        {
+          "text": "Watch someone actually use the output in their work.",
+          "correct": true,
+          "explain": "正解。使われ方を見ると、言語化されない問題が分かる。",
+          "textZh": "观察别人在实际工作中如何使用这份产出。"
+        },
+        {
+          "text": "Make the output longer to cover more ground.",
+          "correct": false,
+          "explain": "不適。原因が分からないまま量を増やしている。",
+          "textZh": "把产出写长一些以覆盖更多内容。"
+        },
+        {
+          "text": "Switch to a different model and ask again.",
+          "correct": false,
+          "explain": "不適。何が不足かを確かめていない。",
+          "textZh": "换个模型再问一次。"
+        },
+        {
+          "text": "Ask the model why its output was not useful.",
+          "correct": false,
+          "explain": "不適。利用者の必要はモデルの知るところではない。",
+          "textZh": "问模型为什么它的产出没用。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**模糊的反馈要转成具体的事实**。两个办法：**要一个具体案例**（一件就够，往往立刻看出问题）和**观察实际使用**——后者尤其有效，因为使用者常常说不清自己卡在哪里，但做的时候看得见。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-022",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "The same prompt gives a good answer in one conversation and a poor one in another. What is the most likely difference?",
+      "stemZh": "同一个提示词在一段对话里给出好答案，在另一段里给出差答案。最可能的差异是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The surrounding context differs — earlier messages in one conversation are shaping the result.",
+          "correct": true,
+          "explain": "正解。プロンプトは同じでも、文脈が違えば結果は変わる。",
+          "textZh": "周围的上下文不同——其中一段对话里更早的消息正在影响结果。"
+        },
+        {
+          "text": "The prompt must have been typed differently.",
+          "correct": false,
+          "explain": "不適。同じプロンプトという前提と矛盾する。",
+          "textZh": "提示词一定是打得不一样。"
+        },
+        {
+          "text": "The model performs worse in the afternoon.",
+          "correct": false,
+          "explain": "不適。そのような性質は無い。",
+          "textZh": "模型在下午表现更差。"
+        },
+        {
+          "text": "Longer conversations always give better answers.",
+          "correct": false,
+          "explain": "不適。むしろ古い前提が混ざる。",
+          "textZh": "更长的对话总是给出更好的答案。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**提示词不是孤立生效的**。它在什么上下文里被发出，结果会不同。这也解释了为什么「在我这里好用」的提示词交给别人会失效——以及为什么可复用的提示词必须自包含。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-024",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO are effective when output is technically correct but misses the point? (Select 2)",
+      "stemZh": "当产出在技术上正确、却没说到点子上时，下面哪两点有效？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "State the decision the output is meant to support.",
+          "correct": true,
+          "explain": "正解。何のための出力かが決まれば、焦点も決まる。",
+          "textZh": "说明这份产出是为了支撑什么决定。"
+        },
+        {
+          "text": "Give an example of a previous output that did hit the point.",
+          "correct": true,
+          "explain": "正解。当たりの例を見せる。説明より速い。",
+          "textZh": "给一个以前说到点子上的产出作为例子。"
+        },
+        {
+          "text": "Ask for more detail.",
+          "correct": false,
+          "explain": "不適。焦点がずれたまま情報が増える。",
+          "textZh": "要求更多细节。"
+        },
+        {
+          "text": "Ask for a longer version.",
+          "correct": false,
+          "explain": "不適。長さは焦点の問題を解決しない。",
+          "textZh": "要求更长的版本。"
+        },
+        {
+          "text": "Ask it to try again without changing anything.",
+          "correct": false,
+          "explain": "不適。同じ条件では同じ性質の結果になる。",
+          "textZh": "让它在不改变任何条件的情况下再试一次。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**「对但没用」的典型修法**。这类问题不是信息量不够，而是**焦点不对**。补充细节和加长篇幅只会让偏离的部分更多；有效的是说明用途，或者直接给一个命中的例子。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-025",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A fix solved the reported problem but three new complaints appeared the following week. What does this suggest?",
+      "stemZh": "一处修复解决了被报告的问题，但第二周出现了三个新的抱怨。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The fix likely had side effects; check what else the change touched before adding more fixes.",
+          "correct": true,
+          "explain": "正解。副作用を疑う。さらに足す前に、変更の影響範囲を見る。",
+          "textZh": "这处修复可能有副作用；在继续添加修复之前，先查这次改动还影响了什么。"
+        },
+        {
+          "text": "The new complaints are unrelated.",
+          "correct": false,
+          "explain": "不適。時期の一致を無視している。",
+          "textZh": "这些新抱怨与之无关。"
+        },
+        {
+          "text": "Apply three more fixes, one per complaint.",
+          "correct": false,
+          "explain": "不適。副作用の上に修正を重ね、収拾がつかなくなる。",
+          "textZh": "再打三个补丁，一个抱怨对应一个。"
+        },
+        {
+          "text": "Revert everything and start over.",
+          "correct": false,
+          "explain": "不適。効いた修正まで捨てている。",
+          "textZh": "全部回滚，从头再来。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**修复的副作用**。时间上的巧合值得怀疑：一次改动往往影响不止一处。正确的动作是**先查这次改动碰到了什么**，而不是为每个新症状再打一个补丁——那样很快就会变成无人能理解的一团。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-026",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Output keeps including a disclaimer the team does not want. Instructions already say not to. What should be tried?",
+      "stemZh": "产出总是包含一句团队不想要的免责声明，而指示里已经写了不要。该尝试什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "State what to write instead of the disclaimer, rather than only prohibiting it.",
+          "correct": true,
+          "explain": "正解。禁止だけでは代わりが決まらない。置き換えを指定する。",
+          "textZh": "指定用什么来代替这句免责声明，而不只是禁止它。"
+        },
+        {
+          "text": "Repeat the prohibition more forcefully.",
+          "correct": false,
+          "explain": "不適。強めても代替が示されていない。",
+          "textZh": "把禁令说得更强硬一些。"
+        },
+        {
+          "text": "Delete the disclaimer manually each time.",
+          "correct": false,
+          "explain": "不適。毎回の手作業が残る。",
+          "textZh": "每次手工删掉它。"
+        },
+        {
+          "text": "Accept it as unavoidable.",
+          "correct": false,
+          "explain": "不適。指定の仕方で解決できる。",
+          "textZh": "接受它，认为无法避免。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**只禁止不够，要给替代**。这是 D1 里那条原则的实战版：说「不要 X」时，模型仍然需要决定写什么，结果常常绕回相似的表达。配上「改写成 Y」，指令才闭合。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-028",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate has tried five variations of a prompt with no improvement. What should they do?",
+      "stemZh": "某位担当试了五个版本的提示词，都没有改善。该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Stop varying the wording and check whether the problem is in the input or the definition of success.",
+          "correct": true,
+          "explain": "正解。表現を変え続けても、原因が別にあれば直らない。",
+          "textZh": "停止在措辞上打转，检查问题是不是出在输入或者「成功的定义」上。"
+        },
+        {
+          "text": "Try five more variations.",
+          "correct": false,
+          "explain": "不適。同じ方向を続けても見込みが薄い。",
+          "textZh": "再试五个版本。"
+        },
+        {
+          "text": "Switch to a more capable model.",
+          "correct": false,
+          "explain": "不適。原因を確かめる前の最も高い手段。",
+          "textZh": "换一个能力更强的模型。"
+        },
+        {
+          "text": "Give up on the task.",
+          "correct": false,
+          "explain": "不適。原因の切り分けをしていない。",
+          "textZh": "放弃这项任务。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**换个方向找原因**。连续五次在同一维度（措辞）上试错没有进展，通常说明**原因不在那个维度**。此时该退回去问：材料给全了吗？我知道什么算成功吗？",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-029",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "What does it usually mean when output quality is excellent for simple cases and poor for complex ones?",
+      "stemZh": "当产出在简单情况下质量很好、在复杂情况下很差时，通常意味着什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The request works when little judgment is needed but lacks guidance for the harder decisions.",
+          "correct": true,
+          "explain": "正解。難所の判断基準が書かれていない。例か規則を足す。",
+          "textZh": "当不太需要判断时这个请求能用，但它对更难的决定缺少指引。"
+        },
+        {
+          "text": "Complex cases are impossible for any model.",
+          "correct": false,
+          "explain": "不適。基準を与えれば扱えることが多い。",
+          "textZh": "复杂情况对任何模型来说都不可能处理。"
+        },
+        {
+          "text": "The simple cases were lucky.",
+          "correct": false,
+          "explain": "不適。安定して良いなら偶然ではない。",
+          "textZh": "简单情况只是运气好。"
+        },
+        {
+          "text": "The output length should be increased for complex cases.",
+          "correct": false,
+          "explain": "不適。長さは判断基準の不足を補わない。",
+          "textZh": "复杂情况下应该增加产出的长度。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**难易之间的落差指向「判断标准缺失」**。简单情况不需要取舍，所以怎么写都对；复杂情况需要在冲突的条件之间选择，而你没告诉它该怎么选。补的应该是**难例的示范或判定规则**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-030",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO make it easier to act on user feedback about a workflow? (Select 2)",
+      "stemZh": "下面哪两点能让人更容易根据用户对某道流程的反馈采取行动？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Collecting the actual case, not just the impression.",
+          "correct": true,
+          "explain": "正解。具体例が無ければ再現も修正もできない。",
+          "textZh": "收集实际的案例，而不只是印象。"
+        },
+        {
+          "text": "Recording how often each kind of problem occurs.",
+          "correct": true,
+          "explain": "正解。頻度が分かると、直す順序が決まる。",
+          "textZh": "记录每类问题发生的频率。"
+        },
+        {
+          "text": "Asking users to rate the workflow out of ten.",
+          "correct": false,
+          "explain": "不適。点数からは何を直すか分からない。",
+          "textZh": "让用户给这道流程打个十分制的分数。"
+        },
+        {
+          "text": "Waiting until several people complain.",
+          "correct": false,
+          "explain": "不適。最初の1件で分かることが多い。対応が遅れる。",
+          "textZh": "等到好几个人都抱怨了再处理。"
+        },
+        {
+          "text": "Asking users to suggest the fix themselves.",
+          "correct": false,
+          "explain": "不適。原因の特定は設計側の仕事。",
+          "textZh": "让用户自己提出修复方案。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**可行动的反馈**需要两样：**具体案例**（能重现才能修）和**频率**（决定先修哪个）。评分和等抱怨积累都不提供这两样，前者没有信息量，后者只是延迟。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-032",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which is the most useful habit when diagnosing a poor output?",
+      "stemZh": "在诊断产出质量差时，最有用的习惯是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Changing one thing at a time and observing the effect.",
+          "correct": true,
+          "explain": "正解。因果を切り分ける。複数変えると何が効いたか分からない。",
+          "textZh": "一次只改一件事，然后观察效果。"
+        },
+        {
+          "text": "Changing several things at once to save time.",
+          "correct": false,
+          "explain": "不適。原因が特定できなくなる。",
+          "textZh": "一次改好几件事以节省时间。"
+        },
+        {
+          "text": "Starting over with a new prompt each time.",
+          "correct": false,
+          "explain": "不適。効いていた条件まで失う。",
+          "textZh": "每次都用一个全新的提示词从头开始。"
+        },
+        {
+          "text": "Asking colleagues to guess the cause.",
+          "correct": false,
+          "explain": "不適。人に当てさせるより、条件を1つ変えて観察するほうが確実で速い。",
+          "textZh": "让同事猜猜原因。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**一次改一处**。这条在提示词迭代、配置回滚、工作流诊断里反复出现，因为它是所有排查工作的共同基础：**只有当改动是单一的，结果的变化才能归因**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-033",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt that worked for months suddenly produces different results. Nothing in the prompt changed. What should be checked?",
+      "stemZh": "一个用了几个月都好好的提示词突然产出不同的结果，而提示词本身没有任何改动。该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the inputs, the Project configuration, or the reference documents changed.",
+          "correct": true,
+          "explain": "正解。プロンプト以外の入力側を確かめる。設定や資料は静かに変わる。",
+          "textZh": "输入、Project 的配置，或者参考文档是不是变了。"
+        },
+        {
+          "text": "Whether the prompt has expired.",
+          "correct": false,
+          "explain": "不適。そのような仕組みは無い。",
+          "textZh": "这个提示词是不是过期了。"
+        },
+        {
+          "text": "Whether the team is using it wrong now.",
+          "correct": false,
+          "explain": "不適。まず環境側の変化を確かめる。",
+          "textZh": "是不是团队现在用错了。"
+        },
+        {
+          "text": "Whether the output should be accepted as the new normal.",
+          "correct": false,
+          "explain": "不適。原因を確かめずに受け入れている。",
+          "textZh": "是不是该把新的产出当成新常态接受。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**提示词没变，不代表条件没变**。Project 的指示可能被别人改了，知识库里的文件可能被更新了，输入数据的格式可能变了。这几处都会**安静地**改变结果——而这正是 D5 强调「改动要告知」的原因。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/chain-prompts",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-035",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO suggest the problem is in the input rather than the prompt? (Select 2)",
+      "stemZh": "下面哪两点说明问题出在输入而不是提示词上？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The same prompt works well on a different, cleaner input.",
+          "correct": true,
+          "explain": "正解。プロンプトを変えずに結果が変わる。入力側の要因。",
+          "textZh": "同一个提示词在另一份更干净的输入上效果很好。"
+        },
+        {
+          "text": "The output repeats errors that exist in the source material.",
+          "correct": true,
+          "explain": "正解。誤りの出所が入力にある。",
+          "textZh": "产出重复了源材料里本来就有的错误。"
+        },
+        {
+          "text": "The output is shorter than expected.",
+          "correct": false,
+          "explain": "不適。長さは入力の問題を示さない。",
+          "textZh": "产出比预期短。"
+        },
+        {
+          "text": "The prompt is long.",
+          "correct": false,
+          "explain": "不適。プロンプトの長さは判別材料にならない。",
+          "textZh": "提示词很长。"
+        },
+        {
+          "text": "A colleague got a good result once.",
+          "correct": false,
+          "explain": "不適。一度の成功は、条件の違いを説明しない。",
+          "textZh": "有位同事曾经得到过一次好结果。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**区分输入问题和指示问题**。两个可靠的线索：**换个干净的输入就好了**，和**错误在源材料里就存在**。分清这一点很重要，因为两者的修法完全不同——一个要清理数据，一个要改指示。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-036",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A team reports the workflow is \"much better\" after a change, but the measured error rate is unchanged. How should this be read?",
+      "stemZh": "一个团队报告说某次改动后流程「好多了」，但实测的错误率没有变化。该如何解读？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Something improved that the current measure does not capture — find out what, since it may matter.",
+          "correct": true,
+          "explain": "正解。体感の改善は本物かもしれない。測っていない軸を探す。",
+          "textZh": "有某个当前的衡量标准没捕捉到的东西改善了——找出它是什么，因为它可能很重要。"
+        },
+        {
+          "text": "The team is imagining the improvement.",
+          "correct": false,
+          "explain": "不適。測っていない軸がある可能性を無視している。",
+          "textZh": "团队是在想象这种改善。"
+        },
+        {
+          "text": "The measurement must be broken.",
+          "correct": false,
+          "explain": "不適。まず別の軸の改善を疑う。",
+          "textZh": "这个测量一定坏了。"
+        },
+        {
+          "text": "Error rate is the only thing that matters.",
+          "correct": false,
+          "explain": "不適。使いやすさや所要時間も成果。",
+          "textZh": "错误率是唯一重要的东西。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**指标没动不等于没改善**。可能改善的是**易用性、可读性、返工的轻重、心理负担**——这些都真实存在，只是没在测。发现它并补上测量，比争论谁对谁错有价值得多。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-037",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "An output contradicts itself between two sections. What is the most likely cause in the request?",
+      "stemZh": "一份产出的两个部分互相矛盾。请求里最可能的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The request asked for two things that cannot both be fully satisfied.",
+          "correct": true,
+          "explain": "正解。両立しない条件を渡している。どちらを優先するか決める。",
+          "textZh": "请求要求了两件不可能同时完全满足的事。"
+        },
+        {
+          "text": "The request was too short.",
+          "correct": false,
+          "explain": "不適。短さは自己矛盾を説明しない。",
+          "textZh": "请求太短了。"
+        },
+        {
+          "text": "The output was generated too quickly.",
+          "correct": false,
+          "explain": "不適。生成の速さと矛盾は関係が無い。",
+          "textZh": "产出生成得太快了。"
+        },
+        {
+          "text": "The request used bullet points.",
+          "correct": false,
+          "explain": "不適。体裁は原因ではない。",
+          "textZh": "请求里用了项目符号。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**自相矛盾的产出往往来自自相矛盾的请求**。「要全面」和「要简短」、「要保守」和「要有新意」，这类要求同时给出时，模型会在不同段落里各偏向一边。解法是**明确优先级**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-039",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt handles 90% of cases well. Adding instructions for the remaining 10% made the 90% worse. What should be done?",
+      "stemZh": "一个提示词能很好地处理90%的情况。为剩下的10%添加指令后，那90%反而变差了。该怎么做？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Separate the hard cases into their own path rather than making one prompt serve both.",
+          "correct": true,
+          "explain": "正解。1つに詰め込まず、経路を分ける。両方の質を保てる。",
+          "textZh": "把困难的案例分到单独的处理路径上，而不是让一个提示词同时服务两者。"
+        },
+        {
+          "text": "Accept the tradeoff and keep the combined prompt.",
+          "correct": false,
+          "explain": "不適。9割の質を落としている。",
+          "textZh": "接受这个取舍，保留合并后的提示词。"
+        },
+        {
+          "text": "Revert and ignore the 10%.",
+          "correct": false,
+          "explain": "不適。難しい案件を放置している。重要なことが多い。",
+          "textZh": "回滚，不管那10%。"
+        },
+        {
+          "text": "Add even more instructions to recover the 90%.",
+          "correct": false,
+          "explain": "不適。条件が増えるほど矛盾も増える。",
+          "textZh": "再加更多指令来找回那90%。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**一个提示词服务两类差异很大的情况，会互相拖累**。为难例加的规则，在常规情况下变成了多余的约束。正解是**分流**——这和 D3 里「快模型初筛、难的往上送」是同一个结构。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-040",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "After several rounds of fixes, nobody can explain how the workflow currently behaves. What is the appropriate response?",
+      "stemZh": "经过几轮修复之后，没人能解释这道流程现在到底是怎么运转的。恰当的应对是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Rebuild it from the current requirements rather than continuing to patch it.",
+          "correct": true,
+          "explain": "正解。理解できないものは保守できない。要件から作り直す。",
+          "textZh": "从当前的需求重新搭建，而不是继续打补丁。"
+        },
+        {
+          "text": "Add documentation describing the current behavior.",
+          "correct": false,
+          "explain": "不適。分からない挙動は正確に書けない。",
+          "textZh": "加一份文档描述当前的行为。"
+        },
+        {
+          "text": "Keep patching; it still mostly works.",
+          "correct": false,
+          "explain": "不適。理解できないまま複雑さが増し続ける。",
+          "textZh": "继续打补丁，反正它大体还能用。"
+        },
+        {
+          "text": "Assign one person to be the only one who touches it.",
+          "correct": false,
+          "explain": "不適。単一障害点を作っている。",
+          "textZh": "指定一个人当唯一能碰它的人。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**无法解释的系统无法维护**。补丁叠补丁到了没人理解的程度，继续修的成本会超过重建。第二个干扰项的问题在于：**你无法准确记录自己不理解的行为**。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-041",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO are signs that the real problem is a missing definition rather than a model limitation? (Select 2)",
+      "stemZh": "下面哪两点说明真正的问题是「缺少定义」而不是「模型能力不足」？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Two people on the team disagree about whether a given output is acceptable.",
+          "correct": true,
+          "explain": "正解。人どうしで判定が割れるなら、基準が存在していない。",
+          "textZh": "团队里两个人对某份产出是否合格意见不一。"
+        },
+        {
+          "text": "Nobody can state in advance what a correct output looks like.",
+          "correct": true,
+          "explain": "正解。事前に言えないものは、モデルにも指示できない。",
+          "textZh": "没人能事先说出正确的产出应该是什么样子。"
+        },
+        {
+          "text": "The output is sometimes too long.",
+          "correct": false,
+          "explain": "不適。長さは指定で解決できる別の問題。",
+          "textZh": "产出有时候太长。"
+        },
+        {
+          "text": "A newer model exists.",
+          "correct": false,
+          "explain": "不適。新しいモデルの存在は診断材料ではない。",
+          "textZh": "有更新的模型存在。"
+        },
+        {
+          "text": "The task involves numbers.",
+          "correct": false,
+          "explain": "不適。扱う内容の種類は、定義の有無とは無関係。",
+          "textZh": "这项任务涉及数字。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**「定义缺失」的两个症状**：**人之间判定不一致**，以及**事先说不出什么算对**。只要这两条成立，换任何模型都不会解决问题——因为连要求都还没成形。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-043",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "An output uses an outdated fact. The knowledge file is current. What else should be checked?",
+      "stemZh": "一份产出使用了过时的事实，而知识文件是最新的。还该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the fact came from the model's general knowledge rather than the provided document.",
+          "correct": true,
+          "explain": "正解。範囲を限っていなければ、外の知識が混ざる。",
+          "textZh": "这个事实是不是来自模型的一般知识，而不是提供的文档。"
+        },
+        {
+          "text": "Whether the file was uploaded correctly.",
+          "correct": false,
+          "explain": "不適。最新であることは前提として示されている。",
+          "textZh": "文件是不是上传正确了。"
+        },
+        {
+          "text": "Whether the output was too long.",
+          "correct": false,
+          "explain": "不適。長さと出所は無関係。",
+          "textZh": "产出是不是太长了。"
+        },
+        {
+          "text": "Whether a different person asked the question.",
+          "correct": false,
+          "explain": "不適。質問者は出所を変えない。",
+          "textZh": "是不是换了个人提问。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**资料是新的，答案却是旧的**。最可能的原因是**这个事实根本不是从资料里来的**——模型用了自己的一般知识。修法就是 D1/D2 里那条：**明确限定来源**，并要求它在文档回答不了时说出来。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-044",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO make it possible to tell whether a workflow is getting better or worse over time? (Select 2)",
+      "stemZh": "下面哪两点能让人判断一道流程随时间是在变好还是变差？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Recording the same measures consistently from the start.",
+          "correct": true,
+          "explain": "正解。同じ物差しで継続して測る。途中で変えると比較できない。",
+          "textZh": "从一开始就持续地记录同样的衡量标准。"
+        },
+        {
+          "text": "Keeping the cases used for measurement stable.",
+          "correct": true,
+          "explain": "正解。評価用の入力が変われば、比較の意味が消える。",
+          "textZh": "保持用于衡量的案例稳定不变。"
+        },
+        {
+          "text": "Asking the team how they feel each month.",
+          "correct": false,
+          "explain": "不適。体感は出発点で、比較可能な記録ではない。",
+          "textZh": "每个月问问团队感觉如何。"
+        },
+        {
+          "text": "Measuring only when something goes wrong.",
+          "correct": false,
+          "explain": "不適。問題が起きた時点のデータしか残らない。",
+          "textZh": "只在出问题时才测量。"
+        },
+        {
+          "text": "Changing the measure whenever a better one is proposed.",
+          "correct": false,
+          "explain": "不適。途中で物差しを変えると時系列が断絶する。",
+          "textZh": "每当有人提出更好的标准就换掉。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**趋势需要固定的尺子和固定的样本**。中途换指标或换测试样本，之前的数据就作废了。这是很多团队「感觉在进步但说不清」的原因——他们每次都在用不同的方式衡量。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-045",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate cannot reproduce a colleague's reported problem. What is the most useful next step?",
+      "stemZh": "某位担当无法重现同事报告的问题。最有用的下一步是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Get the exact request and the exact input the colleague used, including anything supplied earlier in that conversation.",
+          "correct": true,
+          "explain": "正解。再現には条件一式が要る。会話の前段も条件のうち。",
+          "textZh": "拿到同事用的确切请求和确切输入，包括那段对话里更早提供过的任何内容。"
+        },
+        {
+          "text": "Conclude the problem does not exist.",
+          "correct": false,
+          "explain": "不適。再現できないことは、起きていないことを意味しない。",
+          "textZh": "断定这个问题不存在。"
+        },
+        {
+          "text": "Try a few similar requests instead.",
+          "correct": false,
+          "explain": "不適。条件が違えば再現しない。",
+          "textZh": "改用几个类似的请求试试。"
+        },
+        {
+          "text": "Ask the colleague to try again later.",
+          "correct": false,
+          "explain": "不適。原因の特定につながらない。",
+          "textZh": "让同事过一会儿再试。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**重现需要完整的条件**。这里的关键是最后半句：**那段对话前面说过的话也是条件的一部分**。只拿到「那句提示词」通常重现不出来——这也正是前面「同一个提示词在不同对话里结果不同」的另一面。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-047",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An output is excellent but took eight rounds of back-and-forth. Is there a problem to fix?",
+      "stemZh": "一份产出质量很好，但经过了八个来回。有问题需要解决吗？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Yes — the rounds show what the first request was missing; move that into the request and the next run takes one round.",
+          "correct": true,
+          "explain": "正解。往復の中身が、最初に欠けていた条件そのもの。次に活かす。",
+          "textZh": "有——这些来回恰好暴露了第一次请求缺了什么；把它们写进请求，下次一轮就够了。"
+        },
+        {
+          "text": "No — the result is good, so the process worked.",
+          "correct": false,
+          "explain": "不適。毎回8往復のコストが残る。",
+          "textZh": "没有——结果是好的，说明流程有效。"
+        },
+        {
+          "text": "Yes — eight rounds means the model is not capable enough.",
+          "correct": false,
+          "explain": "不適。往復は指示の不足を示すもので、能力の問題ではない。",
+          "textZh": "有——八个来回说明模型能力不够。"
+        },
+        {
+          "text": "No — iteration is always the right approach.",
+          "correct": false,
+          "explain": "不適。避けられる往復まで許容している。",
+          "textZh": "没有——迭代永远是正确的做法。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**把往返变成资产**。八轮里补充的每一句，都是第一次该写而没写的条件。把它们收进请求（或 Project 指示），这个任务就从「每次八轮」变成了「一轮」——这也正是可复用提示词的来源。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-048",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "A change is proposed based on one bad output. What is the appropriate caution?",
+      "stemZh": "有人基于一次糟糕的产出提议做出改动。恰当的谨慎是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Check whether the problem is recurring before changing a rule that affects everything.",
+          "correct": true,
+          "explain": "正解。1件で全体の規則を変えると、副作用のほうが大きいことがある。",
+          "textZh": "在改动一条影响全局的规则之前，先确认这个问题是否会反复出现。"
+        },
+        {
+          "text": "Never change anything based on a single case.",
+          "correct": false,
+          "explain": "不適。重大な誤りなら1件でも直す価値がある。",
+          "textZh": "绝不因为单个案例而做任何改动。"
+        },
+        {
+          "text": "Change it immediately to show responsiveness.",
+          "correct": false,
+          "explain": "不適。再発性を確かめずに全体へ影響を与えている。",
+          "textZh": "立刻改掉以显示响应迅速。"
+        },
+        {
+          "text": "Wait for ten similar cases.",
+          "correct": false,
+          "explain": "不適。基準が恣意的で、重大な問題への対応が遅れる。",
+          "textZh": "等到有十个类似案例再说。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**单个案例要不要改规则**。判断依据是两条：**会不会反复出现**和**这次的后果有多严重**。严重的错误一件也要改；偶发的小毛病，为它加一条全局规则可能得不偿失。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-050",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "Output quality dropped after the team started using a shortened version of the prompt. What is the likely cause?",
+      "stemZh": "团队开始使用精简版提示词之后，产出质量下降了。可能的原因是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A condition that was doing real work got removed along with the filler.",
+          "correct": true,
+          "explain": "正解。削る際に効いていた条件まで落ちた。元の版と差分を見る。",
+          "textZh": "在删掉冗余内容时，一并删掉了某个真正在起作用的条件。"
+        },
+        {
+          "text": "Short prompts always perform worse.",
+          "correct": false,
+          "explain": "不適。短くても条件がそろえば機能する。",
+          "textZh": "短的提示词总是表现更差。"
+        },
+        {
+          "text": "The model prefers longer input.",
+          "correct": false,
+          "explain": "不適。そのような性質は無い。",
+          "textZh": "模型更喜欢长的输入。"
+        },
+        {
+          "text": "Shortening changed the tone of the request.",
+          "correct": false,
+          "explain": "不適。語調の変化より、条件の欠落を疑う。",
+          "textZh": "精简改变了请求的语气。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**精简的风险**。提示词里既有冗余的客套，也有看起来啰嗦但实际在约束结果的条件。删的时候很难分辨。所以精简之后要**和原版做对照测试**——这又回到了「一次改一处、可回滚」。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-052",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO should happen after a workflow failure that reached a customer? (Select 2)",
+      "stemZh": "在一次流程失败波及到客户之后，应该做哪两件事？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Establish which check should have caught it and why it did not.",
+          "correct": true,
+          "explain": "正解。どこで止まるはずだったかを特定する。次の設計に効く。",
+          "textZh": "确定本该由哪道检查拦住它，以及为什么没拦住。"
+        },
+        {
+          "text": "Determine whether other outputs from the same period share the problem.",
+          "correct": true,
+          "explain": "正解。同じ原因の未発見分を探す。1件で終わらせない。",
+          "textZh": "确认同一时期的其他产出是否有同样的问题。"
+        },
+        {
+          "text": "Identify who to blame.",
+          "correct": false,
+          "explain": "不適。原因の特定と責任追及は別。再発防止に寄与しない。",
+          "textZh": "找出该怪谁。"
+        },
+        {
+          "text": "Add three new checking steps immediately.",
+          "correct": false,
+          "explain": "不適。原因を確かめる前に工程を増やしている。",
+          "textZh": "立刻增加三道新的检查步骤。"
+        },
+        {
+          "text": "Stop using the workflow permanently.",
+          "correct": false,
+          "explain": "不適。1件で全体を止める判断は過剰なことが多い。",
+          "textZh": "永久停用这道流程。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**事故之后的两件事**：**找出失效的那道关**（而不是找人）和**排查同期的其他产出**。第二条最容易被漏掉——一个漏出去的错误，通常意味着同样原因造成的其他错误也漏出去了，只是还没被发现。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-053",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt produces good results when run by itself but poor results when run as part of a longer automated sequence. Why?",
+      "stemZh": "一个提示词单独运行时结果很好，作为较长自动化序列的一部分运行时结果很差。为什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "In the sequence it receives the previous step's output, which may differ from the clean input used in testing.",
+          "correct": true,
+          "explain": "正解。実際の入力が試験時と違う。前工程の出力で試すべきだった。",
+          "textZh": "在序列里它接收的是上一步的产出，这可能与测试时使用的干净输入不同。"
+        },
+        {
+          "text": "Automated sequences always perform worse.",
+          "correct": false,
+          "explain": "不適。そのような性質は無い。",
+          "textZh": "自动化序列总是表现更差。"
+        },
+        {
+          "text": "The prompt needs to be longer in a sequence.",
+          "correct": false,
+          "explain": "不適。長さの問題ではない。",
+          "textZh": "在序列里提示词需要更长。"
+        },
+        {
+          "text": "Sequences use a different model.",
+          "correct": false,
+          "explain": "不適。前提として置けない。",
+          "textZh": "序列会使用不同的模型。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**测试用的输入和实际的输入不一样**。人工测试时喂的是整理过的干净数据，实际运行时喂的是上一步的原始产出——格式、噪声、多余的说明文字都不同。**测试必须用真实的上游输出**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-055",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO are most useful to record when a prompt finally works well? (Select 2)",
+      "stemZh": "当一个提示词终于运转良好时，记录哪两样最有用？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The example inputs it was tested on.",
+          "correct": true,
+          "explain": "正解。どの範囲で確認したかが分かる。後から条件が変わっても判断できる。",
+          "textZh": "它是在哪些示例输入上被测试过的。"
+        },
+        {
+          "text": "The conditions that turned out to be load-bearing.",
+          "correct": true,
+          "explain": "正解。どれを消してはいけないかが分かる。後の短縮で壊さない。",
+          "textZh": "哪些条件被证明是起关键作用的。"
+        },
+        {
+          "text": "How many attempts it took.",
+          "correct": false,
+          "explain": "不適。試行回数は再利用に役立たない。",
+          "textZh": "试了多少次才成功。"
+        },
+        {
+          "text": "The time of day it was written.",
+          "correct": false,
+          "explain": "不適。記録しても後の判断に使えない。",
+          "textZh": "它是在一天中的什么时候写的。"
+        },
+        {
+          "text": "Who suggested the final wording.",
+          "correct": false,
+          "explain": "不適。再現にも保守にも使わない。",
+          "textZh": "最终的措辞是谁提出的。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**成功之后留什么**。两样：**测试过的输入范围**（知道它在哪些情况下被验证过）和**哪些条件不能删**（防止以后有人精简时把它弄坏——正是前面那道题的事故）。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-056",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A fix was applied but the same complaint arrives again a month later. What should the associate consider?",
+      "stemZh": "一处修复已经应用，但一个月后同样的抱怨又来了。这位担当该考虑什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Whether the original fix addressed a symptom rather than the cause.",
+          "correct": true,
+          "explain": "正解。再発は、原因に届いていなかった合図。",
+          "textZh": "原来的修复是不是只处理了症状而不是原因。"
+        },
+        {
+          "text": "Whether the complainer is being difficult.",
+          "correct": false,
+          "explain": "不適。再発の事実を人の問題にすり替えている。",
+          "textZh": "是不是投诉的人在找麻烦。"
+        },
+        {
+          "text": "Whether to apply the same fix again.",
+          "correct": false,
+          "explain": "不適。効かなかった対処を繰り返している。",
+          "textZh": "是不是该再应用一次同样的修复。"
+        },
+        {
+          "text": "Whether to stop collecting feedback.",
+          "correct": false,
+          "explain": "不適。問題を見えなくしているだけ。",
+          "textZh": "是不是该停止收集反馈。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**复发说明没修到根上**。同一个问题一个月后回来，最可能的原因是当初改的是表现而不是成因。这时候该做的是**重新诊断**，而不是把同样的补丁再打一遍。",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-058",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO questions best separate a prompt problem from a task problem? (Select 2)",
+      "stemZh": "下面哪两个问题最能区分「提示词的问题」和「任务本身的问题」？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Could a knowledgeable person produce the desired output from the same inputs?",
+          "correct": true,
+          "explain": "正解。人でも作れないなら、情報が足りていない。タスク側の問題。",
+          "textZh": "一个内行的人，能从同样的输入里产出想要的结果吗？"
+        },
+        {
+          "text": "Can we state, in advance, what a correct output would contain?",
+          "correct": true,
+          "explain": "正解。事前に言えなければ、指示にも書けない。",
+          "textZh": "我们能不能事先说出正确的产出应该包含什么？"
+        },
+        {
+          "text": "Is the prompt longer than a paragraph?",
+          "correct": false,
+          "explain": "不適。長さは判別材料にならない。",
+          "textZh": "提示词是不是超过一段？"
+        },
+        {
+          "text": "Was the prompt written by an experienced person?",
+          "correct": false,
+          "explain": "不適。書き手の経験は問題の所在を示さない。",
+          "textZh": "提示词是不是有经验的人写的？"
+        },
+        {
+          "text": "Does the output use the requested format?",
+          "correct": false,
+          "explain": "不適。形式が合っていても内容の問題は残る。",
+          "textZh": "产出有没有用要求的格式？"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**两个诊断性问题**。如果连内行的人拿着同样的材料也做不出来，那缺的是信息而不是指示；如果说不出什么算对，那这项任务本身还没定义清楚。**这两种情况改多少遍提示词都没用**。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-060",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "Which summarizes the right general approach to a poor output?",
+      "stemZh": "对于产出质量差，下面哪一句概括了正确的通用做法？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Diagnose before changing: identify whether the gap is in the request, the input, or the definition of success.",
+          "correct": true,
+          "explain": "正解。原因の切り分けが先。どこが欠けているかで打ち手が変わる。",
+          "textZh": "先诊断再改动：弄清缺口是在请求、输入，还是在「成功的定义」上。"
+        },
+        {
+          "text": "Try a stronger model first, then investigate.",
+          "correct": false,
+          "explain": "不適。最も高い手段から始めている。",
+          "textZh": "先换个更强的模型，然后再调查。"
+        },
+        {
+          "text": "Add more instructions until it improves.",
+          "correct": false,
+          "explain": "不適。矛盾が積み上がる。原因も分からないまま。",
+          "textZh": "不断加指令直到它变好。"
+        },
+        {
+          "text": "Accept the output and fix it manually.",
+          "correct": false,
+          "explain": "不適。毎回の手作業が残り、原因も残る。",
+          "textZh": "接受产出，手工修改。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**诊断类题目的总结**：**先诊断，后改动**。三个可能的缺口——请求写得不够、材料没给全、连什么算对都没定义——各自对应完全不同的修法。跳过诊断直接动手，就是这道题三个干扰项描述的常见失败。",
+      "reference": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview",
+      "reviewedAt": "2026-09-24"
+    },
+    {
+      "id": "d7-061",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An output is wrong in a way the associate cannot describe, only sense. What is the useful next step?",
+      "stemZh": "使用者说不清一份输出哪里不对，只是感觉不对。有用的下一步是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Write down one concrete property a correct output would have.",
+          "correct": true,
+          "explain": "正解。照合できる条件が無ければ、直しようが無い。",
+          "textZh": "写下正确输出应当具备的一条具体性质。"
+        },
+        {
+          "text": "Try a different model and compare.",
+          "correct": false,
+          "explain": "不適。何を比べるかが決まっていない。",
+          "textZh": "换一个模型再对比。"
+        },
+        {
+          "text": "Ask for the output to be rewritten.",
+          "correct": false,
+          "explain": "不適。同じ違和感が再現するだけのことが多い。",
+          "textZh": "要求重写一遍输出。"
+        },
+        {
+          "text": "Shorten the prompt and try again.",
+          "correct": false,
+          "explain": "不適。当てずっぽうの変更である。",
+          "textZh": "把提示词缩短再试一次。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**先把感觉变成可检查的条件**。写出一个具体的「什么样才算对」，才有东西可以对照；否则每次修改都在猜。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-063",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO make feedback about an output actionable? (Select 2)",
+      "stemZh": "哪两项能让关于某份输出的反馈变得可执行？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "It points at the specific part that is wrong.",
+          "correct": true,
+          "explain": "正解。位置が分からなければ直せない。",
+          "textZh": "它指出了具体哪一部分不对。"
+        },
+        {
+          "text": "It states what the correct version would say instead.",
+          "correct": true,
+          "explain": "正解。期待が分かって初めて直す方向が決まる。",
+          "textZh": "它说明正确的版本应该是怎样的。"
+        },
+        {
+          "text": "It rates the output out of ten.",
+          "correct": false,
+          "explain": "不適。点数からは何を直すか分からない。",
+          "textZh": "它给输出打一个十分制的分数。"
+        },
+        {
+          "text": "It compares the output to an unrelated task.",
+          "correct": false,
+          "explain": "不適。比較の対象が適切でない。",
+          "textZh": "它把这份输出和一个不相关的任务作比较。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**反馈要指出具体位置和期望**。说「不太好」无法据以修改；指出哪一段、以及本来该是什么样，才能动手。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-064",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "The same prompt gives a good answer in one conversation and a poor one in another. What should be examined first?",
+      "stemZh": "同一条提示词在一段对话里给出好答案，在另一段里给出差答案。首先应该检查什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "What else was in each conversation before the prompt was sent.",
+          "correct": true,
+          "explain": "正解。プロンプトが同じなら、違いは文脈にある。",
+          "textZh": "在发出这条提示词之前，两段对话里各自还有什么内容。"
+        },
+        {
+          "text": "Whether the prompt has a typographical error.",
+          "correct": false,
+          "explain": "不適。同じ文面なら両方に等しく存在する。",
+          "textZh": "提示词里有没有拼写错误。"
+        },
+        {
+          "text": "Whether the output was read carefully.",
+          "correct": false,
+          "explain": "不適。読み方の問題だとする根拠が無い。",
+          "textZh": "输出有没有被仔细阅读。"
+        },
+        {
+          "text": "Whether a different model was better suited.",
+          "correct": false,
+          "explain": "不適。まず差の出どころを特定する。",
+          "textZh": "是不是应该用别的模型。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**提示词相同，那差别在别处**。两段对话此前累积的内容不一样，前提就不一样。先比较上下文，而不是改提示词。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-066",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "After changing an approach, results improved for two weeks and then returned to the previous level. What is the most useful interpretation?",
+      "stemZh": "改变做法之后，结果好转了两周，然后回到了原来的水平。最有用的解释是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The improvement may have come from attention, not from the change itself.",
+          "correct": true,
+          "explain": "正解。関心が薄れると元に戻るのは、その兆候である。",
+          "textZh": "好转可能来自大家的注意力，而不是这项改动本身。"
+        },
+        {
+          "text": "The change should be reversed immediately.",
+          "correct": false,
+          "explain": "不適。原因が分からないまま戻すことになる。",
+          "textZh": "应该立刻把改动撤回。"
+        },
+        {
+          "text": "Two weeks is too short to measure anything.",
+          "correct": false,
+          "explain": "不適。変化は実際に観測されている。",
+          "textZh": "两周太短，什么都测不出来。"
+        },
+        {
+          "text": "The change worked and should be applied more widely.",
+          "correct": false,
+          "explain": "不適。効果が続いていない。",
+          "textZh": "这项改动奏效了，应该推广。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**短暂的好转常常来自注意力而非做法**。刚改的时候大家更留心，注意力退去后就回到原样。要看做法本身有没有真正改变行为。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-067",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt produces good output for short inputs and poor output for long ones. What does this suggest?",
+      "stemZh": "一条提示词在短输入上产出好、在长输入上产出差。这说明什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The prompt does not say what to prioritise when everything cannot be covered.",
+          "correct": true,
+          "explain": "正解。取捨の基準が無いので、長いときに崩れる。",
+          "textZh": "提示词没有说明在无法全部覆盖时该优先保留什么。"
+        },
+        {
+          "text": "Long inputs cannot be handled at all.",
+          "correct": false,
+          "explain": "不適。優先順位を示せば扱える。",
+          "textZh": "长输入根本无法处理。"
+        },
+        {
+          "text": "The prompt is too short.",
+          "correct": false,
+          "explain": "不適。長さではなく取捨の指定が欠けている。",
+          "textZh": "这条提示词太短了。"
+        },
+        {
+          "text": "The inputs should always be shortened first.",
+          "correct": false,
+          "explain": "不適。情報を捨てる判断を無条件に前倒しすることになる。",
+          "textZh": "输入应该总是先缩短。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**指示没有说明如何取舍**。输入短时全部都能覆盖，输入长了就必须选择留什么，而提示词没有给出优先级。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-069",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate has tried four fixes and none worked. What should they do before trying a fifth?",
+      "stemZh": "使用者已经试了四种修法，都没有用。在试第五种之前应该做什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Re-examine what the problem actually is.",
+          "correct": true,
+          "explain": "正解。4回外れたのは、診断が違っている兆候である。",
+          "textZh": "回头确认问题究竟是什么。"
+        },
+        {
+          "text": "Try the fifth fix and see.",
+          "correct": false,
+          "explain": "不適。当てずっぽうを続けることになる。",
+          "textZh": "试第五种看看。"
+        },
+        {
+          "text": "Revert to the original version and stop.",
+          "correct": false,
+          "explain": "不適。問題は解決していない。",
+          "textZh": "退回原始版本，就此打住。"
+        },
+        {
+          "text": "Ask a colleague to try the same four fixes.",
+          "correct": false,
+          "explain": "不適。同じ結果になるだけである。",
+          "textZh": "请同事把同样的四种修法再试一遍。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**连续失败说明对问题的理解不对**。继续换办法只是碰运气，应当先回头确认到底哪里出了问题。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-070",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "Output quality dropped after a colleague edited the shared instructions. What is the fastest way to confirm the cause?",
+      "stemZh": "同事编辑了共享指示之后，输出质量下降了。确认原因最快的办法是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Compare the instructions before and after the edit.",
+          "correct": true,
+          "explain": "正解。差分を見るのが最短で確実である。",
+          "textZh": "对照编辑前后的指示。"
+        },
+        {
+          "text": "Run the same prompt twenty times.",
+          "correct": false,
+          "explain": "不適。原因の特定にはつながらない。",
+          "textZh": "把同一条提示词跑二十遍。"
+        },
+        {
+          "text": "Ask the colleague what they intended.",
+          "correct": false,
+          "explain": "不適。意図と実際の差分は別である。",
+          "textZh": "问同事他本来想做什么。"
+        },
+        {
+          "text": "Switch to a different model temporarily.",
+          "correct": false,
+          "explain": "不適。原因を隠したまま先へ進むことになる。",
+          "textZh": "暂时换成别的模型。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**用差分来定位**。把改动前后的指示对照起来看，比从输出反推快得多，也更确定。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-072",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO should change when a workflow's inputs have shifted over time? (Select 2)",
+      "stemZh": "当一个流程的输入随时间发生了变化时，哪两项应当随之调整？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The assumptions the workflow was built on.",
+          "correct": true,
+          "explain": "正解。前提が現状と合っているか確かめる必要がある。",
+          "textZh": "这个流程当初所依据的假设。"
+        },
+        {
+          "text": "The checks, since they may target risks that no longer apply.",
+          "correct": true,
+          "explain": "正解。ずれた検査は手間だけ残して役に立たない。",
+          "textZh": "检查环节，因为它们针对的风险可能已经不存在了。"
+        },
+        {
+          "text": "The name of the workflow.",
+          "correct": false,
+          "explain": "不適。名称は動作に影響しない。",
+          "textZh": "这个流程的名称。"
+        },
+        {
+          "text": "The order in which the team was told about it.",
+          "correct": false,
+          "explain": "不適。運用の適合とは無関係である。",
+          "textZh": "团队被告知这件事的先后顺序。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**输入变了，假设和检查都要跟着变**。原来的前提可能不再成立，原来的检查也可能不再针对现在的风险。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-073",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "A prompt fails only on the last item of every list it processes. What does this pattern point to?",
+      "stemZh": "一条提示词只在它处理的每份列表的最后一项上出错。这个规律指向什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A boundary condition in how the list is processed.",
+          "correct": true,
+          "explain": "正解。位置に依存するなら、内容ではなく構造の問題である。",
+          "textZh": "列表处理方式中的某个边界条件。"
+        },
+        {
+          "text": "The last items happen to be harder.",
+          "correct": false,
+          "explain": "不適。毎回そうなる説明にならない。",
+          "textZh": "最后那些项目碰巧更难。"
+        },
+        {
+          "text": "The lists are too long.",
+          "correct": false,
+          "explain": "不適。長さが原因なら、最後だけに限らない。",
+          "textZh": "这些列表太长了。"
+        },
+        {
+          "text": "The model is unsuitable for lists.",
+          "correct": false,
+          "explain": "不適。他の項目は正しく処理できている。",
+          "textZh": "这个模型不适合处理列表。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**规律性的失败指向结构而非内容**。总是最后一项，说明处理的边界条件有问题，而不是那些内容本身特殊。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-075",
+      "domain": "D1",
+      "type": "scenario",
+      "stem": "An associate receives conflicting feedback from two reviewers. What is the right response?",
+      "stemZh": "使用者收到两位审阅者互相冲突的反馈。正确的应对是什么？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Get the two reviewers to state the standard each is applying.",
+          "correct": true,
+          "explain": "正解。期待が揃わないまま直すと、行き来するだけになる。",
+          "textZh": "让两位审阅者各自说明所依据的标准。"
+        },
+        {
+          "text": "Follow whichever feedback arrived first.",
+          "correct": false,
+          "explain": "不適。順序は正しさと無関係である。",
+          "textZh": "按先到的那份反馈来。"
+        },
+        {
+          "text": "Apply both and let them cancel out.",
+          "correct": false,
+          "explain": "不適。一貫しない成果物が出来る。",
+          "textZh": "两份都照做，让它们互相抵消。"
+        },
+        {
+          "text": "Ignore both until they agree.",
+          "correct": false,
+          "explain": "不適。前に進まず、対立も解けない。",
+          "textZh": "在他们达成一致之前两份都不理。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**冲突的反馈说明期待没有对齐**。分别照做会来回摇摆，应当先让两边把各自的标准讲清楚。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-076",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO should be ruled out before concluding that a model change caused a drop in quality? (Select 2)",
+      "stemZh": "在断定质量下降是由模型更换造成之前，应该先排除哪两项？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Whether the instructions changed at the same time.",
+          "correct": true,
+          "explain": "正解。同時期の変更は原因を取り違えさせる。",
+          "textZh": "指示是不是同时也变了。"
+        },
+        {
+          "text": "Whether the inputs have changed in character.",
+          "correct": true,
+          "explain": "正解。入力が変われば出力も変わる。",
+          "textZh": "输入的性质是不是发生了变化。"
+        },
+        {
+          "text": "Whether the output is longer than before.",
+          "correct": false,
+          "explain": "不適。長さは品質低下の原因ではない。",
+          "textZh": "输出是不是比以前更长了。"
+        },
+        {
+          "text": "Whether more people are using the workflow.",
+          "correct": false,
+          "explain": "不適。利用者数は品質の原因にならない。",
+          "textZh": "是不是有更多人在用这个流程。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**同一时期往往有多处改动**。指示和输入是否也变了，要先排除，否则会把原因安错地方。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-078",
+      "domain": "D1",
+      "type": "mcq",
+      "stem": "A change was made and the metric improved, but the metric was chosen after the change. What is the problem?",
+      "stemZh": "做了一项改动后，某项指标改善了，但这项指标是在改动之后才选定的。问题在哪里？",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Choosing the metric afterwards means selecting one that already improved.",
+          "correct": true,
+          "explain": "正解。測る対象を先に決めないと、成果は作れてしまう。",
+          "textZh": "事后选指标，等于挑了一个本来就变好的。"
+        },
+        {
+          "text": "Metrics should never be used to judge changes.",
+          "correct": false,
+          "explain": "不適。言い過ぎで、指標自体は有用である。",
+          "textZh": "永远不该用指标来评判改动。"
+        },
+        {
+          "text": "The change was probably too small to matter.",
+          "correct": false,
+          "explain": "不適。規模の話は示されていない。",
+          "textZh": "这项改动大概太小，无关紧要。"
+        },
+        {
+          "text": "The metric should be measured more often.",
+          "correct": false,
+          "explain": "不適。頻度では選択の偏りは解消しない。",
+          "textZh": "这项指标应该测得更频繁一些。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**事后选指标等于挑一个已经变好的来汇报**。改动之前就该定好衡量的东西，否则「改善」只是选择的结果。",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "d7-079",
+      "domain": "D1",
+      "type": "multi",
+      "stem": "Which TWO are worth recording when a problem is finally resolved? (Select 2)",
+      "stemZh": "当一个问题最终被解决时，哪两项值得记录下来？（选2项）",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "What the cause turned out to be.",
+          "correct": true,
+          "explain": "正解。同じ症状が出たときの出発点になる。",
+          "textZh": "最终查明的原因是什么。"
+        },
+        {
+          "text": "Which explanations were ruled out and why.",
+          "correct": true,
+          "explain": "正解。同じ道を二度たどらずに済む。",
+          "textZh": "排除了哪些可能、为什么排除。"
+        },
+        {
+          "text": "How frustrated the associate felt.",
+          "correct": false,
+          "explain": "不適。次の診断には使えない。",
+          "textZh": "使用者当时有多沮丧。"
+        },
+        {
+          "text": "How many days the problem lasted.",
+          "correct": false,
+          "explain": "不適。期間は原因の特定に役立たない。",
+          "textZh": "问题持续了多少天。"
+        }
+      ],
+      "objective": "Prompt Diagnosis and Iteration",
+      "commentaryZh": "考点是**记录要让下一次更快**。真正的原因和排除掉的可能，这两样能让后来遇到同样症状的人少走弯路。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
     }

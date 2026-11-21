@@ -7,8 +7,9 @@
    ============================================================ */
 
 import { learnerKey } from "../learner";
-import { certKey, activeCert } from "./certState";
+import { certKey, activeCert, activeMovedItems } from "./certState";
 import { DOMAINS } from "./domains";
+import { moveProgressItems, moveReviewItems } from "./studyCore";
 import { recordStudy } from "../studyLog";
 import { resetVocabProgress } from "./vocabProgress";
 import { resetMistakes } from "./mistakes";
@@ -44,8 +45,14 @@ export function localDateKey(d = new Date()) {
   return `${y}-${m}-${day}`;
 }
 
+/* ブループリント改訂でドメインが変わった問題（meta.json の movedItems） */
+const movedItems = activeMovedItems;
+
 export function loadProgress() {
-  return read(PROGRESS_KEY(), { domains: {}, daily: {} });
+  const store = read(PROGRESS_KEY(), { domains: {}, daily: {} });
+  const { progress, changed } = moveProgressItems(store, movedItems());
+  if (changed) write(PROGRESS_KEY(), progress);
+  return progress;
 }
 
 /** studyLabel：勉強履歴に出す内容。省くとドメイン名（模擬試験・重点演習ではドメインが混ざるので渡す） */
@@ -121,7 +128,10 @@ export function resetProgress() {
 /* ---------- 復習リスト（間違えた問題だけ集める） ---------- */
 
 export function loadReview() {
-  return read(REVIEW_KEY(), {});
+  const store = read(REVIEW_KEY(), {});
+  const { review, changed } = moveReviewItems(store, movedItems());
+  if (changed) write(REVIEW_KEY(), review);
+  return review;
 }
 
 export function recordReviewResult(domainId, itemId, isCorrect) {

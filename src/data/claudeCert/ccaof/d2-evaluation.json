@@ -33,11 +33,11 @@
           "textZh": "把措辞改得更正式一些，然后发送。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-23",
       "stemZh": "Claude 为合规团队生成了一份新法规的摘要。文字流畅、语气笃定，并引用了「第4(b)(iii)条」作为申报期限的依据。发送之前，这位担当应该做什么？",
-      "commentaryZh": "这是 D2（占21%，最大的一域）最典型的考法。越是具体的条号、数字、引文，越是幻觉高发区——「看起来像真的」恰恰是这项技术的特点。模型自报的置信度不是精度指标。凡是要送到合规、法务、审计这类读者手里的内容，必须回到一次资料核对。"
+      "commentaryZh": "这是 D2（新大纲占20%，最大的一域）最典型的考法。越是具体的条号、数字、引文，越是幻觉高发区——「看起来像真的」恰恰是这项技术的特点。模型自报的置信度不是精度指标。凡是要送到合规、法务、审计这类读者手里的内容，必须回到一次资料核对。"
     },
     {
       "id": "d2-002",
@@ -71,7 +71,7 @@
           "textZh": "把迁移这一项从需求书里删掉，让产出与需求一致。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-23",
       "stemZh": "需求书要求做一份供应商对比，涵盖价格、安全状况、支持 SLA 和迁移工作量。Claude 的产出文笔很好，覆盖了价格、安全和支持——但完全没提迁移。",
@@ -115,7 +115,7 @@
           "textZh": "产出对其中一个数字表示了不确定。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-23",
       "stemZh": "下面哪两项最能说明一份产出在使用前需要先行核实？（选2项）",
@@ -153,7 +153,7 @@
           "textZh": "请委员会在会前完整阅读。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-23",
       "stemZh": "一份技术上准确的1200字分析要送交执行委员会，而他们只会花两分钟看。最合适的做法是什么？",
@@ -192,7 +192,7 @@
           "textZh": "把文件换个顺序重新上传就能解决。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是幻觉的识别。**周围内容正确并不能保证某一处正确**——模型是逐段生成的，一处编造不会在别处留下痕迹。正确做法是把「同类细节」（日期、金额、人名、条号）整类拉出来核对，而不是只改被发现的那一处。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -230,7 +230,7 @@
           "textZh": "它用的词是否和原文一样？"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**准确性和完整性是两个不同的轴**。准确 = 说出来的都对；完整 = 该说的都说了。检验完整性只有一个办法：拿原始请求逐条打勾。一份全部正确但漏了一项的产出，仍然是不合格的。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -274,7 +274,7 @@
           "textZh": "你已经批准过的文档的重新排版版本。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**何时必须有人复核**。判断标准不是「内容难不难」，而是**出错的后果有多大、能不能挽回**。健康、法律、金钱、对外承诺这四类，错了都不容易收回；内部草稿和排版改动错了当场就能改。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -312,7 +312,7 @@
           "textZh": "让每个团队自己去让 Claude 改写。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**面向不同读者的改写**。要点有两个：一是同一组结论派生出两个版本（而不是两次独立生成），这样数字不会打架；二是董事会版本要**以决定开头**——他们要的是「批不批」，不是推导过程。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -350,7 +350,7 @@
           "textZh": "让模型对两家都更刻薄一点，这样就扯平了。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**识别偏见**。偏见不一定表现为错误的事实，更多时候表现为**同样的事实用不同的措辞包装**。在竞品对比、候选人评价这类文档里，语气本身就在下结论，所以它属于要检查的内容，而不是「文风问题」。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -388,7 +388,7 @@
           "textZh": "「写得笃定一些，这样摘要读起来更好。」"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**减少幻觉的实操办法**。有效的指示有三个共同点：限定来源、要求给出处、**允许说「不知道」**。最后一点最容易被忽略——如果指示逼着模型给出答案，它就会把空白填满。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -432,7 +432,7 @@
           "textZh": "附上完整的对话记录以保证透明。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**选择合适的产出格式**。判断依据是「下一步谁会怎么用它」：人读 → 散文；机器或表格接收 → 结构化且**每次都一样**。一致性在这里比表达力更重要，因为下游可能有公式、宏或脚本依赖列的位置。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -470,7 +470,7 @@
           "textZh": "保险起见用大的那个数字。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**发现不一致之后怎么办**。不一致本身是有价值的信号——它告诉你至少有一次是错的。但**产出之间互相比较无法定真伪**，必须回到外部依据。取平均、投票、挑大的，都是在回避核实。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -508,7 +508,7 @@
           "textZh": "把细节挪到脚注，900字全部留在页面上。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**有目的的删减**。压缩不是均匀地把内容变淡，而是**先确定一个取舍标准**（读者的问题），再据此丢弃。没有标准的删减（按段落、按比例）会随机破坏结构，常常把结论一起删掉。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -546,7 +546,7 @@
           "textZh": "改成引用为「未发表的研究」。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**引用的核实**。找不到 ≠ 藏得深。要点在最后两个干扰项：**链接同样会被编造**，不打开看就不算核实；而给不存在的东西换个说法（「未发表」「内部资料」），是把问题伪装起来，比直接删掉更糟。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -590,7 +590,7 @@
           "textZh": "确认没有提到任何竞争对手。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**对外产出的把关**。两条线索：一是**会被追究的事实**（写出去就成了承诺），二是**尚未决定的事**——模型会把话说圆、把草案写成定论，这是对外公告里最常见也最难收回的事故。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -628,7 +628,7 @@
           "textZh": "草稿没有责任，只有最终文档才有。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**责任归属**。这是整个资格的底层前提：**工具不承担责任，使用工具的人承担**。三个干扰项分别对应三种常见的自我开脱——推给厂商、推给免责声明、推给「这只是草稿」。都不成立。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -666,7 +666,7 @@
           "textZh": "拆成五份文档，每家厂商一份。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**反复修改的产出该放在哪里**。判断标准是「会不会有多个版本同时存在」。要改很多轮、多人参与的东西，必须有一个**唯一的当前版本**，否则一定会有人拿着旧版做决定。",
       "reference": "https://claude.com/product/overview",
       "reviewedAt": "2026-09-24"
@@ -704,7 +704,7 @@
           "textZh": "再生成一份摘要，两份互相比较。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**核实的方法**。关键在两点：**回到原文**（而不是让产出自证，也不是产出之间互比），以及**按分量排序**——时间有限时，先核实那些一旦错了后果最大的陈述，而不是从头平均地读一遍。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -742,7 +742,7 @@
           "textZh": "把金额降到权限以内，不告诉任何人。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**超出权限的产出**。模型不知道你的审批权限，所以它提出的方案可能是合理的、却是你无权承诺的。要点在第三个干扰项：**对客户说出口的数字就已经形成了预期**，事后加「待批准」也收不回来。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -780,7 +780,7 @@
           "textZh": "它在结尾加了一小段总结。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**发现被植入的前提**。模型在信息不足时会补上一个「典型情况」，然后在这个前提上继续推理。危险在于**结论看起来很具体、很自信**，而整栋楼盖在一个你没给过的地基上。发现后不是改那一句，而是补上真实前提重跑。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -824,7 +824,7 @@
           "textZh": "担当自己本来就相信是真的那些。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**核实的优先级**。时间总是不够，所以要按「会不会被拿去行动」和「错了有多贵」排序。最后一个干扰项值得注意：**只核实自己相信的部分**，是最常见也最隐蔽的自我欺骗。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -862,7 +862,7 @@
           "textZh": "没有数字说明这个市场本来就没有可靠数据。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**识别「空心的产出」**。特征有三：处处流畅、结论都能两头说、没有任何具体数字。这通常不是模型能力问题，而是**你没给它材料**。补救办法是喂进真实数据重做，而不是让它「写得更确定一点」。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -900,7 +900,7 @@
           "textZh": "请读者先去学会这些术语。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**为读者改写**。关键是区分两类术语：**有些术语是内容本身**（换掉会失真，要解释），**有些只是行话**（对这个读者毫无作用，直接删）。一刀切地全部保留或全部简化，都会出问题。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -938,7 +938,7 @@
           "textZh": "八条已经够多了，不需要再调整提问。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**提问方式造成的偏差**。这不是模型的偏见，而是**你只问了一边**。「列出风险」必然只得到风险。要做决策，必须同时问「不做的代价是什么」——否则任何方案在这种提问下都显得不该做。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -982,7 +982,7 @@
           "textZh": "要经过好几轮修改的报告。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**对话 vs 成果物**。判断标准只有一个：**它之后还会被单独打开使用吗**。会的 → 切出来；只是推进当下讨论的过程 → 留在对话里。把过程也做成成果物，只会制造一堆没人再看的文件。",
       "reference": "https://claude.com/product/overview",
       "reviewedAt": "2026-09-24"
@@ -1020,7 +1020,7 @@
           "textZh": "让模型再检查一遍自己的答案。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**模型不知道你们公司的规矩**。内部政策、审批流程、命名规范这类信息不在训练数据里，模型会用行业通例来填补，而且说得很笃定。凡是问「我们公司应该怎么做」，答案必须回到内部文件核对。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1058,7 +1058,7 @@
           "textZh": "问 Claude 还缺什么。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**一处缺失意味着什么**。最常见的错误是「补上发现的那个就完事」。但漏掉一项说明生成时依据的信息本身不全，**同样的原因会在你没注意的地方再漏一次**。所以要拿权威清单把全部项目过一遍。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -1096,7 +1096,7 @@
           "textZh": "下次用能力更强的模型。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**把关的位置**。错误一旦发出，**订正永远追不上原件**——看过的人不会都看到更正。所以检查必须发生在发送之前，这是唯一有效的关口。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -1134,7 +1134,7 @@
           "textZh": "高管反正应该把整份文档读完。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**信息的顺序**。同样的内容，顺序不同，效果完全不同。给时间有限的读者写东西，**结论必须在最前面**——背景是支撑，不是入口。这不是「写得好不好」的问题，是「会不会被读到」的问题。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -1178,7 +1178,7 @@
           "textZh": "把一旦弄错代价高昂的陈述列出来。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**为什么生成物的错误特别难发现**。两个原因：一是文字流畅，「读着顺」被误当成「说得对」；二是**错误被写得和正确内容一样自然**，所以「只看反常的地方」正好会跳过它们。对抗办法是按内容清单核对，而不是靠语感。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -1216,7 +1216,7 @@
           "textZh": "一条把结论写在正文里的邮件线索。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**会被长期复用的产出**。时间跨度一拉长，两件事变得关键：**唯一的存放位置**（否则版本分叉）和**每条结论的日期与来源**（否则半年后没人知道它还成不成立）。这和 CCAO-F 本身要求 reviewedAt 是同一个道理。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -1254,7 +1254,7 @@
           "textZh": "让 Claude 确认一下这个数字，然后据此签字。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**不能核实的时候怎么办**。正解的两个组成部分缺一不可：**明说核实不了**，以及**指出谁能核实**。只说「不知道」是把事情停住；而用「模型一般很准」来担保具体数字，是把一般概率当成个案保证。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1292,7 +1292,7 @@
           "textZh": "只有读者抱怨了才算不完整。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**照着请求逐条打勾**。这是完整性检查最简单也最容易被跳过的一步：把请求拆成几个要求，一项一项对。产出的质量再高，也不能替代缺失的那一半。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -1330,7 +1330,7 @@
           "textZh": "在公司内部 wiki 里搜这个日期。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**相对时间表达的陷阱**。「去年」「最近」「不久前」依赖模型认为的当前时间，而这一点并不可靠。更危险的是第二个干扰项：**追问会得到一个更具体的日期**，具体反而让人放松警惕。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -1374,7 +1374,7 @@
           "textZh": "加长篇幅，让它看起来更周全。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**内部文档转对外文档**。两个方向：**往外拿掉**（内部推理、谈判筹码、还没定的选项）和**往内收紧**（只写敢负责的内容）。对外文档的每一句都可能被当作承诺，这和内部讨论的宽容度完全不同。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -1412,7 +1412,7 @@
           "textZh": "把它改写得更肯定一些，跟其他部分保持一致。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**含糊是有信息量的**。它常常准确地指出「这里资料不足」。正确的用法是把它当作检查的入口；最危险的做法是最后一项——**把含糊改写成肯定**，等于亲手制造了一个没有根据的断言。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -1450,7 +1450,7 @@
           "textZh": "先发，需要的话以后再更正时间表。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**正确 ≠ 可以发**。生成的文本很擅长把事情说圆、把不确定写成确定，尤其是时间表和数量。对外、尤其对监管机构的文件，要多检查一层：**这句话我们有没有权、有没有能力兑现**。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1488,7 +1488,7 @@
           "textZh": "一个不展示其他备选方案的建议。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**产出要服务于下一步动作**。下一步是「开会做决定」，所以需要的是**能并排比较的选项和它们的代价**。研究报告、过程记录、单一建议，都不能支撑「当场做选择」这个动作。",
       "reference": "https://claude.com/product/overview",
       "reviewedAt": "2026-09-24"
@@ -1526,7 +1526,7 @@
           "textZh": "保险起见都分给自己。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**完整性检查要落到「能不能用」**。行动项清单的用途是推动执行，缺负责人的条目在这个用途上是失效的。删掉它（丢掉决议）和随手分给自己（与实际不符），都是在回避那个真正该做的动作：去问。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -1570,7 +1570,7 @@
           "textZh": "再生成一次答案，看看是否一致。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**什么才算核实**。核实必须**引入产出之外的信息**：原始来源，或者懂行的人。重读、自评、重跑，全都在产出内部打转——感觉上做了功课，实际上一点外部证据都没有增加。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -1608,7 +1608,7 @@
           "textZh": "既然已经口头汇报了，就不用书面记录了。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**同一内容的多种形态**。要点是**单一来源**：先做信息最全的那一份，其余从它派生。独立准备两份看似更贴合各自场景，代价是内容会漂移，事后对不上账。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -1646,7 +1646,7 @@
           "textZh": "条理清晰说明模型没理解这个主题。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是这项技术最根本的一条：**「说得好」和「说得对」是两回事**。人类写作里，条理和把握通常同时到来，所以我们习惯用流畅度当可信度的代理指标。在生成文本上，这个代理指标失效了。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -1684,7 +1684,7 @@
           "textZh": "当担当以前检查过类似的产出时。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**省略检查的唯一合法条件**。不是「这次应该没问题」，而是**「错了也没有代价」**。三个干扰项对应三种常见的自我说服：主题熟悉、时间不够、以前都对。都不改变这次出错的后果。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1722,7 +1722,7 @@
           "textZh": "从对话直接生成一份摘要，不做检查。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**整理与取舍**（curate）。长对话里既有成立的结论，也有中途被推翻的想法，而**接手的人分不出来**。把原始记录整个丢过去，等于把判断的责任转嫁给没有上下文的人。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
       "reviewedAt": "2026-09-24"
@@ -1760,7 +1760,7 @@
           "textZh": "当作以后再修的排版问题。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**约束条件属于请求本身**。预算上限、字数、不能提到某件事、必须覆盖某一项——这些不是加分项，而是及格线。产出违反其中任何一条，就是没完成任务，哪怕主体内容写得很好。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -1804,7 +1804,7 @@
           "textZh": "假定后面那段取代了前面那段。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**内部矛盾的处理**。矛盾是一个明确的信号：至少有一处错了。两件事要做：回到外部依据判定哪个对；以及**往后看**——后续段落的结论是建立在哪一个上面的。只修那两段，往往漏掉真正受影响的部分。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -1842,7 +1842,7 @@
           "textZh": "加一句「本文由AI生成」的声明然后发出去。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**时间不够时怎么保证可信**。答案不是「少检查」，而是**改变检查的对象**：不去读完全文，而是把摘要里已经写出来的每条陈述倒推回原文。再加上一句「哪些部分没覆盖」，读者就能自己决定要不要补。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -1880,7 +1880,7 @@
           "textZh": "它读起来是否更精致？"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**用结果来检验改写**。评判标准不是长度、词汇或文采，而是**读者能不能直接用**。如果对方读完还要回来问一句，说明适配没完成——而这正是最容易被「读起来很顺」掩盖过去的失败。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -1918,7 +1918,7 @@
           "textZh": "把名字顺序倒过来重跑一次，改用那个答案。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**没有证据的推荐**。判断题的正确做法是要求「每个选项各自对应哪条依据」。注意最后一个干扰项：换顺序重跑是个**有用的探针**（能暴露顺序效应），但把新结果直接当答案，等于把同一个毛病换了个方向。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -1956,7 +1956,7 @@
           "textZh": "它包含创建日期。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**多人多次使用的产出**。核心风险是版本分叉：一旦每人手里有各自的副本，之后的修正就传不到他们手上。日期有帮助，但解决不了这个问题——**唯一的当前版本**才解决。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -2000,7 +2000,7 @@
           "textZh": "产出是担当在一天快结束时做出来的。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**为什么要找别人看**。两种情况自己检查不管用：**看不懂**（缺乏该领域判断力）和**不想看出来**（对结论有利害关系）。后者更隐蔽——人会不自觉地放过支持自己期望的错误。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -2038,7 +2038,7 @@
           "textZh": "让 Claude 重算一遍确认。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**自洽不等于正确**。生成的表格通常算术无误——这恰恰让人放松警惕。真正要问的是**输入值从哪来**：单价、汇率、人天数。地基是编的，楼盖得再整齐也没用。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -2076,7 +2076,7 @@
           "textZh": "引用了真实来源就不需要再检查了。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**核实要走到最后一步**。这类错误比彻底编造的引用更危险：来源真实存在，链接也打得开，于是没人再往下翻。**必须在来源里找到那句话本身**，否则等于没查。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -2114,7 +2114,7 @@
           "textZh": "长篇道歉，避免提到新日期。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**站在读者的位置组织信息**。客户关心的顺序是：影响我什么 → 接下来怎么办 → 为什么。内部原因的详细程度要按「他们需要多少」来定，既不是全给（暴露无关内情），也不是不给（无法重建信任）。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -2152,7 +2152,7 @@
           "textZh": "假定正确与否取决于提示词写得好不好。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**该抱什么心态**。两个极端都不可行：全信等于不检查，全不信等于白用。可用的姿态是「**有能力的草稿 + 会自信地出错**」，然后把有限的检查力气花在后果最重的地方。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -2196,7 +2196,7 @@
           "textZh": "保存提示词而不是结论。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**让结论能被长期使用**。两条：**日期与来源**（半年后判断它还成不成立）和**单一存放位置**（否则找不到）。这两点正是 CCAO-F 这门考试本身的特点在学习材料上的体现——产品会变，结论会过期。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
       "reviewedAt": "2026-09-24"
@@ -2234,7 +2234,7 @@
           "textZh": "请任何一位仔细读过的同事复核即可。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**摘要会代替原文被遵守**。人们不会去点那个链接。所以一份被当作正式指引发布的摘要，实际效力等同于政策本身，必须由**有权解释这份政策的人**确认，而不是随便找个人读一遍。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -2272,7 +2272,7 @@
           "textZh": "范围限定只适用于数字。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**范围限定的意义**。说「只用附件数据」通常是为了**让结论可被追溯和复现**。混进外部信息后，读者无法分辨哪条来自数据、哪条来自模型的一般知识——这恰恰摧毁了限定范围想换来的东西。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -2310,7 +2310,7 @@
           "textZh": "只有读者主动要确切数字时才是问题。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**四舍五入什么时候可以**。这道题没有一刀切的答案，**用途决定标准**：讲故事用「约40%」更好读；但一旦这个数字要进公式、进合同、进对外承诺，1.4个百分点就是实打实的差额。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
       "reviewedAt": "2026-09-24"
@@ -2348,7 +2348,7 @@
           "textZh": "两份都发，让读者自己挑。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**比较与合并**。把两个版本当成「二选一」是没必要的自我限制：常见的情况是人写的结构更贴合实际、模型写的措辞更清楚。判断依据始终是读者需要什么，而不是「谁写的」。",
       "reference": "https://docs.claude.com/en/docs/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-09-24"
@@ -2386,7 +2386,7 @@
           "textZh": "核实出版方是一个真实存在的机构。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**看起来对不等于存在**。出版方真实、标题合理，这些都容易被凑出来。最低限度是去出版方那里确认这份报告本身在不在。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2424,7 +2424,7 @@
           "textZh": "标题用错了字号。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**缺失比错误更难察觉**。摘要读起来是完整的，读者无法从文本本身看出哪些内容被略掉了。要靠对原文的了解，或者要求列出被排除的内容。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2462,7 +2462,7 @@
           "textZh": "再让 Claude 产出一份来对比。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**按后果的不可逆程度决定审阅强度**。联系监管机构这一步很难收回，所以需要懂这个领域的人逐条核对依据，而不是读一遍觉得顺就行。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2500,7 +2500,7 @@
           "textZh": "说明提示词写得好。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**一致不等于正确**。同一来源的两次产出会共享同样的倾向，一致只是说明这个倾向稳定，不是外部证据。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2538,7 +2538,7 @@
           "textZh": "得出的结论。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**换受众改的是呈现，不是结论**。细节的深度和先说什么可以变，但数字和结论必须一致，否则两份文件会互相打架。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2576,7 +2576,7 @@
           "textZh": "要求重写一遍摘要再对比。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**没读过原文时能做什么**。抽查几条回到原文核对，是唯一能真正验证的办法；其余做法都只在摘要内部打转。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2614,7 +2614,7 @@
           "textZh": "一整段文字，数值之间用逗号分隔。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**格式要配合下一步的处理**。要计算就得让每个数值落在自己的单元格里，散文和带单位的文字都需要人手再整理。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2652,7 +2652,7 @@
           "textZh": "两个小节用了不同的标题样式。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**偏向和错误不一样**。偏向里每条陈述都可能是真的，问题出在取舍上：只举一边的例子、只对一边加限定语。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2690,7 +2690,7 @@
           "textZh": "可以从这一处算出错误率。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**错误不是孤立的证据**。发现一处说明这份输出的检查还不够，其余部分应当按同样的标准重新看，而不是假定只有那一处。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2728,7 +2728,7 @@
           "textZh": "完整，因为使用者本来就知道那项风险。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**完整性是对任务而言的，不是对提问而言的**。没被问到不等于不该写；报告要支撑决定，漏掉已知风险就不足以支撑。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2766,7 +2766,7 @@
           "textZh": "让输出为自己的把握程度打分。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**循环核查毫无价值**。拿同一个来源再问一遍、或者让同一个产出自评，都在原地打转。要去到没有参与这次产出的来源。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2804,7 +2804,7 @@
           "textZh": "把输出缩短，减少被误解的机会。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**准确和可用是两件事**。要补上受众缺的前提，而不是把内容删薄或换个说法蒙混过去。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2842,7 +2842,7 @@
           "textZh": "当这份内容绝对不能被编辑时。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**artifact 适合会被反复取用和修改的成品**。一次性的简短回答放进 artifact 反而多一层跳转。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2880,7 +2880,7 @@
           "textZh": "如果这个说法听着耳熟就当它是对的。"
         }
       ],
-      "objective": "Identify hallucinations, inconsistencies, and biases in responses",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**没有出处的引用等于没有引用**。这句话不能当作依据带进后续文件，要么找到具体研究，要么把这条拿掉。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2918,7 +2918,7 @@
           "textZh": "这份输出是一次请求产出的。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**后果和可检验性两条一起看**。后果重、又没人能当场判断对错，这时必须有人审。只满足其中一条时，程度可以放宽。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2956,7 +2956,7 @@
           "textZh": "应该把表格改写成散文。"
         }
       ],
-      "objective": "Evaluate Claude-generated outputs for accuracy and completeness",
+      "objective": "Output Evaluation and Fitness for Purpose",
       "commentaryZh": "考点是**行之间的关系没有被检查过**。逐条都对、合起来不对，说明产出时没有做跨行的一致性检查，其他依赖多处数据的结论也要同样怀疑。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2994,7 +2994,7 @@
           "textZh": "把两份合并成一个答案。"
         }
       ],
-      "objective": "Edit, adapt, refine, and compare outputs for the intended audience",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**先找分歧的来源**。两份结论不同，可能是依据不同，也可能是对问题的理解不同。不先分清这一点，比较就变成了挑文笔。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3032,7 +3032,7 @@
           "textZh": "开头问候语的选择。"
         }
       ],
-      "objective": "Apply fact-checking and validation techniques",
+      "objective": "Hallucination Detection and Verification",
       "commentaryZh": "考点是**对外的文件里，最容易变成承诺或指控的部分风险最大**。涉及第三方作为的陈述和具体的数字承诺，出错的代价远高于措辞。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3070,7 +3070,7 @@
           "textZh": "每个月重读一遍。"
         }
       ],
-      "objective": "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)",
+      "objective": "Output Adaptation and Format Selection",
       "commentaryZh": "考点是**半年后还能判断该不该信**。当时的出处和确认日期留着，后来的人才知道这条是否过时；单纯把文本存好没有解决这个问题。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3108,10 +3108,580 @@
           "textZh": "产出这份输出的模型名称。"
         }
       ],
-      "objective": "Determine when human review or additional verification is required",
+      "objective": "Review Depth and Escalation",
       "commentaryZh": "考点是**核实过程本身也是成果**。留下核对了哪些、对照了什么，下一个人就不必从头再查一遍，也知道哪些部分还没查。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "n2-001",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A team lead reviews three Claude drafts against the same brief. Draft 1 meets every requirement. Draft 2 is accurate but uses an informal tone the client dislikes. Draft 3 states a contract term that contradicts the signed agreement. How should the drafts be classified?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "1: ready to use; 2: needs revision (tone); 3: needs human correction against the signed agreement before any use.",
+          "correct": true,
+          "explain": "正解。要件を満たす・手直しで済む・人が一次資料で正す必要がある、の3段階で分けるのが v1.1 の評価の型。",
+          "textZh": "1：可直接使用；2：需要修改（语气）；3：使用前需要人对照已签协议进行更正。"
+        },
+        {
+          "text": "All three need human correction because any AI draft is unreliable.",
+          "correct": false,
+          "explain": "不適。一律に扱うと、使えるものまで手間をかけることになる。",
+          "textZh": "三份都需要人工更正，因为任何 AI 草稿都不可靠。"
+        },
+        {
+          "text": "1 and 2 are ready; tone is a matter of taste.",
+          "correct": false,
+          "explain": "不適。読み手（客户）の要件に合わない語気は「目的に合っていない」。",
+          "textZh": "1 和 2 都可以直接用；语气只是个人喜好问题。"
+        },
+        {
+          "text": "Ask Claude to grade its own three drafts and use whichever it scores highest.",
+          "correct": false,
+          "explain": "不適。自己採点は独立した評価にならない。",
+          "textZh": "让 Claude 给自己的三份草稿打分，用得分最高的那份。"
+        }
+      ],
+      "objective": "Output Evaluation and Fitness for Purpose",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队负责人按同一份要求审阅 Claude 写的三份草稿。草稿 1 满足所有要求；草稿 2 内容准确，但语气随意，客户不喜欢；草稿 3 写的一项合同条款与已签署的协议相矛盾。这三份草稿该如何分类？",
+      "commentaryZh": "v1.1 的 2.1 明确要求把产出分成三类：可以直接用、需要修改、需要人来更正。分类的依据是「要求、原始资料、专业标准」。与签署协议矛盾属于事实错误，必须由人对照一次资料改正；语气不对只是没达到「适合目的」，修改即可。"
+    },
+    {
+      "id": "n2-002",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An analyst asks Claude for a one-paragraph summary of a 30-page vendor proposal for an executive. Which check BEST tests fitness for purpose?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Confirm the summary states the decision the executive must make, the cost and risk that bear on it, and nothing that contradicts the proposal.",
+          "correct": true,
+          "explain": "正解。読み手が何に使うか（決裁）から逆算して、必要な情報と正確さを確かめる。",
+          "textZh": "确认摘要写出了高管需要做的决定、影响决定的成本和风险，而且没有与提案矛盾的内容。"
+        },
+        {
+          "text": "Confirm the summary is exactly one paragraph.",
+          "correct": false,
+          "explain": "不適。形式だけで、目的を果たすかは分からない。",
+          "textZh": "确认摘要正好是一段。"
+        },
+        {
+          "text": "Confirm it uses the same vocabulary as the proposal.",
+          "correct": false,
+          "explain": "不適。用語の一致は正しさや有用さの証明にならない。",
+          "textZh": "确认它使用了与提案相同的词汇。"
+        },
+        {
+          "text": "Confirm Claude says it read the whole proposal.",
+          "correct": false,
+          "explain": "不適。自己申告では検証にならない。",
+          "textZh": "确认 Claude 说它读完了整份提案。"
+        }
+      ],
+      "objective": "Output Evaluation and Fitness for Purpose",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "分析员请 Claude 把一份 30 页的供应商提案总结成一段话给高管看。哪项检查最能检验「是否适合目的」？",
+      "commentaryZh": "「适合目的（fitness for purpose）」要从读者用这份产出做什么倒推：高管要做决定，那就看决定所需的信息（成本、风险、选项）有没有、对不对。格式、措辞、模型的自我声明都不能代替这一步。"
+    },
+    {
+      "id": "n2-003",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO are valid criteria for judging whether a Claude output is ready to use?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "It is consistent with the source material it was given.",
+          "correct": true,
+          "explain": "正解。ソースとの整合は正確さの基本的な基準。",
+          "textZh": "与提供给它的原始资料一致。"
+        },
+        {
+          "text": "It meets the stated requirements and the audience's needs.",
+          "correct": true,
+          "explain": "正解。要件と読み手への適合（完全性・関連性）を見る。",
+          "textZh": "满足既定要求和读者的需要。"
+        },
+        {
+          "text": "It sounds confident and professional.",
+          "correct": false,
+          "explain": "不適。流暢さや自信は正確さの指標ではない。",
+          "textZh": "听起来自信又专业。"
+        },
+        {
+          "text": "It is longer than the previous draft.",
+          "correct": false,
+          "explain": "不適。長さは質の基準ではない。",
+          "textZh": "比上一版草稿更长。"
+        }
+      ],
+      "objective": "Output Evaluation and Fitness for Purpose",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "判断 Claude 的产出能否直接使用时，哪两项是有效的标准？",
+      "commentaryZh": "2.1 列出的评价标准是准确性、完整性、相关性和适合目的，判断依据是要求、原始资料或专业标准。「听起来专业」「更长」都不是标准，反而常常掩盖问题。"
+    },
+    {
+      "id": "n2-004",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Claude's market brief includes three statistics attributed to named research firms. The analyst asks Claude in the same chat, \"Are these figures accurate?\" and Claude replies that they are. What is wrong with this verification step?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It is not independent: the same system that may have invented the figures is grading them, so each must be checked against the cited sources.",
+          "correct": true,
+          "explain": "正解。サンプル問題1と同じ論点。自己確認は独立した検証ではない。",
+          "textZh": "它不是独立的核实：可能编造了数字的同一个系统在给自己打分，每个数字都必须对照引用的来源核实。"
+        },
+        {
+          "text": "Nothing; Claude has access to the sources it cited.",
+          "correct": false,
+          "explain": "不適。出典名があっても、その数字が出典にあるとは限らない。",
+          "textZh": "没有问题；Claude 能访问它引用的来源。"
+        },
+        {
+          "text": "The question should have been phrased more politely.",
+          "correct": false,
+          "explain": "不適。言い方の問題ではない。",
+          "textZh": "这个问题应该问得更礼貌些。"
+        },
+        {
+          "text": "It should have been asked in a new chat with the same model, which counts as independent.",
+          "correct": false,
+          "explain": "不適。同じ仕組みに聞き直しても、一次資料との照合にはならない。",
+          "textZh": "应该在新对话里用同一个模型再问一次，这就算独立核实了。"
+        }
+      ],
+      "objective": "Hallucination Detection and Verification",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "Claude 写的市场简报里有三个归于具名研究机构的统计数字。分析员在同一个对话里问 Claude「这些数字准确吗？」，Claude 回答说准确。这个核实步骤有什么问题？",
+      "commentaryZh": "v1.1 的样题 1 正是这个考点：具体数字、具名引用、引语是编造内容最常出现的地方。让 Claude 确认自己的产出不是独立核实。正确做法是对照被引用的资料或权威来源逐项核对，核不到的删掉或标注。"
+    },
+    {
+      "id": "n2-005",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A legal summary from Claude cites a court case with a plausible name, year, and page number. A quick database search finds no such case. What should the associate conclude and do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Treat it as a likely fabricated citation, remove it, and re-verify every other citation in the summary.",
+          "correct": true,
+          "explain": "正解。一つ見つかったら同じ種類の誤りが他にもあると疑い、全件確認する。",
+          "textZh": "把它当作很可能是编造的引用，删掉它，并重新核实摘要里的其他所有引用。"
+        },
+        {
+          "text": "Keep it; the database is probably incomplete.",
+          "correct": false,
+          "explain": "不適。確認できない引用を残すのは危険。",
+          "textZh": "保留它；数据库可能不完整。"
+        },
+        {
+          "text": "Ask Claude for the case's page number again.",
+          "correct": false,
+          "explain": "不適。同じ出力源に聞き直しても検証にならない。",
+          "textZh": "再问 Claude 一次这个案例的页码。"
+        },
+        {
+          "text": "Remove only that citation and send the rest unchanged.",
+          "correct": false,
+          "explain": "不適。同じ種類の誤りが他にもあるかを確かめていない。",
+          "textZh": "只删除这一条引用，其他内容原样发送。"
+        }
+      ],
+      "objective": "Hallucination Detection and Verification",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "Claude 写的一份法律摘要引用了一个案例，名字、年份、页码都看起来很真实。在数据库里快速检索，查不到这个案例。担当应该怎么判断、怎么做？",
+      "commentaryZh": "编造的引用通常名字、年份、页码齐全，看起来很真。发现一处时，要把同类内容（其他引用）全部重新核对，而不是只删这一条。这就是 2.2 说的「来源核对、引用审查、使用前独立确认」。"
+    },
+    {
+      "id": "n2-006",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Which output feature should MOST raise suspicion of unsupported content?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A precise figure or quotation that does not appear in any of the documents Claude was given.",
+          "correct": true,
+          "explain": "正解。与えた資料にない具体的な細部は、作られた可能性が高い。",
+          "textZh": "一个精确的数字或引语，但在提供给 Claude 的任何文档里都找不到。"
+        },
+        {
+          "text": "A sentence that summarizes a point made in the source.",
+          "correct": false,
+          "explain": "不適。ソースに裏づけがある要約は通常の出力。",
+          "textZh": "一句话概括了原始资料里的一个观点。"
+        },
+        {
+          "text": "Headings that make the document easier to scan.",
+          "correct": false,
+          "explain": "不適。構成の工夫は内容の正確さと無関係。",
+          "textZh": "让文档更容易浏览的小标题。"
+        },
+        {
+          "text": "A note that some data was missing from the inputs.",
+          "correct": false,
+          "explain": "不適。欠けていることを明示するのは、むしろ良い挙動。",
+          "textZh": "一条说明输入中缺少部分数据的备注。"
+        }
+      ],
+      "objective": "Hallucination Detection and Verification",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "产出里的哪种特征最应该让人怀疑内容没有依据？",
+      "commentaryZh": "幻觉最典型的形态是「自信的具体细节」：精确的数字、引语、专有名词，却在给定资料里找不到。看到这种内容就要回到来源核对。注明数据缺失反而是好的行为。"
+    },
+    {
+      "id": "n2-007",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Two sections of a Claude-written report disagree: the summary says sales rose 8%, while a later table implies they fell. What does this inconsistency tell the reviewer?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "At least one statement is wrong; both must be checked against the underlying data before the report is used.",
+          "correct": true,
+          "explain": "正解。内部の矛盾は検証が必要なサイン。どちらが正しいかはデータで決める。",
+          "textZh": "至少有一处是错的；在使用报告之前，两处都必须对照原始数据核对。"
+        },
+        {
+          "text": "The table is always right because it is more detailed.",
+          "correct": false,
+          "explain": "不適。詳しさは正しさの証拠にならない。",
+          "textZh": "表格一定是对的，因为它更详细。"
+        },
+        {
+          "text": "The summary is right because it comes first.",
+          "correct": false,
+          "explain": "不適。位置は根拠にならない。",
+          "textZh": "摘要是对的，因为它在前面。"
+        },
+        {
+          "text": "Delete the table to remove the contradiction.",
+          "correct": false,
+          "explain": "不適。誤りを隠すだけで、正しい数字が分からない。",
+          "textZh": "删掉表格来消除矛盾。"
+        }
+      ],
+      "objective": "Hallucination Detection and Verification",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "Claude 写的报告有两处说法矛盾：摘要说销售额增长了 8%，后面的表格却显示下降。这个矛盾告诉审阅者什么？",
+      "commentaryZh": "内部矛盾（internal contradiction）是 v1.1 点名的幻觉信号之一。矛盾本身不告诉你哪边对，只告诉你「至少有一处错了」，答案要回到原始数据去找。"
+    },
+    {
+      "id": "n2-008",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Which AI-assisted work product warrants the DEEPEST review before use?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A client-facing letter stating refund amounts the company will honor.",
+          "correct": true,
+          "explain": "正解。社外向けで、誤りが金銭的・法的な約束になる。影響と説明責任が最大。",
+          "textZh": "一封面向客户、写明公司将兑现的退款金额的信。"
+        },
+        {
+          "text": "Brainstormed names for an internal team offsite.",
+          "correct": false,
+          "explain": "不適。社内向けで誤っても影響は小さい。",
+          "textZh": "为团队内部团建想的名字。"
+        },
+        {
+          "text": "A first-draft outline the author will rewrite anyway.",
+          "correct": false,
+          "explain": "不適。後工程で人が全面的に手を入れる。",
+          "textZh": "一份作者反正还要重写的初稿大纲。"
+        },
+        {
+          "text": "A summary of the author's own meeting notes for personal use.",
+          "correct": false,
+          "explain": "不適。自分用で、本人が内容を知っている。",
+          "textZh": "为个人使用而总结的自己的会议笔记。"
+        }
+      ],
+      "objective": "Review Depth and Escalation",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "下列哪份 AI 辅助产出在使用前最需要深度审查？",
+      "commentaryZh": "2.3 要求按「出错的后果」和「对内还是对外」来决定审查深度。对外发出、带有金额承诺的信，一旦出错就是公司的承诺，审查必须最深。内部、可回退、本人还会改的产出，审查可以轻一些。"
+    },
+    {
+      "id": "n2-009",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A recruiter uses Claude to summarize 40 candidate interviews into a ranked shortlist that will decide who advances. What review is appropriate?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A human reviews the ranking against the interview evidence and owns the advancement decision.",
+          "correct": true,
+          "explain": "正解。人の進路を左右する判断で、説明責任を負うのは人。重要度に応じて人が確認し決定する。",
+          "textZh": "由人对照面试证据审查排序，并对晋级决定负责。"
+        },
+        {
+          "text": "Spot-check one summary; if it is fine, accept the ranking.",
+          "correct": false,
+          "explain": "不適。影響が大きい判断に対して確認が浅すぎる。",
+          "textZh": "抽查一份摘要；没问题就接受整个排序。"
+        },
+        {
+          "text": "Accept the ranking because Claude applied the same criteria to everyone.",
+          "correct": false,
+          "explain": "不適。一貫性は正しさやバイアスがないことを保証しない。",
+          "textZh": "接受排序，因为 Claude 对每个人用了同样的标准。"
+        },
+        {
+          "text": "Ask candidates whether they agree with their summaries.",
+          "correct": false,
+          "explain": "不適。現実的でなく、判断の責任の所在も解決しない。",
+          "textZh": "问候选人是否同意对自己的摘要。"
+        }
+      ],
+      "objective": "Review Depth and Escalation",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "招聘人员用 Claude 把 40 场候选人面试总结成一份排序后的短名单，用来决定谁进入下一轮。什么样的审查是合适的？",
+      "commentaryZh": "影响他人机会的决定（招聘、晋升、信用等）后果大、需要问责，属于必须由人审查并做最终决定的类型。v1.1 的 2.3 和 4.2 都考这个：风险越高，越要保留人的判断。"
+    },
+    {
+      "id": "n2-010",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "While drafting a policy FAQ, an associate notices Claude's answer to one question would require interpreting employment law in a jurisdiction the company has never operated in. What should the associate do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Escalate that question to a qualified human (for example legal) and publish only after their review.",
+          "correct": true,
+          "explain": "正解。専門判断が必要で、自分では正否を確かめられない部分はエスカレーションする。",
+          "textZh": "把这个问题升级给有资质的人（例如法务），审查后再发布。"
+        },
+        {
+          "text": "Publish it with a note that AI wrote it.",
+          "correct": false,
+          "explain": "不適。注記しても誤りのリスクは減らない。",
+          "textZh": "加上「由 AI 撰写」的说明后发布。"
+        },
+        {
+          "text": "Ask Claude to sound more authoritative.",
+          "correct": false,
+          "explain": "不適。確信度を上げても正しさは上がらない。",
+          "textZh": "让 Claude 写得更权威一些。"
+        },
+        {
+          "text": "Delete the question from the FAQ without telling anyone.",
+          "correct": false,
+          "explain": "不適。必要な情報が欠けたままで、問題も共有されない。",
+          "textZh": "不告诉任何人，直接把这个问题从 FAQ 中删掉。"
+        }
+      ],
+      "objective": "Review Depth and Escalation",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "起草政策 FAQ 时，担当发现 Claude 对其中一个问题的回答需要解释公司从未开展业务的某个司法管辖区的劳动法。担当应该怎么做？",
+      "commentaryZh": "判断「我能不能自己核实」：超出自己专业、又有法律后果的内容，就要升级给有资质的人。升级不是失败，而是 2.3 要求的正确动作。"
+    },
+    {
+      "id": "n2-011",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "Which TWO factors should MOST determine how deeply an associate reviews a Claude output?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "The consequence if an error reaches its audience.",
+          "correct": true,
+          "explain": "正解。誤りの影響が大きいほど確認を深くする。",
+          "textZh": "错误传到读者那里时会造成的后果。"
+        },
+        {
+          "text": "Whether the output is used internally or sent outside the organization.",
+          "correct": true,
+          "explain": "正解。社外向けは組織の約束・評判になるため、確認を深くする。",
+          "textZh": "产出是内部使用还是发到组织外部。"
+        },
+        {
+          "text": "How long Claude took to generate it.",
+          "correct": false,
+          "explain": "不適。生成時間は正確さと関係ない。",
+          "textZh": "Claude 生成它花了多长时间。"
+        },
+        {
+          "text": "How polished the formatting looks.",
+          "correct": false,
+          "explain": "不適。見た目の完成度は内容の確かさではない。",
+          "textZh": "排版看起来有多精致。"
+        }
+      ],
+      "objective": "Review Depth and Escalation",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "决定担当对 Claude 产出审查多深，最主要应看哪两个因素？",
+      "commentaryZh": "v1.1 的 2.3 原文就是按「出错后果」和「内部还是外部」来判断风险和问责。生成时间、排版精致度都和需要审查多深无关。"
+    },
+    {
+      "id": "n2-012",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A finance manager needs the exact variance between two 5,000-row budget exports, which will go into a board pack. Which way of producing the result is MOST appropriate?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Have Claude run code on the uploaded files to compute the variance and produce a spreadsheet with the calculation.",
+          "correct": true,
+          "explain": "正解。正確な計算が必要な場面では、コード実行による結果が適している（v1.1 2.4）。",
+          "textZh": "让 Claude 对上传的文件运行代码计算差异，并产出带计算过程的电子表格。"
+        },
+        {
+          "text": "Ask Claude to read both files and state the variance inline.",
+          "correct": false,
+          "explain": "不適。大量の数値計算を文章で答えさせると誤りやすく、検算もしにくい。",
+          "textZh": "让 Claude 读两份文件，直接在回复里给出差异。"
+        },
+        {
+          "text": "Ask Claude to estimate the variance to the nearest million.",
+          "correct": false,
+          "explain": "不適。理事会資料に必要な正確さを満たさない。",
+          "textZh": "让 Claude 估算差异，精确到百万。"
+        },
+        {
+          "text": "Paste a sample of 50 rows and extrapolate.",
+          "correct": false,
+          "explain": "不適。全量の正確な差異にならない。",
+          "textZh": "粘贴 50 行样本，然后外推。"
+        }
+      ],
+      "objective": "Output Adaptation and Format Selection",
+      "reference": "https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "财务经理需要两份各 5000 行的预算导出数据之间的精确差异，结果会放进董事会资料。哪种产出方式最合适？",
+      "commentaryZh": "v1.1 2.4 点名了「需要精确计算时用代码执行的结果」。大量数字要算准，就让 Claude 在沙盒里跑代码处理文件，产出能复核的表格；在对话里口头报数字既容易出错，也难以检查。"
+    },
+    {
+      "id": "n2-013",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "A sales team regularly needs proposal decks in the company's brand template. An organization-provisioned Skill already produces branded PowerPoint files. What is the BEST way to produce this month's deck?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Ask Claude to create the deck so it applies the branded-deck Skill, then review the file before sending.",
+          "correct": true,
+          "explain": "正解。Skill は決まった手順を毎回同じように適用する。出来上がった文書は送る前に確認する。",
+          "textZh": "让 Claude 生成幻灯片并使用这个品牌幻灯片 Skill，发送前审阅文件。"
+        },
+        {
+          "text": "Paste the brand guidelines into every chat and ask for slide text inline.",
+          "correct": false,
+          "explain": "不適。既にある Skill を使わず、毎回の手作業でばらつきが出る。",
+          "textZh": "每次都把品牌规范粘贴进对话，然后在回复里要幻灯片文字。"
+        },
+        {
+          "text": "Ask for a Markdown outline and format it by hand every time.",
+          "correct": false,
+          "explain": "不適。繰り返し作業を手作業のまま残している。",
+          "textZh": "要一份 Markdown 大纲，每次手工排版。"
+        },
+        {
+          "text": "Skip review because the Skill guarantees the content is correct.",
+          "correct": false,
+          "explain": "不適。Skill は形式と手順を揃えるが、内容の正しさまでは保証しない。",
+          "textZh": "跳过审阅，因为 Skill 保证内容正确。"
+        }
+      ],
+      "objective": "Output Adaptation and Format Selection",
+      "reference": "https://support.claude.com/en/articles/12512176-what-are-skills",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "销售团队经常需要按公司品牌模板做提案幻灯片。组织已经下发了一个 Skill，可以生成符合品牌的 PowerPoint 文件。做本月的幻灯片，最好的方式是什么？",
+      "commentaryZh": "Skill 是一组指示、脚本和资源，Claude 在相关任务中自动加载，用来稳定地重复某个流程（例如按品牌模板生成文档）。它让格式和步骤一致，但不保证内容正确，产出的文件仍然要审阅。"
+    },
+    {
+      "id": "n2-014",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "Claude produced a detailed technical analysis. The same findings must now go to (1) engineers who will implement fixes and (2) a customer-facing status page. What is the right approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Adapt separately: keep technical detail for engineers, and produce a plain-language, non-sensitive version for customers.",
+          "correct": true,
+          "explain": "正解。読み手と媒体に合わせて内容・語調・詳しさを変えるのが 2.4。",
+          "textZh": "分别改写：给工程师保留技术细节，给客户写一份通俗、不含敏感信息的版本。"
+        },
+        {
+          "text": "Send the full analysis to both audiences.",
+          "correct": false,
+          "explain": "不適。顧客向けには不要・不適切な内部情報が含まれる。",
+          "textZh": "把完整分析发给两类读者。"
+        },
+        {
+          "text": "Send customers only the raw output Claude produced first.",
+          "correct": false,
+          "explain": "不適。原文のままでは読み手に合わない。",
+          "textZh": "只把 Claude 最初的原始产出发给客户。"
+        },
+        {
+          "text": "Write one compromise version for both.",
+          "correct": false,
+          "explain": "不適。どちらの読み手にも合わなくなりやすい。",
+          "textZh": "写一份折中的版本给两边用。"
+        }
+      ],
+      "objective": "Output Adaptation and Format Selection",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "Claude 写了一份详细的技术分析。现在同样的结论要发给 (1) 负责修复的工程师，和 (2) 面向客户的状态页面。正确的做法是什么？",
+      "commentaryZh": "2.4 要求把原始产出按读者和渠道改写。同一份结论，给工程师要细节，给客户要通俗、去掉内部信息。一份通用稿往往两边都不合适。"
+    },
+    {
+      "id": "n2-015",
+      "domain": "D2",
+      "type": "scenario",
+      "stem": "An operations lead wants a reusable checklist the team can open and tick off during weekly audits. Which output format fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A downloadable document or spreadsheet file created by Claude.",
+          "correct": true,
+          "explain": "正解。繰り返し使い、共有し、記入する成果物はファイルとして作るのが適している。",
+          "textZh": "由 Claude 生成的可下载文档或电子表格文件。"
+        },
+        {
+          "text": "An inline chat reply the team must scroll back to find each week.",
+          "correct": false,
+          "explain": "不適。再利用・共有・記入に向かない。",
+          "textZh": "团队每周都得往回翻才能找到的对话内回复。"
+        },
+        {
+          "text": "A voice summary.",
+          "correct": false,
+          "explain": "不適。チェックして記録する用途に合わない。",
+          "textZh": "一段语音摘要。"
+        },
+        {
+          "text": "A single paragraph describing what to check.",
+          "correct": false,
+          "explain": "不適。チェックリストとして使えない。",
+          "textZh": "一段描述要检查什么的文字。"
+        }
+      ],
+      "objective": "Output Adaptation and Format Selection",
+      "reference": "https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "运营负责人想要一份团队在每周审计时可以打开并勾选的、可重复使用的检查清单。哪种产出格式最合适？",
+      "commentaryZh": "格式要按用途选：一次性的问答适合对话内回复；要反复使用、共享、填写的东西，适合做成文件（文档、表格）。Claude 可以通过代码执行直接生成可下载的 Excel、Word、PDF 等文件。"
     }
   ]
 }

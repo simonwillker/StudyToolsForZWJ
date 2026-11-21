@@ -33,11 +33,11 @@
           "textZh": "彻底取消这项分析。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-23",
       "stemZh": "某位项目经理想上传一份含有客户姓名和账号的表格，让 Claude 找出趋势。公司方针限制共享受监管的个人数据。",
-      "commentaryZh": "这是占15%的 D6 最典型的考法。大多数分析并不需要标识信息，所以正解是「改成既守方针又能达成目的的形式」。「反正是内部分析」不构成例外；「附一条指示要求不要保留」代替不了方针——数据已经交出去这个事实不会消失；「彻底取消分析」则是在明明可以做的情况下过度停止工作。"
+      "commentaryZh": "这是 D6（新大纲占17%）最典型的考法。大多数分析并不需要标识信息，所以正解是「改成既守方针又能达成目的的形式」。「反正是内部分析」不构成例外；「附一条指示要求不要保留」代替不了方针——数据已经交出去这个事实不会消失；「彻底取消分析」则是在明明可以做的情况下过度停止工作。"
     },
     {
       "id": "d6-002",
@@ -71,7 +71,7 @@
           "textZh": "凡是涉及人事话题的，一律不要使用 Claude。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-23",
       "stemZh": "某位担当用 Claude 起草了一份关于员工法定休假权利的回复。这份草稿应该怎么用？",
@@ -115,7 +115,7 @@
           "textZh": "让 Claude 解释一个公开的行业标准。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-23",
       "stemZh": "下面哪两种情况应该先停下来确认方针再继续？（选2项）",
@@ -153,7 +153,7 @@
           "textZh": "公开批评这项方针，直到它被修改为止。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-23",
       "stemZh": "某位担当认为公司的 AI 方针过于严格、拖慢了工作。合适的做法是什么？",
@@ -192,7 +192,7 @@
           "textZh": "只有当那位同事在另一个国家时才是问题。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**「我有权限看」不等于「我可以拿出去」**。绩效评估里有第三方的敏感信息，而且当事人并不知道它被送去了哪里。正确的顺序是：先看方针，再考虑能不能去掉姓名和可识别细节。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -230,7 +230,7 @@
           "textZh": "翻译一则内部公告。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**推测敏感属性**。健康、宗教、政治倾向、性取向这类信息，即使是从看似无害的文本里「推断」出来的，也属于制造敏感数据——既没有依据，也没有当事人的同意。这和处理已有的敏感数据是同等甚至更严重的问题。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -274,7 +274,7 @@
           "textZh": "在方针写出来之前，完全不使用 AI。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**没有 AI 方针的时候依据什么**。答案是：**原有的保密规程仍然有效**。AI 不是法外之地，也不是必须全面停用的理由。同时，该问的人要去问——决定边界不是 Associate 的权限。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -312,7 +312,7 @@
           "textZh": "不做解释地拒绝。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**影响个人处遇的用途**。两层问题叠在一起：**指标本身是错的**（聊天多 ≠ 产出多），以及**用它给人排名会造成实际后果**。正确的回应不是沉默拒绝，而是说清理由并给出替代方案。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -350,7 +350,7 @@
           "textZh": "把数据集分散到几段对话里。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**数据最小化**。这是隐私实务里最通用也最有效的一条：**只给完成任务所必需的那部分**。后两个干扰项是常见的自我安慰——一条指示改变不了数据已经被传出去这个事实，拆分也不减少总量。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -394,7 +394,7 @@
           "textZh": "翻译一份公开的 FAQ。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**影响个人机会的用途**。招聘、续约、晋升、信贷、保险——这类场景的共同点是**产出会改变某个具体的人的处境**。它们不一定被禁止，但需要额外的审查、记录和人工判断。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -432,7 +432,7 @@
           "textZh": "照做，既然这看起来是被接受的做法。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**发现违规时怎么办**。客户合同通常带有合同性的保密义务，泄露的后果由公司承担。三个干扰项分别是：**为动机开脱**、**用删除掩盖**、**把先例当许可**——都不改变义务已经被违反这个事实。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -470,7 +470,7 @@
           "textZh": "只有对方问起时才重要。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**透明度**。两层理由：**实际层面**（人会根据来源调整信任度）和**规则层面**（某些行业和场合有强制披露要求）。注意这和前面学过的一条不冲突：披露不转移责任，但不披露可能本身就是违规。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -514,7 +514,7 @@
           "textZh": "一份还没人承诺要采用的头脑风暴清单。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**依赖者决定核实强度**。同样一份文档，给同事看和给一线照做，要求完全不同。判断的问题是：**收到的人会不会再检查一次**。如果不会，那么你就是最后一道关口。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -552,7 +552,7 @@
           "textZh": "跳过测试直接上线。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**测试不需要真人数据**。提示词测试需要的是**问题的形态**（长度、结构、常见的歧义），而这些用去标识化或合成的例子完全可以复现。最后一个干扰项提醒：解决办法不是不测试，那样风险更大。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -590,7 +590,7 @@
           "textZh": "让 Claude 代替人来复核。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**方针没有「赶时间」这条例外**。三个干扰项都是在想办法绕过复核。实务上可行的折中是**缩小范围**——把能复核完的那部分先发出去，而不是把全部内容未经复核地送出去。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -634,7 +634,7 @@
           "textZh": "团队可能需要学一个新工具。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**规模化判断的伦理特征**。两个核心：**系统性**（人的偏见是散的，自动化的偏见是整齐划一地施加给所有人）和**不可解释**（当事人无从申诉）。速度本身不是问题，问题是速度让前两者的影响面变大。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -672,7 +672,7 @@
           "textZh": "只在内部演示中使用就可以接受。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**捏造第三方的陈述**。判断标准不是「说得像不像」，而是**它是否会被当作真实发生过的事来理解**。这类内容即使在内部使用也有害——它会把虚构的证据带进真实的决策。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -710,7 +710,7 @@
           "textZh": "没法把产出从里面复制出来。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**为什么要用获批的工具**。核心不是质量或费用，而是**契约与数据去向**：获批的工具背后有协议规定数据怎么存、能不能用于训练、出事谁负责。未获批的工具这些全部未知。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -748,7 +748,7 @@
           "textZh": "只保留邮箱域名，反正也能识别客户。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**最小化的具体应用**。做法很简单：**问这项分析需要哪些字段**。主题频率只需要正文。最后一个干扰项值得注意——在 B2B 场景里，邮箱域名本身就足以识别客户公司。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -786,7 +786,7 @@
           "textZh": "有多少人会读它。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**用「可逆性」决定检查强度**。改一份内部草稿的代价接近零；撤回一封已发的对外声明、收回一笔已付的款项，代价高得多。读者数量有关系，但关键不是多少人读，而是**他们读完会做什么**。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -830,7 +830,7 @@
           "textZh": "禁止在团队之外讨论 AI。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**可执行的规则长什么样**。两条支柱：**什么不能进去**（信息的边界）和**什么要人批准才能出来**（产出的关口）。注意第二条要写明**由谁批准**——只写「需要批准」的规则，实际执行时会变成没人批准。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -868,7 +868,7 @@
           "textZh": "生成出来，让法务团队去判断。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**捏造的社会证明**。这条线很清楚：**生成的内容不能被呈现为真人的评价**。第三个干扰项的表述容易让人犹豫——用于内部设计稿本身没问题，但这个请求明确是为了放上公开页面，不能借设计稿之名绕过。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -906,7 +906,7 @@
           "textZh": "这会让文档更难搜索。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**信息不对称造成的误信**。问题不在于 AI 起草不好，而在于**读者据以判断的前提是错的**：不知情的人会按「有人逐字写过」的标准来信任它，从而跳过本该做的核对。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -950,7 +950,7 @@
           "textZh": "办公室的营业时间。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**哪些数据属于敏感类别**。共同点是：**与可识别的个人绑定，且泄露会造成具体伤害**。健康和金融信息在多数法域都有专门的保护规定。已经公开的公司信息不属于此列——判断依据是数据的性质，不是它属于谁。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -988,7 +988,7 @@
           "textZh": "干脆不用 Claude，以回避记录要求。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**觉得规则麻烦时怎么办**。和之前那道「方针过严」的题同一个原理：**先遵守，再通过有权限的渠道改**。自己缩小范围或事后补记，都让记录失去它存在的意义（追溯时不可靠）。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1026,7 +1026,7 @@
           "textZh": "在没有人参与的情况下决定拒绝谁。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**同一个流程里，不同环节的性质完全不同**。写职位描述与任何具体的人无关，是安全的；而一旦进入**评价、排序、淘汰**具体的人，就同时触及公平性、可解释性和监管要求，需要完全不同的把关。",
       "reference": "https://claude.com/product/overview",
       "reviewedAt": "2026-09-24"
@@ -1070,7 +1070,7 @@
           "textZh": "复核者使用了一份检查清单。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**形式上的复核**。加了一道人工关口不等于真的有把关。两种常见的失效：**量太大**（一天两百份，只能扫一眼）和**不懂**（让不懂合规的人复核合规文本）。设计流程时要同时回答这两个问题。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1108,7 +1108,7 @@
           "textZh": "把文档里所有代词都删掉。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**代词只是露出水面的部分**。同一个刻板印象很可能也影响了别的地方——谁被描述为做决定的人、谁被描述为执行的人。只改代词是把症状抹掉，**要往下看内容本身**。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1146,7 +1146,7 @@
           "textZh": "让 Claude 解释这条方针。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**含糊的时候该问人**。两个方向的自作主张都不对：擅自认为可以（「没禁止就是允许」）和擅自放弃（可能本来是可以做的）。方针的解释权属于它的负责人，不属于使用者，更不属于模型。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1190,7 +1190,7 @@
           "textZh": "决定终止哪一份供应商合同。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**日常安全用途的特征**。两个共同点：**不涉及第三方的敏感信息**，且**不代替人做出有后果的判断**。三个干扰项分别越过了这两条线中的一条或两条。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1228,7 +1228,7 @@
           "textZh": "云盘的容量是主要的考虑因素。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**最小权限**。这是数据最小化在连接器上的对应物：**接多大范围，取决于任务需要多大范围**。「以后可能用得上」和「反正是只读」是两个最常见的、让权限悄悄变大的理由。",
       "reference": "https://docs.claude.com/en/docs/agents-and-tools/remote-mcp-servers",
       "reviewedAt": "2026-09-24"
@@ -1266,7 +1266,7 @@
           "textZh": "我们多快能上线？"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**自动化判断前的核心问题**。效率和技术都排在后面。真正决定该不该自动化的是：**出错时当事人能不能发现、能不能申诉、能不能被纠正**。如果这三条都没有，那么这个决定还不该交给自动流程。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1304,7 +1304,7 @@
           "textZh": "竞争对手有没有做过类似的案例研究。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**提示词本身也是信息资产**。它们里面常常写着内部的判断标准、客户名、价格逻辑。样例产出更是直接可能含有真实数据。对外分享之前，这两样都要按信息分级来审。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1342,7 +1342,7 @@
           "textZh": "截止时间是明天。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**自己检查的盲区**。仔细程度解决不了立场问题：当产出支持的正是你自己的主张时，你会不自觉地放过支持它的错误。这类情况需要的不是更努力，而是**换一双没有利害关系的眼睛**。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1386,7 +1386,7 @@
           "textZh": "当时房间里有多少人。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**留什么痕迹**。事后被追问时，需要重建两件事：**当时掌握的信息**（不能用今天的信息去评判昨天的判断）和**谁做了什么检查**（责任链条）。其余都是无关的元数据。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1424,7 +1424,7 @@
           "textZh": "只有当评价是负面的时候才是问题。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**以他人名义发言**。这看起来比伪造客户评论轻，但性质相同：**读者会认为那个署名的人说了这些话**。而且当事员工对以自己名义发出的内容没有控制权，一旦出问题，承担后果的是他们。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1462,7 +1462,7 @@
           "textZh": "这比直接写更花时间。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**冒名的观点**。注意第二个干扰项的反向逻辑：**越像越危险**，而不是越不像越有问题。核心在于真实存在的人被安上了他没有表达过的立场，而他无法控制也难以澄清。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1506,7 +1506,7 @@
           "textZh": "数据是存在电子表格里还是数据库里。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**两个来源的约束**。一是**内部分级**（公开/内部/机密/受限），二是**外部合同**——客户或合作方的协议里常常有「不得用于自动化处理」「不得传输至第三方」这类条款，这一条最容易被忽略。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1544,7 +1544,7 @@
           "textZh": "等等看有没有人发现。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**规则变了，旧流程也要跟着变**。「当时是合规的」不构成继续运行的理由。正确的应对是三件事一起做：**停、报、提方案**——特别是「报」，因为期间已经产出的东西可能也需要处理。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1582,7 +1582,7 @@
           "textZh": "推测哪些客户可能流失，并降低对他们的优先级。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**起草 vs 决定**。安全的用法把模型放在**人的判断之前**（起草），风险的用法把它放在**人的判断之后或之外**（自动关单、自动退款、自动降级）。后三项都是模型的输出直接落到客户身上。",
       "reference": "https://claude.com/product/overview",
       "reviewedAt": "2026-09-24"
@@ -1626,7 +1626,7 @@
           "textZh": "隐藏判断标准，防止被人钻空子。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**公平性怎么落地**。两个可操作的动作：**分组看结果**（整体准确率90%可能掩盖某个群体只有60%）和**保留申诉通道**。最后一个干扰项是常见的误区——不透明确实能防钻空子，但同时也让不公平无法被发现和纠正。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1664,7 +1664,7 @@
           "textZh": "这些文件可能是过时的格式。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**知识库的权限会慢慢失控**。一年下来，谁加了什么、这些内容该给谁看，逐渐没人说得清。而能使用这个 Project 的人 = 能看到全部内容的人。所以知识库需要**定期盘点**，和文件柜一样。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/files",
       "reviewedAt": "2026-09-24"
@@ -1702,7 +1702,7 @@
           "textZh": "如果事实很简单，就不需要任何人核实。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**谁来核实取决于谁负责**。对监管机构的答复是**公司的正式表态**，所以核实的人必须是那个要为这个表态负责的人——不是最懂内容的人，也不是最有空的人。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1746,7 +1746,7 @@
           "textZh": "这项任务以前是由外包人员做的。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**风险的两个维度**。一是**有没有人在中间**（无人复核 = 错误直达当事人），二是**能不能撤回**。频率会放大影响，但它本身不改变单次事件的严重程度——两个高风险特征都指向「出错时会怎样」。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1784,7 +1784,7 @@
           "textZh": "拒绝，然后不做任何其他事。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**被要求违反方针时**。正确的回应有三段：**拒绝绕过 + 给出能解决对方困境的替代方案 + 对方坚持就上报**。只拒绝不给方案，会让人觉得你在妨碍工作；只记录不拒绝，则是把违规做完了再留个自保的痕迹。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1822,7 +1822,7 @@
           "textZh": "机器执行的规则在法律上性质不同。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**同等对待 ≠ 公平结果**。一条「必须有三年连续工作经历」的规则对所有人一样，但对有育儿中断的人影响完全不同。这就是为什么公平性要**看结果的分布**，而不是看规则的措辞。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1860,7 +1860,7 @@
           "textZh": "那位同事在公司待的时间是否够长。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**跨境传输是独立的一道关**。在本国可以合法使用的数据，未必可以传到另一个国家——这取决于两地的规定和公司的传输机制。「我每天都在用」不构成可以送出去的理由。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -1898,7 +1898,7 @@
           "textZh": "它需要几周时间来搭建。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**一个很实用的自检问题**：「如果当事人完全知道我们在做什么，我们会不会不好意思？」这个问题不能代替方针和法律，但它非常可靠地识别出那些技术上没问题、却经不起公开的用途。",
       "reference": "https://claude.com/product/overview",
       "reviewedAt": "2026-09-24"
@@ -1942,7 +1942,7 @@
           "textZh": "只宣布批准，不给进一步的指引。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**批准工具的同时要给边界**。光说「这个工具可以用了」，实际上等于把「什么信息能放进去」的判断留给了每个人自己。两件必须配套的事：**信息的边界**和**遇到疑问问谁**。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -1980,7 +1980,7 @@
           "textZh": "担当是否有时间读原文。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**摘要会变成「事实」**。一旦进入案卷，日后引用的就是摘要而不是原话。如果客户说的和摘要写的有出入，那个出入会被当作事实固定下来。所以关键问题是**这份文档将来扮演什么角色**。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -2018,7 +2018,7 @@
           "textZh": "每次都换一个不同的人。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**「有人参与」和「有实质监督」的区别**。三个条件缺一不可：**时间**（不是一天两百份）、**信息**（看得到判断依据）、**权限**（能推翻结果）。只有签字权而没有推翻权，那是背书，不是监督。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -2062,7 +2062,7 @@
           "textZh": "这份文档是用外语写的。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**真正的禁止理由**。都来自**外部约束**：合同义务和密级。个人偏好、长度、语言都不是。这道题的价值在于把「我觉得不太好」和「规定不允许」分开——只有后者是拒绝的依据。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -2100,7 +2100,7 @@
           "textZh": "报告的文风会不一致。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**过滤器的漏报无人知晓**。这是所有「只转发重要的」类设计的共同缺陷：**被过滤掉的东西没有人看见**，所以错误也不会被发现。在安全、合规、投诉这类领域，通常的做法是全部保留、只做优先级排序。",
       "reference": "https://claude.com/product/overview",
       "reviewedAt": "2026-09-24"
@@ -2138,7 +2138,7 @@
           "textZh": "假定方针已经过时，无视它。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**发现落差要上报**。方针和实践长期不一致，最危险的结果是**方针变成一纸空文**——真出事的时候，公司既没有实际的防护，也无法证明自己尽到了责任。改哪一边不是你决定的，但让它被看见是你的责任。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -2182,7 +2182,7 @@
           "textZh": "模型最近升级了。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**什么时候可以放松检查**。两个条件：**有数据支撑**（不是感觉上还行）和**有后备网**（漏了还有人能拦）。最后一个干扰项要特别注意——模型升级不是放松的理由，反而是**重新验证**的时机。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -2220,7 +2220,7 @@
           "textZh": "立刻关停这道流程。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**用途蔓延**。流程被挪作他用是常见现象，问题在于**原有的检查是按原用途设计的**——新用途下它可能完全拦不住该拦的东西。正确的动作是让相关的人知道，而不是自己偷偷补丁或直接关停。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -2258,7 +2258,7 @@
           "textZh": "只要一天之内删掉就是安全的。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**判断必须发生在粘贴之前**。三个干扰项的共同点是把希望寄托在事后的补救（删除、不分享、时间短）。实际有效的只有一条：**在按下粘贴之前就决定这份信息该不该出去**。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -2302,7 +2302,7 @@
           "textZh": "它会在工作时间运行。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**需要正式审查的两个触发条件**：**涉及可识别的个人**，或**影响某个人的处遇**。这两条覆盖了绝大多数高风险场景。技术上的新颖性和数据量都不是触发条件。",
       "reference": "https://claude.com/product/overview",
       "reviewedAt": "2026-09-24"
@@ -2340,7 +2340,7 @@
           "textZh": "让每个部门按自己认为合适的方式继续。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**解释分歧也是治理问题**。一条方针如果能被合理地读出两种意思，那它就没有在发挥统一约束的作用。自己选一种（无论宽严）都不解决问题——**需要有权解释的人来定**。",
       "reference": "https://www.anthropic.com/legal/commercial-terms",
       "reviewedAt": "2026-09-24"
@@ -2378,7 +2378,7 @@
           "textZh": "AI 总体上是准确的。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**当事人真正需要的信息**。技术细节和效率数据对他毫无意义。他需要的是两件事：**为什么是这个结果**，和**如果我不同意该找谁**。这两点构成了自动化决策里最基本的权利保障。",
       "reference": "https://www.anthropic.com/legal/aup",
       "reviewedAt": "2026-09-24"
@@ -2416,7 +2416,7 @@
           "textZh": "只有当数据集少于100行时才安全。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**去掉姓名不等于无法识别**。职位、地点、日期这些字段组合起来，仍然可能把人指出来。要看剩下的字段能不能定位到个人。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2454,7 +2454,7 @@
           "textZh": "问同事他们会怎么做。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**政策没写不等于允许**。要向能够解释政策的人确认，并且把过程记下来，这样判断才有依据、也能被复查。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2492,7 +2492,7 @@
           "textZh": "为读者比较两份供应商提案。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**准确性不是唯一的判断标准**。有些决定按规定必须由人负责，把判断本身交出去，准确与否都不改变它的不当。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2530,7 +2530,7 @@
           "textZh": "格式是否统一。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**影响他人机会的判断要能被解释和复查**。说不清为什么某人被排除，就无法回应质疑，也无法发现偏差。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2568,7 +2568,7 @@
           "textZh": "它是多久之前创建的。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**看信息属于谁、以及谁会因此看到它**。来源方是否同意这种用途，和共享范围内有谁，这两条一起决定能不能放。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2606,7 +2606,7 @@
           "textZh": "等政策重写之后再行动。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**看政策要保护的是什么**。逐字照搬会漏掉新情况，完全不管又失去了保护。要按它的目的来判断新做法是否落在里面。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2644,7 +2644,7 @@
           "textZh": "如果客户知道了就会拒绝付款。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**客户买的是判断，而判断的来源影响他的信任**。隐瞒并不影响成果的质量，但剥夺了客户据实评估的机会。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2682,7 +2682,7 @@
           "textZh": "目前没有人理解这个任务是怎么运作的。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**试点要选错了看得出来、且影响可控的场景**。这样试的过程本身是安全的，也能学到东西。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2720,7 +2720,7 @@
           "textZh": "有没有同事回复过类似的投诉。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**投诉里带着客户本人的信息**。起草回复本身没问题，但粘贴原文意味着把第三方的个人信息送了进去，要先确认这样做被允许。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2758,7 +2758,7 @@
           "textZh": "在政策重写之前先不理它。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**不要自行例外，也不要明知有害地照做**。把这个冲突报上去，由有权改的人决定，这才是治理该有的样子。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2796,7 +2796,7 @@
           "textZh": "这项变更是否公开宣布过。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**受影响的人应当知情并有话语权**。被取代的部分往往正是他最了解的，不告知就改，既不公平也会丢掉他掌握的知识。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2834,7 +2834,7 @@
           "textZh": "告知申请人筛选是自动进行的。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**拒绝是对外生效的决定**。可以用来分类和排序，但真正拒掉之前应当有人确认，否则错判无人知晓也无从申诉。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2872,7 +2872,7 @@
           "textZh": "公开一份工作内容的摘要。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**工作结束不等于义务结束**。留在各处的副本要清掉，谁看过要有记录，这两条在项目完成后依然成立。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2910,7 +2910,7 @@
           "textZh": "建造这个流程的人。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**解释政策的权限在指定的人手里**。使用者自己判断会因人而异，团队投票也不具备权威。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2948,7 +2948,7 @@
           "textZh": "历史数据完全不能使用。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**沿袭过去等于把过去的偏差变成规则**。过往的决定里可能有不该延续的部分，原样再现会让它更难被发现和纠正。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2986,7 +2986,7 @@
           "textZh": "这个任务由多个团队执行。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**没有人能判断对错、后果又不可逆**，这是最清楚的禁区。其他因素都可以通过设计来缓解。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3024,7 +3024,7 @@
           "textZh": "机构已采购的工具清单。"
         }
       ],
-      "objective": "Follow organizational AI policies and governance standards",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**能用的政策要给出判断的方法和求助的路径**。只写原则，员工遇到具体场景仍然不知道该怎么办。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3062,7 +3062,7 @@
           "textZh": "要求 Claude 忽略受限字段。"
         }
       ],
-      "objective": "Apply data sensitivity, regulatory, and privacy considerations",
+      "objective": "Data Protection in Practice",
       "commentaryZh": "考点是**先解决权限，再谈工具**。把数据送进工具并不会绕开授权问题，反而扩大了接触面。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3100,7 +3100,7 @@
           "textZh": "这条建议应该被公开。"
         }
       ],
-      "objective": "Understand the ethical implications of AI usage",
+      "objective": "Policy, Ethics, and Diligence",
       "commentaryZh": "考点是**无法解释就无法追责，也无法申诉**。受影响的人问起来，组织没有可以给出的理由，这是治理上的缺口。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3138,10 +3138,276 @@
           "textZh": "为自己参考而记的笔记。"
         }
       ],
-      "objective": "Identify appropriate and inappropriate use cases",
+      "objective": "Use-Case Appropriateness",
       "commentaryZh": "考点是**当对方会据此判断可信度或据此行动时，来源就重要**。纯内部的草稿整理不涉及对外的信任关系。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "n6-001",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "A manager lists three proposed uses: (1) drafting internal FAQ answers, (2) screening job applicants and rejecting them automatically, (3) summarizing customer feedback for a product team. How should they be classified?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "(1) appropriate; (3) appropriate with safeguards such as removing personal data and checking themes; (2) inappropriate as described, because it makes consequential decisions about people without human review.",
+          "correct": true,
+          "explain": "正解。v1.1 の三分類（適切／条件付きで適切／不適切）の典型。",
+          "textZh": "(1) 合适；(3) 在采取保护措施（如删除个人信息、核对归纳的主题）后合适；(2) 按所述方式不合适，因为它在没有人审核的情况下对人做出重大决定。"
+        },
+        {
+          "text": "All three are appropriate because Claude is accurate.",
+          "correct": false,
+          "explain": "不適。影響の大きい判断を自動化するのは精度の問題ではない。",
+          "textZh": "三个都合适，因为 Claude 很准确。"
+        },
+        {
+          "text": "All three are inappropriate because they involve company data.",
+          "correct": false,
+          "explain": "不適。過度に禁止的で、適切な用途まで失う。",
+          "textZh": "三个都不合适，因为都涉及公司数据。"
+        },
+        {
+          "text": "(2) is fine if the rejection emails are polite.",
+          "correct": false,
+          "explain": "不適。論点は人の審査がないこと。",
+          "textZh": "只要拒绝邮件写得礼貌，(2) 就没问题。"
+        }
+      ],
+      "objective": "Use-Case Appropriateness",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "经理列出三个使用设想：(1) 起草内部 FAQ 回答；(2) 筛选求职者并自动拒绝；(3) 为产品团队总结客户反馈。应该怎样分类？",
+      "commentaryZh": "6.1 要把用途分为三类：直接合适、加保护措施后合适、不合适。对人做出重大决定（招聘、信贷等）且没有人工审核，属于不合适；涉及个人信息的分析，在去标识化和人工核对后可以做。"
+    },
+    {
+      "id": "n6-002",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An employee finds a free third-party Skill online that promises to automate expense reports and wants to upload it for the whole team. What should happen FIRST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Check where it comes from and what its instructions and scripts do, and follow the organization's approval process before using it with company data.",
+          "correct": true,
+          "explain": "正解。サードパーティの Skill やコネクタは信頼性を確認してから使う。",
+          "textZh": "确认它的来源、说明和脚本实际做什么，并在用于公司数据之前走组织的审批流程。"
+        },
+        {
+          "text": "Upload it immediately; Skills are always safe.",
+          "correct": false,
+          "explain": "不適。スクリプトを含むことがあり、検証が必要。",
+          "textZh": "马上上传；Skill 总是安全的。"
+        },
+        {
+          "text": "Use it only on Fridays.",
+          "correct": false,
+          "explain": "不適。曜日はリスク管理と無関係。",
+          "textZh": "只在周五使用。"
+        },
+        {
+          "text": "Ask Claude whether the Skill is trustworthy and rely on its answer.",
+          "correct": false,
+          "explain": "不適。出所の確認や組織の承認の代わりにならない。",
+          "textZh": "问 Claude 这个 Skill 是否可信，并以它的回答为准。"
+        }
+      ],
+      "objective": "Use-Case Appropriateness",
+      "reference": "https://support.claude.com/en/articles/12512176-what-are-skills",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "员工在网上找到一个免费的第三方 Skill，号称能自动做报销单，想上传给整个团队用。首先应该做什么？",
+      "commentaryZh": "Skill 可以包含可执行脚本，第三方连接器也能访问数据。v1.1 要求在使用前评估第三方 Skill / 连接器的可信度：来源、内容、权限，并遵守组织的审批规则。Enterprise 还可以启用 Skill 扫描。"
+    },
+    {
+      "id": "n6-003",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "An HR analyst wants Claude's code execution to analyze an export containing employee names, salaries, and ID numbers to find pay gaps by department. What is the BEST approach?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Remove or replace names and ID numbers first, keeping only the fields needed (department, role, salary), and confirm the use is allowed by policy.",
+          "correct": true,
+          "explain": "正解。サンプル問題3の論点。分析に不要な個人情報は先に取り除く。",
+          "textZh": "先删除或替换姓名和身份证号，只保留需要的字段（部门、职位、薪资），并确认政策允许这种用途。"
+        },
+        {
+          "text": "Use an incognito chat so the data is protected.",
+          "correct": false,
+          "explain": "不適。インコグニートは履歴・メモリに残さないだけで、開示の管理ではない。",
+          "textZh": "用无痕对话，这样数据就受保护了。"
+        },
+        {
+          "text": "Upload the full export; code execution runs in a sandbox.",
+          "correct": false,
+          "explain": "不適。サンドボックスでも不要なデータを渡すことに変わりはない。",
+          "textZh": "上传完整导出文件；代码执行在沙箱里运行。"
+        },
+        {
+          "text": "Ask Claude to ignore the ID numbers.",
+          "correct": false,
+          "explain": "不適。入力した時点で開示している。",
+          "textZh": "让 Claude 忽略身份证号。"
+        }
+      ],
+      "objective": "Data Protection in Practice",
+      "reference": "https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "人事分析员想用 Claude 的代码执行功能分析一份包含员工姓名、薪资和身份证号的导出文件，按部门找出薪资差距。最好的做法是什么？",
+      "commentaryZh": "v1.1 样题 3：先去标识化再分析。只提供完成任务所需的最少数据。无痕对话只是不保存历史和记忆（Team/Enterprise 中仍受保留和导出规则约束），不能代替「不该给的数据不给」。"
+    },
+    {
+      "id": "n6-004",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "Which statement about memory and sensitive data is correct?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Users can review and delete what Claude remembers, but the safest practice is still not to share sensitive data that the task does not need.",
+          "correct": true,
+          "explain": "正解。事後に消せても、最初に共有しないのが基本。",
+          "textZh": "用户可以查看和删除 Claude 记住的内容，但最稳妥的做法仍然是不提供任务不需要的敏感数据。"
+        },
+        {
+          "text": "Anything typed into Claude is automatically deleted at the end of the chat.",
+          "correct": false,
+          "explain": "不適。通常の会話は履歴に残る。",
+          "textZh": "输入给 Claude 的任何内容在对话结束时都会自动删除。"
+        },
+        {
+          "text": "Memory makes it safe to paste passwords for later reuse.",
+          "correct": false,
+          "explain": "不適。認証情報は共有すべきでない。",
+          "textZh": "有了记忆，就可以放心粘贴密码以便以后再用。"
+        },
+        {
+          "text": "Turning memory off deletes the organization's data retention.",
+          "correct": false,
+          "explain": "不適。組織の保持ポリシーとは別。",
+          "textZh": "关闭记忆就会取消组织的数据保留。"
+        }
+      ],
+      "objective": "Data Protection in Practice",
+      "reference": "https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "关于记忆和敏感数据，下面哪项说法正确？",
+      "commentaryZh": "记忆可以查看、编辑、删除，但这是事后控制。数据保护的第一原则是最小化：任务不需要的个人信息、密码、机密，一开始就不要输入。"
+    },
+    {
+      "id": "n6-005",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "Several employees have pasted customer data into personal AI accounts. The company has no written rule about it, and staff say they did not know it was a problem. What kind of gap is this, and what is the BEST response?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A policy gap (no rule) combined with a training gap; write a clear policy on approved tools and data, then train staff on it.",
+          "correct": true,
+          "explain": "正解。v1.1 は「ポリシーの欠落」と「研修の欠落」を区別し、両方に対処することを求める。",
+          "textZh": "既是政策缺口（没有规定），也是培训缺口；制定关于可用工具和数据的明确政策，再对员工进行培训。"
+        },
+        {
+          "text": "Only a training gap; punish the employees.",
+          "correct": false,
+          "explain": "不適。ルール自体がないので、まず方針が必要。",
+          "textZh": "只是培训缺口；处罚员工。"
+        },
+        {
+          "text": "No gap; personal accounts are fine.",
+          "correct": false,
+          "explain": "不適。顧客データの管理外流出。",
+          "textZh": "没有缺口；用个人账号没关系。"
+        },
+        {
+          "text": "Ban all AI tools permanently.",
+          "correct": false,
+          "explain": "不適。過剰で、代わりの承認ツールを示していない。",
+          "textZh": "永久禁止所有 AI 工具。"
+        }
+      ],
+      "objective": "Policy, Ethics, and Diligence",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "几名员工把客户数据粘贴进了个人 AI 账号。公司没有相关书面规定，员工也说不知道这样有问题。这属于哪类缺口？最好的应对是什么？",
+      "commentaryZh": "6.3 要区分：没有规则是「政策缺口」，有规则但员工不知道或不会用是「培训缺口」。这里两者都有，先写清楚允许什么工具、什么数据，再培训。"
+    },
+    {
+      "id": "n6-006",
+      "domain": "D6",
+      "type": "scenario",
+      "stem": "Which is an example of a Diligence lapse under the 4D framework?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Sending a Claude-drafted report to a client without checking its figures or disclosing AI assistance where policy requires it.",
+          "correct": true,
+          "explain": "正解。Diligence は成果物への責任・検証・透明性。",
+          "textZh": "未核对数字、也没有按政策要求说明使用了 AI，就把 Claude 起草的报告发给客户。"
+        },
+        {
+          "text": "Choosing a faster model for a simple task.",
+          "correct": false,
+          "explain": "不適。タスクに合った適切なモデル選択。",
+          "textZh": "简单任务选择了更快的模型。"
+        },
+        {
+          "text": "Writing a clear prompt with examples.",
+          "correct": false,
+          "explain": "不適。Description の良い実践。",
+          "textZh": "写了带示例的清晰提示。"
+        },
+        {
+          "text": "Deciding not to delegate a sensitive decision.",
+          "correct": false,
+          "explain": "不適。Delegation の良い判断。",
+          "textZh": "决定不把敏感决定交给 AI。"
+        }
+      ],
+      "objective": "Policy, Ethics, and Diligence",
+      "reference": "https://docs.claude.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "下面哪项属于 4D 框架中「尽责（Diligence）」的缺失？",
+      "commentaryZh": "4D 是 Delegation（委托）、Description（描述）、Discernment（辨别）、Diligence（尽责）。Diligence 指对用 AI 做出的成果负责：核实内容、遵守政策、必要时说明使用了 AI。"
+    },
+    {
+      "id": "n6-007",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "Which TWO actions reflect Diligence when using Claude for work?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Taking responsibility for the final output, including verifying facts before it is shared.",
+          "correct": true,
+          "explain": "正解。最終責任は人にある。",
+          "textZh": "对最终产出负责，包括在分享前核实事实。"
+        },
+        {
+          "text": "Being transparent about AI assistance when the organization or audience expects it.",
+          "correct": true,
+          "explain": "正解。透明性も Diligence の一部。",
+          "textZh": "在组织或读者有此期待时，坦诚说明使用了 AI。"
+        },
+        {
+          "text": "Blaming Claude for errors in a published report.",
+          "correct": false,
+          "explain": "不適。責任を AI に転嫁している。",
+          "textZh": "把已发布报告里的错误归咎于 Claude。"
+        },
+        {
+          "text": "Hiding AI use to make the work look more original.",
+          "correct": false,
+          "explain": "不適。AI 利用の透明性に反する。",
+          "textZh": "隐瞒 AI 的使用，让作品看起来更原创。"
+        }
+      ],
+      "objective": "Policy, Ethics, and Diligence",
+      "reference": "https://www.anthropic.com/legal/aup",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "在工作中使用 Claude 时，哪两项体现了「尽责（Diligence）」？",
+      "commentaryZh": "尽责的核心是「人对结果负责」：发布前核实、遵守规则、在需要时公开 AI 的参与。出了错不能推给工具。"
     }
   ]
 }

@@ -24,10 +24,10 @@ export const CERTS = [
     backupFilePrefix: "ccaof-backup",
     color: "#C8743D",
     status: "ready",
-    audience: "Claude を業務で使う人向け（プロンプト・出力の評価・製品の選び方・ガバナンス）",
+    audience: "Claude を業務で使う人向け（プロンプト・出力の評価・機能とモデルの選び方・ワークフロー・設定・ガバナンス）",
     title: "CCAO-F 対策",
     eyebrow: "CCAO-F — CLAUDE CERTIFIED ASSOCIATE (FOUNDATIONS)",
-    lead: "公式 Exam Guide v1.0（2026年7月発効）の7ドメインに沿った練習問題です。問題文はすべてオリジナルで、公式の試験問題は使っていません。",
+    lead: "公式 Exam Guide v1.1（2026年12月7日発効）の6ドメイン・21 skill に沿った練習問題です。模擬試験は本番と同じ 70 問・120 分。問題文はすべてオリジナルで、公式の試験問題・サンプル問題は使っていません。",
     officialDesc:
       "受験料 ${fee}、Pearson VUE のオンライン監督またはテストセンターで受験します。申し込みは Anthropic Partner Academy から。問題はすべてオリジナルで、公式の試験問題（機密扱い）は一切含みません。",
     links: [

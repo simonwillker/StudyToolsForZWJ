@@ -13,12 +13,20 @@
 import { CERTS, findCert } from "./certs";
 
 let active = CERTS[0];
+/* ブループリント改訂でドメインが変わった問題（meta.json の movedItems）。
+   学習記録の移しかえに使う。domains.js の activateCert が渡す */
+let movedItems = null;
 
-export function setActiveCertState(id) {
+export function setActiveCertState(id, moved = null) {
   const c = findCert(id);
   if (!c || c.status !== "ready") throw new Error(`unknown cert: ${id}`);
   active = c;
+  movedItems = moved;
   return c;
+}
+
+export function activeMovedItems() {
+  return movedItems;
 }
 
 export function activeCert() {
