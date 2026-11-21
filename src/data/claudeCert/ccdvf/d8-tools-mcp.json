@@ -34,7 +34,7 @@
           "textZh": "role、content 和 stop_reason。"
         }
       ],
-      "objective": "Tool Implementation",
+      "objective": "Tool Design and Response Shaping",
       "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude API 中客户端工具的定义由哪三部分组成？",
@@ -73,7 +73,7 @@
           "textZh": "让用户换种方式输入日期。"
         }
       ],
-      "objective": "Tool Implementation",
+      "objective": "Tool Design and Response Shaping",
       "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude 经常用错误的日期格式调用 search_orders 工具。最好的修正方法是什么？",
@@ -112,7 +112,7 @@
           "textZh": "没有区别。"
         }
       ],
-      "objective": "Tool Implementation",
+      "objective": "Tool Design and Response Shaping",
       "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude API 中客户端工具和服务器工具有什么区别？",
@@ -151,7 +151,7 @@
           "textZh": "在生产环境中完全移除退款工具。"
         }
       ],
-      "objective": "Tool Implementation",
+      "objective": "Tool Design and Response Shaping",
       "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个智能体可以通过工具办理退款。超过一定金额的退款需要人工批准。应如何实现？",
@@ -190,7 +190,7 @@
           "textZh": "以不带 id 的纯文本返回结果。"
         }
       ],
-      "objective": "Tool Implementation",
+      "objective": "Tool Design and Response Shaping",
       "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude 在一次响应中返回了两个 tool_use 块（并行工具调用）。应用应如何回应？",
@@ -229,7 +229,7 @@
           "textZh": "流式输出。"
         }
       ],
-      "objective": "Tool Implementation",
+      "objective": "Tool Design and Response Shaping",
       "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools",
       "reviewedAt": "2026-10-24",
       "stemZh": "开发者希望 Claude 总是调用某个特定的抽取工具，而不是用文字回答。哪个设置有帮助？",
@@ -268,7 +268,7 @@
           "textZh": "只返回内部堆栈跟踪和原始 ID。"
         }
       ],
-      "objective": "Tool Implementation",
+      "objective": "Tool Design and Response Shaping",
       "reference": "https://www.anthropic.com/engineering/writing-tools-for-agents",
       "reviewedAt": "2026-10-24",
       "stemZh": "哪两项做法能让 Claude 更容易正确使用一组工具？",
@@ -307,7 +307,7 @@
           "textZh": "没有人；该调用会被忽略。"
         }
       ],
-      "objective": "Tool Implementation",
+      "objective": "Tool Design and Response Shaping",
       "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
       "reviewedAt": "2026-10-24",
       "stemZh": "在智能体运行框架中，由谁实际执行 Claude 请求的客户端工具调用？",
@@ -346,7 +346,7 @@
           "textZh": "图片、音频和视频。"
         }
       ],
-      "objective": "MCP Server Development",
+      "objective": "MCP Server Development and Integration",
       "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
       "reviewedAt": "2026-10-24",
       "stemZh": "MCP 服务器可以提供的三种核心原语是什么？",
@@ -385,7 +385,7 @@
           "textZh": "蓝牙。"
         }
       ],
-      "objective": "MCP Server Development",
+      "objective": "MCP Server Development and Integration",
       "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
       "reviewedAt": "2026-10-24",
       "stemZh": "开发者构建了一个 MCP 服务器，它将作为本地进程由同一台机器上的 Claude Code 启动。通常使用哪种传输方式？",
@@ -424,7 +424,7 @@
           "textZh": "MCP 服务器无法共享。"
         }
       ],
-      "objective": "MCP Server Development",
+      "objective": "MCP Server Development and Integration",
       "reference": "https://code.claude.com/docs/en/mcp",
       "reviewedAt": "2026-10-24",
       "stemZh": "团队希望每位开发者的 Claude Code 都连接到同一个项目 MCP 服务器。服务器配置应存放在哪里？",
@@ -463,7 +463,7 @@
           "textZh": "最终用户的浏览器 Cookie。"
         }
       ],
-      "objective": "MCP Server Development",
+      "objective": "MCP Server Development and Integration",
       "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
       "reviewedAt": "2026-10-24",
       "stemZh": "在 MCP 术语中，哪个组件连接到服务器并把其能力传递给模型？",
@@ -502,7 +502,7 @@
           "textZh": "不加检查地接受互联网上任何人的请求。"
         }
       ],
-      "objective": "MCP Server Development",
+      "objective": "MCP Server Development and Integration",
       "reference": "https://platform.claude.com/docs/en/agents-and-tools/mcp-connector",
       "reviewedAt": "2026-10-24",
       "stemZh": "部署一个被多个 Claude 应用使用的远程 MCP 服务器时，哪两项是好的做法？",
@@ -541,7 +541,7 @@
           "textZh": "任何工具使用都必须用 MCP。"
         }
       ],
-      "objective": "MCP Server Development",
+      "objective": "MCP Server Development and Integration",
       "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
       "reviewedAt": "2026-10-24",
       "stemZh": "为什么团队可能会构建 MCP 服务器，而不是直接在某个应用的 API 调用中定义同样的工具？",
@@ -580,7 +580,7 @@
           "textZh": "一个内置工具。"
         }
       ],
-      "objective": "Agentic Customization",
+      "objective": "Capability Mechanism Selection",
       "reference": "https://code.claude.com/docs/en/skills",
       "reviewedAt": "2026-10-24",
       "stemZh": "团队有一份详细的公司写作规范和一个格式化报告的脚本。Claude 只应在写报告时使用它们。哪种定制方式最合适？",
@@ -619,7 +619,7 @@
           "textZh": "内置工具，因为内置工具可以访问任何内部系统。"
         }
       ],
-      "objective": "Agentic Customization",
+      "objective": "Capability Mechanism Selection",
       "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude 需要从 Claude Code、Claude Desktop 和一个自建智能体实时访问公司的工单系统。哪个选项最合适？",
@@ -658,7 +658,7 @@
           "textZh": "让 Claude 记住当前汇率。"
         }
       ],
-      "objective": "Agentic Customization",
+      "objective": "Capability Mechanism Selection",
       "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个小应用只需要一个简单的函数“get_exchange_rate”，它调用内部服务，且只被这个应用使用。哪个选项最简单？",
@@ -697,7 +697,7 @@
           "textZh": "一个包含去年新闻的 Skill。"
         }
       ],
-      "objective": "Agentic Customization",
+      "objective": "Capability Mechanism Selection",
       "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude 需要来自公开网络的最新信息。哪个选项需要的自定义代码最少？",
@@ -736,50 +736,167 @@
           "textZh": "MCP 服务器不能提供工具。"
         }
       ],
-      "objective": "Agentic Customization",
+      "objective": "Capability Mechanism Selection",
       "reference": "https://code.claude.com/docs/en/skills",
       "reviewedAt": "2026-10-24",
       "stemZh": "哪两项正确描述了 Skills 和 MCP 服务器之间的取舍？",
       "commentaryZh": "Skills 回答“怎么做”（流程、知识、脚本，按需加载）；MCP 回答“连到哪里”（外部系统、数据、操作）。两者经常一起使用。"
     },
     {
-      "id": "dv8-020",
+      "id": "ndv8-001",
       "domain": "D8",
       "type": "mcq",
       "difficulty": 2,
-      "stem": "A team wants a specialized security reviewer that runs with its own instructions and only read-only tools in Claude Code. Which customization fits best?",
+      "stem": "An order-support agent has get_order_status with one required string parameter, order_id. The model often passes the customer's name, gets an error, and tells the customer the order cannot be found. The description reads \"Looks up an order.\" What is the BEST fix?",
       "selectCount": 1,
       "choices": [
         {
-          "text": "A custom subagent.",
+          "text": "Rewrite the description to say order_id is the alphanumeric order identifier (with an example), not a name, and to ask the customer for it if missing; return a structured error naming the expected format.",
           "correct": true,
-          "explain": "正解。独自のプロンプト・ツール制限・独立した文脈を持つ専門役にはサブエージェント。",
-          "textZh": "一个自定义子智能体。"
+          "explain": "正解。呼び出しを決めるのは説明とスキーマ。構造化エラーで回復もできる。",
+          "textZh": "改写描述：说明 order_id 是字母数字组成的订单号（附示例），不是姓名，缺少时向客户询问；并返回说明期望格式的结构化错误。"
+        },
+        {
+          "text": "Add a general rule to the system prompt.",
+          "correct": false,
+          "explain": "不適。ツール説明を直すより効果が弱い。",
+          "textZh": "在系统提示里加一条通用规则。"
+        },
+        {
+          "text": "Force tool use on every turn.",
+          "correct": false,
+          "explain": "不適。渡す引数は変わらない。",
+          "textZh": "每一轮都强制使用工具。"
+        },
+        {
+          "text": "Add a tool that looks up orders by customer name.",
+          "correct": false,
+          "explain": "不適。同名で別人の注文を返す危険がある。",
+          "textZh": "加一个按客户姓名查订单的工具。"
+        }
+      ],
+      "objective": "Tool Design and Response Shaping",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个订单客服代理有工具 get_order_status，只有一个必填字符串参数 order_id。模型经常传入客户姓名，收到错误后告诉客户找不到订单。工具描述是「Looks up an order.」最好的修复是什么？",
+      "commentaryZh": "对应 v1.1 样题 3。工具的描述和 schema 决定模型怎么调用它，所以修复应放在那里：说明参数含义、给示例、写明缺少时怎么做；错误信息要结构化、可操作，让模型能自我纠正。"
+    },
+    {
+      "id": "ndv8-002",
+      "domain": "D8",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A tool that sends money to vendors is called by an agent. Which design BEST balances autonomy and safety?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Execute the tool on the application side and require explicit human approval before each payment.",
+          "correct": true,
+          "explain": "正解。影響が大きい操作は承認パターンを入れる。",
+          "textZh": "在应用侧执行该工具，每次付款前需要人明确批准。"
+        },
+        {
+          "text": "Let the model call it freely to save time.",
+          "correct": false,
+          "explain": "不適。誤りや攻撃で損害が出る。",
+          "textZh": "让模型随意调用以节省时间。"
+        },
+        {
+          "text": "Hide the tool's description.",
+          "correct": false,
+          "explain": "不適。説明がないと誤用が増える。",
+          "textZh": "隐藏工具的描述。"
+        },
+        {
+          "text": "Return the full bank database in each response.",
+          "correct": false,
+          "explain": "不適。応答は最小限にする。",
+          "textZh": "每次响应都返回完整的银行数据库。"
+        }
+      ],
+      "objective": "Tool Design and Response Shaping",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "代理会调用一个向供应商付款的工具。哪种设计最能兼顾自主性和安全？",
+      "commentaryZh": "8.1 包括选择执行侧和审批模式：高风险、不可逆的操作在应用侧执行，并加人工批准；工具返回最少且可操作的信息。"
+    },
+    {
+      "id": "ndv8-003",
+      "domain": "D8",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "A team builds an MCP server that several remote clients will connect to over the network, with per-user access to company data. Which TWO choices fit BEST?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Use the HTTP-based transport rather than stdio.",
+          "correct": true,
+          "explain": "正解。リモート接続には HTTP 系のトランスポート。",
+          "textZh": "使用基于 HTTP 的传输方式，而不是 stdio。"
+        },
+        {
+          "text": "Require authentication (e.g. OAuth) so each user's access is scoped.",
+          "correct": true,
+          "explain": "正解。ユーザーごとの権限には認証が必要。",
+          "textZh": "要求认证（例如 OAuth），让每个用户的访问范围受限。"
+        },
+        {
+          "text": "Use stdio so it works across the internet.",
+          "correct": false,
+          "explain": "不適。stdio はローカルのプロセス間通信。",
+          "textZh": "用 stdio，这样就能跨互联网工作。"
+        },
+        {
+          "text": "Skip authentication because the data is internal.",
+          "correct": false,
+          "explain": "不適。社内データこそ権限管理が必要。",
+          "textZh": "因为是内部数据，所以省略认证。"
+        }
+      ],
+      "objective": "MCP Server Development and Integration",
+      "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队要构建一个 MCP 服务器，多个远程客户端通过网络连接，并按用户访问公司数据。哪两项选择最合适？",
+      "commentaryZh": "MCP 的 stdio 传输用于本机进程；远程、多客户端的服务器用 HTTP 传输，并配合认证（如 OAuth）控制每个用户的访问。服务器可以提供 tools、resources 和 prompts 三种能力。"
+    },
+    {
+      "id": "ndv8-004",
+      "domain": "D8",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A capability must be shared by Claude Code, Claude Desktop, and a custom agent, maintained by the platform team, and reach a live internal system. Which mechanism fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An MCP server.",
+          "correct": true,
+          "explain": "正解。複数のクライアントから使え、外部システムに接続し、一か所で保守できる。",
+          "textZh": "一个 MCP 服务器。"
+        },
+        {
+          "text": "A custom tool defined separately in each app.",
+          "correct": false,
+          "explain": "不適。重複して保守がばらばらになる。",
+          "textZh": "在每个应用里分别定义自定义工具。"
+        },
+        {
+          "text": "A Skill with written instructions only.",
+          "correct": false,
+          "explain": "不適。手順の知識で、ライブシステムへの接続ではない。",
+          "textZh": "只有文字说明的 Skill。"
         },
         {
           "text": "A built-in tool.",
           "correct": false,
-          "explain": "不適。組み込みツールでは独自の指示や専用の役割を設定できない。",
-          "textZh": "一个内置工具。"
-        },
-        {
-          "text": "An MCP server.",
-          "correct": false,
-          "explain": "不適。外部システム連携ではない。",
-          "textZh": "一个 MCP 服务器。"
-        },
-        {
-          "text": "A longer user prompt each time.",
-          "correct": false,
-          "explain": "不適。再現性と制限がない。",
-          "textZh": "每次写更长的用户提示词。"
+          "explain": "不適。社内システムには対応しない。",
+          "textZh": "内置工具。"
         }
       ],
-      "objective": "Agentic Customization",
-      "reference": "https://code.claude.com/docs/en/sub-agents",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "团队希望在 Claude Code 中有一个专门的安全审查者，使用自己的指示且只有只读工具。哪种定制方式最合适？",
-      "commentaryZh": "需要“专职角色”（独立指示、受限工具、隔离上下文）时用子智能体；需要“知识和流程”时用 Skill；需要“外部连接”时用 MCP。"
+      "objective": "Capability Mechanism Selection",
+      "reference": "https://modelcontextprotocol.io/docs/learn/architecture",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "某项能力需要被 Claude Code、Claude Desktop 和一个自定义代理共用，由平台团队维护，并访问一个在线的内部系统。哪种机制最合适？",
+      "commentaryZh": "8.3 按「能力放在哪里、谁维护、Claude 如何发现和调用」来选：多客户端共享、连接外部系统 → MCP 服务器；单个应用的小功能 → 自定义工具；流程知识 → Skill；通用能力（如网页搜索）→ 内置工具。"
     }
   ]
 }

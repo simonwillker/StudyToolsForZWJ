@@ -30,7 +30,8 @@
 サーバー上にupdateする。Ipad、Iphone、PCどれでも確認とれる
 
 ## 状態
-- 最新バージョン：v1.44.0（2026-11-21）
+- 最新バージョン：v1.45.0（2026-11-21）
+- v1.45.0：CCDV-F を 2026-12-07 発効の公式 Exam Guide v1.1 に合わせた。8 ドメイン（17/20/8/10/12/15/8/10%）・24 skill、模擬試験は 70 問・120 分。v1.0 の 171 問は新しい skill に振り分け直し（ドメインが変わった 21 問は `meta.json` の `movedItems` で学習記録を移す。しくみは v1.44.0 の CCAO-F と同じ）、v1.1 で増えた内容の新問 44 問（id `ndv<ドメイン>-NNN`）で計 215 問。讲义は 24 篇に書き直し、頻出単語 145 語。`npm run validate:ccdvf`・`npm run test:ccaof-study` で確認
 - v1.44.0：CCAO-F を 2026-12-07 発効の公式 Exam Guide v1.1 に合わせた。6 ドメイン（D1 15%・D2 20%・D3 15%・D4 18%・D5 15%・D6 17%）・21 skill、模擬試験は 70 問・120 分。v1.0 の 560 問は新しいドメインと skill に振り分け直し（id は変えない。旧 D7 の 80 問は D1・D4 へ）、v1.1 で増えた内容（Skills・コード実行での分析と文件作成・メモリーの確認と削除・インコグニートチャット・effort の選択・委任の判断・設定の劣化・三分類・4D の Diligence など）の新問 49 問（id `n<ドメイン>-NNN`）で計 609 問。讲义は 21 篇に書き直し。ドメインが変わった問題の学習記録・復習リスト・錯題本は `meta.json` の `movedItems` に従って新しいドメインへ移す（`studyCore.js` の `moveProgressItems` など、開いたときに 1 回）。`npm run validate:ccaof`・`npm run test:ccaof-study` で確認
 - v1.43.0：Claude 認定の音声読み上げ（讲义など）の中文を標準の普通话に。声は普通话（中国大陆）の中から聞きやすいもの（Edge の Natural・Online、Chrome の Google 普通话、Apple の Tingting など）を先にえらび、粤语（zh-HK・yue）は使わない、台湾の国語は最後の手段。古い機械的な声（Huihui など）はあとに回す。音声モードの設定に「中文の声」（えらんだ声は端末ごとに `ccaofVoiceV1`）と試聴の🔊。中文は「——」「→」「／」「＋」「」などの記号を間や読み方に置きかえて読む（`speakableZh`）。`src/claudeCert/voicePick.js`、`npm run test:ccaof-audio` で確認
 - v1.42.0：英検マスターの復習を CCAO-F と同じ錯題本（今日の復習）に。まちがえた問題は 1日→3日→7日、2回続けて正解で外れる（期限前の正解は数えない、間隔の計算は `claudeCert/studyCore.js` を共用）。v1.41.0 までの復習リスト（`eikenReviewV1`）は初回に `eikenMistakesV1` へ移す（旧リストは残す）。級カードに「今日の復習 N問」、学習モード画面の一番上に「🔁 今日の復習」。模擬テストの得点推移を模擬テストの最初の画面と学習記録に表示（`src/ScoreTrend.jsx`、単語テストと共用）。`src/eikenReview.js`、`npm run test:eiken-review` で確認（PR #64）

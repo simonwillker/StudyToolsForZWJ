@@ -68,10 +68,10 @@ export const CERTS = [
     backupFilePrefix: "ccdvf-backup",
     color: "#3F6F52",
     status: "ready",
-    audience: "Claude で開発する人向け（API・Agent SDK・Claude Code・MCP・評価・セキュリティ・モデル選択）",
+    audience: "Claude で開発する人向け（API・Agent SDK・Claude Code・MCP・評価・セキュリティ・モデル選択・コスト最適化）",
     title: "CCDV-F 対策",
     eyebrow: "CCDV-F — CLAUDE CERTIFIED DEVELOPER (FOUNDATIONS)",
-    lead: "公式 Exam Guide v1.0（2026年7月発効）の 8 ドメイン・25 skill に沿った練習問題です。問題文はすべてオリジナルで、公式の試験問題・サンプル問題は使っていません。2026-12-07 から出題内容が改訂される予定なので、新しい Exam Guide（2026-11-17 公開予定）が出たら見直します。",
+    lead: "公式 Exam Guide v1.1（2026年12月7日発効）の 8 ドメイン・24 skill に沿った練習問題です。模擬試験は本番と同じ 70 問・120 分。問題文はすべてオリジナルで、公式の試験問題・サンプル問題は使っていません。",
     officialDesc:
       "受験料 ${fee}、Pearson VUE のオンライン監督またはテストセンターで受験します。申し込みは Anthropic Partner Academy から。本番は 53 問・120 分、配点は Applications and Integration が 33.1% で最大です。問題はすべてオリジナルです。",
     links: [

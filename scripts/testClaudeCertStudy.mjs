@@ -519,14 +519,18 @@ const dvItems = readdirSync(dvDir)
   .filter((f) => /^d\d+-.*\.json$/.test(f))
   .flatMap((f) => JSON.parse(readFileSync(join(dvDir, f), "utf8")).items);
 
-test("CCDV-F：小数の配点でも 53 問の内訳が合計 53 になり、各ドメインに足りる問題がある", () => {
+test("CCDV-F（v1.1）：70 問の内訳が合計 70 になり、各ドメインに模試 2 回分以上の問題がある", () => {
+  assert.equal(dvMeta.blueprintVersion, "1.1");
+  assert.equal(dvMeta.domains.reduce((n, d) => n + d.objectives.length, 0), 24);
   const c = core.blueprintCounts(dvMeta.domains, dvMeta.examFormat.items);
-  assert.equal(Object.values(c).reduce((a, b) => a + b, 0), 53);
-  assert.deepEqual(c, { D1: 8, D2: 17, D3: 2, D4: 1, D5: 9, D6: 6, D7: 4, D8: 6 }, "最大剰余法：33.1% の D2 は 17.54 → 17 問");
+  assert.equal(Object.values(c).reduce((a, b) => a + b, 0), 70);
+  assert.deepEqual(c, { D1: 12, D2: 14, D3: 6, D4: 7, D5: 8, D6: 10, D7: 6, D8: 7 }, "最大剰余法：17% の D1 は 11.9 → 12 問");
   dvMeta.domains.forEach((d) => {
     const n = dvItems.filter((i) => i.domain === d.id).length;
     assert.ok(n >= c[d.id] * 2, `${d.id}: ${n} 問（模試 2 回分 ${c[d.id] * 2} 問以上ほしい）`);
   });
+  const byId = new Map(dvItems.map((i) => [i.id, i]));
+  Object.entries(dvMeta.movedItems).forEach(([id, to]) => assert.equal(byId.get(id).domain, to, id));
 });
 
 test("CCDV-F は選べる資格になっていて、記録は ccdvf* の別キーに入る", () => {
@@ -541,12 +545,16 @@ test("CCDV-F は選べる資格になっていて、記録は ccdvf* の別キ�
 });
 
 test("合格予測：小数の配点でも「配点の何%ぶん」は小数第 1 位まで", () => {
-  const objectives = core.buildObjectives(dvMeta);
-  const stats = {};
-  objectives.forEach((o) => {
-    if (o.domain === "D1" || o.domain === "D2" || o.domain === "D5") stats[o.id] = { attempted: 10, correct: 8 };
-  });
-  const p = core.predictScore({ results: [], objectives, objectiveStats: stats, domains: dvMeta.domains, examFormat: dvMeta.examFormat });
+  // v1.0 の CCDV-F のような小数の配点（v1.1 は整数になったので、ここでは作った配点で確かめる）
+  const domains = [
+    { id: "D1", weight: 14.7, objectives: ["a"] },
+    { id: "D2", weight: 33.1, objectives: ["b"] },
+    { id: "D3", weight: 16.8, objectives: ["c"] },
+    { id: "D4", weight: 35.4, objectives: ["d"] },
+  ];
+  const objectives = core.buildObjectives({ domains });
+  const stats = { "D1-1": { attempted: 10, correct: 8 }, "D2-1": { attempted: 10, correct: 8 }, "D3-1": { attempted: 10, correct: 8 } };
+  const p = core.predictScore({ results: [], objectives, objectiveStats: stats, domains, examFormat: dvMeta.examFormat });
   assert.equal(p.coveredWeight, 64.6);
 });
 

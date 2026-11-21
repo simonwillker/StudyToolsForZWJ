@@ -34,7 +34,7 @@
           "textZh": "系统应该有多少个智能体。"
         }
       ],
-      "objective": "Understanding Requirements",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
       "reviewedAt": "2026-10-24",
       "stemZh": "经理要求“给销售团队做一个 AI 助手”。开发者首先应该澄清什么？",
@@ -73,7 +73,7 @@
           "textZh": "模型永远不能出错。"
         }
       ],
-      "objective": "Understanding Requirements",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
       "reviewedAt": "2026-10-24",
       "stemZh": "对于一个文档分类功能，哪个成功标准最有用？",
@@ -112,7 +112,7 @@
           "textZh": "关于给出什么答案的功能需求。"
         }
       ],
-      "objective": "Understanding Requirements",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个聊天机器人必须在两秒内响应、高峰时处理每秒约 50 个请求，并把客户数据保存在一个云区域内。这些属于什么？",
@@ -151,7 +151,7 @@
           "textZh": "最终代码的行数。"
         }
       ],
-      "objective": "Understanding Requirements",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
       "reviewedAt": "2026-10-24",
       "stemZh": "在为 Claude 功能选定架构之前，哪两项应该写进需求？",
@@ -190,7 +190,7 @@
           "textZh": "需求写得模糊些，让模型自己决定。"
         }
       ],
-      "objective": "Understanding Requirements",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/define-success",
       "reviewedAt": "2026-10-24",
       "stemZh": "利益相关方希望合同审查工具“发现所有风险”。开发者知道有些风险需要法律判断。设定需求的最好方式是什么？",
@@ -229,7 +229,7 @@
           "textZh": "这样以后就不需要评估了。"
         }
       ],
-      "objective": "Understanding Requirements",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-10-24",
       "stemZh": "为什么开发者应在开发之前，把业务目标转化为可衡量的验收标准？",
@@ -268,7 +268,7 @@
           "textZh": "删除旧提示词以免混淆。"
         }
       ],
-      "objective": "Systems Life Cycle",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-10-24",
       "stemZh": "团队准备修改线上 Claude 功能的系统提示词。发布之前应该做什么？",
@@ -307,7 +307,7 @@
           "textZh": "把 temperature 降到 0。"
         }
       ],
-      "objective": "Systems Life Cycle",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://platform.claude.com/docs/en/about-claude/models/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个线上系统调用的是会自动指向最新模型快照的别名。一次发布后输出突然变了。哪种做法本可以避免这个意外？",
@@ -346,7 +346,7 @@
           "textZh": "忽略它；退役的模型会一直可用。"
         }
       ],
-      "objective": "Systems Life Cycle",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
       "reviewedAt": "2026-10-24",
       "stemZh": "Anthropic 宣布你的应用正在使用的某个模型将被退役。最好的计划是什么？",
@@ -385,7 +385,7 @@
           "textZh": "画第一张线框图。"
         }
       ],
-      "objective": "Systems Life Cycle",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-10-24",
       "stemZh": "哪项活动属于 Claude 应用“运行与维护”阶段？",
@@ -424,7 +424,7 @@
           "textZh": "直接覆盖旧提示词，不保留版本历史。"
         }
       ],
-      "objective": "Systems Life Cycle",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-10-24",
       "stemZh": "哪两项做法能让新版本提示词更安全地推广给所有用户？",
@@ -463,7 +463,7 @@
           "textZh": "开发者对自己改了什么的记忆。"
         }
       ],
-      "objective": "Systems Life Cycle",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests",
       "reviewedAt": "2026-10-24",
       "stemZh": "用户反映回答质量“上周某个时候”变差了。哪种记录最有助于找到原因？",
@@ -502,7 +502,7 @@
           "textZh": "每个请求都设置很大的 max_tokens。"
         }
       ],
-      "objective": "Claude API Mechanics",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
       "reviewedAt": "2026-10-24",
       "stemZh": "开发者需要在夜里处理 2 万条商品评论。结果第二天早上要用，成本是首要考虑。哪种方式最合适？",
@@ -541,7 +541,7 @@
           "textZh": "每秒轮询 API 获取完整答案。"
         }
       ],
-      "objective": "Claude API Mechanics",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/streaming",
       "reviewedAt": "2026-10-24",
       "stemZh": "在聊天界面里，用户抱怨要盯着空白屏幕直到完整答案出现。开发者应该用什么？",
@@ -580,7 +580,7 @@
           "textZh": "API 密钥达到了月度上限。"
         }
       ],
-      "objective": "Claude API Mechanics",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个响应以 stop_reason 为 \"max_tokens\" 结束。这意味着什么？应用该怎么做？",
@@ -619,7 +619,7 @@
           "textZh": "只能通过系统提示词发送。"
         }
       ],
-      "objective": "Claude API Mechanics",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/vision",
       "reviewedAt": "2026-10-24",
       "stemZh": "应用需要让 Claude 读取收据照片。图片如何通过 Messages API 发送？",
@@ -658,7 +658,7 @@
           "textZh": "扩展思考不能与工具一起使用。"
         }
       ],
-      "objective": "Claude API Mechanics",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking",
       "reviewedAt": "2026-10-24",
       "stemZh": "开发者在同一对话中启用了扩展思考并使用工具。需要注意什么？",
@@ -697,7 +697,7 @@
           "textZh": "只能通过 Batch API。"
         }
       ],
-      "objective": "Claude API Mechanics",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock",
       "reviewedAt": "2026-10-24",
       "stemZh": "公司的安全策略要求所有 AI 流量都留在现有的 AWS 账户内。它怎样使用 Claude？",
@@ -736,7 +736,7 @@
           "textZh": "max_tokens 可选，默认无限制。"
         }
       ],
-      "objective": "Claude API Mechanics",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages",
       "reviewedAt": "2026-10-24",
       "stemZh": "关于 Messages API，哪种说法正确？",
@@ -775,7 +775,7 @@
           "textZh": "IDE 自动补全功能。"
         }
       ],
-      "objective": "Claude API Mechanics",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
       "reviewedAt": "2026-10-24",
       "stemZh": "哪两类工作负载适合使用 Message Batches API？",
@@ -814,7 +814,7 @@
           "textZh": "先单独发送一次文档。"
         }
       ],
-      "objective": "Claude API Mechanics",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
       "reviewedAt": "2026-10-24",
       "stemZh": "应用中每个请求都以同样的长系统提示词和一份大型参考文档开头。哪个 API 功能可以降低重复部分的成本和延迟？",
@@ -853,7 +853,7 @@
           "textZh": "把所有提示词塞进一个巨大的请求。"
         }
       ],
-      "objective": "Software Engineering Foundations",
+      "objective": "Integration Resilience",
       "reference": "https://platform.claude.com/docs/en/api/client-sdks",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个 Python 服务需要并发地进行大量 Claude 调用而不阻塞。最合适的方式是什么？",
@@ -892,7 +892,7 @@
           "textZh": "只有二进制的 protocol buffers。"
         }
       ],
-      "objective": "Software Engineering Foundations",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/api/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude API 的请求和响应使用什么格式？",
@@ -931,7 +931,7 @@
           "textZh": "不用版本控制，因为 Claude Code 会保留自己的历史。"
         }
       ],
-      "objective": "Software Engineering Foundations",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://code.claude.com/docs/en/common-workflows",
       "reviewedAt": "2026-10-24",
       "stemZh": "团队用 Claude Code 重构一个大型遗留模块。哪种做法能保证改动安全？",
@@ -970,7 +970,7 @@
           "textZh": "重命名所有变量。"
         }
       ],
-      "objective": "Software Engineering Foundations",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://code.claude.com/docs/en/common-workflows",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude 生成的拉取请求通过了所有测试。合并前还应该做什么？",
@@ -1009,7 +1009,7 @@
           "textZh": "为了方便，把 API 密钥存放在代码仓库里。"
         }
       ],
-      "objective": "Software Engineering Foundations",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://code.claude.com/docs/en/common-workflows",
       "reviewedAt": "2026-10-24",
       "stemZh": "哪两项做法有助于把 Claude 辅助开发融入现有的软件开发生命周期（SDLC）？",
@@ -1048,7 +1048,7 @@
           "textZh": "换一个 API 密钥。"
         }
       ],
-      "objective": "Software Engineering Foundations",
+      "objective": "Integration Resilience",
       "reference": "https://platform.claude.com/docs/en/api/errors",
       "reviewedAt": "2026-10-24",
       "stemZh": "一次对 Claude API 的 REST 调用返回 HTTP 400 和 invalid_request_error。代码该怎么做？",
@@ -1087,50 +1087,11 @@
           "textZh": "它在本地运行模型。"
         }
       ],
-      "objective": "Software Engineering Foundations",
+      "objective": "Messages API Mechanics",
       "reference": "https://platform.claude.com/docs/en/api/client-sdks",
       "reviewedAt": "2026-10-24",
       "stemZh": "使用官方 Claude 客户端 SDK 而不是直接发 HTTP 请求，主要好处是什么？",
       "commentaryZh": "官方 SDK 封装了 REST API：类型定义、流式事件处理、错误类、默认的自动重试等，可以减少样板代码和常见错误。"
-    },
-    {
-      "id": "dv2-029",
-      "domain": "D2",
-      "type": "mcq",
-      "difficulty": 3,
-      "stem": "A developer wants Claude Code to migrate 300 files from an old logging library to a new one. Which approach is most reliable?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "Have Claude create a migration plan and checklist, then process files in batches, running tests after each batch.",
-          "correct": true,
-          "explain": "正解。大規模な一括変更は計画・分割・各段階のテストで安全に進める。",
-          "textZh": "先让 Claude 制定迁移计划和清单，再分批处理文件，每批之后运行测试。"
-        },
-        {
-          "text": "Ask Claude to change all 300 files in one step without tests.",
-          "correct": false,
-          "explain": "不適。失敗の原因を特定しにくい。",
-          "textZh": "让 Claude 一步改完全部 300 个文件，不跑测试。"
-        },
-        {
-          "text": "Change the files manually and ignore Claude Code.",
-          "correct": false,
-          "explain": "不適。ツールを活用できていない。",
-          "textZh": "手动修改文件，不用 Claude Code。"
-        },
-        {
-          "text": "Only update the files that Claude happens to open.",
-          "correct": false,
-          "explain": "不適。たまたま開いたファイルだけ直すと、移行漏れが必ず出る。",
-          "textZh": "只更新 Claude 碰巧打开的文件。"
-        }
-      ],
-      "objective": "Software Engineering Foundations",
-      "reference": "https://code.claude.com/docs/en/best-practices",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "开发者想让 Claude Code 把 300 个文件从旧日志库迁移到新日志库。哪种方式最可靠？",
-      "commentaryZh": "大规模迁移：先列出清单和计划，按批次处理，每批跑测试并提交。这样出错时影响范围小、容易回滚。"
     },
     {
       "id": "dv2-030",
@@ -1165,7 +1126,7 @@
           "textZh": "为了避免支付 token 费用。"
         }
       ],
-      "objective": "Software Engineering Foundations",
+      "objective": "Integration Resilience",
       "reference": "https://platform.claude.com/docs/en/api/client-sdks",
       "reviewedAt": "2026-10-24",
       "stemZh": "为什么在 Web 服务器中调用 Claude 时应该使用 async/await（或 Promise）？",
@@ -1204,7 +1165,7 @@
           "textZh": "提高 max_tokens。"
         }
       ],
-      "objective": "Claude Application Design",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个客服应用为每个用户保留一个持续几个月的超长对话。回答开始偏离，成本也在上升。哪种设计调整最有帮助？",
@@ -1243,7 +1204,7 @@
           "textZh": "要求输出 XML，再手动转换。"
         }
       ],
-      "objective": "Claude Application Design",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
       "reviewedAt": "2026-10-24",
       "stemZh": "下游服务需要 Claude 以固定字段的 JSON 输出。最可靠的设计是什么？",
@@ -1282,89 +1243,11 @@
           "textZh": "Claude Code 会忽略所有用户指示。"
         }
       ],
-      "objective": "Claude Application Design",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://code.claude.com/docs/en/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "同样的指示在 Claude Code、Claude 桌面应用和自建 API 集成中表现不同。最可能的原因是什么？",
       "commentaryZh": "Claude 如何理解指令取决于完整输入：Claude Code、claude.ai、桌面应用各有内置的系统提示词、工具和上下文；自建 API 集成只有你提供的内容。设计时要考虑这一点。"
-    },
-    {
-      "id": "dv2-034",
-      "domain": "D2",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "An app answers questions about a company's internal policies. How should content boundaries be designed?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "Provide the policy documents, instruct Claude to answer only from them, and say \"I don't know\" when the answer is not there.",
-          "correct": true,
-          "explain": "正解。根拠となる資料と、範囲外のときの振る舞いを明示する。",
-          "textZh": "提供政策文档，指示 Claude 只依据文档回答，找不到答案时说“我不知道”。"
-        },
-        {
-          "text": "Let Claude answer from general knowledge so it never refuses.",
-          "correct": false,
-          "explain": "不適。社内規程について推測で答えるリスク。",
-          "textZh": "让 Claude 用通用知识回答，这样它永远不会拒答。"
-        },
-        {
-          "text": "Hide the documents and ask Claude to guess.",
-          "correct": false,
-          "explain": "不適。ハルシネーションを招く。",
-          "textZh": "不提供文档，让 Claude 猜。"
-        },
-        {
-          "text": "Allow any topic, including unrelated ones.",
-          "correct": false,
-          "explain": "不適。用途の境界がない。",
-          "textZh": "允许任何话题，包括无关话题。"
-        }
-      ],
-      "objective": "Claude Application Design",
-      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "一个应用回答公司内部政策相关的问题。内容边界应如何设计？",
-      "commentaryZh": "内容边界：明确信息来源（只依据提供的文档）、适用范围，以及超出范围时的行为（承认不知道、转人工）。这能显著减少幻觉。"
-    },
-    {
-      "id": "dv2-035",
-      "domain": "D2",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "A team wants every developer to get the same Claude Code commands, subagents, and hooks with one install. What should they use?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "A Claude Code plugin distributed through a plugin marketplace.",
-          "correct": true,
-          "explain": "正解。プラグインはコマンド・エージェント・スキル・フック・MCP 設定をまとめて配布できる。",
-          "textZh": "通过插件市场分发的 Claude Code 插件。"
-        },
-        {
-          "text": "Email each developer a copy of the files.",
-          "correct": false,
-          "explain": "不適。更新と管理が難しい。",
-          "textZh": "把文件副本通过邮件发给每位开发者。"
-        },
-        {
-          "text": "Paste the commands into each person's prompt every day.",
-          "correct": false,
-          "explain": "不適。毎日手で貼り付ける方法は手間がかかり、人によって内容がずれる。",
-          "textZh": "每天把命令粘贴到每个人的提示词里。"
-        },
-        {
-          "text": "A larger model.",
-          "correct": false,
-          "explain": "不適。配布の問題とは無関係。",
-          "textZh": "更大的模型。"
-        }
-      ],
-      "objective": "Claude Application Design",
-      "reference": "https://code.claude.com/docs/en/plugins",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "团队希望每位开发者一次安装就能获得相同的 Claude Code 命令、子智能体和钩子。应该用什么？",
-      "commentaryZh": "插件（plugin）可以把斜杠命令、子智能体、Skills、钩子和 MCP 服务器打包，通过市场（marketplace）统一分发和更新，并管理依赖。"
     },
     {
       "id": "dv2-036",
@@ -1399,50 +1282,11 @@
           "textZh": "即使来源中没有信息，也要求每个字段必须有值。"
         }
       ],
-      "objective": "Claude Application Design",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
       "reviewedAt": "2026-10-24",
       "stemZh": "哪两项 schema 设计能让 Claude 的结构化输出更容易可靠地使用？",
       "commentaryZh": "schema 设计：固定取值用 enum，允许缺失值（nullable 或 unknown），避免强迫模型编造。字段含义要在描述里写清楚。"
-    },
-    {
-      "id": "dv2-037",
-      "domain": "D2",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "An app sends the full 200-page manual with every question, even simple ones. What is a better design?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "Retrieve and send only the relevant sections for each question.",
-          "correct": true,
-          "explain": "正解。必要な部分だけを渡すと、精度・コスト・遅延が改善する。",
-          "textZh": "针对每个问题，只检索并发送相关章节。"
-        },
-        {
-          "text": "Send the manual twice to make sure Claude reads it.",
-          "correct": false,
-          "explain": "不適。無駄が増えるだけ。",
-          "textZh": "把手册发两遍，确保 Claude 读到。"
-        },
-        {
-          "text": "Remove the manual entirely.",
-          "correct": false,
-          "explain": "不適。マニュアルを外すと回答の根拠がなくなり、推測で答えることになる。",
-          "textZh": "完全不提供手册。"
-        },
-        {
-          "text": "Translate the manual into another language first.",
-          "correct": false,
-          "explain": "不適。翻訳しても送る量は減らず、必要な部分だけ渡すという課題は解決しない。",
-          "textZh": "先把手册翻译成另一种语言。"
-        }
-      ],
-      "objective": "Claude Application Design",
-      "reference": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "一个应用每次提问都把整本 200 页的手册发过去，即使是简单问题也一样。更好的设计是什么？",
-      "commentaryZh": "上下文是有限资源：只放与当前任务相关的信息（检索相关段落），而不是把所有资料一股脑塞进去。必要时对固定部分使用提示缓存。"
     },
     {
       "id": "dv2-038",
@@ -1477,50 +1321,11 @@
           "textZh": "不用放；Claude 会自己推断。"
         }
       ],
-      "objective": "Claude Application Design",
+      "objective": "Application Boundary and Surface Behavior",
       "reference": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages",
       "reviewedAt": "2026-10-24",
       "stemZh": "应用中稳定的行为规则（角色、语气、约束）应该放在哪里？",
       "commentaryZh": "系统提示词适合放稳定的角色、语气、规则和背景；具体任务和数据放在 user 消息中。"
-    },
-    {
-      "id": "dv2-039",
-      "domain": "D2",
-      "type": "mcq",
-      "difficulty": 2,
-      "stem": "Which design best prevents an app from showing invented citations to users?",
-      "selectCount": 1,
-      "choices": [
-        {
-          "text": "Ask Claude to quote the exact source passage and verify in code that each quote exists in the provided documents.",
-          "correct": true,
-          "explain": "正解。引用を求め、存在をプログラムで照合すれば作り話を検出できる。",
-          "textZh": "要求 Claude 引用原文段落，并在代码中验证每条引文确实存在于提供的文档中。"
-        },
-        {
-          "text": "Tell Claude to be very careful.",
-          "correct": false,
-          "explain": "不適。「気をつけて」と頼んでも、存在しない引用を防ぐ保証にはならない。",
-          "textZh": "告诉 Claude 要非常小心。"
-        },
-        {
-          "text": "Display citations only in bold text.",
-          "correct": false,
-          "explain": "不適。表示の問題ではない。",
-          "textZh": "只把引用加粗显示。"
-        },
-        {
-          "text": "Use a higher temperature.",
-          "correct": false,
-          "explain": "不適。temperature を上げると出力のばらつきが増え、作り話はむしろ増えうる。",
-          "textZh": "提高 temperature。"
-        }
-      ],
-      "objective": "Claude Application Design",
-      "reference": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
-      "reviewedAt": "2026-10-24",
-      "stemZh": "哪种设计最能防止应用向用户展示编造的引用？",
-      "commentaryZh": "减少编造引用：要求逐字引用原文，并在程序中校验引文是否真实存在（也可使用 Citations 功能）。仅靠提示词提醒不可靠。"
     },
     {
       "id": "dv2-040",
@@ -1555,7 +1360,7 @@
           "textZh": "放在某位开发者机器上的 ~/.claude/CLAUDE.md。"
         }
       ],
-      "objective": "Configuration Management",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://code.claude.com/docs/en/memory",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude Code 的项目级指示（如构建命令和编码规范）应该存放在哪里，才能让整个团队共享？",
@@ -1594,7 +1399,7 @@
           "textZh": "README 文件。"
         }
       ],
-      "objective": "Configuration Management",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://code.claude.com/docs/en/settings",
       "reviewedAt": "2026-10-24",
       "stemZh": "团队想在代码仓库中共享 Claude Code 的权限规则，同时每个开发者保留一些不提交的个人覆盖设置。哪些文件合适？",
@@ -1633,7 +1438,7 @@
           "textZh": "让每台服务器随机选择模型。"
         }
       ],
-      "objective": "Configuration Management",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://platform.claude.com/docs/en/about-claude/models/overview",
       "reviewedAt": "2026-10-24",
       "stemZh": "哪两项配置做法能让 Claude 应用的行为可复现？",
@@ -1672,7 +1477,7 @@
           "textZh": "写在每个源文件开头的注释里。"
         }
       ],
-      "objective": "Configuration Management",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://code.claude.com/docs/en/settings",
       "reviewedAt": "2026-10-24",
       "stemZh": "组织应把哪些开发者个人无法覆盖的 Claude Code 规则放在哪里？",
@@ -1711,7 +1516,7 @@
           "textZh": "从插件中删除版本信息。"
         }
       ],
-      "objective": "Configuration Management",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://code.claude.com/docs/en/plugins",
       "reviewedAt": "2026-10-24",
       "stemZh": "团队使用的两个 Claude Code 插件依赖同一个 MCP 服务器配置的不同版本。最佳做法是什么？",
@@ -1750,11 +1555,557 @@
           "textZh": "把所有规则都用大写字母写。"
         }
       ],
-      "objective": "Configuration Management",
+      "objective": "Configuration and SDLC Integration",
       "reference": "https://code.claude.com/docs/en/memory",
       "reviewedAt": "2026-10-24",
       "stemZh": "一个 CLAUDE.md 文件增长到几千行，Claude Code 开始忽略重要规则。开发者应该怎么做？",
       "commentaryZh": "CLAUDE.md 每次会话都会加载，应简短、具体。详细流程放到 Skills（按需加载）或用 @ 导入的文件中，避免重要规则被淹没。"
+    },
+    {
+      "id": "dv4-001",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "An application receives HTTP 529 overloaded_error responses during peak hours. What is the best handling?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Retry with exponential backoff and jitter, up to a limit, then fail gracefully.",
+          "correct": true,
+          "explain": "正解。一時的な過負荷は待って再試行する。上限と失敗時の扱いも決める。",
+          "textZh": "用指数退避加随机抖动进行重试，设定上限，超过后优雅降级。"
+        },
+        {
+          "text": "Fix the request parameters.",
+          "correct": false,
+          "explain": "不適。リクエストの誤りではない。",
+          "textZh": "修正请求参数。"
+        },
+        {
+          "text": "Retry immediately in an infinite loop.",
+          "correct": false,
+          "explain": "不適。負荷をさらに上げる。",
+          "textZh": "立即无限循环重试。"
+        },
+        {
+          "text": "Rotate the API key.",
+          "correct": false,
+          "explain": "不適。認証の問題ではない。",
+          "textZh": "更换 API 密钥。"
+        }
+      ],
+      "objective": "Integration Resilience",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "应用在高峰时段收到 HTTP 529 overloaded_error 响应。最佳处理方式是什么？",
+      "commentaryZh": "可重试的错误：429（速率限制，可参考 retry-after）、500、529（过载）。用指数退避 + 抖动并设上限。400、401、403 等需要修正请求或配置，重试无效。"
+    },
+    {
+      "id": "dv4-003",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A tool called by Claude fails because an external service times out. How should the error be returned?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Return a tool_result with is_error set to true and a clear message, so Claude can retry or choose another approach.",
+          "correct": true,
+          "explain": "正解。エラー内容を伝えると、モデルが再試行や代替手段を判断できる。",
+          "textZh": "返回一个 is_error 为 true、附有清晰信息的 tool_result，让 Claude 可以重试或换一种方法。"
+        },
+        {
+          "text": "Return an empty success result.",
+          "correct": false,
+          "explain": "不適。モデルが誤った前提で進む。",
+          "textZh": "返回一个空的成功结果。"
+        },
+        {
+          "text": "Crash the whole application.",
+          "correct": false,
+          "explain": "不適。回復の機会を失う。",
+          "textZh": "让整个应用崩溃。"
+        },
+        {
+          "text": "Hide the error and invent plausible data.",
+          "correct": false,
+          "explain": "不適。エラーを隠して作ったデータを返すと、誤った情報が利用者に届く。",
+          "textZh": "隐藏错误并编造看似合理的数据。"
+        }
+      ],
+      "objective": "Integration Resilience",
+      "reference": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "Claude 调用的工具因外部服务超时而失败。应该如何返回这个错误？",
+      "commentaryZh": "工具失败时，返回 is_error: true 的 tool_result，并写清原因（如超时、权限不足）和可能的处理方式。模型据此决定重试、换工具或告知用户。"
+    },
+    {
+      "id": "dv4-004",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which HTTP status code from the Claude API indicates a rate limit was exceeded?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "429",
+          "correct": true,
+          "explain": "正解。rate_limit_error。retry-after ヘッダーを参考に待つ。",
+          "textZh": "429"
+        },
+        {
+          "text": "401",
+          "correct": false,
+          "explain": "不適。401 は認証エラー（API キーの問題）で、レート制限ではない。",
+          "textZh": "401"
+        },
+        {
+          "text": "404",
+          "correct": false,
+          "explain": "不適。リソースが見つからない。",
+          "textZh": "404"
+        },
+        {
+          "text": "200",
+          "correct": false,
+          "explain": "不適。200 はリクエストが成功したことを示す。",
+          "textZh": "200"
+        }
+      ],
+      "objective": "Integration Resilience",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "Claude API 的哪个 HTTP 状态码表示超出了速率限制？",
+      "commentaryZh": "429 = rate_limit_error，应读取 retry-after 等响应头并退避重试；401 = 认证错误（API 密钥无效）；403 = 权限错误；413 = 请求过大。"
+    },
+    {
+      "id": "dv4-007",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A request returns HTTP 401 authentication_error. What is the likely cause?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "The API key is missing, invalid, or revoked.",
+          "correct": true,
+          "explain": "正解。認証情報の問題。キーの設定を確認する。",
+          "textZh": "API 密钥缺失、无效或已被吊销。"
+        },
+        {
+          "text": "The prompt is too long.",
+          "correct": false,
+          "explain": "不適。それは 400 や 413 系。",
+          "textZh": "提示词太长。"
+        },
+        {
+          "text": "The server is overloaded.",
+          "correct": false,
+          "explain": "不適。過負荷は 529 overloaded_error で、401 の原因ではない。",
+          "textZh": "服务器过载。"
+        },
+        {
+          "text": "The model returned invalid JSON.",
+          "correct": false,
+          "explain": "不適。HTTP エラーではない。",
+          "textZh": "模型返回了无效的 JSON。"
+        }
+      ],
+      "objective": "Integration Resilience",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "请求返回 HTTP 401 authentication_error。可能的原因是什么？",
+      "commentaryZh": "401 表示认证失败：检查 x-api-key 头是否正确设置、密钥是否有效或已被轮换。不要通过重试解决。"
+    },
+    {
+      "id": "dv5-009",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "What does an official client SDK do in relation to the Claude REST API?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "It wraps the REST API with language-native methods and types.",
+          "correct": true,
+          "explain": "正解。SDK は REST API をラップしている。",
+          "textZh": "它用编程语言原生的方法和类型封装了 REST API。"
+        },
+        {
+          "text": "It replaces the API with a local model.",
+          "correct": false,
+          "explain": "不適。SDK はローカルでモデルを動かすものではなく、API を呼び出すクライアント。",
+          "textZh": "它用本地模型替代 API。"
+        },
+        {
+          "text": "It is a separate product that does not use the API.",
+          "correct": false,
+          "explain": "不適。SDK は API と別の製品ではなく、REST API を包んだもの。",
+          "textZh": "它是不使用 API 的独立产品。"
+        },
+        {
+          "text": "It only works in the browser.",
+          "correct": false,
+          "explain": "不適。公式 SDK は Python や TypeScript などのサーバー側でも使える。",
+          "textZh": "它只能在浏览器中运行。"
+        }
+      ],
+      "objective": "Messages API Mechanics",
+      "reference": "https://platform.claude.com/docs/en/api/client-sdks",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "官方客户端 SDK 与 Claude REST API 是什么关系？",
+      "commentaryZh": "SDK 是对 REST API 的封装：发送同样的 HTTP 请求，但提供类型、错误类、流式辅助和重试等便利功能。"
+    },
+    {
+      "id": "dv5-010",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "When streaming a response, how does the server deliver the output?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "As a sequence of server-sent events such as content_block_delta and message_stop.",
+          "correct": true,
+          "explain": "正解。SSE のイベント列として届き、差分を順に組み立てる。",
+          "textZh": "以一系列服务器发送事件的形式，例如 content_block_delta 和 message_stop。"
+        },
+        {
+          "text": "As one large JSON object after generation finishes.",
+          "correct": false,
+          "explain": "不適。それは非ストリーミング。",
+          "textZh": "生成结束后以一个大的 JSON 对象发送。"
+        },
+        {
+          "text": "By email.",
+          "correct": false,
+          "explain": "不適。メールで届くことはなく、HTTP 接続の上でイベントとして順に届く。",
+          "textZh": "通过电子邮件。"
+        },
+        {
+          "text": "As a downloadable file link.",
+          "correct": false,
+          "explain": "不適。ファイルのダウンロードではなく、SSE のイベント列として届く。",
+          "textZh": "以可下载文件链接的形式。"
+        }
+      ],
+      "objective": "Messages API Mechanics",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/streaming",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "流式输出时，服务器如何传送输出？",
+      "commentaryZh": "流式响应使用 SSE：message_start → content_block_start → content_block_delta（多次）→ content_block_stop → message_delta → message_stop。中途也可能收到 error 事件，需要处理。"
+    },
+    {
+      "id": "dv5-012",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A voice assistant needs a persistent two-way connection to push audio and receive partial results continuously. Which transport concept fits that part of the system?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "WebSockets, which keep a long-lived bidirectional connection.",
+          "correct": true,
+          "explain": "正解。双方向で継続的にやり取りするなら WebSocket が向く。",
+          "textZh": "WebSocket：保持长连接的双向通信。"
+        },
+        {
+          "text": "A single HTTP GET request per day.",
+          "correct": false,
+          "explain": "不適。1 日 1 回の GET では継続的な双方向通信にならない。",
+          "textZh": "每天一次 HTTP GET 请求。"
+        },
+        {
+          "text": "Email polling.",
+          "correct": false,
+          "explain": "不適。メールのポーリングはリアルタイムの音声通信に使えない。",
+          "textZh": "邮件轮询。"
+        },
+        {
+          "text": "FTP uploads.",
+          "correct": false,
+          "explain": "不適。FTP のアップロードは継続的な双方向のやり取りに向かない。",
+          "textZh": "FTP 上传。"
+        }
+      ],
+      "objective": "Messages API Mechanics",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/streaming",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "一个语音助手需要持久的双向连接，持续推送音频并接收部分结果。系统的这一部分适合哪种传输概念？",
+      "commentaryZh": "SSE 是服务器到客户端的单向流（Claude 流式输出使用它）；WebSocket 是持久的双向连接，适合实时语音、协作等场景。要根据通信方向选择。"
+    },
+    {
+      "id": "dv5-013",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO practices are part of robust HTTP integration with the Claude API?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Set sensible timeouts for long requests.",
+          "correct": true,
+          "explain": "正解。長い応答に合わせたタイムアウト設定が必要。",
+          "textZh": "为耗时较长的请求设置合理的超时。"
+        },
+        {
+          "text": "Retry only retryable errors with backoff.",
+          "correct": true,
+          "explain": "正解。429・5xx は再試行、400 系は修正。",
+          "textZh": "只对可重试的错误进行退避重试。"
+        },
+        {
+          "text": "Retry every error, including invalid requests, forever.",
+          "correct": false,
+          "explain": "不適。不正なリクエストを永遠に再試行しても成功せず、負荷を増やすだけ。",
+          "textZh": "对所有错误（包括无效请求）无限重试。"
+        },
+        {
+          "text": "Ignore response status codes.",
+          "correct": false,
+          "explain": "不適。ステータスコードを見ないと、成功か失敗か、再試行すべきかを判断できない。",
+          "textZh": "忽略响应状态码。"
+        }
+      ],
+      "objective": "Messages API Mechanics",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪两项做法属于与 Claude API 稳健集成的 HTTP 实践？",
+      "commentaryZh": "稳健的集成：合理的超时、区分可重试/不可重试错误、指数退避、记录请求 ID 便于排查。官方 SDK 默认提供部分重试功能。"
+    },
+    {
+      "id": "dv5-015",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "What is the correct structure of the messages array in a Messages API request?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A list of turns with role user or assistant, each with content that can be text or content blocks.",
+          "correct": true,
+          "explain": "正解。user と assistant のターンを並べ、content は文字列かブロック配列。",
+          "textZh": "由若干回合组成的列表，role 为 user 或 assistant，content 可以是文本或内容块。"
+        },
+        {
+          "text": "A single string containing the whole conversation.",
+          "correct": false,
+          "explain": "不適。会話全体を 1 つの文字列にするのではなく、ターンの配列で渡す。",
+          "textZh": "包含整个对话的单个字符串。"
+        },
+        {
+          "text": "A list where the system prompt must be the first item with role system.",
+          "correct": false,
+          "explain": "不適。system はトップレベルのパラメータ。",
+          "textZh": "系统提示词必须作为 role 为 system 的第一项。"
+        },
+        {
+          "text": "A dictionary keyed by timestamp.",
+          "correct": false,
+          "explain": "不適。タイムスタンプをキーにした辞書ではなく、順番に並べた配列で渡す。",
+          "textZh": "以时间戳为键的字典。"
+        }
+      ],
+      "objective": "Messages API Mechanics",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "Messages API 请求中 messages 数组的正确结构是什么？",
+      "commentaryZh": "messages 是 user/assistant 回合组成的数组；content 可以是字符串，也可以是 text、image、document、tool_use、tool_result 等内容块的数组。system 为顶层参数。"
+    },
+    {
+      "id": "dv5-016",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Before sending a very large request, a developer wants to know how many input tokens it will use. What can they do?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use the token counting endpoint with the same request content.",
+          "correct": true,
+          "explain": "正解。トークン数カウント API で事前に見積もれる。",
+          "textZh": "用相同的请求内容调用 token 计数接口。"
+        },
+        {
+          "text": "Count the words and assume one word equals one token.",
+          "correct": false,
+          "explain": "不適。1 単語＝1 トークンではないので、単語数では正確に見積もれない。",
+          "textZh": "数单词数，并假设一个单词等于一个 token。"
+        },
+        {
+          "text": "Send the request and check the bill next month.",
+          "correct": false,
+          "explain": "不適。事前に見積もる方法があるのに、請求を待つのは管理として不十分。",
+          "textZh": "先发送请求，下个月看账单。"
+        },
+        {
+          "text": "It is impossible to know in advance.",
+          "correct": false,
+          "explain": "不適。トークン数カウント API で送信前に見積もれる。",
+          "textZh": "无法事先知道。"
+        }
+      ],
+      "objective": "Messages API Mechanics",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/token-counting",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "在发送一个很大的请求之前，开发者想知道它会用多少输入 token。可以怎么做？",
+      "commentaryZh": "token 计数接口可在不生成回答的情况下估算输入 token 数；实际调用后，响应中的 usage 字段也会返回 input_tokens 和 output_tokens。"
+    },
+    {
+      "id": "ndv2-001",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A support app streams Messages API output. Long answers sometimes stop mid-sentence with no error. The handler ends the response at the first content_block_stop event and never reads stop_reason. What is the BEST fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Treat message_stop as the terminal event and read stop_reason from message_delta, flagging max_tokens truncation.",
+          "correct": true,
+          "explain": "正解。content_block_stop は1ブロックの終わりで、メッセージの終わりではない。",
+          "textZh": "把 message_stop 作为结束事件，从 message_delta 读取 stop_reason，并对 max_tokens 截断做标记。"
+        },
+        {
+          "text": "Raise max_tokens so truncation happens less often.",
+          "correct": false,
+          "explain": "不適。頻度が下がるだけで欠陥は残る。",
+          "textZh": "调大 max_tokens，让截断少发生一些。"
+        },
+        {
+          "text": "Stop using streaming.",
+          "correct": false,
+          "explain": "不適。イベント処理の欠陥を隠すだけ。",
+          "textZh": "不再使用流式输出。"
+        },
+        {
+          "text": "Retry whenever an answer looks short.",
+          "correct": false,
+          "explain": "不適。決定的な停止条件を一時的な失敗として扱っている。",
+          "textZh": "回答看起来短时就重试。"
+        }
+      ],
+      "objective": "Integration Resilience",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/streaming",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "一个客服应用使用 Messages API 的流式输出。长回答有时在句子中间停下，而且没有错误。处理程序在收到第一个 content_block_stop 事件时就结束响应，也从不读取 stop_reason。最好的修复是什么？",
+      "commentaryZh": "对应 v1.1 样题 1。流式事件中，content_block_stop 只表示一个内容块结束；整条消息以 message_stop 结束，stop_reason 在 message_delta 里。要读它来区分正常结束和 max_tokens 截断。"
+    },
+    {
+      "id": "ndv2-002",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "Which TWO errors should a client retry with exponential backoff?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "429 rate_limit_error, respecting any retry-after header.",
+          "correct": true,
+          "explain": "正解。レート制限は待って再試行する。",
+          "textZh": "429 rate_limit_error，并遵守 retry-after 头。"
+        },
+        {
+          "text": "529 overloaded_error.",
+          "correct": true,
+          "explain": "正解。一時的な過負荷なので待って再試行する。",
+          "textZh": "529 overloaded_error。"
+        },
+        {
+          "text": "400 invalid_request_error.",
+          "correct": false,
+          "explain": "不適。リクエスト自体の誤りで、同じ内容を再送しても失敗する。",
+          "textZh": "400 invalid_request_error。"
+        },
+        {
+          "text": "401 authentication_error.",
+          "correct": false,
+          "explain": "不適。認証情報を直す必要がある。",
+          "textZh": "401 authentication_error。"
+        }
+      ],
+      "objective": "Integration Resilience",
+      "reference": "https://platform.claude.com/docs/en/api/errors",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两种错误应该由客户端用指数退避重试？",
+      "commentaryZh": "重试逻辑要区分错误类型：限流（429）和过载（529）是暂时的，退避后重试；请求无效（400）和认证失败（401）是确定性的错误，重试没有意义，应修正请求或凭证。"
+    },
+    {
+      "id": "ndv2-003",
+      "domain": "D2",
+      "type": "multi",
+      "difficulty": 2,
+      "stem": "A team's production app calls a model alias, and behavior changed overnight. Which TWO practices prevent this in the future?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Pin a specific model version in production configuration.",
+          "correct": true,
+          "explain": "正解。本番はバージョンを固定して予期しない変更を防ぐ。",
+          "textZh": "在生产配置中固定具体的模型版本。"
+        },
+        {
+          "text": "Run regression evals in CI before moving to a new model version.",
+          "correct": true,
+          "explain": "正解。変更の影響をリリース前に確かめる。",
+          "textZh": "在切换到新模型版本前，在 CI 中运行回归评估。"
+        },
+        {
+          "text": "Always use the newest alias everywhere.",
+          "correct": false,
+          "explain": "不適。同じ問題が繰り返される。",
+          "textZh": "所有地方都用最新的别名。"
+        },
+        {
+          "text": "Disable logging of model versions.",
+          "correct": false,
+          "explain": "不適。原因追跡ができなくなる。",
+          "textZh": "不再记录模型版本。"
+        }
+      ],
+      "objective": "Configuration and SDLC Integration",
+      "reference": "https://platform.claude.com/docs/en/about-claude/models/model-deprecations",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队的生产应用调用的是模型别名，结果行为一夜之间变了。哪两项做法能防止以后再发生？",
+      "commentaryZh": "2.3 要求理解配置对各环境的影响：生产环境固定模型版本，提示也做版本管理；升级时先在 CI 里跑回归评估，确认后再切换。"
+    },
+    {
+      "id": "ndv2-004",
+      "domain": "D2",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which workload is the BEST fit for the Message Batches API instead of realtime calls?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Re-scoring 50,000 archived documents where results are needed by tomorrow.",
+          "correct": true,
+          "explain": "正解。大量で即時性が不要なら batch が安くて適する。",
+          "textZh": "重新评分 5 万份存档文件，结果明天之前拿到即可。"
+        },
+        {
+          "text": "A live chat reply to a waiting customer.",
+          "correct": false,
+          "explain": "不適。待っている客への即時応答が必要。",
+          "textZh": "给正在等待的客户实时回复。"
+        },
+        {
+          "text": "Autocomplete while a user types.",
+          "correct": false,
+          "explain": "不適。入力中の補完は低遅延が必須。",
+          "textZh": "用户打字时的自动补全。"
+        },
+        {
+          "text": "A voice assistant's spoken answer.",
+          "correct": false,
+          "explain": "不適。リアルタイム性が必要。",
+          "textZh": "语音助手的语音回答。"
+        }
+      ],
+      "objective": "Messages API Mechanics",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "下面哪个工作负载最适合用 Message Batches API，而不是实时调用？",
+      "commentaryZh": "批处理适合大量、不着急的任务，成本更低；需要用户即时看到结果的场景用实时调用（必要时配合流式输出）。"
     }
   ]
 }

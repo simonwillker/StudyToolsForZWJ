@@ -112,7 +112,7 @@
           "textZh": "让 Claude 永远记住它。"
         }
       ],
-      "objective": "Claude Code Operation",
+      "objective": "Claude Code Customization and Extension",
       "reference": "https://code.claude.com/docs/en/slash-commands",
       "reviewedAt": "2026-10-24",
       "stemZh": "团队每天都重复同一个多步骤的审查提示词。怎样把它变成在仓库中共享、可复用的 Claude Code 命令？",
@@ -151,7 +151,7 @@
           "textZh": "Skills 只能在 claude.ai 中使用。"
         }
       ],
-      "objective": "Claude Code Operation",
+      "objective": "Claude Code Customization and Extension",
       "reference": "https://code.claude.com/docs/en/skills",
       "reviewedAt": "2026-10-24",
       "stemZh": "Claude Code 的 Skill 在不使用时如何避免占满上下文窗口？",
@@ -268,7 +268,7 @@
           "textZh": "子智能体只能由 Anthropic 定义。"
         }
       ],
-      "objective": "Claude Code Operation",
+      "objective": "Claude Code Customization and Extension",
       "reference": "https://code.claude.com/docs/en/sub-agents",
       "reviewedAt": "2026-10-24",
       "stemZh": "关于 Claude Code 子智能体，哪两项说法正确？",
@@ -312,6 +312,318 @@
       "reviewedAt": "2026-10-24",
       "stemZh": "团队希望 Claude Code 运行测试时不必每次询问，但在任何 git push 之前都要询问。这在哪里配置？",
       "commentaryZh": "权限规则写在 settings.json 的 permissions 中：allow（自动允许）、ask（需确认）、deny（禁止），可以按工具和命令模式细分。"
+    },
+    {
+      "id": "dv2-029",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 3,
+      "stem": "A developer wants Claude Code to migrate 300 files from an old logging library to a new one. Which approach is most reliable?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Have Claude create a migration plan and checklist, then process files in batches, running tests after each batch.",
+          "correct": true,
+          "explain": "正解。大規模な一括変更は計画・分割・各段階のテストで安全に進める。",
+          "textZh": "先让 Claude 制定迁移计划和清单，再分批处理文件，每批之后运行测试。"
+        },
+        {
+          "text": "Ask Claude to change all 300 files in one step without tests.",
+          "correct": false,
+          "explain": "不適。失敗の原因を特定しにくい。",
+          "textZh": "让 Claude 一步改完全部 300 个文件，不跑测试。"
+        },
+        {
+          "text": "Change the files manually and ignore Claude Code.",
+          "correct": false,
+          "explain": "不適。ツールを活用できていない。",
+          "textZh": "手动修改文件，不用 Claude Code。"
+        },
+        {
+          "text": "Only update the files that Claude happens to open.",
+          "correct": false,
+          "explain": "不適。たまたま開いたファイルだけ直すと、移行漏れが必ず出る。",
+          "textZh": "只更新 Claude 碰巧打开的文件。"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/best-practices",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "开发者想让 Claude Code 把 300 个文件从旧日志库迁移到新日志库。哪种方式最可靠？",
+      "commentaryZh": "大规模迁移：先列出清单和计划，按批次处理，每批跑测试并提交。这样出错时影响范围小、容易回滚。"
+    },
+    {
+      "id": "dv2-035",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team wants every developer to get the same Claude Code commands, subagents, and hooks with one install. What should they use?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A Claude Code plugin distributed through a plugin marketplace.",
+          "correct": true,
+          "explain": "正解。プラグインはコマンド・エージェント・スキル・フック・MCP 設定をまとめて配布できる。",
+          "textZh": "通过插件市场分发的 Claude Code 插件。"
+        },
+        {
+          "text": "Email each developer a copy of the files.",
+          "correct": false,
+          "explain": "不適。更新と管理が難しい。",
+          "textZh": "把文件副本通过邮件发给每位开发者。"
+        },
+        {
+          "text": "Paste the commands into each person's prompt every day.",
+          "correct": false,
+          "explain": "不適。毎日手で貼り付ける方法は手間がかかり、人によって内容がずれる。",
+          "textZh": "每天把命令粘贴到每个人的提示词里。"
+        },
+        {
+          "text": "A larger model.",
+          "correct": false,
+          "explain": "不適。配布の問題とは無関係。",
+          "textZh": "更大的模型。"
+        }
+      ],
+      "objective": "Claude Code Customization and Extension",
+      "reference": "https://code.claude.com/docs/en/plugins",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "团队希望每位开发者一次安装就能获得相同的 Claude Code 命令、子智能体和钩子。应该用什么？",
+      "commentaryZh": "插件（plugin）可以把斜杠命令、子智能体、Skills、钩子和 MCP 服务器打包，通过市场（marketplace）统一分发和更新，并管理依赖。"
+    },
+    {
+      "id": "dv7-013",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 1,
+      "stem": "Which hook event is the best place to automatically format every file after Claude edits it?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "PostToolUse.",
+          "correct": true,
+          "explain": "正解。編集ツールの実行後にフォーマッタを走らせる。",
+          "textZh": "PostToolUse。"
+        },
+        {
+          "text": "PreToolUse.",
+          "correct": false,
+          "explain": "不適。編集前ではまだ内容がない。",
+          "textZh": "PreToolUse。"
+        },
+        {
+          "text": "SessionStart.",
+          "correct": false,
+          "explain": "不適。セッション開始時に一度だけ。",
+          "textZh": "SessionStart。"
+        },
+        {
+          "text": "UserPromptSubmit.",
+          "correct": false,
+          "explain": "不適。UserPromptSubmit はユーザーの入力時に動くもので、編集後の処理ではない。",
+          "textZh": "UserPromptSubmit。"
+        }
+      ],
+      "objective": "Claude Code Customization and Extension",
+      "reference": "https://code.claude.com/docs/en/hooks",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "哪个钩子事件最适合在 Claude 编辑文件后自动格式化每个文件？",
+      "commentaryZh": "常见钩子事件：PreToolUse（执行前，可阻止）、PostToolUse（执行后，适合格式化和日志）、UserPromptSubmit（用户提交时）、SessionStart（会话开始）、Stop（回复结束时）。"
+    },
+    {
+      "id": "dv8-020",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team wants a specialized security reviewer that runs with its own instructions and only read-only tools in Claude Code. Which customization fits best?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A custom subagent.",
+          "correct": true,
+          "explain": "正解。独自のプロンプト・ツール制限・独立した文脈を持つ専門役にはサブエージェント。",
+          "textZh": "一个自定义子智能体。"
+        },
+        {
+          "text": "A built-in tool.",
+          "correct": false,
+          "explain": "不適。組み込みツールでは独自の指示や専用の役割を設定できない。",
+          "textZh": "一个内置工具。"
+        },
+        {
+          "text": "An MCP server.",
+          "correct": false,
+          "explain": "不適。外部システム連携ではない。",
+          "textZh": "一个 MCP 服务器。"
+        },
+        {
+          "text": "A longer user prompt each time.",
+          "correct": false,
+          "explain": "不適。再現性と制限がない。",
+          "textZh": "每次写更长的用户提示词。"
+        }
+      ],
+      "objective": "Claude Code Customization and Extension",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-10-24",
+      "stemZh": "团队希望在 Claude Code 中有一个专门的安全审查者，使用自己的指示且只有只读工具。哪种定制方式最合适？",
+      "commentaryZh": "需要“专职角色”（独立指示、受限工具、隔离上下文）时用子智能体；需要“知识和流程”时用 Skill；需要“外部连接”时用 MCP。"
+    },
+    {
+      "id": "ndv3-001",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A team has a repeatable release-notes procedure with a template and a helper script. Claude Code should use it only when someone works on release notes. Which extension fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A Skill containing the instructions, template, and script, loaded when relevant.",
+          "correct": true,
+          "explain": "正解。必要な時だけ読み込む手順とリソースは Skill。",
+          "textZh": "做成 Skill，包含说明、模板和脚本，相关时才加载。"
+        },
+        {
+          "text": "Paste the whole procedure into CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。毎回読み込まれ、文脈を圧迫する。",
+          "textZh": "把整个流程粘贴到 CLAUDE.md 里。"
+        },
+        {
+          "text": "A PreToolUse hook.",
+          "correct": false,
+          "explain": "不適。フックは決定的な制御用で、手順の知識を教えるものではない。",
+          "textZh": "一个 PreToolUse 钩子。"
+        },
+        {
+          "text": "An MCP server.",
+          "correct": false,
+          "explain": "不適。外部システムへの接続は不要。",
+          "textZh": "一个 MCP 服务器。"
+        }
+      ],
+      "objective": "Claude Code Customization and Extension",
+      "reference": "https://code.claude.com/docs/en/skills",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "团队有一套可重复的发布说明流程，包括模板和辅助脚本。Claude Code 只在有人写发布说明时才使用它。哪种扩展最合适？",
+      "commentaryZh": "3.2 要为团队流程选对扩展：按需加载的流程和资源 → Skill；每次都要遵守的项目规则 → CLAUDE.md / Rules；必须确定执行的动作 → hooks；独立上下文的专门角色 → 子代理；手动触发的固定提示 → 斜杠命令；打包分发 → 插件。"
+    },
+    {
+      "id": "ndv3-002",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A platform team wants to distribute the same Skills, slash commands, subagents, and hooks to 30 repositories and update them in one place. What should they build?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A Claude Code plugin published through a marketplace the teams install from.",
+          "correct": true,
+          "explain": "正解。複数の拡張をまとめて配布・更新するのがプラグイン。",
+          "textZh": "做成 Claude Code 插件，通过各团队可安装的插件市场发布。"
+        },
+        {
+          "text": "Copy the files into each repository by hand.",
+          "correct": false,
+          "explain": "不適。更新のたびにずれが生じる。",
+          "textZh": "手动把文件复制到每个仓库。"
+        },
+        {
+          "text": "Ask each developer to recreate them.",
+          "correct": false,
+          "explain": "不適。一貫性がなくなる。",
+          "textZh": "让每个开发者自己重新做一遍。"
+        },
+        {
+          "text": "Put everything in one giant CLAUDE.md.",
+          "correct": false,
+          "explain": "不適。フックやサブエージェントは配布できない。",
+          "textZh": "全部写进一个巨大的 CLAUDE.md。"
+        }
+      ],
+      "objective": "Claude Code Customization and Extension",
+      "reference": "https://code.claude.com/docs/en/plugins",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "平台团队想把同一套 Skill、斜杠命令、子代理和钩子分发到 30 个仓库，并且能在一处统一更新。应该做什么？",
+      "commentaryZh": "插件把多个扩展（Skill、命令、子代理、钩子、MCP 配置）打包，通过市场分发和更新，是团队级共享的标准方式。"
+    },
+    {
+      "id": "ndv3-003",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "Developers want a reviewer that checks diffs with its own instructions and only read-only tools, without filling the main session's context. Which extension fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A custom subagent with its own system prompt and a restricted tool list.",
+          "correct": true,
+          "explain": "正解。独立した文脈と限定された権限を持つ役割はサブエージェント。",
+          "textZh": "一个自定义子代理，拥有自己的系统提示和受限的工具列表。"
+        },
+        {
+          "text": "A slash command.",
+          "correct": false,
+          "explain": "不適。メインの文脈で動き、ツール制限もない。",
+          "textZh": "一个斜杠命令。"
+        },
+        {
+          "text": "A Rules file.",
+          "correct": false,
+          "explain": "不適。規則を足すだけで独立した文脈にならない。",
+          "textZh": "一个 Rules 文件。"
+        },
+        {
+          "text": "An environment variable.",
+          "correct": false,
+          "explain": "不適。役割を定義できない。",
+          "textZh": "一个环境变量。"
+        }
+      ],
+      "objective": "Claude Code Customization and Extension",
+      "reference": "https://code.claude.com/docs/en/sub-agents",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "开发者想要一个审查者：用自己的指令检查 diff，只能用只读工具，而且不占用主会话的上下文。哪种扩展最合适？",
+      "commentaryZh": "需要独立上下文、专用提示和受限工具的专门角色，适合做成子代理；它的结果汇总后返回，不会把细节塞进主会话。"
+    },
+    {
+      "id": "ndv3-004",
+      "domain": "D3",
+      "type": "mcq",
+      "difficulty": 2,
+      "stem": "A CI job runs Claude Code headless and must parse its output programmatically. Which invocation fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Run it in print mode (claude -p) with a JSON output format and explicit allowed tools.",
+          "correct": true,
+          "explain": "正解。非対話・機械可読出力・権限の明示が CI の基本。",
+          "textZh": "用打印模式（claude -p），选择 JSON 输出格式，并明确允许的工具。"
+        },
+        {
+          "text": "Open an interactive session and copy the output by hand.",
+          "correct": false,
+          "explain": "不適。手作業では CI を自動化できない。",
+          "textZh": "打开交互式会话，手动复制输出。"
+        },
+        {
+          "text": "Give it permission to run every tool without limits.",
+          "correct": false,
+          "explain": "不適。CI では最小権限にする。",
+          "textZh": "允许它不受限制地运行所有工具。"
+        },
+        {
+          "text": "Parse the colored terminal UI text.",
+          "correct": false,
+          "explain": "不適。表示用の文字列は解析が壊れやすい。",
+          "textZh": "解析带颜色的终端界面文本。"
+        }
+      ],
+      "objective": "Claude Code Operation",
+      "reference": "https://code.claude.com/docs/en/settings",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "CI 任务要以无头模式运行 Claude Code，并用程序解析输出。哪种调用方式最合适？",
+      "commentaryZh": "无头模式（-p）配合 JSON 或流式 JSON 输出，便于程序解析；在 CI 中要明确允许的工具和权限模式，不能给无限权限。"
     }
   ]
 }
