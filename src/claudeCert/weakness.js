@@ -17,25 +17,14 @@
    「あなたの弱点は D5 です」と言うのは、助けではなく害になる。
    ============================================================ */
 
-import { learnerKey } from "../learner";
-import { certKey } from "./certState";
 import { DOMAINS } from "./domains";
 import { loadResults } from "./exam";
-import { loadProgress } from "./progress";
+import { loadProgress, loadReview } from "./progress";
 
 /** これ未満の解答数では、そのドメインの正答率を信用しない */
 export const MIN_ATTEMPTS = 8;
 /** 模試の結果を演習の何倍に重みづけするか */
 const EXAM_WEIGHT = 3;
-
-function read(key) {
-  try {
-    const raw = window.localStorage.getItem(learnerKey(key));
-    return raw ? JSON.parse(raw) : null;
-  } catch (e) {
-    return null;
-  }
-}
 
 /**
  * ドメインごとの実績を集める。
@@ -118,7 +107,7 @@ export function analyseWeakness() {
  */
 export function pickFocusItems(itemsByDomain, focusIds, limit) {
   const progress = loadProgress();
-  const review = read(certKey("ReviewV1")) || {};
+  const review = loadReview();
   const wrong = [];
   const unseen = [];
   const seen = [];

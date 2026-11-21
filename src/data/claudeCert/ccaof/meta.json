@@ -1,11 +1,29 @@
 {
-  "blueprintVersion": "1.0",
-  "blueprintEffective": "2026-07",
+  "blueprintVersion": "1.1",
+  "blueprintEffective": "2026-12-07",
   "examCode": "CCAO-F",
   "examName": "Claude Certified Associate – Foundations",
-  "source": "Claude Certified Associate – Foundations Exam Guide, Version 1.0, Effective July 2026",
+  "source": "Claude Certified Associate – Foundations Exam Guide, Version 1.1, Effective December 7, 2026",
+  "checkedAt": "2026-11-21",
+  "objectiveLabel": "skill",
+  "sources": [
+    {
+      "title": "Claude Certified Associate – Foundations Exam Guide v1.1（2026-12-07 発効、Anthropic Academy 配布 PDF）",
+      "url": "https://cc.sj-cdn.net/instructor/6nizmqk8tpzpfjvt6qmmav7rh/public/1794946609/Claude_Certified_Associate_-_Foundations_Exam_Guide_Updated_Dec_7.pdf",
+      "kind": "official",
+      "covers": "問題数（70、うち採点 60）・時間・合格点・受験料・6ドメインと配点・21 skill・AI Fluency の 4D・サンプル問題 3 問"
+    },
+    {
+      "title": "Claude 認定プログラム（Pearson VUE）",
+      "url": "https://www.pearsonvue.com/us/en/anthropic.html",
+      "kind": "official",
+      "covers": "2026-12-07 から CCAO-F・CCDV-F・CCAR-P が新しい出題内容になること"
+    }
+  ],
+  "updateNote": "2026-12-07 から Exam Guide v1.1 の出題範囲（6ドメイン・21 skill・70問）。v1.0（7ドメイン・60問）の問題は新しいドメインと skill に振り分け直し、v1.1 で増えた内容（Skills・コード実行による分析・メモリーの確認と削除・インコグニートチャット（incognito）・effort の選択・4D など）の問題を足した。2026-12-06 までに受ける人は v1.0 の大綱も確認すること。",
   "examFormat": {
-    "items": 60,
+    "items": 70,
+    "scoredItems": 60,
     "minutes": 120,
     "passScaled": 720,
     "scaleMin": 100,
@@ -16,103 +34,175 @@
   "domains": [
     {
       "id": "D1",
-      "label": "プロンプト作成とタスク実行",
-      "labelEn": "Prompting and Task Execution",
-      "weight": 14,
+      "label": "タスク定義とプロンプト",
+      "labelEn": "Task Definition and Prompting",
+      "weight": 15,
       "color": "#2F6E8A",
       "objectives": [
-        "Create effective prompts for business and technical tasks",
-        "Apply task decomposition techniques to structure complex requests",
-        "Iterate prompts to improve output quality",
-        "Adapt prompting strategies based on task type (analysis, research, drafting, brainstorming)"
+        "Prompt Construction",
+        "Task Decomposition and Sequencing",
+        "Prompt Diagnosis and Iteration"
       ]
     },
     {
       "id": "D2",
-      "label": "出力の評価と検証",
-      "labelEn": "Output Evaluation and Validation",
-      "weight": 21,
+      "label": "出力の評価と品質管理",
+      "labelEn": "Output Evaluation and Quality Control",
+      "weight": 20,
       "color": "#8A3B2F",
       "objectives": [
-        "Evaluate Claude-generated outputs for accuracy and completeness",
-        "Identify hallucinations, inconsistencies, and biases in responses",
-        "Apply fact-checking and validation techniques",
-        "Determine when human review or additional verification is required",
-        "Edit, adapt, refine, and compare outputs for the intended audience",
-        "Organize and curate information and select appropriate output formats (artifacts, inline, structured data)"
+        "Output Evaluation and Fitness for Purpose",
+        "Hallucination Detection and Verification",
+        "Review Depth and Escalation",
+        "Output Adaptation and Format Selection"
       ]
     },
     {
       "id": "D3",
-      "label": "製品・モデルの選択",
-      "labelEn": "Product and Model Selection",
-      "weight": 12,
+      "label": "機能・モデル・コンテキストの選択",
+      "labelEn": "Capability, Model, and Context Selection",
+      "weight": 15,
       "color": "#8A6D2F",
       "objectives": [
-        "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
-        "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
-        "Align model selection with task requirements (cost, speed, quality)",
-        "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)"
+        "Capability Selection",
+        "Model and Effort Selection",
+        "Context and Memory Management"
       ]
     },
     {
       "id": "D4",
-      "label": "ワークフロー統合と設計",
-      "labelEn": "Workflow Integration and Solution Design",
-      "weight": 16,
+      "label": "ワークフローの設計と統合",
+      "labelEn": "Workflow Design and Integration",
+      "weight": 18,
       "color": "#2F5D8A",
       "objectives": [
-        "Apply Claude to analyze requirements and use cases",
-        "Leverage Claude for research, planning, and process optimization",
-        "Use Claude to support solution design, development, and iteration",
-        "Integrate Claude into existing workflows to augment or redesign them",
-        "Communicate Claude's value and limitations to stakeholders"
+        "End-to-End Deliverable Workflows",
+        "Delegation and Workflow Redesign",
+        "Repeatable Workflow Design",
+        "Capability Communication"
       ]
     },
     {
       "id": "D5",
       "label": "設定と知識管理",
       "labelEn": "Configuration and Knowledge Management",
-      "weight": 12,
+      "weight": 15,
       "color": "#5A3B8A",
       "objectives": [
-        "Configure Claude Projects with instructions and knowledge sources",
-        "Manage uploaded knowledge and connectors (e.g., Google Drive, Gmail)",
-        "Create effective system-level instructions",
-        "Inform, maintain, and update Claude configurations, knowledge sources, and instructions"
+        "Project Configuration",
+        "Connector and Knowledge Management",
+        "Persistent-Instruction Design",
+        "Configuration Lifecycle and Degradation"
       ]
     },
     {
       "id": "D6",
-      "label": "ガバナンス・リスク・責任ある利用",
-      "labelEn": "Governance, Risk, and Responsible Use",
-      "weight": 15,
+      "label": "責任ある利用・データ保護・ガバナンス",
+      "labelEn": "Responsible Use, Data Protection, and Governance",
+      "weight": 17,
       "color": "#2F7A4F",
       "objectives": [
-        "Identify appropriate and inappropriate use cases",
-        "Apply data sensitivity, regulatory, and privacy considerations",
-        "Follow organizational AI policies and governance standards",
-        "Understand the ethical implications of AI usage"
-      ]
-    },
-    {
-      "id": "D7",
-      "label": "トラブルシューティングと最適化",
-      "labelEn": "Troubleshooting and Optimization",
-      "weight": 10,
-      "color": "#3B3B3B",
-      "objectives": [
-        "Identify, diagnose, and resolve issues with underperforming prompts or poor outputs",
-        "Adjust approach based on feedback and results",
-        "Optimize workflows for efficiency and effectiveness"
+        "Use-Case Appropriateness",
+        "Data Protection in Practice",
+        "Policy, Ethics, and Diligence"
       ]
     }
   ],
   "competencies": [
-    "Apply Claude to complete structured business tasks with minimal guidance",
-    "Use built-in platform features and tools to streamline workflows",
-    "Identify opportunities to improve processes using Claude",
-    "Select appropriate approaches to balance quality, efficiency, and cost",
-    "Recognize limitations and escalate more complex or technical implementations"
-  ]
+    "Delegation",
+    "Description",
+    "Discernment",
+    "Diligence"
+  ],
+  "previousBlueprint": {
+    "version": "1.0",
+    "effective": "2026-07",
+    "items": 60,
+    "domains": 7,
+    "objectives": 30,
+    "note": "D7 Troubleshooting and Optimization はなくなり、プロンプトの診断は D1、設定の劣化は D5、ワークフローの効率化は D4 に入った。"
+  },
+  "movedItemsNote": "v1.0 の D7（トラブルシューティング）の問題は v1.1 で D1・D4 に移った。学習記録をこの対応で移しかえる（progress.js）。",
+  "movedItems": {
+    "d7-001": "D1",
+    "d7-002": "D1",
+    "d7-003": "D4",
+    "d7-004": "D1",
+    "d7-005": "D1",
+    "d7-006": "D1",
+    "d7-007": "D4",
+    "d7-008": "D1",
+    "d7-009": "D1",
+    "d7-010": "D1",
+    "d7-011": "D4",
+    "d7-012": "D1",
+    "d7-013": "D1",
+    "d7-014": "D4",
+    "d7-015": "D1",
+    "d7-016": "D1",
+    "d7-017": "D4",
+    "d7-018": "D1",
+    "d7-019": "D1",
+    "d7-020": "D4",
+    "d7-021": "D1",
+    "d7-022": "D1",
+    "d7-023": "D4",
+    "d7-024": "D1",
+    "d7-025": "D1",
+    "d7-026": "D1",
+    "d7-027": "D4",
+    "d7-028": "D1",
+    "d7-029": "D1",
+    "d7-030": "D1",
+    "d7-031": "D4",
+    "d7-032": "D1",
+    "d7-033": "D1",
+    "d7-034": "D4",
+    "d7-035": "D1",
+    "d7-036": "D1",
+    "d7-037": "D1",
+    "d7-038": "D4",
+    "d7-039": "D1",
+    "d7-040": "D1",
+    "d7-041": "D1",
+    "d7-042": "D4",
+    "d7-043": "D1",
+    "d7-044": "D1",
+    "d7-045": "D1",
+    "d7-046": "D4",
+    "d7-047": "D1",
+    "d7-048": "D1",
+    "d7-049": "D4",
+    "d7-050": "D1",
+    "d7-051": "D4",
+    "d7-052": "D1",
+    "d7-053": "D1",
+    "d7-054": "D4",
+    "d7-055": "D1",
+    "d7-056": "D1",
+    "d7-057": "D4",
+    "d7-058": "D1",
+    "d7-059": "D4",
+    "d7-060": "D1",
+    "d7-061": "D1",
+    "d7-062": "D4",
+    "d7-063": "D1",
+    "d7-064": "D1",
+    "d7-065": "D4",
+    "d7-066": "D1",
+    "d7-067": "D1",
+    "d7-068": "D4",
+    "d7-069": "D1",
+    "d7-070": "D1",
+    "d7-071": "D4",
+    "d7-072": "D1",
+    "d7-073": "D1",
+    "d7-074": "D4",
+    "d7-075": "D1",
+    "d7-076": "D1",
+    "d7-077": "D4",
+    "d7-078": "D1",
+    "d7-079": "D1",
+    "d7-080": "D4"
+  }
 }

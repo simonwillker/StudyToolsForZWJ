@@ -11,13 +11,14 @@
    ============================================================ */
 
 import { learnerKey } from "../learner";
-import { certKey } from "./certState";
+import { certKey, activeMovedItems } from "./certState";
 import {
   applyMistakeAnswer,
   dateKeyOf,
   dueMistakeIds,
   emptyMistakes,
   migrateMistakes,
+  moveMistakeItems,
   normalizeMistakes,
 } from "./studyCore";
 
@@ -49,8 +50,12 @@ export function todayKey() {
 /** 錯題本を読む。旧形式の復習リストがまだ移されていなければ、ここで移す */
 export function loadMistakes(today = todayKey()) {
   const raw = readRaw(mistakesKey());
-  const store = normalizeMistakes(raw);
-  if (store.migratedReview) return store;
+  const moved = moveMistakeItems(raw, activeMovedItems());
+  const store = moved.store;
+  if (store.migratedReview) {
+    if (moved.changed) write(store);
+    return store;
+  }
   const migrated = migrateMistakes(store, readRaw(oldReviewKey()), today);
   write(migrated);
   return migrated;

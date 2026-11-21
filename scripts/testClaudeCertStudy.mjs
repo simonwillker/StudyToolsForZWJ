@@ -208,14 +208,46 @@ test("学習記録のリセット後、旧リストが残っていても錯題�
 const objectives = core.buildObjectives(meta);
 const index = core.buildObjectiveIndex(meta, lessons);
 
-test("考点は 30 個で、全問題がどれかの考点に入る", () => {
-  assert.equal(objectives.length, 30);
+test("考点は v1.1 の 21 skill で、全問題がどれかの考点に入る", () => {
+  assert.equal(objectives.length, 21);
   assert.equal(objectives[0].id, "D1-1");
+  assert.equal(objectives[20].id, "D6-3");
   const unmapped = allItems.filter((i) => !index.get(i.objective));
   assert.deepEqual(unmapped.map((i) => i.id), []);
-  // エスカレーション（competency）の問題は D4-5 で練習できる
-  const esc = allItems.find((i) => i.objective.startsWith("Recognize limitations"));
-  assert.equal(index.get(esc.objective), "D4-5");
+  assert.equal(index.get("Capability Communication"), "D4-4");
+});
+
+test("v1.0 の D7 の問題は movedItems で新しいドメインに対応している", () => {
+  const moves = meta.movedItems;
+  const byId = new Map(allItems.map((i) => [i.id, i]));
+  assert.equal(Object.keys(moves).length, 80);
+  Object.entries(moves).forEach(([id, to]) => assert.equal(byId.get(id).domain, to, id));
+  assert.equal(allItems.filter((i) => i.domain === "D7").length, 0);
+});
+
+test("ドメインが変わった問題の学習記録が新しいドメインへ移る（何度呼んでも同じ）", () => {
+  const moves = { "d7-001": "D1", "d7-050": "D4" };
+  const progress = {
+    domains: {
+      D1: { attempted: 3, correct: 2, items: { "d1-001": { seen: 3, correct: 2 } } },
+      D7: { attempted: 5, correct: 3, items: { "d7-001": { seen: 2, correct: 1 }, "d7-050": { seen: 3, correct: 2 } } },
+    },
+    daily: { "2026-11-01": { attempted: 8, correct: 5 } },
+  };
+  const { progress: p1, changed } = core.moveProgressItems(progress, moves);
+  assert.ok(changed);
+  assert.equal(p1.domains.D7, undefined);
+  assert.deepEqual(p1.domains.D1, { attempted: 5, correct: 3, items: { "d1-001": { seen: 3, correct: 2 }, "d7-001": { seen: 2, correct: 1 } } });
+  assert.deepEqual(p1.domains.D4, { attempted: 3, correct: 2, items: { "d7-050": { seen: 3, correct: 2 } } });
+  assert.deepEqual(p1.daily, progress.daily);
+  assert.equal(progress.domains.D7.attempted, 5, "元の記録は変えない");
+  assert.equal(core.moveProgressItems(p1, moves).changed, false);
+
+  const { review } = core.moveReviewItems({ D7: ["d7-001", "d7-050"], D2: ["d2-001"] }, moves);
+  assert.deepEqual(review, { D1: ["d7-001"], D4: ["d7-050"], D2: ["d2-001"] });
+
+  const { store } = core.moveMistakeItems({ version: 1, migratedReview: true, items: { "d7-050": { domain: "D7", due: "2026-11-01" } } }, moves);
+  assert.equal(store.items["d7-050"].domain, "D4");
 });
 
 test("考点別の成績は、これまでの問題ごとの記録から集計される", () => {
@@ -248,7 +280,7 @@ test("弱い考点：解答数が足りる考点を正答率順、足りなけ�
   objectives.forEach((o) => (stats[o.id] = { attempted: 0, correct: 0 }));
   stats["D1-1"] = { attempted: 10, correct: 9 };
   stats["D2-3"] = { attempted: 6, correct: 2 };
-  stats["D7-1"] = { attempted: 2, correct: 0 }; // 0% だが数が少ないので「弱い」とは言わない
+  stats["D6-3"] = { attempted: 2, correct: 0 }; // 0% だが数が少ないので「弱い」とは言わない
   const r = core.rankWeakObjectives(objectives, stats);
   assert.equal(r.judgeableCount, 2);
   assert.deepEqual(r.picks.map((p) => [p.id, p.reason]), [["D2-3", "weak"], ["D1-1", "weak"], ["D2-1", "few"]]);
@@ -292,15 +324,15 @@ test("模試だけ：直近ほど重く平均、確からしさは中以下", ()
   assert.equal(p.predicted, Math.round((3 * 700 + 2 * 640) / 5));
   assert.equal(p.confidence, "中");
   assert.equal(p.gap, 720 - p.predicted);
-  assert.equal(p.questionsShort, Math.ceil(p.gap / 15));
+  assert.equal(p.questionsShort, Math.ceil(p.gap / (900 / 70)));
 });
 
 test("演習だけ：配点で加重した正答率を 100〜1000 に直す", () => {
   const stats = statsWith(0.8);
-  // D2（配点21%）だけ 50%
+  // D2（配点20%）だけ 50%
   objectives.filter((o) => o.domain === "D2").forEach((o) => (stats[o.id] = { attempted: 10, correct: 5 }));
   const p = core.predictScore({ results: [], objectives, objectiveStats: stats, domains: meta.domains, examFormat: fmt });
-  const acc = (0.8 * 79 + 0.5 * 21) / 100;
+  const acc = (0.8 * 80 + 0.5 * 20) / 100;
   assert.equal(p.practiceScaled, Math.round(100 + 900 * acc));
   assert.equal(p.predicted, p.practiceScaled);
   assert.equal(p.coveredWeight, 100);

@@ -33,7 +33,7 @@
           "textZh": "全部400封人工处理，以回避模型选择的判断。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-23",
       "stemZh": "某支持团队每天需要400封基于固定模板的简短回复草稿。内容都很直接，速度和成本比推理深度更重要。哪个选择最合适？",
@@ -71,7 +71,7 @@
           "textZh": "把资料总结一次，之后就依赖这份总结。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-23",
       "stemZh": "每次谈到某个客户，都需要同样的三份背景资料。最合适的设置是什么？",
@@ -109,7 +109,7 @@
           "textZh": "换一个模型，在同一个对话里继续。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-23",
       "stemZh": "一个工作中的对话已经持续了几个小时。Claude 开始记不住早先做过的决定，回复的格式也在偏离约定。最合适的做法是什么？",
@@ -153,7 +153,7 @@
           "textZh": "某个步骤已完成的简短确认。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-23",
       "stemZh": "下面哪两项任务更适合用 artifact（成果物）而不是在对话中直接回复？（选2项）",
@@ -192,7 +192,7 @@
           "textZh": "它们是用不同公司的数据训练的。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**模型层级是权衡，不是好坏排序**。把它理解成「越贵越好、所以永远用最贵的」，会在大量简单任务上付出不必要的成本和等待时间。正确的问法始终是「**这项任务需要什么**」。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -230,7 +230,7 @@
           "textZh": "认定这份文档无法读取，放弃。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**给太多反而更差**。300页里有299页与问题无关，它们会稀释真正相关的内容。和 D1 里「多余的背景有代价」是同一条原理：**相关性比数量重要**。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -274,7 +274,7 @@
           "textZh": "测试某个说法听起来是否自然。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**Project 的两个典型用途**：**共享的知识**和**共享的指示**。判断标准是「这些东西要被反复用到吗」。一次性的问题用普通对话就够了，为它建 Project 的配置成本反而更高。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
@@ -312,7 +312,7 @@
           "textZh": "随便哪个都行，差异只在长任务上才显现。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**把成本花在刀刃上**。条款互相牵连的合同正是推理深度能带来实际差异的场景，而且**只有一份**——用最强模型的额外成本微不足道。这和「每天400封简短回复」的判断正好相反。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -350,7 +350,7 @@
           "textZh": "用同样的开场白开始新对话。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**要持续的东西必须显式写下来**。这条原则在前面反复出现过（长对话重开、跨轮迭代、团队交接），本质相同：**不要依赖隐式的延续**，把确定下来的内容变成可以携带的文字。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -394,7 +394,7 @@
           "textZh": "一句某步骤已完成的说明。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**成果物的判断标准**：**会不会被单独打开使用**。交给客户的文档和反复查阅的表格都符合；对话中的问答、确认、澄清则不符合。把过程也做成成果物，只会堆积没人再看的文件。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -432,7 +432,7 @@
           "textZh": "减少处理的条目数量。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**从便宜的开始，用数据决定**。「简单分类 + 大量」是低成本模型的典型场景。正确的做法不是凭感觉选，而是**先试便宜的、测准确率**——够用就不必往上走。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -470,7 +470,7 @@
           "textZh": "答案总是对的，只是显示得不好。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**长对话里的旧内容是负担**。其中包含被推翻的假设、改过的数字、放弃的方向——这些仍然在上下文里，会影响当前的回答。这就是为什么长对话要**带着整理好的摘要重开**。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -514,7 +514,7 @@
           "textZh": "便宜的模型不能用于业务工作。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**模型选择是任务级的，不是组织级的**。同一个团队在不同场景应该用不同的层级，而**数量**是最重要的变量之一：一份合同和五千条工单，答案完全不同。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -552,7 +552,7 @@
           "textZh": "这让客户列表更难阅读。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**分叉的知识库**。这和前面「每个人各持一份副本」是同一个问题：三份知识各自更新，很快就不一致了。而使用者感受到的是「**同一个问题，换个人问就得到不同的答案**」，信任就是这样丢掉的。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
@@ -590,7 +590,7 @@
           "textZh": "只有当便宜的那个更新时才换。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**换模型要先做对照测试**。这和 D4 里比较三种起草方法是同一套方法：**同样的输入、同样的判定标准**。最危险的是第二个干扰项——质量下降往往不会有人抱怨，只是悄悄地变差。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -634,7 +634,7 @@
           "textZh": "每问完一个问题就换。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**什么时候重开**。判断依据是**旧内容会不会妨碍新工作**：话题变了，或者前提被推翻了。按时间或按次数机械地切换，反而会打断本来需要连续性的工作。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -672,7 +672,7 @@
           "textZh": "这个 Project 以后不能改名。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**Project 的边界应该对应工作的边界**。把给客户写邮件的文风规则和内部技术文档的规则放在同一个 Project 里，两者会互相干扰。分开的判断依据是「**这些指示应该同时生效吗**」。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
@@ -710,7 +710,7 @@
           "textZh": "回避这个讨论，让每个人自己选。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**如何回应「永远用最好的」**。不是反驳质量的重要性，而是**把它精确化**：哪些环节质量差异真的看得出来，哪些环节已经足够好了。省下来的预算正好用在前者上——这是对「质量就是一切」最忠实的执行。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -748,7 +748,7 @@
           "textZh": "永远开着同一段对话。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**持久的偏好放在设置里**。这是 Project 指示最直接的用途。第三个干扰项确实能工作，但把负担留给了人——而且总有一天会忘记写。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -786,7 +786,7 @@
           "textZh": "结果需要多快拿到。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**习惯不是理由**。推理复杂度、运行次数、时间要求都是正当的判断依据；「上次用的就是它」不是。这道题的价值在于提醒：模型选择应该是**每项任务重新判断一次**的事。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -830,7 +830,7 @@
           "textZh": "担当想给自己留个副本。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**切出成果物的两个理由**：**多人共享**和**多轮修改**。两者的共同点是需要一个**明确的当前版本**。而生成耗时、对话长度、个人留档，都不构成这个需求。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -868,7 +868,7 @@
           "textZh": "每周批量处理一次。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**分级处理**。这是同时满足速度和质量的标准做法：**便宜的模型做初筛，难的往上送**。关键在于初筛的目标不是「判断对错」，而是「**判断这件事需不需要更强的判断**」——这个要求低得多，也更可靠。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -906,7 +906,7 @@
           "textZh": "靠记住关键点。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**摘要要自成一体**。检验标准很明确：**一个完全没参与过的人能不能据此继续工作**。第三个干扰项特别值得注意——整段复制会把被推翻的想法一起带过去，问题原封不动。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -950,7 +950,7 @@
           "textZh": "团队喜不喜欢便宜那个模型的名字？"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**判断「够用」的两个角度**：**任务本身需不需要深推理**，以及**错了能不能兜住**。后者常被忽略——同样的准确率，在有复核的流程里可以接受，在直接发给客户的流程里就不行。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -988,7 +988,7 @@
           "textZh": "保持原样，因为删规则有风险。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**设置也需要定期整理**。和 D1 里「提示词只加不减」是同一个毛病，只是发生在 Project 层面。正确的做法是**回到当前的实际需要重写**，而不是在矛盾之上再加一层裁决规则。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
@@ -1026,7 +1026,7 @@
           "textZh": "问问其他公司的同行。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**用实测回答「够不够用」**。模型说明给的是一般性的能力描述，无法回答「**对我们这份合同、按我们的标准**够不够」。这和 D4 里比较方法、D3 里换模型的判断是同一套方法论。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -1070,7 +1070,7 @@
           "textZh": "删掉早先的消息以节省空间。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**长期工作的两条支柱**：**定期固化状态**（随时可以重开或交接）和**把稳定的前提放在设置里**（不随对话丢失）。两者配合，工作就不再依赖某一段对话的存续。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -1108,7 +1108,7 @@
           "textZh": "公司来了更多人。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**成本失控最常见的原因**。工作量没变而费用翻几倍，通常是因为**默认选了最强的模型**，而其中大部分任务用便宜的就够了。查的方向应该先向内，而不是先怪外部涨价。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -1146,7 +1146,7 @@
           "textZh": "Project 的指示一旦设定就不能更改。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**「每次都要说」和「一次说好」的区别**。判断哪些内容该放到 Project 指示里，标准就是：**它是否适用于这里的每一次对话**。是 → 放设置；不是 → 留在具体的提示词里。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
@@ -1190,7 +1190,7 @@
           "textZh": "产出会被高层管理者阅读。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**什么时候值得用最贵的**。两个条件都关于**推理本身**：后果大、或者要素互相牵连。而读者的职级、想要的语气都不是理由——高层看的一页纸，未必需要比工程文档更深的推理。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -1228,7 +1228,7 @@
           "textZh": "两周对任何任务来说都太长了。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**长间隔之后回来的风险**。对话里既有成立的结论，也有被推翻的假设，而且两者混在一起。隔了两周，连自己都分不清了。正确的做法是**先整理出一份「当前有效的结论」**，再继续。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -1266,7 +1266,7 @@
           "textZh": "按其他公司用什么来选。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**模型选择的完整方法**，三步：**从要求出发 → 实测便宜的够不够 → 只在不够的地方升级**。两个「永远」的选项都错在同一点：用一条固定规则代替了针对每项任务的判断。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -1304,7 +1304,7 @@
           "textZh": "开着一段对话，所有问题都在里面问。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**同一份资料被反复查阅**，这是 Project 知识库的标准场景。第二个干扰项还有一个隐患：**每次贴哪几页是人在判断**，贴错范围就答错，而且没人会发现。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
@@ -1342,7 +1342,7 @@
           "textZh": "粘贴的文字和打字输入的文字处理方式不同。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**上下文的相关性**。这一条在 D1（多余的背景）和 D3（300页文档）里都出现过，值得记牢：**多给不等于给得好**。判断标准是「这段内容会不会改变答案」。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -1386,7 +1386,7 @@
           "textZh": "一次性把所有东西都换成最便宜的模型。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**降成本的正确顺序**：**先测量，再针对性调整**。和 D4 里「工作流太慢先查时间花在哪」完全同构。不做测量就全面降级或限制使用，通常是砍掉了产出而不是砍掉了浪费。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -1424,7 +1424,7 @@
           "textZh": "这项任务是不是在早上运行的。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**先排除自己这一侧的问题**。升级模型是最贵的调试手段，而且**指示不清在任何层级上都会失败**。顺序应该是：先重读提示词，确认条件齐全，再考虑是不是层级不够。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -1462,7 +1462,7 @@
           "textZh": "给团队写一份正式报告。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**不是所有工作都需要基础设施**。一次性的确认用普通对话就够了。为它建 Project、做成果物、写报告，配置成本远超收益——这种过度结构化在实务里很常见，也很浪费。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -1506,7 +1506,7 @@
           "textZh": "每条消息的时间戳。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**摘要里放什么**。两样：**成立的结论**和**仍然有效的约束**。第四个干扰项描述的正是最危险的情况——被否决的方案混在里面而没有标明，下一轮很可能被当作可行方案重新捡起来。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -1544,7 +1544,7 @@
           "textZh": "在两者之间随机轮换。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**分流设计的关键是「怎么识别那5%」**。正解不只是「分开处理」，而是**要定义出可执行的路由规则**。如果无法事先识别哪些是难案例，这个设计就落不了地——那才是真正要解决的问题。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -1582,7 +1582,7 @@
           "textZh": "只有最便宜的模型才会出错。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**升级不能替代检查**。这是把 D3 和 D2 连起来的一条：模型选得对能减少错误，但**检查这一环的必要性不因层级而改变**。用了最强的模型就跳过复核，是很常见也很危险的推论。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -1626,7 +1626,7 @@
           "textZh": "每次开始工作时都从头重建上下文。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**长期协作的两件基础设施**：**Project**（共享的输入：材料和规则）和**成果物**（共享的输出：需要版本管理的交付物）。三个干扰项都会导致同一个后果——**分叉**。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -1664,7 +1664,7 @@
           "textZh": "在最终文档的末尾注明这个更正。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**错误前提的影响范围**。既不能只改那一句（后面建立在它上面的结论还是错的），也不必全部推倒（有些部分和它无关）。正确的动作是**追踪依赖关系**——哪些结论用到了这个假设。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -1702,7 +1702,7 @@
           "textZh": "在工作时间之外运行任务。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**最常见也最容易修的浪费**：**默认用最强的**。它不需要任何人做错事，只要没人做出选择，成本就会默默地跑上去。对策也很简单——把模型选择变成流程设计时必须回答的一个问题。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -1746,7 +1746,7 @@
           "textZh": "一份内部术语表。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**不该放进知识库的两类**：**权限不一致的材料**（放进去等于对全体开放）和**变化太快的数据**（知识库里的那份会变成过时的副本，而且有人会用它）。两者的共同点是——放进去会制造出一个你不希望存在的状态。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
@@ -1784,7 +1784,7 @@
           "textZh": "要求延期，但不提出任何替代方案。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**时间不够时的资源分配**。要点在于把有限的检查力气**按后果排序**，而不是平均分配或者干脆不查。这和 D2 里「200页读不完怎么办」用的是同一个思路：改变检查的对象和顺序，而不是放弃检查。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -1822,7 +1822,7 @@
           "textZh": "这个上限只适用于图片。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**上下文上限的实务含义**。对非开发者来说，它不是一个技术参数，而是一条工作习惯：**挑着给，别倒着给**。这也正好解释了为什么「全部贴进去」不是好做法。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -1860,7 +1860,7 @@
           "textZh": "共用一个 Project，把笔记存在外面。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**Project 的边界要对应权限的边界**。「能使用这个 Project 的人 = 能看到里面全部内容的人」，所以只要可见范围不同，就必须分开。共享的材料重复放两份是可以接受的代价。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
@@ -1898,7 +1898,7 @@
           "textZh": "产出是不是太长了读不完。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**延迟也是模型选择的一个维度**。成本没问题不代表选对了——如果这项任务其实不需要那么深的推理，换成更快的层级能同时改善等待时间和成本。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -1942,7 +1942,7 @@
           "textZh": "产出使用了小标题。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**该重开的两个信号**：**早先的约束失效**和**被推翻的假设复活**。两者都说明当前的上下文里混杂了太多互相冲突的内容。看到这两个症状，就该整理摘要、重新开始。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -1980,7 +1980,7 @@
           "textZh": "统一用其他公司用得最多的那个。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**统一的对象是方法，不是模型**。这道题把整个 D3 的思路总结了一遍：既然选择取决于任务的要求，那么团队该统一的就是**判断的标准**（什么时候升级、怎么测试够不够用），而不是锁定某一个型号。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -2018,7 +2018,7 @@
           "textZh": "一封给接手者的邮件。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**交付物要能脱离产生它的过程**。接手的人不应该被迫去读一段长对话才能找到当前版本，更不应该在里面遇到已经被否决的方案。第三个干扰项的混淆点值得注意：**Project 管的是输入，成果物才是输出**。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -2062,7 +2062,7 @@
           "textZh": "团队这个季度有没花完的预算。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**升级的两个正当理由**：**实测不达标**和**任务本身需要权衡冲突**。而「答案太短」其实是指示问题、「有新版本」和「预算没花完」则完全与任务要求无关——后者尤其常见。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -2100,7 +2100,7 @@
           "textZh": "同时并行保持好几段对话。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**把「恒久」和「当下」分开存放**。稳定的东西（材料、规则）放 Project，流动的东西（当前进展）用摘要携带。这样既不会有一段越滚越大的对话，也不会每次从零开始。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -2138,7 +2138,7 @@
           "textZh": "像选字体：不影响结果。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**一个好用的类比**。交通工具的比喻之所以准确，是因为它自带了「**没有最好，只有合适**」的直觉：没人会为了买菜开长途卡车，也没人会用自行车运家具。模型选择是同一类判断。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -2182,7 +2182,7 @@
           "textZh": "担当喜欢界面整洁。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**该建 Project 的两个信号**：**同样的东西贴了好几遍**（重复劳动）和**多人需要同一套规则**（一致性）。两者都指向同一件事——有些内容不该每次重新提供。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/overview",
       "reviewedAt": "2026-09-24"
@@ -2220,7 +2220,7 @@
           "textZh": "用最便宜的模型，然后更仔细地检查。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**数量改变了成本的权重**。同样一项任务，每天5000次和每月2次，答案完全不同。最后一个干扰项还有一个常被忽略的点：**为了省模型的钱而增加人工检查，通常是更贵的**。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -2258,7 +2258,7 @@
           "textZh": "那些结论一定是错的。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**摘要要带上「为什么」**。只写结论，接手的人（包括几周后的自己）会自然地重新审视它们——因为不知道这些结论是在什么约束下、基于什么理由做出的。这和 D4 里「给接手的人留理由」完全一致。",
       "reference": "https://docs.claude.com/en/docs/build-with-claude/context-windows",
       "reviewedAt": "2026-09-24"
@@ -2302,7 +2302,7 @@
           "textZh": "按哪个产出更长来判断。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**比较的设计**。除了老生常谈的「同输入、同标准」之外，第二条同样关键：**必须包含难的案例**。如果比较样本全是典型情况，两个层级看起来会差不多——而它们的差异恰恰只在难处显现。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
@@ -2340,7 +2340,7 @@
           "textZh": "那位同事最常用哪个模型。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**接手设置时先看「输入」**。Project 的行为由两样东西决定：**指示**和**知识文件**。离职者留下的知识库里很可能有过期的资料（价目表、规格书），而它们会安静地继续影响每一次产出。",
       "reference": "https://support.claude.com/en/articles/9517075-what-are-projects",
       "reviewedAt": "2026-09-24"
@@ -2378,8 +2378,8 @@
           "textZh": "质量只取决于产出有多长。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
-      "commentaryZh": "考点是**这门考试对模型选择的整体立场**。它既不是「换个模型解决一切」，也不是「模型无所谓」。准确的说法是：**模型决定天花板，指示和检查决定你实际拿到什么**——这也正好解释了为什么 D1（提示）和 D2（评估）的分值远高于 D3。",
+      "objective": "Model and Effort Selection",
+      "commentaryZh": "考点是**这门考试对模型选择的整体立场**。它既不是「换个模型解决一切」，也不是「模型无所谓」。准确的说法是：**模型决定天花板，指示和检查决定你实际拿到什么**——所以新大纲里提示（D1）和评估（D2）合计占 35%，比模型选择本身重得多。",
       "reference": "https://docs.claude.com/en/docs/about-claude/models/choosing-a-model",
       "reviewedAt": "2026-09-24"
     },
@@ -2416,7 +2416,7 @@
           "textZh": "把最早的消息一条条删掉。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**长对话里，早先的指示会被后面的内容淹没**。把当前的前提整理出来、开一段新对话带过去，比继续在旧对话里加指示有效。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2454,7 +2454,7 @@
           "textZh": "这个任务能不能放在 Project 里做。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**高频简单任务里，单次成本和速度会被放大500倍**。这时优先考虑成本与速度是合理的；而一次性的重要判断则相反。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2492,7 +2492,7 @@
           "textZh": "答案必须尽可能快地产出。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**Project 的价值在于反复复用同一套前提**。一次性的问题放进 Project 只是多一步设置。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2530,7 +2530,7 @@
           "textZh": "能力强的模型做不了简单任务。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**能力过剩也是一种浪费**。任务本身不需要那么深的推理时，多出来的能力换不成结果，只换成了成本和等待。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2568,7 +2568,7 @@
           "textZh": "原对话的完整文本。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**带走结论和约束，不带走过程**。已经定下来的事和必须遵守的限制是后续判断的前提；中途被否掉的尝试带过去只会重新引入噪音。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2606,7 +2606,7 @@
           "textZh": "当输出必须是电子表格时。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**需要跨多个来源查证并留下出处时**，研究模式的优势才体现出来。已经知道答案、只要改写文字的任务用不上它。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2644,7 +2644,7 @@
           "textZh": "应该直接要成稿，避免编辑。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**后面有人改，就不必在第一稿上买最高质量**。草稿的作用是提供起点，精修由人完成，成本花在这里回报有限。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2682,7 +2682,7 @@
           "textZh": "对话里消息条数很多。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**重开的理由是前提变脏了**。话题已经偏离、或者早先的错误一直被沿用，这时继续只会累积。单纯「聊得久」或者「消息多」不是理由。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2720,7 +2720,7 @@
           "textZh": "应该把约束减到三条。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**约束互相牵连时，推理的深度才是瓶颈**。这类任务适合把能力放在优先位置，因为顾此失彼的代价很高。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2758,7 +2758,7 @@
           "textZh": "应该把这些对话合并成一段。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**反复粘贴同一份资料是配置缺失的信号**。把它作为知识源放好，既省事又保证每次用的是同一版本。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2796,7 +2796,7 @@
           "textZh": "当前模型已经用了多久。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**换之前要知道现在哪里不够、换了怎么判断有没有变好**。没有这两条，换完只能靠印象说「好像好些了」。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2834,7 +2834,7 @@
           "textZh": "长对话总是产出错误的答案。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**会话不是记录**。决定留在对话里，没有人能确认它当时是怎么定的、有没有被后来的内容改写。要紧的决定应当单独记下来。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2872,7 +2872,7 @@
           "textZh": "一份省略了细节的摘要。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**要被继续编辑的成品适合放在 artifact 里**。散落在对话里的内容，同事要先自己拼起来才能动手。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2910,7 +2910,7 @@
           "textZh": "每次都两个都跑一遍再比较。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**质量相当时，其余条件才成为选择依据**。既然结果差不多，没有理由付出额外的等待。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2948,7 +2948,7 @@
           "textZh": "一次性任务选什么都无所谓。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**一次性的重大判断里，单次成本可以忽略**。决定的金额远大于任何一次调用的差价，这时质量应当优先。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -2986,7 +2986,7 @@
           "textZh": "这一次请求的截止时间。"
         }
       ],
-      "objective": "Select appropriate Claude product features (Projects, research mode, chat, artifacts)",
+      "objective": "Capability Selection",
       "commentaryZh": "考点是**不变的东西放在一处**。每次都一样的规则和口径放进 Project 的指示，既省事又不会写漏；只对某一次有效的内容留在那一次的请求里。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3024,7 +3024,7 @@
           "textZh": "写在最长那段对话的第一条请求里。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**跨对话生效的东西要存在配置里**。写在某一次对话里，只在那一次有效；下次还要重新说一遍。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3062,7 +3062,7 @@
           "textZh": "每个选项存在了多久。"
         }
       ],
-      "objective": "Align model selection with task requirements (cost, speed, quality)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**返工的代价不在这张账单上**。便宜的选项如果需要人多改几轮，省下的钱会从人的时间里加倍还回去。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3100,7 +3100,7 @@
           "textZh": "这个任务依赖许多互相作用的规则。"
         }
       ],
-      "objective": "Differentiate between Claude model types (Haiku, Sonnet, Opus)",
+      "objective": "Model and Effort Selection",
       "commentaryZh": "考点是**判断空间小、且错了容易发现**，这两条同时成立时，轻量选项的风险就很低。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
@@ -3138,10 +3138,390 @@
           "textZh": "什么都不会变，因为摘要本来就是可选的。"
         }
       ],
-      "objective": "Understand and manage context limitations and memory considerations (when to restart, summarize, or persist)",
+      "objective": "Context and Memory Management",
       "commentaryZh": "考点是**摘要里没有的东西，在新对话里就不存在**。新对话不会知道被漏掉的约束，于是会产出违反它的结果，而且看起来很自然。",
       "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
       "reviewedAt": "2026-09-25"
+    },
+    {
+      "id": "n3-001",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A marketing team formats every campaign report with the same brand template, section order, and chart style. They want Claude to apply this procedure automatically whenever someone asks for a campaign report, in any chat. Which capability fits BEST?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A Skill that packages the template instructions and resources and loads when relevant.",
+          "correct": true,
+          "explain": "正解。繰り返す手順をパッケージ化し、必要な時に動的に読み込むのが Skill。",
+          "textZh": "做成一个 Skill，把模板说明和资源打包，在相关时自动加载。"
+        },
+        {
+          "text": "Paste the template into each chat by hand.",
+          "correct": false,
+          "explain": "不適。再現性が低く、手間がかかる。",
+          "textZh": "每次在对话里手动粘贴模板。"
+        },
+        {
+          "text": "A connector to the team's file storage.",
+          "correct": false,
+          "explain": "不適。コネクタは外部データへのアクセスで、手順そのものは教えない。",
+          "textZh": "连接团队文件存储的连接器。"
+        },
+        {
+          "text": "Turn on memory so Claude remembers the template.",
+          "correct": false,
+          "explain": "不適。メモリは過去の文脈の要約で、手順を確実に適用する仕組みではない。",
+          "textZh": "打开记忆功能，让 Claude 记住模板。"
+        }
+      ],
+      "objective": "Capability Selection",
+      "reference": "https://support.claude.com/en/articles/12512176-what-are-skills",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "市场团队的每份活动报告都用同一个品牌模板、章节顺序和图表样式。他们希望不论在哪个对话里，只要有人要活动报告，Claude 就自动按这套流程来做。哪种功能最合适？",
+      "commentaryZh": "Skill 是由说明、脚本和资源组成的文件夹，Claude 判断相关时才加载（渐进式披露），适合「可重复的专门流程」。连接器（MCP）负责连接外部服务和数据，记忆保存的是过去对话的背景，两者都不能代替明确的流程。"
+    },
+    {
+      "id": "n3-002",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "Which statement correctly distinguishes Skills, Projects, and connectors?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Projects hold background knowledge loaded for chats in that project; Skills hold procedures loaded when relevant anywhere; connectors give access to external tools and data.",
+          "correct": true,
+          "explain": "正解。公式の比較そのもの。併用もできる。",
+          "textZh": "项目保存该项目里对话都会加载的背景知识；Skill 保存在任何地方相关时才加载的流程；连接器提供对外部工具和数据的访问。"
+        },
+        {
+          "text": "Skills and connectors are the same thing with different names.",
+          "correct": false,
+          "explain": "不適。コネクタはアクセス、Skill は手順の知識。",
+          "textZh": "Skill 和连接器是同一个东西，只是名字不同。"
+        },
+        {
+          "text": "Projects load only when Claude decides they are relevant.",
+          "correct": false,
+          "explain": "不適。動的に読み込まれるのは Skill。プロジェクトの知識はそのプロジェクトの会話で常に背景になる。",
+          "textZh": "只有 Claude 判断相关时才会加载项目。"
+        },
+        {
+          "text": "Connectors teach Claude how to follow company procedures.",
+          "correct": false,
+          "explain": "不適。手順を教えるのは Skill。",
+          "textZh": "连接器教 Claude 如何遵循公司流程。"
+        }
+      ],
+      "objective": "Capability Selection",
+      "reference": "https://support.claude.com/en/articles/12512176-what-are-skills",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "下面哪项正确区分了 Skill、项目（Project）和连接器？",
+      "commentaryZh": "官方说明：项目提供静态的背景知识；Skill 提供动态加载、处处可用的专门流程；MCP 连接器把 Claude 接到外部服务和数据。连接器给工具，Skill 教怎么用工具，两者可以一起用。"
+    },
+    {
+      "id": "n3-003",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A finance analyst needs the exact average order value across 40,000 rows in an uploaded CSV. Which approach is MOST reliable?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Use code execution so Claude computes the value with code over the full file, then spot-check the method.",
+          "correct": true,
+          "explain": "正解。正確な計算は推測ではなくコード実行で。手法の確認も行う。",
+          "textZh": "使用代码执行，让 Claude 用代码对整个文件计算，再抽查计算方法。"
+        },
+        {
+          "text": "Ask Claude to estimate the average by reading the file.",
+          "correct": false,
+          "explain": "不適。大量データの暗算的な推定は誤りやすい。",
+          "textZh": "让 Claude 读文件后估算平均值。"
+        },
+        {
+          "text": "Ask Claude for the answer in a research-mode search.",
+          "correct": false,
+          "explain": "不適。答えは手元のファイルにあり、Web 検索は無関係。",
+          "textZh": "用联网研究模式让 Claude 找答案。"
+        },
+        {
+          "text": "Paste the first 100 rows and extrapolate.",
+          "correct": false,
+          "explain": "不適。標本からの外挿は正確な値にならない。",
+          "textZh": "只粘贴前 100 行，然后外推。"
+        }
+      ],
+      "objective": "Capability Selection",
+      "reference": "https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "财务分析员需要从上传的 CSV（4 万行）里算出精确的平均订单金额。哪种做法最可靠？",
+      "commentaryZh": "需要精确计算、处理大量数据、生成文件时，选代码执行（文件创建与分析）功能，让结果由代码算出。即使如此，也要检查用了哪一列、有没有过滤错误等方法层面的问题。"
+    },
+    {
+      "id": "n3-004",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "Which TWO tasks are the BEST fit for Claude's research or web search capability rather than the user's uploaded files?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Finding announcements competitors made this week.",
+          "correct": true,
+          "explain": "正解。最新の外部情報は検索・リサーチ向き。",
+          "textZh": "查找竞争对手本周发布的公告。"
+        },
+        {
+          "text": "Gathering current public guidance from several regulators to compare.",
+          "correct": true,
+          "explain": "正解。複数の公開情報を集めて比べる作業。",
+          "textZh": "收集几家监管机构当前公开的指引进行比较。"
+        },
+        {
+          "text": "Summarizing the internal meeting notes the user just uploaded.",
+          "correct": false,
+          "explain": "不適。手元の資料で完結する。",
+          "textZh": "总结用户刚上传的内部会议记录。"
+        },
+        {
+          "text": "Reformatting a table already in the chat.",
+          "correct": false,
+          "explain": "不適。外部情報は不要で、会話内で完結する。",
+          "textZh": "重新排版对话里已有的表格。"
+        }
+      ],
+      "objective": "Capability Selection",
+      "reference": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "哪两项任务最适合用 Claude 的研究 / 联网搜索功能，而不是用上传的文件？",
+      "commentaryZh": "选择功能时先问「信息在哪里」：最新的、外部公开的信息用研究或联网搜索；已经在手上的资料直接上传或粘贴。联网结果也要看来源是否可靠。"
+    },
+    {
+      "id": "n3-005",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A user must classify 500 short support tickets into five fixed categories, and also, separately, draft a complex multi-step migration plan with many trade-offs. How should model and effort be chosen?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A fast model or lower effort for the simple classification; a more capable model or higher effort for the complex plan.",
+          "correct": true,
+          "explain": "正解。タスクの複雑さに合わせて速度・コスト・品質を釣り合わせる。",
+          "textZh": "简单分类用快速模型或较低 effort；复杂方案用能力更强的模型或较高 effort。"
+        },
+        {
+          "text": "The most capable model at maximum effort for both, to be safe.",
+          "correct": false,
+          "explain": "不適。単純作業に過剰で、時間とコストを浪費する。",
+          "textZh": "为保险起见，两项都用最强模型、最高 effort。"
+        },
+        {
+          "text": "The fastest model at minimum effort for both, to save time.",
+          "correct": false,
+          "explain": "不適。複雑な推論で品質が落ちる。",
+          "textZh": "为省时间，两项都用最快模型、最低 effort。"
+        },
+        {
+          "text": "Effort only affects response length, so it does not matter.",
+          "correct": false,
+          "explain": "不適。effort は考える深さ（トークンの使い方）に関わる。",
+          "textZh": "effort 只影响回答长度，所以无所谓。"
+        }
+      ],
+      "objective": "Model and Effort Selection",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/effort",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "用户要把 500 条简短的客服工单分到 5 个固定类别里；另外还要单独起草一份有许多取舍、需要多步推理的迁移方案。模型和推理强度（effort）该怎么选？",
+      "commentaryZh": "3.2 要求按任务复杂度、速度、成本和质量来选模型与推理强度。简单、量大、规则明确的任务适合快速模型或低 effort；多步推理、取舍多的任务才值得用更强的模型或更高 effort。"
+    },
+    {
+      "id": "n3-006",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A user's quick fact-lookup prompts are taking a long time because they always run at the highest effort setting. What is the BEST adjustment?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Lower the effort (or use a faster model) for these simple lookups and keep high effort for hard reasoning tasks.",
+          "correct": true,
+          "explain": "正解。単純な質問に深い推理は不要。",
+          "textZh": "对这类简单查询降低 effort（或换快速模型），把高 effort 留给难的推理任务。"
+        },
+        {
+          "text": "Write longer prompts so the time is worth it.",
+          "correct": false,
+          "explain": "不適。問題の原因に対処していない。",
+          "textZh": "把提示写得更长，让等待时间物有所值。"
+        },
+        {
+          "text": "Switch off all tools.",
+          "correct": false,
+          "explain": "不適。遅さの原因はツールではなく effort 設定。",
+          "textZh": "关掉所有工具。"
+        },
+        {
+          "text": "Keep highest effort; it always gives the most accurate answer.",
+          "correct": false,
+          "explain": "不適。単純な事実確認では品質差が小さく、速度を失うだけ。",
+          "textZh": "保持最高 effort；它总能给出最准确的答案。"
+        }
+      ],
+      "objective": "Model and Effort Selection",
+      "reference": "https://platform.claude.com/docs/en/build-with-claude/effort",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "用户查简单事实的提问总是很慢，因为一直用最高的 effort 设置。最好的调整是什么？",
+      "commentaryZh": "effort 越高，Claude 思考得越深，也越慢、越贵。简单查询降低 effort 可以明显提速，质量几乎不变。把高 effort 用在真正需要深度推理的任务上，才是合理的分配。"
+    },
+    {
+      "id": "n3-007",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A consultant notices Claude keeps referring to a client preference from an old engagement that no longer applies. What is the MOST direct fix?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "Review the memory in settings and edit or delete the outdated item.",
+          "correct": true,
+          "explain": "正解。メモリは設定で確認・編集・削除できる。",
+          "textZh": "在设置里查看记忆，编辑或删除过时的内容。"
+        },
+        {
+          "text": "Start every chat by saying \"ignore old preferences.\"",
+          "correct": false,
+          "explain": "不適。根本原因（古いメモリ）が残る。",
+          "textZh": "每次对话开头都说「忽略以前的偏好」。"
+        },
+        {
+          "text": "Switch to a more capable model.",
+          "correct": false,
+          "explain": "不適。モデルの問題ではない。",
+          "textZh": "换一个能力更强的模型。"
+        },
+        {
+          "text": "Upload the new preference as a file in every chat.",
+          "correct": false,
+          "explain": "不適。古い記憶が残ったままで矛盾する。",
+          "textZh": "每次对话都上传写有新偏好的文件。"
+        }
+      ],
+      "objective": "Context and Memory Management",
+      "reference": "https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "顾问发现 Claude 总是提到一个旧项目里客户的偏好，但这个偏好已经不适用了。最直接的解决办法是什么？",
+      "commentaryZh": "v1.1 新增了记忆管理：用户可以在设置里查看 Claude 记住了什么，并编辑或删除。过时或错误的记忆会持续影响回答，应该直接修正源头，而不是每次口头纠正。"
+    },
+    {
+      "id": "n3-008",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "A user wants to ask Claude one sensitive personal question that should NOT be saved to chat history or used for memory. What should they use?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "An incognito chat, which is not saved to history or memory.",
+          "correct": true,
+          "explain": "正解。インコグニートチャットは履歴にもメモリにも残らない。",
+          "textZh": "使用无痕（incognito）对话，它不会保存到历史，也不会进入记忆。"
+        },
+        {
+          "text": "A normal chat, then delete the memory later.",
+          "correct": false,
+          "explain": "不適。最初から残さない方法がある。",
+          "textZh": "用普通对话，之后再删除记忆。"
+        },
+        {
+          "text": "A new Project.",
+          "correct": false,
+          "explain": "不適。プロジェクトの会話は通常どおり保存される。",
+          "textZh": "新建一个项目。"
+        },
+        {
+          "text": "Ask Claude to promise not to remember it.",
+          "correct": false,
+          "explain": "不適。口約束は設定の代わりにならない。",
+          "textZh": "让 Claude 承诺不记住。"
+        }
+      ],
+      "objective": "Context and Memory Management",
+      "reference": "https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "用户想问 Claude 一个比较私人的问题，不希望它被保存到对话历史，也不希望进入记忆。应该用什么？",
+      "commentaryZh": "无痕对话（incognito）不会出现在历史里，也不会被用于记忆。注意：在 Team / Enterprise 计划中，无痕对话仍受组织的数据保留和导出规则约束，所以它不是「披露控制」，敏感数据本身仍要先判断能不能输入。"
+    },
+    {
+      "id": "n3-009",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "A user has memory on, but for one brainstorming chat about an unrelated side topic they do not want past context to influence the answers. Which TWO options fit?",
+      "selectCount": 2,
+      "choices": [
+        {
+          "text": "Turn memory off for that chat from the chat's options.",
+          "correct": true,
+          "explain": "正解。会話ごとにメモリをオフにできる。",
+          "textZh": "在该对话的选项里关闭本次对话的记忆。"
+        },
+        {
+          "text": "Use an incognito chat.",
+          "correct": true,
+          "explain": "正解。インコグニートはメモリを使わず、残しもしない。",
+          "textZh": "使用无痕对话。"
+        },
+        {
+          "text": "Delete all memory permanently.",
+          "correct": false,
+          "explain": "不適。一つの会話のためには過剰。",
+          "textZh": "永久删除所有记忆。"
+        },
+        {
+          "text": "Add a project instruction saying \"no memory.\"",
+          "correct": false,
+          "explain": "不適。指示文は設定の代わりにならない。",
+          "textZh": "在项目指令里写「不要记忆」。"
+        }
+      ],
+      "objective": "Context and Memory Management",
+      "reference": "https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "用户开着记忆功能，但有一个和工作无关的头脑风暴对话，不希望过去的背景影响回答。哪两项合适？",
+      "commentaryZh": "不想让记忆影响某一次对话时，有比删除全部记忆更小的手段：本次对话关闭记忆，或者用无痕对话。选最小、可恢复的操作，是 3.3 的典型思路。"
+    },
+    {
+      "id": "n3-010",
+      "domain": "D3",
+      "type": "scenario",
+      "stem": "An employee uses Claude for two separate client engagements and is worried details from Client A will surface while working on Client B. What setup BEST prevents this?",
+      "selectCount": 1,
+      "choices": [
+        {
+          "text": "A separate Project for each client, since each project keeps its own memory.",
+          "correct": true,
+          "explain": "正解。プロジェクトごとにメモリが分かれ、作業の流れを分離できる。",
+          "textZh": "每个客户各建一个项目，因为每个项目都有各自独立的记忆。"
+        },
+        {
+          "text": "One project for both clients with a note to keep them separate.",
+          "correct": false,
+          "explain": "不適。同じ文脈に混在する。",
+          "textZh": "两个客户放在同一个项目里，再加一条「请分开处理」的说明。"
+        },
+        {
+          "text": "Use the most capable model.",
+          "correct": false,
+          "explain": "不適。分離の問題はモデルでは解決しない。",
+          "textZh": "使用最强的模型。"
+        },
+        {
+          "text": "Delete chat history after each session.",
+          "correct": false,
+          "explain": "不適。手間が大きく、作業の継続性も失う。",
+          "textZh": "每次用完都删除对话历史。"
+        }
+      ],
+      "objective": "Context and Memory Management",
+      "reference": "https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context",
+      "reviewedAt": "2026-11-21",
+      "stemZh": "员工用 Claude 处理两个不同客户的工作，担心客户 A 的细节会在处理客户 B 时冒出来。哪种设置最能防止这种情况？",
+      "commentaryZh": "每个项目都有自己的记忆和知识，跨项目不会混用。按客户或工作流分项目，是防止信息串用、又保留各自上下文的最自然做法。"
     }
   ]
 }
