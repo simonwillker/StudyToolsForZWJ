@@ -27,6 +27,12 @@ export function hasVocabTest(level) {
 /** 単語・熟語と同じ 20 語ずつの組（EikenApp.jsx の VOCAB_UNIT_SIZE と同じ） */
 export const UNIT_SIZE = 20;
 
+/** その級の1組の語数。級のデータに vocabUnitSize があればそれ（準2級は単語帳に合わせて 35） */
+export function unitSizeOf(level) {
+  const n = level && Number(level.vocabUnitSize);
+  return Number.isInteger(n) && n > 0 ? n : UNIT_SIZE;
+}
+
 export const QUESTION_COUNTS = [10, 20, 50];
 
 export const FORMATS = [
@@ -56,14 +62,14 @@ function shuffle(arr, rand = Math.random) {
   return a;
 }
 
-export function unitCount(vocab) {
-  return Math.ceil(vocab.length / UNIT_SIZE);
+export function unitCount(vocab, size = UNIT_SIZE) {
+  return Math.ceil(vocab.length / size);
 }
 
 /** 組の名前。単語帳の番号つきの級（準2級）は「1組（No.0001〜0020）」のように番号を添える */
-export function unitLabel(vocab, u) {
-  const first = vocab[u * UNIT_SIZE];
-  const last = vocab[Math.min((u + 1) * UNIT_SIZE, vocab.length) - 1];
+export function unitLabel(vocab, u, size = UNIT_SIZE) {
+  const first = vocab[u * size];
+  const last = vocab[Math.min((u + 1) * size, vocab.length) - 1];
   if (first && last && first.number != null && last.number != null) {
     const n4 = (n) => String(n).padStart(4, "0");
     return `${u + 1}組（No.${n4(first.number)}〜${n4(last.number)}）`;
@@ -77,13 +83,13 @@ export function unitLabel(vocab, u) {
  * （結果画面の「まちがえた単語をもう一度」は { type: "retry" } で、単語を直接わたす）
  * weakIds: 苦手な単語の id（復習リストの単語）
  */
-export function wordsInRange(vocab, range, weakIds = new Set()) {
+export function wordsInRange(vocab, range, weakIds = new Set(), size = UNIT_SIZE) {
   if (!range || range.type === "all") return vocab;
   if (range.type === "weak") return vocab.filter((w) => weakIds.has(w.id));
-  const last = unitCount(vocab) - 1;
+  const last = unitCount(vocab, size) - 1;
   const from = Math.max(0, Math.min(range.from ?? 0, last));
   const to = Math.max(from, Math.min(range.to ?? from, last));
-  return vocab.slice(from * UNIT_SIZE, (to + 1) * UNIT_SIZE);
+  return vocab.slice(from * size, (to + 1) * size);
 }
 
 export function rangeLabel(range) {

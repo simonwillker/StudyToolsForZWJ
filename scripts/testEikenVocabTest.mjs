@@ -137,6 +137,18 @@ test("範囲：組（両端を含む）・すべて・苦手な単語", () => {
   assert.equal(vt.rangeLabel({ type: "units", from: 0, to: 0 }), "1組");
 });
 
+test("準2級は1組35語（vocabUnitSize）、ほかの級は20語", () => {
+  const pre2 = load("pre2");
+  const size = vt.unitSizeOf(pre2);
+  assert.equal(size, 35);
+  assert.equal(vt.unitSizeOf(load("2")), 20);
+  assert.equal(vt.unitCount(pre2.vocab, size), Math.ceil(pre2.vocab.length / 35));
+  assert.deepEqual(vt.wordsInRange(pre2.vocab, { type: "units", from: 0, to: 0 }, new Set(), size), pre2.vocab.slice(0, 35));
+  assert.deepEqual(vt.wordsInRange(pre2.vocab, { type: "units", from: 1, to: 1 }, new Set(), size), pre2.vocab.slice(35, 70));
+  assert.equal(vt.unitLabel(pre2.vocab, 0, size), "1組（No.0001〜0035）");
+  assert.equal(vt.unitLabel(pre2.vocab, 1, size), "2組（No.0036〜0070）");
+});
+
 test("問題数：範囲より多いときは範囲の語数まで", () => {
   const vocab = load("pre2").vocab;
   const words = vt.wordsInRange(vocab, { type: "units", from: 0, to: 0 });
