@@ -95,10 +95,10 @@ test("間隔：まちがえる → 1日後。期限前の正解は数えない�
 });
 
 test("まちがえて戻った問題は、次の正解で 7日後", () => {
-  rv.recordReviewResult("pre2", "vocab", "vpre2-010", false, "2026-11-01");
-  rv.recordReviewResult("pre2", "vocab", "vpre2-010", true, "2026-11-02");
-  rv.recordReviewResult("pre2", "vocab", "vpre2-010", false, "2026-11-05");
-  rv.recordReviewResult("pre2", "vocab", "vpre2-010", true, "2026-11-06");
+  rv.recordReviewResult("pre2", "vocab", "vpre2-0010", false, "2026-11-01");
+  rv.recordReviewResult("pre2", "vocab", "vpre2-0010", true, "2026-11-02");
+  rv.recordReviewResult("pre2", "vocab", "vpre2-0010", false, "2026-11-05");
+  rv.recordReviewResult("pre2", "vocab", "vpre2-0010", true, "2026-11-06");
   assert.equal(rv.getReviewEntries("pre2", "2026-11-06")[0].due, "2026-11-13");
 });
 
@@ -143,6 +143,25 @@ test("バックアップ：錯題本が入り、件数を数える。古いバ�
   assert.equal(ls.getItem("eikenMistakesV1"), null, "錯題本を消して、次に読むときに作り直す");
   assert.deepEqual(rv.getReviewSummary("5", "2026-12-01"), { total: 1, due: 1, next: null });
   assert.equal(rv.getReviewCount("3", "2026-12-01"), 0, "戻したバックアップの中身だけになる");
+});
+
+test("準2級の旧単語（vpre2-001 形式）は数えず出さない。新しい番号の単語（vpre2-0001）と他のモード・他の級は残る", () => {
+  setLearner("Guest");
+  const day = "2026-11-22";
+  rv.recordReviewResult("pre2", "vocab", "vpre2-001", false, day); // 旧 500 語の id（古い記録・同期・バックアップから来る）
+  rv.recordReviewResult("pre2", "grammar", "gpre2-01", false, day);
+  rv.recordReviewResult("2", "vocab", "v2-001", false, day);
+  assert.equal(rv.getReviewCount("pre2", day), 1, "旧単語は数えない（文法だけ）");
+  rv.recordReviewResult("pre2", "vocab", "vpre2-0001", false, day);
+  assert.deepEqual([...rv.getReviewItemIds("pre2", "vocab", day)], ["vpre2-0001"]);
+  assert.deepEqual(rv.getReviewCountByMode("pre2", false, day), { grammar: 1, vocab: 1 });
+  assert.equal(rv.getReviewCount("2", day), 1, "他の級の単語はそのまま");
+  const stored = JSON.parse(ls.getItem("eikenMistakesV1::Guest")).levels.pre2.items;
+  assert.equal(stored["vocab::vpre2-001"], undefined, "書くついでに保存データからも外れる");
+  assert.ok(rv.isRetiredItem("pre2", "vocab", "vpre2-500"));
+  assert.ok(!rv.isRetiredItem("pre2", "vocab", "vpre2-0100"));
+  assert.ok(!rv.isRetiredItem("pre2", "phrases", "ppre2-001"), "常用短句は入れかえていない");
+  setLearner("ZWJ");
 });
 
 console.log(`\n${passed} 件すべて OK\n`);

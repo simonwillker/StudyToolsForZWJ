@@ -133,8 +133,32 @@ export function loadMistakes(today = todayKey()) {
   return migrated;
 }
 
+/** 単語の入れかえで使わなくなった問題 id。錯題本・今日の復習・苦手な単語には出さない。
+ *  v1.44.0：準2級の単語を単語帳の番号順（vpre2-0001 形式・4桁）に入れかえたので、
+ *  それまでの 500 語（vpre2-001 形式・3桁）の記録は数えない。保存データは書きかえず、
+ *  読むときに外す（古いバックアップや同期で戻ってきても同じように外れる）。 */
+const RETIRED_ITEMS = {
+  pre2: { vocab: /^vpre2-\d{3}$/ },
+};
+
+export function isRetiredItem(level, mode, itemId) {
+  const re = (RETIRED_ITEMS[level] || {})[mode];
+  return !!re && re.test(String(itemId));
+}
+
+function liveItems(level, items) {
+  const rules = RETIRED_ITEMS[level];
+  if (!rules) return items;
+  const out = {};
+  Object.entries(items).forEach(([k, e]) => {
+    const { mode, itemId } = toEntry(k, e);
+    if (!isRetiredItem(level, mode, itemId)) out[k] = e;
+  });
+  return out;
+}
+
 function levelItems(store, level) {
-  return normalizeMistakes(store.levels[level]).items;
+  return liveItems(level, normalizeMistakes(store.levels[level]).items);
 }
 
 export function isReviewableMode(mode) {
@@ -148,7 +172,8 @@ export function isReviewableMode(mode) {
 export function recordReviewResult(level, mode, itemId, isCorrect, today = todayKey()) {
   if (!isReviewableMode(mode) || itemId == null) return;
   const store = loadMistakes(today);
-  const lv = normalizeMistakes(store.levels[level]);
+  const lv = { ...normalizeMistakes(store.levels[level]) };
+  lv.items = liveItems(level, lv.items); // 使わなくなった問題は、書くついでに外す
   const next = applyMistakeAnswer(lv, { id: keyOf(mode, itemId), domain: mode }, isCorrect, today);
   store.levels = { ...store.levels, [level]: { items: next.items } };
   saveMistakes(store);

@@ -60,6 +60,17 @@ export function unitCount(vocab) {
   return Math.ceil(vocab.length / UNIT_SIZE);
 }
 
+/** 組の名前。単語帳の番号つきの級（準2級）は「1組（No.0001〜0020）」のように番号を添える */
+export function unitLabel(vocab, u) {
+  const first = vocab[u * UNIT_SIZE];
+  const last = vocab[Math.min((u + 1) * UNIT_SIZE, vocab.length) - 1];
+  if (first && last && first.number != null && last.number != null) {
+    const n4 = (n) => String(n).padStart(4, "0");
+    return `${u + 1}組（No.${n4(first.number)}〜${n4(last.number)}）`;
+  }
+  return `${u + 1}組`;
+}
+
 /**
  * 出題範囲の単語。
  * range: { type: "units", from, to }（0始まり、両端を含む）／{ type: "all" }／{ type: "weak" }
