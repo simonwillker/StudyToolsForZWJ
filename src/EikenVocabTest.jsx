@@ -7,6 +7,10 @@ import ScoreTrend from "./ScoreTrend.jsx";
 import { isSpeechSynthesisSupported, speak, stopSpeaking } from "./eikenSpeech";
 import {
   unitSizeOf,
+  hasBookNumbers,
+  numberBounds,
+  clampNumberRange,
+  wordsInNumberRange,
   QUESTION_COUNTS,
   FORMATS,
   formatLabel,
@@ -75,12 +79,65 @@ export function VocabTestTrend({ level, color }) {
    条件をえらぶ
    ------------------------------------------------------------ */
 
+/** 単語帳の番号で範囲を指定する（準2級）。入力は確定（フォーカスを外す・Enter）したときに範囲内へおさめる */
+export function NumberRangePicker({ vocab, from, to, onChange, color }) {
+  const [a, setA] = useState(String(from));
+  const [b, setB] = useState(String(to));
+  useEffect(() => setA(String(from)), [from]);
+  useEffect(() => setB(String(to)), [to]);
+  const { min, max } = numberBounds(vocab);
+  const commit = (na = a, nb = b) => {
+    const r = clampNumberRange(vocab, na, nb);
+    setA(String(r.from));
+    setB(String(r.to));
+    if (r.from !== from || r.to !== to) onChange(r);
+  };
+  const words = wordsInNumberRange(vocab, from, to);
+  const input = (value, set, label) => (
+    <input
+      type="number"
+      inputMode="numeric"
+      className="eiken-unit-select eiken-no-input"
+      min={min}
+      max={max}
+      value={value}
+      aria-label={label}
+      onChange={(e) => set(e.target.value)}
+      onBlur={() => commit()}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") e.currentTarget.blur();
+      }}
+    />
+  );
+  return (
+    <div className="eiken-no-range" style={{ "--c": color }}>
+      <div className="eiken-control-row">
+        <span className="eiken-control-label">No.</span>
+        {input(a, setA, "はじめの番号")}
+        <span className="eiken-vt-tilde">〜</span>
+        {input(b, setB, "おわりの番号")}
+      </div>
+      <div className="eiken-hint" style={{ marginTop: 4 }}>
+        {words.length}語（{words[0] ? words[0].word : ""}
+        {words.length > 1 ? ` 〜 ${words[words.length - 1].word}` : ""}）・番号は {min}〜{max} から
+      </div>
+    </div>
+  );
+}
+
 function Setup({ level, settings, setSettings, weakIds, onStart }) {
   const vocab = level.vocab;
   const size = unitSizeOf(level);
   const units = unitCount(vocab, size);
   const { rangeType, from, to, count, format } = settings;
-  const range = rangeType === "units" ? { type: "units", from, to } : { type: rangeType };
+  const numbered = hasBookNumbers(vocab);
+  const noRange = clampNumberRange(vocab, settings.noFrom, settings.noTo);
+  const range =
+    rangeType === "units"
+      ? { type: "units", from, to }
+      : rangeType === "numbers" && numbered
+      ? { type: "numbers", from: noRange.from, to: noRange.to }
+      : { type: rangeType === "numbers" ? "all" : rangeType };
   const words = wordsInRange(vocab, range, weakIds, size);
   const n = count === "all" ? words.length : Math.min(count, words.length);
   const set = (patch) => setSettings((s) => ({ ...s, ...patch }));
@@ -100,6 +157,11 @@ function Setup({ level, settings, setSettings, weakIds, onStart }) {
           <Chip color={level.color} active={rangeType === "units"} onClick={() => set({ rangeType: "units" })}>
             組をえらぶ
           </Chip>
+          {numbered && (
+            <Chip color={level.color} active={rangeType === "numbers"} onClick={() => set({ rangeType: "numbers" })}>
+              番号で指定
+            </Chip>
+          )}
           <Chip color={level.color} active={rangeType === "all"} onClick={() => set({ rangeType: "all" })}>
             すべて（{vocab.length}語）
           </Chip>
@@ -147,6 +209,15 @@ function Setup({ level, settings, setSettings, weakIds, onStart }) {
               ))}
             </select>
           </div>
+        )}
+        {rangeType === "numbers" && numbered && (
+          <NumberRangePicker
+            vocab={vocab}
+            from={noRange.from}
+            to={noRange.to}
+            color={level.color}
+            onChange={(r) => set({ noFrom: r.from, noTo: r.to })}
+          />
         )}
         {rangeType === "weak" && (
           <div className="eiken-hint" style={{ marginTop: 0 }}>

@@ -149,6 +149,25 @@ test("準2級は1組35語（vocabUnitSize）、ほかの級は20語", () => {
   assert.equal(vt.unitLabel(pre2.vocab, 1, size), "2組（No.0036〜0070）");
 });
 
+test("準2級は番号で範囲を指定できる（両端を含む・逆順や範囲外は直す）", () => {
+  const v = load("pre2").vocab;
+  assert.ok(vt.hasBookNumbers(v));
+  assert.ok(!vt.hasBookNumbers(load("2").vocab), "番号のない級では出さない");
+  assert.deepEqual(vt.numberBounds(v), { min: 1, max: 100 });
+  const w = vt.wordsInRange(v, { type: "numbers", from: 15, to: 60 });
+  assert.equal(w.length, 46);
+  assert.equal(w[0].number, 15);
+  assert.equal(w[w.length - 1].number, 60);
+  assert.deepEqual(vt.clampNumberRange(v, 60, 15), { from: 15, to: 60 }, "逆順は入れかえる");
+  assert.deepEqual(vt.clampNumberRange(v, 0, 9999), { from: 1, to: 100 }, "範囲外は端に");
+  assert.deepEqual(vt.clampNumberRange(v, "", "abc"), { from: 1, to: 100 }, "空・数字以外は端");
+  assert.deepEqual(vt.clampNumberRange(v), { from: 1, to: 100 });
+  assert.equal(vt.wordsInNumberRange(v, 7, 7).map((x) => x.word).join(), "order");
+  assert.equal(vt.rangeLabel({ type: "numbers", from: 15, to: 60 }), "No.0015〜0060");
+  assert.equal(vt.rangeLabel({ type: "numbers", from: 7, to: 7 }), "No.0007");
+  assert.equal(vt.buildVocabTest(v, w, { format: "mix", count: 20 }).length, 20);
+});
+
 test("問題数：範囲より多いときは範囲の語数まで", () => {
   const vocab = load("pre2").vocab;
   const words = vt.wordsInRange(vocab, { type: "units", from: 0, to: 0 });

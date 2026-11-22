@@ -1,7 +1,15 @@
 import React, { useMemo, useState, useCallback, useEffect, useRef } from "react";
 import EikenTest from "./EikenTest.jsx";
-import EikenVocabTest, { VocabTestTrend } from "./EikenVocabTest.jsx";
-import { VOCAB_TEST_LEVELS, hasVocabTest, summarizeVocabTests, unitSizeOf } from "./eikenVocabTest";
+import EikenVocabTest, { VocabTestTrend, NumberRangePicker } from "./EikenVocabTest.jsx";
+import {
+  VOCAB_TEST_LEVELS,
+  hasVocabTest,
+  summarizeVocabTests,
+  unitSizeOf,
+  hasBookNumbers,
+  clampNumberRange,
+  wordsInNumberRange,
+} from "./eikenVocabTest";
 import { newStudySession } from "./studyLog";
 import { LEVEL_META, findLevelMeta, peekLevel, peekTest, loadLevel, loadTest } from "./eikenLevels";
 import {
@@ -93,9 +101,13 @@ function vocabUnitCount(level) {
   return Math.ceil(level.vocab.length / vocabUnitSize(level));
 }
 
-/** unit が "all" なら全語、数値ならその組（0始まり）の単語だけを返す */
+/** 番号で指定した範囲（単語帳の番号つきの級：準2級）。{ type: "numbers", from, to } */
+const isNumberRange = (unit) => !!unit && typeof unit === "object" && unit.type === "numbers";
+
+/** unit が "all" なら全語、数値ならその組（0始まり）、番号の範囲ならその番号の単語だけを返す */
 function vocabOfUnit(level, unit) {
   if (unit === "all") return level.vocab;
+  if (isNumberRange(unit)) return wordsInNumberRange(level.vocab, unit.from, unit.to);
   const size = vocabUnitSize(level);
   const start = unit * size;
   return level.vocab.slice(start, start + size);
@@ -118,6 +130,9 @@ function vocabUnitLabel(level, unit) {
 
 /** 級を切りかえて組の数が減ったときなど、範囲外の組は1組目にもどす */
 function clampVocabUnit(level, unit) {
+  if (isNumberRange(unit)) {
+    return hasBookNumbers(level.vocab) ? { type: "numbers", ...clampNumberRange(level.vocab, unit.from, unit.to) } : 0;
+  }
   return unit === "all" || unit < vocabUnitCount(level) ? unit : 0;
 }
 
@@ -279,24 +294,43 @@ function clampListeningUnit(level, part, unit) {
   return unit === "all" || unit < listeningUnitCount(level, part) ? unit : 0;
 }
 
-/** 出題範囲（組）の選択リスト。組が増えても1行に収まる */
+/** 出題範囲（組）の選択リスト。組が増えても1行に収まる。
+ *  単語帳の番号つきの級（準2級）は「番号で指定」もえらべ、はじめ・おわりの番号を入れる */
 function VocabUnitSelect({ level, value, onChange, allowAll }) {
+  const numbered = hasBookNumbers(level.vocab);
+  const isRange = isNumberRange(value);
   return (
-    <label className="eiken-control-row">
-      <span className="eiken-control-label">出題範囲</span>
-      <select
-        className="eiken-unit-select"
-        value={String(value)}
-        onChange={(e) => onChange(e.target.value === "all" ? "all" : Number(e.target.value))}
-      >
-        {Array.from({ length: vocabUnitCount(level) }, (_, u) => (
-          <option key={u} value={u}>
-            {vocabUnitLabel(level, u)}
-          </option>
-        ))}
-        {allowAll && <option value="all">{vocabUnitLabel(level, "all")}</option>}
-      </select>
-    </label>
+    <>
+      <label className="eiken-control-row">
+        <span className="eiken-control-label">出題範囲</span>
+        <select
+          className="eiken-unit-select"
+          value={isRange ? "numbers" : String(value)}
+          onChange={(e) => {
+            const v = e.target.value;
+            if (v === "numbers") onChange({ type: "numbers", ...clampNumberRange(level.vocab) });
+            else onChange(v === "all" ? "all" : Number(v));
+          }}
+        >
+          {Array.from({ length: vocabUnitCount(level) }, (_, u) => (
+            <option key={u} value={u}>
+              {vocabUnitLabel(level, u)}
+            </option>
+          ))}
+          {allowAll && <option value="all">{vocabUnitLabel(level, "all")}</option>}
+          {numbered && <option value="numbers">番号で指定…</option>}
+        </select>
+      </label>
+      {isRange && (
+        <NumberRangePicker
+          vocab={level.vocab}
+          from={value.from}
+          to={value.to}
+          color={level.color}
+          onChange={(r) => onChange({ type: "numbers", from: r.from, to: r.to })}
+        />
+      )}
+    </>
   );
 }
 
@@ -1774,6 +1808,8 @@ export default function EikenApp({ onExitApp }) {
         .eiken-control-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
         .eiken-control-label { font-size: 11.5px; font-weight: 700; color: #9AA093; width: 56px; flex-shrink: 0; }
         .eiken-unit-select { font: inherit; font-size: 16px; font-weight: 600; color: #2B2E28; background: #fff; border: 1.5px solid #D8DCD3; border-radius: 10px; padding: 8px 12px; flex: 1; min-width: 0; max-width: 280px; cursor: pointer; }
+        .eiken-no-input { flex: 0 0 104px; max-width: 120px; cursor: text; }
+        .eiken-no-range { margin-top: 2px; }
         .eiken-unit-select:focus { outline: 2px solid var(--c, #2F7A4F); outline-offset: 1px; }
         .eiken-pronounce-card { border-top: 1px dashed #D8DCD3; padding-top: 16px; }
         .eiken-pronounce-actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; align-items: center; }
