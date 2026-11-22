@@ -6,7 +6,7 @@ import { formatDateTime } from "./eikenTestResults";
 import ScoreTrend from "./ScoreTrend.jsx";
 import { isSpeechSynthesisSupported, speak, stopSpeaking } from "./eikenSpeech";
 import {
-  UNIT_SIZE,
+  unitSizeOf,
   QUESTION_COUNTS,
   FORMATS,
   formatLabel,
@@ -77,10 +77,11 @@ export function VocabTestTrend({ level, color }) {
 
 function Setup({ level, settings, setSettings, weakIds, onStart }) {
   const vocab = level.vocab;
-  const units = unitCount(vocab);
+  const size = unitSizeOf(level);
+  const units = unitCount(vocab, size);
   const { rangeType, from, to, count, format } = settings;
   const range = rangeType === "units" ? { type: "units", from, to } : { type: rangeType };
-  const words = wordsInRange(vocab, range, weakIds);
+  const words = wordsInRange(vocab, range, weakIds, size);
   const n = count === "all" ? words.length : Math.min(count, words.length);
   const set = (patch) => setSettings((s) => ({ ...s, ...patch }));
   const history = useMemo(() => getVocabTestResults(level.level).slice(0, 5), [level]);
@@ -125,7 +126,7 @@ function Setup({ level, settings, setSettings, weakIds, onStart }) {
             >
               {Array.from({ length: units }, (_, u) => (
                 <option key={u} value={u}>
-                  {unitLabel(vocab, u)}
+                  {unitLabel(vocab, u, size)}
                 </option>
               ))}
             </select>
@@ -141,7 +142,7 @@ function Setup({ level, settings, setSettings, weakIds, onStart }) {
             >
               {Array.from({ length: units }, (_, u) => (
                 <option key={u} value={u}>
-                  {unitLabel(vocab, u)}
+                  {unitLabel(vocab, u, size)}
                 </option>
               ))}
             </select>
@@ -175,7 +176,7 @@ function Setup({ level, settings, setSettings, weakIds, onStart }) {
 
       <div className="eiken-vt-summary">
         範囲 {words.length}語
-        {rangeType === "units" && `（${from * UNIT_SIZE + 1}〜${Math.min((to + 1) * UNIT_SIZE, vocab.length)}番目）`}から <b>{n}問</b>
+        {rangeType === "units" && `（${from * size + 1}〜${Math.min((to + 1) * size, vocab.length)}番目）`}から <b>{n}問</b>
         {count !== "all" && count > words.length && words.length > 0 && <>（範囲が{words.length}語なので{n}問になります）</>}
       </div>
       <div className="eiken-next-row" style={{ justifyContent: "center", marginTop: 12 }}>

@@ -43,6 +43,7 @@ for (const file of files) {
   ["level", "levelLabel", "levelSub", "color", "vocab", "phrases", "grammar", "reading", "listening", "dialogue"].forEach((k) => {
     if (!d[k]) err(file, "(root)", `${k} がありません`);
   });
+  if (d.vocabUnitSize !== undefined && !(Number.isInteger(d.vocabUnitSize) && d.vocabUnitSize > 0)) err(file, "(root)", "vocabUnitSize は正の整数にしてください");
   if (d.level && file !== `${d.level}.json`) err(file, "(root)", `level "${d.level}" とファイル名が一致しません`);
 
   const seenWord = new Map();
@@ -231,7 +232,7 @@ for (const file of files) {
   summary.push({
     級: d.levelLabel,
     単語: n,
-    出題範囲: `${Math.ceil(n / UNIT_SIZE)}組`,
+    出題範囲: `${Math.ceil(n / (d.vocabUnitSize || UNIT_SIZE))}組`,
     短句: (d.phrases || []).length,
     文法: (d.grammar || []).length,
     読解: (d.reading || []).reduce((s, r) => s + r.questions.length, 0),

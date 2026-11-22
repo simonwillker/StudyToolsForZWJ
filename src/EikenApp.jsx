@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useCallback, useEffect, useRef } from "react";
 import EikenTest from "./EikenTest.jsx";
 import EikenVocabTest, { VocabTestTrend } from "./EikenVocabTest.jsx";
-import { VOCAB_TEST_LEVELS, hasVocabTest, summarizeVocabTests } from "./eikenVocabTest";
+import { VOCAB_TEST_LEVELS, hasVocabTest, summarizeVocabTests, unitSizeOf } from "./eikenVocabTest";
 import { newStudySession } from "./studyLog";
 import { LEVEL_META, findLevelMeta, peekLevel, peekTest, loadLevel, loadTest } from "./eikenLevels";
 import {
@@ -84,21 +84,28 @@ const GRAMMAR_UNIT_SIZE = 20;
 /** 長文読解は5問（＝1パッセージぶん）ずつの「組」に分けて出題する */
 const READING_UNIT_SIZE = 5;
 
+/** その級の単語の1組の語数。級のデータに vocabUnitSize があればそれ（準2級は単語帳に合わせて 35） */
+function vocabUnitSize(level) {
+  return unitSizeOf(level);
+}
+
 function vocabUnitCount(level) {
-  return Math.ceil(level.vocab.length / VOCAB_UNIT_SIZE);
+  return Math.ceil(level.vocab.length / vocabUnitSize(level));
 }
 
 /** unit が "all" なら全語、数値ならその組（0始まり）の単語だけを返す */
 function vocabOfUnit(level, unit) {
   if (unit === "all") return level.vocab;
-  const start = unit * VOCAB_UNIT_SIZE;
-  return level.vocab.slice(start, start + VOCAB_UNIT_SIZE);
+  const size = vocabUnitSize(level);
+  const start = unit * size;
+  return level.vocab.slice(start, start + size);
 }
 
 function vocabUnitLabel(level, unit) {
   if (unit === "all") return `すべて（${level.vocab.length}語）`;
-  const start = unit * VOCAB_UNIT_SIZE;
-  const end = Math.min(start + VOCAB_UNIT_SIZE, level.vocab.length);
+  const size = vocabUnitSize(level);
+  const start = unit * size;
+  const end = Math.min(start + size, level.vocab.length);
   // 単語帳の番号つきの級（準2級）は、組の範囲を単語帳の番号で見せる
   const first = level.vocab[start];
   const last = level.vocab[end - 1];
