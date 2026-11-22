@@ -77,15 +77,48 @@ export function unitLabel(vocab, u, size = UNIT_SIZE) {
   return `${u + 1}組`;
 }
 
+/* ---------- 番号で範囲を指定（単語帳の番号つきの級：準2級） ---------- */
+
+/** 単語帳の番号つきの級か（各語に number がある） */
+export function hasBookNumbers(vocab) {
+  return vocab.length > 0 && vocab.every((w) => Number.isInteger(w.number));
+}
+
+/** いちばん小さい番号・大きい番号 */
+export function numberBounds(vocab) {
+  const nums = vocab.map((w) => w.number).filter(Number.isInteger);
+  return nums.length ? { min: Math.min(...nums), max: Math.max(...nums) } : { min: 1, max: 1 };
+}
+
+/** 入力された番号の範囲を、収録されている番号の中におさめる。前後が逆なら入れかえる */
+export function clampNumberRange(vocab, from, to) {
+  const { min, max } = numberBounds(vocab);
+  const fix = (n, d) => (Number.isFinite(Number(n)) && String(n).trim() !== "" ? Math.min(max, Math.max(min, Math.round(Number(n)))) : d);
+  let a = fix(from, min);
+  let b = fix(to, max);
+  if (a > b) [a, b] = [b, a];
+  return { from: a, to: b };
+}
+
+/** 番号が from〜to（両端を含む）の単語 */
+export function wordsInNumberRange(vocab, from, to) {
+  const r = clampNumberRange(vocab, from, to);
+  return vocab.filter((w) => w.number >= r.from && w.number <= r.to);
+}
+
+export const formatNo = (n) => `No.${String(n).padStart(4, "0")}`;
+
 /**
  * 出題範囲の単語。
  * range: { type: "units", from, to }（0始まり、両端を含む）／{ type: "all" }／{ type: "weak" }
+ *        ／{ type: "numbers", from, to }（単語帳の番号。両端を含む）
  * （結果画面の「まちがえた単語をもう一度」は { type: "retry" } で、単語を直接わたす）
  * weakIds: 苦手な単語の id（復習リストの単語）
  */
 export function wordsInRange(vocab, range, weakIds = new Set(), size = UNIT_SIZE) {
   if (!range || range.type === "all") return vocab;
   if (range.type === "weak") return vocab.filter((w) => weakIds.has(w.id));
+  if (range.type === "numbers") return wordsInNumberRange(vocab, range.from, range.to);
   const last = unitCount(vocab, size) - 1;
   const from = Math.max(0, Math.min(range.from ?? 0, last));
   const to = Math.max(from, Math.min(range.to ?? from, last));
@@ -96,6 +129,7 @@ export function rangeLabel(range) {
   if (!range || range.type === "all") return "すべて";
   if (range.type === "weak") return "苦手な単語";
   if (range.type === "retry") return "まちがえた単語";
+  if (range.type === "numbers") return range.from === range.to ? formatNo(range.from) : `${formatNo(range.from)}〜${String(range.to).padStart(4, "0")}`;
   const from = range.from + 1;
   const to = range.to + 1;
   return from === to ? `${from}組` : `${from}〜${to}組`;
