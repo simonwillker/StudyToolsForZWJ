@@ -18,6 +18,8 @@ const warnings = [];
 const allIds = new Set();
 const wordLevels = new Map(); // word -> [levels]
 const phraseLevels = new Map(); // 正規化したフレーズ -> [levels]
+/** 単語帳の番号つきの級（準2級）。単語帳の順を保つため、他の級との重複は1行にまとめて知らせるだけ */
+const bookLevels = new Set();
 /** フレーズの重複判定用。大文字小文字・前後の空白・文末の句読点の違いは同じとみなす */
 const phraseKey = (s) => String(s || "").trim().toLowerCase().replace(/[.!?]+$/, "").trim();
 
@@ -46,6 +48,7 @@ for (const file of files) {
   const seenWord = new Map();
   // 単語帳の番号つきの級（準2級）：番号は整数・昇順・重複なし、id は v<級>-<番号4桁>
   const bookMode = (d.vocab || []).some((w) => w.number != null);
+  if (bookMode) bookLevels.add(d.level);
   let prevNumber = 0;
   (d.vocab || []).forEach((w, i) => {
     if (bookMode) {
@@ -246,7 +249,11 @@ for (const file of files) {
 
 // 級をまたいだ単語の重複（上位級と下位級で同じ単語を出すのは避ける）
 const crossLevel = [...wordLevels.entries()].filter(([, lv]) => lv.length > 1);
-crossLevel.forEach(([word, lv]) => warn("(全体)", word, `${lv.join(" / ")} に重複しています`));
+const bookDup = crossLevel.filter(([, lv]) => lv.some((l) => bookLevels.has(l)));
+crossLevel.filter(([, lv]) => !lv.some((l) => bookLevels.has(l))).forEach(([word, lv]) => warn("(全体)", word, `${lv.join(" / ")} に重複しています`));
+if (bookDup.length) {
+  console.log(`ℹ 単語帳の番号つきの級（${[...bookLevels].join(", ")}）で、他の級にもある単語：${bookDup.length}語（単語帳の順を保つため、そのまま入れています）`);
+}
 
 // 常用短句は級をまたいだ重複を認めない（その級で初めて学ぶフレーズだけを入れる）
 [...phraseLevels.entries()]
