@@ -31,8 +31,11 @@ const kept = existing.filter((w) => !targets.has(w.word.toLowerCase()));
 const removed = existing.filter((w) => targets.has(w.word.toLowerCase())).map((w) => w.word);
 const notFound = words.filter((w) => !removed.some((r) => r.toLowerCase() === w.toLowerCase()));
 
+// 単語帳の番号つきの級（準2級）は番号と id をそのまま残す（番号は単語帳の見出し番号なので振り直さない）
+const bookMode = existing.some((w) => w.number != null);
 const renumbered = kept.map((w, i) => ({
-  id: `v${level}-${String(i + 1).padStart(3, "0")}`,
+  id: bookMode ? w.id : `v${level}-${String(i + 1).padStart(3, "0")}`,
+  ...(bookMode ? { number: w.number } : {}),
   word: w.word,
   phonetic: w.phonetic,
   pos: w.pos,

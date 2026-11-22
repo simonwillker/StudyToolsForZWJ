@@ -99,6 +99,13 @@ function vocabUnitLabel(level, unit) {
   if (unit === "all") return `すべて（${level.vocab.length}語）`;
   const start = unit * VOCAB_UNIT_SIZE;
   const end = Math.min(start + VOCAB_UNIT_SIZE, level.vocab.length);
+  // 単語帳の番号つきの級（準2級）は、組の範囲を単語帳の番号で見せる
+  const first = level.vocab[start];
+  const last = level.vocab[end - 1];
+  if (first && last && first.number != null && last.number != null) {
+    const n4 = (n) => String(n).padStart(4, "0");
+    return `${unit + 1}組（No.${n4(first.number)}〜${n4(last.number)}）`;
+  }
   return `${unit + 1}組（${start + 1}〜${end}）`;
 }
 

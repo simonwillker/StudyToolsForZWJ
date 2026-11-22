@@ -11,6 +11,7 @@ import {
   FORMATS,
   formatLabel,
   unitCount,
+  unitLabel,
   wordsInRange,
   rangeLabel,
   buildVocabTest,
@@ -124,7 +125,7 @@ function Setup({ level, settings, setSettings, weakIds, onStart }) {
             >
               {Array.from({ length: units }, (_, u) => (
                 <option key={u} value={u}>
-                  {u + 1}組
+                  {unitLabel(vocab, u)}
                 </option>
               ))}
             </select>
@@ -140,7 +141,7 @@ function Setup({ level, settings, setSettings, weakIds, onStart }) {
             >
               {Array.from({ length: units }, (_, u) => (
                 <option key={u} value={u}>
-                  {u + 1}組
+                  {unitLabel(vocab, u)}
                 </option>
               ))}
             </select>

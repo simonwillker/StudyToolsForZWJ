@@ -44,7 +44,20 @@ for (const file of files) {
   if (d.level && file !== `${d.level}.json`) err(file, "(root)", `level "${d.level}" とファイル名が一致しません`);
 
   const seenWord = new Map();
+  // 単語帳の番号つきの級（準2級）：番号は整数・昇順・重複なし、id は v<級>-<番号4桁>
+  const bookMode = (d.vocab || []).some((w) => w.number != null);
+  let prevNumber = 0;
   (d.vocab || []).forEach((w, i) => {
+    if (bookMode) {
+      const p0 = `vocab[${i}]${w.word ? `(${w.word})` : ""}`;
+      if (!Number.isInteger(w.number) || w.number < 1) err(file, p0, "number（単語帳の番号）が整数ではありません");
+      else {
+        if (w.number <= prevNumber) err(file, p0, `number ${w.number} が番号順になっていません（前は ${prevNumber}）`);
+        prevNumber = w.number;
+        const want = `v${d.level}-${String(w.number).padStart(4, "0")}`;
+        if (w.id !== want) err(file, p0, `id は ${want} にしてください（現在 ${w.id}）`);
+      }
+    }
     const p = `vocab[${i}]${w.word ? `(${w.word})` : ""}`;
     ["id", "word", "phonetic", "pos", "meaning"].forEach((k) => {
       if (!w[k] || !String(w[k]).trim()) err(file, p, `${k} が空です`);
